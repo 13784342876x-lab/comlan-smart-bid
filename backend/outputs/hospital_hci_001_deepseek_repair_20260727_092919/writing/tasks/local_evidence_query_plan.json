@@ -1,0 +1,409 @@
+{
+  "schema_version": "local_evidence_query_plan_v0",
+  "execution_status": "planned_not_executed",
+  "local_kb_queried": false,
+  "queries": [
+    {
+      "query_id": "KBQ-001",
+      "query_kind": "evidence",
+      "evidence_type": "company_qualification",
+      "query": "投标人主体资质与体系证书",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-060"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-002",
+      "query_kind": "evidence",
+      "evidence_type": "manufacturer_qualification",
+      "query": "制造商能力与体系证书",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-059"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-003",
+      "query_kind": "evidence",
+      "evidence_type": "product_certificate",
+      "query": "产品认证证书",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-010",
+        "TASK-011",
+        "TASK-012",
+        "TASK-013",
+        "TASK-014",
+        "TASK-015",
+        "TASK-016",
+        "TASK-017",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-058"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-004",
+      "query_kind": "evidence",
+      "evidence_type": "product_test_report",
+      "query": "产品检测、检验或测试报告",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-010",
+        "TASK-011",
+        "TASK-012",
+        "TASK-013",
+        "TASK-014",
+        "TASK-015",
+        "TASK-016",
+        "TASK-017",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-058"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-005",
+      "query_kind": "evidence",
+      "evidence_type": "product_parameter_proof",
+      "query": "产品参数证明材料",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-010",
+        "TASK-011",
+        "TASK-012",
+        "TASK-013",
+        "TASK-014",
+        "TASK-015",
+        "TASK-016",
+        "TASK-017",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-057"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-006",
+      "query_kind": "evidence",
+      "evidence_type": "manufacturer_official_document",
+      "query": "制造商正式技术资料",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-010",
+        "TASK-011",
+        "TASK-012",
+        "TASK-013",
+        "TASK-014",
+        "TASK-015",
+        "TASK-016",
+        "TASK-017",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-057"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-007",
+      "query_kind": "evidence",
+      "evidence_type": "company_performance",
+      "query": "类似项目业绩证明",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-062"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-008",
+      "query_kind": "evidence",
+      "evidence_type": "person_resume",
+      "query": "项目人员简历",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-025",
+        "TASK-026",
+        "TASK-061"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-009",
+      "query_kind": "evidence",
+      "evidence_type": "person_certificate",
+      "query": "项目人员证书",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-025",
+        "TASK-026",
+        "TASK-061"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-010",
+      "query_kind": "evidence",
+      "evidence_type": "service_network",
+      "query": "服务机构与服务网络材料",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-043",
+        "TASK-044",
+        "TASK-045",
+        "TASK-046",
+        "TASK-047",
+        "TASK-048",
+        "TASK-049",
+        "TASK-050",
+        "TASK-051",
+        "TASK-052",
+        "TASK-053"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-011",
+      "query_kind": "evidence",
+      "evidence_type": "service_commitment",
+      "query": "保修、响应及服务承诺",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-043",
+        "TASK-044",
+        "TASK-045",
+        "TASK-046",
+        "TASK-047",
+        "TASK-048",
+        "TASK-049",
+        "TASK-050",
+        "TASK-051",
+        "TASK-052",
+        "TASK-053",
+        "TASK-063"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-012",
+      "query_kind": "evidence",
+      "evidence_type": "implementation_experience",
+      "query": "项目实施经验材料",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-022",
+        "TASK-023",
+        "TASK-024",
+        "TASK-025",
+        "TASK-026",
+        "TASK-027",
+        "TASK-028",
+        "TASK-029",
+        "TASK-030",
+        "TASK-031",
+        "TASK-032"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-013",
+      "query_kind": "evidence",
+      "evidence_type": "quality_management_material",
+      "query": "质量管理制度与过程材料",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-028",
+        "TASK-029",
+        "TASK-030"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-014",
+      "query_kind": "evidence",
+      "evidence_type": "training_material",
+      "query": "培训课程、教材与培训记录",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-033",
+        "TASK-034",
+        "TASK-035",
+        "TASK-036",
+        "TASK-037",
+        "TASK-038",
+        "TASK-039",
+        "TASK-040",
+        "TASK-041",
+        "TASK-042"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-015",
+      "query_kind": "evidence",
+      "evidence_type": "green_supply_chain_evidence",
+      "query": "绿色供应链、节能环保相关证明",
+      "purpose": "为目标章节定位经确认的本地证明材料",
+      "target_task_ids": [
+        "TASK-054"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-016",
+      "query_kind": "fact_candidate_for_manual_confirmation",
+      "fact_slot_id": "FACT-001",
+      "query": "投标人名称",
+      "purpose": "仅从本地资料定位候选事实，仍需项目确认后方可用于正文",
+      "target_task_ids": [
+        "TASK-057",
+        "TASK-058",
+        "TASK-059",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-063"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-017",
+      "query_kind": "fact_candidate_for_manual_confirmation",
+      "fact_slot_id": "FACT-013",
+      "query": "制造商服务机构",
+      "purpose": "仅从本地资料定位候选事实，仍需项目确认后方可用于正文",
+      "target_task_ids": [
+        "TASK-043",
+        "TASK-044",
+        "TASK-045",
+        "TASK-046",
+        "TASK-047",
+        "TASK-048",
+        "TASK-049",
+        "TASK-050",
+        "TASK-051",
+        "TASK-052",
+        "TASK-053"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-018",
+      "query_kind": "fact_candidate_for_manual_confirmation",
+      "fact_slot_id": "FACT-014",
+      "query": "项目负责人",
+      "purpose": "仅从本地资料定位候选事实，仍需项目确认后方可用于正文",
+      "target_task_ids": [
+        "TASK-025",
+        "TASK-026"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-019",
+      "query_kind": "fact_candidate_for_manual_confirmation",
+      "fact_slot_id": "FACT-015",
+      "query": "项目团队",
+      "purpose": "仅从本地资料定位候选事实，仍需项目确认后方可用于正文",
+      "target_task_ids": [
+        "TASK-025",
+        "TASK-026"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-020",
+      "query_kind": "fact_candidate_for_manual_confirmation",
+      "fact_slot_id": "FACT-017",
+      "query": "采用的业绩",
+      "purpose": "仅从本地资料定位候选事实，仍需项目确认后方可用于正文",
+      "target_task_ids": [
+        "TASK-057",
+        "TASK-058",
+        "TASK-059",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-063"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-021",
+      "query_kind": "fact_candidate_for_manual_confirmation",
+      "fact_slot_id": "FACT-018",
+      "query": "采用的企业资质",
+      "purpose": "仅从本地资料定位候选事实，仍需项目确认后方可用于正文",
+      "target_task_ids": [
+        "TASK-057",
+        "TASK-058",
+        "TASK-059",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-063"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query_id": "KBQ-022",
+      "query_kind": "fact_candidate_for_manual_confirmation",
+      "fact_slot_id": "FACT-019",
+      "query": "采用的制造商资质",
+      "purpose": "仅从本地资料定位候选事实，仍需项目确认后方可用于正文",
+      "target_task_ids": [
+        "TASK-057",
+        "TASK-058",
+        "TASK-059",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-063"
+      ],
+      "required": true,
+      "execution_status": "planned_not_executed"
+    }
+  ]
+}

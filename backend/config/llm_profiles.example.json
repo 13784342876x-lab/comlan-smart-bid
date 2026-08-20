@@ -1,0 +1,277 @@
+{
+  "schema_version": "2.0",
+  "default_profile": "ark_draft",
+  "role_bindings": {
+    "drafting": "ark_draft",
+    "review": "ark_review",
+    "fast_task": "ark_fast",
+    "web_search": "ark_web_search"
+  },
+  "profiles": {
+    "deepseek_draft": {
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "api_style": "chat_completions",
+      "base_url": "https://api.deepseek.com",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "model": "deepseek-v4-pro",
+      "structured_output_mode": "prompt_json",
+      "stream": true,
+      "timeout_seconds": 300,
+      "max_retries": 2,
+      "max_output_tokens": 16000,
+      "temperature": 0.2,
+      "enabled": true,
+      "send_temperature": true,
+      "send_max_output_tokens": true,
+      "send_thinking": true,
+      "send_metadata": false,
+      "capabilities": {
+        "supports_tools": true,
+        "supports_parallel_tool_calls": true,
+        "supports_streaming": true,
+        "supports_structured_output": true,
+        "supports_reasoning_content": true,
+        "requires_reasoning_content_replay": true,
+        "supports_developer_role": false,
+        "supports_tool_choice": false,
+        "supports_tool_choice_none": false,
+        "supports_usage_in_stream": true
+      },
+      "request_mapping": {
+        "system_role": "system",
+        "token_limit_parameter": "max_tokens",
+        "finalization_strategy": "omit_tools",
+        "thinking_configuration": {
+          "enabled": true,
+          "reasoning_effort": "high"
+        }
+      },
+      "extra_body": {
+        "thinking": {
+          "type": "enabled"
+        }
+      },
+      "extra_headers": {}
+    },
+    "deepseek_fast": {
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "api_style": "chat_completions",
+      "base_url": "https://api.deepseek.com",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "model": "deepseek-v4-flash",
+      "structured_output_mode": "prompt_json",
+      "stream": true,
+      "timeout_seconds": 180,
+      "max_retries": 2,
+      "max_output_tokens": 8000,
+      "temperature": 0.1,
+      "enabled": true,
+      "send_temperature": true,
+      "send_max_output_tokens": true,
+      "send_thinking": false,
+      "send_metadata": false,
+      "capabilities": {
+        "supports_tools": true,
+        "supports_parallel_tool_calls": true,
+        "supports_streaming": true,
+        "supports_structured_output": true,
+        "supports_reasoning_content": true,
+        "requires_reasoning_content_replay": true,
+        "supports_developer_role": false,
+        "supports_tool_choice": false,
+        "supports_tool_choice_none": false,
+        "supports_usage_in_stream": true
+      },
+      "request_mapping": {
+        "system_role": "system",
+        "token_limit_parameter": "max_tokens",
+        "finalization_strategy": "omit_tools",
+        "thinking_configuration": {
+          "enabled": false,
+          "reasoning_effort": "low"
+        }
+      },
+      "extra_body": {},
+      "extra_headers": {}
+    },
+    "ark_draft": {
+      "provider": "volcengine_ark",
+      "protocol": "openai_compatible",
+      "api_style": "responses",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "base_url_env": "ARK_BASE_URL",
+      "api_key_env": "ARK_API_KEY",
+      "model_env": "COMLAN_ARK_DRAFT_MODEL",
+      "structured_output_mode": "json_schema",
+      "stream": true,
+      "timeout_seconds": 120,
+      "max_retries": 2,
+      "max_output_tokens": 8000,
+      "temperature": 0.2,
+      "use_instructions": false,
+      "send_temperature": false,
+      "send_max_output_tokens": true,
+      "send_thinking": true,
+      "send_metadata": false,
+      "enabled": true,
+      "capabilities": {
+        "supports_tools": true,
+        "supports_parallel_tool_calls": true,
+        "supports_streaming": true,
+        "supports_structured_output": true,
+        "supports_reasoning_content": false,
+        "requires_reasoning_content_replay": false,
+        "supports_developer_role": true,
+        "supports_tool_choice": true,
+        "supports_tool_choice_none": true,
+        "supports_usage_in_stream": true
+      },
+      "request_mapping": {
+        "system_role": "developer",
+        "token_limit_parameter": "max_output_tokens",
+        "finalization_strategy": "tool_choice_none",
+        "thinking_configuration": {
+          "enabled": true,
+          "reasoning_effort": "high"
+        }
+      },
+      "extra_body": {
+        "thinking": {
+          "type": "enabled"
+        }
+      },
+      "extra_headers": {}
+    },
+    "ark_fast": {
+      "provider": "volcengine_ark",
+      "protocol": "openai_compatible",
+      "api_style": "responses",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "base_url_env": "ARK_BASE_URL",
+      "api_key_env": "ARK_API_KEY",
+      "model_env": "COMLAN_ARK_FAST_MODEL",
+      "structured_output_mode": "json_schema",
+      "stream": true,
+      "timeout_seconds": 90,
+      "max_retries": 2,
+      "max_output_tokens": 4000,
+      "temperature": 0.1,
+      "use_instructions": false,
+      "send_temperature": false,
+      "send_max_output_tokens": true,
+      "send_thinking": false,
+      "send_metadata": false,
+      "enabled": true,
+      "capabilities": {
+        "supports_tools": true,
+        "supports_parallel_tool_calls": true,
+        "supports_streaming": true,
+        "supports_structured_output": true,
+        "supports_reasoning_content": false,
+        "requires_reasoning_content_replay": false,
+        "supports_developer_role": true,
+        "supports_tool_choice": true,
+        "supports_tool_choice_none": true,
+        "supports_usage_in_stream": true
+      },
+      "request_mapping": {
+        "system_role": "developer",
+        "token_limit_parameter": "max_output_tokens",
+        "finalization_strategy": "tool_choice_none",
+        "thinking_configuration": {
+          "enabled": false
+        }
+      },
+      "extra_body": {},
+      "extra_headers": {}
+    },
+    "ark_review": {
+      "provider": "volcengine_ark",
+      "protocol": "openai_compatible",
+      "api_style": "responses",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "base_url_env": "ARK_BASE_URL",
+      "api_key_env": "ARK_API_KEY",
+      "model_env": "COMLAN_ARK_REVIEW_MODEL",
+      "structured_output_mode": "json_schema",
+      "stream": false,
+      "timeout_seconds": 120,
+      "max_retries": 2,
+      "max_output_tokens": 6000,
+      "temperature": 0.0,
+      "use_instructions": false,
+      "send_temperature": false,
+      "send_max_output_tokens": true,
+      "send_thinking": false,
+      "send_metadata": false,
+      "enabled": true,
+      "capabilities": {
+        "supports_tools": true,
+        "supports_parallel_tool_calls": true,
+        "supports_streaming": true,
+        "supports_structured_output": true,
+        "supports_reasoning_content": false,
+        "requires_reasoning_content_replay": false,
+        "supports_developer_role": true,
+        "supports_tool_choice": true,
+        "supports_tool_choice_none": true,
+        "supports_usage_in_stream": true
+      },
+      "request_mapping": {
+        "system_role": "developer",
+        "token_limit_parameter": "max_output_tokens",
+        "finalization_strategy": "tool_choice_none",
+        "thinking_configuration": {
+          "enabled": false
+        }
+      },
+      "extra_body": {},
+      "extra_headers": {}
+    },
+    "ark_web_search": {
+      "provider": "volcengine_ark",
+      "protocol": "openai_compatible",
+      "api_style": "responses",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "base_url_env": "ARK_BASE_URL",
+      "api_key_env": "ARK_API_KEY",
+      "model_env": "COMLAN_ARK_FAST_MODEL",
+      "structured_output_mode": "prompt_json",
+      "stream": false,
+      "timeout_seconds": 90,
+      "max_retries": 2,
+      "max_output_tokens": 1200,
+      "temperature": 0,
+      "use_instructions": false,
+      "send_temperature": false,
+      "send_max_output_tokens": true,
+      "send_thinking": false,
+      "send_metadata": false,
+      "enabled": true,
+      "capabilities": {
+        "supports_tools": true,
+        "supports_parallel_tool_calls": false,
+        "supports_streaming": false,
+        "supports_structured_output": false,
+        "supports_reasoning_content": false,
+        "requires_reasoning_content_replay": false,
+        "supports_developer_role": true,
+        "supports_tool_choice": true,
+        "supports_tool_choice_none": true,
+        "supports_usage_in_stream": false
+      },
+      "request_mapping": {
+        "system_role": "developer",
+        "token_limit_parameter": "max_output_tokens",
+        "finalization_strategy": "tool_choice_none",
+        "thinking_configuration": {
+          "enabled": false
+        }
+      },
+      "extra_body": {},
+      "extra_headers": {}
+    }
+  }
+}

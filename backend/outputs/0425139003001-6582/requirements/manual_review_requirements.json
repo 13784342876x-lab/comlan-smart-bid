@@ -1,0 +1,3424 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-13T03:35:27.791797+00:00",
+  "lot_name": "0425139003001-6582",
+  "generated_from": "outputs\\0425139003001-6582\\requirements\\tender_requirement_matrix.json",
+  "classification": "manual_review_requirements",
+  "requirement_ids": [
+    "req-1d3829955dcfaf",
+    "req-9a278177aaeecc",
+    "req-d67ce04bb086d4",
+    "req-03ea53f9db6805",
+    "req-237fb8981e0363",
+    "req-319474af328f82",
+    "req-436475ca3f6fff",
+    "req-4a0fa6d8000688",
+    "req-4a0fb699976e0e",
+    "req-69598eaa10dd49",
+    "req-7c0e05300823f9",
+    "req-911c9cbb89a8da",
+    "req-985fd5231e6cb3",
+    "req-9cdac9978c1ba0",
+    "req-a891b26d67393e",
+    "req-cfa4e81ec16481",
+    "req-d3a7bf9369d244",
+    "req-ed08a411e0b740",
+    "req-152175aa10915a",
+    "req-34a9bb18f1bb89",
+    "req-3b32942878bdd5",
+    "req-3e757057833137",
+    "req-cf3b6b5f3e1319",
+    "req-e19533bc41d59c",
+    "req-fa449cadcf2cab",
+    "req-53b36dd0d1c44e",
+    "req-e8b651ad1e589a",
+    "req-f4ed7fa5104d4d"
+  ],
+  "requirements": [
+    {
+      "requirement_id": "req-1d3829955dcfaf",
+      "title": "附件1.招标需求一览表",
+      "requirement_type": "qualification_requirement",
+      "raw_text": "其它标段：业绩证明材料须提供合同复印件。",
+      "normalized_requirement": {
+        "text": "其它标段：业绩证明材料须提供合同复印件。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "准备并提交可核验的资格或证明材料。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "其它标段：业绩证明材料须提供合同复印件。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [
+        {
+          "material_type": "company_performance_evidence",
+          "source_type": "suggested_material"
+        }
+      ],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表",
+        "source_location": {
+          "paragraph_index": 3,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "其它标段：业绩证明材料须提供合同复印件。",
+        "context_before": "附件1.招标需求一览表 注1： 0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段：业绩证明材料须同时提供合同及相应中标通知书的复印件（不包括中标人中标后再次进行招标的中标通知书和合同）；",
+        "context_after": "注2： 0425139001001-2069、0425139001001-8101、0425139001001-8102、0425139001001-8103、0425139001001-8201、0425139001001-8202、0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段： 1）在建工程业绩以合同签订日期为依据，投产工程业绩以竣工验收证书（送变电工程启动竣工验收证书或交接证书或验收证书等）为依据。",
+        "clause_id": "file_8acfa3eee894::c0001",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "evidence_required",
+      "risk_type": "qualification_risk",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [
+        "technical_04_业绩情况"
+      ],
+      "related_context_chapter_ids": [
+        "task_018_technical_04_业绩情况"
+      ],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-9a278177aaeecc",
+      "title": "附件1.招标需求一览表",
+      "requirement_type": "qualification_requirement",
+      "raw_text": "附件1.招标需求一览表 注1： 0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段：业绩证明材料须同时提供合同及相应中标通知书的复印件（不包括中标人中标后再次进行招标的中标通知书和合同）；",
+      "normalized_requirement": {
+        "text": "附件1.招标需求一览表 注1： 0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823...",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "准备并提交可核验的资格或证明材料。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "附件1.招标需求一览表 注1： 0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823..."
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [
+        {
+          "material_type": "company_performance_evidence",
+          "source_type": "suggested_material"
+        }
+      ],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表",
+        "source_location": {
+          "paragraph_index": 3,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "附件1.招标需求一览表 注1： 0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段：业绩证明材料须同时提供合同及相应中标通知书的复印件（不包括中标人中标后再次进行招标的中标通知书和合同）；",
+        "context_before": "",
+        "context_after": "其它标段：业绩证明材料须提供合同复印件。",
+        "clause_id": "file_8acfa3eee894::c0001",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "evidence_required",
+      "risk_type": "qualification_risk",
+      "risk_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [
+        "technical_04_业绩情况"
+      ],
+      "related_context_chapter_ids": [
+        "task_018_technical_04_业绩情况"
+      ],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "时"
+      ],
+      "polarity": "conditional_requirement",
+      "classification_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-d67ce04bb086d4",
+      "title": "附件一：问题澄清通知",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "1． 2． ……… 请将上述问题的澄清、说明或补正于年月日时前通过招标人招投标交易平台信息系统上传，任何迟到的回复将被视为无效。",
+      "normalized_requirement": {
+        "text": "1． 2． ……… 请将上述问题的澄清、说明或补正于年月日时前通过招标人招投标交易平台信息系统上传，任何迟到的回复将被视为无效。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "1． 2． ……… 请将上述问题的澄清、说明或补正于年月日时前通过招标人招投标交易平台信息系统上传，任何迟到的回复将被视为无效。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "附件一：问题澄清通知",
+        "source_location": {
+          "paragraph_index": 264,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "1． 2． ……… 请将上述问题的澄清、说明或补正于年月日时前通过招标人招投标交易平台信息系统上传，任何迟到的回复将被视为无效。",
+        "context_before": "请各投标人在收到此澄清单后，线下编辑澄清回复内容后，通过招标人招投标交易平台信息系统对该澄清单进行回复。",
+        "context_after": "（项目名称）评标委员会 日期：年月日",
+        "clause_id": "file_77415c21e6d3::c0016",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "时"
+      ],
+      "polarity": "conditional_requirement",
+      "classification_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-03ea53f9db6805",
+      "title": "1. 文件制作要求：",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "②其他标段：商务投标文件正本pdf和技术投标文件正本pdf按标段制作，工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单。",
+      "normalized_requirement": {
+        "text": "②其他标段：商务投标文件正本pdf和技术投标文件正本pdf按标段制作，工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "②其他标段：商务投标文件正本pdf和技术投标文件正本pdf按标段制作，工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 1. 文件制作要求：",
+        "source_location": {
+          "paragraph_index": 34,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "②其他标段：商务投标文件正本pdf和技术投标文件正本pdf按标段制作，工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单。",
+        "context_before": "工程量清单软件咨询电话：王建禹：15830678211。",
+        "context_after": "投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+        "clause_id": "file_8acfa3eee894::c0010",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-237fb8981e0363",
+      "title": "4.2.3 工程量清单纸质邮寄：",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+      "normalized_requirement": {
+        "text": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4.2.3 工程量清单纸质邮寄：",
+        "source_location": {
+          "paragraph_index": 25,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+        "context_before": "代理机构将于2025年5月27日开始接收邮寄递交的工程量清单纸质文件，务必充分考虑快递公司运输时间等因素，建议选用顺丰等信誉优秀的快递公司。",
+        "context_after": "如投标人在递交截止时间前仍未将工程量清单纸质文件递交（提交）至招标代理机构，即为递交不成功。",
+        "clause_id": "file_8acfa3eee894::c0008",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "时"
+      ],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-319474af328f82",
+      "title": "4.2.3 工程量清单纸质邮寄：",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "如投标人在递交截止时间前仍未将工程量清单纸质文件递交（提交）至招标代理机构，即为递交不成功。",
+      "normalized_requirement": {
+        "text": "如投标人在递交截止时间前仍未将工程量清单纸质文件递交（提交）至招标代理机构，即为递交不成功。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "如投标人在递交截止时间前仍未将工程量清单纸质文件递交（提交）至招标代理机构，即为递交不成功。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4.2.3 工程量清单纸质邮寄：",
+        "source_location": {
+          "paragraph_index": 25,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "如投标人在递交截止时间前仍未将工程量清单纸质文件递交（提交）至招标代理机构，即为递交不成功。",
+        "context_before": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+        "context_after": "包裹应直接寄至接收地点，不接受快递点暂存取件。",
+        "clause_id": "file_8acfa3eee894::c0008",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "未",
+        "时"
+      ],
+      "polarity": "conditional_requirement",
+      "classification_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-436475ca3f6fff",
+      "title": "1. 文件制作要求：",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+      "normalized_requirement": {
+        "text": "投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 1. 文件制作要求：",
+        "source_location": {
+          "paragraph_index": 34,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+        "context_before": "②其他标段：商务投标文件正本pdf和技术投标文件正本pdf按标段制作，工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单。",
+        "context_after": "",
+        "clause_id": "file_8acfa3eee894::c0010",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-4a0fa6d8000688",
+      "title": "4. 投标文件的递交注意事项",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "4.投标文件的递交注意事项 4.1投标人须同时通过电子商务平台、招投标智能服务平台两种方式递交投标文件。",
+      "normalized_requirement": {
+        "text": "4.投标文件的递交注意事项 4.1投标人须同时通过电子商务平台、招投标智能服务平台两种方式递交投标文件。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "4.投标文件的递交注意事项 4.1投标人须同时通过电子商务平台、招投标智能服务平台两种方式递交投标文件。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4. 投标文件的递交注意事项",
+        "source_location": {
+          "paragraph_index": 18,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "4.投标文件的递交注意事项 4.1投标人须同时通过电子商务平台、招投标智能服务平台两种方式递交投标文件。",
+        "context_before": "",
+        "context_after": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+        "clause_id": "file_8acfa3eee894::c0004",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "时"
+      ],
+      "polarity": "conditional_requirement",
+      "classification_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-4a0fb699976e0e",
+      "title": "4.2.3 工程量清单纸质邮寄：",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "代理机构将于2025年5月27日开始接收邮寄递交的工程量清单纸质文件，务必充分考虑快递公司运输时间等因素，建议选用顺丰等信誉优秀的快递公司。",
+      "normalized_requirement": {
+        "text": "代理机构将于2025年5月27日开始接收邮寄递交的工程量清单纸质文件，务必充分考虑快递公司运输时间等因素，建议选用顺丰等信誉优秀的快递公司。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "代理机构将于2025年5月27日开始接收邮寄递交的工程量清单纸质文件，务必充分考虑快递公司运输时间等因素，建议选用顺丰等信誉优秀的快递公司。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4.2.3 工程量清单纸质邮寄：",
+        "source_location": {
+          "paragraph_index": 25,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "代理机构将于2025年5月27日开始接收邮寄递交的工程量清单纸质文件，务必充分考虑快递公司运输时间等因素，建议选用顺丰等信誉优秀的快递公司。",
+        "context_before": "工程量清单纸质文件邮寄后，请务必将运单号、运单截图及所投标段明细（加盖单位公章）扫描件编辑邮件发送至hebdlfwzb@163.com，邮件标题为“公司全称+快递公司名称+运单号”，便于接收人实时关注文件状态。",
+        "context_after": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+        "clause_id": "file_8acfa3eee894::c0008",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "时"
+      ],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-69598eaa10dd49",
+      "title": "4. 投标文件的递交注意事项",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "工程量清单（如有）：0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段以上传至招投标智能服务平台的投标工程量清单文件为准，其他标段以线下纸质邮寄为准。",
+      "normalized_requirement": {
+        "text": "工程量清单（如有）：0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、04251...",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "工程量清单（如有）：0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、04251..."
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4. 投标文件的递交注意事项",
+        "source_location": {
+          "paragraph_index": 18,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "工程量清单（如有）：0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段以上传至招投标智能服务平台的投标工程量清单文件为准，其他标段以线下纸质邮寄为准。",
+        "context_before": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+        "context_after": "",
+        "clause_id": "file_8acfa3eee894::c0004",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-7c0e05300823f9",
+      "title": "1. 文件制作要求：",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "1.文件制作要求： ①0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段：商务投标文件正本pdf和技术投标文件正本pdf、工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单，投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+      "normalized_requirement": {
+        "text": "1.文件制作要求： ①0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425...",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "1.文件制作要求： ①0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425..."
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 1. 文件制作要求：",
+        "source_location": {
+          "paragraph_index": 34,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "1.文件制作要求： ①0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段：商务投标文件正本pdf和技术投标文件正本pdf、工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单，投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+        "context_before": "",
+        "context_after": "工程量清单软件咨询电话：王建禹：15830678211。",
+        "clause_id": "file_8acfa3eee894::c0010",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-911c9cbb89a8da",
+      "title": "签字盖章或授权要求",
+      "requirement_type": "signature_seal_requirement",
+      "raw_text": "2.投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+      "normalized_requirement": {
+        "text": "2.投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按指定主体和位置完成签字、盖章或授权。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "2.投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [
+        {
+          "material_type": "signed_and_sealed_document",
+          "source_type": "suggested_material"
+        }
+      ],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 2. 投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+        "source_location": {
+          "paragraph_index": 37,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "2.投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+        "context_before": "",
+        "context_after": "以上电子文件，应无电子病毒（代理机构将首先进行杀毒处理，如含电子病毒，查杀结果由供应商自行承担）、完整、可正常打开且清晰可辨识，否则按否决处理。",
+        "clause_id": "file_8acfa3eee894::c0011",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "signature_seal_risk",
+      "risk_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "除"
+      ],
+      "polarity": "conditional_requirement",
+      "classification_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-985fd5231e6cb3",
+      "title": "4.2.3 工程量清单纸质邮寄：",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "4.2.3 工程量清单纸质邮寄： 涉及“附件1.招标需求一览表”中需提供工程量清单的标段，请按“包”进行胶装，工程量清单封皮参考招标文件第六章或第八章投标文件格式中“封面页格式”，请务必开标前将纸质工程量清单文件寄到下述地址：国网河北省电力有限公司供应商服务大厅三楼（石家庄裕华区体育南大街238号）。",
+      "normalized_requirement": {
+        "text": "4.2.3 工程量清单纸质邮寄： 涉及“附件1.招标需求一览表”中需提供工程量清单的标段，请按“包”进行胶装，工程量清单封皮参考招标文件第六章或第八章投标文件格式中“封面页格式”，请务必开标前将纸质工程量清单文件寄到下述地址：国网河北省电力有限公司供应商服务大厅三楼（石家庄裕华区体育南大街238号）。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "4.2.3 工程量清单纸质邮寄： 涉及“附件1.招标需求一览表”中需提供工程量清单的标段，请按“包”进行胶装，工程量清单封皮参考招标文件第六章或第八章投标文件格式中“封面页格式”，请务必开标前将纸质工程量清单文件寄到下述地址：国网河北省电力有限公司供应商服务大厅三楼（石家庄裕华区体育南大街238号）。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4.2.3 工程量清单纸质邮寄：",
+        "source_location": {
+          "paragraph_index": 25,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "4.2.3 工程量清单纸质邮寄： 涉及“附件1.招标需求一览表”中需提供工程量清单的标段，请按“包”进行胶装，工程量清单封皮参考招标文件第六章或第八章投标文件格式中“封面页格式”，请务必开标前将纸质工程量清单文件寄到下述地址：国网河北省电力有限公司供应商服务大厅三楼（石家庄裕华区体育南大街238号）。",
+        "context_before": "",
+        "context_after": "投标人在邮寄时写明公司全称，并在包裹外显著位置注明投标人全称。",
+        "clause_id": "file_8acfa3eee894::c0008",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-9cdac9978c1ba0",
+      "title": "4.2.2 “招投标智能服务平台”递交：",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "4.2.2 “招投标智能服务平台”递交： 本次采购项目采用“招投标智能服务平台”接收电子版应答文件，包括：技术投标文件pdf、商务投标文件pdf、电子版工程量清单（如有）等。",
+      "normalized_requirement": {
+        "text": "4.2.2 “招投标智能服务平台”递交： 本次采购项目采用“招投标智能服务平台”接收电子版应答文件，包括：技术投标文件pdf、商务投标文件pdf、电子版工程量清单（如有）等。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "4.2.2 “招投标智能服务平台”递交： 本次采购项目采用“招投标智能服务平台”接收电子版应答文件，包括：技术投标文件pdf、商务投标文件pdf、电子版工程量清单（如有）等。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4.2.2 “招投标智能服务平台”递交：",
+        "source_location": {
+          "paragraph_index": 23,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "4.2.2 “招投标智能服务平台”递交： 本次采购项目采用“招投标智能服务平台”接收电子版应答文件，包括：技术投标文件pdf、商务投标文件pdf、电子版工程量清单（如有）等。",
+        "context_before": "",
+        "context_after": "详细操作要求见平台操作手册。",
+        "clause_id": "file_8acfa3eee894::c0007",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-a891b26d67393e",
+      "title": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；",
+      "normalized_requirement": {
+        "text": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+        "source_location": {
+          "paragraph_index": 20,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；",
+        "context_before": "",
+        "context_after": "②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+        "clause_id": "file_8acfa3eee894::c0005",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-cfa4e81ec16481",
+      "title": "文件格式与提交要求",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "以上电子文件，应无电子病毒（代理机构将首先进行杀毒处理，如含电子病毒，查杀结果由供应商自行承担）、完整、可正常打开且清晰可辨识，否则按否决处理。",
+      "normalized_requirement": {
+        "text": "以上电子文件，应无电子病毒（代理机构将首先进行杀毒处理，如含电子病毒，查杀结果由供应商自行承担）、完整、可正常打开且清晰可辨识，否则按否决处理。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "以上电子文件，应无电子病毒（代理机构将首先进行杀毒处理，如含电子病毒，查杀结果由供应商自行承担）、完整、可正常打开且清晰可辨识，否则按否决处理。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 2. 投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+        "source_location": {
+          "paragraph_index": 37,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "以上电子文件，应无电子病毒（代理机构将首先进行杀毒处理，如含电子病毒，查杀结果由供应商自行承担）、完整、可正常打开且清晰可辨识，否则按否决处理。",
+        "context_before": "2.投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+        "context_after": "弃标函（如有，格式自拟），发送至hebdlfwzb@163.com，邮件标题为“公司全称+明细表”。",
+        "clause_id": "file_8acfa3eee894::c0011",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "否则"
+      ],
+      "polarity": "conditional_requirement",
+      "classification_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-d3a7bf9369d244",
+      "title": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+      "normalized_requirement": {
+        "text": "②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "②纸质文件邮寄方式递交（仅限工程量清单，如有）。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+        "source_location": {
+          "paragraph_index": 20,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+        "context_before": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；",
+        "context_after": "",
+        "clause_id": "file_8acfa3eee894::c0005",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-ed08a411e0b740",
+      "title": "4. 投标文件的递交注意事项",
+      "requirement_type": "format_submission_requirement",
+      "raw_text": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+      "normalized_requirement": {
+        "text": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "按规定格式、组成和提交方式编制文件。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_8acfa3eee894",
+        "source_file_name": "招标公告附件.doc",
+        "document_type": "tender_notice_attachment",
+        "clause_path": "附件1.招标需求一览表 > 4. 投标文件的递交注意事项",
+        "source_location": {
+          "paragraph_index": 18,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+        "context_before": "4.投标文件的递交注意事项 4.1投标人须同时通过电子商务平台、招投标智能服务平台两种方式递交投标文件。",
+        "context_after": "工程量清单（如有）：0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段以上传至招投标智能服务平台的投标工程量清单文件为准，其他标段以线下纸质邮寄为准。",
+        "clause_id": "file_8acfa3eee894::c0004",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "若",
+        "时"
+      ],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-152175aa10915a",
+      "title": "待人工复核要求",
+      "requirement_type": "needs_review",
+      "raw_text": "4.2 凡有意参加投标者，请于2025年5月13日-2025年5月20日17:00 （北京时间，下同），登录招标人招投标交易平台信息系统（国家电网有限公司电子商务平台☑https://ecp.sgcc.com.cn □https://sgccetp.com.cn）获取招标文件，并按《电子招标投标办法》等国家法律法规要求，到第三方认证机构办理CA证书电子钥匙。",
+      "normalized_requirement": {
+        "text": "4.2 凡有意参加投标者，请于2025年5月13日-2025年5月20日17:00 （北京时间，下同），登录招标人招投标交易平台信息系统（国家电网有限公司电子商务平台☑https://ecp.sgcc.com.cn □https://sgccetp.com.cn）获取招标文件，并按《电子招标投标办法》等国家法律法规要求，到第三方认证机构办理CA证书电子钥匙。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "人工核对原文语义、适用范围和响应动作。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "4.2 凡有意参加投标者，请于2025年5月13日-2025年5月20日17:00 （北京时间，下同），登录招标人招投标交易平台信息系统（国家电网有限公司电子商务平台☑https://ecp.sgcc.com.cn □https://sgccetp.com.cn）获取招标文件，并按《电子招标投标办法》等国家法律法规要求，到第三方认证机构办理CA证书电子钥匙。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_014de4764c31",
+        "source_file_name": "招标公告.docx",
+        "document_type": "tender_notice",
+        "clause_path": "第一章 招标公告 > 4.2 凡有意参加投标者，请于2025年5月13日-2025年5月20日17:00 （北京时间，下同），登录招标人招投标交易平台信息系统（国家电网有限公司电子商务平台☑https://ecp.sgcc.com.cn □https://sgccetp.com.cn）获取招标文件，并按《电子招标投标办法》等国家法律法规要求，到第三方认证机构办理CA证书电子钥匙。投标人应妥善保管招标人招投标交易平台信息系统账号和密码，以及CA数字证书和密码，因上述账号、数字证书或密码保管不当造成的损失，由投标人自行承担。",
+        "source_location": {
+          "paragraph_index": 46,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "4.2 凡有意参加投标者，请于2025年5月13日-2025年5月20日17:00 （北京时间，下同），登录招标人招投标交易平台信息系统（国家电网有限公司电子商务平台☑https://ecp.sgcc.com.cn □https://sgccetp.com.cn）获取招标文件，并按《电子招标投标办法》等国家法律法规要求，到第三方认证机构办理CA证书电子钥匙。",
+        "context_before": "",
+        "context_after": "投标人应妥善保管招标人招投标交易平台信息系统账号和密码，以及CA数字证书和密码，因上述账号、数字证书或密码保管不当造成的损失，由投标人自行承担。",
+        "clause_id": "file_014de4764c31::c0020",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "needs_review",
+      "risk_type": "unclear_reference_risk",
+      "risk_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "按《电子招标投标办法",
+        "target_candidates": [],
+        "resolved": false,
+        "resolution_confidence": 0.25,
+        "unresolved_reason": "当前文件集中未定位到被引用标准、附件或具体章节内容。",
+        "target_ref_ids": [],
+        "human_review_required": true,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+          "source_type": "human_confirmation_required"
+        },
+        {
+          "question": "请核对完整上下文，确认该条款属于强制响应、格式要求还是仅供参考。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "时"
+      ],
+      "polarity": "conditional_requirement",
+      "classification_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-34a9bb18f1bb89",
+      "title": "3.1 投标人须满足如下通用资格要求：",
+      "requirement_type": "needs_review",
+      "raw_text": "投标人提供虚假企业信用信息公示报告的，按照虚假投标进行否决，并根据《国家电网有限公司供应商关系管理办法》进行相应处理。",
+      "normalized_requirement": {
+        "text": "投标人提供虚假企业信用信息公示报告的，按照虚假投标进行否决，并根据《国家电网有限公司供应商关系管理办法》进行相应处理。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "人工核对原文语义、适用范围和响应动作。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "投标人提供虚假企业信用信息公示报告的，按照虚假投标进行否决，并根据《国家电网有限公司供应商关系管理办法》进行相应处理。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_014de4764c31",
+        "source_file_name": "招标公告.docx",
+        "document_type": "tender_notice",
+        "clause_path": "第一章 招标公告 > 3.1 投标人须满足如下通用资格要求：",
+        "source_location": {
+          "paragraph_index": 23,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "投标人提供虚假企业信用信息公示报告的，按照虚假投标进行否决，并根据《国家电网有限公司供应商关系管理办法》进行相应处理。",
+        "context_before": "投标人未提供或提供的企业信用信息公示报告不符合招标文件规定的格式与内容的，评标委员会将会对投标人进行不利评价。",
+        "context_after": "即使投标人在开标当日未出现被市场监督管理机关列入经营异常名录或严重违法失信企业名单的情形，但在中标通知书到达之日前，存在上述情形的，招标人有权取消其中标资格。",
+        "clause_id": "file_014de4764c31::c0011",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "qualification_documents",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "条款属于资格或证明材料要求。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "needs_review",
+      "risk_type": "unclear_reference_risk",
+      "risk_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "按照虚假投标进行否决，并根据《国家电网有限公司供应商关系管理办法",
+        "target_candidates": [],
+        "resolved": false,
+        "resolution_confidence": 0.25,
+        "unresolved_reason": "当前文件集中未定位到被引用标准、附件或具体章节内容。",
+        "target_ref_ids": [],
+        "human_review_required": true,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+          "source_type": "human_confirmation_required"
+        },
+        {
+          "question": "请核对完整上下文，确认该条款属于强制响应、格式要求还是仅供参考。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "的，"
+      ],
+      "polarity": "conditional_requirement",
+      "classification_basis": {
+        "text": "条款包含条件或例外结构，需结合触发条件执行。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-3b32942878bdd5",
+      "title": "8. 投标保证金的金额：",
+      "requirement_type": "needs_review",
+      "raw_text": "8.投标保证金的金额： 投标人每个采购项目/每个分标仅需缴纳一份投标保证金，投标保证金金额对应投标人每个采购项目/每个分标所投包的最大应缴保证金金额，各包相应的投标保证金金额详见“应提交保证金一览表”。",
+      "normalized_requirement": {
+        "text": "8.投标保证金的金额： 投标人每个采购项目/每个分标仅需缴纳一份投标保证金，投标保证金金额对应投标人每个采购项目/每个分标所投包的最大应缴保证金金额，各包相应的投标保证金金额详见“应提交保证金一览表”。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "人工核对原文语义、适用范围和响应动作。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "8.投标保证金的金额： 投标人每个采购项目/每个分标仅需缴纳一份投标保证金，投标保证金金额对应投标人每个采购项目/每个分标所投包的最大应缴保证金金额，各包相应的投标保证金金额详见“应提交保证金一览表”。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第六章 投标文件格式 > 三、技术文件 > （二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”） > 8. 投标保证金的金额：",
+        "source_location": {
+          "paragraph_index": 725,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "8.投标保证金的金额： 投标人每个采购项目/每个分标仅需缴纳一份投标保证金，投标保证金金额对应投标人每个采购项目/每个分标所投包的最大应缴保证金金额，各包相应的投标保证金金额详见“应提交保证金一览表”。",
+        "context_before": "",
+        "context_after": "评标委员会将按照采购项目/分标维度确定实缴投标保证金，当采购项目/分标实缴投标保证金金额不足时，否决应缴投标保证金金额超出实缴投标保证金金额的标包。",
+        "clause_id": "file_77415c21e6d3::c0170",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "technical_response",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "条款位于技术文件格式或技术规范区域。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "needs_review",
+      "risk_type": "unclear_reference_risk",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "详见“应提交保证金一览表”",
+        "target_candidates": [],
+        "resolved": false,
+        "resolution_confidence": 0.25,
+        "unresolved_reason": "当前文件集中未定位到被引用标准、附件或具体章节内容。",
+        "target_ref_ids": [],
+        "human_review_required": true,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+          "source_type": "human_confirmation_required"
+        },
+        {
+          "question": "请核对完整上下文，确认该条款属于强制响应、格式要求还是仅供参考。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-3e757057833137",
+      "title": "5.1 开标时间和地点（B）",
+      "requirement_type": "needs_review",
+      "raw_text": "中标候选人履约能力审查 中标候选人的经营、财务状况发生较大变化或存在违法行为，招标人认为可能影响其履约能力的，将在发出中标通知书前提请原评标委员会按照招标文件规定的标准和方法进行审查确认。",
+      "normalized_requirement": {
+        "text": "中标候选人履约能力审查 中标候选人的经营、财务状况发生较大变化或存在违法行为，招标人认为可能影响其履约能力的，将在发出中标通知书前提请原评标委员会按照招标文件规定的标准和方法进行审查确认。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "人工核对原文语义、适用范围和响应动作。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "中标候选人履约能力审查 中标候选人的经营、财务状况发生较大变化或存在违法行为，招标人认为可能影响其履约能力的，将在发出中标通知书前提请原评标委员会按照招标文件规定的标准和方法进行审查确认。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第二章 投标人须知 > 5.1 开标时间和地点（B）",
+        "source_location": {
+          "paragraph_index": 201,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "中标候选人履约能力审查 中标候选人的经营、财务状况发生较大变化或存在违法行为，招标人认为可能影响其履约能力的，将在发出中标通知书前提请原评标委员会按照招标文件规定的标准和方法进行审查确认。",
+        "context_before": "作出答复前，将暂停招标投标活动。",
+        "context_after": "定标 按照投标人须知前附表的规定，招标人或招标人授权的评标委员会依法确定中标人。",
+        "clause_id": "file_77415c21e6d3::c0015",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "needs_review",
+      "risk_type": "unclear_reference_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "按照招标文件规定的标准",
+        "target_candidates": [],
+        "resolved": false,
+        "resolution_confidence": 0.25,
+        "unresolved_reason": "当前文件集中未定位到被引用标准、附件或具体章节内容。",
+        "target_ref_ids": [],
+        "human_review_required": true,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+          "source_type": "human_confirmation_required"
+        },
+        {
+          "question": "请核对完整上下文，确认该条款属于强制响应、格式要求还是仅供参考。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "的，"
+      ],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-cf3b6b5f3e1319",
+      "title": "6. 招标代理服务费",
+      "requirement_type": "needs_review",
+      "raw_text": "招标代理服务费以包为单位收取，按差额定率累进法计算，收费标准见下表。",
+      "normalized_requirement": {
+        "text": "招标代理服务费以包为单位收取，按差额定率累进法计算，收费标准见下表。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "人工核对原文语义、适用范围和响应动作。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "招标代理服务费以包为单位收取，按差额定率累进法计算，收费标准见下表。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第六章 投标文件格式 > 三、技术文件 > （二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”） > 6. 招标代理服务费",
+        "source_location": {
+          "paragraph_index": 865,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "招标代理服务费以包为单位收取，按差额定率累进法计算，收费标准见下表。",
+        "context_before": "（2）中标人应在《中标通知书》发出后30日内，一次性向招标代理机构缴纳招标代理服务费。",
+        "context_after": "如果中标人不按照招标文件规定缴纳招标代理服务费，投标人将承担由此导致的不利信用评价风险。",
+        "clause_id": "file_77415c21e6d3::c0237",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "technical_response",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "条款位于技术文件格式或技术规范区域。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "needs_review",
+      "risk_type": "unclear_reference_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "按差额定率累进法计算，收费标准",
+        "target_candidates": [],
+        "resolved": false,
+        "resolution_confidence": 0.25,
+        "unresolved_reason": "当前文件集中未定位到被引用标准、附件或具体章节内容。",
+        "target_ref_ids": [],
+        "human_review_required": true,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+          "source_type": "human_confirmation_required"
+        },
+        {
+          "question": "请核对完整上下文，确认该条款属于强制响应、格式要求还是仅供参考。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-e19533bc41d59c",
+      "title": "待人工复核要求",
+      "requirement_type": "needs_review",
+      "raw_text": "1.我方已仔细研究了招标编号： ，项目名称： ，分标名称： ，包名称： 招标文件的全部内容，愿以投标函附件所列报价，按合同约定完成招标文件规定的各项工作，质量标准达到招标文件要求。",
+      "normalized_requirement": {
+        "text": "1.我方已仔细研究了招标编号： ，项目名称： ，分标名称： ，包名称： 招标文件的全部内容，愿以投标函附件所列报价，按合同约定完成招标文件规定的各项工作，质量标准达到招标文件要求。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "人工核对原文语义、适用范围和响应动作。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "1.我方已仔细研究了招标编号： ，项目名称： ，分标名称： ，包名称： 招标文件的全部内容，愿以投标函附件所列报价，按合同约定完成招标文件规定的各项工作，质量标准达到招标文件要求。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第六章 投标文件格式 > 一、价格文件 > （一）投标函及投标函价格表（在投标工具在线填写并由系统自动生成，填写路径：价格文件-选择分标-选择分包-按钮“编辑”-页签“已标价货物清单行报价”-填写“含税合价”和“税率”-按钮“校验并保存”） > 1. 我方已仔细研究了招标编号： ，项目名称： ，分标名称： ，包名称： 招标文件的全部内容，愿以投标函附件所列报价，按合同约定完成招标文件规定的各项工作，质量标准达到招标文件要求。",
+        "source_location": {
+          "paragraph_index": 361,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "1.我方已仔细研究了招标编号： ，项目名称： ，分标名称： ，包名称： 招标文件的全部内容，愿以投标函附件所列报价，按合同约定完成招标文件规定的各项工作，质量标准达到招标文件要求。",
+        "context_before": "",
+        "context_after": "",
+        "clause_id": "file_77415c21e6d3::c0032",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "price_response",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "条款位于价格文件格式区域。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "needs_review",
+      "risk_type": "unclear_reference_risk",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [
+        "technical_01_应答文件技术部分总体评价"
+      ],
+      "related_context_chapter_ids": [
+        "task_015_technical_01_应答文件技术部分总体评价"
+      ],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "按合同约定完成招标文件规定的各项工作，质量标准",
+        "target_candidates": [],
+        "resolved": false,
+        "resolution_confidence": 0.25,
+        "unresolved_reason": "当前文件集中未定位到被引用标准、附件或具体章节内容。",
+        "target_ref_ids": [],
+        "human_review_required": true,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+          "source_type": "human_confirmation_required"
+        },
+        {
+          "question": "请核对完整上下文，确认该条款属于强制响应、格式要求还是仅供参考。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-fa449cadcf2cab",
+      "title": "3. 如同一包内包含两个或两个以上项目单位，中标人应分别与各项目单位签订合同。",
+      "requirement_type": "needs_review",
+      "raw_text": "同时，招标人将对投标人的不诚信行为按照《国家电网有限公司供应商关系管理办法》做出处理。",
+      "normalized_requirement": {
+        "text": "同时，招标人将对投标人的不诚信行为按照《国家电网有限公司供应商关系管理办法》做出处理。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "人工核对原文语义、适用范围和响应动作。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "同时，招标人将对投标人的不诚信行为按照《国家电网有限公司供应商关系管理办法》做出处理。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第六章 投标文件格式 > 三、技术文件 > （二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”） > 3. 如同一包内包含两个或两个以上项目单位，中标人应分别与各项目单位签订合同。",
+        "source_location": {
+          "paragraph_index": 830,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "同时，招标人将对投标人的不诚信行为按照《国家电网有限公司供应商关系管理办法》做出处理。",
+        "context_before": "当投标人出现下列情形时，取消投标人与招标人签订合同的资格，并且招标人保留追究投标人责任的权利。",
+        "context_after": "",
+        "clause_id": "file_77415c21e6d3::c0224",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "technical_response",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "条款位于技术文件格式或技术规范区域。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "needs_review",
+      "risk_type": "unclear_reference_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "按照《国家电网有限公司供应商关系管理办法",
+        "target_candidates": [],
+        "resolved": false,
+        "resolution_confidence": 0.25,
+        "unresolved_reason": "当前文件集中未定位到被引用标准、附件或具体章节内容。",
+        "target_ref_ids": [],
+        "human_review_required": true,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+          "source_type": "human_confirmation_required"
+        },
+        {
+          "question": "请核对完整上下文，确认该条款属于强制响应、格式要求还是仅供参考。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "时"
+      ],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-53b36dd0d1c44e",
+      "title": "1.2 招标要求",
+      "requirement_type": "needs_review",
+      "raw_text": "（7）本招标文件所使用的标准如与投标人所执行的标准发生矛盾时，按较高标准执行。",
+      "normalized_requirement": {
+        "text": "（7）本招标文件所使用的标准如与投标人所执行的标准发生矛盾时，按较高标准执行。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "人工核对原文语义、适用范围和响应动作。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "（7）本招标文件所使用的标准如与投标人所执行的标准发生矛盾时，按较高标准执行。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_bd310be2d205",
+        "source_file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+        "document_type": "technical_spec",
+        "clause_path": "附件3：项目招标文件模板 > 1.2 招标要求",
+        "source_location": {
+          "paragraph_index": 41,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "（7）本招标文件所使用的标准如与投标人所执行的标准发生矛盾时，按较高标准执行。",
+        "context_before": "投标人认为需特殊说明的部分应附详细的技术资料或参数表，否则，由于评标理解不同，产生的后果由投标人负责。",
+        "context_after": "（8）技术协议书应以本招标文件为蓝本，加入招标方认可的偏差，经供需双方确认后作为合同的技术附件，与合同正文具有同等效力。",
+        "clause_id": "file_bd310be2d205::c0003",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "current_package",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "当前包需求行或当前技术规范书。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "needs_review",
+      "risk_type": "unclear_reference_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [
+        "technical_05_服务方案",
+        "technical_06_工作进度及保证措施"
+      ],
+      "related_context_chapter_ids": [
+        "task_019_technical_05_服务方案",
+        "task_020_technical_06_工作进度及保证措施"
+      ],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "按较高标准执行",
+        "target_candidates": [],
+        "resolved": false,
+        "resolution_confidence": 0.25,
+        "unresolved_reason": "当前文件集中未定位到被引用标准、附件或具体章节内容。",
+        "target_ref_ids": [],
+        "human_review_required": true,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+          "source_type": "human_confirmation_required"
+        },
+        {
+          "question": "请核对完整上下文，确认该条款属于强制响应、格式要求还是仅供参考。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [
+        "时"
+      ],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-e8b651ad1e589a",
+      "title": "1. 价格评分标准（价格计算公式）：",
+      "requirement_type": "reference_only",
+      "raw_text": "再剔除（剔除只为计算平均值使用，并不否决）评标价与算术平均值A1 偏差超过[A1×w1，A1×w2]区间的投标人报价，计算偏差在算术平均值[A1×w1，A1×w2]区间以内的投标人评标价的算术平均值A2，以A2×(1+c)为基准价；",
+      "normalized_requirement": {
+        "text": "再剔除（剔除只为计算平均值使用，并不否决）评标价与算术平均值A1 偏差超过[A1×w1，A1×w2]区间的投标人报价，计算偏差在算术平均值[A1×w1，A1×w2]区间以内的投标人评标价的算术平均值A2，以A2×(1+c)为基准价；",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "核对引用目标并按目标内容执行。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_acb8d90cde1f",
+        "source_file_name": "招标文件附件-服务.doc",
+        "document_type": "tender_attachment",
+        "clause_path": "Ⅰ、评标办法 > 1. 价格评分标准（价格计算公式）：",
+        "source_location": {
+          "paragraph_index": 5,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "再剔除（剔除只为计算平均值使用，并不否决）评标价与算术平均值A1 偏差超过[A1×w1，A1×w2]区间的投标人报价，计算偏差在算术平均值[A1×w1，A1×w2]区间以内的投标人评标价的算术平均值A2，以A2×(1+c)为基准价；",
+        "context_before": "其中，b=-0.2，c=0.15，n1=1，n2=0.5 结束 （3）区间复合一次平均价法（适用于其他标段） 计算进入详评的投标人评标价的算术平均值A1；",
+        "context_after": "若所有进入详评的评标价均在[A1×w1，A1×w2]区间以外，则A1×(1+c)作为基准价。",
+        "clause_id": "file_acb8d90cde1f::c0006",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "reference_only",
+      "risk_type": "none",
+      "risk_basis": {
+        "text": "原文明确表达不构成否决或无效依据，不归类为致命风险。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.96,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [
+        "并不否决",
+        "不否决"
+      ],
+      "detected_condition_terms": [
+        "除"
+      ],
+      "polarity": "negative_exception",
+      "classification_basis": {
+        "text": "命中明确否定/例外语义，完整句意表示不构成否决或无效依据。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-f4ed7fa5104d4d",
+      "title": "3. 评标办法前附表之六：分值构成（详见“评标办法-服务”）",
+      "requirement_type": "reference_only",
+      "raw_text": "3.评标办法前附表之六：分值构成（详见“评标办法-服务”）",
+      "normalized_requirement": {
+        "text": "3.评标办法前附表之六：分值构成（详见“评标办法-服务”）",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "核对引用目标并按目标内容执行。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [],
+      "source_ref": {
+        "source_file_id": "file_acb8d90cde1f",
+        "source_file_name": "招标文件附件-服务.doc",
+        "document_type": "tender_attachment",
+        "clause_path": "Ⅰ、评标办法 > 3. 评标办法前附表之六：分值构成（详见“评标办法-服务”）",
+        "source_location": {
+          "paragraph_index": 3,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "3.评标办法前附表之六：分值构成（详见“评标办法-服务”）",
+        "context_before": "",
+        "context_after": "",
+        "clause_id": "file_acb8d90cde1f::c0004",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "reference_only",
+      "risk_type": "none",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [],
+      "related_context_chapter_ids": [],
+      "related_special_table_ids": [],
+      "external_reference": {
+        "reference_text": "详见“评标办法-服务”）",
+        "target_candidates": [
+          {
+            "source_file_id": "file_829b97fcf9b4",
+            "source_file_name": "评标办法-服务.doc",
+            "document_type": "score_table",
+            "source_type": "tender_original_fact"
+          }
+        ],
+        "resolved": true,
+        "resolution_confidence": 0.9,
+        "unresolved_reason": "",
+        "target_ref_ids": [
+          "file_829b97fcf9b4"
+        ],
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "source_type": "tender_original_fact",
+      "confidence": 0.45,
+      "human_review_required": true,
+      "human_review_questions": [
+        {
+          "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+          "source_type": "human_confirmation_required"
+        }
+      ],
+      "status": "needs_review",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    }
+  ],
+  "source_type": "system_judgement",
+  "global_manual_confirm_items": [
+    {
+      "confirm_id": "confirm-project-package_name",
+      "category": "project_field_conflict",
+      "question": "请确认包名称最终采用“基于区块链的电力系统数据管理国际标准研究”还是其他候选值。",
+      "related_field": "package_name",
+      "current_value": "基于区块链的电力系统数据管理国际标准研究",
+      "candidate_values": [
+        "基于区块链的电力系统数据管理国际标准研究",
+        "基于区块链的工业数据管理技术研究"
+      ],
+      "source_refs": [
+        {
+          "value": "基于区块链的电力系统数据管理国际标准研究",
+          "source_file_id": "file_5092c306fce3",
+          "source_file_name": "embedded_attachment_3_2.xlsx",
+          "source_document_type": "procurement_package_table",
+          "confidence": 0.78,
+          "source_type": "tender_original_fact"
+        },
+        {
+          "value": "基于区块链的工业数据管理技术研究",
+          "source_file_id": "file_bd310be2d205",
+          "source_file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+          "source_document_type": "technical_spec",
+          "confidence": 0.42,
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "同一字段存在多个招标来源候选值；本轮保留既有选择结果，不重新执行名称选择。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0273",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-1d3829955dcfaf",
+      "current_value": {
+        "text": "其它标段：业绩证明材料须提供合同复印件。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表",
+          "source_location": {
+            "paragraph_index": 3,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "其它标段：业绩证明材料须提供合同复印件。",
+          "context_before": "附件1.招标需求一览表 注1： 0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段：业绩证明材料须同时提供合同及相应中标通知书的复印件（不包括中标人中标后再次进行招标的中标通知书和合同）；",
+          "context_after": "注2： 0425139001001-2069、0425139001001-8101、0425139001001-8102、0425139001001-8103、0425139001001-8201、0425139001001-8202、0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段： 1）在建工程业绩以合同签订日期为依据，投产工程业绩以竣工验收证书（送变电工程启动竣工验收证书或交接证书或验收证书等）为依据。",
+          "clause_id": "file_8acfa3eee894::c0001",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含明确响应、提供、提交或履约要求。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0274",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-9a278177aaeecc",
+      "current_value": {
+        "text": "附件1.招标需求一览表 注1： 0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823...",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表",
+          "source_location": {
+            "paragraph_index": 3,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "附件1.招标需求一览表 注1： 0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段：业绩证明材料须同时提供合同及相应中标通知书的复印件（不包括中标人中标后再次进行招标的中标通知书和合同）；",
+          "context_before": "",
+          "context_after": "其它标段：业绩证明材料须提供合同复印件。",
+          "clause_id": "file_8acfa3eee894::c0001",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含条件或例外结构，需结合触发条件执行。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0427",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-d67ce04bb086d4",
+      "current_value": {
+        "text": "1． 2． ……… 请将上述问题的澄清、说明或补正于年月日时前通过招标人招投标交易平台信息系统上传，任何迟到的回复将被视为无效。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_77415c21e6d3",
+          "source_file_name": "招标文件-服务.docx",
+          "document_type": "full_tender_document",
+          "clause_path": "附件一：问题澄清通知",
+          "source_location": {
+            "paragraph_index": 264,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "1． 2． ……… 请将上述问题的澄清、说明或补正于年月日时前通过招标人招投标交易平台信息系统上传，任何迟到的回复将被视为无效。",
+          "context_before": "请各投标人在收到此澄清单后，线下编辑澄清回复内容后，通过招标人招投标交易平台信息系统对该澄清单进行回复。",
+          "context_after": "（项目名称）评标委员会 日期：年月日",
+          "clause_id": "file_77415c21e6d3::c0016",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含条件或例外结构，需结合触发条件执行。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0451",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-03ea53f9db6805",
+      "current_value": {
+        "text": "②其他标段：商务投标文件正本pdf和技术投标文件正本pdf按标段制作，工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 1. 文件制作要求：",
+          "source_location": {
+            "paragraph_index": 34,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "②其他标段：商务投标文件正本pdf和技术投标文件正本pdf按标段制作，工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单。",
+          "context_before": "工程量清单软件咨询电话：王建禹：15830678211。",
+          "context_after": "投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+          "clause_id": "file_8acfa3eee894::c0010",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0452",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-237fb8981e0363",
+      "current_value": {
+        "text": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4.2.3 工程量清单纸质邮寄：",
+          "source_location": {
+            "paragraph_index": 25,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+          "context_before": "代理机构将于2025年5月27日开始接收邮寄递交的工程量清单纸质文件，务必充分考虑快递公司运输时间等因素，建议选用顺丰等信誉优秀的快递公司。",
+          "context_after": "如投标人在递交截止时间前仍未将工程量清单纸质文件递交（提交）至招标代理机构，即为递交不成功。",
+          "clause_id": "file_8acfa3eee894::c0008",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0453",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-319474af328f82",
+      "current_value": {
+        "text": "如投标人在递交截止时间前仍未将工程量清单纸质文件递交（提交）至招标代理机构，即为递交不成功。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4.2.3 工程量清单纸质邮寄：",
+          "source_location": {
+            "paragraph_index": 25,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "如投标人在递交截止时间前仍未将工程量清单纸质文件递交（提交）至招标代理机构，即为递交不成功。",
+          "context_before": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+          "context_after": "包裹应直接寄至接收地点，不接受快递点暂存取件。",
+          "clause_id": "file_8acfa3eee894::c0008",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含条件或例外结构，需结合触发条件执行。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0454",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-436475ca3f6fff",
+      "current_value": {
+        "text": "投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 1. 文件制作要求：",
+          "source_location": {
+            "paragraph_index": 34,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+          "context_before": "②其他标段：商务投标文件正本pdf和技术投标文件正本pdf按标段制作，工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单。",
+          "context_after": "",
+          "clause_id": "file_8acfa3eee894::c0010",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0455",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-4a0fa6d8000688",
+      "current_value": {
+        "text": "4.投标文件的递交注意事项 4.1投标人须同时通过电子商务平台、招投标智能服务平台两种方式递交投标文件。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4. 投标文件的递交注意事项",
+          "source_location": {
+            "paragraph_index": 18,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "4.投标文件的递交注意事项 4.1投标人须同时通过电子商务平台、招投标智能服务平台两种方式递交投标文件。",
+          "context_before": "",
+          "context_after": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+          "clause_id": "file_8acfa3eee894::c0004",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含条件或例外结构，需结合触发条件执行。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0456",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-4a0fb699976e0e",
+      "current_value": {
+        "text": "代理机构将于2025年5月27日开始接收邮寄递交的工程量清单纸质文件，务必充分考虑快递公司运输时间等因素，建议选用顺丰等信誉优秀的快递公司。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4.2.3 工程量清单纸质邮寄：",
+          "source_location": {
+            "paragraph_index": 25,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "代理机构将于2025年5月27日开始接收邮寄递交的工程量清单纸质文件，务必充分考虑快递公司运输时间等因素，建议选用顺丰等信誉优秀的快递公司。",
+          "context_before": "工程量清单纸质文件邮寄后，请务必将运单号、运单截图及所投标段明细（加盖单位公章）扫描件编辑邮件发送至hebdlfwzb@163.com，邮件标题为“公司全称+快递公司名称+运单号”，便于接收人实时关注文件状态。",
+          "context_after": "工程量清单纸质文件递交的截止时间为：2025年6月4日上午8:30。",
+          "clause_id": "file_8acfa3eee894::c0008",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0457",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-69598eaa10dd49",
+      "current_value": {
+        "text": "工程量清单（如有）：0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、04251...",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4. 投标文件的递交注意事项",
+          "source_location": {
+            "paragraph_index": 18,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "工程量清单（如有）：0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段以上传至招投标智能服务平台的投标工程量清单文件为准，其他标段以线下纸质邮寄为准。",
+          "context_before": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+          "context_after": "",
+          "clause_id": "file_8acfa3eee894::c0004",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0458",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-7c0e05300823f9",
+      "current_value": {
+        "text": "1.文件制作要求： ①0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425...",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 1. 文件制作要求：",
+          "source_location": {
+            "paragraph_index": 34,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "1.文件制作要求： ①0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段：商务投标文件正本pdf和技术投标文件正本pdf、工程量清单（如有,Excel版、纸质版）按包制作，并分别按包封装上传至招投标智能服务平台，且另需邮寄纸质工程量清单，投标函价格表和报价计算书上传至国家电网公司新一代电子商务平台。",
+          "context_before": "",
+          "context_after": "工程量清单软件咨询电话：王建禹：15830678211。",
+          "clause_id": "file_8acfa3eee894::c0010",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含明确响应、提供、提交或履约要求。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0459",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-911c9cbb89a8da",
+      "current_value": {
+        "text": "2.投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 2. 投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+          "source_location": {
+            "paragraph_index": 37,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "2.投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+          "context_before": "",
+          "context_after": "以上电子文件，应无电子病毒（代理机构将首先进行杀毒处理，如含电子病毒，查杀结果由供应商自行承担）、完整、可正常打开且清晰可辨识，否则按否决处理。",
+          "clause_id": "file_8acfa3eee894::c0011",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含条件或例外结构，需结合触发条件执行。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0460",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-985fd5231e6cb3",
+      "current_value": {
+        "text": "4.2.3 工程量清单纸质邮寄： 涉及“附件1.招标需求一览表”中需提供工程量清单的标段，请按“包”进行胶装，工程量清单封皮参考招标文件第六章或第八章投标文件格式中“封面页格式”，请务必开标前将纸质工程量清单文件寄到下述地址：国网河北省电力有限公司供应商服务大厅三楼（石家庄裕华区体育南大街238号）。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4.2.3 工程量清单纸质邮寄：",
+          "source_location": {
+            "paragraph_index": 25,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "4.2.3 工程量清单纸质邮寄： 涉及“附件1.招标需求一览表”中需提供工程量清单的标段，请按“包”进行胶装，工程量清单封皮参考招标文件第六章或第八章投标文件格式中“封面页格式”，请务必开标前将纸质工程量清单文件寄到下述地址：国网河北省电力有限公司供应商服务大厅三楼（石家庄裕华区体育南大街238号）。",
+          "context_before": "",
+          "context_after": "投标人在邮寄时写明公司全称，并在包裹外显著位置注明投标人全称。",
+          "clause_id": "file_8acfa3eee894::c0008",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含明确响应、提供、提交或履约要求。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0461",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-9cdac9978c1ba0",
+      "current_value": {
+        "text": "4.2.2 “招投标智能服务平台”递交： 本次采购项目采用“招投标智能服务平台”接收电子版应答文件，包括：技术投标文件pdf、商务投标文件pdf、电子版工程量清单（如有）等。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4.2.2 “招投标智能服务平台”递交：",
+          "source_location": {
+            "paragraph_index": 23,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "4.2.2 “招投标智能服务平台”递交： 本次采购项目采用“招投标智能服务平台”接收电子版应答文件，包括：技术投标文件pdf、商务投标文件pdf、电子版工程量清单（如有）等。",
+          "context_before": "",
+          "context_after": "详细操作要求见平台操作手册。",
+          "clause_id": "file_8acfa3eee894::c0007",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0462",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-a891b26d67393e",
+      "current_value": {
+        "text": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+          "source_location": {
+            "paragraph_index": 20,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；",
+          "context_before": "",
+          "context_after": "②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+          "clause_id": "file_8acfa3eee894::c0005",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0463",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-cfa4e81ec16481",
+      "current_value": {
+        "text": "以上电子文件，应无电子病毒（代理机构将首先进行杀毒处理，如含电子病毒，查杀结果由供应商自行承担）、完整、可正常打开且清晰可辨识，否则按否决处理。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 2. 投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+          "source_location": {
+            "paragraph_index": 37,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "以上电子文件，应无电子病毒（代理机构将首先进行杀毒处理，如含电子病毒，查杀结果由供应商自行承担）、完整、可正常打开且清晰可辨识，否则按否决处理。",
+          "context_before": "2.投标文件内容：商务投标文件正本pdf和技术投标文件正本pdf文件电子版须是投标文件正本（盖章签字后）的扫描件（PDF格式），与正本文件完全一致（页码连续且与正本文件页码一致，一个PDF文件对应一本正本文件，电子商务平台导出的投标函除外）。",
+          "context_after": "弃标函（如有，格式自拟），发送至hebdlfwzb@163.com，邮件标题为“公司全称+明细表”。",
+          "clause_id": "file_8acfa3eee894::c0011",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含条件或例外结构，需结合触发条件执行。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0464",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-d3a7bf9369d244",
+      "current_value": {
+        "text": "②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+          "source_location": {
+            "paragraph_index": 20,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "②纸质文件邮寄方式递交（仅限工程量清单，如有）。",
+          "context_before": "4.2 本批次投标文件递交方式：①电子文件递交（国网电子商务平台、招投标智能服务平台）；",
+          "context_after": "",
+          "clause_id": "file_8acfa3eee894::c0005",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0465",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-ed08a411e0b740",
+      "current_value": {
+        "text": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_8acfa3eee894",
+          "source_file_name": "招标公告附件.doc",
+          "document_type": "tender_notice_attachment",
+          "clause_path": "附件1.招标需求一览表 > 4. 投标文件的递交注意事项",
+          "source_location": {
+            "paragraph_index": 18,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "若投标人同时在国网电子商务平台及招投标智能服务平台上传了同类型投标文件，报价部分以国网电子商务平台上传文件为准，技术文件、商务文件以招投标智能服务平台上传文件为准。",
+          "context_before": "4.投标文件的递交注意事项 4.1投标人须同时通过电子商务平台、招投标智能服务平台两种方式递交投标文件。",
+          "context_after": "工程量清单（如有）：0425139001002-2004、0425139001002-2037、0425139001002-2038、0425139001002-2069、0425139001002-2071、0425139001002-2072、0425139001002-2314、0425139001002-2316、0425139001002-2318、0425139001002-2319、0425139001002-2320、0425139001002-2321、0425139001002-2821、0425139001002-2822、0425139001002-2823、0425139001002-2824标段以上传至招投标智能服务平台的投标工程量清单文件为准，其他标段以线下纸质邮寄为准。",
+          "clause_id": "file_8acfa3eee894::c0004",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0490",
+      "category": "tender_requirement_review",
+      "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+      "related_field": "req-152175aa10915a",
+      "current_value": {
+        "text": "4.2 凡有意参加投标者，请于2025年5月13日-2025年5月20日17:00 （北京时间，下同），登录招标人招投标交易平台信息系统（国家电网有限公司电子商务平台☑https://ecp.sgcc.com.cn □https://sgccetp.com.cn）获取招标文件，并按《电子招标投标办法》等国家法律法规要求，到第三方认证机构办理CA证书电子钥匙。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_014de4764c31",
+          "source_file_name": "招标公告.docx",
+          "document_type": "tender_notice",
+          "clause_path": "第一章 招标公告 > 4.2 凡有意参加投标者，请于2025年5月13日-2025年5月20日17:00 （北京时间，下同），登录招标人招投标交易平台信息系统（国家电网有限公司电子商务平台☑https://ecp.sgcc.com.cn □https://sgccetp.com.cn）获取招标文件，并按《电子招标投标办法》等国家法律法规要求，到第三方认证机构办理CA证书电子钥匙。投标人应妥善保管招标人招投标交易平台信息系统账号和密码，以及CA数字证书和密码，因上述账号、数字证书或密码保管不当造成的损失，由投标人自行承担。",
+          "source_location": {
+            "paragraph_index": 46,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "4.2 凡有意参加投标者，请于2025年5月13日-2025年5月20日17:00 （北京时间，下同），登录招标人招投标交易平台信息系统（国家电网有限公司电子商务平台☑https://ecp.sgcc.com.cn □https://sgccetp.com.cn）获取招标文件，并按《电子招标投标办法》等国家法律法规要求，到第三方认证机构办理CA证书电子钥匙。",
+          "context_before": "",
+          "context_after": "投标人应妥善保管招标人招投标交易平台信息系统账号和密码，以及CA数字证书和密码，因上述账号、数字证书或密码保管不当造成的损失，由投标人自行承担。",
+          "clause_id": "file_014de4764c31::c0020",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含条件或例外结构，需结合触发条件执行。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0491",
+      "category": "tender_requirement_review",
+      "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+      "related_field": "req-34a9bb18f1bb89",
+      "current_value": {
+        "text": "投标人提供虚假企业信用信息公示报告的，按照虚假投标进行否决，并根据《国家电网有限公司供应商关系管理办法》进行相应处理。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_014de4764c31",
+          "source_file_name": "招标公告.docx",
+          "document_type": "tender_notice",
+          "clause_path": "第一章 招标公告 > 3.1 投标人须满足如下通用资格要求：",
+          "source_location": {
+            "paragraph_index": 23,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "投标人提供虚假企业信用信息公示报告的，按照虚假投标进行否决，并根据《国家电网有限公司供应商关系管理办法》进行相应处理。",
+          "context_before": "投标人未提供或提供的企业信用信息公示报告不符合招标文件规定的格式与内容的，评标委员会将会对投标人进行不利评价。",
+          "context_after": "即使投标人在开标当日未出现被市场监督管理机关列入经营异常名录或严重违法失信企业名单的情形，但在中标通知书到达之日前，存在上述情形的，招标人有权取消其中标资格。",
+          "clause_id": "file_014de4764c31::c0011",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含条件或例外结构，需结合触发条件执行。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0492",
+      "category": "tender_requirement_review",
+      "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+      "related_field": "req-3b32942878bdd5",
+      "current_value": {
+        "text": "8.投标保证金的金额： 投标人每个采购项目/每个分标仅需缴纳一份投标保证金，投标保证金金额对应投标人每个采购项目/每个分标所投包的最大应缴保证金金额，各包相应的投标保证金金额详见“应提交保证金一览表”。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_77415c21e6d3",
+          "source_file_name": "招标文件-服务.docx",
+          "document_type": "full_tender_document",
+          "clause_path": "第六章 投标文件格式 > 三、技术文件 > （二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”） > 8. 投标保证金的金额：",
+          "source_location": {
+            "paragraph_index": 725,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "8.投标保证金的金额： 投标人每个采购项目/每个分标仅需缴纳一份投标保证金，投标保证金金额对应投标人每个采购项目/每个分标所投包的最大应缴保证金金额，各包相应的投标保证金金额详见“应提交保证金一览表”。",
+          "context_before": "",
+          "context_after": "评标委员会将按照采购项目/分标维度确定实缴投标保证金，当采购项目/分标实缴投标保证金金额不足时，否决应缴投标保证金金额超出实缴投标保证金金额的标包。",
+          "clause_id": "file_77415c21e6d3::c0170",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含明确响应、提供、提交或履约要求。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0493",
+      "category": "tender_requirement_review",
+      "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+      "related_field": "req-3e757057833137",
+      "current_value": {
+        "text": "中标候选人履约能力审查 中标候选人的经营、财务状况发生较大变化或存在违法行为，招标人认为可能影响其履约能力的，将在发出中标通知书前提请原评标委员会按照招标文件规定的标准和方法进行审查确认。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_77415c21e6d3",
+          "source_file_name": "招标文件-服务.docx",
+          "document_type": "full_tender_document",
+          "clause_path": "第二章 投标人须知 > 5.1 开标时间和地点（B）",
+          "source_location": {
+            "paragraph_index": 201,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "中标候选人履约能力审查 中标候选人的经营、财务状况发生较大变化或存在违法行为，招标人认为可能影响其履约能力的，将在发出中标通知书前提请原评标委员会按照招标文件规定的标准和方法进行审查确认。",
+          "context_before": "作出答复前，将暂停招标投标活动。",
+          "context_after": "定标 按照投标人须知前附表的规定，招标人或招标人授权的评标委员会依法确定中标人。",
+          "clause_id": "file_77415c21e6d3::c0015",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0494",
+      "category": "tender_requirement_review",
+      "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+      "related_field": "req-cf3b6b5f3e1319",
+      "current_value": {
+        "text": "招标代理服务费以包为单位收取，按差额定率累进法计算，收费标准见下表。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_77415c21e6d3",
+          "source_file_name": "招标文件-服务.docx",
+          "document_type": "full_tender_document",
+          "clause_path": "第六章 投标文件格式 > 三、技术文件 > （二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”） > 6. 招标代理服务费",
+          "source_location": {
+            "paragraph_index": 865,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "招标代理服务费以包为单位收取，按差额定率累进法计算，收费标准见下表。",
+          "context_before": "（2）中标人应在《中标通知书》发出后30日内，一次性向招标代理机构缴纳招标代理服务费。",
+          "context_after": "如果中标人不按照招标文件规定缴纳招标代理服务费，投标人将承担由此导致的不利信用评价风险。",
+          "clause_id": "file_77415c21e6d3::c0237",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0495",
+      "category": "tender_requirement_review",
+      "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+      "related_field": "req-e19533bc41d59c",
+      "current_value": {
+        "text": "1.我方已仔细研究了招标编号： ，项目名称： ，分标名称： ，包名称： 招标文件的全部内容，愿以投标函附件所列报价，按合同约定完成招标文件规定的各项工作，质量标准达到招标文件要求。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_77415c21e6d3",
+          "source_file_name": "招标文件-服务.docx",
+          "document_type": "full_tender_document",
+          "clause_path": "第六章 投标文件格式 > 一、价格文件 > （一）投标函及投标函价格表（在投标工具在线填写并由系统自动生成，填写路径：价格文件-选择分标-选择分包-按钮“编辑”-页签“已标价货物清单行报价”-填写“含税合价”和“税率”-按钮“校验并保存”） > 1. 我方已仔细研究了招标编号： ，项目名称： ，分标名称： ，包名称： 招标文件的全部内容，愿以投标函附件所列报价，按合同约定完成招标文件规定的各项工作，质量标准达到招标文件要求。",
+          "source_location": {
+            "paragraph_index": 361,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "1.我方已仔细研究了招标编号： ，项目名称： ，分标名称： ，包名称： 招标文件的全部内容，愿以投标函附件所列报价，按合同约定完成招标文件规定的各项工作，质量标准达到招标文件要求。",
+          "context_before": "",
+          "context_after": "",
+          "clause_id": "file_77415c21e6d3::c0032",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含明确响应、提供、提交或履约要求。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0496",
+      "category": "tender_requirement_review",
+      "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+      "related_field": "req-fa449cadcf2cab",
+      "current_value": {
+        "text": "同时，招标人将对投标人的不诚信行为按照《国家电网有限公司供应商关系管理办法》做出处理。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_77415c21e6d3",
+          "source_file_name": "招标文件-服务.docx",
+          "document_type": "full_tender_document",
+          "clause_path": "第六章 投标文件格式 > 三、技术文件 > （二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”） > 3. 如同一包内包含两个或两个以上项目单位，中标人应分别与各项目单位签订合同。",
+          "source_location": {
+            "paragraph_index": 830,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "同时，招标人将对投标人的不诚信行为按照《国家电网有限公司供应商关系管理办法》做出处理。",
+          "context_before": "当投标人出现下列情形时，取消投标人与招标人签订合同的资格，并且招标人保留追究投标人责任的权利。",
+          "context_after": "",
+          "clause_id": "file_77415c21e6d3::c0224",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0497",
+      "category": "tender_requirement_review",
+      "question": "请确认被引用文件、附件、标准或章节是否已入库，并定位具体要求。",
+      "related_field": "req-53b36dd0d1c44e",
+      "current_value": {
+        "text": "（7）本招标文件所使用的标准如与投标人所执行的标准发生矛盾时，按较高标准执行。",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_bd310be2d205",
+          "source_file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+          "document_type": "technical_spec",
+          "clause_path": "附件3：项目招标文件模板 > 1.2 招标要求",
+          "source_location": {
+            "paragraph_index": 41,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "（7）本招标文件所使用的标准如与投标人所执行的标准发生矛盾时，按较高标准执行。",
+          "context_before": "投标人认为需特殊说明的部分应附详细的技术资料或参数表，否则，由于评标理解不同，产生的后果由投标人负责。",
+          "context_after": "（8）技术协议书应以本招标文件为蓝本，加入招标方认可的偏差，经供需双方确认后作为合同的技术附件，与合同正文具有同等效力。",
+          "clause_id": "file_bd310be2d205::c0003",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款主要提供说明或引用信息。",
+      "priority": "high",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0513",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-e8b651ad1e589a",
+      "current_value": {
+        "text": "再剔除（剔除只为计算平均值使用，并不否决）评标价与算术平均值A1 偏差超过[A1×w1，A1×w2]区间的投标人报价，计算偏差在算术平均值[A1×w1，A1×w2]区间以内的投标人评标价的算术平均值A2，以A2×(1+c)为基准价；",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_acb8d90cde1f",
+          "source_file_name": "招标文件附件-服务.doc",
+          "document_type": "tender_attachment",
+          "clause_path": "Ⅰ、评标办法 > 1. 价格评分标准（价格计算公式）：",
+          "source_location": {
+            "paragraph_index": 5,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "再剔除（剔除只为计算平均值使用，并不否决）评标价与算术平均值A1 偏差超过[A1×w1，A1×w2]区间的投标人报价，计算偏差在算术平均值[A1×w1，A1×w2]区间以内的投标人评标价的算术平均值A2，以A2×(1+c)为基准价；",
+          "context_before": "其中，b=-0.2，c=0.15，n1=1，n2=0.5 结束 （3）区间复合一次平均价法（适用于其他标段） 计算进入详评的投标人评标价的算术平均值A1；",
+          "context_after": "若所有进入详评的评标价均在[A1×w1，A1×w2]区间以外，则A1×(1+c)作为基准价。",
+          "clause_id": "file_acb8d90cde1f::c0006",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "命中明确否定/例外语义，完整句意表示不构成否决或无效依据。",
+      "priority": "medium",
+      "source_type": "human_confirmation_required"
+    },
+    {
+      "confirm_id": "confirm-requirement-0514",
+      "category": "tender_requirement_review",
+      "question": "请确认该条款在招标文件中的章节归属和适用范围。",
+      "related_field": "req-f4ed7fa5104d4d",
+      "current_value": {
+        "text": "3.评标办法前附表之六：分值构成（详见“评标办法-服务”）",
+        "source_type": "system_judgement"
+      },
+      "candidate_values": [],
+      "source_refs": [
+        {
+          "source_file_id": "file_acb8d90cde1f",
+          "source_file_name": "招标文件附件-服务.doc",
+          "document_type": "tender_attachment",
+          "clause_path": "Ⅰ、评标办法 > 3. 评标办法前附表之六：分值构成（详见“评标办法-服务”）",
+          "source_location": {
+            "paragraph_index": 3,
+            "table_index": null,
+            "row_index": null,
+            "sheet_name": null
+          },
+          "location_precision": "clause_approximate",
+          "excerpt": "3.评标办法前附表之六：分值构成（详见“评标办法-服务”）",
+          "context_before": "",
+          "context_after": "",
+          "clause_id": "file_acb8d90cde1f::c0004",
+          "source_type": "tender_original_fact"
+        }
+      ],
+      "reason": "条款包含明确响应、提供、提交或履约要求。",
+      "priority": "medium",
+      "source_type": "human_confirmation_required"
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "schema_version": "technical_fulltext_hygiene_v1",
+  "hygiene_id": "HYG-9706E144CDB05A44",
+  "document_id": "technical-fulltext:hospital_hci_001_fulltext_real_20260806_02",
+  "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+  "source_fulltext": {
+    "path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\technical_fulltext.json",
+    "sha256": "742b3eea50ae66423b2e7ef7529b9e92c8ea87307e32fdfd035c4d8d763b7339",
+    "schema_version": "technical_fulltext_v2"
+  },
+  "source_commit": {
+    "path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\technical_fulltext.commit.json",
+    "sha256": "fb4e62440905e15e3f6f97ac913da3683ee0bd0fbf27d7e052b6572c30bb6a87",
+    "schema_version": "technical_fulltext_commit_v1"
+  },
+  "status": "completed",
+  "hygiene_status": "completed",
+  "human_review_hygiene_ready": true,
+  "release_ready": false,
+  "detector_version": "fulltext_hygiene_rules_v1",
+  "summary": {
+    "finding_count": 7,
+    "repair_count": 7,
+    "unresolved_count": 0,
+    "repair_counts_by_type": {
+      "adjacent_exact_phrase_duplication": 1,
+      "adjacent_exact_segment_duplication": 3,
+      "malformed_generation_residue": 1,
+      "template_control_residue": 2
+    },
+    "model_call_count": 0
+  },
+  "hygiene_findings": [
+    {
+      "finding_id": "HGF-FFF41B5E31D2A765",
+      "finding_type": "adjacent_exact_phrase_duplication",
+      "status": "repaired",
+      "gate_blocking": false,
+      "location": {
+        "chapter_id": "WC-001",
+        "section_id": "WC-001-07",
+        "paragraph_id": "PAR-85A1C8E293676879",
+        "paragraph_index": 1
+      },
+      "excerpt": "实施要求的核心是在确保业务连续性的前提下完成新旧平台的平滑过渡。医院作为医院作为持续运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保",
+      "detection": "deterministic_exact_match"
+    },
+    {
+      "finding_id": "HGF-59714A2E6A95CF48",
+      "finding_type": "adjacent_exact_segment_duplication",
+      "status": "repaired",
+      "gate_blocking": false,
+      "location": {
+        "chapter_id": "WC-001",
+        "section_id": "WC-001-07",
+        "paragraph_id": "PAR-85A1C8E293676879",
+        "paragraph_index": 1
+      },
+      "excerpt": "实施要求的核心是在确保业务连续性的前提下完成新旧平台的平滑过渡。医院作为持续运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。",
+      "detection": "deterministic_exact_match"
+    },
+    {
+      "finding_id": "HGF-28CBC4BF09BE4F78",
+      "finding_type": "adjacent_exact_segment_duplication",
+      "status": "repaired",
+      "gate_blocking": false,
+      "location": {
+        "chapter_id": "WC-001",
+        "section_id": "WC-001-09",
+        "paragraph_id": "PAR-FAB22DAFC36EFAE5",
+        "paragraph_index": 2
+      },
+      "excerpt": "，建成一套自主可控的国产化超融合基础设施，实现对现有虚拟化平台的全面替代与能力升级，消除单点瓶颈，提升资源利用率。其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来医院信息化发展的预期需求。医院信息化发展的预期需求。第三，构建统一运维管控体系，实现基础设施与业务服务的可视化、自动化、标准化管理，降低运维复杂度与人工依赖。第四，通过平滑迁移和全过程安全合规设计，保",
+      "detection": "deterministic_exact_match"
+    },
+    {
+      "finding_id": "HGF-DA531A3AC9276B93",
+      "finding_type": "adjacent_exact_segment_duplication",
+      "status": "repaired",
+      "gate_blocking": false,
+      "location": {
+        "chapter_id": "WC-001",
+        "section_id": "WC-001-09",
+        "paragraph_id": "PAR-FAB22DAFC36EFAE5",
+        "paragraph_index": 2
+      },
+      "excerpt": "超融合基础设施，实现对现有虚拟化平台的全面替代与能力升级，消除单点瓶颈，提升资源利用率。其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来医院信息化发展的预期需求。医院信息化发展的预期需求。第三，构建统一运维管控体系，实现基础设施与业务服务的可视化、自动化、标准化管理，降低运维复杂度与人工依赖。第四，通过平滑迁移和全过程安全合规设计，保障业务连续性，满足等保2.0和区域卫生信息互通的相关",
+      "detection": "deterministic_exact_match"
+    },
+    {
+      "finding_id": "HGF-2A7F6ECF684DA907",
+      "finding_type": "malformed_generation_residue",
+      "status": "repaired",
+      "gate_blocking": false,
+      "location": {
+        "chapter_id": "WC-002",
+        "section_id": "WC-002-05",
+        "paragraph_id": "PAR-509DC0AB35FA2EFC",
+        "paragraph_index": 3
+      },
+      "excerpt": "为实现与医院现有运维系统的整合，超融合管理平台的对外接口能力（如RESTful API等）将在产品确认后依据制造商文档进行规划，届时通过测试验证其与院方现有综合监控平台及日志分析系统的集成能力，以k），实现统一告警收敛和关联分析。同时，管理平台可提供批量操作接口，用于执行创建虚拟机、修改配置、下发快照策略等自动化任务。",
+      "detection": "deterministic_exact_match"
+    },
+    {
+      "finding_id": "HGF-19D6B406393E74C1",
+      "finding_type": "template_control_residue",
+      "status": "repaired",
+      "gate_blocking": false,
+      "location": {
+        "chapter_id": "WC-002",
+        "section_id": "WC-002-08",
+        "paragraph_id": "PAR-AE13326C6063C5D7",
+        "paragraph_index": 4
+      },
+      "excerpt": "穿数据静态存储和动态传输两个状态。静态数据方面，{% if applicable %}超融合系统支持自加密硬盘（SED）或软件加密功能，可对存储上的虚拟磁盘进行加密，即使物理磁盘被盗拆也无法读取数据。{% endif %}在受限的招标环境下，我们可以阐述逻辑思路，不确认产品能力，但作为安全设计规划必须涵盖加密选项。安全起见，可说明“超融合方案规划支持存储加密选项，具体加密方式和实现将在产品选型后确定”。同时，数据传输方",
+      "detection": "deterministic_exact_match"
+    },
+    {
+      "finding_id": "HGF-FAA160D1912E9A24",
+      "finding_type": "template_control_residue",
+      "status": "repaired",
+      "gate_blocking": false,
+      "location": {
+        "chapter_id": "WC-002",
+        "section_id": "WC-002-08",
+        "paragraph_id": "PAR-AE13326C6063C5D7",
+        "paragraph_index": 4
+      },
+      "excerpt": "数据安全设计贯穿数据静态存储和动态传输两个状态。静态数据方面，{% if applicable %}超融合系统支持自加密硬盘（SED）或软件加密功能，可对存储上的虚拟磁盘进行加密，即使物理磁盘被盗拆也无法读取数据。在受限的招标环境下，我们可以阐述逻辑思路，不确认产品能力，但作为安全设计规划必须涵盖加",
+      "detection": "deterministic_exact_match"
+    }
+  ],
+  "hygiene_repairs": [
+    {
+      "repair_id": "HGR-FFF41B5E31D2A765",
+      "finding_id": "HGF-FFF41B5E31D2A765",
+      "repair_type": "adjacent_exact_phrase_duplication",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-07",
+      "paragraph_id": "PAR-85A1C8E293676879",
+      "paragraph_index": 1,
+      "source_text_sha256": "0b12dc2d2220505227b1179ee6eecfe712006df20d598d274d895f4dcd671b56",
+      "result_text_sha256": "f4e3dce6bb03c8ef7726bde69172aa3ba9d0e69cc7d03178afe4cd4d46f7c540",
+      "original_excerpt": "实施要求的核心是在确保业务连续性的前提下完成新旧平台的平滑过渡。医院作为医院作为持续运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保",
+      "repaired_excerpt": "实施要求的核心是在确保业务连续性的前提下完成新旧平台的平滑过渡。医院作为持续运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保",
+      "changed_span": {
+        "start": 36,
+        "end": 40,
+        "removed_text": "医院作为",
+        "replacement_text": ""
+      },
+      "method": "deterministic",
+      "confidence": "high",
+      "model_used": null,
+      "validation_status": "accepted"
+    },
+    {
+      "repair_id": "HGR-59714A2E6A95CF48",
+      "finding_id": "HGF-59714A2E6A95CF48",
+      "repair_type": "adjacent_exact_segment_duplication",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-07",
+      "paragraph_id": "PAR-85A1C8E293676879",
+      "paragraph_index": 1,
+      "source_text_sha256": "f4e3dce6bb03c8ef7726bde69172aa3ba9d0e69cc7d03178afe4cd4d46f7c540",
+      "result_text_sha256": "37ecb6cd6b8a54964c60157e4a2958fcfeeffdd990f63ab732092adfd08bdc15",
+      "original_excerpt": "实施要求的核心是在确保业务连续性的前提下完成新旧平台的平滑过渡。医院作为持续运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。",
+      "repaired_excerpt": "实施要求的核心是在确保业务连续性的前提下完成新旧平台的平滑过渡。医院作为持续运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。",
+      "changed_span": {
+        "start": 91,
+        "end": 144,
+        "removed_text": "运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。",
+        "replacement_text": ""
+      },
+      "method": "deterministic",
+      "confidence": "high",
+      "model_used": null,
+      "validation_status": "accepted"
+    },
+    {
+      "repair_id": "HGR-28CBC4BF09BE4F78",
+      "finding_id": "HGF-28CBC4BF09BE4F78",
+      "repair_type": "adjacent_exact_segment_duplication",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-09",
+      "paragraph_id": "PAR-FAB22DAFC36EFAE5",
+      "paragraph_index": 2,
+      "source_text_sha256": "eea20d35193b4723307ed9782ebb6c183e835f6ef17a15efae3772ebaa2c27a5",
+      "result_text_sha256": "ca1172015da912f073b3534614d63722be9464a1e3a7ef31d3a23f8e437f774c",
+      "original_excerpt": "，建成一套自主可控的国产化超融合基础设施，实现对现有虚拟化平台的全面替代与能力升级，消除单点瓶颈，提升资源利用率。其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来医院信息化发展的预期需求。医院信息化发展的预期需求。第三，构建统一运维管控体系，实现基础设施与业务服务的可视化、自动化、标准化管理，降低运维复杂度与人工依赖。第四，通过平滑迁移和全过程安全合规设计，保",
+      "repaired_excerpt": "，建成一套自主可控的国产化超融合基础设施，实现对现有虚拟化平台的全面替代与能力升级，消除单点瓶颈，提升资源利用率。其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来医院信息化发展的预期需求。医院信息化发展的预期需求。第三，构建统一运维管控体系，实现基础设施与业务服务的可视化、自动化、标准化管理，降低运维复杂度与人工依赖。第四，通过平滑迁移和全过程安全合规设计，保",
+      "changed_span": {
+        "start": 102,
+        "end": 145,
+        "removed_text": "其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来",
+        "replacement_text": ""
+      },
+      "method": "deterministic",
+      "confidence": "high",
+      "model_used": null,
+      "validation_status": "accepted"
+    },
+    {
+      "repair_id": "HGR-DA531A3AC9276B93",
+      "finding_id": "HGF-DA531A3AC9276B93",
+      "repair_type": "adjacent_exact_segment_duplication",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-09",
+      "paragraph_id": "PAR-FAB22DAFC36EFAE5",
+      "paragraph_index": 2,
+      "source_text_sha256": "ca1172015da912f073b3534614d63722be9464a1e3a7ef31d3a23f8e437f774c",
+      "result_text_sha256": "18c9fcf20acebcc0600231f345f079471ddcd3b964f944516bf28a8d5a5dd645",
+      "original_excerpt": "超融合基础设施，实现对现有虚拟化平台的全面替代与能力升级，消除单点瓶颈，提升资源利用率。其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来医院信息化发展的预期需求。医院信息化发展的预期需求。第三，构建统一运维管控体系，实现基础设施与业务服务的可视化、自动化、标准化管理，降低运维复杂度与人工依赖。第四，通过平滑迁移和全过程安全合规设计，保障业务连续性，满足等保2.0和区域卫生信息互通的相关",
+      "repaired_excerpt": "超融合基础设施，实现对现有虚拟化平台的全面替代与能力升级，消除单点瓶颈，提升资源利用率。其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来医院信息化发展的预期需求。第三，构建统一运维管控体系，实现基础设施与业务服务的可视化、自动化、标准化管理，降低运维复杂度与人工依赖。第四，通过平滑迁移和全过程安全合规设计，保障业务连续性，满足等保2.0和区域卫生信息互通的相关",
+      "changed_span": {
+        "start": 115,
+        "end": 128,
+        "removed_text": "医院信息化发展的预期需求。",
+        "replacement_text": ""
+      },
+      "method": "deterministic",
+      "confidence": "high",
+      "model_used": null,
+      "validation_status": "accepted"
+    },
+    {
+      "repair_id": "HGR-2A7F6ECF684DA907",
+      "finding_id": "HGF-2A7F6ECF684DA907",
+      "repair_type": "malformed_generation_residue",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-05",
+      "paragraph_id": "PAR-509DC0AB35FA2EFC",
+      "paragraph_index": 3,
+      "source_text_sha256": "5cc4c9772617839afee62d3fa56520d358abd5eb9f8b4cb83612b33e3478fd1b",
+      "result_text_sha256": "59ea3df6907c924ffb5b7fd0a68ca19cb7e5e715c48e348a9afedfc568ca411a",
+      "original_excerpt": "为实现与医院现有运维系统的整合，超融合管理平台的对外接口能力（如RESTful API等）将在产品确认后依据制造商文档进行规划，届时通过测试验证其与院方现有综合监控平台及日志分析系统的集成能力，以k），实现统一告警收敛和关联分析。同时，管理平台可提供批量操作接口，用于执行创建虚拟机、修改配置、下发快照策略等自动化任务。",
+      "repaired_excerpt": "为实现与医院现有运维系统的整合，超融合管理平台的对外接口能力（如RESTful API等）将在产品确认后依据制造商文档进行规划，届时通过测试验证其与院方现有综合监控平台及日志分析系统的集成能力，以实现统一告警收敛和关联分析。同时，管理平台可提供批量操作接口，用于执行创建虚拟机、修改配置、下发快照策略等自动化任务。",
+      "changed_span": {
+        "start": 97,
+        "end": 101,
+        "removed_text": "以k），",
+        "replacement_text": "以"
+      },
+      "method": "deterministic",
+      "confidence": "high",
+      "model_used": null,
+      "validation_status": "accepted"
+    },
+    {
+      "repair_id": "HGR-19D6B406393E74C1",
+      "finding_id": "HGF-19D6B406393E74C1",
+      "repair_type": "template_control_residue",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-08",
+      "paragraph_id": "PAR-AE13326C6063C5D7",
+      "paragraph_index": 4,
+      "source_text_sha256": "f7f06d869b437c346d7cdafa657e0a30ef12e068a038dae5a1c80817e576d6db",
+      "result_text_sha256": "e2a10e0d55c54f44a5d2ed5bd45b8cc51dcb1f6ff6bac488ea14db2ec85afc7d",
+      "original_excerpt": "穿数据静态存储和动态传输两个状态。静态数据方面，{% if applicable %}超融合系统支持自加密硬盘（SED）或软件加密功能，可对存储上的虚拟磁盘进行加密，即使物理磁盘被盗拆也无法读取数据。{% endif %}在受限的招标环境下，我们可以阐述逻辑思路，不确认产品能力，但作为安全设计规划必须涵盖加密选项。安全起见，可说明“超融合方案规划支持存储加密选项，具体加密方式和实现将在产品选型后确定”。同时，数据传输方",
+      "repaired_excerpt": "穿数据静态存储和动态传输两个状态。静态数据方面，{% if applicable %}超融合系统支持自加密硬盘（SED）或软件加密功能，可对存储上的虚拟磁盘进行加密，即使物理磁盘被盗拆也无法读取数据。在受限的招标环境下，我们可以阐述逻辑思路，不确认产品能力，但作为安全设计规划必须涵盖加密选项。安全起见，可说明“超融合方案规划支持存储加密选项，具体加密方式和实现将在产品选型后确定”。同时，数据传输方",
+      "changed_span": {
+        "start": 107,
+        "end": 118,
+        "removed_text": "{% endif %}",
+        "replacement_text": ""
+      },
+      "method": "deterministic",
+      "confidence": "high",
+      "model_used": null,
+      "validation_status": "accepted"
+    },
+    {
+      "repair_id": "HGR-FAA160D1912E9A24",
+      "finding_id": "HGF-FAA160D1912E9A24",
+      "repair_type": "template_control_residue",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-08",
+      "paragraph_id": "PAR-AE13326C6063C5D7",
+      "paragraph_index": 4,
+      "source_text_sha256": "e2a10e0d55c54f44a5d2ed5bd45b8cc51dcb1f6ff6bac488ea14db2ec85afc7d",
+      "result_text_sha256": "9703ec83ba6a0f8e9dc689159ec7e65284e1ee8be141866d4913bedabb464d3e",
+      "original_excerpt": "数据安全设计贯穿数据静态存储和动态传输两个状态。静态数据方面，{% if applicable %}超融合系统支持自加密硬盘（SED）或软件加密功能，可对存储上的虚拟磁盘进行加密，即使物理磁盘被盗拆也无法读取数据。在受限的招标环境下，我们可以阐述逻辑思路，不确认产品能力，但作为安全设计规划必须涵盖加",
+      "repaired_excerpt": "数据安全设计贯穿数据静态存储和动态传输两个状态。静态数据方面，超融合系统支持自加密硬盘（SED）或软件加密功能，可对存储上的虚拟磁盘进行加密，即使物理磁盘被盗拆也无法读取数据。在受限的招标环境下，我们可以阐述逻辑思路，不确认产品能力，但作为安全设计规划必须涵盖加",
+      "changed_span": {
+        "start": 31,
+        "end": 50,
+        "removed_text": "{% if applicable %}",
+        "replacement_text": ""
+      },
+      "method": "deterministic",
+      "confidence": "high",
+      "model_used": null,
+      "validation_status": "accepted"
+    }
+  ],
+  "unresolved_hygiene_findings": [],
+  "protection_validation": {
+    "placeholder_tokens_unchanged": true,
+    "requirement_tokens_unchanged": true,
+    "score_item_tokens_unchanged": true,
+    "protected_value_tokens_unchanged": true,
+    "non_content_metadata_unchanged": true,
+    "deterministic_repairs_deletion_only": true,
+    "validation_status": "passed",
+    "source_content_sha256": "cce514953c07d104ec6255466d4bc045549a7d205fe723eed9d3356621d9bf70",
+    "result_content_sha256": "83c1a36475d612a7ccc43c8cbbbb15396cab548b1d08a6a1baca4b7cd078ccbf"
+  },
+  "cleaned_fulltext": {
+    "cleaned_document_id": "technical-fulltext-cleaned:hospital_hci_001_fulltext_real_20260806_02:7b2850515aeaecde",
+    "cleaned_content_sha256": "7b2850515aeaecde6d29f8da2f30971fd81d1048533a050c1168fc5f8973a022"
+  },
+  "model_usage": {
+    "model_call_count": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "total_tokens": 0
+  },
+  "generated_at": "2026-08-12T02:08:42.136993+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "total_tasks": 63,
+  "manual_project_fact": {
+    "none": 30,
+    "optional": 10,
+    "required": 23
+  },
+  "local_kb": {
+    "none": 9,
+    "optional": 35,
+    "required": 19
+  },
+  "web": {
+    "forbidden": 51,
+    "optional": 12,
+    "required": 0
+  },
+  "draftability": {
+    "can_draft": 9,
+    "can_draft_with_placeholders": 30,
+    "cannot_finalize": 24
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "technical_fulltext_build_manifest_v2",
+  "document_id": "technical-fulltext:hospital_hci_001_fulltext_real_20260806_02",
+  "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+  "standard_outline_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\technical_writing_outline.json",
+  "standard_outline_sha256": "242143910015c2113694e69700e23f87783f1377be228da8d9c7112aea14a85e",
+  "chapters": [
+    {
+      "chapter_id": "WC-001",
+      "chapter_order": 1,
+      "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-001.candidate.json",
+      "candidate_json_sha256": "ae924b86624932943794d23af7f6ece09ac5cc6c1ca09d64db1e0d047fc8eb9a",
+      "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-001.run.json",
+      "run_json_sha256": "b7b9dcd1a894356e5be81f82984826ac9469a62182cbdc9444363d44fa33aaa8",
+      "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-001.events.jsonl",
+      "events_jsonl_sha256": "8acbcf500d0f06126a91fcbf68de800c32e0a12c20de02aff7e48f5755dbc2bc"
+    },
+    {
+      "chapter_id": "WC-002",
+      "chapter_order": 2,
+      "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-002.candidate.json",
+      "candidate_json_sha256": "75bc545c558838847597e6c4772a9d3c3ad2c3d54270f1b7cb42f90ffe4ebadb",
+      "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-002.run.json",
+      "run_json_sha256": "33d56ad027fdbfc2c7d17532769d9369e49fb127419df03f9482cc734144bd7c",
+      "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-002.events.jsonl",
+      "events_jsonl_sha256": "b8a7251c83deda8aa081cdc5f26878dffdfbc1c67e1b426717a0bbcf8c28cbc5"
+    },
+    {
+      "chapter_id": "WC-003",
+      "chapter_order": 3,
+      "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-003.candidate.json",
+      "candidate_json_sha256": "7ae5f03e02059ba55dc12a6754f70ae54d54d795aa80da8d5233e6ed2884ff50",
+      "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-003.run.json",
+      "run_json_sha256": "ee2cca739a2e2d9f50a32c02e970b44b9083273c99e23cbe15570cf94d2b540c",
+      "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-003.events.jsonl",
+      "events_jsonl_sha256": "0a715c520700f2297c00e45de0e1fb26950d1952fe4badf33ef7dd98eff4d1e2"
+    },
+    {
+      "chapter_id": "WC-004",
+      "chapter_order": 4,
+      "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-004.candidate.json",
+      "candidate_json_sha256": "f9ad0aa7610ca0e02943ae61c111d1cfb9ff9b0751e1cccc199b177b48f12db5",
+      "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-004.run.json",
+      "run_json_sha256": "973a74f0e7a07232b8dd74e1e94081819f7c522a47ceabe29f64c7a84d08050d",
+      "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-004.events.jsonl",
+      "events_jsonl_sha256": "3112a6ea8d29957a9ae55ba7fc909ea45268e753de2858974cac8ed4b74a2fd6"
+    },
+    {
+      "chapter_id": "WC-005",
+      "chapter_order": 5,
+      "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-005.candidate.json",
+      "candidate_json_sha256": "83acc98b33e2552367a2be35a40418db5f5898817151f903fcb52418e3b75bf8",
+      "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-005.run.json",
+      "run_json_sha256": "9e15392ad7d0615eedb1084b0d78b41ba5288c762b38ba9fd3b21fcd79b0c10b",
+      "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-005.events.jsonl",
+      "events_jsonl_sha256": "d50ae8304e4f320737bc369a6dfb71f5723f050b9aa6a05e268536f77a330e76"
+    },
+    {
+      "chapter_id": "WC-006",
+      "chapter_order": 6,
+      "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-006.candidate.json",
+      "candidate_json_sha256": "4e92ac5658151bfdc729e991393c681e636b803bfbbb59b1a9280e5cfb023522",
+      "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-006.run.json",
+      "run_json_sha256": "d18e292fd009f57393a919b80cb77b505de8a55a8ef233120d6c2b859f4f50ee",
+      "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-006.events.jsonl",
+      "events_jsonl_sha256": "c3299f9d735195d2bc1980d57b7e1e7e4c6c0de64dd60a1be313f33deaf6c621"
+    },
+    {
+      "chapter_id": "WC-007",
+      "chapter_order": 7,
+      "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-007.candidate.json",
+      "candidate_json_sha256": "d78f85cd7c4b02eca077a30edc4e59360c766bc1ede70c9e6f5002c289278974",
+      "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-007.run.json",
+      "run_json_sha256": "e0213362f830c685632744e06154f4363cbf5c28c928d3c63bbe20662a3046d8",
+      "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-007.events.jsonl",
+      "events_jsonl_sha256": "c65f5321e30bf6ea318c0ceee33b04998fb9b0beb182d0b8dec8c58cea5d44ee"
+    },
+    {
+      "chapter_id": "WC-008",
+      "chapter_order": 8,
+      "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-008.candidate.json",
+      "candidate_json_sha256": "ce8ed3ab0e6ff60c7d8f3adfab04ece30069c029c6514048dbe715ea2b8ac58d",
+      "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-008.run.json",
+      "run_json_sha256": "a737ac8aadd37f39bd6702e1b1c0eecbbda74bebb4514817515d4cf6dc27353f",
+      "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-008.events.jsonl",
+      "events_jsonl_sha256": "1a32a06ade59f0b70c227c53d5a09dae19bac195af002e7356463f21460baf17"
+    }
+  ],
+  "generated_from": {
+    "chapter_production_index_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\chapter_production_index.json",
+    "chapter_production_index_sha256": "683edad8e36d77d65fb4e4a7003580092ca2d428164c856a2405fa2d7c2061f2"
+  },
+  "generated_at": "2026-08-07T03:05:39.824557+00:00"
+}

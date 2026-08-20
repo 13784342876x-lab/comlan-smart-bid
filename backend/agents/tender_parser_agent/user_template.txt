@@ -1,0 +1,7 @@
+招标文件来源：
+{source}
+
+招标文件文本：
+{document_text}
+
+请按 system 指令输出评分项驱动的标书生成任务结构 JSON。

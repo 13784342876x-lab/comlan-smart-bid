@@ -1,0 +1,820 @@
+{
+  "schema_version": "technical_response_outline_v2",
+  "generated_at": "2026-07-21T02:37:02.610873+00:00",
+  "scope": "technical_only",
+  "source_mode": "manually_selected_files",
+  "input_dir": "D:\\comlan智标\\backend\\.outline_smoke_input",
+  "project": {
+    "project_name": "",
+    "package_code": "",
+    "package_name": ""
+  },
+  "source_files": [
+    {
+      "file_id": "selected_29ababe69dd59617",
+      "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+      "relative_path": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+      "sha256": "29ababe69dd5961735aa8cef5c664307ed34590725e262665c03e47080e6eb3e",
+      "source_category": "technical_specification",
+      "parse_status": "parsed",
+      "parse_warnings": []
+    },
+    {
+      "file_id": "selected_bb6051d926379aa3",
+      "file_name": "评标办法-服务（截选后的）.docx",
+      "relative_path": "评标办法-服务（截选后的）.docx",
+      "sha256": "bb6051d926379aa31effce2d4ae49969d614853e7f6d70ebe8498d6b7da2ca68",
+      "source_category": "technical_score",
+      "parse_status": "parsed",
+      "parse_warnings": []
+    }
+  ],
+  "chapters": [
+    {
+      "chapter_id": "CH-001",
+      "title": "技术规范书—1.1 招标目的",
+      "source_category": "technical_specification",
+      "original_heading": "1.1 招标目的",
+      "response_points": [
+        {
+          "point_id": "TR-001",
+          "original_text": "1.1招标目的\n随着工业数据量的激增，数据安全和监管面临诸多挑战。传统数据存储方式易受篡改和丢失，难以满足工业数据对真实性和可追溯性的高要求。区块链技术的引入为数据存证提供了新思路，但其在实际应用中仍存在诸多问题。首先，区块链的性能瓶颈限制了其在大规模工业数据环境中的应用。其次，数据隐私保护与区块链的公开性存在矛盾，如何在确保数据透明度的同时保护企业隐私，是一个亟待解决的问题。此外，监管机构在接入区块链网络时面临技术门槛和数据共享机制不完善等问题，难以实现有效的协同审查和隐私审查。\n基于区块链的工业数据技术研究具有重要意义。首先，区块链的不可篡改性和可追溯性为数据存证提供了可靠保障，能够有效提升数据的真实性和安全性。其次，通过属性访问控制等技术，可以实现数据的细粒度管理和安全访问，满足工业数据复杂场景下的权限需求。此外，区块链技术有助于构建可信的数据监管平台，使监管部门能够实时、准确地获取数据，进行协同审查和隐私审查，提高监管效率和公信力。\n本项目研究基于区块链的工业数据技术，包括基于区块链的工业数据存证技术、基于区块链的工业数据安全访问技术、基于区块链的工业数据监管技术和基于区块链的数据隐私保护技术的研究，从而保障数据安全、促进数据合规共享和提升监管效能。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 1.1 招标目的",
+              "original_number": "1.1",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_51"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-002",
+      "title": "技术规范书—1.2 招标要求",
+      "source_category": "technical_specification",
+      "original_heading": "1.2 招标要求",
+      "response_points": [
+        {
+          "point_id": "TR-002",
+          "original_text": "1.2招标要求\n（1）本招标文件的内容包括基于区块链的工业数据管理技术研究项目研究的功能需求、设计方案、项目验收、技术培训、技术服务、项目文档等。\n（2）投标人应该提供满足本规范书中要求的全部技术研究内容、研究技术指标、培训和服务。投标人应保证所采用的技术是先进的、成熟的，并且是全新的。\n（3）本招标文件仅提出了最低限度的技术要求，并未对全部技术细节做出规定，投标人应保证提供符合本招标文件规范书及国际国内工业标准的优质产品。\n（4）投标人必须满足本招标文件中主要项目的要求，否则其建议书将被拒绝并被认作没有回答。如果投标人没有以书面形式对本规范书的条文提出异议，则意味着投标人提供的系统完全符合本规范书的要求。如有异议，都应在投标文件的技术偏差表中详细说明。\n（5）投标人必须提供一个准确的陈述。对每个单项研究成果，投标人在投标时必须使用原厂商的正式技术指标说明语言。\n（6）投标人在投标建议书中建议的每个技术方案必须逐一说明。投标人认为需特殊说明的部分应附详细的技术资料或参数表，否则，由于评标理解不同，产生的后果由投标人负责。\n（7）本招标文件所使用的标准如与投标人所执行的标准发生矛盾时，按较高标准执行。\n（8）技术协议书应以本招标文件为蓝本，加入招标方认可的偏差，经供需双方确认后作为合同的技术附件，与合同正文具有同等效力。双方的技术联络、配合文件和有关的会议纪要也与合同正文具有同等效力。\n（9）投标人应在投标文件中郑重承诺对投标产品严格按技术方案要求提供技术服务，其中包括技术咨询服务、培训服务及驻场支撑等。\n（10）该项目所要求研究内容的完工日期定为2025年12月底前。",
+          "content_type": "attachment_requirement",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 1.2 招标要求",
+              "original_number": "1.2",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_55"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-003",
+      "title": "技术规范书—1. 方案建议书",
+      "source_category": "technical_specification",
+      "original_heading": "1. 方案建议书",
+      "response_points": [
+        {
+          "point_id": "TR-003",
+          "original_text": "1.方案建议书\n投标人的技术方案建议书对于本招标文件所给出的各项要求应给予明确应答，指出方案建议书的特点，并能保证研发技术的正确、安全和性能，对本项目工程的关键点和难点应有完备的解决方案。\n投标人对项目的工程实施、技术支持、技术培训、质量保证措施、售前售后等服务项目给予招标方提供的优惠条件，应在文件中说明。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 1. 方案建议书",
+              "original_number": "1",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_67"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-004",
+      "title": "技术规范书—2. 项目实施与技术服务计划",
+      "source_category": "technical_specification",
+      "original_heading": "2. 项目实施与技术服务计划",
+      "response_points": [
+        {
+          "point_id": "TR-004",
+          "original_text": "2.项目实施与技术服务计划\n项目实施与技术服务计划应包括：技术研发、技术支持、售后服务、培训等工作组织实施方面的内容。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 2. 项目实施与技术服务计划",
+              "original_number": "2",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_70"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-005",
+      "title": "技术规范书—3. 成果明细表",
+      "source_category": "technical_specification",
+      "original_heading": "3. 成果明细表",
+      "response_points": [
+        {
+          "point_id": "TR-005",
+          "original_text": "3.成果明细表\n投标人应用列表方式列明所投标的每一产品（成果）的名称、数量等。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 3. 成果明细表",
+              "original_number": "3",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_72"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-006",
+      "title": "技术规范书—4. 技术培训",
+      "source_category": "technical_specification",
+      "original_heading": "4. 技术培训",
+      "response_points": [
+        {
+          "point_id": "TR-006",
+          "original_text": "4.技术培训\n投标人应对技术培训给出详细的培训计划。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 4. 技术培训",
+              "original_number": "4",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_74"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-007",
+      "title": "技术规范书—2.1 概述",
+      "source_category": "technical_specification",
+      "original_heading": "2.1 概述",
+      "response_points": [
+        {
+          "point_id": "TR-007",
+          "original_text": "2.1概述\n（1）本技术规范书描述基于区块链的工业数据管理技术研究项目的技术规范。\n（2）投标人除提供基于区块链的工业数据管理技术研究项目技术研发外，承担的本工程内容包括以下部分，但不限于此：\n现场汇报\n投标人提供的合同范围内的技术方案现场汇报。\n技术服务\n设计方案、安全分析、性能测试，及技术支持、培训等相关服务。\n现场验收\n用户技术培训\n售后服务\n投标人应保证所提供研究成果的合理及完整性，并给出合理的建议。因技术方案的缺陷而影响技术实施与应用，投标人应负完全的责任。",
+          "content_type": "numbered_list",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 2.1 概述",
+              "original_number": "2.1",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_77"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-008",
+      "title": "技术规范书—2.2 投标方职责",
+      "source_category": "technical_specification",
+      "original_heading": "2.2 投标方职责",
+      "response_points": [
+        {
+          "point_id": "TR-008",
+          "original_text": "2.2投标方职责\n（1）合同期内成立项目组，明确负责人，为买方提供项目管理服务。\n（2）参与本项目召开的有关联席会。\n（3）保证提供的研发技术方案的质量、性能及技术指标完全满足本技术规范书要求。\n（4）负责对买方运行人员的技术培训。\n（5）负责提供技术研发内容的所有技术文件资料，图纸和用户手册等。\n（6）卖方应对最终提供的全部技术资料的准确性负责。",
+          "content_type": "numbered_list",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 2.2 投标方职责",
+              "original_number": "2.2",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_88"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-009",
+      "title": "技术规范书—2.3 招标方职责",
+      "source_category": "technical_specification",
+      "original_heading": "2.3 招标方职责",
+      "response_points": [
+        {
+          "point_id": "TR-009",
+          "original_text": "2.3招标方职责\n（1）负责向卖方解释技术规范书中的要求。\n（2）负责卖方所有研发技术方案的质量、价格及售后服务的确认。\n（3）负责提供与本工程有关的技术资料、参数。\n（4）确认卖方提供的技术方案、图纸资料及验收工作。\n（5）负责为卖方来现场的工作人员提供工作方便。",
+          "content_type": "numbered_list",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 2.3 招标方职责",
+              "original_number": "2.3",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_95"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-010",
+      "title": "技术规范书—3.1 概述",
+      "source_category": "technical_specification",
+      "original_heading": "3.1 概述",
+      "response_points": [
+        {
+          "point_id": "TR-010",
+          "original_text": "3.1概述\n除本技术规范书特殊规定外，卖方所提供的设备均按下文所列标准和规程进行设计、开发、检验和实施。要求所用标准必须是最新版本，如果这些标准有矛盾时，应按最高标准的条款执行或按双方商定的标准执行，如果卖方选用本技术规范书规定以外的标准时，需提交替换标准相当或优于技术规范书规定的标准的证明。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 3.1 概述",
+              "original_number": "3.1",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_102"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-011",
+      "title": "技术规范书—3.2 适用标准",
+      "source_category": "technical_specification",
+      "original_heading": "3.2 适用标准",
+      "response_points": [
+        {
+          "point_id": "TR-011",
+          "original_text": "3.2适用标准\n卖方应根据本技术规范书中提出的施工范围、功能和技术要求进行资料的收集工作，不应根据以往工程经验虚设参数，应按实际现场情况收集和开发。\n本规范书参照以下有关标准：\n《信息安全技术 网络安全等级保护基本要求》（GB/T 22239-2019）\n《区块链和分布式记账技术 参考架构》（GB/T 42752-2023）\n《电力监控系统网络安全防护导则》（GB/T 36572-2018）\n《电力监控系统本体安全防护技术规范》（Q/GDW 11766-2017）\n《信息技术 大数据 数据资源规划》（GB/T 42450-2023）",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 3.2 适用标准",
+              "original_number": "3.2",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_104"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-012",
+      "title": "技术规范书—1、基于区块链的工业数据存证技术",
+      "source_category": "technical_specification",
+      "original_heading": "1、基于区块链的工业数据存证技术",
+      "response_points": [
+        {
+          "point_id": "TR-012",
+          "original_text": "1、基于区块链的工业数据存证技术\n研究基于区块链的工业数据存证技术。本研究设计工业数据的链上链下协同安全存储方法，利用链上链下协同存储技术降低链上数据的存储开销，采用主链和企业链协同存储以保护不同敏感程度的工业数据安全；并设计检索信息的引导集，打破传统检索过程中检索索引和查询对象之间一对一的关系，确保工业数据信息检索过程中的安全性。另外，研究基于同态哈希的完整性验证、基于Schnorr 签名的数字签名验证以及基于业务逻辑的合规性验证等密态数据验证技术，构建面向密态电子数据可查验需求的智能合约组件，保障密态数据不被篡改、来源可信、逻辑合规。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 1、基于区块链的工业数据存证技术",
+              "original_number": "1",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_114"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-013",
+      "title": "技术规范书—2、基于区块链的工业数据安全访问技术",
+      "source_category": "technical_specification",
+      "original_heading": "2、基于区块链的工业数据安全访问技术",
+      "response_points": [
+        {
+          "point_id": "TR-013",
+          "original_text": "2、基于区块链的工业数据安全访问技术\n研究基于区块链的工业数据安全访问技术。本研究设计一种安全查询编码方法，通过将查询编码中的安全码字段与属性基加密技术相结合，实现查询数据细粒度权限划分；并设计一种基于属性的访问控制方法，该方法具备可撤销、可审计、可追踪的安全特性。本研究还设计轻量级基于属性签名的访问控制机制，通过解耦企业用户属性公钥与访问控制策略，利用智能合约实现离线验证并记录企业用户行为，确保企业用户行为的可审计性；同时，支持在访问控制策略变更时，不需要企业用户进行额外操作，降低计算开销。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 2、基于区块链的工业数据安全访问技术",
+              "original_number": "2",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_116"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-014",
+      "title": "技术规范书—3、基于区块链的工业数据监管技术",
+      "source_category": "technical_specification",
+      "original_heading": "3、基于区块链的工业数据监管技术",
+      "response_points": [
+        {
+          "point_id": "TR-014",
+          "original_text": "3、基于区块链的工业数据监管技术\n研究基于区块链的工业数据监管技术。本研究设计监管用户机制，每轮选举监管用户，监管用户负责处理采集数据上链请求、监管异常数据上链行为、整合数据打包上链。本研究还设计反向监管机制，普通企业用户反向监督监管用户的行为，一旦发现监管用户的不诚实行为，立即提交证据触发监管智能合约，对不诚实的监管用户做出惩罚。另外，本研究设计基于拟态防御的查找表作为瞭望塔存储结构，瞭望塔结构实现工业数据的监管，并使用Paillier 密码的同态性完成工业数据的安全聚合，实现工业数据的监管与隐私保护。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 3、基于区块链的工业数据监管技术",
+              "original_number": "3",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_118"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-015",
+      "title": "技术规范书—4、基于区块链的工业数据隐私保护技术",
+      "source_category": "technical_specification",
+      "original_heading": "4、基于区块链的工业数据隐私保护技术",
+      "response_points": [
+        {
+          "point_id": "TR-015",
+          "original_text": "4、基于区块链的工业数据隐私保护技术\n研究基于区块链的工业数据隐私保护技术。本研究设计基于区块链的工业数据联邦学习模型，结合同态加密技术和分布式密钥生成技术，通过密钥生成合约构建同态加密公私钥与重线性化密钥，然后通过聚合合约执行联邦学习模型参数的安全聚合，该区块链联邦学习模型可以有效保证密钥隐私与模型参数隐私，实现区块链联邦学习安全聚合。另外，本研究还设计一种带噪声的隐私计算方法，通过向工业计算数据中添加噪声项，噪声项参与计算过程，但是不影响计算结果的准确性，有效保护了用户的敏感信息不被泄露，同时保证了计算过程中的数据隐私安全。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 4、基于区块链的工业数据隐私保护技术",
+              "original_number": "4",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_120"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-016",
+      "title": "技术规范书—4.2 研究技术指标要求",
+      "source_category": "technical_specification",
+      "original_heading": "4.2 研究技术指标要求",
+      "response_points": [
+        {
+          "point_id": "TR-016",
+          "original_text": "4.2研究技术指标要求\n本研究对各项技术有以下指标要求：",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 4.2 研究技术指标要求",
+              "original_number": "4.2",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_123"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-017",
+      "title": "技术规范书—1、完成基于区块链的工业数据存证技术设计",
+      "source_category": "technical_specification",
+      "original_heading": "1、完成基于区块链的工业数据存证技术设计",
+      "response_points": [
+        {
+          "point_id": "TR-017",
+          "original_text": "1、完成基于区块链的工业数据存证技术设计\n链上链下协同存储功能需求：提供数据加密、链下数据存储、链上数据存储等安全存储功能，支持不同种类企业数据的安全检索；\n存证智能合约组件功能需求：存证智能合约组件支持完整性验证、数字签名验证和合规性验证；\n安全性证明：理论证明链上链下存储方法在相关安全模型下是安全的，并能够分析检索过程的安全性；\n性能效果分析：能够提供链上链下协同安全存储方法的存储效率和吞吐量性能开销分析。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 1、完成基于区块链的工业数据存证技术设计",
+              "original_number": "1",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_125"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-018",
+      "title": "技术规范书—2、完成基于区块链的工业数据安全访问技术设计",
+      "source_category": "technical_specification",
+      "original_heading": "2、完成基于区块链的工业数据安全访问技术设计",
+      "response_points": [
+        {
+          "point_id": "TR-018",
+          "original_text": "2、完成基于区块链的工业数据安全访问技术设计\n安全查询编码功能需求：支持权限信息嵌入查询编码，并保证查询编码的安全性；\n访问控制功能需求：支持撤销属性和用户，且可直接撤销查询编码，并且支持对用户行为的分布式审计；\n方案正确性：能够通过理论验证访问控制方法的正确性；\n安全性证明：理论证明访问控制方法在相关安全模型下是安全的，并具有可追溯性和可审计性；\n性能效果分析：提供访问控制方法在初始化、加密、密钥生成、解密等阶段性能开销分析，提供对用户撤销、属性撤销和查询编码撤销的性能开销分析。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 2、完成基于区块链的工业数据安全访问技术设计",
+              "original_number": "2",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_130"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-019",
+      "title": "技术规范书—3、完成基于区块链的工业数据监管技术设计",
+      "source_category": "technical_specification",
+      "original_heading": "3、完成基于区块链的工业数据监管技术设计",
+      "response_points": [
+        {
+          "point_id": "TR-019",
+          "original_text": "3、完成基于区块链的工业数据监管技术设计\n监管功能需求：支持监管用户选举、反向监管等功能，提供详细的监管过程和监管智能合约；\n监管完整性：设计包括维护交易通道的五个基本智能合约和对交易过程实施监管的两个合约的智能合约。从过程完整性的角度，可以证明链上智能合约的设计是完整的，使得多级安全监管机制的链上部分实现了安全；\n安全性：通过对链上链下数据安全监管方案进行详尽的安全性分析，证明技术方案在安全监管、抵抗共谋方面有较好的效果。\n性能效果分析：提供性能开销、监管机制对比、智能合约开销等性能分析。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 3、完成基于区块链的工业数据监管技术设计",
+              "original_number": "3",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_136"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-020",
+      "title": "技术规范书—4、完成基于区块链的工业数据隐私保护技术设计",
+      "source_category": "technical_specification",
+      "original_heading": "4、完成基于区块链的工业数据隐私保护技术设计",
+      "response_points": [
+        {
+          "point_id": "TR-020",
+          "original_text": "4、完成基于区块链的工业数据隐私保护技术设计\n联邦隐私计算功能需求：基于区块链的工业数据联邦学习模型能够抵御模型参数隐私泄露、加密密钥隐私泄露、女巫攻击等安全威胁；\n隐私计算功能需求：带噪声的隐私计算方法能够抵御数据隐私泄露攻击、伪造攻击，确保链下计算任务的安全性；\n可靠性：确保在联邦学习模型参数聚合中，系统能够可靠、有效地完成任务，而不对模型精度产生不必要的损失；\n安全性分析：证明分析相关攻击方法在概率计算上是不可行的；\n性能效果分析：提供隐私计算开销、计算验证开销、智能合约开销等性能分析。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 4、完成基于区块链的工业数据隐私保护技术设计",
+              "original_number": "4",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_141"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-021",
+      "title": "技术规范书—4.4 其他相关要求",
+      "source_category": "technical_specification",
+      "original_heading": "4.4 其他相关要求",
+      "response_points": [
+        {
+          "point_id": "TR-021",
+          "original_text": "4.4其他相关要求\n有关电网方式申请及开展项目研究所需装备、工器具、仪器全部由投标人提供。\n相关工作方案审批手续全部由投标人负责。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 4.4 其他相关要求",
+              "original_number": "4.4",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_151"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-022",
+      "title": "技术规范书—5. 技术培训",
+      "source_category": "technical_specification",
+      "original_heading": "5. 技术培训",
+      "response_points": [
+        {
+          "point_id": "TR-022",
+          "original_text": "5.技术培训\n（1）应答人必须提供包括研究成果的培训工作。\n（2）应答人应配备具有相关知识的培训教员。\n（3）应答人应根据需要提供现场培训，由实施人员负责，与项目单位协商培训内容、对象和计划。培训次数和培训地点根据国家电网公司的实际需求决定。\n（4）应答人应提供通俗易懂的培训材料，培训材料应包含电子文本。",
+          "content_type": "numbered_list",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 5. 技术培训",
+              "original_number": "5",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_154"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-023",
+      "title": "技术规范书—6. 验收测试",
+      "source_category": "technical_specification",
+      "original_heading": "6. 验收测试",
+      "response_points": [
+        {
+          "point_id": "TR-023",
+          "original_text": "6.验收测试\n由于卖方责任，各阶段验收不能按时完成而引起费用的增加及造成的损失由卖方负责。",
+          "content_type": "paragraph",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 6. 验收测试",
+              "original_number": "6",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_159"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-024",
+      "title": "技术规范书—6.1 测试验收基本要求",
+      "source_category": "technical_specification",
+      "original_heading": "6.1 测试验收基本要求",
+      "response_points": [
+        {
+          "point_id": "TR-024",
+          "original_text": "6.1测试验收基本要求\n测试和验收是对合同执行情况的全面检查，验收的结果是卖方提供的技术成果、技术指标能否被买方接受的主要依据。测试和验收要求如下：\n（1）测试项目必须完整，要检查到研发技术方案的每个部分及每项功能、资料等，通过测试全面考核本规范书中各项技术要求。\n（2）测试标准依据本技术规范书，结合国标、部标、仿真对象的有关技术规程、运行规程、设计资料、设备资料和有关计算资料，同时结合参照对象运行工程师和有关专家的经验制定，必须严格、精确、完整。\n（3）卖方在测试验收开始前一个月提交验收大纲，验收大纲须经买方作出必要的修改和补充，批准后方能生效，作为测试的依据。\n（4）卖方在各阶段验收测试前一个月提供详细的验收大纲，大纲应提供各阶段所有验收的细则，细则制定的试验项目以及达到的性能指标不得低于本技术规范书的要求，内容包括：测试项目、测试范围、测试标准和依据、测试原理、测试有效性准则、测试步骤、测试人员组织、测试时间地点和测试仪器配置等。\n（5）买方有权提出一些合理的、必要的特殊测试。",
+          "content_type": "numbered_list",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 6.1 测试验收基本要求",
+              "original_number": "6.1",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_161"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-025",
+      "title": "技术规范书—6.2 测试验收内容",
+      "source_category": "technical_specification",
+      "original_heading": "6.2 测试验收内容",
+      "response_points": [
+        {
+          "point_id": "TR-025",
+          "original_text": "6.2测试验收内容\n（1）提交《基于区块链的工业数据管理技术研究》技术报告。\n（2）受理发明专利1项。\n（3）形成基于区块链的工业数据管理技术国际标准初稿1份。。",
+          "content_type": "numbered_list",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 6.2 测试验收内容",
+              "original_number": "6.2",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_168"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-026",
+      "title": "技术规范书—7. 质量保证要求与售后服务",
+      "source_category": "technical_specification",
+      "original_heading": "7. 质量保证要求与售后服务",
+      "response_points": [
+        {
+          "point_id": "TR-026",
+          "original_text": "7.质量保证要求与售后服务\n（1）研发技术指标，达到方案设计要求。\n（2）所有技术方案应是全新的，且应按最佳方式进行设计。所用材料最大限度地适合使用，设计和材料应尽可能增加使用寿命和运行的可靠性，不易磨损，容易维护、检验和调整。\n（3）在系统集成商服务不够及时，或在用户认为必要的时机，卖方应直接面向用户对自己的产品提供技术支持服务，包括技术咨询，驻场支持等。对此，卖方应提供书面保证，并作为合同的有效组成部分。\n（4）卖方应明确其承诺的质保期内、质保期外售后服务方式、响应时间、到达现场时间、修复时间，包括远程访问与现场服务形式。\n（5）卖方需明确在系统质保期后能否继续提供系统维护服务，以及其服务的内容与报价。",
+          "content_type": "numbered_list",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_29ababe69dd59617",
+              "file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+              "clause_path": "附件3：项目招标文件模板 > 7. 质量保证要求与售后服务",
+              "original_number": "7",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "",
+              "row_or_cell": "paragraph_172"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "CH-027",
+      "title": "技术评分标准—附表四：技术评分标准",
+      "source_category": "technical_score",
+      "original_heading": "附表四：技术评分标准",
+      "response_points": [
+        {
+          "point_id": "TR-027",
+          "original_text": "项目\t评分细则\t评分细则\n1.应答文件技术部分总体评价（6-10分）\t1.应答文件技术部分总体评价（6-10分）\t对应答文件技术内容的规范性、完整性、逻辑性等方面进行评审。\n优：9-10分\n良：7-8分\n一般：6分\n2.项目团队（12-20分）\t2.项目团队（12-20分）\t对项目负责人（指专业、工作年限、工作经验等）情况进行评审。\n优：10分 \n良：8-9分 \n一般：6-7分\n2.项目团队（12-20分）\t2.项目团队（12-20分）\t对项目团队的人员结构（指专业、工作年限、工作经验等）配置情况进行评审。\n优：10分 \n良：8-9分 \n一般：6-7分\n3．业绩情况（12-20分）\t3．业绩情况（12-20分）\t对满足公告专用资格条件要求的业绩情况进行评审，具有1项合格业绩的得12分，每多提供一项合格业绩加2分，最高加8分。\n4．服务方案（18-30分）\t4．服务方案（18-30分）\t从服务方案、管理组织、设备设施配置情况的先进性、创新性、可操作性、技术性、经济性、风险等方面进行综合评价。\n优：27-30分\n良：22-26分\n5．工作进度及保证措施（3-8分）\t5．工作进度及保证措施（3-8分）\t从工作进度及保证措施的合理性、可操作性等方面等进行评审。\n优：7-8分\n良：5-6分\n一般：3-4分\n6.工作基础（0-5分）\t6.工作基础（0-5分）\t本项最高5分。与采购项目有关的产品开发：已经产品化的5分，有产品的3分，无产品的0分。\n与采购项目有关的科技成果：省级及以上5分，市级3分，没有0分。\n与采购项目有关的专题研究：合理、可行5分，一般3分，没有0分。\n7.专利数量\n（0-2分）\t7.专利数量\n（0-2分）\t提供采购相关内容的发明专利或实用新型专利，每提供1项加1分，上限不超过2分。\n8．绩效评价（1-5分）\t8．绩效评价（1-5分）\t根据最近一年度招标人对投标人/联合体牵头人（联合体牵头人所得分数即为联合体此项分数）的评价结果进行分类分级打分。\nA（优秀）：供应商绩效评价大于等于90。5分\nB（良好）：供应商绩效评价大于等于80小于90。4分\nC（一般）：供应商绩效评价大于等于60小于80。3分\nD（及格）：供应商绩效评价大于等于30小于60。2分\nE（不及格）：供应商绩效评价小于30。1分\n未参加绩效评价：4分",
+          "content_type": "table",
+          "mandatory_marker": "",
+          "source_refs": [
+            {
+              "file_id": "selected_bb6051d926379aa3",
+              "file_name": "评标办法-服务（截选后的）.docx",
+              "clause_path": "附表四：技术评分标准",
+              "original_number": "",
+              "page": null,
+              "sheet_name": "",
+              "table_name": "附表四：技术评分标准",
+              "row_or_cell": "A1:C10"
+            }
+          ],
+          "table": {
+            "rows": [
+              [
+                "项目",
+                "评分细则",
+                "评分细则"
+              ],
+              [
+                "1.应答文件技术部分总体评价（6-10分）",
+                "1.应答文件技术部分总体评价（6-10分）",
+                "对应答文件技术内容的规范性、完整性、逻辑性等方面进行评审。\n优：9-10分\n良：7-8分\n一般：6分"
+              ],
+              [
+                "2.项目团队（12-20分）",
+                "2.项目团队（12-20分）",
+                "对项目负责人（指专业、工作年限、工作经验等）情况进行评审。\n优：10分 \n良：8-9分 \n一般：6-7分"
+              ],
+              [
+                "2.项目团队（12-20分）",
+                "2.项目团队（12-20分）",
+                "对项目团队的人员结构（指专业、工作年限、工作经验等）配置情况进行评审。\n优：10分 \n良：8-9分 \n一般：6-7分"
+              ],
+              [
+                "3．业绩情况（12-20分）",
+                "3．业绩情况（12-20分）",
+                "对满足公告专用资格条件要求的业绩情况进行评审，具有1项合格业绩的得12分，每多提供一项合格业绩加2分，最高加8分。"
+              ],
+              [
+                "4．服务方案（18-30分）",
+                "4．服务方案（18-30分）",
+                "从服务方案、管理组织、设备设施配置情况的先进性、创新性、可操作性、技术性、经济性、风险等方面进行综合评价。\n优：27-30分\n良：22-26分"
+              ],
+              [
+                "5．工作进度及保证措施（3-8分）",
+                "5．工作进度及保证措施（3-8分）",
+                "从工作进度及保证措施的合理性、可操作性等方面等进行评审。\n优：7-8分\n良：5-6分\n一般：3-4分"
+              ],
+              [
+                "6.工作基础（0-5分）",
+                "6.工作基础（0-5分）",
+                "本项最高5分。与采购项目有关的产品开发：已经产品化的5分，有产品的3分，无产品的0分。\n与采购项目有关的科技成果：省级及以上5分，市级3分，没有0分。\n与采购项目有关的专题研究：合理、可行5分，一般3分，没有0分。"
+              ],
+              [
+                "7.专利数量\n（0-2分）",
+                "7.专利数量\n（0-2分）",
+                "提供采购相关内容的发明专利或实用新型专利，每提供1项加1分，上限不超过2分。"
+              ],
+              [
+                "8．绩效评价（1-5分）",
+                "8．绩效评价（1-5分）",
+                "根据最近一年度招标人对投标人/联合体牵头人（联合体牵头人所得分数即为联合体此项分数）的评价结果进行分类分级打分。\nA（优秀）：供应商绩效评价大于等于90。5分\nB（良好）：供应商绩效评价大于等于80小于90。4分\nC（一般）：供应商绩效评价大于等于60小于80。3分\nD（及格）：供应商绩效评价大于等于30小于60。2分\nE（不及格）：供应商绩效评价小于30。1分\n未参加绩效评价：4分"
+              ]
+            ],
+            "row_numbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "merged_cells": []
+          }
+        }
+      ]
+    }
+  ],
+  "build_warnings": [],
+  "statistics": {
+    "source_file_count": 2,
+    "parsed_source_file_count": 2,
+    "chapter_count": 27,
+    "response_point_count": 27,
+    "table_point_count": 1,
+    "exact_duplicate_count": 0,
+    "response_points_by_source_category": {
+      "procurement_document": 0,
+      "project_requirement": 0,
+      "technical_specification": 26,
+      "technical_attachment": 0,
+      "technical_score": 1,
+      "technical_format": 0
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-15T03:00:50.593751+00:00",
+  "lot_name": "0425139003001-6582",
+  "generated_from": "chapter_drafts.json",
+  "total_chapters": 9,
+  "generated_count": 0,
+  "generated_with_placeholders_count": 3,
+  "partial_count": 6,
+  "blocked_count": 0,
+  "failed_count": 0,
+  "placeholder_count": 7,
+  "tender_fact_claim_count": 9,
+  "confirmed_enterprise_fact_claim_count": 0,
+  "proposal_statement_count": 35,
+  "commitment_statement_count": 11,
+  "cautious_reference_count": 0,
+  "prohibited_claim_count": 0,
+  "requirements_total": 89,
+  "requirements_covered": 88,
+  "requirements_pending": 1,
+  "requirement_reference_total": 116,
+  "requirement_reference_covered": 110,
+  "requirement_reference_pending": 6,
+  "must_respond_total": 87,
+  "must_respond_covered": 86,
+  "must_respond_pending": 1,
+  "fatal_requirement_total": 2,
+  "fatal_requirement_covered": 2,
+  "fatal_requirement_pending": 0,
+  "score_items_total": 9,
+  "score_items_covered": 9,
+  "evidence_ids_used": [],
+  "prohibited_evidence_attempts": [],
+  "unsupported_claims_detected": [],
+  "chapter_results": [
+    {
+      "chapter_id": "task_015_technical_01_应答文件技术部分总体评价",
+      "chapter_title": "应答文件技术部分总体评价",
+      "generation_status": "generated_with_placeholders",
+      "character_count": 641,
+      "placeholder_count": 1,
+      "validation_passed": true,
+      "errors": []
+    },
+    {
+      "chapter_id": "task_016_technical_02_项目负责人情况",
+      "chapter_title": "项目负责人情况",
+      "generation_status": "partial",
+      "character_count": 387,
+      "placeholder_count": 2,
+      "validation_passed": true,
+      "errors": []
+    },
+    {
+      "chapter_id": "task_017_technical_03_项目团队人员结构",
+      "chapter_title": "项目组织与团队配置",
+      "generation_status": "partial",
+      "character_count": 367,
+      "placeholder_count": 2,
+      "validation_passed": true,
+      "errors": []
+    },
+    {
+      "chapter_id": "task_018_technical_04_业绩情况",
+      "chapter_title": "业绩与项目经验",
+      "generation_status": "partial",
+      "character_count": 399,
+      "placeholder_count": 2,
+      "validation_passed": true,
+      "errors": []
+    },
+    {
+      "chapter_id": "task_019_technical_05_服务方案",
+      "chapter_title": "总体服务方案",
+      "generation_status": "generated_with_placeholders",
+      "character_count": 806,
+      "placeholder_count": 1,
+      "validation_passed": true,
+      "errors": []
+    },
+    {
+      "chapter_id": "task_020_technical_06_工作进度及保证措施",
+      "chapter_title": "实施计划与进度保障",
+      "generation_status": "generated_with_placeholders",
+      "character_count": 640,
+      "placeholder_count": 1,
+      "validation_passed": true,
+      "errors": []
+    },
+    {
+      "chapter_id": "task_021_technical_07_工作基础",
+      "chapter_title": "工作基础与既有能力",
+      "generation_status": "partial",
+      "character_count": 347,
+      "placeholder_count": 2,
+      "validation_passed": true,
+      "errors": []
+    },
+    {
+      "chapter_id": "task_022_technical_08_专利数量",
+      "chapter_title": "专利 / 知识产权 / 创新成果",
+      "generation_status": "partial",
+      "character_count": 335,
+      "placeholder_count": 2,
+      "validation_passed": true,
+      "errors": []
+    },
+    {
+      "chapter_id": "task_023_technical_09_绩效评价",
+      "chapter_title": "绩效评价材料",
+      "generation_status": "partial",
+      "character_count": 308,
+      "placeholder_count": 2,
+      "validation_passed": true,
+      "errors": []
+    }
+  ],
+  "build_warnings": [
+    "自动生成测试草稿，包含待确认和待补充占位符，不得直接作为正式投标终稿。",
+    "当前没有可写入草稿的 confirmed enterprise fact。",
+    "当前项目仅配置 mock LLM；本次未调用 mock，结果为 deterministic_preview。"
+  ]
+}

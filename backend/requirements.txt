@@ -1,0 +1,11 @@
+chromadb
+python-dotenv
+openai
+jsonschema
+pydantic
+typer
+rich
+python-docx
+openpyxl
+python-pptx
+PyMuPDF

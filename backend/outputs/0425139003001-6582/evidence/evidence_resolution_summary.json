@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-13T07:06:53.466069+00:00",
+  "lot_name": "0425139003001-6582",
+  "generated_from": "evidence_coverage_matrix.json",
+  "resolution_statistics": {
+    "raw_manual_review_count": 262,
+    "resolution_case_count": 25,
+    "resolved_case_count": 0,
+    "subject_type_counts": {
+      "certificate_identity": 9,
+      "certificate_validity": 6,
+      "evidence_document": 2,
+      "evidence_package": 1,
+      "person_availability": 2,
+      "person_department": 2,
+      "person_role": 2,
+      "support_applicability": 1
+    },
+    "status_counts": {
+      "pending": 25
+    },
+    "blocking_level_counts": {
+      "blocks_confirmed_evidence": 23,
+      "blocks_full_score_assessment": 1,
+      "blocks_mandatory_response": 1
+    },
+    "blocks_confirmed_evidence_count": 23
+  },
+  "material_intake_statistics": {
+    "intake_package_count": 32,
+    "owner_counts": {
+      "人力资源或项目管理部门": 6,
+      "企业资质或综合管理部门": 15,
+      "财务或法务合规部门": 7,
+      "销售、合同或项目交付部门": 4
+    },
+    "status_counts": {
+      "not_requested": 18,
+      "received_pending_review": 14
+    }
+  },
+  "confirmed_change": {
+    "previous": 0,
+    "current": 0,
+    "delta": 0
+  },
+  "quantity_gap_changes": [
+    {
+      "score_item_id": "business_05_绿色管理体系认证",
+      "score_item_name": "绿色管理体系认证",
+      "previous_remaining_gap": 4,
+      "current_remaining_gap": 4
+    },
+    {
+      "score_item_id": "business_06_环境影响评价",
+      "score_item_name": "环境影响评价",
+      "previous_remaining_gap": 2,
+      "current_remaining_gap": 2
+    },
+    {
+      "score_item_id": "business_10_研发团队规模",
+      "score_item_name": "研发团队规模",
+      "previous_remaining_gap": 30,
+      "current_remaining_gap": 30
+    },
+    {
+      "score_item_id": "technical_04_业绩情况",
+      "score_item_name": "业绩情况",
+      "previous_remaining_gap": 5,
+      "current_remaining_gap": 5
+    },
+    {
+      "score_item_id": "technical_08_专利数量",
+      "score_item_name": "专利数量",
+      "previous_remaining_gap": 2,
+      "current_remaining_gap": 2
+    }
+  ]
+}

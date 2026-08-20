@@ -1,0 +1,1069 @@
+{
+  "schema_version": "technical_agent_section_context_v0",
+  "formal_inputs": {
+    "technical_response_outline": "tender_requirement_fact_source",
+    "technical_writing_outline": "article_structure_and_writing_plan_source",
+    "confirmed_project_facts": "optional"
+  },
+  "target_selector": {
+    "target_chapter_id": "WC-003",
+    "target_section_id": null,
+    "task_id_required": false,
+    "draft_unit_id_required": false
+  },
+  "target_outline": {
+    "chapter_id": "WC-003",
+    "title": "实施部署方案",
+    "module_ids": [
+      "MODULE-IMPLEMENTATION",
+      "MODULE-PROJECT-MANAGEMENT",
+      "MODULE-QUALITY-ACCEPTANCE",
+      "MODULE-RISK-CONTROL"
+    ],
+    "chapter_type": "mixed",
+    "writing_requirements": {
+      "response_point_ids": [
+        "TR-022",
+        "TR-005",
+        "TR-006",
+        "TR-007",
+        "TR-010",
+        "TR-008",
+        "TR-009"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "required_content_points": [
+        "统筹“实施部署方案”下属标题，保持各子节点内容边界",
+        "按子节点response_point_ids从技术响应大纲加载相关原文",
+        "统筹评分主题：实施部署评价"
+      ],
+      "manual_project_facts": {
+        "need": "required",
+        "fact_types": [
+          "delivery_commitment",
+          "installation_period",
+          "staffing_plan",
+          "project_manager",
+          "project_team"
+        ]
+      },
+      "local_kb": {
+        "need": "required",
+        "evidence_types": [
+          "implementation_experience",
+          "person_resume",
+          "person_certificate",
+          "quality_management_material"
+        ]
+      },
+      "web": {
+        "need": "optional",
+        "allowed_source_types": [
+          "government_official",
+          "standards_authority_official"
+        ],
+        "purposes": [
+          "定位可引用的国家或行业标准"
+        ]
+      },
+      "draftability": "cannot_finalize"
+    },
+    "children": [
+      {
+        "chapter_id": "WC-003-01",
+        "title": "实施总体规划",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [
+            "TR-022"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“实施总体规划”完成章节目标",
+            "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 实施总体规划”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "optional",
+            "fact_types": [
+              "delivery_commitment",
+              "installation_period",
+              "staffing_plan"
+            ]
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience"
+            ]
+          },
+          "web": {
+            "need": "forbidden",
+            "allowed_source_types": [],
+            "purposes": []
+          },
+          "draftability": "can_draft_with_placeholders"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-02",
+        "title": "项目建设技术方案",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“项目建设技术方案”完成章节目标",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 项目建设技术方案”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "optional",
+            "fact_types": [
+              "delivery_commitment",
+              "installation_period",
+              "staffing_plan"
+            ]
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience"
+            ]
+          },
+          "web": {
+            "need": "forbidden",
+            "allowed_source_types": [],
+            "purposes": []
+          },
+          "draftability": "can_draft_with_placeholders"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-03",
+        "title": "项目设计实施周期",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [
+            "TR-005",
+            "TR-006",
+            "TR-007"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“项目设计实施周期”完成章节目标",
+            "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 项目设计实施周期”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "required",
+            "fact_types": [
+              "delivery_commitment",
+              "installation_period"
+            ]
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience"
+            ]
+          },
+          "web": {
+            "need": "forbidden",
+            "allowed_source_types": [],
+            "purposes": []
+          },
+          "draftability": "cannot_finalize"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-04",
+        "title": "项目组织架构",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“项目组织架构”完成章节目标",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 项目组织架构”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "required",
+            "fact_types": [
+              "project_manager",
+              "project_team",
+              "staffing_plan"
+            ]
+          },
+          "local_kb": {
+            "need": "required",
+            "evidence_types": [
+              "person_resume",
+              "person_certificate"
+            ]
+          },
+          "web": {
+            "need": "forbidden",
+            "allowed_source_types": [],
+            "purposes": []
+          },
+          "draftability": "cannot_finalize"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-05",
+        "title": "项目负责人及主要人员",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“项目负责人及主要人员”完成章节目标",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 项目负责人及主要人员”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "required",
+            "fact_types": [
+              "project_manager",
+              "project_team",
+              "staffing_plan"
+            ]
+          },
+          "local_kb": {
+            "need": "required",
+            "evidence_types": [
+              "person_resume",
+              "person_certificate"
+            ]
+          },
+          "web": {
+            "need": "forbidden",
+            "allowed_source_types": [],
+            "purposes": []
+          },
+          "draftability": "cannot_finalize"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-06",
+        "title": "安装部署",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“安装部署”完成章节目标",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 安装部署”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "required",
+            "fact_types": [
+              "delivery_commitment",
+              "installation_period"
+            ]
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience"
+            ]
+          },
+          "web": {
+            "need": "forbidden",
+            "allowed_source_types": [],
+            "purposes": []
+          },
+          "draftability": "cannot_finalize"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-07",
+        "title": "测试与试运行",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“测试与试运行”完成章节目标",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 测试与试运行”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "none",
+            "fact_types": []
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience",
+              "quality_management_material"
+            ]
+          },
+          "web": {
+            "need": "optional",
+            "allowed_source_types": [
+              "government_official",
+              "standards_authority_official"
+            ],
+            "purposes": [
+              "定位可引用的国家或行业标准"
+            ]
+          },
+          "draftability": "can_draft_with_placeholders"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-08",
+        "title": "质量控制",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“质量控制”完成章节目标",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 质量控制”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "none",
+            "fact_types": []
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience",
+              "quality_management_material"
+            ]
+          },
+          "web": {
+            "need": "optional",
+            "allowed_source_types": [
+              "government_official",
+              "standards_authority_official"
+            ],
+            "purposes": [
+              "定位可引用的国家或行业标准"
+            ]
+          },
+          "draftability": "can_draft_with_placeholders"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-09",
+        "title": "项目验收",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [
+            "TR-010"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“项目验收”完成章节目标",
+            "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 项目验收”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "none",
+            "fact_types": []
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience",
+              "quality_management_material"
+            ]
+          },
+          "web": {
+            "need": "optional",
+            "allowed_source_types": [
+              "government_official",
+              "standards_authority_official"
+            ],
+            "purposes": [
+              "定位可引用的国家或行业标准"
+            ]
+          },
+          "draftability": "can_draft_with_placeholders"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-10",
+        "title": "交付成果",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [
+            "TR-008",
+            "TR-009"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“交付成果”完成章节目标",
+            "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 交付成果”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "required",
+            "fact_types": [
+              "delivery_commitment",
+              "installation_period"
+            ]
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience"
+            ]
+          },
+          "web": {
+            "need": "forbidden",
+            "allowed_source_types": [],
+            "purposes": []
+          },
+          "draftability": "cannot_finalize"
+        },
+        "children": []
+      },
+      {
+        "chapter_id": "WC-003-11",
+        "title": "风险控制与应急保障",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ],
+        "chapter_type": "narrative",
+        "writing_requirements": {
+          "response_point_ids": [],
+          "score_item_refs": [
+            "SCORE-TR-022-R017"
+          ],
+          "required_content_points": [
+            "围绕“风险控制与应急保障”完成章节目标",
+            "满足评分主题：实施部署评价",
+            "形成“实施部署方案 / 风险控制与应急保障”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+          ],
+          "manual_project_facts": {
+            "need": "none",
+            "fact_types": []
+          },
+          "local_kb": {
+            "need": "optional",
+            "evidence_types": [
+              "implementation_experience"
+            ]
+          },
+          "web": {
+            "need": "forbidden",
+            "allowed_source_types": [],
+            "purposes": []
+          },
+          "draftability": "can_draft_with_placeholders"
+        },
+        "children": []
+      }
+    ]
+  },
+  "tender_requirements": [
+    {
+      "response_point_id": "TR-022",
+      "heading": "三、评审因素及评标标准",
+      "mandatory_marker": "★",
+      "content_type": "table",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "page_start": 12,
+          "page_end": 14,
+          "row_or_cell": "table_1"
+        }
+      ],
+      "table_access": {
+        "row_count": 19,
+        "column_count": 4,
+        "instruction": "按response_point_id=TR-022从technical_response_outline.json按需读取表格；当前最小上下文不内嵌整表。"
+      }
+    },
+    {
+      "response_point_id": "TR-005",
+      "heading": "（三）交货要求",
+      "mandatory_marker": "",
+      "content_type": "numbered_list",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "一、商务要求",
+            "（三）交货要求"
+          ],
+          "page_start": 10,
+          "page_end": 10,
+          "row_or_cell": "paragraph_134"
+        }
+      ],
+      "requirement_text": "1. 交货期："
+    },
+    {
+      "response_point_id": "TR-006",
+      "heading": "（三）交货要求",
+      "mandatory_marker": "",
+      "content_type": "paragraph",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "一、商务要求",
+            "（三）交货要求"
+          ],
+          "page_start": 10,
+          "page_end": 10,
+          "row_or_cell": "paragraph_135"
+        }
+      ],
+      "requirement_text": "货到时间：自签订合同之日起30日内（特殊情况以合同为准）。"
+    },
+    {
+      "response_point_id": "TR-007",
+      "heading": "（三）交货要求",
+      "mandatory_marker": "",
+      "content_type": "paragraph",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "一、商务要求",
+            "（三）交货要求"
+          ],
+          "page_start": 10,
+          "page_end": 10,
+          "row_or_cell": "paragraph_136"
+        }
+      ],
+      "requirement_text": "安装完成：货到之日起10日内（特殊情况以合同为准）。"
+    },
+    {
+      "response_point_id": "TR-010",
+      "heading": "（六）验收方法及标准",
+      "mandatory_marker": "",
+      "content_type": "paragraph",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "一、商务要求",
+            "（六）验收方法及标准"
+          ],
+          "page_start": null,
+          "page_end": null,
+          "row_or_cell": "paragraph_148"
+        }
+      ],
+      "requirement_text": "按照采购合同的约定和现行国家标准、行业标准以及企业标准对每一项技术、服务、安全标准的履约情况进行确认。采购人有权根据需要设置出厂检验、到货检验、安装调试检验、配套服务检验等多重验收环节。必要时，采购人有权邀请参加本项目的其他投标人或者第三方机构参与验收。参与验收的投标人或者第三方机构的意见作为验收书的参考资料一并存档。验收结束后，应当出具验收书，列明各项标准的验收情况及项目总体评价，由验收双方共同签署。"
+    },
+    {
+      "response_point_id": "TR-008",
+      "heading": "（三）交货要求",
+      "mandatory_marker": "",
+      "content_type": "numbered_list",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "一、商务要求",
+            "（三）交货要求"
+          ],
+          "page_start": 10,
+          "page_end": 10,
+          "row_or_cell": "paragraph_137"
+        }
+      ],
+      "requirement_text": "2. 交货地点：采购人指定地点。"
+    },
+    {
+      "response_point_id": "TR-009",
+      "heading": "（三）交货要求",
+      "mandatory_marker": "",
+      "content_type": "numbered_list",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "一、商务要求",
+            "（三）交货要求"
+          ],
+          "page_start": 11,
+          "page_end": 11,
+          "row_or_cell": "paragraph_138"
+        }
+      ],
+      "requirement_text": "3. 提供制造商完整的随机资料，包括完整的使用和维修手册等。"
+    }
+  ],
+  "score_items": [
+    {
+      "score_item_id": "SCORE-TR-022-R017",
+      "title": "实施部署评价",
+      "criteria_summary": "实施方案应包括以下内容：项目建设技术方案、项目设计实施周期、人员架构 项目建设技术方案完整，项目实施规划合理，团队组织架构清晰：4分； 满足招标文件要求，但内容存在1处瑕疵：2分； 满足招标文件要求，但内容存在2处瑕疵：1分 其他：0分",
+      "score": "4分",
+      "response_point_id": "TR-022"
+    }
+  ],
+  "information_requirements": {
+    "manual_project_facts": [
+      {
+        "node_id": "WC-003",
+        "target_path": [
+          "实施部署方案"
+        ],
+        "need": "required",
+        "fact_types": [
+          "delivery_commitment",
+          "installation_period",
+          "staffing_plan",
+          "project_manager",
+          "project_team"
+        ]
+      },
+      {
+        "node_id": "WC-003-01",
+        "target_path": [
+          "实施部署方案",
+          "实施总体规划"
+        ],
+        "need": "optional",
+        "fact_types": [
+          "delivery_commitment",
+          "installation_period",
+          "staffing_plan"
+        ]
+      },
+      {
+        "node_id": "WC-003-02",
+        "target_path": [
+          "实施部署方案",
+          "项目建设技术方案"
+        ],
+        "need": "optional",
+        "fact_types": [
+          "delivery_commitment",
+          "installation_period",
+          "staffing_plan"
+        ]
+      },
+      {
+        "node_id": "WC-003-03",
+        "target_path": [
+          "实施部署方案",
+          "项目设计实施周期"
+        ],
+        "need": "required",
+        "fact_types": [
+          "delivery_commitment",
+          "installation_period"
+        ]
+      },
+      {
+        "node_id": "WC-003-04",
+        "target_path": [
+          "实施部署方案",
+          "项目组织架构"
+        ],
+        "need": "required",
+        "fact_types": [
+          "project_manager",
+          "project_team",
+          "staffing_plan"
+        ]
+      },
+      {
+        "node_id": "WC-003-05",
+        "target_path": [
+          "实施部署方案",
+          "项目负责人及主要人员"
+        ],
+        "need": "required",
+        "fact_types": [
+          "project_manager",
+          "project_team",
+          "staffing_plan"
+        ]
+      },
+      {
+        "node_id": "WC-003-06",
+        "target_path": [
+          "实施部署方案",
+          "安装部署"
+        ],
+        "need": "required",
+        "fact_types": [
+          "delivery_commitment",
+          "installation_period"
+        ]
+      },
+      {
+        "node_id": "WC-003-10",
+        "target_path": [
+          "实施部署方案",
+          "交付成果"
+        ],
+        "need": "required",
+        "fact_types": [
+          "delivery_commitment",
+          "installation_period"
+        ]
+      }
+    ],
+    "local_kb": [
+      {
+        "node_id": "WC-003",
+        "target_path": [
+          "实施部署方案"
+        ],
+        "need": "required",
+        "evidence_types": [
+          "implementation_experience",
+          "person_resume",
+          "person_certificate",
+          "quality_management_material"
+        ]
+      },
+      {
+        "node_id": "WC-003-01",
+        "target_path": [
+          "实施部署方案",
+          "实施总体规划"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience"
+        ]
+      },
+      {
+        "node_id": "WC-003-02",
+        "target_path": [
+          "实施部署方案",
+          "项目建设技术方案"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience"
+        ]
+      },
+      {
+        "node_id": "WC-003-03",
+        "target_path": [
+          "实施部署方案",
+          "项目设计实施周期"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience"
+        ]
+      },
+      {
+        "node_id": "WC-003-04",
+        "target_path": [
+          "实施部署方案",
+          "项目组织架构"
+        ],
+        "need": "required",
+        "evidence_types": [
+          "person_resume",
+          "person_certificate"
+        ]
+      },
+      {
+        "node_id": "WC-003-05",
+        "target_path": [
+          "实施部署方案",
+          "项目负责人及主要人员"
+        ],
+        "need": "required",
+        "evidence_types": [
+          "person_resume",
+          "person_certificate"
+        ]
+      },
+      {
+        "node_id": "WC-003-06",
+        "target_path": [
+          "实施部署方案",
+          "安装部署"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience"
+        ]
+      },
+      {
+        "node_id": "WC-003-07",
+        "target_path": [
+          "实施部署方案",
+          "测试与试运行"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience",
+          "quality_management_material"
+        ]
+      },
+      {
+        "node_id": "WC-003-08",
+        "target_path": [
+          "实施部署方案",
+          "质量控制"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience",
+          "quality_management_material"
+        ]
+      },
+      {
+        "node_id": "WC-003-09",
+        "target_path": [
+          "实施部署方案",
+          "项目验收"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience",
+          "quality_management_material"
+        ]
+      },
+      {
+        "node_id": "WC-003-10",
+        "target_path": [
+          "实施部署方案",
+          "交付成果"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience"
+        ]
+      },
+      {
+        "node_id": "WC-003-11",
+        "target_path": [
+          "实施部署方案",
+          "风险控制与应急保障"
+        ],
+        "need": "optional",
+        "evidence_types": [
+          "implementation_experience"
+        ]
+      }
+    ],
+    "web": [
+      {
+        "node_id": "WC-003",
+        "target_path": [
+          "实施部署方案"
+        ],
+        "need": "optional",
+        "allowed_source_types": [
+          "government_official",
+          "standards_authority_official"
+        ],
+        "purposes": [
+          "定位可引用的国家或行业标准"
+        ]
+      },
+      {
+        "node_id": "WC-003-07",
+        "target_path": [
+          "实施部署方案",
+          "测试与试运行"
+        ],
+        "need": "optional",
+        "allowed_source_types": [
+          "government_official",
+          "standards_authority_official"
+        ],
+        "purposes": [
+          "定位可引用的国家或行业标准"
+        ]
+      },
+      {
+        "node_id": "WC-003-08",
+        "target_path": [
+          "实施部署方案",
+          "质量控制"
+        ],
+        "need": "optional",
+        "allowed_source_types": [
+          "government_official",
+          "standards_authority_official"
+        ],
+        "purposes": [
+          "定位可引用的国家或行业标准"
+        ]
+      },
+      {
+        "node_id": "WC-003-09",
+        "target_path": [
+          "实施部署方案",
+          "项目验收"
+        ],
+        "need": "optional",
+        "allowed_source_types": [
+          "government_official",
+          "standards_authority_official"
+        ],
+        "purposes": [
+          "定位可引用的国家或行业标准"
+        ]
+      }
+    ]
+  },
+  "generation_constraints": {
+    "terminology": [
+      "超融合系统",
+      "超融合互联交换机",
+      "超融合节点",
+      "技术要求点对点应答表",
+      "绿色供应链管理",
+      "不得引入未经确认的产品简称、品牌简称或技术别名"
+    ],
+    "background_policy": "brief_reference",
+    "parameter_consistency_required": false,
+    "resolve_response_text_by_id": true,
+    "do_not_infer_offered_values_from_tender_minimums": true,
+    "internal_draft_unit_optimization": {
+      "available_as_optional_internal_advice": true,
+      "required_for_context_loading": false,
+      "loaded": false
+    }
+  },
+  "confirmed_project_facts": {
+    "available": false,
+    "values": {}
+  },
+  "execution_guard": {
+    "body_generated": false,
+    "local_kb_queried": false,
+    "web_research_executed": false,
+    "docx_generated": false,
+    "reference_only_files_read": false
+  },
+  "source_paths": {
+    "response_outline_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\outline\\technical_response_outline.json",
+    "writing_outline_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\technical_writing_outline.json",
+    "confirmed_project_facts_path": ""
+  }
+}

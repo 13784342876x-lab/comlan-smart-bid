@@ -1,0 +1,206 @@
+{
+  "chapter_title": "绿色供应链管理方案",
+  "sections": [
+    {
+      "heading": "一、绿色供应链管理总体思路",
+      "block_type": "introduction",
+      "content": "本次投标的绿色供应链管理方案严格遵循《关于调整优化节能产品、环境标志产品政府采购执行机制的通知》（财库〔2019〕9号）、《关于印发环境标志产品政府采购品目清单的通知》（财库〔2019〕18号）、《关于印发节能产品政府采购品目清单的通知》（财库〔2019〕19号）等政府采购政策，以产品全生命周期为主线，构建覆盖原材料采购、设计、加工、储运、使用及回收的绿色管控体系。方案以所投超融合节点产品为核心，在尚未最终确认具体品牌与型号的阶段，先以{{PH-FIELD-28CA6066A5AD}}品牌、{{PH-FIELD-87105134CCFC}}型号及其制造商{{PH-FIELD-4632EE3F3A2D}}为基础展开，待定标前以确认信息替换相关占位符。本方案旨在系统响应招标文件第五项要求，同时为节能产品评分、环境标志产品评分以及绿色供应链管理先进性评价提供完整的文字阐述与证明文件支撑。",
+      "covered_score_item_ids": [],
+      "covered_requirement_ids": [
+        "TR-015",
+        "TR-021",
+        "TR-022"
+      ],
+      "placeholder_ids": [
+        "PH-FIELD-28CA6066A5AD",
+        "PH-FIELD-87105134CCFC",
+        "PH-FIELD-4632EE3F3A2D"
+      ],
+      "section_id": "S1"
+    },
+    {
+      "heading": "二、产品全生命周期绿色管理方案",
+      "block_type": "technical_solution",
+      "content": "根据招标文件的要求，需从所投产品原材料采购、设计、加工制作、存储、流通、回收等全生命周期环节详细阐述该产品的节能、环保及绿色供应链管理情况。以下以拟投超融合节点（品牌{{PH-FIELD-28CA6066A5AD}}，型号{{PH-FIELD-87105134CCFC}}，制造商{{PH-FIELD-4632EE3F3A2D}}）为对象，逐一说明各阶段的绿色管控措施。\n\n在原材料采购环节，制造商已建立完善的绿色供应商准入与评价机制，优先选择符合RoHS、REACH等环保指令的元器件与材料，对关键物料实施有害物质检测并形成批次检测报告。采购合同中明确要求供方提供材料成分声明和环保合规证明，并纳入绿色供应链数据库进行动态监控，确保从源头上降低环境风险并避免引入受控物质。\n\n产品设计环节遵循生态设计理念，在满足性能要求的前提下采用低功耗芯片方案与动态电源管理技术，有效降低设备满载与空闲状态下的运行功耗。结构设计上注重易拆解与可维修性，采用模块化布局以延长产品整体使用寿命，从设计层面减少因设备快速淘汰而产生的电子废弃物。设计阶段同步开展能耗仿真评审与环保合规自评，确保产品能够满足日后节能与环境标志认证的技术门槛。\n\n在加工制作与存储环节，制造商全面推行清洁生产管理，核心制造过程采用无铅焊接工艺，配套部署废气处理系统与废水回收利用设施，并将上述活动纳入环境管理体系持续改进（相关体系认证待确认，以{{PH-FIELD-ISO14001}}表示）。产品包装优先选用可循环利用或再生材料，内衬减量设计，在满足运输安全的前提下降低包装废弃物产生。仓储管理实行先进先出和温湿度受控存放，减少因库存过期或变质而造成的材料损耗。\n\n流通与回收环节通过优化区域物流网络和采用集约化运输方式降低单位产品的运输碳排放强度。随产品交付的说明文档中明确提供废弃产品的回收指导信息，承诺协同制造商为采购人提供合规回收渠道，或引导最终用户参与制造商的废旧产品回收计划。相关物流能耗数据与回收处理凭证将纳入绿色供应链绩效统计，最终整理形成《所投产品全生命周期绿色供应链管理证明文件》（对应{{PH-FIELD-A55D99C34CDE}}），随投标材料一并提交，作为绿色管理实践的全景式证据。",
+      "covered_score_item_ids": [],
+      "covered_requirement_ids": [
+        "TR-015"
+      ],
+      "placeholder_ids": [
+        "PH-FIELD-28CA6066A5AD",
+        "PH-FIELD-87105134CCFC",
+        "PH-FIELD-4632EE3F3A2D",
+        "PH-FIELD-ISO14001",
+        "PH-FIELD-A55D99C34CDE"
+      ],
+      "section_id": "S2"
+    },
+    {
+      "heading": "三、节能产品与环境标志产品认证响应",
+      "block_type": "requirement_response",
+      "content": "本次采购清单中所投超融合节点未加注“■”号，按招标文件说明不属于节能产品政府采购强制采购品目。尽管如此，从提升投标方案环保竞争力且最大化响应评分项的角度出发，我公司拟提供所投产品的节能产品认证证书及环境标志产品认证证书。根据财政部等四部委发布的《关于调整优化节能产品、环境标志产品政府采购执行机制的通知》（财库〔2019〕9号）以及现行的节能产品、环境标志产品品目清单与认证机构名录，我公司承诺所投产品（品牌{{PH-FIELD-28CA6066A5AD}}，型号{{PH-FIELD-87105134CCFC}}）符合相应认证规则的技术要求，并将在投标文件中附上合法有效的认证证书扫描件。其中，节能产品认证证书（对应{{PH-FIELD-23BA801F18B2}}）用于证明产品满足节能品目清单所列能效指标，环境标志产品认证证书（对应{{PH-FIELD-8066F187CEE1}}）用于证明产品在生产、使用和处置全过程中达到特定的环境保护要求。上述两份证书分别对应客观分评分项“非强制采购节能产品”（2分）和“环境标志产品”（2分），评审时可按产品价值权重计算得分。目前证书尚在确认环节，待定标前完成复核后将正式扫描入投标文件，确保评审专家可以便捷核验。",
+      "covered_score_item_ids": [
+        "SCORE-TR-022-R004",
+        "SCORE-TR-022-R005"
+      ],
+      "covered_requirement_ids": [
+        "TR-021",
+        "TR-022"
+      ],
+      "placeholder_ids": [
+        "PH-FIELD-23BA801F18B2",
+        "PH-FIELD-8066F187CEE1",
+        "PH-FIELD-28CA6066A5AD",
+        "PH-FIELD-87105134CCFC"
+      ],
+      "section_id": "S3"
+    },
+    {
+      "heading": "四、绿色供应链管理先进性及拟提交证明材料",
+      "block_type": "evidence_explanation",
+      "content": "我公司在项目交付与服务过程中始终贯彻绿色供应链管理理念，从供应商绿色资质审核、采购环保指标要求、产品制造的环境合规监督到退役产品的回收处理，已形成闭环管理制度，并将相关管理流程纳入项目整体质量与风险管理体系。本次针对超融合节点采购项目，在已阐述全生命周期绿色管理措施的基础上，进一步整合拟提交的各类证明材料，以展现绿色供应链管理的完整性与先进性。\n\n为便于评审专家快速定位和核对，下面以表格形式汇总所有拟提交的证明文件及其与招标要求和评分项的对应关系，如表1所示。\n\n| 序号 | 证明文件名称 | 对应要求/评分项 | 提交形式 | 当前状态 |\n|------|--------------|----------------|----------|----------|\n| 1 | 所投产品全生命周期绿色供应链管理证明文件 | TR-015 | 图示、文字、报告 | {{PH-FIELD-A55D99C34CDE}} |\n| 2 | 节能产品认证证书 | TR-022 / SCORE-TR-022-R005 | 认证证书扫描件 | {{PH-FIELD-23BA801F18B2}} |\n| 3 | 环境标志产品认证证书 | TR-022 / SCORE-TR-022-R004 | 认证证书扫描件 | {{PH-FIELD-8066F187CEE1}} |\n| 4 | 制造商环境管理体系认证 ISO14001 | 辅助绿色供应链管理评价 | 认证证书扫描件 | {{PH-FIELD-ISO14001}} |\n\n表1 绿色供应链管理拟提交证明材料清单\n\n以上所列文件将在投标文件中以原件扫描件形式正式提交，并由专人负责核对有效期与认证范围，确保与所投产品品牌、型号及制造商信息完全一致。若所投产品已经获得相关节能或环境标志认证，将直接按照评分规则计入相应分值；若相关证书尚在申请中，将顺延提交并在评审允许的时间窗口内补正。无论认证结果如何，针对供应商、材料、生产过程、物流及回收环节的绿色管理实践均独立构成方案优势，充分体现投标人在绿色供应链管理方面的真实能力与持续改进承诺。",
+      "covered_score_item_ids": [
+        "SCORE-TR-022-R019",
+        "SCORE-TR-022-R005",
+        "SCORE-TR-022-R004"
+      ],
+      "covered_requirement_ids": [
+        "TR-015",
+        "TR-022"
+      ],
+      "placeholder_ids": [
+        "PH-FIELD-A55D99C34CDE",
+        "PH-FIELD-23BA801F18B2",
+        "PH-FIELD-8066F187CEE1",
+        "PH-FIELD-ISO14001"
+      ],
+      "section_id": "S4"
+    }
+  ],
+  "claims": [
+    {
+      "text": "绿色供应链管理方案依据《关于调整优化节能产品、环境标志产品政府采购执行机制的通知》（财库〔2019〕9号）等政策编制。",
+      "claim_type": "tender_fact",
+      "source_ids": [
+        "TR-021"
+      ],
+      "evidence_ids": [],
+      "human_review_required": false,
+      "response_intent": "no_deviation",
+      "evidence_status": "confirmed",
+      "deviation_status": "no_deviation"
+    },
+    {
+      "text": "投标人将在确认品牌、型号后提供所投产品的全生命周期绿色供应链管理证明文件（包括证书、图示、文字说明等）。",
+      "claim_type": "placeholder",
+      "source_ids": [
+        "TR-015"
+      ],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "response_intent": "no_deviation",
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending",
+      "confirmation_question": "请确认所投产品的全生命周期绿色供应链管理证明文件的具体内容与提交形式。"
+    },
+    {
+      "text": "所投超融合节点拟提供节能产品认证证书（非强制采购节能产品），以支持评分项SCORE-TR-022-R005。",
+      "claim_type": "placeholder",
+      "source_ids": [
+        "TR-022",
+        "SCORE-TR-022-R005"
+      ],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "response_intent": "no_deviation",
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending",
+      "confirmation_question": "请确认所投产品是否已获得节能产品认证并提供证书扫描件。"
+    },
+    {
+      "text": "所投超融合节点拟提供环境标志产品认证证书，以支持评分项SCORE-TR-022-R004。",
+      "claim_type": "placeholder",
+      "source_ids": [
+        "TR-022",
+        "SCORE-TR-022-R004"
+      ],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "response_intent": "no_deviation",
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending",
+      "confirmation_question": "请确认所投产品是否已获得环境标志产品认证并提供证书扫描件。"
+    },
+    {
+      "text": "所投产品制造商拟提供ISO14001环境管理体系认证证书，以辅助证明绿色供应链管理能力。",
+      "claim_type": "placeholder",
+      "source_ids": [
+        "SCORE-TR-022-R019"
+      ],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "response_intent": "no_deviation",
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending",
+      "confirmation_question": "请确认制造商是否持有有效的ISO14001认证并提供证书扫描件。"
+    },
+    {
+      "text": "投标人建立了涵盖供应商绿色评价、清洁生产、废弃物回收的绿色供应链管理制度，并将在本项目中实施。",
+      "claim_type": "proposal_statement",
+      "source_ids": [
+        "SCORE-TR-022-R019"
+      ],
+      "evidence_ids": [],
+      "human_review_required": false,
+      "response_intent": "no_deviation",
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "投标人承诺将上述所有证明材料原件扫描件随投标文件一并提交，供评审专家核验。",
+      "claim_type": "commitment_statement",
+      "source_ids": [
+        "TR-015",
+        "TR-021",
+        "TR-022"
+      ],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "response_intent": "no_deviation",
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    }
+  ],
+  "placeholders_used": [
+    "PH-FIELD-28CA6066A5AD",
+    "PH-FIELD-87105134CCFC",
+    "PH-FIELD-4632EE3F3A2D",
+    "PH-FIELD-23BA801F18B2",
+    "PH-FIELD-8066F187CEE1",
+    "PH-FIELD-A55D99C34CDE",
+    "PH-FIELD-ISO14001"
+  ],
+  "score_items_covered": [
+    "SCORE-TR-022-R004",
+    "SCORE-TR-022-R005",
+    "SCORE-TR-022-R019"
+  ],
+  "requirements_covered": [
+    "TR-015",
+    "TR-021",
+    "TR-022"
+  ],
+  "warnings": [
+    "所投产品品牌、型号、制造商尚未确认，本章中相关字段均以占位符留存，不可直接用于最终投标。",
+    "节能产品认证证书、环境标志产品认证证书、全生命周期绿色供应链管理证明文件及制造商ISO14001证书均处于待确认状态，投标前需完成复核并替换占位符内容。",
+    "若相关认证未能及时取得或不在有效期内，本章对应得分点将无法获得分值，但绿色供应链管理的方案性描述仍可作为方案完整性的辅助材料。"
+  ],
+  "generated_supporting_tables": [
+    {
+      "section_id": "S4",
+      "title": "绿色供应链管理拟提交证明材料清单",
+      "purpose": "将本章涉及的全部绿色供应链相关证明文件与对应的招标要求或评分项进行集中映射，明确提交形式与当前状态，为评审专家提供一次性的核查依据。",
+      "why_table_is_better_than_prose": "该信息包含多项不同性质的证明文件，分别指向不同的要求和评分项，若以段落逐一叙述容易造成对应关系不清楚；采用表格可在一处清晰展示文件名称、要求、形式和状态，提升评审效率且避免信息遗漏。"
+    }
+  ]
+}

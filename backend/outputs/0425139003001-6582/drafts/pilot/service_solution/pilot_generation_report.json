@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-15T09:51:44.100368+00:00",
+  "lot_name": "0425139003001-6582",
+  "chapter_id": "task_019_technical_05_服务方案",
+  "task_id": "writing-32a97414c28c53",
+  "chapter_title": "总体服务方案",
+  "pilot_status": "failed",
+  "failed_stage": "deep_draft_output",
+  "error_type": "ModelJsonParseError",
+  "error": "provider output is not valid JSON: Unterminated string starting at",
+  "deep_call": {
+    "role": "drafting",
+    "profile_name": "ark_draft",
+    "provider": "volcengine_ark",
+    "model": "doubao-seed-2-1-pro-260628",
+    "thinking_mode": "enabled",
+    "timeout_seconds": 600.0,
+    "max_output_tokens": 16000,
+    "request_id": "resp_021784109108711ca53c98b4a9847edf4b59a94723c611e93d77d",
+    "duration_ms": null,
+    "input_tokens": 36139,
+    "output_tokens": 16000,
+    "reasoning_tokens": 14733,
+    "answer_tokens": null,
+    "total_tokens": 52139,
+    "finish_status": "incomplete",
+    "incomplete_details": {
+      "reason": "length"
+    },
+    "repair_attempted": false,
+    "schema_valid": false,
+    "response_received": true,
+    "output_text_available": true
+  },
+  "normalize_call": null,
+  "schema_valid": false,
+  "preview_generated": false,
+  "build_warnings": []
+}

@@ -1,0 +1,1 @@
+标书全文：{document_content}\n响应矩阵：{response_matrix}

@@ -1,0 +1,307 @@
+{
+  "original_top_level_count": 13,
+  "refined_top_level_count": 8,
+  "top_level_chapters": [
+    {
+      "chapter_id": "WC-001",
+      "title": "需求理解及分析",
+      "module_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ]
+    },
+    {
+      "chapter_id": "WC-002",
+      "title": "方案完整性及系统架构设计",
+      "module_ids": [
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION"
+      ]
+    },
+    {
+      "chapter_id": "WC-003",
+      "title": "实施部署方案",
+      "module_ids": [
+        "MODULE-IMPLEMENTATION",
+        "MODULE-PROJECT-MANAGEMENT",
+        "MODULE-QUALITY-ACCEPTANCE",
+        "MODULE-RISK-CONTROL"
+      ]
+    },
+    {
+      "chapter_id": "WC-004",
+      "title": "培训方案",
+      "module_ids": [
+        "MODULE-TRAINING"
+      ]
+    },
+    {
+      "chapter_id": "WC-005",
+      "title": "售后服务与运行保障方案",
+      "module_ids": [
+        "MODULE-SERVICE-WARRANTY"
+      ]
+    },
+    {
+      "chapter_id": "WC-006",
+      "title": "绿色供应链管理方案",
+      "module_ids": [
+        "MODULE-SPECIAL-TOPICS"
+      ]
+    },
+    {
+      "chapter_id": "WC-007",
+      "title": "技术参数及点对点应答",
+      "module_ids": [
+        "MODULE-PARAMETER-RESPONSE"
+      ]
+    },
+    {
+      "chapter_id": "WC-008",
+      "title": "技术证明材料及附件索引",
+      "module_ids": [
+        "MODULE-EVIDENCE-APPENDIX"
+      ]
+    }
+  ],
+  "nested_modules": [
+    {
+      "module_id": "MODULE-DETAILED-SOLUTION",
+      "activation_status": "triggered",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-002",
+      "target_chapter_id": "WC-002",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-OVERALL-SOLUTION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-PROJECT-MANAGEMENT",
+      "activation_status": "supporting",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "用于补充主章节完整性，不独立占用一级目录。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-QUALITY-ACCEPTANCE",
+      "activation_status": "triggered",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-RISK-CONTROL",
+      "activation_status": "supporting",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "用于补充主章节完整性，不独立占用一级目录。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    }
+  ],
+  "conditional_modules": [
+    {
+      "module_id": "MODULE-TECHNICAL-DEVIATION",
+      "activation_status": "conditional",
+      "placement_role": "form",
+      "parent_chapter_id": "WC-007",
+      "target_chapter_id": "WC-007",
+      "activation_reasons": [
+        "当前未发现独立技术偏差表或已确认偏离事实。"
+      ],
+      "placement_reasons": [
+        "仅有点对点应答表的偏离说明列，不重复生成独立技术偏差表。"
+      ]
+    }
+  ],
+  "excluded_modules": [],
+  "module_placement_map": [
+    {
+      "module_id": "MODULE-PROJECT-UNDERSTANDING",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-001",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-OVERALL-SOLUTION",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-002",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-DETAILED-SOLUTION",
+      "activation_status": "triggered",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-002",
+      "target_chapter_id": "WC-002",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-OVERALL-SOLUTION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-IMPLEMENTATION",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-PROJECT-MANAGEMENT",
+      "activation_status": "supporting",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "用于补充主章节完整性，不独立占用一级目录。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-QUALITY-ACCEPTANCE",
+      "activation_status": "triggered",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-TRAINING",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-004",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-SERVICE-WARRANTY",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-005",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-RISK-CONTROL",
+      "activation_status": "supporting",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "用于补充主章节完整性，不独立占用一级目录。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-SPECIAL-TOPICS",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-006",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-PARAMETER-RESPONSE",
+      "activation_status": "required",
+      "placement_role": "form",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-007",
+      "activation_reasons": [
+        "招标强制表格或必要附件要求激活。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-TECHNICAL-DEVIATION",
+      "activation_status": "conditional",
+      "placement_role": "form",
+      "parent_chapter_id": "WC-007",
+      "target_chapter_id": "WC-007",
+      "activation_reasons": [
+        "当前未发现独立技术偏差表或已确认偏离事实。"
+      ],
+      "placement_reasons": [
+        "仅有点对点应答表的偏离说明列，不重复生成独立技术偏差表。"
+      ]
+    },
+    {
+      "module_id": "MODULE-EVIDENCE-APPENDIX",
+      "activation_status": "required",
+      "placement_role": "appendix",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-008",
+      "activation_reasons": [
+        "招标强制表格或必要附件要求激活。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    }
+  ]
+}

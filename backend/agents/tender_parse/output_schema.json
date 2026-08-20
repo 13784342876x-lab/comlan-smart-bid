@@ -1,0 +1,1 @@
+{"type":"object","properties":{"project_info":{"type":"object"},"qualification_requirements":{"type":"array"},"rejection_clauses":{"type":"array"},"scoring_items":{"type":"array"},"document_structure":{"type":"array"}}}

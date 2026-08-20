@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "comlan://schemas/chapter-content-draft-v1.json",
+  "title": "Technical Chapter Content Draft",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "chapter_title",
+    "drafting_summary",
+    "sections",
+    "proposal_commitments",
+    "placeholders_used",
+    "score_items_covered",
+    "requirements_covered",
+    "unresolved_items",
+    "warnings"
+  ],
+  "properties": {
+    "chapter_title": {"type": "string", "minLength": 1},
+    "drafting_summary": {"type": "string"},
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "heading",
+          "content",
+          "covered_score_item_ids",
+          "covered_requirement_ids",
+          "placeholder_ids",
+          "content_intent"
+        ],
+        "properties": {
+          "heading": {"type": "string", "minLength": 1},
+          "content": {"type": "string", "minLength": 1},
+          "covered_score_item_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "covered_requirement_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "placeholder_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "content_intent": {
+            "type": "string",
+            "enum": [
+              "project_understanding",
+              "service_organization",
+              "service_process",
+              "communication_reporting",
+              "quality_control",
+              "risk_management",
+              "security_confidentiality",
+              "delivery_acceptance",
+              "service_commitment",
+              "requirement_response",
+              "placeholder",
+              "other"
+            ]
+          }
+        }
+      }
+    },
+    "proposal_commitments": {"type": "array", "items": {"type": "string"}},
+    "placeholders_used": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "score_items_covered": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "requirements_covered": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "unresolved_items": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  }
+}

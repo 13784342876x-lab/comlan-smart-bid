@@ -1,0 +1,962 @@
+{
+  "version": "v0",
+  "lot_name": "0425139003001-6582",
+  "project_name": "国网河北电力2025年第三次服务类公开招标采购",
+  "generated_from": "technical_response_context.json",
+  "sections": [
+    {
+      "section_title": "应答文件技术部分总体评价",
+      "task_name": "应答文件技术部分总体评价",
+      "score_item": "应答文件技术部分总体评价",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "scoring_rule_summary": "对应答文件技术内容的规范性、完整性、逻辑性等方面进行评审。 优：9-10分 良：7-8分 一般：6分",
+      "max_score_preparation": {
+        "target": "",
+        "calculation": "",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "规范性",
+        "完整性",
+        "逻辑性"
+      ],
+      "qualification_constraints": [],
+      "required_evidence_package": [
+        {
+          "material_type": "technical_solution_inputs",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "技术路线",
+            "研究内容",
+            "质量控制",
+            "风险控制",
+            "交付成果"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [],
+        "not_usable": []
+      },
+      "manual_review_questions": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？"
+      ],
+      "missing_actions": [],
+      "external_references": [
+        {
+          "reference_text": "技术规范书规定的其他应提交的文件",
+          "resolved": false,
+          "missing_source_type": "technical_spec_attachment_requirement",
+          "impact": "不能完整判断引用来源中的全部要素，相关材料清单只能按已知原文和已解析评分点生成。",
+          "action": "补充技术规范书或确认相关附件是否已入库。"
+        }
+      ],
+      "delivery_requirements": [],
+      "notes": []
+    },
+    {
+      "section_title": "项目负责人情况",
+      "task_name": "项目负责人情况",
+      "score_item": "项目负责人情况",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "scoring_rule_summary": "对项目负责人（指专业、工作年限、工作经验等）情况进行评审。 优：10分 良：8-9分 一般：6-7分",
+      "max_score_preparation": {
+        "target": "",
+        "calculation": "",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "专业",
+        "工作年限",
+        "工作经验"
+      ],
+      "qualification_constraints": [],
+      "required_evidence_package": [
+        {
+          "material_type": "project_leader_resume",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "专业",
+            "工作年限",
+            "工作经验",
+            "职责分工"
+          ]
+        },
+        {
+          "material_type": "personal_certificate",
+          "required_or_recommended": "optional",
+          "check_points": [
+            "证书真实性",
+            "有效期",
+            "与本项目相关性"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [
+          {
+            "file_id": "file_ae4329911662",
+            "title": "冯振书",
+            "material_type": "person_candidate",
+            "evidence_strength": "candidate_needs_review",
+            "reason": "候选人员",
+            "snippet": "云服务部 / cross_department_candidate / 未发现区块链、工业数据、数据安全、隐私保护、访问控制、监管、智能合约、安全分析、性能测试、研发负责人等强相关线索。"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "吴云畅",
+            "material_type": "person_candidate",
+            "evidence_strength": "candidate_needs_review",
+            "reason": "候选人员",
+            "snippet": "数字化办公事业部 / cross_department_candidate / 仅命中弱相关关键词：Python；需人工确认是否匹配本项目。"
+          }
+        ],
+        "not_usable": []
+      },
+      "manual_review_questions": [
+        "项目负责人是否来自建议主责/协同部门？",
+        "是否具备本项目相关经验？",
+        "证书是否真实、有效？",
+        "人员项目经验是否仅用于人员章节，未替代公司业绩？"
+      ],
+      "missing_actions": [
+        {
+          "target_material": "person_resume",
+          "ask_to": "主责部门/协同部门/项目管理",
+          "question": "请补充候选项目负责人和团队成员简历、相关项目经验及证书材料。",
+          "reason": "用于支撑人员专业、工作年限和工作经验评分。"
+        }
+      ],
+      "external_references": [
+        {
+          "reference_text": "第三章评标办法前附表之四“技术评分标准”",
+          "resolved": true,
+          "resolved_source": "score_items",
+          "source_file_id": "file_829b97fcf9b4",
+          "source_file_name": "18.ZHFWJS02科技技术服务、科技项目技术详评模板V1.0",
+          "matched_score_item": "项目负责人情况",
+          "confidence": "probable_reference",
+          "note": "评分表已解析为 score_items；作为该引用的候选解析来源，仍需人工确认是否对应附表之四。"
+        },
+        {
+          "reference_text": "第一章招标公告专用资格要求",
+          "resolved": true,
+          "resolved_source": "tender_project_metadata",
+          "source_file_id": "file_5092c306fce3",
+          "source_file_name": "embedded_attachment_3_2.xlsx",
+          "matched_text": "近5年，投标人具有技术开发或技术服务业绩",
+          "confidence": "high",
+          "note": "已从当前包级元信息中定位专用资格要求。"
+        }
+      ],
+      "delivery_requirements": [],
+      "notes": [
+        "未定位到招标文件对项目负责人特定证书/社保/职称的硬性要求；可按评分点准备专业、年限、经验和个人证书材料。"
+      ]
+    },
+    {
+      "section_title": "项目组织与团队配置",
+      "task_name": "项目团队人员结构",
+      "score_item": "项目团队人员结构",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "scoring_rule_summary": "对项目团队的人员结构（指专业、工作年限、工作经验等）配置情况进行评审。 优：10分 良：8-9分 一般：6-7分",
+      "max_score_preparation": {
+        "target": "",
+        "calculation": "",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "团队专业结构",
+        "工作年限",
+        "工作经验"
+      ],
+      "qualification_constraints": [],
+      "required_evidence_package": [
+        {
+          "material_type": "team_summary_form",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "拟委任主要人员汇总表",
+            "角色分工",
+            "专业结构"
+          ]
+        },
+        {
+          "material_type": "person_resume",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "主要人员简历表",
+            "项目经验",
+            "证书"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [
+          {
+            "file_id": "file_ae4329911662",
+            "title": "冯振书",
+            "material_type": "person_candidate",
+            "evidence_strength": "candidate_needs_review",
+            "reason": "候选人员",
+            "snippet": "云服务部 / cross_department_candidate / 未发现区块链、工业数据、数据安全、隐私保护、访问控制、监管、智能合约、安全分析、性能测试、研发负责人等强相关线索。"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "吴云畅",
+            "material_type": "person_candidate",
+            "evidence_strength": "candidate_needs_review",
+            "reason": "候选人员",
+            "snippet": "数字化办公事业部 / cross_department_candidate / 仅命中弱相关关键词：Python；需人工确认是否匹配本项目。"
+          }
+        ],
+        "not_usable": []
+      },
+      "manual_review_questions": [
+        "团队专业结构是否覆盖研究、数据管理、安全和项目管理？",
+        "主要人员简历表和汇总表是否完整？",
+        "每人相关项目经验和证书是否可核验？"
+      ],
+      "missing_actions": [
+        {
+          "target_material": "person_resume",
+          "ask_to": "主责部门/协同部门/项目管理",
+          "question": "请补充候选项目负责人和团队成员简历、相关项目经验及证书材料。",
+          "reason": "用于支撑人员专业、工作年限和工作经验评分。"
+        }
+      ],
+      "external_references": [
+        {
+          "reference_text": "第三章评标办法前附表之四“技术评分标准”",
+          "resolved": true,
+          "resolved_source": "score_items",
+          "source_file_id": "file_829b97fcf9b4",
+          "source_file_name": "18.ZHFWJS02科技技术服务、科技项目技术详评模板V1.0",
+          "matched_score_item": "项目团队人员结构",
+          "confidence": "probable_reference",
+          "note": "评分表已解析为 score_items；作为该引用的候选解析来源，仍需人工确认是否对应附表之四。"
+        },
+        {
+          "reference_text": "第一章招标公告专用资格要求",
+          "resolved": true,
+          "resolved_source": "tender_project_metadata",
+          "source_file_id": "file_5092c306fce3",
+          "source_file_name": "embedded_attachment_3_2.xlsx",
+          "matched_text": "近5年，投标人具有技术开发或技术服务业绩",
+          "confidence": "high",
+          "note": "已从当前包级元信息中定位专用资格要求。"
+        }
+      ],
+      "delivery_requirements": [],
+      "notes": []
+    },
+    {
+      "section_title": "业绩与项目经验",
+      "task_name": "业绩情况",
+      "score_item": "业绩情况",
+      "score_range": [
+        12.0,
+        20.0
+      ],
+      "scoring_rule_summary": "对满足公告专用资格条件要求的业绩情况进行评审，具有1项合格业绩的得12分，每多提供一项合格业绩加2分，最高加8分。",
+      "max_score_preparation": {
+        "target": "达到该评分项上限需准备5项合格公司业绩",
+        "calculation": "1项=12分；最高加8分；每增加1项+2分；因此共需1+4=5项",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "合格公司业绩数量",
+        "专用资格匹配",
+        "证明材料完整性"
+      ],
+      "qualification_constraints": [
+        {
+          "type": "special_qualification",
+          "text": "近5年，投标人具有技术开发或技术服务业绩",
+          "source_file_id": "file_5092c306fce3",
+          "source_file_name": "embedded_attachment_3_2.xlsx",
+          "source_type": "tender_original_fact",
+          "source_document_type": "procurement_package_table"
+        }
+      ],
+      "required_evidence_package": [
+        {
+          "material_type": "company_contract",
+          "required_or_recommended": "required",
+          "check_points": [
+            "合同主体",
+            "项目名称",
+            "服务内容",
+            "签署/履行时间",
+            "技术开发或技术服务内容"
+          ]
+        },
+        {
+          "material_type": "acceptance_report",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "验收主体",
+            "验收时间",
+            "项目名称",
+            "是否与合同对应"
+          ]
+        },
+        {
+          "material_type": "winning_notice_or_customer_certificate",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "项目名称",
+            "客户/招标人",
+            "服务内容",
+            "时间"
+          ]
+        },
+        {
+          "material_type": "identity_change_proof",
+          "required_or_recommended": "conditional",
+          "check_points": [
+            "仅在合同或证明材料名称与投标人名称不一致时补充"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "数字化办公-吴云畅.docx",
+            "material_type": "personal_certificate",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员项目经验只能作为人员经历线索，不能替代公司业绩合同、验收证明、中标通知书或客户证明。",
+            "snippet": "数字化办公-吴云畅.docx 人员简历库 工程师简历 工程师简介 工作经历 专业技能 项目经验 相关证书 === Table 1 === 姓名 吴云畅 性别 男 工作年限 5年 === Table 2 === 时间 公司 职位 2019年…"
+          },
+          {
+            "file_id": "file_ae4329911662",
+            "title": "云服务部-冯振书20230322.docx",
+            "material_type": "personal_certificate",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员项目经验只能作为人员经历线索，不能替代公司业绩合同、验收证明、中标通知书或客户证明。",
+            "snippet": "云服务部-冯振书20230322.docx 人员简历库 冯振书 简历 工程师简介 工作经历 专业技能 项目经验 长期运维项目 实施项目 相关证书 === Table 1 === 姓名 姓名 冯振书 性别 男 男 工作年限 工作年限 6年 …"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "数字化办公-吴云畅.docx",
+            "material_type": "person_resume",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员项目经验只能作为人员经历线索，不能替代公司业绩合同、验收证明、中标通知书或客户证明。",
+            "snippet": "月 项目描述 1、集成客户上游HRIS系统作为数据源，系统每天自动根据上游数据的变化对AD、Exchange、Skpye、文件服务器、M365等进行相关操作（对应实际业务中的“入职”、“离职”、“转岗”、“职位变更”等） 2、客户方管理员…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan合同审批流程",
+            "material_type": "person_project_experience",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员项目经验只能作为人员经历线索，不能替代公司业绩合同、验收证明、中标通知书或客户证明。",
+            "snippet": "Comlan合同审批流程 2024/1 -2024/03月 1、该项目主要将线下合同审批流程 以 数字化、自动化的方式进行实现 2、对相关功能进行开发 3、PowerApps作为使用者交互界面；PowerAutomate用于数据交互；Da…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan昆仑小蓝（基于LLM框架的GenAI应用开发）",
+            "material_type": "person_project_experience",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员项目经验只能作为人员经历线索，不能替代公司业绩合同、验收证明、中标通知书或客户证明。",
+            "snippet": "Comlan昆仑小蓝（基于LLM框架的GenAI应用开发） 2024/7 -2024/8月 1、Llamaindex作为LLM框架；Ollama、Qwen-72B、GPT-4o等作为大语言模型；LlamaIndex作为向量数据库；Mong…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan合同审批流程（二期）",
+            "material_type": "person_project_experience",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员项目经验只能作为人员经历线索，不能替代公司业绩合同、验收证明、中标通知书或客户证明。",
+            "snippet": "Comlan合同审批流程（二期） 2024/9 -2024/10月 1、基于一期增加一些功能：法务预审批的调整，可实现法务和相关人员的沟通，对附件进行修订并记录沟通过程 利用Python开发合同附件的水印添加 3、和其他平台数据的集成 P…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan采购合同审批流程",
+            "material_type": "person_project_experience",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员项目经验只能作为人员经历线索，不能替代公司业绩合同、验收证明、中标通知书或客户证明。",
+            "snippet": "Comlan采购合同审批流程 2024/10 -2024/11月 1、基于PowerPlatform的审批流程业务系统 2、优化了架构设计、继承了更多第三方数据接口 PowerPlatform 项目名称 Comlan采购合同审批流程 项目…"
+          }
+        ],
+        "not_usable": []
+      },
+      "manual_review_questions": [
+        "该业绩是否发生在近5年？",
+        "合同或证明材料是否能体现技术开发或技术服务？",
+        "证明材料是否能体现评分标准要求的所有要素点？",
+        "项目名称、服务对象、服务内容、时间是否清晰？",
+        "人员项目经验是否被误用为公司业绩？"
+      ],
+      "missing_actions": [
+        {
+          "target_material": "company_contract",
+          "ask_to": "公司业绩/项目管理/相关业务部门",
+          "question": "请补充近5年技术开发或技术服务类公司业绩合同关键页，优先补足5项。",
+          "reason": "用于满足专用资格和业绩评分材料要求。"
+        },
+        {
+          "target_material": "acceptance_report_or_customer_certificate",
+          "ask_to": "项目管理/相关业务部门",
+          "question": "请补充与合同对应的验收证明、验收报告、中标通知书或客户证明。",
+          "reason": "用于补强业绩真实性、服务内容和履行时间。"
+        }
+      ],
+      "external_references": [
+        {
+          "reference_text": "第三章评标办法前附表之四“技术评分标准”",
+          "resolved": true,
+          "resolved_source": "score_items",
+          "source_file_id": "file_829b97fcf9b4",
+          "source_file_name": "18.ZHFWJS02科技技术服务、科技项目技术详评模板V1.0",
+          "matched_score_item": "业绩情况",
+          "confidence": "probable_reference",
+          "note": "评分表已解析为 score_items；作为该引用的候选解析来源，仍需人工确认是否对应附表之四。"
+        },
+        {
+          "reference_text": "第三章评标办法附表“评分标准”",
+          "resolved": true,
+          "resolved_source": "score_items",
+          "source_file_id": "file_829b97fcf9b4",
+          "source_file_name": "18.ZHFWJS02科技技术服务、科技项目技术详评模板V1.0",
+          "matched_score_item": "业绩情况",
+          "confidence": "probable_reference",
+          "note": "评分表已解析为 score_items；作为该引用的候选解析来源，仍需人工确认是否对应附表之四。"
+        },
+        {
+          "reference_text": "第一章招标公告专用资格要求",
+          "resolved": true,
+          "resolved_source": "tender_project_metadata",
+          "source_file_id": "file_5092c306fce3",
+          "source_file_name": "embedded_attachment_3_2.xlsx",
+          "matched_text": "近5年，投标人具有技术开发或技术服务业绩",
+          "confidence": "high",
+          "note": "已从当前包级元信息中定位专用资格要求。"
+        }
+      ],
+      "delivery_requirements": [],
+      "notes": [
+        "人员项目经验不得替代公司业绩；个人证书、企业资质证书、供应商绩效评价也不得替代公司业绩。"
+      ],
+      "qualified_performance_criteria": [
+        "公司层面业绩，不能用人员项目经验替代",
+        "近5年",
+        "技术开发或技术服务",
+        "证明材料信息完整",
+        "合同等关键页能体现专用资格要求和技术评分标准要求的要素点"
+      ]
+    },
+    {
+      "section_title": "总体服务方案",
+      "task_name": "服务方案",
+      "score_item": "服务方案",
+      "score_range": [
+        18.0,
+        30.0
+      ],
+      "scoring_rule_summary": "从服务方案、管理组织、设备设施配置情况的先进性、创新性、可操作性、技术性、经济性、风险等方面进行综合评价。 优：27-30分 良：22-26分",
+      "max_score_preparation": {
+        "target": "",
+        "calculation": "",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "先进性",
+        "创新性",
+        "可操作性",
+        "技术性",
+        "经济性",
+        "风险"
+      ],
+      "qualification_constraints": [],
+      "required_evidence_package": [
+        {
+          "material_type": "technical_solution_inputs",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "技术路线",
+            "研究内容",
+            "质量控制",
+            "风险控制",
+            "交付成果"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [],
+        "not_usable": []
+      },
+      "manual_review_questions": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？"
+      ],
+      "missing_actions": [],
+      "external_references": [],
+      "delivery_requirements": [],
+      "notes": []
+    },
+    {
+      "section_title": "实施计划与进度保障",
+      "task_name": "工作进度及保证措施",
+      "score_item": "工作进度及保证措施",
+      "score_range": [
+        3.0,
+        8.0
+      ],
+      "scoring_rule_summary": "从工作进度及保证措施的合理性、可操作性等方面等进行评审。 优：7-8分 良：5-6分 一般：3-4分",
+      "max_score_preparation": {
+        "target": "",
+        "calculation": "",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "合理性",
+        "可操作性",
+        "服务期限匹配"
+      ],
+      "qualification_constraints": [],
+      "required_evidence_package": [
+        {
+          "material_type": "technical_solution_inputs",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "技术路线",
+            "研究内容",
+            "质量控制",
+            "风险控制",
+            "交付成果"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [],
+        "not_usable": []
+      },
+      "manual_review_questions": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？"
+      ],
+      "missing_actions": [],
+      "external_references": [],
+      "delivery_requirements": [],
+      "notes": []
+    },
+    {
+      "section_title": "工作基础与既有能力",
+      "task_name": "工作基础",
+      "score_item": "工作基础",
+      "score_range": [
+        0.0,
+        5.0
+      ],
+      "scoring_rule_summary": "本项最高5分。与采购项目有关的产品开发：已经产品化的5分，有产品的3分，无产品的0分。 与采购项目有关的科技成果：省级及以上5分，市级3分，没有0分。 与采购项目有关的专题研究：合理、可行5分，一般3分，没有0分。",
+      "max_score_preparation": {
+        "target": "",
+        "calculation": "",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "产品化",
+        "科技成果",
+        "专题研究"
+      ],
+      "qualification_constraints": [],
+      "required_evidence_package": [
+        {
+          "material_type": "product_proof",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "产品化证明",
+            "与本项目相关性"
+          ]
+        },
+        {
+          "material_type": "research_achievement",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "科技成果证明",
+            "专题研究报告",
+            "立项/结题材料"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "数字化办公-吴云畅.docx",
+            "material_type": "personal_certificate",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员材料仅保留为调试线索，不进入工作基础主体。",
+            "snippet": "数字化办公-吴云畅.docx 人员简历库 工程师简历 工程师简介 工作经历 专业技能 项目经验 相关证书 === Table 1 === 姓名 吴云畅 性别 男 工作年限 5年 === Table 2 === 时间 公司 职位 2019年…"
+          },
+          {
+            "file_id": "file_ae4329911662",
+            "title": "云服务部-冯振书20230322.docx",
+            "material_type": "personal_certificate",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员材料仅保留为调试线索，不进入工作基础主体。",
+            "snippet": "云服务部-冯振书20230322.docx 人员简历库 冯振书 简历 工程师简介 工作经历 专业技能 项目经验 长期运维项目 实施项目 相关证书 === Table 1 === 姓名 姓名 冯振书 性别 男 男 工作年限 工作年限 6年 …"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "数字化办公-吴云畅.docx",
+            "material_type": "person_resume",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员材料仅保留为调试线索，不进入工作基础主体。",
+            "snippet": "n采购合同审批流程 项目日期 2024/10 -2024/11月 项目描述 1、基于PowerPlatform的审批流程业务系统 2、优化了架构设计、继承了更多第三方数据接口 === Table 21 === 项目名称 佳能（中国）-D3…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "数字化办公-吴云畅.docx",
+            "material_type": "person_resume",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员材料仅保留为调试线索，不进入工作基础主体。",
+            "snippet": "n采购合同审批流程 项目日期 2024/10 -2024/11月 项目描述 1、基于PowerPlatform的审批流程业务系统 2、优化了架构设计、继承了更多第三方数据接口 === Table 21 === 项目名称 佳能（中国）-D3…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan合同审批流程",
+            "material_type": "person_project_experience",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员材料仅保留为调试线索，不进入工作基础主体。",
+            "snippet": "Comlan合同审批流程 2024/1 -2024/03月 1、该项目主要将线下合同审批流程 以 数字化、自动化的方式进行实现 2、对相关功能进行开发 3、PowerApps作为使用者交互界面；PowerAutomate用于数据交互；Da…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan合同审批流程（二期）",
+            "material_type": "person_project_experience",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员材料仅保留为调试线索，不进入工作基础主体。",
+            "snippet": "Comlan合同审批流程（二期） 2024/9 -2024/10月 1、基于一期增加一些功能：法务预审批的调整，可实现法务和相关人员的沟通，对附件进行修订并记录沟通过程 利用Python开发合同附件的水印添加 3、和其他平台数据的集成 P…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan采购合同审批流程",
+            "material_type": "person_project_experience",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员材料仅保留为调试线索，不进入工作基础主体。",
+            "snippet": "Comlan采购合同审批流程 2024/10 -2024/11月 1、基于PowerPlatform的审批流程业务系统 2、优化了架构设计、继承了更多第三方数据接口 PowerPlatform 项目名称 Comlan采购合同审批流程 项目…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "阿里-M365-BUC系统SSO集成",
+            "material_type": "person_project_experience",
+            "evidence_strength": "weak_evidence",
+            "reason": "人员材料仅保留为调试线索，不进入工作基础主体。",
+            "snippet": "阿里-M365-BUC系统SSO集成 2025/3 -2025/4月 1、微软AAD作为SP，BUC系统作为IdP，配置SSO 2、登录微软M365时，登录BUC账户SSO单点登录 3、由于没有AADC，M365账户需要通过编写好的脚本创…"
+          }
+        ],
+        "not_usable": []
+      },
+      "manual_review_questions": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？"
+      ],
+      "missing_actions": [],
+      "external_references": [],
+      "delivery_requirements": [],
+      "notes": []
+    },
+    {
+      "section_title": "专利 / 知识产权 / 创新成果",
+      "task_name": "专利数量",
+      "score_item": "专利数量",
+      "score_range": [
+        0.0,
+        2.0
+      ],
+      "scoring_rule_summary": "提供采购相关内容的发明专利或实用新型专利，每提供1项加1分，上限不超过2分。",
+      "max_score_preparation": {
+        "target": "达到该项上限需准备2项采购相关专利",
+        "calculation": "每项加1分；上限2分；因此需准备2项采购相关发明专利或实用新型专利",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "采购相关发明专利或实用新型专利",
+        "每项加1分",
+        "上限2分"
+      ],
+      "qualification_constraints": [],
+      "required_evidence_package": [
+        {
+          "material_type": "patent_certificate",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "专利名称",
+            "专利号/申请号",
+            "权利人",
+            "状态"
+          ]
+        },
+        {
+          "material_type": "patent_acceptance_notice",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "受理号",
+            "申请人",
+            "申请日期"
+          ]
+        },
+        {
+          "material_type": "official_patent_record",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "官方查询记录",
+            "状态",
+            "权利人"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [],
+        "not_usable": []
+      },
+      "manual_review_questions": [
+        "专利是否与采购内容相关？",
+        "是否至少准备2项采购相关专利用于冲击该项评分上限？",
+        "专利证书、受理通知书或官方查询记录是否能体现权利人和状态？",
+        "交付成果中的受理发明专利要求是否与既有专利评分材料分开处理？"
+      ],
+      "missing_actions": [
+        {
+          "target_material": "patent_certificate_or_official_record",
+          "ask_to": "知识产权/研发管理/相关业务部门",
+          "question": "请补充采购相关发明专利或实用新型专利证书、受理通知书或官方查询记录，优先准备2项。",
+          "reason": "用于支撑专利评分材料要求。"
+        }
+      ],
+      "external_references": [],
+      "delivery_requirements": [
+        {
+          "type": "patent_acceptance_delivery",
+          "text": "受理发明专利1项",
+          "source_file_id": "file_bd310be2d205",
+          "source_file_name": "技术规范书(基于区块链的工业数据管理技术研究).docx",
+          "note": "交付成果要求，需与既有专利评分材料分开处理。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "section_title": "绩效评价材料",
+      "task_name": "绩效评价",
+      "score_item": "绩效评价",
+      "score_range": [
+        1.0,
+        5.0
+      ],
+      "scoring_rule_summary": "根据最近一年度招标人对投标人/联合体牵头人（联合体牵头人所得分数即为联合体此项分数）的评价结果进行分类分级打分。 A（优秀）：供应商绩效评价大于等于90。5分 B（良好）：供应商绩效评价大于等于80小于90。4分 C（一般）：供应商绩效评价大于等于60小于80。3分 D（及格）：供应商绩效评价大于等于30小于60。2分 E（不及格）：供应商绩效评价小于30。1分 未参加绩效评价：4分",
+      "max_score_preparation": {
+        "target": "",
+        "calculation": "",
+        "not_a_score_prediction": true
+      },
+      "scoring_focus": [
+        "最近一年度供应商绩效评价结果"
+      ],
+      "qualification_constraints": [],
+      "required_evidence_package": [
+        {
+          "material_type": "supplier_performance_evaluation",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "最近一年度",
+            "评价主体",
+            "评价结果"
+          ]
+        },
+        {
+          "material_type": "platform_screenshot",
+          "required_or_recommended": "recommended",
+          "check_points": [
+            "平台绩效评价截图",
+            "时间",
+            "主体名称"
+          ]
+        }
+      ],
+      "kb_material_findings": {
+        "confirmed_usable": [],
+        "needs_manual_review": [],
+        "not_usable": [
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "数字化办公-吴云畅.docx",
+            "material_type": "personal_certificate",
+            "evidence_strength": "unusable",
+            "reason": "personnel 不能替代供应商绩效评价结果证明。",
+            "snippet": "数字化办公-吴云畅.docx 人员简历库 工程师简历 工程师简介 工作经历 专业技能 项目经验 相关证书 === Table 1 === 姓名 吴云畅 性别 男 工作年限 5年 === Table 2 === 时间 公司 职位 2019年…"
+          },
+          {
+            "file_id": "file_ae4329911662",
+            "title": "云服务部-冯振书20230322.docx",
+            "material_type": "personal_certificate",
+            "evidence_strength": "unusable",
+            "reason": "personnel 不能替代供应商绩效评价结果证明。",
+            "snippet": "云服务部-冯振书20230322.docx 人员简历库 冯振书 简历 工程师简介 工作经历 专业技能 项目经验 长期运维项目 实施项目 相关证书 === Table 1 === 姓名 姓名 冯振书 性别 男 男 工作年限 工作年限 6年 …"
+          },
+          {
+            "file_id": "file_2308aa547dd9",
+            "title": "资质+代理证书.docx",
+            "material_type": "company_qualification",
+            "evidence_strength": "unusable",
+            "reason": "company_qualification 不能替代供应商绩效评价结果证明。",
+            "snippet": "ISO 9001质量管理体系认证证书；ISO 14001环境管理体系认证证书；ISO 20000信息技术服务管理体系认证证书；ISO 27001信息安全管理体系认证证书；ISO 27701隐私信息管理体系认证证书；ITSS信息技术服务标准…"
+          },
+          {
+            "file_id": "file_2308aa547dd9",
+            "title": "资质+代理证书.docx",
+            "material_type": "company_qualification",
+            "evidence_strength": "unusable",
+            "reason": "company_qualification 不能替代供应商绩效评价结果证明。",
+            "snippet": "ISO 9001质量管理体系认证证书；ISO 14001环境管理体系认证证书；ISO 20000信息技术服务管理体系认证证书；ISO 27001信息安全管理体系认证证书；ISO 27701隐私信息管理体系认证证书；ITSS信息技术服务标准…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan合同审批流程",
+            "material_type": "person_project_experience",
+            "evidence_strength": "unusable",
+            "reason": "personnel 不能替代供应商绩效评价结果证明。",
+            "snippet": "Comlan合同审批流程 2024/1 -2024/03月 1、该项目主要将线下合同审批流程 以 数字化、自动化的方式进行实现 2、对相关功能进行开发 3、PowerApps作为使用者交互界面；PowerAutomate用于数据交互；Da…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan合同审批流程（二期）",
+            "material_type": "person_project_experience",
+            "evidence_strength": "unusable",
+            "reason": "personnel 不能替代供应商绩效评价结果证明。",
+            "snippet": "Comlan合同审批流程（二期） 2024/9 -2024/10月 1、基于一期增加一些功能：法务预审批的调整，可实现法务和相关人员的沟通，对附件进行修订并记录沟通过程 利用Python开发合同附件的水印添加 3、和其他平台数据的集成 P…"
+          },
+          {
+            "file_id": "file_3fa83f22cdb4",
+            "title": "Comlan采购合同审批流程",
+            "material_type": "person_project_experience",
+            "evidence_strength": "unusable",
+            "reason": "personnel 不能替代供应商绩效评价结果证明。",
+            "snippet": "Comlan采购合同审批流程 2024/10 -2024/11月 1、基于PowerPlatform的审批流程业务系统 2、优化了架构设计、继承了更多第三方数据接口 PowerPlatform 项目名称 Comlan采购合同审批流程 项目…"
+          }
+        ]
+      },
+      "manual_review_questions": [
+        "是否有最近一年度供应商绩效评价结果？",
+        "评价证明是否来自平台、招标人或有效评价主体？",
+        "是否误用简历、资质证书或业绩合同替代绩效评价？"
+      ],
+      "missing_actions": [
+        {
+          "target_material": "supplier_performance_evaluation",
+          "ask_to": "供应商管理/项目管理/商务支持部门",
+          "question": "请补充最近一年度供应商绩效评价截图、招标人评价结果或供应商绩效证明。",
+          "reason": "用于支撑供应商绩效评价评分材料要求。"
+        }
+      ],
+      "external_references": [],
+      "delivery_requirements": [],
+      "notes": [
+        "简历、资质证书、业绩合同不能替代供应商绩效评价。"
+      ]
+    }
+  ],
+  "external_references": [
+    {
+      "reference_text": "技术规范书规定的其他应提交的文件",
+      "resolved": false,
+      "missing_source_type": "technical_spec_attachment_requirement",
+      "impact": "不能完整判断引用来源中的全部要素，相关材料清单只能按已知原文和已解析评分点生成。",
+      "action": "补充技术规范书或确认相关附件是否已入库。"
+    },
+    {
+      "reference_text": "第三章评标办法前附表之四“技术评分标准”",
+      "resolved": true,
+      "resolved_source": "score_items",
+      "source_file_id": "file_829b97fcf9b4",
+      "source_file_name": "18.ZHFWJS02科技技术服务、科技项目技术详评模板V1.0",
+      "matched_score_item": "项目负责人情况",
+      "confidence": "probable_reference",
+      "note": "评分表已解析为 score_items；作为该引用的候选解析来源，仍需人工确认是否对应附表之四。"
+    },
+    {
+      "reference_text": "第一章招标公告专用资格要求",
+      "resolved": true,
+      "resolved_source": "tender_project_metadata",
+      "source_file_id": "file_5092c306fce3",
+      "source_file_name": "embedded_attachment_3_2.xlsx",
+      "matched_text": "近5年，投标人具有技术开发或技术服务业绩",
+      "confidence": "high",
+      "note": "已从当前包级元信息中定位专用资格要求。"
+    },
+    {
+      "reference_text": "第三章评标办法前附表之四“技术评分标准”",
+      "resolved": true,
+      "resolved_source": "score_items",
+      "source_file_id": "file_829b97fcf9b4",
+      "source_file_name": "18.ZHFWJS02科技技术服务、科技项目技术详评模板V1.0",
+      "matched_score_item": "项目团队人员结构",
+      "confidence": "probable_reference",
+      "note": "评分表已解析为 score_items；作为该引用的候选解析来源，仍需人工确认是否对应附表之四。"
+    },
+    {
+      "reference_text": "第一章招标公告专用资格要求",
+      "resolved": true,
+      "resolved_source": "tender_project_metadata",
+      "source_file_id": "file_5092c306fce3",
+      "source_file_name": "embedded_attachment_3_2.xlsx",
+      "matched_text": "近5年，投标人具有技术开发或技术服务业绩",
+      "confidence": "high",
+      "note": "已从当前包级元信息中定位专用资格要求。"
+    },
+    {
+      "reference_text": "第三章评标办法前附表之四“技术评分标准”",
+      "resolved": true,
+      "resolved_source": "score_items",
+      "source_file_id": "file_829b97fcf9b4",
+      "source_file_name": "18.ZHFWJS02科技技术服务、科技项目技术详评模板V1.0",
+      "matched_score_item": "业绩情况",
+      "confidence": "probable_reference",
+      "note": "评分表已解析为 score_items；作为该引用的候选解析来源，仍需人工确认是否对应附表之四。"
+    },
+    {
+      "reference_text": "第三章评标办法附表“评分标准”",
+      "resolved": true,
+      "resolved_source": "score_items",
+      "source_file_id": "file_829b97fcf9b4",
+      "source_file_name": "18.ZHFWJS02科技技术服务、科技项目技术详评模板V1.0",
+      "matched_score_item": "业绩情况",
+      "confidence": "probable_reference",
+      "note": "评分表已解析为 score_items；作为该引用的候选解析来源，仍需人工确认是否对应附表之四。"
+    },
+    {
+      "reference_text": "第一章招标公告专用资格要求",
+      "resolved": true,
+      "resolved_source": "tender_project_metadata",
+      "source_file_id": "file_5092c306fce3",
+      "source_file_name": "embedded_attachment_3_2.xlsx",
+      "matched_text": "近5年，投标人具有技术开发或技术服务业绩",
+      "confidence": "high",
+      "note": "已从当前包级元信息中定位专用资格要求。"
+    }
+  ],
+  "summary": {
+    "section_count": 9,
+    "missing_reference_count": 1,
+    "missing_action_count": 6
+  }
+}

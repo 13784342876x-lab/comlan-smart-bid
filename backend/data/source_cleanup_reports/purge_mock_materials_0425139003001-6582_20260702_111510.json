@@ -1,0 +1,244 @@
+{
+  "kind": "source_cleanup_purge_report",
+  "started_at": "2026-07-02T11:15:10",
+  "completed_at": "2026-07-02T11:15:10",
+  "lot_name": "0425139003001-6582",
+  "denylist": [
+    "file_a0a571b442b0",
+    "file_a5eee523007a"
+  ],
+  "protected_file_ids": [
+    "file_2308aa547dd9",
+    "file_3fa83f22cdb4",
+    "file_829b97fcf9b4",
+    "file_acb8d90cde1f",
+    "file_ae4329911662",
+    "file_bd310be2d205"
+  ],
+  "metadata_file_ids_before": [
+    "file_2308aa547dd9",
+    "file_3fa83f22cdb4",
+    "file_829b97fcf9b4",
+    "file_a0a571b442b0",
+    "file_a5eee523007a",
+    "file_acb8d90cde1f",
+    "file_ae4329911662",
+    "file_bd310be2d205"
+  ],
+  "metadata_file_ids_after": [
+    "file_2308aa547dd9",
+    "file_3fa83f22cdb4",
+    "file_829b97fcf9b4",
+    "file_acb8d90cde1f",
+    "file_ae4329911662",
+    "file_bd310be2d205"
+  ],
+  "metadata_removed_file_ids": [
+    "file_a0a571b442b0",
+    "file_a5eee523007a"
+  ],
+  "metadata_cleanup": {
+    "removed_items": 18,
+    "removed_dicts": 18,
+    "removed_strings": 0
+  },
+  "physical_deletions": [
+    {
+      "path": "D:\\comlan智标\\backend\\storage\\original\\2026\\资质_代理证书_file_a5eee523007a.docx",
+      "existed": false,
+      "deleted": false,
+      "error": ""
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\storage\\assets\\file_a5eee523007a_1.txt",
+      "existed": false,
+      "deleted": false,
+      "error": ""
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\storage\\assets\\file_a5eee523007a_2.txt",
+      "existed": false,
+      "deleted": false,
+      "error": ""
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\storage\\assets\\file_a5eee523007a_3.txt",
+      "existed": false,
+      "deleted": false,
+      "error": ""
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\storage\\original\\2026\\资质_代理证书_file_a0a571b442b0.docx",
+      "existed": false,
+      "deleted": false,
+      "error": ""
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\storage\\assets\\file_a0a571b442b0_1.txt",
+      "existed": false,
+      "deleted": false,
+      "error": ""
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\storage\\assets\\file_a0a571b442b0_2.txt",
+      "existed": false,
+      "deleted": false,
+      "error": ""
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\storage\\assets\\file_a0a571b442b0_3.txt",
+      "existed": false,
+      "deleted": false,
+      "error": ""
+    }
+  ],
+  "runtime_json_cleanup": [
+    {
+      "path": "D:\\comlan智标\\backend\\data\\capability_domains.json",
+      "changed": false,
+      "removed_items": 0,
+      "removed_dicts": 0,
+      "removed_strings": 0
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\data\\department_profiles.json",
+      "changed": false,
+      "removed_items": 0,
+      "removed_dicts": 0,
+      "removed_strings": 0
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\data\\material_gap_analysis.json",
+      "changed": false,
+      "removed_items": 0,
+      "removed_dicts": 0,
+      "removed_strings": 0
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\data\\response_matrix.json",
+      "changed": false,
+      "removed_items": 0,
+      "removed_dicts": 0,
+      "removed_strings": 0
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\data\\task_material_matches.json",
+      "changed": false,
+      "removed_items": 0,
+      "removed_dicts": 0,
+      "removed_strings": 0
+    },
+    {
+      "path": "D:\\comlan智标\\backend\\data\\tender_projects.json",
+      "changed": true,
+      "removed_items": 108,
+      "removed_dicts": 108,
+      "removed_strings": 16
+    }
+  ],
+  "case_output_cleanup": [
+    {
+      "path": "outputs\\0425139003001-6582\\drafts\\business_handoff.md",
+      "matched_file_ids": [
+        "file_a0a571b442b0",
+        "file_a5eee523007a"
+      ],
+      "deleted": true,
+      "error": ""
+    },
+    {
+      "path": "outputs\\0425139003001-6582\\drafts\\evidence_index.md",
+      "matched_file_ids": [
+        "file_a0a571b442b0",
+        "file_a5eee523007a"
+      ],
+      "deleted": true,
+      "error": ""
+    },
+    {
+      "path": "outputs\\0425139003001-6582\\drafts\\technical_draft.md",
+      "matched_file_ids": [
+        "file_a0a571b442b0",
+        "file_a5eee523007a"
+      ],
+      "deleted": true,
+      "error": ""
+    },
+    {
+      "path": "outputs\\0425139003001-6582\\outline\\evidence_index.md",
+      "matched_file_ids": [
+        "file_a0a571b442b0",
+        "file_a5eee523007a"
+      ],
+      "deleted": true,
+      "error": ""
+    },
+    {
+      "path": "outputs\\0425139003001-6582\\outline\\outline_debug.json",
+      "matched_file_ids": [
+        "file_a0a571b442b0",
+        "file_a5eee523007a"
+      ],
+      "deleted": true,
+      "error": ""
+    },
+    {
+      "path": "outputs\\0425139003001-6582\\outline\\technical_outline.md",
+      "matched_file_ids": [
+        "file_a0a571b442b0",
+        "file_a5eee523007a"
+      ],
+      "deleted": true,
+      "error": ""
+    }
+  ],
+  "residual_references_found": false,
+  "residual_reference_locations": [],
+  "business_residual_references_found": false,
+  "business_residual_reference_locations": [],
+  "readiness": {
+    "lot_name": "0425139003001-6582",
+    "full_tender_document": {
+      "status": "missing",
+      "file_ids": []
+    },
+    "tender_attachment": {
+      "status": "detected",
+      "file_ids": [
+        "file_acb8d90cde1f"
+      ]
+    },
+    "technical_spec": {
+      "status": "detected",
+      "file_ids": [
+        "file_bd310be2d205"
+      ]
+    },
+    "score_table": {
+      "status": "detected",
+      "file_ids": [
+        "file_829b97fcf9b4"
+      ]
+    },
+    "old_mock_files": {
+      "status": "cleaned",
+      "file_ids": []
+    },
+    "allow_metadata_extraction": false,
+    "allow_formal_outline": false,
+    "blocked": true,
+    "blocking_reasons": [
+      "未检测到完整招标文件正文"
+    ],
+    "warnings": [
+      "未检测到完整招标文件正文",
+      "检测到招标文件附件，但未检测到完整招标文件正文；该附件不能替代完整招标文件。"
+    ],
+    "next_steps": [
+      "请先使用现有 ingest-file / ingest-auto 入库完整招标文件正文或采购公告",
+      "入库后运行 parse-file 和 classify-file",
+      "重新运行 audit-case-sources",
+      "readiness 通过后再执行 Tender Metadata Extractor V0 和 Embedded Attachment Inspector V0"
+    ]
+  }
+}

@@ -1,0 +1,3114 @@
+{
+  "schema_version": "technical_draft_units_v0",
+  "separation_guards": {
+    "writing_outline_modified": false,
+    "atomic_tasks_modified_or_removed": false,
+    "draft_units_are_directory_nodes": false,
+    "body_generated": false,
+    "docx_generated": false,
+    "local_kb_queried": false,
+    "web_research_executed": false,
+    "reference_only_files_read": false
+  },
+  "directory_snapshot": [
+    {
+      "chapter_id": "WC-001",
+      "title": "需求理解及分析",
+      "child_titles": [
+        "项目背景",
+        "现状及建设基础",
+        "应用环境",
+        "功能需求",
+        "性能需求",
+        "统一运维需求",
+        "实施要求",
+        "项目重点与难点",
+        "建设目标"
+      ]
+    },
+    {
+      "chapter_id": "WC-002",
+      "title": "方案完整性及系统架构设计",
+      "child_titles": [
+        "总体设计原则",
+        "总体技术路线",
+        "总体方案架构",
+        "部署架构",
+        "统一运维架构",
+        "主要功能设计",
+        "可靠性设计",
+        "安全设计",
+        "兼容与扩展设计",
+        "超融合系统详细技术方案",
+        "超融合互联交换机技术方案",
+        "超融合节点技术方案"
+      ]
+    },
+    {
+      "chapter_id": "WC-003",
+      "title": "实施部署方案",
+      "child_titles": [
+        "实施总体规划",
+        "项目建设技术方案",
+        "项目设计实施周期",
+        "项目组织架构",
+        "项目负责人及主要人员",
+        "安装部署",
+        "测试与试运行",
+        "质量控制",
+        "项目验收",
+        "交付成果",
+        "风险控制与应急保障"
+      ]
+    },
+    {
+      "chapter_id": "WC-004",
+      "title": "培训方案",
+      "child_titles": [
+        "培训目标",
+        "培训对象",
+        "培训内容",
+        "培训形式",
+        "培训师资",
+        "培训时间与地点",
+        "培训计划",
+        "培训考核",
+        "培训资料",
+        "培训效果保障"
+      ]
+    },
+    {
+      "chapter_id": "WC-005",
+      "title": "售后服务与运行保障方案",
+      "child_titles": [
+        "服务目标",
+        "服务范围",
+        "服务组织体系",
+        "服务机构与人员",
+        "服务响应机制",
+        "故障处理流程",
+        "保修与维修方案",
+        "备品备件保障",
+        "巡检与健康检查",
+        "服务质量监督",
+        "服务承诺"
+      ]
+    },
+    {
+      "chapter_id": "WC-006",
+      "title": "绿色供应链管理方案",
+      "child_titles": []
+    },
+    {
+      "chapter_id": "WC-007",
+      "title": "技术参数及点对点应答",
+      "child_titles": [
+        "技术要求点对点应答表",
+        "技术支撑材料索引"
+      ]
+    },
+    {
+      "chapter_id": "WC-008",
+      "title": "技术证明材料及附件索引",
+      "child_titles": [
+        "产品技术资料索引",
+        "产品检测及认证材料索引",
+        "制造商资质材料索引",
+        "投标人资质材料索引",
+        "项目团队材料索引",
+        "类似项目业绩索引",
+        "服务及承诺材料索引"
+      ]
+    }
+  ],
+  "terminology_constraints": [
+    "超融合系统",
+    "超融合互联交换机",
+    "超融合节点",
+    "技术要求点对点应答表",
+    "绿色供应链管理",
+    "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+  ],
+  "content_location_plan": {
+    "TR-017": {
+      "primary_content_location": {
+        "task_id": "TASK-001",
+        "target_path": [
+          "需求理解及分析",
+          "项目背景"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-001",
+          "target_path": [
+            "需求理解及分析",
+            "项目背景"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-022": {
+      "primary_content_location": {
+        "task_id": "TASK-003",
+        "target_path": [
+          "需求理解及分析",
+          "应用环境"
+        ],
+        "mapping_role": "supporting"
+      },
+      "supporting_reference_locations": [
+        {
+          "task_id": "TASK-004",
+          "target_path": [
+            "需求理解及分析",
+            "功能需求"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-005",
+          "target_path": [
+            "需求理解及分析",
+            "性能需求"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-006",
+          "target_path": [
+            "需求理解及分析",
+            "统一运维需求"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-007",
+          "target_path": [
+            "需求理解及分析",
+            "实施要求"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-013",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "部署架构"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-014",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "统一运维架构"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-022",
+          "target_path": [
+            "实施部署方案",
+            "实施总体规划"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-033",
+          "target_path": [
+            "培训方案",
+            "培训目标"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-054",
+          "target_path": [
+            "绿色供应链管理方案"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-057",
+          "target_path": [
+            "技术证明材料及附件索引",
+            "产品技术资料索引"
+          ],
+          "mapping_role": "supporting"
+        }
+      ],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-003",
+          "target_path": [
+            "需求理解及分析",
+            "应用环境"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-004",
+          "target_path": [
+            "需求理解及分析",
+            "功能需求"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-005",
+          "target_path": [
+            "需求理解及分析",
+            "性能需求"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-006",
+          "target_path": [
+            "需求理解及分析",
+            "统一运维需求"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-007",
+          "target_path": [
+            "需求理解及分析",
+            "实施要求"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-013",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "部署架构"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-014",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "统一运维架构"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-022",
+          "target_path": [
+            "实施部署方案",
+            "实施总体规划"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-033",
+          "target_path": [
+            "培训方案",
+            "培训目标"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-054",
+          "target_path": [
+            "绿色供应链管理方案"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-057",
+          "target_path": [
+            "技术证明材料及附件索引",
+            "产品技术资料索引"
+          ],
+          "mapping_role": "supporting"
+        }
+      ]
+    },
+    "TR-011": {
+      "primary_content_location": {
+        "task_id": "TASK-010",
+        "target_path": [
+          "方案完整性及系统架构设计",
+          "总体设计原则"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-010",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "总体设计原则"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-016": {
+      "primary_content_location": {
+        "task_id": "TASK-010",
+        "target_path": [
+          "方案完整性及系统架构设计",
+          "总体设计原则"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-010",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "总体设计原则"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-020": {
+      "primary_content_location": {
+        "task_id": "TASK-013",
+        "target_path": [
+          "方案完整性及系统架构设计",
+          "部署架构"
+        ],
+        "mapping_role": "supporting"
+      },
+      "supporting_reference_locations": [
+        {
+          "task_id": "TASK-014",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "统一运维架构"
+          ],
+          "mapping_role": "supporting"
+        }
+      ],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-013",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "部署架构"
+          ],
+          "mapping_role": "supporting"
+        },
+        {
+          "task_id": "TASK-014",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "统一运维架构"
+          ],
+          "mapping_role": "supporting"
+        }
+      ]
+    },
+    "TR-018": {
+      "primary_content_location": {
+        "task_id": "TASK-019",
+        "target_path": [
+          "方案完整性及系统架构设计",
+          "超融合系统详细技术方案"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ],
+      "all_locations": [
+        {
+          "task_id": "TASK-019",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "超融合系统详细技术方案"
+          ],
+          "mapping_role": "primary"
+        },
+        {
+          "task_id": "TASK-020",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "超融合互联交换机技术方案"
+          ],
+          "mapping_role": "primary"
+        },
+        {
+          "task_id": "TASK-021",
+          "target_path": [
+            "方案完整性及系统架构设计",
+            "超融合节点技术方案"
+          ],
+          "mapping_role": "primary"
+        },
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ]
+    },
+    "TR-005": {
+      "primary_content_location": {
+        "task_id": "TASK-024",
+        "target_path": [
+          "实施部署方案",
+          "项目设计实施周期"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-024",
+          "target_path": [
+            "实施部署方案",
+            "项目设计实施周期"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-006": {
+      "primary_content_location": {
+        "task_id": "TASK-024",
+        "target_path": [
+          "实施部署方案",
+          "项目设计实施周期"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-024",
+          "target_path": [
+            "实施部署方案",
+            "项目设计实施周期"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-007": {
+      "primary_content_location": {
+        "task_id": "TASK-024",
+        "target_path": [
+          "实施部署方案",
+          "项目设计实施周期"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-024",
+          "target_path": [
+            "实施部署方案",
+            "项目设计实施周期"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-010": {
+      "primary_content_location": {
+        "task_id": "TASK-030",
+        "target_path": [
+          "实施部署方案",
+          "项目验收"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-030",
+          "target_path": [
+            "实施部署方案",
+            "项目验收"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-008": {
+      "primary_content_location": {
+        "task_id": "TASK-031",
+        "target_path": [
+          "实施部署方案",
+          "交付成果"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-031",
+          "target_path": [
+            "实施部署方案",
+            "交付成果"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-009": {
+      "primary_content_location": {
+        "task_id": "TASK-031",
+        "target_path": [
+          "实施部署方案",
+          "交付成果"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-031",
+          "target_path": [
+            "实施部署方案",
+            "交付成果"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-004": {
+      "primary_content_location": {
+        "task_id": "TASK-039",
+        "target_path": [
+          "培训方案",
+          "培训计划"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-039",
+          "target_path": [
+            "培训方案",
+            "培训计划"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-003": {
+      "primary_content_location": {
+        "task_id": "TASK-046",
+        "target_path": [
+          "售后服务与运行保障方案",
+          "服务机构与人员"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-046",
+          "target_path": [
+            "售后服务与运行保障方案",
+            "服务机构与人员"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-002": {
+      "primary_content_location": {
+        "task_id": "TASK-047",
+        "target_path": [
+          "售后服务与运行保障方案",
+          "服务响应机制"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-047",
+          "target_path": [
+            "售后服务与运行保障方案",
+            "服务响应机制"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-001": {
+      "primary_content_location": {
+        "task_id": "TASK-049",
+        "target_path": [
+          "售后服务与运行保障方案",
+          "保修与维修方案"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-049",
+          "target_path": [
+            "售后服务与运行保障方案",
+            "保修与维修方案"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-015": {
+      "primary_content_location": {
+        "task_id": "TASK-054",
+        "target_path": [
+          "绿色供应链管理方案"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-054",
+          "target_path": [
+            "绿色供应链管理方案"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-021": {
+      "primary_content_location": {
+        "task_id": "TASK-054",
+        "target_path": [
+          "绿色供应链管理方案"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-054",
+          "target_path": [
+            "绿色供应链管理方案"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-019": {
+      "primary_content_location": {
+        "task_id": "TASK-055",
+        "target_path": [
+          "技术参数及点对点应答",
+          "技术要求点对点应答表"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-023": {
+      "primary_content_location": {
+        "task_id": "TASK-055",
+        "target_path": [
+          "技术参数及点对点应答",
+          "技术要求点对点应答表"
+        ],
+        "mapping_role": "supporting"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "supporting"
+        }
+      ]
+    },
+    "TR-024": {
+      "primary_content_location": {
+        "task_id": "TASK-055",
+        "target_path": [
+          "技术参数及点对点应答",
+          "技术要求点对点应答表"
+        ],
+        "mapping_role": "supporting"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "supporting"
+        }
+      ]
+    },
+    "TR-025": {
+      "primary_content_location": null,
+      "supporting_reference_locations": [],
+      "table_response_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ]
+    },
+    "TR-026": {
+      "primary_content_location": null,
+      "supporting_reference_locations": [],
+      "table_response_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ]
+    },
+    "TR-027": {
+      "primary_content_location": null,
+      "supporting_reference_locations": [],
+      "table_response_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ]
+    },
+    "TR-028": {
+      "primary_content_location": null,
+      "supporting_reference_locations": [],
+      "table_response_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ]
+    },
+    "TR-029": {
+      "primary_content_location": null,
+      "supporting_reference_locations": [],
+      "table_response_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ]
+    },
+    "TR-030": {
+      "primary_content_location": null,
+      "supporting_reference_locations": [],
+      "table_response_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ]
+    },
+    "TR-031": {
+      "primary_content_location": null,
+      "supporting_reference_locations": [],
+      "table_response_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ],
+      "all_locations": [
+        {
+          "task_id": "TASK-055",
+          "target_path": [
+            "技术参数及点对点应答",
+            "技术要求点对点应答表"
+          ],
+          "mapping_role": "table_response"
+        }
+      ]
+    },
+    "TR-012": {
+      "primary_content_location": {
+        "task_id": "TASK-057",
+        "target_path": [
+          "技术证明材料及附件索引",
+          "产品技术资料索引"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-057",
+          "target_path": [
+            "技术证明材料及附件索引",
+            "产品技术资料索引"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-013": {
+      "primary_content_location": {
+        "task_id": "TASK-057",
+        "target_path": [
+          "技术证明材料及附件索引",
+          "产品技术资料索引"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-057",
+          "target_path": [
+            "技术证明材料及附件索引",
+            "产品技术资料索引"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    },
+    "TR-014": {
+      "primary_content_location": {
+        "task_id": "TASK-057",
+        "target_path": [
+          "技术证明材料及附件索引",
+          "产品技术资料索引"
+        ],
+        "mapping_role": "primary"
+      },
+      "supporting_reference_locations": [],
+      "table_response_locations": [],
+      "all_locations": [
+        {
+          "task_id": "TASK-057",
+          "target_path": [
+            "技术证明材料及附件索引",
+            "产品技术资料索引"
+          ],
+          "mapping_role": "primary"
+        }
+      ]
+    }
+  },
+  "draft_units": [
+    {
+      "draft_unit_id": "DU-001",
+      "title": "项目背景与现状",
+      "target_paths": [
+        [
+          "需求理解及分析",
+          "项目背景"
+        ],
+        [
+          "需求理解及分析",
+          "现状及建设基础"
+        ]
+      ],
+      "chapter_id": "WC-001",
+      "task_ids": [
+        "TASK-001",
+        "TASK-002"
+      ],
+      "response_point_ids": [
+        "TR-017"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "content_mode": "narrative",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [],
+      "shared_web_purposes": [],
+      "project_background_policy": "full",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": true,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-001",
+            "target_path": [
+              "需求理解及分析",
+              "项目背景"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "单元内任务当前均可依据招标文件事实形成初稿。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-002",
+      "title": "项目需求理解",
+      "target_paths": [
+        [
+          "需求理解及分析",
+          "应用环境"
+        ],
+        [
+          "需求理解及分析",
+          "功能需求"
+        ],
+        [
+          "需求理解及分析",
+          "性能需求"
+        ],
+        [
+          "需求理解及分析",
+          "统一运维需求"
+        ],
+        [
+          "需求理解及分析",
+          "实施要求"
+        ]
+      ],
+      "chapter_id": "WC-001",
+      "task_ids": [
+        "TASK-003",
+        "TASK-004",
+        "TASK-005",
+        "TASK-006",
+        "TASK-007"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "content_mode": "narrative",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-022"
+        ],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-003",
+            "target_path": [
+              "需求理解及分析",
+              "应用环境"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "supporting_reference_locations": [
+          {
+            "task_id": "TASK-004",
+            "target_path": [
+              "需求理解及分析",
+              "功能需求"
+            ],
+            "mapping_role": "supporting"
+          },
+          {
+            "task_id": "TASK-005",
+            "target_path": [
+              "需求理解及分析",
+              "性能需求"
+            ],
+            "mapping_role": "supporting"
+          },
+          {
+            "task_id": "TASK-006",
+            "target_path": [
+              "需求理解及分析",
+              "统一运维需求"
+            ],
+            "mapping_role": "supporting"
+          },
+          {
+            "task_id": "TASK-007",
+            "target_path": [
+              "需求理解及分析",
+              "实施要求"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "单元内任务当前均可依据招标文件事实形成初稿。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-003",
+      "title": "建设目标与重点难点",
+      "target_paths": [
+        [
+          "需求理解及分析",
+          "项目重点与难点"
+        ],
+        [
+          "需求理解及分析",
+          "建设目标"
+        ]
+      ],
+      "chapter_id": "WC-001",
+      "task_ids": [
+        "TASK-008",
+        "TASK-009"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "content_mode": "narrative",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "单元内任务当前均可依据招标文件事实形成初稿。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-004",
+      "title": "总体方案与架构",
+      "target_paths": [
+        [
+          "方案完整性及系统架构设计",
+          "总体设计原则"
+        ],
+        [
+          "方案完整性及系统架构设计",
+          "总体技术路线"
+        ],
+        [
+          "方案完整性及系统架构设计",
+          "总体方案架构"
+        ],
+        [
+          "方案完整性及系统架构设计",
+          "部署架构"
+        ],
+        [
+          "方案完整性及系统架构设计",
+          "统一运维架构"
+        ]
+      ],
+      "chapter_id": "WC-002",
+      "task_ids": [
+        "TASK-010",
+        "TASK-011",
+        "TASK-012",
+        "TASK-013",
+        "TASK-014"
+      ],
+      "response_point_ids": [
+        "TR-011",
+        "TR-016",
+        "TR-020",
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "content_mode": "mixed",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [
+        "manufacturer_official_document"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "brief_reference",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-020",
+          "TR-022"
+        ],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-010",
+            "target_path": [
+              "方案完整性及系统架构设计",
+              "总体设计原则"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-010",
+            "target_path": [
+              "方案完整性及系统架构设计",
+              "总体设计原则"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-013",
+            "target_path": [
+              "方案完整性及系统架构设计",
+              "部署架构"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "supporting_reference_locations": [
+          {
+            "task_id": "TASK-014",
+            "target_path": [
+              "方案完整性及系统架构设计",
+              "统一运维架构"
+            ],
+            "mapping_role": "supporting"
+          },
+          {
+            "task_id": "TASK-013",
+            "target_path": [
+              "方案完整性及系统架构设计",
+              "部署架构"
+            ],
+            "mapping_role": "supporting"
+          },
+          {
+            "task_id": "TASK-014",
+            "target_path": [
+              "方案完整性及系统架构设计",
+              "统一运维架构"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可形成连贯框架，项目化事实或证据引用位置需使用明确占位符。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-005",
+      "title": "功能与非功能设计",
+      "target_paths": [
+        [
+          "方案完整性及系统架构设计",
+          "主要功能设计"
+        ],
+        [
+          "方案完整性及系统架构设计",
+          "可靠性设计"
+        ],
+        [
+          "方案完整性及系统架构设计",
+          "安全设计"
+        ],
+        [
+          "方案完整性及系统架构设计",
+          "兼容与扩展设计"
+        ]
+      ],
+      "chapter_id": "WC-002",
+      "task_ids": [
+        "TASK-015",
+        "TASK-016",
+        "TASK-017",
+        "TASK-018"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "content_mode": "mixed",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [
+        "manufacturer_official_document"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": true,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-006",
+      "title": "超融合系统详细技术方案",
+      "target_paths": [
+        [
+          "方案完整性及系统架构设计",
+          "超融合系统详细技术方案"
+        ]
+      ],
+      "chapter_id": "WC-002",
+      "task_ids": [
+        "TASK-019"
+      ],
+      "response_point_ids": [
+        "TR-018"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "content_mode": "mixed",
+      "shared_manual_fact_types": [
+        "actual_product_configuration",
+        "actual_technical_parameters",
+        "manufacturer",
+        "offered_product_brand",
+        "offered_product_model",
+        "origin"
+      ],
+      "shared_local_evidence_types": [
+        "manufacturer_official_document",
+        "product_certificate",
+        "product_parameter_proof",
+        "product_test_report"
+      ],
+      "shared_web_purposes": [
+        "解释通用技术原理，不用于猜测拟投产品配置"
+      ],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-018"
+        ],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-019",
+            "target_path": [
+              "方案完整性及系统架构设计",
+              "超融合系统详细技术方案"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": true,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-007",
+      "title": "超融合互联交换机技术方案",
+      "target_paths": [
+        [
+          "方案完整性及系统架构设计",
+          "超融合互联交换机技术方案"
+        ]
+      ],
+      "chapter_id": "WC-002",
+      "task_ids": [
+        "TASK-020"
+      ],
+      "response_point_ids": [
+        "TR-018"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "content_mode": "mixed",
+      "shared_manual_fact_types": [
+        "actual_product_configuration",
+        "actual_technical_parameters",
+        "manufacturer",
+        "offered_product_brand",
+        "offered_product_model",
+        "origin"
+      ],
+      "shared_local_evidence_types": [
+        "manufacturer_official_document",
+        "product_certificate",
+        "product_parameter_proof",
+        "product_test_report"
+      ],
+      "shared_web_purposes": [
+        "解释通用技术原理，不用于猜测拟投产品配置"
+      ],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-018"
+        ],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": true,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-008",
+      "title": "超融合节点技术方案",
+      "target_paths": [
+        [
+          "方案完整性及系统架构设计",
+          "超融合节点技术方案"
+        ]
+      ],
+      "chapter_id": "WC-002",
+      "task_ids": [
+        "TASK-021"
+      ],
+      "response_point_ids": [
+        "TR-018"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "content_mode": "mixed",
+      "shared_manual_fact_types": [
+        "actual_product_configuration",
+        "actual_technical_parameters",
+        "manufacturer",
+        "offered_product_brand",
+        "offered_product_model",
+        "origin"
+      ],
+      "shared_local_evidence_types": [
+        "manufacturer_official_document",
+        "product_certificate",
+        "product_parameter_proof",
+        "product_test_report"
+      ],
+      "shared_web_purposes": [
+        "解释通用技术原理，不用于猜测拟投产品配置"
+      ],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-018"
+        ],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": true,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-009",
+      "title": "实施规划与周期",
+      "target_paths": [
+        [
+          "实施部署方案",
+          "实施总体规划"
+        ],
+        [
+          "实施部署方案",
+          "项目建设技术方案"
+        ],
+        [
+          "实施部署方案",
+          "项目设计实施周期"
+        ]
+      ],
+      "chapter_id": "WC-003",
+      "task_ids": [
+        "TASK-022",
+        "TASK-023",
+        "TASK-024"
+      ],
+      "response_point_ids": [
+        "TR-005",
+        "TR-006",
+        "TR-007",
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "content_mode": "mixed",
+      "shared_manual_fact_types": [
+        "delivery_commitment",
+        "installation_period"
+      ],
+      "shared_local_evidence_types": [
+        "implementation_experience"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "brief_reference",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-022"
+        ],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-024",
+            "target_path": [
+              "实施部署方案",
+              "项目设计实施周期"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-024",
+            "target_path": [
+              "实施部署方案",
+              "项目设计实施周期"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-024",
+            "target_path": [
+              "实施部署方案",
+              "项目设计实施周期"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [
+          {
+            "task_id": "TASK-022",
+            "target_path": [
+              "实施部署方案",
+              "实施总体规划"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-010",
+      "title": "项目组织与人员",
+      "target_paths": [
+        [
+          "实施部署方案",
+          "项目组织架构"
+        ],
+        [
+          "实施部署方案",
+          "项目负责人及主要人员"
+        ]
+      ],
+      "chapter_id": "WC-003",
+      "task_ids": [
+        "TASK-025",
+        "TASK-026"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "content_mode": "mixed",
+      "shared_manual_fact_types": [
+        "project_manager",
+        "project_team",
+        "staffing_plan"
+      ],
+      "shared_local_evidence_types": [
+        "person_certificate",
+        "person_resume"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-011",
+      "title": "实施执行、质量验收与风险保障",
+      "target_paths": [
+        [
+          "实施部署方案",
+          "安装部署"
+        ],
+        [
+          "实施部署方案",
+          "测试与试运行"
+        ],
+        [
+          "实施部署方案",
+          "质量控制"
+        ],
+        [
+          "实施部署方案",
+          "项目验收"
+        ],
+        [
+          "实施部署方案",
+          "交付成果"
+        ],
+        [
+          "实施部署方案",
+          "风险控制与应急保障"
+        ]
+      ],
+      "chapter_id": "WC-003",
+      "task_ids": [
+        "TASK-027",
+        "TASK-028",
+        "TASK-029",
+        "TASK-030",
+        "TASK-031",
+        "TASK-032"
+      ],
+      "response_point_ids": [
+        "TR-008",
+        "TR-009",
+        "TR-010"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "content_mode": "mixed",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [
+        "implementation_experience"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-031",
+            "target_path": [
+              "实施部署方案",
+              "交付成果"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-031",
+            "target_path": [
+              "实施部署方案",
+              "交付成果"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-030",
+            "target_path": [
+              "实施部署方案",
+              "项目验收"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-012",
+      "title": "培训总体设计",
+      "target_paths": [
+        [
+          "培训方案",
+          "培训目标"
+        ],
+        [
+          "培训方案",
+          "培训对象"
+        ],
+        [
+          "培训方案",
+          "培训内容"
+        ],
+        [
+          "培训方案",
+          "培训形式"
+        ],
+        [
+          "培训方案",
+          "培训师资"
+        ]
+      ],
+      "chapter_id": "WC-004",
+      "task_ids": [
+        "TASK-033",
+        "TASK-034",
+        "TASK-035",
+        "TASK-036",
+        "TASK-037"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "content_mode": "narrative",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [
+        "training_material"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "brief_reference",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-022"
+        ],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [
+          {
+            "task_id": "TASK-033",
+            "target_path": [
+              "培训方案",
+              "培训目标"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可形成连贯框架，项目化事实或证据引用位置需使用明确占位符。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-013",
+      "title": "培训实施与效果保障",
+      "target_paths": [
+        [
+          "培训方案",
+          "培训时间与地点"
+        ],
+        [
+          "培训方案",
+          "培训计划"
+        ],
+        [
+          "培训方案",
+          "培训考核"
+        ],
+        [
+          "培训方案",
+          "培训资料"
+        ],
+        [
+          "培训方案",
+          "培训效果保障"
+        ]
+      ],
+      "chapter_id": "WC-004",
+      "task_ids": [
+        "TASK-038",
+        "TASK-039",
+        "TASK-040",
+        "TASK-041",
+        "TASK-042"
+      ],
+      "response_point_ids": [
+        "TR-004"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "content_mode": "narrative",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [
+        "training_material"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-039",
+            "target_path": [
+              "培训方案",
+              "培训计划"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可形成连贯框架，项目化事实或证据引用位置需使用明确占位符。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-014",
+      "title": "服务体系与响应机制",
+      "target_paths": [
+        [
+          "售后服务与运行保障方案",
+          "服务目标"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "服务范围"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "服务组织体系"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "服务机构与人员"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "服务响应机制"
+        ]
+      ],
+      "chapter_id": "WC-005",
+      "task_ids": [
+        "TASK-043",
+        "TASK-044",
+        "TASK-045",
+        "TASK-046",
+        "TASK-047"
+      ],
+      "response_point_ids": [
+        "TR-002",
+        "TR-003"
+      ],
+      "score_item_refs": [],
+      "content_mode": "narrative",
+      "shared_manual_fact_types": [
+        "manufacturer_service_network",
+        "service_response_time",
+        "warranty_period"
+      ],
+      "shared_local_evidence_types": [
+        "service_commitment",
+        "service_network"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "brief_reference",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-047",
+            "target_path": [
+              "售后服务与运行保障方案",
+              "服务响应机制"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-046",
+            "target_path": [
+              "售后服务与运行保障方案",
+              "服务机构与人员"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-015",
+      "title": "运行维护与服务保障",
+      "target_paths": [
+        [
+          "售后服务与运行保障方案",
+          "故障处理流程"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "保修与维修方案"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "备品备件保障"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "巡检与健康检查"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "服务质量监督"
+        ],
+        [
+          "售后服务与运行保障方案",
+          "服务承诺"
+        ]
+      ],
+      "chapter_id": "WC-005",
+      "task_ids": [
+        "TASK-048",
+        "TASK-049",
+        "TASK-050",
+        "TASK-051",
+        "TASK-052",
+        "TASK-053"
+      ],
+      "response_point_ids": [
+        "TR-001"
+      ],
+      "score_item_refs": [],
+      "content_mode": "narrative",
+      "shared_manual_fact_types": [
+        "manufacturer_service_network",
+        "service_response_time",
+        "warranty_period"
+      ],
+      "shared_local_evidence_types": [
+        "service_commitment",
+        "service_network"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-049",
+            "target_path": [
+              "售后服务与运行保障方案",
+              "保修与维修方案"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": true
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-016",
+      "title": "绿色供应链管理",
+      "target_paths": [
+        [
+          "绿色供应链管理方案"
+        ]
+      ],
+      "chapter_id": "WC-006",
+      "task_ids": [
+        "TASK-054"
+      ],
+      "response_point_ids": [
+        "TR-015",
+        "TR-021",
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R004",
+        "SCORE-TR-022-R005",
+        "SCORE-TR-022-R019"
+      ],
+      "content_mode": "narrative",
+      "shared_manual_fact_types": [],
+      "shared_local_evidence_types": [
+        "green_supply_chain_evidence"
+      ],
+      "shared_web_purposes": [
+        "定位政府政策及国家行业标准"
+      ],
+      "project_background_policy": "brief_reference",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-022"
+        ],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-054",
+            "target_path": [
+              "绿色供应链管理方案"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-054",
+            "target_path": [
+              "绿色供应链管理方案"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [
+          {
+            "task_id": "TASK-054",
+            "target_path": [
+              "绿色供应链管理方案"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-017",
+      "title": "技术要求点对点应答表",
+      "target_paths": [
+        [
+          "技术参数及点对点应答",
+          "技术要求点对点应答表"
+        ]
+      ],
+      "chapter_id": "WC-007",
+      "task_ids": [
+        "TASK-055"
+      ],
+      "response_point_ids": [
+        "TR-018",
+        "TR-019",
+        "TR-022",
+        "TR-023",
+        "TR-024",
+        "TR-025",
+        "TR-026",
+        "TR-027",
+        "TR-028",
+        "TR-029",
+        "TR-030",
+        "TR-031"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R012"
+      ],
+      "content_mode": "table",
+      "shared_manual_fact_types": [
+        "actual_product_configuration",
+        "actual_technical_parameters",
+        "manufacturer",
+        "offered_product_brand",
+        "offered_product_model",
+        "origin",
+        "technical_deviation_status"
+      ],
+      "shared_local_evidence_types": [
+        "manufacturer_official_document",
+        "product_certificate",
+        "product_parameter_proof",
+        "product_test_report"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "brief_reference",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-018",
+          "TR-022"
+        ],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "supporting"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "supporting_reference_locations": [
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "table_response_locations": [
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "table_response"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "table_response"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "table_response"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "table_response"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "table_response"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "table_response"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "table_response"
+          },
+          {
+            "task_id": "TASK-055",
+            "target_path": [
+              "技术参数及点对点应答",
+              "技术要求点对点应答表"
+            ],
+            "mapping_role": "table_response"
+          }
+        ],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": true,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-018",
+      "title": "技术支撑材料索引",
+      "target_paths": [
+        [
+          "技术参数及点对点应答",
+          "技术支撑材料索引"
+        ]
+      ],
+      "chapter_id": "WC-007",
+      "task_ids": [
+        "TASK-056"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R012"
+      ],
+      "content_mode": "table",
+      "shared_manual_fact_types": [
+        "actual_product_configuration",
+        "actual_technical_parameters",
+        "manufacturer",
+        "offered_product_brand",
+        "offered_product_model",
+        "origin",
+        "technical_deviation_status"
+      ],
+      "shared_local_evidence_types": [
+        "manufacturer_official_document",
+        "product_certificate",
+        "product_parameter_proof",
+        "product_test_report"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": true,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-019",
+      "title": "产品技术资料索引",
+      "target_paths": [
+        [
+          "技术证明材料及附件索引",
+          "产品技术资料索引"
+        ]
+      ],
+      "chapter_id": "WC-008",
+      "task_ids": [
+        "TASK-057"
+      ],
+      "response_point_ids": [
+        "TR-012",
+        "TR-013",
+        "TR-014",
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "content_mode": "appendix",
+      "shared_manual_fact_types": [
+        "actual_product_configuration",
+        "actual_technical_parameters",
+        "manufacturer",
+        "offered_product_brand",
+        "offered_product_model",
+        "origin"
+      ],
+      "shared_local_evidence_types": [
+        "manufacturer_official_document",
+        "product_parameter_proof"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "brief_reference",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [
+          "TR-022"
+        ],
+        "primary_content_locations": [
+          {
+            "task_id": "TASK-057",
+            "target_path": [
+              "技术证明材料及附件索引",
+              "产品技术资料索引"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-057",
+            "target_path": [
+              "技术证明材料及附件索引",
+              "产品技术资料索引"
+            ],
+            "mapping_role": "primary"
+          },
+          {
+            "task_id": "TASK-057",
+            "target_path": [
+              "技术证明材料及附件索引",
+              "产品技术资料索引"
+            ],
+            "mapping_role": "primary"
+          }
+        ],
+        "supporting_reference_locations": [
+          {
+            "task_id": "TASK-057",
+            "target_path": [
+              "技术证明材料及附件索引",
+              "产品技术资料索引"
+            ],
+            "mapping_role": "supporting"
+          }
+        ],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": true,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-020",
+      "title": "产品检测及认证材料索引",
+      "target_paths": [
+        [
+          "技术证明材料及附件索引",
+          "产品检测及认证材料索引"
+        ]
+      ],
+      "chapter_id": "WC-008",
+      "task_ids": [
+        "TASK-058"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "content_mode": "appendix",
+      "shared_manual_fact_types": [
+        "actual_product_configuration",
+        "actual_technical_parameters",
+        "manufacturer",
+        "offered_product_brand",
+        "offered_product_model",
+        "origin"
+      ],
+      "shared_local_evidence_types": [
+        "product_certificate",
+        "product_test_report"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": true,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-021",
+      "title": "制造商资质材料索引",
+      "target_paths": [
+        [
+          "技术证明材料及附件索引",
+          "制造商资质材料索引"
+        ]
+      ],
+      "chapter_id": "WC-008",
+      "task_ids": [
+        "TASK-059"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "content_mode": "appendix",
+      "shared_manual_fact_types": [
+        "manufacturer",
+        "selected_manufacturer_qualifications"
+      ],
+      "shared_local_evidence_types": [
+        "manufacturer_qualification"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-022",
+      "title": "投标人资质材料索引",
+      "target_paths": [
+        [
+          "技术证明材料及附件索引",
+          "投标人资质材料索引"
+        ]
+      ],
+      "chapter_id": "WC-008",
+      "task_ids": [
+        "TASK-060"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "content_mode": "appendix",
+      "shared_manual_fact_types": [
+        "bidder_name",
+        "selected_company_qualifications"
+      ],
+      "shared_local_evidence_types": [
+        "company_qualification"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-023",
+      "title": "项目团队材料索引",
+      "target_paths": [
+        [
+          "技术证明材料及附件索引",
+          "项目团队材料索引"
+        ]
+      ],
+      "chapter_id": "WC-008",
+      "task_ids": [
+        "TASK-061"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "content_mode": "appendix",
+      "shared_manual_fact_types": [
+        "project_manager",
+        "project_team"
+      ],
+      "shared_local_evidence_types": [
+        "person_certificate",
+        "person_resume"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-024",
+      "title": "类似项目业绩索引",
+      "target_paths": [
+        [
+          "技术证明材料及附件索引",
+          "类似项目业绩索引"
+        ]
+      ],
+      "chapter_id": "WC-008",
+      "task_ids": [
+        "TASK-062"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "content_mode": "appendix",
+      "shared_manual_fact_types": [
+        "bidder_name",
+        "selected_performance"
+      ],
+      "shared_local_evidence_types": [
+        "company_performance"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    },
+    {
+      "draft_unit_id": "DU-025",
+      "title": "服务及承诺材料索引",
+      "target_paths": [
+        [
+          "技术证明材料及附件索引",
+          "服务及承诺材料索引"
+        ]
+      ],
+      "chapter_id": "WC-008",
+      "task_ids": [
+        "TASK-063"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "content_mode": "appendix",
+      "shared_manual_fact_types": [
+        "bidder_name",
+        "service_response_time",
+        "warranty_period"
+      ],
+      "shared_local_evidence_types": [
+        "service_commitment"
+      ],
+      "shared_web_purposes": [],
+      "project_background_policy": "forbidden",
+      "generation_constraints": {
+        "project_background_full_introduction_allowed": false,
+        "avoid_repeating_topics": [],
+        "primary_content_locations": [],
+        "supporting_reference_locations": [],
+        "table_response_locations": [],
+        "terminology_constraints": [
+          "超融合系统",
+          "超融合互联交换机",
+          "超融合节点",
+          "技术要求点对点应答表",
+          "绿色供应链管理",
+          "不得自行引入未经确认的产品简称、品牌简称或技术别名"
+        ],
+        "parameter_consistency_required": false,
+        "transition_required": false
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "单元内至少一个原子任务缺少最终版本必需的项目事实或本地证据；仍可规划结构和占位。"
+      }
+    }
+  ],
+  "coverage": {
+    "all_task_ids": [
+      "TASK-001",
+      "TASK-002",
+      "TASK-003",
+      "TASK-004",
+      "TASK-005",
+      "TASK-006",
+      "TASK-007",
+      "TASK-008",
+      "TASK-009",
+      "TASK-010",
+      "TASK-011",
+      "TASK-012",
+      "TASK-013",
+      "TASK-014",
+      "TASK-015",
+      "TASK-016",
+      "TASK-017",
+      "TASK-018",
+      "TASK-019",
+      "TASK-020",
+      "TASK-021",
+      "TASK-022",
+      "TASK-023",
+      "TASK-024",
+      "TASK-025",
+      "TASK-026",
+      "TASK-027",
+      "TASK-028",
+      "TASK-029",
+      "TASK-030",
+      "TASK-031",
+      "TASK-032",
+      "TASK-033",
+      "TASK-034",
+      "TASK-035",
+      "TASK-036",
+      "TASK-037",
+      "TASK-038",
+      "TASK-039",
+      "TASK-040",
+      "TASK-041",
+      "TASK-042",
+      "TASK-043",
+      "TASK-044",
+      "TASK-045",
+      "TASK-046",
+      "TASK-047",
+      "TASK-048",
+      "TASK-049",
+      "TASK-050",
+      "TASK-051",
+      "TASK-052",
+      "TASK-053",
+      "TASK-054",
+      "TASK-055",
+      "TASK-056",
+      "TASK-057",
+      "TASK-058",
+      "TASK-059",
+      "TASK-060",
+      "TASK-061",
+      "TASK-062",
+      "TASK-063"
+    ],
+    "planned_task_ids": [
+      "TASK-001",
+      "TASK-002",
+      "TASK-003",
+      "TASK-004",
+      "TASK-005",
+      "TASK-006",
+      "TASK-007",
+      "TASK-008",
+      "TASK-009",
+      "TASK-010",
+      "TASK-011",
+      "TASK-012",
+      "TASK-013",
+      "TASK-014",
+      "TASK-015",
+      "TASK-016",
+      "TASK-017",
+      "TASK-018",
+      "TASK-019",
+      "TASK-020",
+      "TASK-021",
+      "TASK-022",
+      "TASK-023",
+      "TASK-024",
+      "TASK-025",
+      "TASK-026",
+      "TASK-027",
+      "TASK-028",
+      "TASK-029",
+      "TASK-030",
+      "TASK-031",
+      "TASK-032",
+      "TASK-033",
+      "TASK-034",
+      "TASK-035",
+      "TASK-036",
+      "TASK-037",
+      "TASK-038",
+      "TASK-039",
+      "TASK-040",
+      "TASK-041",
+      "TASK-042",
+      "TASK-043",
+      "TASK-044",
+      "TASK-045",
+      "TASK-046",
+      "TASK-047",
+      "TASK-048",
+      "TASK-049",
+      "TASK-050",
+      "TASK-051",
+      "TASK-052",
+      "TASK-053",
+      "TASK-054",
+      "TASK-055",
+      "TASK-056",
+      "TASK-057",
+      "TASK-058",
+      "TASK-059",
+      "TASK-060",
+      "TASK-061",
+      "TASK-062",
+      "TASK-063"
+    ],
+    "unplanned_task_ids": [],
+    "duplicate_task_ids": [],
+    "all_tasks_planned_once": true
+  },
+  "summary": {
+    "draft_unit_count": 25,
+    "task_count": 63,
+    "draft_units_by_chapter": {
+      "WC-001": 3,
+      "WC-002": 5,
+      "WC-003": 3,
+      "WC-004": 2,
+      "WC-005": 2,
+      "WC-006": 1,
+      "WC-007": 2,
+      "WC-008": 7
+    },
+    "draftability": {
+      "can_draft": 3,
+      "can_draft_with_placeholders": 3,
+      "cannot_finalize": 19
+    }
+  },
+  "sources": {
+    "writing_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\technical_writing_outline.json",
+    "tasks_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\tasks\\section_writing_tasks.json",
+    "information_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\tasks\\task_information_requirements.json"
+  }
+}

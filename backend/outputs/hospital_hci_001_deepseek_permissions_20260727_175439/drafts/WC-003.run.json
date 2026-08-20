@@ -1,0 +1,4590 @@
+{
+  "schema_version": "technical_writing_agent_run_v0",
+  "status": "completed",
+  "validation_status": "blocked",
+  "issue_counts": {
+    "fatal": 0,
+    "blocking": 6,
+    "warning": 2
+  },
+  "generation_completed": true,
+  "candidate_generated": true,
+  "candidate_saved": true,
+  "candidate_available": true,
+  "candidate_reviewable": true,
+  "candidate_artifacts": {
+    "json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.candidate.json",
+    "markdown_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.candidate.md",
+    "json_sha256": "7b39d0a8f8eb9c1356c9e55025fc86b88e692b5a3952c239269c39f5a261d185",
+    "markdown_sha256": "5dea1a060cfe0313da4a789409bc638f5f3d990036c0640fb84a8cce37d0e85e",
+    "json_size_bytes": 25337,
+    "markdown_size_bytes": 18358
+  },
+  "stop_reason": "candidate_validation_blocked",
+  "draft_status": "reviewable_draft_with_blockers",
+  "submission_ready": false,
+  "target": {
+    "chapter_id": "WC-003",
+    "section_id": null,
+    "title": "实施部署方案"
+  },
+  "model_profile": {
+    "profile_name": "deepseek_draft",
+    "provider": "openai_compatible",
+    "api_style": "chat_completions",
+    "base_url_host": "api.deepseek.com",
+    "model": "deepseek-v4-pro",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "stream": true,
+    "capabilities": {
+      "supports_tools": true,
+      "supports_parallel_tool_calls": true,
+      "supports_streaming": true,
+      "supports_structured_output": true,
+      "supports_reasoning_content": true,
+      "requires_reasoning_content_replay": true,
+      "supports_developer_role": false,
+      "supports_tool_choice": false,
+      "supports_tool_choice_none": false,
+      "supports_usage_in_stream": true
+    },
+    "thinking_enabled": true,
+    "reasoning_effort": "high"
+  },
+  "model_json_repair": {
+    "attempted": false,
+    "succeeded": false,
+    "disabled": true,
+    "initial_error": "ModelJsonParseError: tool arguments are not valid JSON: Expecting ',' delimiter at character 206",
+    "repair_error": null,
+    "raw_output_saved": true,
+    "raw_output_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\debug\\WC-003.model-step-6.invalid-json.txt",
+    "raw_output_sha256": "d0a79a604851d620595c3146976300789dc751bdeca44454d49f176592ec1a56",
+    "suspected_truncation": false,
+    "integrity_check": null,
+    "rejected_for_content_change": false,
+    "source_stage": "tool_arguments",
+    "diagnostics": {
+      "model_step": 6,
+      "profile_name": "deepseek_draft",
+      "api_style": "chat_completions",
+      "finish_reason": "tool_calls",
+      "content_character_count": 2892,
+      "code_block_detected": false,
+      "suspected_truncation": false,
+      "json_error_summary": "Expecting ',' delimiter at character 206",
+      "model_repair_disabled": true,
+      "repair_attempted": false
+    }
+  },
+  "fresh_final_generation": {
+    "attempted": true,
+    "succeeded": true,
+    "source_stage": "tool_arguments"
+  },
+  "fresh_quality_regeneration": {
+    "attempted": true,
+    "succeeded": false,
+    "quality_errors": [
+      "fact_boundary:项目建设技术方案:unconfirmed_bidder_commitment:同时，我方承诺在招标文件要求的货到时间内完成供货，并在此后的安装时限内完成全部集成部署工作，具体时间节点将在项目设计实施周期中阐明。",
+      "未确认数字承诺",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_bidder_commitment:我方承诺，拟投入本项目的项目负责人及主要技术人员均具备履行合同所必需的专业能力。",
+      "fact_boundary:相关小节:evidence_pending:项目实施总体满足招标文件实施部署评价要求。",
+      "fact_boundary:相关小节:evidence_pending:公司拥有成熟的项目管理体系与质量管理流程（未引用具体标准编号）。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。"
+    ],
+    "first_error_details": [
+      {
+        "section_id": "WC-003-01",
+        "section_title": "实施总体规划",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "30日",
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-02",
+        "section_title": "项目建设技术方案",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "service_level",
+        "boundary_instruction": "只有数值与单位完全等同于有source_ids的招标供应商服务承诺要求时才可引用；更短响应时间、更高等级或额外结果承诺必须阻断或待确认。",
+        "keywords": [
+          "30日",
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-03",
+        "section_title": "项目设计实施周期",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "30日",
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "error_code": "candidate_promoted_to_fact",
+        "offending_fact_type": "candidate_personnel_or_enterprise_fact",
+        "boundary_instruction": "候选企业资质、业绩和人员材料不得进入确定正文；姓名占位符不能覆盖资质、证书、经验年限、劳动合同、社保或投入承诺，必须登记独立待确认项或删除。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "staffing_count",
+        "boundary_instruction": "只描述岗位、职责和协作关系，不得自行填写项目经理、架构师、工程师或其他人员数量；使用已登记人数占位符或等待确认。",
+        "keywords": [
+          "资质",
+          "资格",
+          "证书",
+          "经验",
+          "人员投入",
+          "2名",
+          "6年"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": [
+          "资质",
+          "资格",
+          "证书",
+          "经验",
+          "人员投入",
+          "6年",
+          "2名"
+        ]
+      },
+      {
+        "section_id": "WC-003-06",
+        "section_title": "安装部署",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "高可用",
+          "小时",
+          "72小时",
+          "48小时"
+        ]
+      },
+      {
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": [
+          "高可用",
+          "小时",
+          "72小时",
+          "48小时"
+        ]
+      },
+      {
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "service_level",
+        "boundary_instruction": "只有数值与单位完全等同于有source_ids的招标供应商服务承诺要求时才可引用；更短响应时间、更高等级或额外结果承诺必须阻断或待确认。",
+        "keywords": [
+          "高可用",
+          "小时",
+          "48小时",
+          "72小时"
+        ]
+      },
+      {
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "error_code": "unconfirmed_staffing_assignment",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": [
+          "ISO 9001"
+        ]
+      },
+      {
+        "section_id": "WC-003-09",
+        "section_title": "项目验收",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": []
+      },
+      {
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "service_level",
+        "boundary_instruction": "只有数值与单位完全等同于有source_ids的招标供应商服务承诺要求时才可引用；更短响应时间、更高等级或额外结果承诺必须阻断或待确认。",
+        "keywords": [
+          "经验",
+          "小时",
+          "30分钟",
+          "2小时"
+        ]
+      },
+      {
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "经验",
+          "小时",
+          "30分钟",
+          "2小时"
+        ]
+      },
+      {
+        "section_id": null,
+        "section_title": "相关小节",
+        "error_code": "evidence_pending",
+        "offending_fact_type": "objective_evidence_pending",
+        "boundary_instruction": "无偏离响应意向不能替代产品、人员、资质、证书、业绩或参数证据；正文只能写待核验响应或使用已登记占位符。",
+        "keywords": [
+          "资质"
+        ]
+      },
+      {
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "error_code": "unconfirmed_personnel_qualification",
+        "offending_fact_type": "personnel_qualification",
+        "boundary_instruction": "只能使用generation_permissions.allowed_confirmed_personnel_facts中的年限、证书、项目数量和岗位；没有许可时只写不含数字门槛的通用职责，或使用allowed_placeholders。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "unconfirmed_personnel_qualification",
+        "offending_fact_type": "personnel_qualification",
+        "boundary_instruction": "只能使用generation_permissions.allowed_confirmed_personnel_facts中的年限、证书、项目数量和岗位；没有许可时只写不含数字门槛的通用职责，或使用allowed_placeholders。",
+        "keywords": [
+          "资质",
+          "资格",
+          "证书",
+          "经验",
+          "人员投入",
+          "6年",
+          "2名"
+        ]
+      },
+      {
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "error_code": "unconfirmed_resource_commitment",
+        "offending_fact_type": "resource_commitment",
+        "boundary_instruction": "不得自行承诺全职投入、全程投入、候补人员或公司资源池随时调配；仅可描述通用岗位职责，除非该资源安排已列入确认事实许可。",
+        "keywords": [
+          "ISO 9001"
+        ]
+      },
+      {
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "error_code": "unverified_standard_reference",
+        "offending_fact_type": "unverified_external_standard",
+        "boundary_instruction": "删除未核验标准编号、改写为一般性依据，或使用待核验外部来源占位符；只有招标原文或已确认材料中的编号可以保留。",
+        "keywords": [
+          "ISO 9001"
+        ]
+      },
+      {
+        "section_id": "WC-003-09",
+        "section_title": "项目验收",
+        "error_code": "insufficient_prose",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": []
+      },
+      {
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "error_code": "title_not_matched",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      },
+      {
+        "section_id": "WC-003-10",
+        "section_title": "交付成果",
+        "error_code": "title_not_matched",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": []
+      },
+      {
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "error_code": "title_not_matched",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": [
+          "经验",
+          "小时",
+          "30分钟",
+          "2小时"
+        ]
+      }
+    ],
+    "remaining_error_details": [
+      {
+        "section_id": "WC-003-02",
+        "section_title": "项目建设技术方案",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": [
+          "高可用"
+        ]
+      },
+      {
+        "section_id": "WC-003-03",
+        "section_title": "项目设计实施周期",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "30日",
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      },
+      {
+        "section_id": null,
+        "section_title": "相关小节",
+        "error_code": "evidence_pending",
+        "offending_fact_type": "objective_evidence_pending",
+        "boundary_instruction": "无偏离响应意向不能替代产品、人员、资质、证书、业绩或参数证据；正文只能写待核验响应或使用已登记占位符。",
+        "keywords": []
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "unconfirmed_personnel_qualification",
+        "offending_fact_type": "personnel_qualification",
+        "boundary_instruction": "只能使用generation_permissions.allowed_confirmed_personnel_facts中的年限、证书、项目数量和岗位；没有许可时只写不含数字门槛的通用职责，或使用allowed_placeholders。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      }
+    ],
+    "first_error_count": 23,
+    "remaining_error_count": 5,
+    "first_raw_error_count": 30,
+    "first_grouped_error_count": 23,
+    "remaining_raw_error_count": 6,
+    "remaining_grouped_error_count": 5,
+    "kb_calls_reused": 3,
+    "web_results_reused": 0,
+    "fresh_candidate_accepted": true,
+    "candidate_selection_reason": "fresh_is_strict_monotonic_improvement"
+  },
+  "initial_candidate_validation": {
+    "valid": false,
+    "validation_status": "blocked",
+    "candidate_generated": true,
+    "candidate_saved": false,
+    "candidate_available": false,
+    "candidate_reviewable": true,
+    "submission_ready": false,
+    "issues": [
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-01",
+        "section_title": "实施总体规划",
+        "message": "fact_boundary:实施总体规划:numeric_commitment:在合同生效后30日内完成全部货物交付，货到后10日内完成安装调试，确保超融合节点、超融合互联交换机等硬件设备及系统软件达到可使用状态；"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-02",
+        "section_title": "项目建设技术方案",
+        "message": "fact_boundary:项目建设技术方案:numeric_commitment:本方案完全响应招标文件关于交货与安装时限要求（货到30日内、安装10日内），所有活动均在上述时限内规划和执行，具体时间计划见“项目设计实施周期”部分。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-03",
+        "section_title": "项目设计实施周期",
+        "message": "fact_boundary:项目设计实施周期:numeric_commitment:招标文件明确：货到时间为自签订合同之日起30日内，安装完成时间为货到之日起10日内。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "candidate_promoted_to_fact",
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "message": "fact_boundary:项目组织架构:candidate_promoted_to_fact:每名现场人员均需熟悉超融合平台部署流程并持有厂商技术认证或具备同等经验。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:numeric_commitment:实施团队至少包含2名工程师，分别负责硬件部署和系统软件配置。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_bidder_commitment",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_bidder_commitment:我方承诺所有指定人员在投标前已完成内部技术能力评估，并在合同签订后、项目实施前向采购人提交人员清单及对应资格证明文件。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-06",
+        "section_title": "安装部署",
+        "message": "fact_boundary:安装部署:numeric_commitment:安装部署完全遵照招标文件商务要求，货到后10日内完成安装，地点为采购人指定地点，无偏离。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "message": "fact_boundary:测试与试运行:numeric_commitment:试运行则是在系统通过集成测试后，承载典型业务模拟负载，连续观察至少72小时，确认系统稳定性。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "message": "fact_boundary:测试与试运行:numeric_commitment:试运行期间，系统至少运行72小时，期间按业务高峰时段进行监测，记录 CPU、内存、存储、网络等关键资源利用率，观察告警误报和漏报情况。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_bidder_commitment",
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "message": "fact_boundary:测试与试运行:unconfirmed_bidder_commitment:同时授权采购人技术人员进行日常操作，我方提供现场技术支持。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "message": "fact_boundary:测试与试运行:numeric_commitment:测试中发现的问题，一律纳入《问题跟踪表》，按紧急程度分级处理，紧急问题立即启动应急响应，一般问题48小时内解决，所有问题均需回归测试通过后关闭。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_staffing_assignment",
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "message": "fact_boundary:质量控制:unconfirmed_staffing_assignment:实施工程师完成作业后首先自检，再由另一名工程师交叉互检，最后质量专员进行抽检或全检（根据工序重要性）。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_bidder_commitment",
+        "section_id": "WC-003-09",
+        "section_title": "项目验收",
+        "message": "fact_boundary:项目验收:unconfirmed_bidder_commitment:初验中发现的问题记录到《验收备忘录》，我方承诺在约定时间内完成整改并申请复验。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "message": "fact_boundary:风险控制与应急保障:numeric_commitment:一级（现场响应）：实施工程师在事件发生后30分钟内到现场，进行初步诊断和即时处置。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "message": "fact_boundary:风险控制与应急保障:numeric_commitment:二级（专家支持）：超时未解决或复杂问题，30分钟内升级至技术负责人及公司二线专家团队，通过远程接入或现场支援。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "message": "fact_boundary:风险控制与应急保障:numeric_commitment:三级（管理层介入）：影响项目里程碑的重大问题，立即通知公司管理层和采购人，组建联合工作小组，制定紧急方案，2小时内启动。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "evidence_pending",
+        "section_id": null,
+        "section_title": "相关小节",
+        "message": "fact_boundary:相关小节:evidence_pending:项目团队人员安排使用占位符，具体人员、资质待确认。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "message": "fact_boundary:项目组织架构:unconfirmed_personnel_qualification:项目经理须具备超融合或数据中心类项目交付经验，并持有项目管理相关认证（人员选定后提供对应简历与证书）。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "message": "fact_boundary:项目组织架构:unconfirmed_personnel_qualification:每名现场人员均需熟悉超融合平台部署流程并持有厂商技术认证或具备同等经验。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "message": "fact_boundary:项目组织架构:unconfirmed_personnel_qualification:实施期间至少保证一名经验丰富的驻场工程师全程在岗，直至试运行稳定。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:职责前已详述，拟任项目经理需具备IT系统集成或超融合项目实施经验，持有PMP或相当项目管理认证，熟悉医院行业特点。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:计划从公司虚拟化团队中选派一位持有VCP（VMware Certified Professional）或同级别认证、且具备6年以上虚拟化实施经验的资深工程师担任。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:公司将确保在项目实施期内保留至少一名经验丰富的工程师全程驻场。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:实施过程中如确需更换人员，将提前征得采购人同意并安排具备同等或更高资质人员接替。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_resource_commitment",
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "message": "fact_boundary:质量控制:unconfirmed_resource_commitment:实施工程师完成作业后首先自检，再由另一名工程师交叉互检，最后质量专员进行抽检或全检（根据工序重要性）。"
+      },
+      {
+        "severity": "blocking",
+        "category": "source_verification",
+        "code": "unverified_standard_reference",
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "message": "fact_boundary:质量控制:unverified_standard_reference:ISO 9001"
+      },
+      {
+        "severity": "blocking",
+        "category": "writing_quality",
+        "code": "insufficient_prose",
+        "section_id": "WC-003-09",
+        "section_title": "项目验收",
+        "message": "section_quality:项目验收:insufficient_prose:paragraphs=1,characters=388"
+      },
+      {
+        "severity": "blocking",
+        "category": "table_contract",
+        "code": "title_not_matched",
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "message": "generated_supporting_table:项目组织架构:title_not_matched"
+      },
+      {
+        "severity": "blocking",
+        "category": "table_contract",
+        "code": "title_not_matched",
+        "section_id": "WC-003-10",
+        "section_title": "交付成果",
+        "message": "generated_supporting_table:交付成果:title_not_matched"
+      },
+      {
+        "severity": "blocking",
+        "category": "table_contract",
+        "code": "title_not_matched",
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "message": "generated_supporting_table:风险控制与应急保障:title_not_matched"
+      },
+      {
+        "severity": "warning",
+        "category": "source_verification",
+        "code": "external_verification_pending",
+        "section_id": null,
+        "section_title": null,
+        "message": "external verification remains pending: unavailable"
+      },
+      {
+        "severity": "warning",
+        "category": "writing_quality",
+        "code": "structured_content_exceeds_prose",
+        "section_id": "WC-003-10",
+        "section_title": "交付成果",
+        "message": "section_quality:交付成果:structured_content_exceeds_prose:warning"
+      },
+      {
+        "severity": "warning",
+        "category": "writing_quality",
+        "code": "prose_ratio_too_low",
+        "section_id": "WC-003-10",
+        "section_title": "交付成果",
+        "message": "section_quality:交付成果:prose_ratio_too_low:warning"
+      },
+      {
+        "severity": "warning",
+        "category": "writing_quality",
+        "code": "structured_content_exceeds_prose",
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "message": "section_quality:风险控制与应急保障:structured_content_exceeds_prose:warning"
+      },
+      {
+        "severity": "warning",
+        "category": "writing_quality",
+        "code": "prose_ratio_too_low",
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "message": "section_quality:风险控制与应急保障:prose_ratio_too_low:warning"
+      },
+      {
+        "severity": "warning",
+        "category": "writing_quality",
+        "code": "validation_warning",
+        "section_id": null,
+        "section_title": null,
+        "message": "standard reference may lack a natural standard name: 质量控制"
+      },
+      {
+        "severity": "warning",
+        "category": "placeholder",
+        "code": "placeholder_pending_completion",
+        "section_id": null,
+        "section_title": null,
+        "message": "registered placeholders remain pending completion"
+      }
+    ],
+    "issue_counts": {
+      "fatal": 0,
+      "blocking": 30,
+      "warning": 7
+    },
+    "errors": [
+      "fact_boundary:实施总体规划:numeric_commitment:在合同生效后30日内完成全部货物交付，货到后10日内完成安装调试，确保超融合节点、超融合互联交换机等硬件设备及系统软件达到可使用状态；",
+      "fact_boundary:项目建设技术方案:numeric_commitment:本方案完全响应招标文件关于交货与安装时限要求（货到30日内、安装10日内），所有活动均在上述时限内规划和执行，具体时间计划见“项目设计实施周期”部分。",
+      "fact_boundary:项目设计实施周期:numeric_commitment:招标文件明确：货到时间为自签订合同之日起30日内，安装完成时间为货到之日起10日内。",
+      "fact_boundary:项目组织架构:candidate_promoted_to_fact:每名现场人员均需熟悉超融合平台部署流程并持有厂商技术认证或具备同等经验。",
+      "fact_boundary:项目负责人及主要人员:numeric_commitment:实施团队至少包含2名工程师，分别负责硬件部署和系统软件配置。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_bidder_commitment:我方承诺所有指定人员在投标前已完成内部技术能力评估，并在合同签订后、项目实施前向采购人提交人员清单及对应资格证明文件。",
+      "fact_boundary:安装部署:numeric_commitment:安装部署完全遵照招标文件商务要求，货到后10日内完成安装，地点为采购人指定地点，无偏离。",
+      "fact_boundary:测试与试运行:numeric_commitment:试运行则是在系统通过集成测试后，承载典型业务模拟负载，连续观察至少72小时，确认系统稳定性。",
+      "fact_boundary:测试与试运行:numeric_commitment:试运行期间，系统至少运行72小时，期间按业务高峰时段进行监测，记录 CPU、内存、存储、网络等关键资源利用率，观察告警误报和漏报情况。",
+      "fact_boundary:测试与试运行:unconfirmed_bidder_commitment:同时授权采购人技术人员进行日常操作，我方提供现场技术支持。",
+      "fact_boundary:测试与试运行:numeric_commitment:测试中发现的问题，一律纳入《问题跟踪表》，按紧急程度分级处理，紧急问题立即启动应急响应，一般问题48小时内解决，所有问题均需回归测试通过后关闭。",
+      "fact_boundary:质量控制:unconfirmed_staffing_assignment:实施工程师完成作业后首先自检，再由另一名工程师交叉互检，最后质量专员进行抽检或全检（根据工序重要性）。",
+      "fact_boundary:项目验收:unconfirmed_bidder_commitment:初验中发现的问题记录到《验收备忘录》，我方承诺在约定时间内完成整改并申请复验。",
+      "fact_boundary:风险控制与应急保障:numeric_commitment:一级（现场响应）：实施工程师在事件发生后30分钟内到现场，进行初步诊断和即时处置。",
+      "fact_boundary:风险控制与应急保障:numeric_commitment:二级（专家支持）：超时未解决或复杂问题，30分钟内升级至技术负责人及公司二线专家团队，通过远程接入或现场支援。",
+      "fact_boundary:风险控制与应急保障:numeric_commitment:三级（管理层介入）：影响项目里程碑的重大问题，立即通知公司管理层和采购人，组建联合工作小组，制定紧急方案，2小时内启动。",
+      "fact_boundary:相关小节:evidence_pending:项目团队人员安排使用占位符，具体人员、资质待确认。",
+      "fact_boundary:项目组织架构:unconfirmed_personnel_qualification:项目经理须具备超融合或数据中心类项目交付经验，并持有项目管理相关认证（人员选定后提供对应简历与证书）。",
+      "fact_boundary:项目组织架构:unconfirmed_personnel_qualification:每名现场人员均需熟悉超融合平台部署流程并持有厂商技术认证或具备同等经验。",
+      "fact_boundary:项目组织架构:unconfirmed_personnel_qualification:实施期间至少保证一名经验丰富的驻场工程师全程在岗，直至试运行稳定。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:职责前已详述，拟任项目经理需具备IT系统集成或超融合项目实施经验，持有PMP或相当项目管理认证，熟悉医院行业特点。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:计划从公司虚拟化团队中选派一位持有VCP（VMware Certified Professional）或同级别认证、且具备6年以上虚拟化实施经验的资深工程师担任。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:公司将确保在项目实施期内保留至少一名经验丰富的工程师全程驻场。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:实施过程中如确需更换人员，将提前征得采购人同意并安排具备同等或更高资质人员接替。",
+      "fact_boundary:质量控制:unconfirmed_resource_commitment:实施工程师完成作业后首先自检，再由另一名工程师交叉互检，最后质量专员进行抽检或全检（根据工序重要性）。",
+      "fact_boundary:质量控制:unverified_standard_reference:ISO 9001",
+      "section_quality:项目验收:insufficient_prose:paragraphs=1,characters=388",
+      "generated_supporting_table:项目组织架构:title_not_matched",
+      "generated_supporting_table:交付成果:title_not_matched",
+      "generated_supporting_table:风险控制与应急保障:title_not_matched"
+    ],
+    "warnings": [
+      "external verification remains pending: unavailable",
+      "section_quality:交付成果:structured_content_exceeds_prose:warning",
+      "section_quality:交付成果:prose_ratio_too_low:warning",
+      "section_quality:风险控制与应急保障:structured_content_exceeds_prose:warning",
+      "section_quality:风险控制与应急保障:prose_ratio_too_low:warning",
+      "standard reference may lack a natural standard name: 质量控制",
+      "registered placeholders remain pending completion"
+    ],
+    "expected_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "actual_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "title_count": 11,
+    "expected_response_point_ids": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "missing_response_point_ids": [],
+    "expected_score_item_ids": [
+      "SCORE-TR-022-R017"
+    ],
+    "missing_score_item_ids": [],
+    "markdown_table_count": 3,
+    "technical_writing_quality": {
+      "chapter": {
+        "prose_paragraph_count": 43,
+        "prose_character_count": 6475,
+        "section_total_character_count": 8249,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 3,
+        "markdown_table_character_count": 885,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "average_prose_paragraph_length": 150.58,
+        "longest_prose_paragraph_length": 453,
+        "prose_ratio": 0.8798,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.1202,
+        "sections_with_insufficient_prose": [
+          "项目验收"
+        ],
+        "list_dominant_sections": [],
+        "required_table_exempt_character_count": 0,
+        "non_exempt_structured_character_count": 885
+      },
+      "sections": [
+        {
+          "section_title": "实施总体规划",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 5,
+          "prose_character_count": 982,
+          "average_prose_paragraph_length": 196.4,
+          "longest_prose_paragraph_length": 375,
+          "section_total_character_count": 982,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目建设技术方案",
+          "block_type": "technical_solution",
+          "prose_paragraph_count": 4,
+          "prose_character_count": 807,
+          "average_prose_paragraph_length": 201.75,
+          "longest_prose_paragraph_length": 397,
+          "section_total_character_count": 882,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目设计实施周期",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 4,
+          "prose_character_count": 565,
+          "average_prose_paragraph_length": 141.25,
+          "longest_prose_paragraph_length": 289,
+          "section_total_character_count": 565,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目组织架构",
+          "block_type": "organization_plan",
+          "prose_paragraph_count": 6,
+          "prose_character_count": 714,
+          "average_prose_paragraph_length": 119.0,
+          "longest_prose_paragraph_length": 210,
+          "section_total_character_count": 1031,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 1,
+          "markdown_table_character_count": 218,
+          "prose_ratio": 0.7661,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.2339,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目负责人及主要人员",
+          "block_type": "personnel_detail",
+          "prose_paragraph_count": 4,
+          "prose_character_count": 497,
+          "average_prose_paragraph_length": 124.25,
+          "longest_prose_paragraph_length": 136,
+          "section_total_character_count": 568,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "安装部署",
+          "block_type": "technical_solution",
+          "prose_paragraph_count": 4,
+          "prose_character_count": 784,
+          "average_prose_paragraph_length": 196.0,
+          "longest_prose_paragraph_length": 453,
+          "section_total_character_count": 828,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "测试与试运行",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 4,
+          "prose_character_count": 578,
+          "average_prose_paragraph_length": 144.5,
+          "longest_prose_paragraph_length": 265,
+          "section_total_character_count": 764,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "质量控制",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 5,
+          "prose_character_count": 609,
+          "average_prose_paragraph_length": 121.8,
+          "longest_prose_paragraph_length": 256,
+          "section_total_character_count": 609,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目验收",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 1,
+          "prose_character_count": 388,
+          "average_prose_paragraph_length": 388.0,
+          "longest_prose_paragraph_length": 388,
+          "section_total_character_count": 571,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": true,
+          "contains_required_response_table": false,
+          "errors": [
+            "section_quality:项目验收:insufficient_prose:paragraphs=1,characters=388"
+          ],
+          "warnings": []
+        },
+        {
+          "section_title": "交付成果",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 191,
+          "average_prose_paragraph_length": 63.67,
+          "longest_prose_paragraph_length": 74,
+          "section_total_character_count": 555,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 1,
+          "markdown_table_character_count": 201,
+          "prose_ratio": 0.4872,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.5128,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": [
+            "section_quality:交付成果:structured_content_exceeds_prose:warning",
+            "section_quality:交付成果:prose_ratio_too_low:warning"
+          ]
+        },
+        {
+          "section_title": "风险控制与应急保障",
+          "block_type": "risk_control",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 360,
+          "average_prose_paragraph_length": 120.0,
+          "longest_prose_paragraph_length": 186,
+          "section_total_character_count": 894,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 1,
+          "markdown_table_character_count": 466,
+          "prose_ratio": 0.4358,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.5642,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": [
+            "section_quality:风险控制与应急保障:structured_content_exceeds_prose:warning",
+            "section_quality:风险控制与应急保障:prose_ratio_too_low:warning"
+          ]
+        }
+      ],
+      "sections_with_insufficient_prose": [
+        "项目验收"
+      ]
+    },
+    "duplicate_section_pairs": [],
+    "generation_permission_audit": {
+      "passed": false,
+      "unauthorized_numeric_claims": [
+        {
+          "section_id": "WC-003-01",
+          "section_title": "实施总体规划",
+          "code": "numeric_commitment",
+          "text": "在合同生效后30日内完成全部货物交付，货到后10日内完成安装调试，确保超融合节点、超融合互联交换机等硬件设备及系统软件达到可使用状态；",
+          "numeric_text": "30日内"
+        },
+        {
+          "section_id": "WC-003-05",
+          "section_title": "项目负责人及主要人员",
+          "code": "numeric_commitment",
+          "text": "实施团队至少包含2名工程师，分别负责硬件部署和系统软件配置。",
+          "numeric_text": "2名"
+        },
+        {
+          "section_id": "WC-003-07",
+          "section_title": "测试与试运行",
+          "code": "numeric_commitment",
+          "text": "试运行则是在系统通过集成测试后，承载典型业务模拟负载，连续观察至少72小时，确认系统稳定性。",
+          "numeric_text": "72小时"
+        },
+        {
+          "section_id": "WC-003-07",
+          "section_title": "测试与试运行",
+          "code": "numeric_commitment",
+          "text": "试运行期间，系统至少运行72小时，期间按业务高峰时段进行监测，记录 CPU、内存、存储、网络等关键资源利用率，观察告警误报和漏报情况。",
+          "numeric_text": "72小时"
+        },
+        {
+          "section_id": "WC-003-07",
+          "section_title": "测试与试运行",
+          "code": "numeric_commitment",
+          "text": "测试中发现的问题，一律纳入《问题跟踪表》，按紧急程度分级处理，紧急问题立即启动应急响应，一般问题48小时内解决，所有问题均需回归测试通过后关闭。",
+          "numeric_text": "48小时内"
+        },
+        {
+          "section_id": "WC-003-11",
+          "section_title": "风险控制与应急保障",
+          "code": "numeric_commitment",
+          "text": "一级（现场响应）：实施工程师在事件发生后30分钟内到现场，进行初步诊断和即时处置。",
+          "numeric_text": "30分钟内"
+        },
+        {
+          "section_id": "WC-003-11",
+          "section_title": "风险控制与应急保障",
+          "code": "numeric_commitment",
+          "text": "二级（专家支持）：超时未解决或复杂问题，30分钟内升级至技术负责人及公司二线专家团队，通过远程接入或现场支援。",
+          "numeric_text": "30分钟内"
+        },
+        {
+          "section_id": "WC-003-11",
+          "section_title": "风险控制与应急保障",
+          "code": "numeric_commitment",
+          "text": "三级（管理层介入）：影响项目里程碑的重大问题，立即通知公司管理层和采购人，组建联合工作小组，制定紧急方案，2小时内启动。",
+          "numeric_text": "2小时内"
+        }
+      ],
+      "unauthorized_personnel_claims": [
+        {
+          "section_id": "WC-003-04",
+          "section_title": "项目组织架构",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "项目经理须具备超融合或数据中心类项目交付经验，并持有项目管理相关认证（人员选定后提供对应简历与证书）。"
+        },
+        {
+          "section_id": "WC-003-04",
+          "section_title": "项目组织架构",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "每名现场人员均需熟悉超融合平台部署流程并持有厂商技术认证或具备同等经验。"
+        },
+        {
+          "section_id": "WC-003-04",
+          "section_title": "项目组织架构",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "实施期间至少保证一名经验丰富的驻场工程师全程在岗，直至试运行稳定。"
+        },
+        {
+          "section_id": "WC-003-05",
+          "section_title": "项目负责人及主要人员",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "职责前已详述，拟任项目经理需具备IT系统集成或超融合项目实施经验，持有PMP或相当项目管理认证，熟悉医院行业特点。"
+        },
+        {
+          "section_id": "WC-003-05",
+          "section_title": "项目负责人及主要人员",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "计划从公司虚拟化团队中选派一位持有VCP（VMware Certified Professional）或同级别认证、且具备6年以上虚拟化实施经验的资深工程师担任。"
+        },
+        {
+          "section_id": "WC-003-05",
+          "section_title": "项目负责人及主要人员",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "公司将确保在项目实施期内保留至少一名经验丰富的工程师全程驻场。"
+        },
+        {
+          "section_id": "WC-003-05",
+          "section_title": "项目负责人及主要人员",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "实施过程中如确需更换人员，将提前征得采购人同意并安排具备同等或更高资质人员接替。"
+        },
+        {
+          "section_id": "WC-003-08",
+          "section_title": "质量控制",
+          "code": "unconfirmed_resource_commitment",
+          "text": "实施工程师完成作业后首先自检，再由另一名工程师交叉互检，最后质量专员进行抽检或全检（根据工序重要性）。"
+        },
+        {
+          "section_id": "WC-003-08",
+          "section_title": "质量控制",
+          "code": "unconfirmed_staffing_assignment",
+          "text": "实施工程师完成作业后首先自检，再由另一名工程师交叉互检，最后质量专员进行抽检或全检（根据工序重要性）。"
+        }
+      ],
+      "unauthorized_product_capabilities": [],
+      "candidate_facts_promoted": [
+        {
+          "section_id": "WC-003-04",
+          "section_title": "项目组织架构",
+          "code": "candidate_promoted_to_fact",
+          "text": "每名现场人员均需熟悉超融合平台部署流程并持有厂商技术认证或具备同等经验。"
+        }
+      ],
+      "unregistered_placeholders": []
+    },
+    "raw_error_count": 30,
+    "grouped_error_count": 23,
+    "error_details": [
+      {
+        "section_id": "WC-003-01",
+        "section_title": "实施总体规划",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "30日",
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-02",
+        "section_title": "项目建设技术方案",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "service_level",
+        "boundary_instruction": "只有数值与单位完全等同于有source_ids的招标供应商服务承诺要求时才可引用；更短响应时间、更高等级或额外结果承诺必须阻断或待确认。",
+        "keywords": [
+          "30日",
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-03",
+        "section_title": "项目设计实施周期",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "30日",
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "error_code": "candidate_promoted_to_fact",
+        "offending_fact_type": "candidate_personnel_or_enterprise_fact",
+        "boundary_instruction": "候选企业资质、业绩和人员材料不得进入确定正文；姓名占位符不能覆盖资质、证书、经验年限、劳动合同、社保或投入承诺，必须登记独立待确认项或删除。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "staffing_count",
+        "boundary_instruction": "只描述岗位、职责和协作关系，不得自行填写项目经理、架构师、工程师或其他人员数量；使用已登记人数占位符或等待确认。",
+        "keywords": [
+          "资质",
+          "资格",
+          "证书",
+          "经验",
+          "人员投入",
+          "2名",
+          "6年"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": [
+          "资质",
+          "资格",
+          "证书",
+          "经验",
+          "人员投入",
+          "6年",
+          "2名"
+        ]
+      },
+      {
+        "section_id": "WC-003-06",
+        "section_title": "安装部署",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "高可用",
+          "小时",
+          "72小时",
+          "48小时"
+        ]
+      },
+      {
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": [
+          "高可用",
+          "小时",
+          "72小时",
+          "48小时"
+        ]
+      },
+      {
+        "section_id": "WC-003-07",
+        "section_title": "测试与试运行",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "service_level",
+        "boundary_instruction": "只有数值与单位完全等同于有source_ids的招标供应商服务承诺要求时才可引用；更短响应时间、更高等级或额外结果承诺必须阻断或待确认。",
+        "keywords": [
+          "高可用",
+          "小时",
+          "48小时",
+          "72小时"
+        ]
+      },
+      {
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "error_code": "unconfirmed_staffing_assignment",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": [
+          "ISO 9001"
+        ]
+      },
+      {
+        "section_id": "WC-003-09",
+        "section_title": "项目验收",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": []
+      },
+      {
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "service_level",
+        "boundary_instruction": "只有数值与单位完全等同于有source_ids的招标供应商服务承诺要求时才可引用；更短响应时间、更高等级或额外结果承诺必须阻断或待确认。",
+        "keywords": [
+          "经验",
+          "小时",
+          "30分钟",
+          "2小时"
+        ]
+      },
+      {
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "经验",
+          "小时",
+          "30分钟",
+          "2小时"
+        ]
+      },
+      {
+        "section_id": null,
+        "section_title": "相关小节",
+        "error_code": "evidence_pending",
+        "offending_fact_type": "objective_evidence_pending",
+        "boundary_instruction": "无偏离响应意向不能替代产品、人员、资质、证书、业绩或参数证据；正文只能写待核验响应或使用已登记占位符。",
+        "keywords": [
+          "资质"
+        ]
+      },
+      {
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "error_code": "unconfirmed_personnel_qualification",
+        "offending_fact_type": "personnel_qualification",
+        "boundary_instruction": "只能使用generation_permissions.allowed_confirmed_personnel_facts中的年限、证书、项目数量和岗位；没有许可时只写不含数字门槛的通用职责，或使用allowed_placeholders。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "unconfirmed_personnel_qualification",
+        "offending_fact_type": "personnel_qualification",
+        "boundary_instruction": "只能使用generation_permissions.allowed_confirmed_personnel_facts中的年限、证书、项目数量和岗位；没有许可时只写不含数字门槛的通用职责，或使用allowed_placeholders。",
+        "keywords": [
+          "资质",
+          "资格",
+          "证书",
+          "经验",
+          "人员投入",
+          "6年",
+          "2名"
+        ]
+      },
+      {
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "error_code": "unconfirmed_resource_commitment",
+        "offending_fact_type": "resource_commitment",
+        "boundary_instruction": "不得自行承诺全职投入、全程投入、候补人员或公司资源池随时调配；仅可描述通用岗位职责，除非该资源安排已列入确认事实许可。",
+        "keywords": [
+          "ISO 9001"
+        ]
+      },
+      {
+        "section_id": "WC-003-08",
+        "section_title": "质量控制",
+        "error_code": "unverified_standard_reference",
+        "offending_fact_type": "unverified_external_standard",
+        "boundary_instruction": "删除未核验标准编号、改写为一般性依据，或使用待核验外部来源占位符；只有招标原文或已确认材料中的编号可以保留。",
+        "keywords": [
+          "ISO 9001"
+        ]
+      },
+      {
+        "section_id": "WC-003-09",
+        "section_title": "项目验收",
+        "error_code": "insufficient_prose",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": []
+      },
+      {
+        "section_id": "WC-003-04",
+        "section_title": "项目组织架构",
+        "error_code": "title_not_matched",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      },
+      {
+        "section_id": "WC-003-10",
+        "section_title": "交付成果",
+        "error_code": "title_not_matched",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": []
+      },
+      {
+        "section_id": "WC-003-11",
+        "section_title": "风险控制与应急保障",
+        "error_code": "title_not_matched",
+        "offending_fact_type": "writing_quality",
+        "boundary_instruction": "按当前正式正文规则修正该小节，不得用表格、列表、过渡语或空泛套话替代完整实施说明。",
+        "keywords": [
+          "经验",
+          "小时",
+          "30分钟",
+          "2小时"
+        ]
+      }
+    ],
+    "blocking_error_categories": [
+      [
+        "candidate_promoted_to_fact",
+        "candidate_personnel_or_enterprise_fact"
+      ],
+      [
+        "evidence_pending",
+        "objective_evidence_pending"
+      ],
+      [
+        "insufficient_prose",
+        "writing_quality"
+      ],
+      [
+        "numeric_commitment",
+        "schedule_duration"
+      ],
+      [
+        "numeric_commitment",
+        "service_level"
+      ],
+      [
+        "numeric_commitment",
+        "staffing_count"
+      ],
+      [
+        "title_not_matched",
+        "writing_quality"
+      ],
+      [
+        "unconfirmed_bidder_commitment",
+        "unconfirmed_commitment"
+      ],
+      [
+        "unconfirmed_personnel_qualification",
+        "personnel_qualification"
+      ],
+      [
+        "unconfirmed_resource_commitment",
+        "resource_commitment"
+      ],
+      [
+        "unconfirmed_staffing_assignment",
+        "writing_quality"
+      ],
+      [
+        "unverified_standard_reference",
+        "unverified_external_standard"
+      ]
+    ],
+    "schema_valid": true,
+    "coverage": {
+      "missing_response_point_count": 0,
+      "missing_score_item_count": 0,
+      "covered_response_point_count": 7,
+      "covered_score_item_count": 1,
+      "headings_match": true
+    },
+    "quality_comparison": {
+      "prose_ratio": 0.8798,
+      "bullet_ratio": 0.0,
+      "table_ratio": 0.1202,
+      "insufficient_section_count": 1,
+      "list_dominant_section_count": 0,
+      "inline_step_chain_count": 0,
+      "markdown_table_error_count": 0,
+      "quality_error_count": 4
+    }
+  },
+  "fresh_candidate_validation": {
+    "valid": false,
+    "validation_status": "blocked",
+    "candidate_generated": true,
+    "candidate_saved": false,
+    "candidate_available": false,
+    "candidate_reviewable": true,
+    "submission_ready": false,
+    "issues": [
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_bidder_commitment",
+        "section_id": "WC-003-02",
+        "section_title": "项目建设技术方案",
+        "message": "fact_boundary:项目建设技术方案:unconfirmed_bidder_commitment:同时，我方承诺在招标文件要求的货到时间内完成供货，并在此后的安装时限内完成全部集成部署工作，具体时间节点将在项目设计实施周期中阐明。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-03",
+        "section_title": "项目设计实施周期",
+        "message": "fact_boundary:项目设计实施周期:numeric_commitment:根据招标要求，货到时间为自签订合同之日起30日内，安装完成时间为货到之日起10日内。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_bidder_commitment",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_bidder_commitment:我方承诺，拟投入本项目的项目负责人及主要技术人员均具备履行合同所必需的专业能力。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "evidence_pending",
+        "section_id": null,
+        "section_title": "相关小节",
+        "message": "fact_boundary:相关小节:evidence_pending:项目实施总体满足招标文件实施部署评价要求。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "evidence_pending",
+        "section_id": null,
+        "section_title": "相关小节",
+        "message": "fact_boundary:相关小节:evidence_pending:公司拥有成熟的项目管理体系与质量管理流程（未引用具体标准编号）。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。"
+      },
+      {
+        "severity": "warning",
+        "category": "source_verification",
+        "code": "external_verification_pending",
+        "section_id": null,
+        "section_title": null,
+        "message": "external verification remains pending: unavailable"
+      },
+      {
+        "severity": "warning",
+        "category": "placeholder",
+        "code": "placeholder_pending_completion",
+        "section_id": null,
+        "section_title": null,
+        "message": "registered placeholders remain pending completion"
+      }
+    ],
+    "issue_counts": {
+      "fatal": 0,
+      "blocking": 6,
+      "warning": 2
+    },
+    "errors": [
+      "fact_boundary:项目建设技术方案:unconfirmed_bidder_commitment:同时，我方承诺在招标文件要求的货到时间内完成供货，并在此后的安装时限内完成全部集成部署工作，具体时间节点将在项目设计实施周期中阐明。",
+      "fact_boundary:项目设计实施周期:numeric_commitment:根据招标要求，货到时间为自签订合同之日起30日内，安装完成时间为货到之日起10日内。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_bidder_commitment:我方承诺，拟投入本项目的项目负责人及主要技术人员均具备履行合同所必需的专业能力。",
+      "fact_boundary:相关小节:evidence_pending:项目实施总体满足招标文件实施部署评价要求。",
+      "fact_boundary:相关小节:evidence_pending:公司拥有成熟的项目管理体系与质量管理流程（未引用具体标准编号）。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。"
+    ],
+    "warnings": [
+      "external verification remains pending: unavailable",
+      "registered placeholders remain pending completion"
+    ],
+    "expected_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "actual_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "title_count": 11,
+    "expected_response_point_ids": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "missing_response_point_ids": [],
+    "expected_score_item_ids": [
+      "SCORE-TR-022-R017"
+    ],
+    "missing_score_item_ids": [],
+    "markdown_table_count": 0,
+    "technical_writing_quality": {
+      "chapter": {
+        "prose_paragraph_count": 33,
+        "prose_character_count": 5476,
+        "section_total_character_count": 5701,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "average_prose_paragraph_length": 165.94,
+        "longest_prose_paragraph_length": 376,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "sections_with_insufficient_prose": [],
+        "list_dominant_sections": [],
+        "required_table_exempt_character_count": 0,
+        "non_exempt_structured_character_count": 0
+      },
+      "sections": [
+        {
+          "section_title": "实施总体规划",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 486,
+          "average_prose_paragraph_length": 162.0,
+          "longest_prose_paragraph_length": 225,
+          "section_total_character_count": 486,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目建设技术方案",
+          "block_type": "technical_solution",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 456,
+          "average_prose_paragraph_length": 152.0,
+          "longest_prose_paragraph_length": 203,
+          "section_total_character_count": 565,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目设计实施周期",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 603,
+          "average_prose_paragraph_length": 201.0,
+          "longest_prose_paragraph_length": 376,
+          "section_total_character_count": 603,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目组织架构",
+          "block_type": "organization_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 540,
+          "average_prose_paragraph_length": 180.0,
+          "longest_prose_paragraph_length": 227,
+          "section_total_character_count": 540,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目负责人及主要人员",
+          "block_type": "personnel_detail",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 494,
+          "average_prose_paragraph_length": 164.67,
+          "longest_prose_paragraph_length": 178,
+          "section_total_character_count": 494,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "安装部署",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 536,
+          "average_prose_paragraph_length": 178.67,
+          "longest_prose_paragraph_length": 263,
+          "section_total_character_count": 536,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "测试与试运行",
+          "block_type": "technical_solution",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 538,
+          "average_prose_paragraph_length": 179.33,
+          "longest_prose_paragraph_length": 248,
+          "section_total_character_count": 538,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "质量控制",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 4,
+          "prose_character_count": 517,
+          "average_prose_paragraph_length": 129.25,
+          "longest_prose_paragraph_length": 169,
+          "section_total_character_count": 517,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目验收",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 377,
+          "average_prose_paragraph_length": 188.5,
+          "longest_prose_paragraph_length": 211,
+          "section_total_character_count": 493,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "交付成果",
+          "block_type": "other",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 395,
+          "average_prose_paragraph_length": 131.67,
+          "longest_prose_paragraph_length": 199,
+          "section_total_character_count": 395,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "风险控制与应急保障",
+          "block_type": "risk_control",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 534,
+          "average_prose_paragraph_length": 178.0,
+          "longest_prose_paragraph_length": 293,
+          "section_total_character_count": 534,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "sections_with_insufficient_prose": []
+    },
+    "duplicate_section_pairs": [],
+    "generation_permission_audit": {
+      "passed": false,
+      "unauthorized_numeric_claims": [],
+      "unauthorized_personnel_claims": [
+        {
+          "section_id": "WC-003-05",
+          "section_title": "项目负责人及主要人员",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。"
+        }
+      ],
+      "unauthorized_product_capabilities": [],
+      "candidate_facts_promoted": [],
+      "unregistered_placeholders": []
+    },
+    "raw_error_count": 6,
+    "grouped_error_count": 5,
+    "error_details": [
+      {
+        "section_id": "WC-003-02",
+        "section_title": "项目建设技术方案",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": [
+          "高可用"
+        ]
+      },
+      {
+        "section_id": "WC-003-03",
+        "section_title": "项目设计实施周期",
+        "error_code": "numeric_commitment",
+        "offending_fact_type": "schedule_duration",
+        "boundary_instruction": "未确认的周、日、小时、提前量和阶段完成时限应删除数字、使用已登记占位符，或写明按合同及确认计划执行。",
+        "keywords": [
+          "30日",
+          "10日"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "unconfirmed_bidder_commitment",
+        "offending_fact_type": "unconfirmed_commitment",
+        "boundary_instruction": "不得新增整改、响应、交付或绝对结果承诺；只能按合同约定、招标要求及采购人确认的边界表述。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      },
+      {
+        "section_id": null,
+        "section_title": "相关小节",
+        "error_code": "evidence_pending",
+        "offending_fact_type": "objective_evidence_pending",
+        "boundary_instruction": "无偏离响应意向不能替代产品、人员、资质、证书、业绩或参数证据；正文只能写待核验响应或使用已登记占位符。",
+        "keywords": []
+      },
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "error_code": "unconfirmed_personnel_qualification",
+        "offending_fact_type": "personnel_qualification",
+        "boundary_instruction": "只能使用generation_permissions.allowed_confirmed_personnel_facts中的年限、证书、项目数量和岗位；没有许可时只写不含数字门槛的通用职责，或使用allowed_placeholders。",
+        "keywords": [
+          "证书",
+          "经验",
+          "年限"
+        ]
+      }
+    ],
+    "blocking_error_categories": [
+      [
+        "evidence_pending",
+        "objective_evidence_pending"
+      ],
+      [
+        "numeric_commitment",
+        "schedule_duration"
+      ],
+      [
+        "unconfirmed_bidder_commitment",
+        "unconfirmed_commitment"
+      ],
+      [
+        "unconfirmed_personnel_qualification",
+        "personnel_qualification"
+      ]
+    ],
+    "schema_valid": true,
+    "coverage": {
+      "missing_response_point_count": 0,
+      "missing_score_item_count": 0,
+      "covered_response_point_count": 7,
+      "covered_score_item_count": 1,
+      "headings_match": true
+    },
+    "quality_comparison": {
+      "prose_ratio": 1.0,
+      "bullet_ratio": 0.0,
+      "table_ratio": 0.0,
+      "insufficient_section_count": 0,
+      "list_dominant_section_count": 0,
+      "inline_step_chain_count": 0,
+      "markdown_table_error_count": 0,
+      "quality_error_count": 0
+    }
+  },
+  "selected_candidate": "fresh",
+  "candidate_selection_reason": "fresh_is_strict_monotonic_improvement",
+  "fresh_candidate_accepted": true,
+  "initial_candidate_sha256": "84a7ad53653ee78f4e29565fffe8d167df1d857fa419a88cd893a9a0d9593c40",
+  "fresh_candidate_sha256": "d68701d86097a6e6f118d1fed164cd773b3414f4a3e5d13f4ae3a1a7dc10aed1",
+  "generation_permission_audit": {
+    "passed": false,
+    "unauthorized_numeric_claims": [],
+    "unauthorized_personnel_claims": [
+      {
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "code": "unconfirmed_personnel_qualification",
+        "text": "项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。"
+      }
+    ],
+    "unauthorized_product_capabilities": [],
+    "candidate_facts_promoted": [],
+    "unregistered_placeholders": []
+  },
+  "model_final_output": {
+    "chapter_title": "实施部署方案",
+    "sections": [
+      {
+        "section_id": "WC-003-01",
+        "heading": "实施总体规划",
+        "block_type": "implementation_plan",
+        "content": "本实施部署方案针对天津市第五中心医院超融合系统建设项目，依据招标文件技术及商务要求编制，旨在为项目交付提供完整的执行框架、阶段划分、组织保障和质量控制机制。方案以招标文件规定的交货期和安装时限为基准，统筹资源与进度，确保系统按期、保质交付并顺利通过验收。\n\n项目实施将遵循“统筹规划、分步实施、阶段确认”的基本原则，将整体工作划分为项目准备、设备订货与到货、安装部署、测试与试运行、验收交付等关键阶段，每一阶段设定明确的准入条件、完成标志与交付成果。在项目准备阶段，我方将组建项目团队，编制详细实施计划和沟通计划，与采购人确认现场环境与实施条件；设备到货阶段将严格遵循招标文件要求的交货地点与时限执行；安装部署和测试试运行阶段将在采购人现场有序推进，并充分尊重医院业务运行特点，最大限度减少对现有环境的影响。\n\n项目总体管理将依托公司成熟的项目管理体系，实行项目经理负责制，建立周报和里程碑评审机制，确保进度、质量和风险受控。具体实施人员安排将依据项目实际情况配置，详见{{PH-FIELD-STAFFING-PLAN}}。各阶段的具体操作、技术方法和验收标准将在后续小节中展开。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-STAFFING-PLAN"
+        ]
+      },
+      {
+        "section_id": "WC-003-02",
+        "heading": "项目建设技术方案",
+        "block_type": "technical_solution",
+        "content": "天津市第五中心医院超融合系统建设项目包含超融合系统、超融合互联交换机以及超融合节点等相关设备与软件的供货、安装和集成。我方将严格依据招标技术规格书和经双方确认的实施设计，完成硬件上架、网络互联、系统软件部署及功能配置。\n\n在项目启动后，我方技术团队将首先进行现场勘测，核实机房环境、电力、制冷、网络端口等基础条件是否满足设备安装要求。随后按照由物理层至应用层的顺序逐步展开：完成超融合节点服务器的机柜安装与固定；部署超融合互联交换机，并完成必要的链路聚合与VLAN划分；对超融合节点进行初始化配置，包括管理网络、存储网络、业务网络的IP地址规划与配置；部署超融合平台软件，创建集群、配置分布式存储池，并建立高可用与资源调度策略。\n\n全部安装工作将严格遵守设备制造商提供的安装手册和技术规范，确保物理连接正确、接地可靠、散热良好。对于任何与现场条件不符的情况，我方将及时以书面形式提出，并待采购人确认后执行调整方案。实施过程中产生的所有配置参数、拓扑图、变更记录将形成技术文档，作为交付成果的一部分归档。\n\n项目建设的总体交付将响应招标文件规定的交货要求：交货地点为采购人指定地点；我们将确保货物安全、完整送达。同时，我方承诺在招标文件要求的货到时间内完成供货，并在此后的安装时限内完成全部集成部署工作，具体时间节点将在项目设计实施周期中阐明。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-03",
+        "heading": "项目设计实施周期",
+        "block_type": "implementation_plan",
+        "content": "本项目的实施周期以合同生效日为起点，严格遵循招标文件所规定的时间框架。根据招标要求，货到时间为自签订合同之日起30日内，安装完成时间为货到之日起10日内。我方将据此制定详细的里程碑计划，并按照以下阶段组织实施：\n\n第一阶段为项目准备与采购备货。合同签订后，我方将立即指定项目经理并组建项目团队，与采购人召开项目启动会议，确认详细实施计划、界面划分及沟通机制；同步完成设备采购下单及制造商排产跟踪。第二阶段为到货与现场交验。设备将按招标要求运送至采购人指定地点，双方现场进行开箱检验，核查设备型号、数量、外观及随机资料完整性，签署到货确认单。第三阶段为安装部署，在到货确认后即进入现场施工，按照项目建设技术方案完成全部设备的物理安装、网络连接和软件配置，并在招标文件规定的安装时限内达到可测试状态。第四阶段为测试与试运行，在安装完成后展开系统功能、性能及稳定性测试，并经过一定周期的试运行以验证系统在实际业务负载下的可靠性；具体测试和试运行方案将在进场前提交采购人审核。第五阶段为最终验收与交付，系统通过所有测试并满足验收标准后，双方共同签署验收书，移交全部交付成果。\n\n各阶段之间的转换将设置明确的准入准出条件，只有前一阶段交付物通过评审后方可进入下一阶段。对于可能影响进度的风险因素，我方将在风险控制与应急保障部分予以识别并制定应对措施。整个周期内的进度偏差将按周汇报，并依据经采购人批准的变更控制流程进行调整。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-005",
+          "TR-006",
+          "TR-007"
+        ],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-04",
+        "heading": "项目组织架构",
+        "block_type": "organization_plan",
+        "content": "为保障本项目的顺利实施，我方将构建清晰的项目组织架构，明确各角色职责与沟通路径。项目团队在项目经理的统一领导下开展工作，向上对接公司管理层及资源支持部门，对外与采购人项目组保持密切协作。\n\n项目经理是项目执行的唯一责任接口，负责整体协调、进度控制、质量监督和问题管理，并定期向采购人汇报项目状态。技术负责人负责实施技术方案的编制与审核，指导现场工程师完成设备安装、系统配置及测试工作，并对技术难点提供决策支持。现场实施团队由若干实施工程师组成，具体负责设备上架、布线、加电、软件部署、功能验证及测试记录等工作。同时，公司后方技术支持团队将在必要时提供远程支援，以解决深层次技术问题。所有岗位的分工与协作关系将在项目启动时以书面形式向采购人确认。\n\n具体拟派人员安排如下：项目经理为{{PH-FIELD-PROJECT-MANAGER}}，项目团队配置方案为{{PH-FIELD-PROJECT-TEAM}}，详细人员投入计划与职责分工见{{PH-FIELD-STAFFING-PLAN}}。相关人员的简历及资格证明文件将随投标文件一并提供，并在合同签订前交采购人审核。项目实施期间，若因特殊原因确需调整关键人员，我方将提前书面申请并取得采购人同意，同时保证替换人员具备同等或更高能力水平。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [
+          "PH-FIELD-PROJECT-MANAGER",
+          "PH-FIELD-PROJECT-TEAM",
+          "PH-FIELD-STAFFING-PLAN"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "heading": "项目负责人及主要人员",
+        "block_type": "personnel_detail",
+        "content": "项目经理作为项目负责人，将在整个项目生命周期内承担统筹管理职责，包括制定项目计划、协调内外部资源、监控项目进展、组织阶段评审、管理项目变更和沟通汇报。项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。技术负责人则聚焦技术层面，负责审核安装部署方案、指导关键配置操作、组织技术攻关与测试验证，确保系统架构合理、性能达标。\n\n实施工程师按照分工独立完成所负责的安装与测试任务，严格执行操作规范，做好过程记录并参与问题排查。公司还配置质量管理员，对项目各阶段的输出进行独立检查，确保符合质量管理体系要求。所有项目成员在进场前均将接受项目专项培训，包括现场安全要求、医院信息管理规定以及本项目的特殊技术要求。\n\n我方承诺，拟投入本项目的项目负责人及主要技术人员均具备履行合同所必需的专业能力。具体人选的姓名、工作年限、相关认证和同类项目经验信息详见{{PH-FIELD-PROJECT-MANAGER}}及{{PH-FIELD-PROJECT-TEAM}}，并附以个人简历和证书复印件作为评估依据。项目团队的整体构成将在采购人确认后正式确定，并在项目执行期间保持稳定。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [
+          "PH-FIELD-PROJECT-MANAGER",
+          "PH-FIELD-PROJECT-TEAM"
+        ]
+      },
+      {
+        "section_id": "WC-003-06",
+        "heading": "安装部署",
+        "block_type": "implementation_plan",
+        "content": "安装部署工作将在设备到货并完成开箱检验后立即启动，目标是按照招标文件规定的安装完成时限内使系统达到可测试状态。现场实施分为环境确认、硬件安装、网络配置和软件部署四个步骤。\n\n首先，对机房环境进行最终确认，包括电源容量、PDU接口、机柜空间、温湿度及接地系统是否满足设备运行要求。随后进行硬件上架，按预定的机柜位置图将超融合节点、交换机等设备依次安装固定，并完成电源线和网络线缆的连接与整理。网络配置阶段，将根据事先规划的IP地址表为管理网络、存储网络和业务网络配置交换机端口、VLAN及必要的链路聚合，确保网络连通性和冗余路径有效。最后在软件部署阶段，逐一启动超融合节点，安装或激活超融合平台软件，完成集群创建、存储池配置、虚拟机管理网络设置，并按照技术规格书要求配置高可用、动态资源调度等关键特性。\n\n安装过程中，工程师将逐项填写《安装记录表》，记录设备序列号、固件版本、端口连接关系及配置参数。每完成一个节点或一个功能模块，即进行初步连通性自检，发现问题即时纠正。安装结束后，技术负责人将主导进行系统级健康检查，生成《安装完成报告》，作为进入测试与试运行阶段的准入条件之一。全部安装工作将在采购人协同下开展，接受采购人随工监督，全力配合医院的日常业务运行安排，避免非计划中断。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-07",
+        "heading": "测试与试运行",
+        "block_type": "technical_solution",
+        "content": "测试与试运行是验证系统是否满足设计目标和招标要求的关键环节，将在安装部署完成并确认系统状态正常后启动。本阶段包括系统测试和试运行两部分，旨在从功能、性能、稳定性及兼容性等多维度全面检验系统。\n\n系统测试将依据《测试方案》进行，该方案将在进场前编制并提交采购人确认，内容涵盖测试场景、用例、通过标准及记录模板。测试将覆盖以下核心范围：硬件及网络连通性测试，验证所有节点和交换机端口工作正常；存储功能和性能测试，检验分布式存储池的读写性能、冗余能力和数据恢复机制；计算虚拟化功能测试，确认虚拟机迁移、资源调度、高可用切换等功能符合预期；管理平台功能测试，验证用户管理、监控告警、日志审计等运维功能。所有测试结果将如实记录于《测试报告》中，任一测试项未通过均须分析原因、修正后重测，直至全部通过。\n\n在系统测试全部通过后，系统将进入试运行阶段。试运行期间，系统承载模拟或真实业务负载，持续观察其运行稳定性、性能波动及告警响应。试运行的周期将根据系统复杂度和业务需求，在与采购人协商后于项目计划中明确，确保充分暴露潜在问题并完成必要优化。试运行期间出现的问题将按既定的应急响应流程处理，并产生问题闭环记录。试运行完成后，双方将共同评估运行数据，形成《试运行结论报告》，作为项目验收的重要依据。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-08",
+        "heading": "质量控制",
+        "block_type": "quality_assurance",
+        "content": "项目的质量控制将贯穿从准备到验收的全部实施阶段，以预防为主、检查为辅，确保交付物符合招标要求和合同约定。我方公司拥有成熟的集成项目质量管理流程，该流程融合了国际先进质量管理理念，并在大量项目实践中持续改进。\n\n项目启动阶段，项目经理将编制《项目质量计划》，明确各阶段的质量目标、检查标准、责任人及报告机制，并提交采购人确认。关键控制点包括：设备到货时的型号、数量及外观检查，安装过程中的工艺规范性抽查，测试环节的测试用例覆盖度及结果评审，以及交付文档的完整性和准确性审核。每个控制点的检查结果均形成书面记录，仅当不合格项完成闭环后方可进入下一阶段。\n\n在实施过程中，我们还将实施配置管理和变更控制。所有硬件配置、软件版本和参数修改均须经过申请、评估、审批及验证，确保系统状态的全程可追溯。项目例会及专项质量审计将定期进行，及时识别偏离并执行纠正措施。对于可能影响质量的关键工艺，如线缆绑扎、标签粘贴、接地处理等，将依据公司标准化作业指导书执行，并由质量管理员进行抽查确认。\n\n公司长期以来在计算机软硬件运维服务及系统集成领域积累的质量管理经验，将为本项目的顺利交付提供坚实基础。项目质量状态将作为项目经理向采购人周报的重要内容之一，确保透明可控。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-09",
+        "heading": "项目验收",
+        "block_type": "quality_assurance",
+        "content": "项目验收将严格按照采购合同的约定以及现行国家标准、行业标准和企业标准执行，对每一项技术、服务及安全标准的履约情况进行全面确认。我方将积极响应并配合采购人设置的多重验收环节，包括但不限于出厂检验、到货检验、安装调试检验及配套服务检验。\n\n在设备出厂前，如采购人提出要求，我方将协调制造商提供必要的出厂测试记录或接受采购人代表到场见证。货到现场后，双方立即进行到货检验，核查设备型号、数量、外观及随机资料是否与合同及投标文件规定一致。安装调试完成后，我方将提交《安装完成报告》和《系统测试报告》，申请安装调试检验，采购人对系统功能、性能及配置进行核查，确认是否达到可试运行状态。配套服务检验将结合系统测试与试运行阶段的结果，对技术文档、培训等配套交付项进行验收。\n\n验收过程中，若采购人认为有必要邀请其他投标人或第三方机构参与，我方将积极配合，并为其提供必要的技术说明和现场条件。所有参与方的意见将作为参考资料存档。全部验收环节完成后，双方将共同编写并签署《验收书》，列明各项标准的验收情况、整改结果及项目总体评价。验收中发现的不合格项，我方将在双方商定的时间内进行整改，并提交复验，直至全部达标。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-010"
+        ],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-10",
+        "heading": "交付成果",
+        "block_type": "other",
+        "content": "本项目的交付成果包括硬件设备、软件许可以及全套技术资料与服务记录。所有实物均将安全运抵采购人指定地点，并在开箱检验完好后正式移交。\n\n随设备一同交付的资料严格满足招标文件要求，提供制造商完整的随机资料，包括但不限于产品安装手册、使用说明书、维修保养手册以及必要的原厂合格证明。此外，我方在项目实施过程中将额外提供一系列过程文档作为交付成果的组成部分，主要包括：项目实施计划、现场勘测报告、设备安装记录、网络及系统配置文档、系统测试报告、试运行结论报告以及最终的验收书。以上文档将涵盖系统建设全生命周期，为后续运维提供完整的技术基线。\n\n所有技术资料将同时提供电子版和约定份数的纸质版，介质形式与格式将在项目准备阶段与采购人协商确定。资料内容将使用中文编写，确保清晰可读。交付时，双方将共同核对资料清单，签署《交付资料确认单》。这些交付成果将作为项目档案长期留存，充分满足医院信息化管理的合规性要求。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-008",
+          "TR-009"
+        ],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-11",
+        "heading": "风险控制与应急保障",
+        "block_type": "risk_control",
+        "content": "项目实施过程中可能面临多种风险，我方将在项目全过程中持续进行风险识别、评估和应对，确保风险可控。\n\n常见风险及应对措施包括：设备到货延迟风险——通过提前与制造商锁定备货、多渠道物流保障及实时跟踪运输状态加以防范；若发生延迟，将立即启用备选运输方案并第一时间通报采购人，共同协商进度调整；硬件故障或DOA风险——到货开箱检验时严格核查，发现破损或无法加电的设备立即拍照取证并启动更换流程，同时利用配置的冗余组件在更换期间临时接管；实施导致业务中断风险——在安装和测试前充分调研医院业务高峰时段，合理安排施工窗口，对关键链路操作制定回退预案，确保可在分钟内恢复原状；技术兼容性问题——在部署前搭建离线验证环境对关键功能进行预验证，进场后首先完成最小化系统搭建并逐一叠加组件，降低集成复杂度。\n\n应急保障方面，项目现场团队将配备常用配件和工具，后方技术支持团队保持通信畅通，可在复杂故障时提供远程或现场支援。一旦发生影响系统正常运行的紧急事件，现场负责人将第一时间采取隔离和恢复措施，并同步向采购人报告。事件解决后需在规定时间内提交《事件分析报告》，包含根本原因、解决措施及预防改进计划。所有风险及应急处理过程将纳入项目问题日志，定期回顾并更新风险清单，形成持续改进的风险管理闭环。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": []
+      }
+    ],
+    "generated_supporting_tables": [],
+    "claims": [
+      {
+        "text": "承诺在招标文件要求的货到时间内完成供货（即自签订合同之日起30日内）。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-006"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation",
+        "tender_baseline": "自签订合同之日起30日内",
+        "offered_value": "自签订合同之日起30日内",
+        "comparison_direction": "upper_limit"
+      },
+      {
+        "text": "承诺在招标文件规定的安装时限内完成全部集成部署工作（即货到之日起10日内）。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-007"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation",
+        "tender_baseline": "货到之日起10日内",
+        "offered_value": "货到之日起10日内",
+        "comparison_direction": "upper_limit"
+      },
+      {
+        "text": "交货地点按采购人指定地点执行。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-008"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation"
+      },
+      {
+        "text": "随设备提供制造商完整的随机资料，包括完整的使用和维修手册等。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-009"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation"
+      },
+      {
+        "text": "项目验收将严格按照采购合同的约定和现行国家标准、行业标准以及企业标准执行，并配合采购人设置的多重验收环节及可能的第三方参与。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-010"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation"
+      },
+      {
+        "text": "项目实施总体满足招标文件实施部署评价要求。",
+        "claim_type": "proposal_statement",
+        "source_ids": [
+          "TR-022"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "evidence_status": "pending",
+        "deviation_status": "evidence_pending"
+      },
+      {
+        "text": "公司拥有成熟的项目管理体系与质量管理流程（未引用具体标准编号）。",
+        "claim_type": "cautious_reference",
+        "source_ids": [],
+        "evidence_ids": [
+          "KB-file_2308aa547dd9"
+        ],
+        "human_review_required": true,
+        "evidence_status": "pending",
+        "deviation_status": "evidence_pending",
+        "confirmation_question": "是否确认引用ISO 9001等具体认证？当前仅作通用能力描述。"
+      },
+      {
+        "text": "项目经理为{{PH-FIELD-PROJECT-MANAGER}}，项目团队配置方案为{{PH-FIELD-PROJECT-TEAM}}，详细人员安排见{{PH-FIELD-STAFFING-PLAN}}。",
+        "claim_type": "placeholder",
+        "source_ids": [],
+        "evidence_ids": [],
+        "human_review_required": true,
+        "evidence_status": "missing",
+        "deviation_status": "evidence_pending",
+        "confirmation_question": "请确认项目经理姓名、项目团队具体成员及实施人员计划。"
+      },
+      {
+        "text": "具体人选的姓名、工作年限、相关认证和同类项目经验详见{{PH-FIELD-PROJECT-MANAGER}}及{{PH-FIELD-PROJECT-TEAM}}。",
+        "claim_type": "placeholder",
+        "source_ids": [],
+        "evidence_ids": [],
+        "human_review_required": true,
+        "evidence_status": "missing",
+        "deviation_status": "evidence_pending",
+        "confirmation_question": "请确认人员简历和资质证明文件。"
+      }
+    ],
+    "placeholders_used": [
+      "PH-FIELD-PROJECT-MANAGER",
+      "PH-FIELD-PROJECT-TEAM",
+      "PH-FIELD-STAFFING-PLAN"
+    ],
+    "score_items_covered": [
+      "SCORE-TR-022-R017"
+    ],
+    "requirements_covered": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "warnings": [
+      "项目负责人及主要人员姓名、资质、业绩尚未确认，使用占位符处理。",
+      "具体施工周期、测试试运行时长等未确认承诺数字均已移除，待合同和确认计划确定。",
+      "质量管理体系认证（如ISO 9001）未作为确定性事实引用，仅做通用能力描述。",
+      "所有无偏离响应均基于招标文件要求，正式承诺以最终合同为准。"
+    ]
+  },
+  "chapter_draft": {
+    "chapter_title": "实施部署方案",
+    "sections": [
+      {
+        "heading": "实施总体规划",
+        "block_type": "implementation_plan",
+        "content": "本实施部署方案针对天津市第五中心医院超融合系统建设项目，依据招标文件技术及商务要求编制，旨在为项目交付提供完整的执行框架、阶段划分、组织保障和质量控制机制。方案以招标文件规定的交货期和安装时限为基准，统筹资源与进度，确保系统按期、保质交付并顺利通过验收。\n\n项目实施将遵循“统筹规划、分步实施、阶段确认”的基本原则，将整体工作划分为项目准备、设备订货与到货、安装部署、测试与试运行、验收交付等关键阶段，每一阶段设定明确的准入条件、完成标志与交付成果。在项目准备阶段，我方将组建项目团队，编制详细实施计划和沟通计划，与采购人确认现场环境与实施条件；设备到货阶段将严格遵循招标文件要求的交货地点与时限执行；安装部署和测试试运行阶段将在采购人现场有序推进，并充分尊重医院业务运行特点，最大限度减少对现有环境的影响。\n\n项目总体管理将依托公司成熟的项目管理体系，实行项目经理负责制，建立周报和里程碑评审机制，确保进度、质量和风险受控。具体实施人员安排将依据项目实际情况配置，详见{{PH-FIELD-STAFFING-PLAN}}。各阶段的具体操作、技术方法和验收标准将在后续小节中展开。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-STAFFING-PLAN"
+        ],
+        "section_id": "WC-003-01"
+      },
+      {
+        "heading": "项目建设技术方案",
+        "block_type": "technical_solution",
+        "content": "天津市第五中心医院超融合系统建设项目包含超融合系统、超融合互联交换机以及超融合节点等相关设备与软件的供货、安装和集成。我方将严格依据招标技术规格书和经双方确认的实施设计，完成硬件上架、网络互联、系统软件部署及功能配置。\n\n在项目启动后，我方技术团队将首先进行现场勘测，核实机房环境、电力、制冷、网络端口等基础条件是否满足设备安装要求。随后按照由物理层至应用层的顺序逐步展开：完成超融合节点服务器的机柜安装与固定；部署超融合互联交换机，并完成必要的链路聚合与VLAN划分；对超融合节点进行初始化配置，包括管理网络、存储网络、业务网络的IP地址规划与配置；部署超融合平台软件，创建集群、配置分布式存储池，并建立高可用与资源调度策略。\n\n全部安装工作将严格遵守设备制造商提供的安装手册和技术规范，确保物理连接正确、接地可靠、散热良好。对于任何与现场条件不符的情况，我方将及时以书面形式提出，并待采购人确认后执行调整方案。实施过程中产生的所有配置参数、拓扑图、变更记录将形成技术文档，作为交付成果的一部分归档。\n\n项目建设的总体交付将响应招标文件规定的交货要求：交货地点为采购人指定地点；我们将确保货物安全、完整送达。同时，我方承诺在招标文件要求的货到时间内完成供货，并在此后的安装时限内完成全部集成部署工作，具体时间节点将在项目设计实施周期中阐明。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [],
+        "section_id": "WC-003-02"
+      },
+      {
+        "heading": "项目设计实施周期",
+        "block_type": "implementation_plan",
+        "content": "本项目的实施周期以合同生效日为起点，严格遵循招标文件所规定的时间框架。根据招标要求，货到时间为自签订合同之日起30日内，安装完成时间为货到之日起10日内。我方将据此制定详细的里程碑计划，并按照以下阶段组织实施：\n\n第一阶段为项目准备与采购备货。合同签订后，我方将立即指定项目经理并组建项目团队，与采购人召开项目启动会议，确认详细实施计划、界面划分及沟通机制；同步完成设备采购下单及制造商排产跟踪。第二阶段为到货与现场交验。设备将按招标要求运送至采购人指定地点，双方现场进行开箱检验，核查设备型号、数量、外观及随机资料完整性，签署到货确认单。第三阶段为安装部署，在到货确认后即进入现场施工，按照项目建设技术方案完成全部设备的物理安装、网络连接和软件配置，并在招标文件规定的安装时限内达到可测试状态。第四阶段为测试与试运行，在安装完成后展开系统功能、性能及稳定性测试，并经过一定周期的试运行以验证系统在实际业务负载下的可靠性；具体测试和试运行方案将在进场前提交采购人审核。第五阶段为最终验收与交付，系统通过所有测试并满足验收标准后，双方共同签署验收书，移交全部交付成果。\n\n各阶段之间的转换将设置明确的准入准出条件，只有前一阶段交付物通过评审后方可进入下一阶段。对于可能影响进度的风险因素，我方将在风险控制与应急保障部分予以识别并制定应对措施。整个周期内的进度偏差将按周汇报，并依据经采购人批准的变更控制流程进行调整。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-005",
+          "TR-006",
+          "TR-007"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-03"
+      },
+      {
+        "heading": "项目组织架构",
+        "block_type": "organization_plan",
+        "content": "为保障本项目的顺利实施，我方将构建清晰的项目组织架构，明确各角色职责与沟通路径。项目团队在项目经理的统一领导下开展工作，向上对接公司管理层及资源支持部门，对外与采购人项目组保持密切协作。\n\n项目经理是项目执行的唯一责任接口，负责整体协调、进度控制、质量监督和问题管理，并定期向采购人汇报项目状态。技术负责人负责实施技术方案的编制与审核，指导现场工程师完成设备安装、系统配置及测试工作，并对技术难点提供决策支持。现场实施团队由若干实施工程师组成，具体负责设备上架、布线、加电、软件部署、功能验证及测试记录等工作。同时，公司后方技术支持团队将在必要时提供远程支援，以解决深层次技术问题。所有岗位的分工与协作关系将在项目启动时以书面形式向采购人确认。\n\n具体拟派人员安排如下：项目经理为{{PH-FIELD-PROJECT-MANAGER}}，项目团队配置方案为{{PH-FIELD-PROJECT-TEAM}}，详细人员投入计划与职责分工见{{PH-FIELD-STAFFING-PLAN}}。相关人员的简历及资格证明文件将随投标文件一并提供，并在合同签订前交采购人审核。项目实施期间，若因特殊原因确需调整关键人员，我方将提前书面申请并取得采购人同意，同时保证替换人员具备同等或更高能力水平。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [
+          "PH-FIELD-PROJECT-MANAGER",
+          "PH-FIELD-PROJECT-TEAM",
+          "PH-FIELD-STAFFING-PLAN"
+        ],
+        "section_id": "WC-003-04"
+      },
+      {
+        "heading": "项目负责人及主要人员",
+        "block_type": "personnel_detail",
+        "content": "项目经理作为项目负责人，将在整个项目生命周期内承担统筹管理职责，包括制定项目计划、协调内外部资源、监控项目进展、组织阶段评审、管理项目变更和沟通汇报。项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。技术负责人则聚焦技术层面，负责审核安装部署方案、指导关键配置操作、组织技术攻关与测试验证，确保系统架构合理、性能达标。\n\n实施工程师按照分工独立完成所负责的安装与测试任务，严格执行操作规范，做好过程记录并参与问题排查。公司还配置质量管理员，对项目各阶段的输出进行独立检查，确保符合质量管理体系要求。所有项目成员在进场前均将接受项目专项培训，包括现场安全要求、医院信息管理规定以及本项目的特殊技术要求。\n\n我方承诺，拟投入本项目的项目负责人及主要技术人员均具备履行合同所必需的专业能力。具体人选的姓名、工作年限、相关认证和同类项目经验信息详见{{PH-FIELD-PROJECT-MANAGER}}及{{PH-FIELD-PROJECT-TEAM}}，并附以个人简历和证书复印件作为评估依据。项目团队的整体构成将在采购人确认后正式确定，并在项目执行期间保持稳定。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [
+          "PH-FIELD-PROJECT-MANAGER",
+          "PH-FIELD-PROJECT-TEAM"
+        ],
+        "section_id": "WC-003-05"
+      },
+      {
+        "heading": "安装部署",
+        "block_type": "implementation_plan",
+        "content": "安装部署工作将在设备到货并完成开箱检验后立即启动，目标是按照招标文件规定的安装完成时限内使系统达到可测试状态。现场实施分为环境确认、硬件安装、网络配置和软件部署四个步骤。\n\n首先，对机房环境进行最终确认，包括电源容量、PDU接口、机柜空间、温湿度及接地系统是否满足设备运行要求。随后进行硬件上架，按预定的机柜位置图将超融合节点、交换机等设备依次安装固定，并完成电源线和网络线缆的连接与整理。网络配置阶段，将根据事先规划的IP地址表为管理网络、存储网络和业务网络配置交换机端口、VLAN及必要的链路聚合，确保网络连通性和冗余路径有效。最后在软件部署阶段，逐一启动超融合节点，安装或激活超融合平台软件，完成集群创建、存储池配置、虚拟机管理网络设置，并按照技术规格书要求配置高可用、动态资源调度等关键特性。\n\n安装过程中，工程师将逐项填写《安装记录表》，记录设备序列号、固件版本、端口连接关系及配置参数。每完成一个节点或一个功能模块，即进行初步连通性自检，发现问题即时纠正。安装结束后，技术负责人将主导进行系统级健康检查，生成《安装完成报告》，作为进入测试与试运行阶段的准入条件之一。全部安装工作将在采购人协同下开展，接受采购人随工监督，全力配合医院的日常业务运行安排，避免非计划中断。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [],
+        "section_id": "WC-003-06"
+      },
+      {
+        "heading": "测试与试运行",
+        "block_type": "technical_solution",
+        "content": "测试与试运行是验证系统是否满足设计目标和招标要求的关键环节，将在安装部署完成并确认系统状态正常后启动。本阶段包括系统测试和试运行两部分，旨在从功能、性能、稳定性及兼容性等多维度全面检验系统。\n\n系统测试将依据《测试方案》进行，该方案将在进场前编制并提交采购人确认，内容涵盖测试场景、用例、通过标准及记录模板。测试将覆盖以下核心范围：硬件及网络连通性测试，验证所有节点和交换机端口工作正常；存储功能和性能测试，检验分布式存储池的读写性能、冗余能力和数据恢复机制；计算虚拟化功能测试，确认虚拟机迁移、资源调度、高可用切换等功能符合预期；管理平台功能测试，验证用户管理、监控告警、日志审计等运维功能。所有测试结果将如实记录于《测试报告》中，任一测试项未通过均须分析原因、修正后重测，直至全部通过。\n\n在系统测试全部通过后，系统将进入试运行阶段。试运行期间，系统承载模拟或真实业务负载，持续观察其运行稳定性、性能波动及告警响应。试运行的周期将根据系统复杂度和业务需求，在与采购人协商后于项目计划中明确，确保充分暴露潜在问题并完成必要优化。试运行期间出现的问题将按既定的应急响应流程处理，并产生问题闭环记录。试运行完成后，双方将共同评估运行数据，形成《试运行结论报告》，作为项目验收的重要依据。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [],
+        "section_id": "WC-003-07"
+      },
+      {
+        "heading": "质量控制",
+        "block_type": "quality_assurance",
+        "content": "项目的质量控制将贯穿从准备到验收的全部实施阶段，以预防为主、检查为辅，确保交付物符合招标要求和合同约定。我方公司拥有成熟的集成项目质量管理流程，该流程融合了国际先进质量管理理念，并在大量项目实践中持续改进。\n\n项目启动阶段，项目经理将编制《项目质量计划》，明确各阶段的质量目标、检查标准、责任人及报告机制，并提交采购人确认。关键控制点包括：设备到货时的型号、数量及外观检查，安装过程中的工艺规范性抽查，测试环节的测试用例覆盖度及结果评审，以及交付文档的完整性和准确性审核。每个控制点的检查结果均形成书面记录，仅当不合格项完成闭环后方可进入下一阶段。\n\n在实施过程中，我们还将实施配置管理和变更控制。所有硬件配置、软件版本和参数修改均须经过申请、评估、审批及验证，确保系统状态的全程可追溯。项目例会及专项质量审计将定期进行，及时识别偏离并执行纠正措施。对于可能影响质量的关键工艺，如线缆绑扎、标签粘贴、接地处理等，将依据公司标准化作业指导书执行，并由质量管理员进行抽查确认。\n\n公司长期以来在计算机软硬件运维服务及系统集成领域积累的质量管理经验，将为本项目的顺利交付提供坚实基础。项目质量状态将作为项目经理向采购人周报的重要内容之一，确保透明可控。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [],
+        "section_id": "WC-003-08"
+      },
+      {
+        "heading": "项目验收",
+        "block_type": "quality_assurance",
+        "content": "项目验收将严格按照采购合同的约定以及现行国家标准、行业标准和企业标准执行，对每一项技术、服务及安全标准的履约情况进行全面确认。我方将积极响应并配合采购人设置的多重验收环节，包括但不限于出厂检验、到货检验、安装调试检验及配套服务检验。\n\n在设备出厂前，如采购人提出要求，我方将协调制造商提供必要的出厂测试记录或接受采购人代表到场见证。货到现场后，双方立即进行到货检验，核查设备型号、数量、外观及随机资料是否与合同及投标文件规定一致。安装调试完成后，我方将提交《安装完成报告》和《系统测试报告》，申请安装调试检验，采购人对系统功能、性能及配置进行核查，确认是否达到可试运行状态。配套服务检验将结合系统测试与试运行阶段的结果，对技术文档、培训等配套交付项进行验收。\n\n验收过程中，若采购人认为有必要邀请其他投标人或第三方机构参与，我方将积极配合，并为其提供必要的技术说明和现场条件。所有参与方的意见将作为参考资料存档。全部验收环节完成后，双方将共同编写并签署《验收书》，列明各项标准的验收情况、整改结果及项目总体评价。验收中发现的不合格项，我方将在双方商定的时间内进行整改，并提交复验，直至全部达标。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-010"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-09"
+      },
+      {
+        "heading": "交付成果",
+        "block_type": "other",
+        "content": "本项目的交付成果包括硬件设备、软件许可以及全套技术资料与服务记录。所有实物均将安全运抵采购人指定地点，并在开箱检验完好后正式移交。\n\n随设备一同交付的资料严格满足招标文件要求，提供制造商完整的随机资料，包括但不限于产品安装手册、使用说明书、维修保养手册以及必要的原厂合格证明。此外，我方在项目实施过程中将额外提供一系列过程文档作为交付成果的组成部分，主要包括：项目实施计划、现场勘测报告、设备安装记录、网络及系统配置文档、系统测试报告、试运行结论报告以及最终的验收书。以上文档将涵盖系统建设全生命周期，为后续运维提供完整的技术基线。\n\n所有技术资料将同时提供电子版和约定份数的纸质版，介质形式与格式将在项目准备阶段与采购人协商确定。资料内容将使用中文编写，确保清晰可读。交付时，双方将共同核对资料清单，签署《交付资料确认单》。这些交付成果将作为项目档案长期留存，充分满足医院信息化管理的合规性要求。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-008",
+          "TR-009"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-10"
+      },
+      {
+        "heading": "风险控制与应急保障",
+        "block_type": "risk_control",
+        "content": "项目实施过程中可能面临多种风险，我方将在项目全过程中持续进行风险识别、评估和应对，确保风险可控。\n\n常见风险及应对措施包括：设备到货延迟风险——通过提前与制造商锁定备货、多渠道物流保障及实时跟踪运输状态加以防范；若发生延迟，将立即启用备选运输方案并第一时间通报采购人，共同协商进度调整；硬件故障或DOA风险——到货开箱检验时严格核查，发现破损或无法加电的设备立即拍照取证并启动更换流程，同时利用配置的冗余组件在更换期间临时接管；实施导致业务中断风险——在安装和测试前充分调研医院业务高峰时段，合理安排施工窗口，对关键链路操作制定回退预案，确保可在分钟内恢复原状；技术兼容性问题——在部署前搭建离线验证环境对关键功能进行预验证，进场后首先完成最小化系统搭建并逐一叠加组件，降低集成复杂度。\n\n应急保障方面，项目现场团队将配备常用配件和工具，后方技术支持团队保持通信畅通，可在复杂故障时提供远程或现场支援。一旦发生影响系统正常运行的紧急事件，现场负责人将第一时间采取隔离和恢复措施，并同步向采购人报告。事件解决后需在规定时间内提交《事件分析报告》，包含根本原因、解决措施及预防改进计划。所有风险及应急处理过程将纳入项目问题日志，定期回顾并更新风险清单，形成持续改进的风险管理闭环。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [],
+        "placeholder_ids": [],
+        "section_id": "WC-003-11"
+      }
+    ],
+    "claims": [
+      {
+        "text": "承诺在招标文件要求的货到时间内完成供货（即自签订合同之日起30日内）。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-006"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation",
+        "tender_baseline": "自签订合同之日起30日内",
+        "offered_value": "自签订合同之日起30日内",
+        "comparison_direction": "upper_limit"
+      },
+      {
+        "text": "承诺在招标文件规定的安装时限内完成全部集成部署工作（即货到之日起10日内）。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-007"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation",
+        "tender_baseline": "货到之日起10日内",
+        "offered_value": "货到之日起10日内",
+        "comparison_direction": "upper_limit"
+      },
+      {
+        "text": "交货地点按采购人指定地点执行。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-008"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation"
+      },
+      {
+        "text": "随设备提供制造商完整的随机资料，包括完整的使用和维修手册等。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-009"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation"
+      },
+      {
+        "text": "项目验收将严格按照采购合同的约定和现行国家标准、行业标准以及企业标准执行，并配合采购人设置的多重验收环节及可能的第三方参与。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-010"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "response_intent": "no_deviation",
+        "evidence_status": "confirmed",
+        "deviation_status": "no_deviation"
+      },
+      {
+        "text": "项目实施总体满足招标文件实施部署评价要求。",
+        "claim_type": "proposal_statement",
+        "source_ids": [
+          "TR-022"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false,
+        "evidence_status": "pending",
+        "deviation_status": "evidence_pending"
+      },
+      {
+        "text": "公司拥有成熟的项目管理体系与质量管理流程（未引用具体标准编号）。",
+        "claim_type": "cautious_reference",
+        "source_ids": [],
+        "evidence_ids": [
+          "KB-file_2308aa547dd9"
+        ],
+        "human_review_required": true,
+        "evidence_status": "pending",
+        "deviation_status": "evidence_pending",
+        "confirmation_question": "是否确认引用ISO 9001等具体认证？当前仅作通用能力描述。"
+      },
+      {
+        "text": "项目经理为{{PH-FIELD-PROJECT-MANAGER}}，项目团队配置方案为{{PH-FIELD-PROJECT-TEAM}}，详细人员安排见{{PH-FIELD-STAFFING-PLAN}}。",
+        "claim_type": "placeholder",
+        "source_ids": [],
+        "evidence_ids": [],
+        "human_review_required": true,
+        "evidence_status": "missing",
+        "deviation_status": "evidence_pending",
+        "confirmation_question": "请确认项目经理姓名、项目团队具体成员及实施人员计划。"
+      },
+      {
+        "text": "具体人选的姓名、工作年限、相关认证和同类项目经验详见{{PH-FIELD-PROJECT-MANAGER}}及{{PH-FIELD-PROJECT-TEAM}}。",
+        "claim_type": "placeholder",
+        "source_ids": [],
+        "evidence_ids": [],
+        "human_review_required": true,
+        "evidence_status": "missing",
+        "deviation_status": "evidence_pending",
+        "confirmation_question": "请确认人员简历和资质证明文件。"
+      }
+    ],
+    "placeholders_used": [
+      "PH-FIELD-PROJECT-MANAGER",
+      "PH-FIELD-PROJECT-TEAM",
+      "PH-FIELD-STAFFING-PLAN"
+    ],
+    "score_items_covered": [
+      "SCORE-TR-022-R017"
+    ],
+    "requirements_covered": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "warnings": [
+      "项目负责人及主要人员姓名、资质、业绩尚未确认，使用占位符处理。",
+      "具体施工周期、测试试运行时长等未确认承诺数字均已移除，待合同和确认计划确定。",
+      "质量管理体系认证（如ISO 9001）未作为确定性事实引用，仅做通用能力描述。",
+      "所有无偏离响应均基于招标文件要求，正式承诺以最终合同为准。"
+    ],
+    "generated_supporting_tables": []
+  },
+  "response_point_usage": [
+    "TR-005",
+    "TR-006",
+    "TR-007",
+    "TR-008",
+    "TR-009",
+    "TR-010",
+    "TR-022"
+  ],
+  "score_item_usage": [
+    "SCORE-TR-022-R017"
+  ],
+  "local_knowledge_references": [
+    {
+      "candidate_id": "KB-file_3fa83f22cdb4",
+      "evidence_type": "implementation_experience",
+      "entity_type": "person",
+      "entity_name": "吴云畅",
+      "file_id": "file_3fa83f22cdb4",
+      "file_name": "数字化办公-吴云畅.docx",
+      "source_location": "parsed.sections",
+      "excerpt": "工程师简历\n工程师简介\n工作经历\n专业技能\n项目经验\n相关证书\n\n=== Table 1 ===\n姓名\t吴云畅\t性别\t男\t工作年限\t5年\n\n=== Table 2 ===\n时间\t公司\t职位\n2019年12月至今\t北京昆仑联通科技发展股份有限公司\t微软工程师\n\n=== Table 3 ===\nPython、PowerPlatform、M365\t5年\n\n=== Table 4 ===\n项目名称：\tAD密码自助修改开发\n项目日期：\t2020/03 2020/06\n项目描述：\t1、后端使用Djano框架，利用Python进行编程，利用Ldap3对AD账户的密码进行验证和修改。\n2、利用阿里云短信包和AD中的手机号信息，增加短信验证码的功能来重置密码和解锁账户\n3、Django-Windows在IIS使用wfastcgi部署\n4、中间件控制License许可时间（1年后网站自动停止服务）\n5、RSA加密（ MAC、主板信息等）\n\n=== Table 5 ===\n项目名称：\t泛生子基因密码自助\n项目日期：\t2020/10- 2020/11\n项目描述：\t1、后端使用Djano框架，利用Python进行编程，利用Ldap3对AD账户的密码进行验证和修改。\n2、利用阿里云短信包和AD中的手机号信息，增加短信验证码的功能来重置密码和解锁账户\n3、使用IIS部署\n\n=== Table 6 ===\n项目名称：\t甘李药业密码自助2020\n项目日期：\t2020/10- 2020/11\n项目描述：\t密码自助网站部署\n1年许可（RSA加密、中间件控制）\n\n=== Table 7 ===\n项目名称：\t甘李药业密码自助 许可续订2021\n项目日期：\t2021/11-2021/12\n项目描述：\t密码自助网站部署\n重新部署、SSL证书Bug\n1年许可到期续订（RSA加密重新、中间件控制）\n\n=== Table 8 ===\n项目名称：\t秦淮数据密码自助\n项目日期：\t2021/06- 2021/09\n项目描述：\t基于之前的页面进行了前端升级（双语言）\n根据客户购买的短信平台进行API接口开发\n代码调试、马来西亚、新加坡站点优化\n\n=== Table 9 ===\n项目名称：\t新华人寿Windows升级项目\n项目日期：\t2021/04- 2021/06\n项目描述：\t总公司、分支机构Win7升级到Win10\nIE定制（基线）、Windows10总公司、分支机构镜像定制\n总公司、全国分支机构MDT部署、WSUS部署、KMS部署、HDCP迁移\n\n=== Table 10 ===\n项目名称：\t利星行RODC升级项目\n项目日期：\t2021/01- 2021/04\n项目描述：\t利星行全国经销商RODC升级（2008、2012R2升级到2016）\n\n=== Table 11 ===\n项目名称：\t鼎桥服务器安全加固项目\n",
+      "metadata": {
+        "material_group": "personnel",
+        "matched_terms": [
+          "项目经验",
+          "experience"
+        ],
+        "physical_file_exists": true
+      },
+      "selection_status": "candidate",
+      "warnings": [
+        "候选材料未经本项目人工选择，不得作为确认事实。"
+      ]
+    },
+    {
+      "candidate_id": "KB-file_ae4329911662",
+      "evidence_type": "implementation_experience",
+      "entity_type": "person",
+      "entity_name": "冯振书",
+      "file_id": "file_ae4329911662",
+      "file_name": "云服务部-冯振书20230322.docx",
+      "source_location": "parsed.sections",
+      "excerpt": "冯振书 简历\n工程师简介\n工作经历\n专业技能\n项目经验\n长期运维项目\n实施项目\n相关证书\n\n=== Table 1 ===\n姓名\t姓名\t冯振书\t性别\t男\t男\t工作年限\t工作年限\t6年\n邮箱\tFeng.zs@comlan.com\tFeng.zs@comlan.com\tFeng.zs@comlan.com\tFeng.zs@comlan.com\t联系电话\t联系电话\t17639260003\t17639260003\n\n=== Table 2 ===\n时间\t公司\t职位\n2018年7月至今\t北京昆仑联通科技发展有限公司\t虚拟化工程师\n2015年7-2018年7月\t亚联信息技术有限公司\t虚拟化工程师\n\n=== Table 3 ===\nVMware产品实施/排错/运维\t4年\nCitrix运维\t6年\n\n=== Table 4 ===\n项目名称\t泰达宏利长期运维\n涉及产品\tVSAN、vSphere、Smartx、Nutanix\n项目时间\t2022年\n工作内容描述\t生产环境、办公环境、DMZ环境虚拟化环境长期case运维，巡检，故障处理\n\n=== Table 5 ===\n项目名称\t高剂医疗长期运维\n涉及产品\tVSAN、vSphere、Nutanix\n项目时间\t2022年\n工作内容描述\t生产虚拟化环境长期case运维，巡检，故障处理\n\n=== Table 6 ===\n项目名称\t长城汽车保定集团总部\n涉及产品\tvSphere、Horizon\n项目时间\t2022年\n工作内容描述\t集团总部生产环境、全国地区虚拟化长期case运维，巡检，故障处理\n\n=== Table 7 ===\n项目名称\t京东尚科京东总部\n涉及产品\tvSphere、VSAN\n项目时间\t2022年\n工作内容描述\t集团总部办公环境长期case运维，巡检，故障处理\n\n=== Table 8 ===\n项目名称\t恒安人寿\n涉及产品\tvSphere、Smartx\n项目时间\t2022年\n工作内容描述\t天津总部办公、测试、生产、北京灾备长期case运维，巡检，故障处理\n\n=== Table 9 ===\n项目名称\t长城汽车全国分点vSphere实施\n涉及产品\tvSphere\n项目时间\t2022年7-10月\n工作内容描述\tvSphere实施部署\n\n=== Table 10 ===\n项目名称\t五矿国际信托\n涉及产品\tvSphere\n项目时间\t2022年4-5月\n工作内容描述\tvSphere实施部署\n\n=== Table 11 ===\n项目名称\t京东尚科\n涉及产品\tvSphere VSAN\n项目时间\t2022年6月\n工作内容描述\tVSAN实施，机房搬迁。环境迁移\n\n=== Table 12 ===\n项目名称\t比特大陆\n涉及产品\tHorizon vSphere NSX-T\n项目时间\t2021年10月\n工作内容描述\tHorizon实施部署\n\n=== ",
+      "metadata": {
+        "material_group": "personnel",
+        "matched_terms": [
+          "实施部署",
+          "项目经验",
+          "experience"
+        ],
+        "physical_file_exists": true
+      },
+      "selection_status": "candidate",
+      "warnings": [
+        "候选材料未经本项目人工选择，不得作为确认事实。"
+      ]
+    },
+    {
+      "candidate_id": "KB-file_2308aa547dd9",
+      "evidence_type": "person_resume",
+      "entity_type": "enterprise_material",
+      "entity_name": "",
+      "file_id": "file_2308aa547dd9",
+      "file_name": "资质+代理证书.docx",
+      "source_location": "parsed.sections",
+      "excerpt": "昆仑联通认证证书\nMOSS地址：\\\\192.168.99.115\\comlan_files\\共享文档\\公司资质\nISO 9001 质量管理体系认证\nISO 14001 环境管理体系认证\nISO 20000 服务管理体系认证\nISO 27001 服务管理体系认证\nISO 27701 隐私信息管理体系认证\nITSS 二级认证\n信息系统建设和服务能力证书（CS3）\n信创数智技术服务一级能力证书\n信息安全风险评估三级服务资质\n信息安全应急处理三级服务资质\n信息系统安全集成三级服务资质\n信息系统安全运维三级服务资质\n代理资质证明\nCRM地址：生态合作伙伴 01-可用的合作伙伴 - Dynamics 365\n\n=== Table 1 ===\n信息事项\t认证机构\t证书编号\t认证事项范围\t有效期限\nISO 9001质量管理体系认证证书\t北京新纪源认证有限公司\t19825QF5000R2M\t证书覆盖范围：计算机软硬件运维服务；计算机系统集成设计开发服务\t有效期至2028年08月16日\nISO 14001环境管理体系认证证书\t北京新纪源认证有限公司\t19824EG0856R0M\t证书覆盖范围：计算机软硬件运维服务；计算机系统集成设计开发服务\t有效期至2027年07月10日\nISO 20000信息技术服务管理体系认证证书\t北京新纪源认证有限公司\t1982024ITSM0144R1NM\t证书覆盖范围：计算机软硬件运维服务相关的信息技术服务管理活动\t有效期至2027年08月23日\nISO 27001信息安全管理体系认证证书\t北京新纪源认证有限公司\t19824ISG0211R1M\t证书覆盖范围：与计算机软硬件运维服务；计算机系统集成设计开发服务相关的信息安全管理活动；适用性声明：KLLT-ISMS-SM V2.0\t有效期至2027年08月23日\nISO 27701隐私信息管理体系认证证书\t北京新纪源认证有限公司\t19825PIMSH0013R0M\t证书覆盖范围：与计算机软硬件运维服务；计算机系统集成设计开发服务相关的隐私信息管理活动。适用性声明：KLLT-PIMS-SM V1.0版\t有效期至2028年08月27日\nITSS信息技术服务标准符合性证书\t中国电子工业标准化技术协会\t1TSS-YW-2-110020240062\t业务领域：运行维护\n评估等级：二级\t有效期至2027年07月04日\nCS信息系统建设和服务能力等级证书\t中国电子信息行业联合会\tCS3-1100-000611\t符合《信息系统建设和服务能力评估体系能力要求》，能力达到良好级(CS3)\t有效期至2029年12月31日\n信创数智技术服务能力等级证书\t威海神舟信息技术研究院有限公司\tXCSZ-GC-2025028\t业务领域：信创工程实施能力\n评估等级：一级\t有效期至2028年9月19日\nCCRC信息安全服务资质认证证书\t中国",
+      "metadata": {
+        "material_group": "company_qualification",
+        "matched_terms": [
+          "证书",
+          "certificate"
+        ],
+        "physical_file_exists": true
+      },
+      "selection_status": "candidate",
+      "warnings": [
+        "候选材料未经本项目人工选择，不得作为确认事实。"
+      ]
+    }
+  ],
+  "web_references": [],
+  "pending_confirmations": [
+    {
+      "field": "project_manager",
+      "question": "请确认本项目拟派项目经理：姓名、工作年限、相关证书（如PMP、信息系统项目管理师等）、超融合或类似项目经验。",
+      "reason": "项目组织架构和主要人员章节必需",
+      "candidates": [],
+      "affected_sections": [
+        "WC-003-04",
+        "WC-003-05"
+      ],
+      "blocking": true,
+      "status": "pending",
+      "placeholder_id": "PH-FIELD-PROJECT-MANAGER",
+      "placeholder_token": "{{PH-FIELD-PROJECT-MANAGER}}"
+    },
+    {
+      "field": "staffing_plan",
+      "question": "请确认本项目人员投入计划：各阶段投入人数、驻场安排和职责分工。",
+      "reason": "实施部署方案需要明确各阶段人员安排",
+      "candidates": [],
+      "affected_sections": [
+        "WC-003-01",
+        "WC-003-02",
+        "WC-003-04",
+        "WC-003-05"
+      ],
+      "blocking": false,
+      "status": "pending",
+      "placeholder_id": "PH-FIELD-STAFFING-PLAN",
+      "placeholder_token": "{{PH-FIELD-STAFFING-PLAN}}"
+    },
+    {
+      "field": "project_team",
+      "question": "请确认本项目拟派主要团队成员（项目负责人除外）：各岗位人员姓名、工作年限、相关证书和项目经验。至少应包括技术负责人和安装实施工程师。候选材料中有冯振书（虚拟化工程师，6年经验，Nutanix/Smartx实施运维经验）和吴云畅（微软工程师，5年经验）。请确认是否启用这些候选人或提供其他人选。",
+      "reason": "项目组织架构和主要人员章节必需，候选材料已发现相关人员但需人工确认",
+      "candidates": [],
+      "affected_sections": [
+        "WC-003-04",
+        "WC-003-05"
+      ],
+      "blocking": true,
+      "status": "pending",
+      "placeholder_id": "PH-FIELD-PROJECT-TEAM",
+      "placeholder_token": "{{PH-FIELD-PROJECT-TEAM}}"
+    }
+  ],
+  "placeholders": [
+    "PH-FIELD-PROJECT-MANAGER",
+    "PH-FIELD-PROJECT-TEAM",
+    "PH-FIELD-STAFFING-PLAN"
+  ],
+  "revision_round": 0,
+  "based_on_existing_draft": false,
+  "existing_draft_path": null,
+  "existing_draft_sha256": null,
+  "user_instruction_present": false,
+  "user_instruction_sources": [],
+  "user_instruction": "",
+  "user_instruction_summary": "",
+  "revision_scope": "initial_generation",
+  "instruction_conflicts": [],
+  "instruction_scope": "once",
+  "instruction_scope_suggestion": "once",
+  "instruction_scope_suggestion_reason": "本轮没有用户意见。",
+  "instruction_constraint_normalization": null,
+  "instruction_constraint_persistence": {
+    "status": "not_requested",
+    "scope": "once"
+  },
+  "writing_rules": {
+    "path": "D:\\comlan智标\\backend\\resources\\writing\\technical_writing_rules.md",
+    "version": "1.1.0",
+    "sha256": "51a770343e4f4e037c01177f22bf08077b5031a1e5e9ce9df1d5a17a6cdd14b6",
+    "loaded": true,
+    "rule_ids": [
+      "TW-001",
+      "TW-002",
+      "TW-003",
+      "TW-004",
+      "TW-005",
+      "TW-006",
+      "TW-007",
+      "TW-008",
+      "TW-009",
+      "TW-010",
+      "TW-011",
+      "TW-012"
+    ]
+  },
+  "rule_application_plan": {
+    "applicable_rule_ids": [
+      "TW-001",
+      "TW-002",
+      "TW-003",
+      "TW-004",
+      "TW-005",
+      "TW-006",
+      "TW-007",
+      "TW-008",
+      "TW-009",
+      "TW-010",
+      "TW-011",
+      "TW-012"
+    ],
+    "section_boundaries": [
+      {
+        "section_title": "实施总体规划",
+        "focus": [
+          "目标、原则、阶段和管理机制"
+        ],
+        "avoid_repeating": [
+          "专项操作步骤、逐项验收细节"
+        ]
+      },
+      {
+        "section_title": "项目建设技术方案",
+        "focus": [
+          "本小节标题对应的具体要求、动作、成果和检查方式"
+        ],
+        "avoid_repeating": [
+          "其他小节已完整展开的流程和无关项目背景"
+        ]
+      },
+      {
+        "section_title": "项目设计实施周期",
+        "focus": [
+          "相对时间基准、阶段衔接和完成判据"
+        ],
+        "avoid_repeating": [
+          "把招标最长时限写成最终承诺"
+        ]
+      },
+      {
+        "section_title": "项目组织架构",
+        "focus": [
+          "岗位、职责、汇报关系和参与阶段"
+        ],
+        "avoid_repeating": [
+          "虚构姓名、证书、履历或投入承诺"
+        ]
+      },
+      {
+        "section_title": "项目负责人及主要人员",
+        "focus": [
+          "岗位、职责、汇报关系和参与阶段"
+        ],
+        "avoid_repeating": [
+          "虚构姓名、证书、履历或投入承诺"
+        ]
+      },
+      {
+        "section_title": "安装部署",
+        "focus": [
+          "具体操作、检查点、完成判据和过程成果"
+        ],
+        "avoid_repeating": [
+          "重复总体原则和完整项目背景"
+        ]
+      },
+      {
+        "section_title": "测试与试运行",
+        "focus": [
+          "依据、步骤、记录、问题闭环和通过条件"
+        ],
+        "avoid_repeating": [
+          "堆砌未经核验的标准编号"
+        ]
+      },
+      {
+        "section_title": "质量控制",
+        "focus": [
+          "阶段质量控制点、检查成果和不满足时处理"
+        ],
+        "avoid_repeating": [
+          "与风险章节重复完整流程"
+        ]
+      },
+      {
+        "section_title": "项目验收",
+        "focus": [
+          "依据、步骤、记录、问题闭环和通过条件"
+        ],
+        "avoid_repeating": [
+          "堆砌未经核验的标准编号"
+        ]
+      },
+      {
+        "section_title": "交付成果",
+        "focus": [
+          "招标必需资料和实施过程成果"
+        ],
+        "avoid_repeating": [
+          "虚构份数、介质、签章要求"
+        ]
+      },
+      {
+        "section_title": "风险控制与应急保障",
+        "focus": [
+          "风险事项、预防、应急、责任和升级机制"
+        ],
+        "avoid_repeating": [
+          "虚构概率或量化等级"
+        ]
+      }
+    ],
+    "tender_tables_to_reuse": [],
+    "tables_to_create": [
+      {
+        "section_id": "项目设计实施周期",
+        "section_title": "项目设计实施周期",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "项目组织架构",
+        "section_title": "项目组织架构",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "项目负责人及主要人员",
+        "section_title": "项目负责人及主要人员",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "质量控制",
+        "section_title": "质量控制",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "交付成果",
+        "section_title": "交付成果",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "风险控制与应急保障",
+        "section_title": "风险控制与应急保障",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      }
+    ],
+    "facts_requiring_placeholders": [
+      "delivery_commitment",
+      "installation_period",
+      "staffing_plan",
+      "project_manager",
+      "project_team"
+    ],
+    "external_evidence_needs": [
+      "定位可引用的国家或行业标准"
+    ]
+  },
+  "project_constraints_loaded": {
+    "loaded": false,
+    "path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\writing\\project_writing_constraints.json",
+    "constraint_count": 0
+  },
+  "self_review": {
+    "duplicate_section_pairs": [],
+    "revisions_applied": [],
+    "repair_attempted": false,
+    "repair_count": 0
+  },
+  "technical_writing_quality": {
+    "chapter": {
+      "prose_paragraph_count": 33,
+      "prose_character_count": 5476,
+      "section_total_character_count": 5701,
+      "prose_paragraphs_repeating_tables": 0,
+      "bullet_group_count": 0,
+      "bullet_item_count": 0,
+      "bullet_character_count": 0,
+      "short_bullet_item_count": 0,
+      "bullet_groups_without_intro": 0,
+      "bullet_groups_without_followup": 0,
+      "numbered_step_count": 0,
+      "inline_step_chain_count": 0,
+      "markdown_table_count": 0,
+      "markdown_table_character_count": 0,
+      "consecutive_list_group_count": 0,
+      "table_without_intro_count": 0,
+      "table_without_followup_count": 0,
+      "average_prose_paragraph_length": 165.94,
+      "longest_prose_paragraph_length": 376,
+      "prose_ratio": 1.0,
+      "bullet_ratio": 0.0,
+      "table_ratio": 0.0,
+      "sections_with_insufficient_prose": [],
+      "list_dominant_sections": [],
+      "required_table_exempt_character_count": 0,
+      "non_exempt_structured_character_count": 0
+    },
+    "sections": [
+      {
+        "section_title": "实施总体规划",
+        "block_type": "implementation_plan",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 486,
+        "average_prose_paragraph_length": 162.0,
+        "longest_prose_paragraph_length": 225,
+        "section_total_character_count": 486,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目建设技术方案",
+        "block_type": "technical_solution",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 456,
+        "average_prose_paragraph_length": 152.0,
+        "longest_prose_paragraph_length": 203,
+        "section_total_character_count": 565,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目设计实施周期",
+        "block_type": "implementation_plan",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 603,
+        "average_prose_paragraph_length": 201.0,
+        "longest_prose_paragraph_length": 376,
+        "section_total_character_count": 603,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目组织架构",
+        "block_type": "organization_plan",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 540,
+        "average_prose_paragraph_length": 180.0,
+        "longest_prose_paragraph_length": 227,
+        "section_total_character_count": 540,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目负责人及主要人员",
+        "block_type": "personnel_detail",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 494,
+        "average_prose_paragraph_length": 164.67,
+        "longest_prose_paragraph_length": 178,
+        "section_total_character_count": 494,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "安装部署",
+        "block_type": "implementation_plan",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 536,
+        "average_prose_paragraph_length": 178.67,
+        "longest_prose_paragraph_length": 263,
+        "section_total_character_count": 536,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "测试与试运行",
+        "block_type": "technical_solution",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 538,
+        "average_prose_paragraph_length": 179.33,
+        "longest_prose_paragraph_length": 248,
+        "section_total_character_count": 538,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "质量控制",
+        "block_type": "quality_assurance",
+        "prose_paragraph_count": 4,
+        "prose_character_count": 517,
+        "average_prose_paragraph_length": 129.25,
+        "longest_prose_paragraph_length": 169,
+        "section_total_character_count": 517,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目验收",
+        "block_type": "quality_assurance",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 377,
+        "average_prose_paragraph_length": 188.5,
+        "longest_prose_paragraph_length": 211,
+        "section_total_character_count": 493,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "交付成果",
+        "block_type": "other",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 395,
+        "average_prose_paragraph_length": 131.67,
+        "longest_prose_paragraph_length": 199,
+        "section_total_character_count": 395,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "风险控制与应急保障",
+        "block_type": "risk_control",
+        "prose_paragraph_count": 3,
+        "prose_character_count": 534,
+        "average_prose_paragraph_length": 178.0,
+        "longest_prose_paragraph_length": 293,
+        "section_total_character_count": 534,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      }
+    ],
+    "errors": [],
+    "warnings": [],
+    "sections_with_insufficient_prose": []
+  },
+  "tender_tables_detected": [
+    {
+      "table_id": "TBL-C55E070FDA30",
+      "title": "评审因素及评标标准",
+      "table_name": "评审因素及评标标准",
+      "table_type": "scoring_reference_table",
+      "reuse_required": false,
+      "response_point_id": "TR-022",
+      "source_file_id": "selected_9f821b62467b93bf",
+      "source_file_name": "五中心医院远程招标文件 确认版.docx",
+      "source_location": {
+        "clause_path": [
+          "第二部分招标项目要求",
+          "三、评审因素及评标标准"
+        ],
+        "page_start": 12,
+        "page_end": 14,
+        "table_range": "A3:D21",
+        "row_or_cell": "table_1"
+      },
+      "headers": [
+        "第二部分客观分（49分）",
+        "分值"
+      ],
+      "field_order": [
+        "第二部分客观分（49分）",
+        "分值"
+      ],
+      "row_count": 19,
+      "column_count": 4,
+      "row_column_relationship": {
+        "header_row_index": 0,
+        "data_row_start_index": 1,
+        "field_count": 2
+      },
+      "filling_requirements": [],
+      "required": false,
+      "source_table_index": 1,
+      "has_merged_cells": true,
+      "merged_cells": [],
+      "layout_complexity": "complex",
+      "format_preservation": "exact",
+      "markdown_allowed": false,
+      "policy": "评分与评审表只用于写作和覆盖判断；禁止插入响应正文，禁止进入table_fill_data。"
+    }
+  ],
+  "tender_tables_reused": [],
+  "tender_tables_created": [],
+  "complex_tender_tables_preserved": [],
+  "table_fill_data": [],
+  "duplicate_review_performed": true,
+  "duplicate_repair_performed": false,
+  "web_search_policy": "auto",
+  "web_verification": {
+    "status": "unavailable",
+    "attempt_count": 1,
+    "verified_source_count": 0,
+    "reason": "search_returned_no_usable_official_source"
+  },
+  "previous_draft_path": null,
+  "current_draft_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.candidate.md",
+  "current_formal_draft_path": null,
+  "current_candidate_draft_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.candidate.md",
+  "change_summary": {
+    "previous_markdown_characters": 0,
+    "current_markdown_characters": 7038,
+    "previous_table_count": 0,
+    "current_table_count": 0,
+    "previous_placeholder_count": 0,
+    "current_placeholder_count": 3,
+    "sections_changed": [
+      "章节标题或前言",
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ]
+  },
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool_call_id": "call_00_F5Rqw8CMUnYOEg6BuCn69176",
+      "tool_name": "get_writing_scope",
+      "arguments_summary": {
+        "chapter_id": "WC-003"
+      },
+      "status": "success",
+      "result_count": 0
+    },
+    {
+      "step": 1,
+      "tool_call_id": "call_01_uL02CgDwQdECC6Bbxd236339",
+      "tool_name": "get_response_requirements",
+      "arguments_summary": {
+        "chapter_id": "WC-003"
+      },
+      "status": "success",
+      "result_count": 7
+    },
+    {
+      "step": 1,
+      "tool_call_id": "call_02_WT7E5UcXCXKVrV5CT77S3066",
+      "tool_name": "get_task_information",
+      "arguments_summary": {
+        "chapter_id": "WC-003"
+      },
+      "status": "success",
+      "result_count": 11
+    },
+    {
+      "step": 1,
+      "tool_call_id": "call_03_DywgJSTrkZMnGkptYJQa2203",
+      "tool_name": "get_draft_plan",
+      "arguments_summary": {
+        "chapter_id": "WC-003"
+      },
+      "status": "success",
+      "result_count": 3
+    },
+    {
+      "step": 1,
+      "tool_call_id": "call_04_Hb5I0zqrsd3itvz90uAG8093",
+      "tool_name": "get_confirmed_project_facts",
+      "arguments_summary": {},
+      "status": "not_available",
+      "result_count": 0
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_00_BzyzNoskdnDpJ1IwXyuO4211",
+      "tool_name": "query_local_knowledge",
+      "arguments_summary": {
+        "query": "超融合系统 实施部署 安装 医院 项目经验",
+        "evidence_types": [
+          "implementation_experience"
+        ],
+        "top_k": 5
+      },
+      "status": "success",
+      "result_count": 2
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_01_hsyNUQseTWXcXHOecokT1487",
+      "tool_name": "query_local_knowledge",
+      "arguments_summary": {
+        "query": "项目经理 技术负责人 简历 证书 超融合",
+        "evidence_types": [
+          "person_resume",
+          "person_certificate"
+        ],
+        "top_k": 5
+      },
+      "status": "success",
+      "result_count": 3
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_02_tZmMjYHDEmP5dQZe619q5025",
+      "tool_name": "query_local_knowledge",
+      "arguments_summary": {
+        "query": "质量管理 验收 测试 实施 质量控制",
+        "evidence_types": [
+          "quality_management_material"
+        ],
+        "top_k": 5
+      },
+      "status": "success",
+      "result_count": 3
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_03_C8VUhxY2iuBikbTIxCD89875",
+      "tool_name": "web_search",
+      "arguments_summary": {
+        "query": "GB/T 信息技术 超融合 系统测试 验收标准 现行",
+        "purpose": "定位可用于测试与试运行、项目验收的国家或行业标准",
+        "allowed_source_types": [
+          "government_official",
+          "standards_authority_official"
+        ],
+        "top_k": 5
+      },
+      "status": "not_configured",
+      "result_count": 0
+    },
+    {
+      "step": 3,
+      "tool_call_id": "call_00_TpfXH5vcqIoOBOCZ7kq86942",
+      "tool_name": "record_pending_confirmation",
+      "arguments_summary": {
+        "items": {
+          "item_count": 5,
+          "fields": [
+            "delivery_commitment",
+            "project_manager",
+            "project_team",
+            "staffing_plan",
+            "installation_period"
+          ]
+        }
+      },
+      "status": "recorded",
+      "result_count": 2
+    },
+    {
+      "step": 4,
+      "tool_call_id": "call_00_BIKuzmAIY7GUVgBZKgXL0898",
+      "tool_name": "record_pending_confirmation",
+      "arguments_summary": {
+        "field": "project_team",
+        "question": "请确认本项目拟派主要团队成员（项目负责人除外）：各岗位人员姓名、工作年限、相关证书和项目经验。至少应包括技术负责人和安装实施工程师。候选材料中有冯振书（虚拟化工程师，6年经验，Nutanix/Smartx实施运维经验）和吴云畅（微软工程师，5年经验）。请确认是否启用这些候选人或提供其他人选。",
+        "reason": "项目组织架构和主要人员章节必需，候选材料已发现相关人员但需人工确认",
+        "affected_sections": [
+          "WC-003-04",
+          "WC-003-05"
+        ],
+        "blocking": true
+      },
+      "status": "recorded",
+      "result_count": 3
+    },
+    {
+      "step": 5,
+      "tool_call_id": "call_00_QezNBAH3Kev4xy34Dn2F3284",
+      "tool_name": "read_local_evidence",
+      "arguments_summary": {
+        "file_id": "file_2308aa547dd9",
+        "max_chars": 5000
+      },
+      "status": "success",
+      "result_count": 0
+    }
+  ],
+  "model_calls": [
+    {
+      "step": 1,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "8f704e1e-7a5d-4d77-8269-ced6d5c89323",
+      "duration_ms": 5616,
+      "finish_status": "tool_calls",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 29605,
+        "output_tokens": 214,
+        "total_tokens": 29819,
+        "reasoning_tokens": 40,
+        "answer_tokens": null,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "step": 2,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "9b0354a1-24ab-4875-b9df-f522364d97b9",
+      "duration_ms": 8810,
+      "finish_status": "tool_calls",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 40908,
+        "output_tokens": 651,
+        "total_tokens": 41559,
+        "reasoning_tokens": 245,
+        "answer_tokens": null,
+        "cached_tokens": 29696
+      }
+    },
+    {
+      "step": 3,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "ff5f397e-2e98-482a-9424-c7609fec54b3",
+      "duration_ms": 12940,
+      "finish_status": "tool_calls",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 49324,
+        "output_tokens": 622,
+        "total_tokens": 49946,
+        "reasoning_tokens": 125,
+        "answer_tokens": null,
+        "cached_tokens": 256
+      }
+    },
+    {
+      "step": 4,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "04eeba08-78ce-473e-ab8f-fcb50f7c6dd0",
+      "duration_ms": 13521,
+      "finish_status": "tool_calls",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 50457,
+        "output_tokens": 645,
+        "total_tokens": 51102,
+        "reasoning_tokens": 419,
+        "answer_tokens": null,
+        "cached_tokens": 4608
+      }
+    },
+    {
+      "step": 5,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "f48551c3-dd83-430a-ba1e-af4f9cd32298",
+      "duration_ms": 24615,
+      "finish_status": "tool_calls",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 51321,
+        "output_tokens": 1264,
+        "total_tokens": 52585,
+        "reasoning_tokens": 1180,
+        "answer_tokens": null,
+        "cached_tokens": 4736
+      }
+    },
+    {
+      "step": 6,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "0b97cd7d-8b71-42d0-8ef6-55be6802a3c9",
+      "duration_ms": 165580,
+      "finish_status": "stop",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 50700,
+        "output_tokens": 10293,
+        "total_tokens": 60993,
+        "reasoning_tokens": 2502,
+        "answer_tokens": null,
+        "cached_tokens": 256
+      },
+      "purpose": "fresh_final_after_json_failure"
+    },
+    {
+      "step": 7,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "261c61cb-2fc3-4050-8590-edf9e5d08dc0",
+      "duration_ms": 147289,
+      "finish_status": "stop",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 52819,
+        "output_tokens": 8389,
+        "total_tokens": 61208,
+        "reasoning_tokens": 2848,
+        "answer_tokens": null,
+        "cached_tokens": 41728
+      },
+      "purpose": "fresh_quality_regeneration"
+    }
+  ],
+  "working_draft": {
+    "markdown": "",
+    "sections": []
+  },
+  "run_summary": {
+    "event_count": 118,
+    "model_step_count": 7,
+    "model_request_count": 7,
+    "tool_call_count": 12,
+    "tool_calls_by_name": {
+      "get_confirmed_project_facts": 1,
+      "get_draft_plan": 1,
+      "get_response_requirements": 1,
+      "get_task_information": 1,
+      "get_writing_scope": 1,
+      "query_local_knowledge": 3,
+      "read_local_evidence": 1,
+      "record_pending_confirmation": 2,
+      "web_search": 1
+    },
+    "tool_names": [
+      "get_writing_scope",
+      "get_response_requirements",
+      "get_task_information",
+      "get_draft_plan",
+      "get_confirmed_project_facts",
+      "query_local_knowledge",
+      "query_local_knowledge",
+      "query_local_knowledge",
+      "web_search",
+      "record_pending_confirmation",
+      "record_pending_confirmation",
+      "read_local_evidence"
+    ],
+    "duplicate_tool_calls": 0,
+    "local_knowledge_call_count": 3,
+    "web_search_call_count": 1,
+    "section_count_completed": 0,
+    "section_count_expected": 11,
+    "characters_generated": 5749,
+    "forced_finalization": false,
+    "draft_file_preserved": false,
+    "event_log_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.events.jsonl",
+    "total_usage": {
+      "input_tokens": 325134,
+      "output_tokens": 22078,
+      "total_tokens": 347212,
+      "reasoning_tokens": 7359,
+      "answer_tokens": null,
+      "cached_tokens": 81280
+    },
+    "total_runtime_ms": 429479,
+    "stop_reason": "candidate_validation_blocked",
+    "repeat_call_counts": {}
+  },
+  "validation": {
+    "valid": false,
+    "validation_status": "blocked",
+    "candidate_generated": true,
+    "candidate_saved": true,
+    "candidate_available": true,
+    "candidate_reviewable": true,
+    "submission_ready": false,
+    "issues": [
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_bidder_commitment",
+        "section_id": "WC-003-02",
+        "section_title": "项目建设技术方案",
+        "message": "fact_boundary:项目建设技术方案:unconfirmed_bidder_commitment:同时，我方承诺在招标文件要求的货到时间内完成供货，并在此后的安装时限内完成全部集成部署工作，具体时间节点将在项目设计实施周期中阐明。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "numeric_commitment",
+        "section_id": "WC-003-03",
+        "section_title": "项目设计实施周期",
+        "message": "fact_boundary:项目设计实施周期:numeric_commitment:根据招标要求，货到时间为自签订合同之日起30日内，安装完成时间为货到之日起10日内。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_bidder_commitment",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_bidder_commitment:我方承诺，拟投入本项目的项目负责人及主要技术人员均具备履行合同所必需的专业能力。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "evidence_pending",
+        "section_id": null,
+        "section_title": "相关小节",
+        "message": "fact_boundary:相关小节:evidence_pending:项目实施总体满足招标文件实施部署评价要求。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "evidence_pending",
+        "section_id": null,
+        "section_title": "相关小节",
+        "message": "fact_boundary:相关小节:evidence_pending:公司拥有成熟的项目管理体系与质量管理流程（未引用具体标准编号）。"
+      },
+      {
+        "severity": "blocking",
+        "category": "fact_boundary",
+        "code": "unconfirmed_personnel_qualification",
+        "section_id": "WC-003-05",
+        "section_title": "项目负责人及主要人员",
+        "message": "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。"
+      },
+      {
+        "severity": "warning",
+        "category": "source_verification",
+        "code": "external_verification_pending",
+        "section_id": null,
+        "section_title": null,
+        "message": "external verification remains pending: unavailable"
+      },
+      {
+        "severity": "warning",
+        "category": "placeholder",
+        "code": "placeholder_pending_completion",
+        "section_id": null,
+        "section_title": null,
+        "message": "registered placeholders remain pending completion"
+      }
+    ],
+    "issue_counts": {
+      "fatal": 0,
+      "blocking": 6,
+      "warning": 2
+    },
+    "errors": [
+      "fact_boundary:项目建设技术方案:unconfirmed_bidder_commitment:同时，我方承诺在招标文件要求的货到时间内完成供货，并在此后的安装时限内完成全部集成部署工作，具体时间节点将在项目设计实施周期中阐明。",
+      "fact_boundary:项目设计实施周期:numeric_commitment:根据招标要求，货到时间为自签订合同之日起30日内，安装完成时间为货到之日起10日内。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_bidder_commitment:我方承诺，拟投入本项目的项目负责人及主要技术人员均具备履行合同所必需的专业能力。",
+      "fact_boundary:相关小节:evidence_pending:项目实施总体满足招标文件实施部署评价要求。",
+      "fact_boundary:相关小节:evidence_pending:公司拥有成熟的项目管理体系与质量管理流程（未引用具体标准编号）。",
+      "fact_boundary:项目负责人及主要人员:unconfirmed_personnel_qualification:项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。"
+    ],
+    "warnings": [
+      "external verification remains pending: unavailable",
+      "registered placeholders remain pending completion"
+    ],
+    "expected_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "actual_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "title_count": 11,
+    "expected_response_point_ids": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "missing_response_point_ids": [],
+    "expected_score_item_ids": [
+      "SCORE-TR-022-R017"
+    ],
+    "missing_score_item_ids": [],
+    "markdown_table_count": 0,
+    "technical_writing_quality": {
+      "chapter": {
+        "prose_paragraph_count": 33,
+        "prose_character_count": 5476,
+        "section_total_character_count": 5701,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "numbered_step_count": 0,
+        "inline_step_chain_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "average_prose_paragraph_length": 165.94,
+        "longest_prose_paragraph_length": 376,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "sections_with_insufficient_prose": [],
+        "list_dominant_sections": [],
+        "required_table_exempt_character_count": 0,
+        "non_exempt_structured_character_count": 0
+      },
+      "sections": [
+        {
+          "section_title": "实施总体规划",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 486,
+          "average_prose_paragraph_length": 162.0,
+          "longest_prose_paragraph_length": 225,
+          "section_total_character_count": 486,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目建设技术方案",
+          "block_type": "technical_solution",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 456,
+          "average_prose_paragraph_length": 152.0,
+          "longest_prose_paragraph_length": 203,
+          "section_total_character_count": 565,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目设计实施周期",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 603,
+          "average_prose_paragraph_length": 201.0,
+          "longest_prose_paragraph_length": 376,
+          "section_total_character_count": 603,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目组织架构",
+          "block_type": "organization_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 540,
+          "average_prose_paragraph_length": 180.0,
+          "longest_prose_paragraph_length": 227,
+          "section_total_character_count": 540,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目负责人及主要人员",
+          "block_type": "personnel_detail",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 494,
+          "average_prose_paragraph_length": 164.67,
+          "longest_prose_paragraph_length": 178,
+          "section_total_character_count": 494,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "安装部署",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 536,
+          "average_prose_paragraph_length": 178.67,
+          "longest_prose_paragraph_length": 263,
+          "section_total_character_count": 536,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "测试与试运行",
+          "block_type": "technical_solution",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 538,
+          "average_prose_paragraph_length": 179.33,
+          "longest_prose_paragraph_length": 248,
+          "section_total_character_count": 538,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "质量控制",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 4,
+          "prose_character_count": 517,
+          "average_prose_paragraph_length": 129.25,
+          "longest_prose_paragraph_length": 169,
+          "section_total_character_count": 517,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目验收",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 377,
+          "average_prose_paragraph_length": 188.5,
+          "longest_prose_paragraph_length": 211,
+          "section_total_character_count": 493,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "交付成果",
+          "block_type": "other",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 395,
+          "average_prose_paragraph_length": 131.67,
+          "longest_prose_paragraph_length": 199,
+          "section_total_character_count": 395,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "风险控制与应急保障",
+          "block_type": "risk_control",
+          "prose_paragraph_count": 3,
+          "prose_character_count": 534,
+          "average_prose_paragraph_length": 178.0,
+          "longest_prose_paragraph_length": 293,
+          "section_total_character_count": 534,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "inline_step_chain_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "sections_with_insufficient_prose": []
+    },
+    "duplicate_section_pairs": [],
+    "generation_permission_audit": {
+      "passed": false,
+      "unauthorized_numeric_claims": [],
+      "unauthorized_personnel_claims": [
+        {
+          "section_id": "WC-003-05",
+          "section_title": "项目负责人及主要人员",
+          "code": "unconfirmed_personnel_qualification",
+          "text": "项目经理需具备丰富的IT系统集成项目管理经验，熟悉超融合技术架构与医院信息化建设特点。"
+        }
+      ],
+      "unauthorized_product_capabilities": [],
+      "candidate_facts_promoted": [],
+      "unregistered_placeholders": []
+    }
+  },
+  "failures": [],
+  "warnings": [
+    "external verification remains pending: unavailable",
+    "registered placeholders remain pending completion"
+  ],
+  "outputs": {
+    "markdown": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.candidate.md",
+    "formal_markdown": null,
+    "candidate_markdown": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.candidate.md",
+    "candidate_json": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.candidate.json",
+    "preserved_formal_markdown": null,
+    "run_json": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.run.json",
+    "events_jsonl": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_permissions_20260727_175439\\drafts\\WC-003.events.jsonl"
+  }
+}

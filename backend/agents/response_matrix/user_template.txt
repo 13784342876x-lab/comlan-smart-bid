@@ -1,0 +1,1 @@
+请根据招标解析结果生成响应矩阵：{tender_parse_result}

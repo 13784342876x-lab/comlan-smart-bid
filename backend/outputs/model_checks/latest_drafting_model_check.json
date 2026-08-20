@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "checked_at": "2026-07-15T06:05:36.721453+00:00",
+  "status": "configuration_missing",
+  "provider": "volcengine_ark",
+  "protocol": "openai_compatible",
+  "profile_name": "ark_draft",
+  "model": null,
+  "api_mode": "responses",
+  "structured_output_mode": "json_schema",
+  "key_configured": false,
+  "model_configured": false,
+  "schema_valid": false,
+  "request_id": null,
+  "duration_ms": null,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null
+  },
+  "retry_count": 0,
+  "repair_attempted": false,
+  "finish_status": null,
+  "smoke_output": null,
+  "warnings": [],
+  "error_type": "ModelConfigurationError",
+  "error": "API key is not configured; set ARK_API_KEY",
+  "writes_real_case": false
+}

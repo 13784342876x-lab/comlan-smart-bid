@@ -1,0 +1,3272 @@
+{
+  "schema_version": "technical_task_information_requirements_v0",
+  "source_schemas": {
+    "response_outline": "technical_response_outline_v2",
+    "writing_outline": "technical_writing_outline_v0",
+    "writing_tasks": "technical_section_writing_tasks_v0",
+    "company_outline": "company_technical_writing_outline_v0"
+  },
+  "separation_guards": {
+    "writing_outline_modified": false,
+    "atomic_tasks_modified_or_removed": false,
+    "draft_units_are_directory_nodes": false,
+    "body_generated": false,
+    "local_kb_queried": false,
+    "web_research_executed": false,
+    "reference_only_files_read": false,
+    "tender_minimums_used_as_offered_facts": false
+  },
+  "company_policy_usage": {
+    "evidence_types": "用于限定未来本地RAG的证据类别，不代表材料当前存在或缺失。",
+    "web_policy": "用于限定任务可规划的官方来源类型，不触发联网执行。"
+  },
+  "tasks": [
+    {
+      "task_id": "TASK-001",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-01",
+      "target_path": [
+        "需求理解及分析",
+        "项目背景"
+      ],
+      "response_point_ids": [
+        "TR-017"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "project_name_and_code"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "health_authority_official",
+            "hospital_official"
+          ],
+          "purposes": [
+            "补充公开政策与行业背景，不替代项目确认事实"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "招标文件已提供项目背景，当前可形成初稿；项目名称等可在定稿时校准。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-002",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-02",
+      "target_path": [
+        "需求理解及分析",
+        "现状及建设基础"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "仅依赖招标文件事实即可形成初稿，不需要把最低要求反向当作投标事实。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-003",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-03",
+      "target_path": [
+        "需求理解及分析",
+        "应用环境"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "仅依赖招标文件事实即可形成初稿，不需要把最低要求反向当作投标事实。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-004",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-04",
+      "target_path": [
+        "需求理解及分析",
+        "功能需求"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "仅依赖招标文件事实即可形成初稿，不需要把最低要求反向当作投标事实。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-005",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-05",
+      "target_path": [
+        "需求理解及分析",
+        "性能需求"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "仅依赖招标文件事实即可形成初稿，不需要把最低要求反向当作投标事实。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-006",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-06",
+      "target_path": [
+        "需求理解及分析",
+        "统一运维需求"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "仅依赖招标文件事实即可形成初稿，不需要把最低要求反向当作投标事实。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-007",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-07",
+      "target_path": [
+        "需求理解及分析",
+        "实施要求"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "仅依赖招标文件事实即可形成初稿，不需要把最低要求反向当作投标事实。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-008",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-08",
+      "target_path": [
+        "需求理解及分析",
+        "项目重点与难点"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "仅依赖招标文件事实即可形成初稿，不需要把最低要求反向当作投标事实。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-009",
+      "chapter_id": "WC-001",
+      "section_id": "WC-001-09",
+      "target_path": [
+        "需求理解及分析",
+        "建设目标"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": [],
+          "reason": "该任务当前不要求本地证明材料即可形成招标要求层面的初稿。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft",
+        "reason": "仅依赖招标文件事实即可形成初稿，不需要把最低要求反向当作投标事实。",
+        "missing_inputs": []
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-010",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-01",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "总体设计原则"
+      ],
+      "response_point_ids": [
+        "TR-011",
+        "TR-016"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "manufacturer_official_document"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-011",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-02",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "总体技术路线"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "manufacturer_official_document"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-012",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-03",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "总体方案架构"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "manufacturer_official_document"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-013",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-04",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "部署架构"
+      ],
+      "response_point_ids": [
+        "TR-020",
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "manufacturer_official_document"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-014",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-05",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "统一运维架构"
+      ],
+      "response_point_ids": [
+        "TR-020",
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "manufacturer_official_document"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-015",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-06",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "主要功能设计"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "manufacturer_official_document"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-016",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-07",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "可靠性设计"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "actual_product_configuration",
+            "actual_technical_parameters"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate",
+            "manufacturer_official_document"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为manufacturer_official_only、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "product_parameter_proof",
+          "product_test_report",
+          "product_certificate",
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-017",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-08",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "安全设计"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "manufacturer_official_document"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为manufacturer_official_only、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-018",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-09",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "兼容与扩展设计"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "actual_product_configuration",
+            "actual_technical_parameters"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate",
+            "manufacturer_official_document"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为manufacturer_official_only、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "product_parameter_proof",
+          "product_test_report",
+          "product_certificate",
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-019",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-10",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "超融合系统详细技术方案"
+      ],
+      "response_point_ids": [
+        "TR-018"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate",
+            "manufacturer_official_document"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "解释通用技术原理，不用于猜测拟投产品配置"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为manufacturer_official_only、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "产地",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "product_parameter_proof",
+          "product_test_report",
+          "product_certificate",
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-020",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-11",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "超融合互联交换机技术方案"
+      ],
+      "response_point_ids": [
+        "TR-018"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate",
+            "manufacturer_official_document"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "解释通用技术原理，不用于猜测拟投产品配置"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为manufacturer_official_only、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "产地",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "product_parameter_proof",
+          "product_test_report",
+          "product_certificate",
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-021",
+      "chapter_id": "WC-002",
+      "section_id": "WC-002-12",
+      "target_path": [
+        "方案完整性及系统架构设计",
+        "超融合节点技术方案"
+      ],
+      "response_point_ids": [
+        "TR-018"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate",
+            "manufacturer_official_document"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "解释通用技术原理，不用于猜测拟投产品配置"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为manufacturer_official_only、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "产地",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "product_parameter_proof",
+          "product_test_report",
+          "product_certificate",
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-022",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-01",
+      "target_path": [
+        "实施部署方案",
+        "实施总体规划"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "delivery_commitment",
+            "installation_period",
+            "staffing_plan"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终交货承诺",
+          "实际安装周期",
+          "实际实施人员安排",
+          "implementation_experience"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-023",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-02",
+      "target_path": [
+        "实施部署方案",
+        "项目建设技术方案"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "delivery_commitment",
+            "installation_period",
+            "staffing_plan"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终交货承诺",
+          "实际安装周期",
+          "实际实施人员安排",
+          "implementation_experience"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-024",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-03",
+      "target_path": [
+        "实施部署方案",
+        "项目设计实施周期"
+      ],
+      "response_point_ids": [
+        "TR-005",
+        "TR-006",
+        "TR-007"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "delivery_commitment",
+            "installation_period"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "最终交货承诺",
+          "实际安装周期"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-025",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-04",
+      "target_path": [
+        "实施部署方案",
+        "项目组织架构"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "project_manager",
+            "project_team",
+            "staffing_plan"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "person_resume",
+            "person_certificate"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "项目负责人",
+          "项目团队成员",
+          "实际实施人员安排",
+          "person_resume",
+          "person_certificate"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-026",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-05",
+      "target_path": [
+        "实施部署方案",
+        "项目负责人及主要人员"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "project_manager",
+            "project_team",
+            "staffing_plan"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "person_resume",
+            "person_certificate"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "项目负责人",
+          "项目团队成员",
+          "实际实施人员安排",
+          "person_resume",
+          "person_certificate"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-027",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-06",
+      "target_path": [
+        "实施部署方案",
+        "安装部署"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "delivery_commitment",
+            "installation_period"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "最终交货承诺",
+          "实际安装周期"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-028",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-07",
+      "target_path": [
+        "实施部署方案",
+        "测试与试运行"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience",
+            "quality_management_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为forbidden、limited、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "implementation_experience",
+          "quality_management_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-029",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-08",
+      "target_path": [
+        "实施部署方案",
+        "质量控制"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience",
+            "quality_management_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为forbidden、limited、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "implementation_experience",
+          "quality_management_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-030",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-09",
+      "target_path": [
+        "实施部署方案",
+        "项目验收"
+      ],
+      "response_point_ids": [
+        "TR-010"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience",
+            "quality_management_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为forbidden、limited、official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "implementation_experience",
+          "quality_management_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-031",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-10",
+      "target_path": [
+        "实施部署方案",
+        "交付成果"
+      ],
+      "response_point_ids": [
+        "TR-008",
+        "TR-009"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "delivery_commitment",
+            "installation_period"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "最终交货承诺",
+          "实际安装周期"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-032",
+      "chapter_id": "WC-003",
+      "section_id": "WC-003-11",
+      "target_path": [
+        "实施部署方案",
+        "风险控制与应急保障"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "implementation_experience"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "implementation_experience"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-033",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-01",
+      "target_path": [
+        "培训方案",
+        "培训目标"
+      ],
+      "response_point_ids": [
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-034",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-02",
+      "target_path": [
+        "培训方案",
+        "培训对象"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-035",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-03",
+      "target_path": [
+        "培训方案",
+        "培训内容"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-036",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-04",
+      "target_path": [
+        "培训方案",
+        "培训形式"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-037",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-05",
+      "target_path": [
+        "培训方案",
+        "培训师资"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-038",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-06",
+      "target_path": [
+        "培训方案",
+        "培训时间与地点"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-039",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-07",
+      "target_path": [
+        "培训方案",
+        "培训计划"
+      ],
+      "response_point_ids": [
+        "TR-004"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-040",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-08",
+      "target_path": [
+        "培训方案",
+        "培训考核"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-041",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-09",
+      "target_path": [
+        "培训方案",
+        "培训资料"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-042",
+      "chapter_id": "WC-004",
+      "section_id": "WC-004-10",
+      "target_path": [
+        "培训方案",
+        "培训效果保障"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "training_material"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-043",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-01",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "服务目标"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-044",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-02",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "服务范围"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-045",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-03",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "服务组织体系"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-046",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-04",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "服务机构与人员"
+      ],
+      "response_point_ids": [
+        "TR-003"
+      ],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-047",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-05",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "服务响应机制"
+      ],
+      "response_point_ids": [
+        "TR-002"
+      ],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-048",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-06",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "故障处理流程"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-049",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-07",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "保修与维修方案"
+      ],
+      "response_point_ids": [
+        "TR-001"
+      ],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-050",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-08",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "备品备件保障"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-051",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-09",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "巡检与健康检查"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-052",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-10",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "服务质量监督"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "optional",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "当前可形成框架；补充项目事实可提升项目针对性，但不得从招标最低要求反推。"
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "未来RAG可检索相关材料增强针对性；本轮不判断材料存在或缺失。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为forbidden，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "can_draft_with_placeholders",
+        "reason": "可编写框架和通用说明，项目化事实或材料引用位置使用明确占位符。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-053",
+      "chapter_id": "WC-005",
+      "section_id": "WC-005-11",
+      "target_path": [
+        "售后服务与运行保障方案",
+        "服务承诺"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "最终保修期限",
+          "最终服务响应时间",
+          "制造商服务机构",
+          "service_network",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-054",
+      "chapter_id": "WC-006",
+      "section_id": "WC-006",
+      "target_path": [
+        "绿色供应链管理方案"
+      ],
+      "response_point_ids": [
+        "TR-015",
+        "TR-021",
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R004",
+        "SCORE-TR-022-R005",
+        "SCORE-TR-022-R019"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "none",
+          "fact_types": [],
+          "reason": "该任务可仅依据招标文件要求和已确定的文章结构进行规划。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "green_supply_chain_evidence"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位政府政策及国家行业标准"
+          ],
+          "reason": "仅可用于政策、标准、公开背景或通用原理补充；公司模块web_policy为official_only，本轮不执行联网。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "green_supply_chain_evidence"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_local_evidence",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-055",
+      "chapter_id": "WC-007",
+      "section_id": "WC-007-01",
+      "target_path": [
+        "技术参数及点对点应答",
+        "技术要求点对点应答表"
+      ],
+      "response_point_ids": [
+        "TR-018",
+        "TR-019",
+        "TR-022",
+        "TR-023",
+        "TR-024",
+        "TR-025",
+        "TR-026",
+        "TR-027",
+        "TR-028",
+        "TR-029",
+        "TR-030",
+        "TR-031"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R012"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters",
+            "technical_deviation_status"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate",
+            "manufacturer_official_document"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "产地",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "是否存在技术偏离",
+          "product_parameter_proof",
+          "product_test_report",
+          "product_certificate",
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-056",
+      "chapter_id": "WC-007",
+      "section_id": "WC-007-02",
+      "target_path": [
+        "技术参数及点对点应答",
+        "技术支撑材料索引"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R012"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters",
+            "technical_deviation_status"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate",
+            "manufacturer_official_document"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "产地",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "是否存在技术偏离",
+          "product_parameter_proof",
+          "product_test_report",
+          "product_certificate",
+          "manufacturer_official_document"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-057",
+      "chapter_id": "WC-008",
+      "section_id": "WC-008-01",
+      "target_path": [
+        "技术证明材料及附件索引",
+        "产品技术资料索引"
+      ],
+      "response_point_ids": [
+        "TR-012",
+        "TR-013",
+        "TR-014",
+        "TR-022"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "manufacturer_official_document",
+            "product_parameter_proof"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "产地",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "manufacturer_official_document",
+          "product_parameter_proof"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-058",
+      "chapter_id": "WC-008",
+      "section_id": "WC-008-02",
+      "target_path": [
+        "技术证明材料及附件索引",
+        "产品检测及认证材料索引"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_certificate",
+            "product_test_report"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "拟投产品品牌",
+          "拟投产品型号",
+          "制造商",
+          "产地",
+          "实际产品配置（含CPU、内存、硬盘、网络及软件授权）",
+          "实际技术参数",
+          "product_certificate",
+          "product_test_report"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-059",
+      "chapter_id": "WC-008",
+      "section_id": "WC-008-03",
+      "target_path": [
+        "技术证明材料及附件索引",
+        "制造商资质材料索引"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "manufacturer",
+            "selected_manufacturer_qualifications"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "manufacturer_qualification"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "制造商",
+          "最终选用的制造商资质",
+          "manufacturer_qualification"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-060",
+      "chapter_id": "WC-008",
+      "section_id": "WC-008-04",
+      "target_path": [
+        "技术证明材料及附件索引",
+        "投标人资质材料索引"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "bidder_name",
+            "selected_company_qualifications"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "company_qualification"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "投标人名称",
+          "最终选用的企业资质",
+          "company_qualification"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-061",
+      "chapter_id": "WC-008",
+      "section_id": "WC-008-05",
+      "target_path": [
+        "技术证明材料及附件索引",
+        "项目团队材料索引"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "project_manager",
+            "project_team"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "person_resume",
+            "person_certificate"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "项目负责人",
+          "项目团队成员",
+          "person_resume",
+          "person_certificate"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-062",
+      "chapter_id": "WC-008",
+      "section_id": "WC-008-06",
+      "target_path": [
+        "技术证明材料及附件索引",
+        "类似项目业绩索引"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "bidder_name",
+            "selected_performance"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "company_performance"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "投标人名称",
+          "最终选用的业绩",
+          "company_performance"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    },
+    {
+      "task_id": "TASK-063",
+      "chapter_id": "WC-008",
+      "section_id": "WC-008-07",
+      "target_path": [
+        "技术证明材料及附件索引",
+        "服务及承诺材料索引"
+      ],
+      "response_point_ids": [],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "information_requirements": {
+        "manual_project_fact": {
+          "need": "required",
+          "fact_types": [
+            "bidder_name",
+            "warranty_period",
+            "service_response_time"
+          ],
+          "reason": "最终版本必须使用本次投标已确认事实，缺失时只能保留占位或不能定稿。"
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "service_commitment"
+          ],
+          "reason": "最终版本必须引用或索引本地证据；本轮仅规划未来RAG检索。 公司大纲声明的证据策略已用于限定候选类别。"
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": [],
+          "reason": "本任务没有必要的外部公开信息用途；企业和投标事实禁止通过互联网补全。"
+        }
+      },
+      "draftability": {
+        "status": "cannot_finalize",
+        "reason": "可继续规划结构和占位内容，但缺少关键项目事实或本地证据，不能形成提交版。",
+        "missing_inputs": [
+          "投标人名称",
+          "最终保修期限",
+          "最终服务响应时间",
+          "service_commitment"
+        ]
+      },
+      "legacy_status_audit": {
+        "previous_readiness": "needs_project_fact",
+        "superseded_as_single_overall_status": true
+      }
+    }
+  ],
+  "summary": {
+    "total_tasks": 63,
+    "manual_project_fact": {
+      "none": 30,
+      "optional": 10,
+      "required": 23
+    },
+    "local_kb": {
+      "none": 9,
+      "optional": 35,
+      "required": 19
+    },
+    "web": {
+      "forbidden": 51,
+      "optional": 12,
+      "required": 0
+    },
+    "draftability": {
+      "can_draft": 9,
+      "can_draft_with_placeholders": 30,
+      "cannot_finalize": 24
+    }
+  },
+  "sources": {
+    "response_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\outline\\technical_response_outline.json",
+    "writing_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\technical_writing_outline.json",
+    "tasks_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\tasks\\section_writing_tasks.json",
+    "company_path": "D:\\comlan智标\\backend\\resources\\writing\\company_master_outline_v0.json"
+  },
+  "source_integrity": {
+    "response": {
+      "sha256_before": "ff4a1e8c0a56ae3cb033205d9ca2013e7251ae23bfe4bf9080dbf1888c6c4d41",
+      "sha256_after": "ff4a1e8c0a56ae3cb033205d9ca2013e7251ae23bfe4bf9080dbf1888c6c4d41",
+      "unchanged": true
+    },
+    "writing": {
+      "sha256_before": "8d0a32695489cd68918e41eb560c315ece32a2247cf08a88c4e0f2f52af91e6f",
+      "sha256_after": "8d0a32695489cd68918e41eb560c315ece32a2247cf08a88c4e0f2f52af91e6f",
+      "unchanged": true
+    },
+    "tasks": {
+      "sha256_before": "190c4c7fd4f6fef228d5e4f57e6f681ce136d89c1b182c91a80a32aeb4e7d3ab",
+      "sha256_after": "190c4c7fd4f6fef228d5e4f57e6f681ce136d89c1b182c91a80a32aeb4e7d3ab",
+      "unchanged": true
+    },
+    "company": {
+      "sha256_before": "a2ea54d0d6918758860bb5e521350ab408bafa049bcd995de9de351eec92a188",
+      "sha256_after": "a2ea54d0d6918758860bb5e521350ab408bafa049bcd995de9de351eec92a188",
+      "unchanged": true
+    }
+  }
+}

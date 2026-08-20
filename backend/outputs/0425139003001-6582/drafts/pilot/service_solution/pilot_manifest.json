@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-15T09:51:44.100368+00:00",
+  "lot_name": "0425139003001-6582",
+  "chapter_id": "task_019_technical_05_服务方案",
+  "task_id": "writing-32a97414c28c53",
+  "chapter_title": "总体服务方案",
+  "pilot_status": "failed",
+  "formal_final": false,
+  "output_budget": {
+    "output_budget_class": "long",
+    "recommended_max_output_tokens": 16000,
+    "warnings": []
+  },
+  "profiles": {
+    "drafting": {
+      "role": "drafting",
+      "profile_name": "ark_draft",
+      "provider": "volcengine_ark",
+      "model": "doubao-seed-2-1-pro-260628",
+      "thinking_mode": "enabled",
+      "timeout_seconds": 600.0,
+      "max_output_tokens": 16000,
+      "max_retries": 2
+    },
+    "fast_task": null
+  },
+  "generated_from": {
+    "chapter_task_packets": "writing/chapter_task_packets.json",
+    "writing_context_pack": "writing/writing_context_pack.json",
+    "evidence_use_map": "writing/evidence_use_map.json",
+    "draft_guardrails": "writing/draft_guardrails.json"
+  },
+  "files": {
+    "pilot_manifest": "outputs\\0425139003001-6582\\drafts\\pilot\\service_solution\\pilot_manifest.json",
+    "deep_draft_result": "outputs\\0425139003001-6582\\drafts\\pilot\\service_solution\\deep_draft_result.json",
+    "normalized_chapter_draft": "outputs\\0425139003001-6582\\drafts\\pilot\\service_solution\\normalized_chapter_draft.json",
+    "preview": "outputs\\0425139003001-6582\\drafts\\pilot\\service_solution\\service_solution_preview.md",
+    "pilot_generation_report": "outputs\\0425139003001-6582\\drafts\\pilot\\service_solution\\pilot_generation_report.json"
+  }
+}

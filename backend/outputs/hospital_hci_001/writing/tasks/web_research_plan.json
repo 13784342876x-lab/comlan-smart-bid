@@ -1,0 +1,146 @@
+{
+  "schema_version": "web_research_plan_v0",
+  "execution_status": "planned_not_executed",
+  "web_research_executed": false,
+  "prohibited_uses": [
+    "证明本公司资质",
+    "补全本公司人员或业绩",
+    "猜测实际产品配置",
+    "生成服务承诺"
+  ],
+  "queries": [
+    {
+      "query": "医院信息化建设 主管部门政策 公开背景",
+      "purpose": "补充公开政策与行业背景，不替代项目确认事实",
+      "allowed_source_types": [
+        "government_official",
+        "health_authority_official",
+        "hospital_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-001-01",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "可靠性设计 国家标准 行业标准",
+      "purpose": "定位可引用的国家或行业标准",
+      "allowed_source_types": [
+        "government_official",
+        "standards_authority_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-002-07",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "安全设计 国家标准 行业标准",
+      "purpose": "定位可引用的国家或行业标准",
+      "allowed_source_types": [
+        "government_official",
+        "standards_authority_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-002-08",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "兼容与扩展设计 国家标准 行业标准",
+      "purpose": "定位可引用的国家或行业标准",
+      "allowed_source_types": [
+        "government_official",
+        "standards_authority_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-002-09",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "超融合系统详细技术方案 通用技术原理",
+      "purpose": "解释通用技术原理，不用于猜测拟投产品配置",
+      "allowed_source_types": [
+        "standards_authority_official",
+        "manufacturer_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-002-10",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "超融合互联交换机技术方案 通用技术原理",
+      "purpose": "解释通用技术原理，不用于猜测拟投产品配置",
+      "allowed_source_types": [
+        "standards_authority_official",
+        "manufacturer_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-002-11",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "超融合节点技术方案 通用技术原理",
+      "purpose": "解释通用技术原理，不用于猜测拟投产品配置",
+      "allowed_source_types": [
+        "standards_authority_official",
+        "manufacturer_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-002-12",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "测试与试运行 国家标准 行业标准",
+      "purpose": "定位可引用的国家或行业标准",
+      "allowed_source_types": [
+        "government_official",
+        "standards_authority_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-003-07",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "质量控制 国家标准 行业标准",
+      "purpose": "定位可引用的国家或行业标准",
+      "allowed_source_types": [
+        "government_official",
+        "standards_authority_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-003-08",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "项目验收 国家标准 行业标准",
+      "purpose": "定位可引用的国家或行业标准",
+      "allowed_source_types": [
+        "government_official",
+        "standards_authority_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-003-09",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "服务质量监督 国家标准 行业标准",
+      "purpose": "定位可引用的国家或行业标准",
+      "allowed_source_types": [
+        "government_official",
+        "standards_authority_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-005-10",
+      "execution_status": "planned_not_executed"
+    },
+    {
+      "query": "绿色供应链管理 节能环保 政府政策 国家标准",
+      "purpose": "定位政府政策及国家行业标准",
+      "allowed_source_types": [
+        "government_official",
+        "standards_authority_official"
+      ],
+      "required": false,
+      "target_section_id": "WC-006",
+      "execution_status": "planned_not_executed"
+    }
+  ]
+}

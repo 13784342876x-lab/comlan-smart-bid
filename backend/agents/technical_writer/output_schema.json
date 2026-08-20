@@ -1,0 +1,11 @@
+{
+  "$comment": "Deprecated legacy writer schema. Stage 5A uses chapter_draft_output_schema.json.",
+  "deprecated": true,
+  "type": "object",
+  "properties": {
+    "section_name": {"type": "string"},
+    "used_kb_files": {"type": "array"},
+    "content": {"type": "string"},
+    "trace": {"type": "object"}
+  }
+}

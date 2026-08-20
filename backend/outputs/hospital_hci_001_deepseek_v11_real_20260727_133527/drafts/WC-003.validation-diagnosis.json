@@ -1,0 +1,1323 @@
+﻿{
+    "status":  "failed",
+    "stop_reason":  "final_validation_failed",
+    "draft_status":  "invalid_draft",
+    "submission_ready":  false,
+    "based_on_existing_draft":  false,
+    "revision_scope":  "initial_generation",
+    "user_instruction_present":  false,
+    "writing_rules":  {
+                          "path":  "D:\\comlan智标\\backend\\resources\\writing\\technical_writing_rules.md",
+                          "version":  "1.1.0",
+                          "sha256":  "51a770343e4f4e037c01177f22bf08077b5031a1e5e9ce9df1d5a17a6cdd14b6",
+                          "loaded":  true,
+                          "rule_ids":  [
+                                           "TW-001",
+                                           "TW-002",
+                                           "TW-003",
+                                           "TW-004",
+                                           "TW-005",
+                                           "TW-006",
+                                           "TW-007",
+                                           "TW-008",
+                                           "TW-009",
+                                           "TW-010",
+                                           "TW-011",
+                                           "TW-012"
+                                       ]
+                      },
+    "model_json_repair":  {
+                              "attempted":  false,
+                              "succeeded":  false,
+                              "disabled":  true,
+                              "initial_error":  "ModelJsonParseError: provider output is not valid JSON: Expecting \u0027,\u0027 delimiter at character 185",
+                              "repair_error":  null,
+                              "raw_output_saved":  true,
+                              "raw_output_path":  "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_v11_real_20260727_133527\\debug\\WC-003.model-step-4.invalid-json.txt",
+                              "raw_output_sha256":  "c77f7bd292ec20c88e223d2ed1cb944296bae1daf2aaf6b61afc8481198b29c5",
+                              "suspected_truncation":  true,
+                              "integrity_check":  null,
+                              "rejected_for_content_change":  false,
+                              "source_stage":  "final_chapter_content",
+                              "diagnostics":  {
+                                                  "model_step":  4,
+                                                  "profile_name":  "deepseek_draft",
+                                                  "api_style":  "chat_completions",
+                                                  "finish_reason":  "stop",
+                                                  "content_character_count":  26342,
+                                                  "code_block_detected":  true,
+                                                  "suspected_truncation":  true,
+                                                  "json_error_summary":  "Expecting \u0027,\u0027 delimiter at character 185",
+                                                  "model_repair_disabled":  true,
+                                                  "repair_attempted":  false
+                                              }
+                          },
+    "fresh_quality_regeneration":  {
+                                       "attempted":  true,
+                                       "succeeded":  false,
+                                       "quality_errors":  [
+                                                              "未确认数字承诺",
+                                                              "候选事实被写成确认事实",
+                                                              "未确认产品能力"
+                                                          ],
+                                       "kb_calls_reused":  3,
+                                       "web_results_reused":  0
+                                   },
+    "validation":  {
+                       "valid":  false,
+                       "errors":  [
+                                      "fact_boundary:项目建设技术方案:unconfirmed_product_capability:本项目将建设一套基于超融合架构的数据中心基础平台，通过软件定义方式将计算、存储和网络功能集成于标准X86服务器节点之上，形成统一资源池，为医院业务系统提供高可用、弹性可扩展的虚拟化运行环境。",
+                                      "fact_boundary:项目建设技术方案:unconfirmed_product_capability:方案遵循医院现有网络与安全体系，通过标准协议实现与核心交换、防火墙、现有虚拟化平台的协同工作，支持未来资源在线扩展，且无需中断现有业务。",
+                                      "fact_boundary:项目建设技术方案:unconfirmed_product_capability:在计算与存储融合层，每个超融合节点同时承担计算和存储角色，节点内以SSD加速和HDD容量分层存储提供高IOPS性能的数据服务，数据以多副本策略分布在集群内不同节点，确保任意单节点故障不影响数据完整性和",
+                                      "fact_boundary:项目建设技术方案:unconfirmed_product_capability:针对医院业务系统的特殊性，技术方案将配置虚机反亲和策略和高可用自动重启策略，对关键业务虚机设置资源预留，并支持与现有容灾方案集成。",
+                                      "fact_boundary:项目负责人及主要人员:candidate_promoted_to_fact:由于投标阶段人员最终选定尚在确认中，我方承诺最终拟派的项目负责人及团队成员将全部满足上述要求，其姓名、简历、证书等详细信息将通过占位符{{PH-FIELD-PROJECT-MANAGER}}和{{PH",
+                                      "fact_boundary:测试与试运行:unconfirmed_product_capability:测试活动分为配置核对、功能测试、性能测试、集成测试和安全性测试五个部分，旨在全面验证超融合集群的存储冗余、计算高可用、网络吞吐、业务承载能力和安全隔离效果。",
+                                      "fact_boundary:项目验收:unconfirmed_bidder_commitment:若在任一环节发现不符合项，我方承诺按采购人要求限期整改并进行复验，直至完全满足合同要求。"
+                                  ],
+                       "warnings":  [
+                                        "external verification remains pending: unavailable"
+                                    ],
+                       "expected_section_titles":  [
+                                                       "实施总体规划",
+                                                       "项目建设技术方案",
+                                                       "项目设计实施周期",
+                                                       "项目组织架构",
+                                                       "项目负责人及主要人员",
+                                                       "安装部署",
+                                                       "测试与试运行",
+                                                       "质量控制",
+                                                       "项目验收",
+                                                       "交付成果",
+                                                       "风险控制与应急保障"
+                                                   ],
+                       "actual_section_titles":  [
+                                                     "实施总体规划",
+                                                     "项目建设技术方案",
+                                                     "项目设计实施周期",
+                                                     "项目组织架构",
+                                                     "项目负责人及主要人员",
+                                                     "安装部署",
+                                                     "测试与试运行",
+                                                     "质量控制",
+                                                     "项目验收",
+                                                     "交付成果",
+                                                     "风险控制与应急保障"
+                                                 ],
+                       "title_count":  11,
+                       "expected_response_point_ids":  [
+                                                           "TR-005",
+                                                           "TR-006",
+                                                           "TR-007",
+                                                           "TR-008",
+                                                           "TR-009",
+                                                           "TR-010",
+                                                           "TR-022"
+                                                       ],
+                       "missing_response_point_ids":  [
+
+                                                      ],
+                       "expected_score_item_ids":  [
+                                                       "SCORE-TR-022-R017"
+                                                   ],
+                       "missing_score_item_ids":  [
+
+                                                  ],
+                       "markdown_table_count":  0,
+                       "technical_writing_quality":  {
+                                                         "chapter":  {
+                                                                         "prose_paragraph_count":  22,
+                                                                         "prose_character_count":  5897,
+                                                                         "section_total_character_count":  5897,
+                                                                         "prose_paragraphs_repeating_tables":  0,
+                                                                         "bullet_group_count":  0,
+                                                                         "bullet_item_count":  0,
+                                                                         "bullet_character_count":  0,
+                                                                         "short_bullet_item_count":  0,
+                                                                         "bullet_groups_without_intro":  0,
+                                                                         "bullet_groups_without_followup":  0,
+                                                                         "numbered_step_count":  0,
+                                                                         "markdown_table_count":  0,
+                                                                         "markdown_table_character_count":  0,
+                                                                         "consecutive_list_group_count":  0,
+                                                                         "table_without_intro_count":  0,
+                                                                         "table_without_followup_count":  0,
+                                                                         "average_prose_paragraph_length":  268.05,
+                                                                         "longest_prose_paragraph_length":  476,
+                                                                         "prose_ratio":  1.0,
+                                                                         "bullet_ratio":  0.0,
+                                                                         "table_ratio":  0.0,
+                                                                         "sections_with_insufficient_prose":  [
+
+                                                                                                              ],
+                                                                         "list_dominant_sections":  [
+
+                                                                                                    ],
+                                                                         "required_table_exempt_character_count":  0,
+                                                                         "non_exempt_structured_character_count":  0
+                                                                     },
+                                                         "sections":  [
+                                                                          {
+                                                                              "section_title":  "实施总体规划",
+                                                                              "block_type":  "implementation_plan",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  486,
+                                                                              "average_prose_paragraph_length":  243.0,
+                                                                              "longest_prose_paragraph_length":  314,
+                                                                              "section_total_character_count":  486,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "项目建设技术方案",
+                                                                              "block_type":  "technical_solution",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  633,
+                                                                              "average_prose_paragraph_length":  316.5,
+                                                                              "longest_prose_paragraph_length":  382,
+                                                                              "section_total_character_count":  633,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "项目设计实施周期",
+                                                                              "block_type":  "implementation_plan",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  654,
+                                                                              "average_prose_paragraph_length":  327.0,
+                                                                              "longest_prose_paragraph_length":  387,
+                                                                              "section_total_character_count":  654,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "项目组织架构",
+                                                                              "block_type":  "organization_plan",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  552,
+                                                                              "average_prose_paragraph_length":  276.0,
+                                                                              "longest_prose_paragraph_length":  334,
+                                                                              "section_total_character_count":  552,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "项目负责人及主要人员",
+                                                                              "block_type":  "personnel_detail",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  472,
+                                                                              "average_prose_paragraph_length":  236.0,
+                                                                              "longest_prose_paragraph_length":  304,
+                                                                              "section_total_character_count":  472,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "安装部署",
+                                                                              "block_type":  "implementation_plan",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  732,
+                                                                              "average_prose_paragraph_length":  366.0,
+                                                                              "longest_prose_paragraph_length":  476,
+                                                                              "section_total_character_count":  732,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "测试与试运行",
+                                                                              "block_type":  "quality_assurance",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  607,
+                                                                              "average_prose_paragraph_length":  303.5,
+                                                                              "longest_prose_paragraph_length":  382,
+                                                                              "section_total_character_count":  607,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "质量控制",
+                                                                              "block_type":  "quality_assurance",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  437,
+                                                                              "average_prose_paragraph_length":  218.5,
+                                                                              "longest_prose_paragraph_length":  251,
+                                                                              "section_total_character_count":  437,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "项目验收",
+                                                                              "block_type":  "quality_assurance",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  571,
+                                                                              "average_prose_paragraph_length":  285.5,
+                                                                              "longest_prose_paragraph_length":  413,
+                                                                              "section_total_character_count":  571,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "交付成果",
+                                                                              "block_type":  "service_commitment",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  420,
+                                                                              "average_prose_paragraph_length":  210.0,
+                                                                              "longest_prose_paragraph_length":  292,
+                                                                              "section_total_character_count":  420,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          },
+                                                                          {
+                                                                              "section_title":  "风险控制与应急保障",
+                                                                              "block_type":  "risk_control",
+                                                                              "prose_paragraph_count":  2,
+                                                                              "prose_character_count":  333,
+                                                                              "average_prose_paragraph_length":  166.5,
+                                                                              "longest_prose_paragraph_length":  173,
+                                                                              "section_total_character_count":  333,
+                                                                              "prose_paragraphs_repeating_tables":  0,
+                                                                              "bullet_group_count":  0,
+                                                                              "bullet_item_count":  0,
+                                                                              "bullet_character_count":  0,
+                                                                              "short_bullet_item_count":  0,
+                                                                              "bullet_groups_without_intro":  0,
+                                                                              "bullet_groups_without_followup":  0,
+                                                                              "list_dominant_sections":  [
+
+                                                                                                         ],
+                                                                              "numbered_step_count":  0,
+                                                                              "markdown_table_count":  0,
+                                                                              "markdown_table_character_count":  0,
+                                                                              "prose_ratio":  1.0,
+                                                                              "bullet_ratio":  0.0,
+                                                                              "table_ratio":  0.0,
+                                                                              "consecutive_list_group_count":  0,
+                                                                              "table_without_intro_count":  0,
+                                                                              "table_without_followup_count":  0,
+                                                                              "insufficient_prose":  false,
+                                                                              "contains_required_response_table":  false,
+                                                                              "errors":  [
+
+                                                                                         ],
+                                                                              "warnings":  [
+
+                                                                                           ]
+                                                                          }
+                                                                      ],
+                                                         "sections_with_insufficient_prose":  [
+
+                                                                                              ]
+                                                     },
+                       "duplicate_section_pairs":  [
+
+                                                   ]
+                   },
+    "technical_writing_quality":  {
+                                      "chapter":  {
+                                                      "prose_paragraph_count":  22,
+                                                      "prose_character_count":  5897,
+                                                      "section_total_character_count":  5897,
+                                                      "prose_paragraphs_repeating_tables":  0,
+                                                      "bullet_group_count":  0,
+                                                      "bullet_item_count":  0,
+                                                      "bullet_character_count":  0,
+                                                      "short_bullet_item_count":  0,
+                                                      "bullet_groups_without_intro":  0,
+                                                      "bullet_groups_without_followup":  0,
+                                                      "numbered_step_count":  0,
+                                                      "markdown_table_count":  0,
+                                                      "markdown_table_character_count":  0,
+                                                      "consecutive_list_group_count":  0,
+                                                      "table_without_intro_count":  0,
+                                                      "table_without_followup_count":  0,
+                                                      "average_prose_paragraph_length":  268.05,
+                                                      "longest_prose_paragraph_length":  476,
+                                                      "prose_ratio":  1.0,
+                                                      "bullet_ratio":  0.0,
+                                                      "table_ratio":  0.0,
+                                                      "sections_with_insufficient_prose":  [
+
+                                                                                           ],
+                                                      "list_dominant_sections":  [
+
+                                                                                 ],
+                                                      "required_table_exempt_character_count":  0,
+                                                      "non_exempt_structured_character_count":  0
+                                                  },
+                                      "sections":  [
+                                                       {
+                                                           "section_title":  "实施总体规划",
+                                                           "block_type":  "implementation_plan",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  486,
+                                                           "average_prose_paragraph_length":  243.0,
+                                                           "longest_prose_paragraph_length":  314,
+                                                           "section_total_character_count":  486,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "项目建设技术方案",
+                                                           "block_type":  "technical_solution",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  633,
+                                                           "average_prose_paragraph_length":  316.5,
+                                                           "longest_prose_paragraph_length":  382,
+                                                           "section_total_character_count":  633,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "项目设计实施周期",
+                                                           "block_type":  "implementation_plan",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  654,
+                                                           "average_prose_paragraph_length":  327.0,
+                                                           "longest_prose_paragraph_length":  387,
+                                                           "section_total_character_count":  654,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "项目组织架构",
+                                                           "block_type":  "organization_plan",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  552,
+                                                           "average_prose_paragraph_length":  276.0,
+                                                           "longest_prose_paragraph_length":  334,
+                                                           "section_total_character_count":  552,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "项目负责人及主要人员",
+                                                           "block_type":  "personnel_detail",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  472,
+                                                           "average_prose_paragraph_length":  236.0,
+                                                           "longest_prose_paragraph_length":  304,
+                                                           "section_total_character_count":  472,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "安装部署",
+                                                           "block_type":  "implementation_plan",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  732,
+                                                           "average_prose_paragraph_length":  366.0,
+                                                           "longest_prose_paragraph_length":  476,
+                                                           "section_total_character_count":  732,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "测试与试运行",
+                                                           "block_type":  "quality_assurance",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  607,
+                                                           "average_prose_paragraph_length":  303.5,
+                                                           "longest_prose_paragraph_length":  382,
+                                                           "section_total_character_count":  607,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "质量控制",
+                                                           "block_type":  "quality_assurance",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  437,
+                                                           "average_prose_paragraph_length":  218.5,
+                                                           "longest_prose_paragraph_length":  251,
+                                                           "section_total_character_count":  437,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "项目验收",
+                                                           "block_type":  "quality_assurance",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  571,
+                                                           "average_prose_paragraph_length":  285.5,
+                                                           "longest_prose_paragraph_length":  413,
+                                                           "section_total_character_count":  571,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "交付成果",
+                                                           "block_type":  "service_commitment",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  420,
+                                                           "average_prose_paragraph_length":  210.0,
+                                                           "longest_prose_paragraph_length":  292,
+                                                           "section_total_character_count":  420,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       },
+                                                       {
+                                                           "section_title":  "风险控制与应急保障",
+                                                           "block_type":  "risk_control",
+                                                           "prose_paragraph_count":  2,
+                                                           "prose_character_count":  333,
+                                                           "average_prose_paragraph_length":  166.5,
+                                                           "longest_prose_paragraph_length":  173,
+                                                           "section_total_character_count":  333,
+                                                           "prose_paragraphs_repeating_tables":  0,
+                                                           "bullet_group_count":  0,
+                                                           "bullet_item_count":  0,
+                                                           "bullet_character_count":  0,
+                                                           "short_bullet_item_count":  0,
+                                                           "bullet_groups_without_intro":  0,
+                                                           "bullet_groups_without_followup":  0,
+                                                           "list_dominant_sections":  [
+
+                                                                                      ],
+                                                           "numbered_step_count":  0,
+                                                           "markdown_table_count":  0,
+                                                           "markdown_table_character_count":  0,
+                                                           "prose_ratio":  1.0,
+                                                           "bullet_ratio":  0.0,
+                                                           "table_ratio":  0.0,
+                                                           "consecutive_list_group_count":  0,
+                                                           "table_without_intro_count":  0,
+                                                           "table_without_followup_count":  0,
+                                                           "insufficient_prose":  false,
+                                                           "contains_required_response_table":  false,
+                                                           "errors":  [
+
+                                                                      ],
+                                                           "warnings":  [
+
+                                                                        ]
+                                                       }
+                                                   ],
+                                      "errors":  [
+
+                                                 ],
+                                      "warnings":  [
+
+                                                   ],
+                                      "sections_with_insufficient_prose":  [
+
+                                                                           ]
+                                  },
+    "model_final_output_present":  true,
+    "final_draft_present":  false,
+    "model_final_output":  {
+                               "chapter_title":  "实施部署方案",
+                               "sections":  [
+                                                {
+                                                    "section_id":  "WC-003-01",
+                                                    "heading":  "实施总体规划",
+                                                    "block_type":  "implementation_plan",
+                                                    "content":  "本实施总体规划针对天津市第五中心医院超融合系统建设项目的特性，以“安全稳定、平滑过渡、规范可控”为原则，统筹项目的全生命周期管理。规划的目标是在合同签订后，通过科学分阶段、明确里程碑的管理方式，确保超融合系统从设计、设备到货、安装部署、测试验收到最终交付的全过程均在质量、时间和风险可控的范围内高效推进，为医院信息化基础架构的升级提供可靠保障。\n\n规划将整体项目实施过程划分为项目启动与方案深化、设备交付与到货验收、安装部署、系统测试与试运行、验收与交付五大阶段。在每个阶段转换处设定明确的准入与准出条件，即前续阶段的关键交付物须经监理或采购人确认后方可进入下一阶段。采用项目经理负责制，组建由技术、实施、质量、管理等多角色构成的专项项目团队（详见项目组织架构章节）。建立周例会和里程碑评审制度，确保实施过程中信息透明、问题闭环、资源可调度。同时，项目实施将严格遵循公司成熟的质量管理流程，结合招标文件规定的验收标准，对每个环节的关键控制点进行文件化记录，形成可追溯的实施档案。在资源、进度或环境出现偏差时，启动预先定义的应急预案和升级机制，确保项目按既定方向推进或及时调整。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-02",
+                                                    "heading":  "项目建设技术方案",
+                                                    "block_type":  "technical_solution",
+                                                    "content":  "本项目将建设一套基于超融合架构的数据中心基础平台，通过软件定义方式将计算、存储和网络功能集成于标准X86服务器节点之上，形成统一资源池，为医院业务系统提供高可用、弹性可扩展的虚拟化运行环境。整体方案由超融合节点、超融合互联交换机、管理软件及必要的安全组件构成，采用分布式块存储技术和分布式虚拟交换机，消除传统集中式存储的单点瓶颈，并通过全冗余链路设计保障业务连续性。方案遵循医院现有网络与安全体系，通过标准协议实现与核心交换、防火墙、现有虚拟化平台的协同工作，支持未来资源在线扩展，且无需中断现有业务。\n\n在计算与存储融合层，每个超融合节点同时承担计算和存储角色，节点内以SSD加速和HDD容量分层存储提供高IOPS性能的数据服务，数据以多副本策略分布在集群内不同节点，确保任意单节点故障不影响数据完整性和可用性。超融合管理平台提供统一的Web化管理界面，支持一键式集群部署、在线扩容、健康巡检、性能监控和快照备份。互联交换机采用支持10GbE及以上端口的成熟企业级交换机，按照堆叠或MLAG方案组建高可靠交换架构，实现网络平面隔离（管理网、业务网、存储网），保障超融合内部通信的低延迟与高带宽。针对医院业务系统的特殊性，技术方案将配置虚机反亲和策略和高可用自动重启策略，对关键业务虚机设置资源预留，并支持与现有容灾方案集成。方案详细设计将在合同签订后由我方技术团队与医院信息部门协同完成，并提交《项目深化设计文档》经确认后实施，确保方案完全贴合医院实际环境和发展需求。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-03",
+                                                    "heading":  "项目设计实施周期",
+                                                    "block_type":  "implementation_plan",
+                                                    "content":  "本项目的设计实施周期严格响应招标文件的要求，并在我方科学规划与并行工程思想的指导下制定。整体周期以合同生效日为起点，划分为设备生产与交付、安装部署、测试与试运行、验收交付四个阶段。我方承诺在合同签订后的{{PH-FIELD-DELIVERY-COMMITMENT}}内完成所有设备的到货与交付，并在设备到货后的{{PH-FIELD-INSTALLATION-PERIOD}}内完成全部安装调试及配置工作，确保满足或优于招标文件的服务时效要求。后续的测试、试运行与正式验收将紧密衔接，整体项目力争在最短时间窗口内平稳过渡至正式运行状态。\n\n各阶段主要工作内容与衔接关系如下：第一阶段为设备生产与交付阶段，自合同生效起，我方将立即启动订单处理、备货和物流协调，同步开展现场勘察与实施方案深化会签，完成机房环境准备（电源、空间、散热、网络布线），待设备抵达指定地点后组织到货验收。第二阶段为安装部署阶段，从设备到货验收通过后开始，进行硬件上架、互联交换机配置、超融合集群软件部署、虚拟化平台配置、资源池划分、与现有网络及系统的集成，完成《安装部署报告》。第三阶段为测试与试运行阶段，进行全量功能测试、性能测试、集成测试和安全测试，之后转入不少于招标文件要求的最短试运行周期的业务连续性验证，输出《测试报告》与《试运行记录》。第四阶段为验收交付阶段，配合采购人完成最终验收并签署验收书，移交全部交付成果。每个阶段开始前均须进行阶段准入评审，确保前置条件满足；结束后提交阶段完工报告，经采购人或监理确认后方可进入下一阶段。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-005",
+                                                                                    "TR-006",
+                                                                                    "TR-007",
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+                                                                            "PH-FIELD-DELIVERY-COMMITMENT",
+                                                                            "PH-FIELD-INSTALLATION-PERIOD"
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-04",
+                                                    "heading":  "项目组织架构",
+                                                    "block_type":  "organization_plan",
+                                                    "content":  "为确保本项目的顺利实施与高质量交付，我方将建立以项目经理为核心、技术专家和专职实施工程师为骨干的项目组织架构。组织架构整体划分为项目管理组、技术实施组、质量保障组和商务协调组，各组职责清晰、汇报关系明确，同时设立与医院信息部门、监理单位及项目相关第三方的沟通接口。项目经理是本项目的第一责任人，拥有项目资源的统一调配权，直接向公司管理层汇报，并对医院项目负责人负责。所有项目成员在项目实施期间保持相对稳定，非经采购人同意不进行人员更换。\n\n项目管理组负责项目计划制定、进度跟踪、沟通协调、问题管理和风险控制；技术实施组由资深虚拟化与超融合工程师组成，承担方案深化、设备安装、软件部署、系统配置、测试和试运行保障等具体技术工作；质量保障组独立于实施组，按照公司质量管理体系要求对项目实施过程进行审计、检查和质量把关，并对各阶段的交付物进行审核签证；商务协调组负责设备采购、物流跟踪、合同财务结算等商务事宜，确保设备按期交付和文档齐全。各组在项目经理统筹下协同工作，每周召开项目协调会，关键节点召开评审会。具体岗位配置由我方根据项目需要拟派，目前团队计划已纳入{{PH-FIELD-PROJECT-TEAM}}，详细人员名单及资质将在后续确认后通过占位符{{PH-FIELD-STAFFING-PLAN}}完善。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+                                                                            "PH-FIELD-PROJECT-TEAM",
+                                                                            "PH-FIELD-STAFFING-PLAN"
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-05",
+                                                    "heading":  "项目负责人及主要人员",
+                                                    "block_type":  "personnel_detail",
+                                                    "content":  "项目负责人（项目经理）是项目实施的核心执行人，直接决定项目的成败。我方将选任具备IT信息系统集成项目管理经验、熟悉医疗行业信息化基础设施特点、并至少持有国家认可的项目管理或相关技术认证的资深人员担任本项目项目经理。项目经理应具备良好的组织协调能力，能够有效管理跨团队资源，并在医院业务窗口期协调施工与调试工作，将施工影响控制在最低程度。\n\n主要实施人员将由具有超融合、虚拟化、网络交换等领域两年以上实践经验的技术工程师组成，要求相关工程师对超融合架构、分布式存储、网络虚拟化及安全隔离有深入理解和实操经验。所有人员在项目启动前完成项目专项交底和技术培训，确保施工工艺和配置标准统一。由于投标阶段人员最终选定尚在确认中，我方承诺最终拟派的项目负责人及团队成员将全部满足上述要求，其姓名、简历、证书等详细信息将通过占位符{{PH-FIELD-PROJECT-MANAGER}}和{{PH-FIELD-PROJECT-TEAM}}正式提交。待人员确认后，我方可按照采购人要求提供人员劳动合同、社保证明及相关证书原件以供核验，确保项目团队的真实性和专业性。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+                                                                            "PH-FIELD-PROJECT-MANAGER",
+                                                                            "PH-FIELD-PROJECT-TEAM"
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-06",
+                                                    "heading":  "安装部署",
+                                                    "block_type":  "implementation_plan",
+                                                    "content":  "安装部署工作在设备到货验收合格后正式启动，全部安装和配置工作将在合同约定的{{PH-FIELD-INSTALLATION-PERIOD}}内完成。部署前，我方将派出经验工程师进行现场工勘，依据《项目深化设计文档》核对机房实际环境，包括机柜空间、PDU供电、散热、网络端口预置等，对不符合安装条件的环境形成“现场条件整改建议”并报医院方确认。满足条件后，安装团队将按照《安装施工方案》开展作业，施工过程严格遵守医院机房管理规定，张贴施工告示，设置警示区域，对可能产生轻微噪音或短时间影响的工序安排在业务非高峰时段。\n\n具体安装流程如下：步骤一——硬件上架与加电，按设备清单将超融合节点、交换机等逐台上架紧固，连接电源线并加电检测，确认各部件指示灯正常；步骤二——物理连线，按照网络拓扑图将管理链路、业务链路、存储链路、上联链路等连接到位并绑扎标识，线缆使用理线器整理，做到“一端口一标签”；步骤三——交换机基础配置，进行设备初始化、管理地址配置、堆叠/VPC设置、业务VLAN划分、端口隔离及生成树协议调整，并做配置备份；步骤四——超融合软件部署，在空节点上安装超融合操作系统，组建集群，配置分布式存储策略（副本数、存储策略），创建计算资源池，部署管理平台；步骤五——网络虚拟化集成，配置虚拟交换机、端口组，将VLAN映射至虚拟网络，完成物理与逻辑网络的统一；步骤六——虚机迁移与业务上线，按照预定的业务割接方案，逐步将医院原有业务虚机迁移至新超融合平台，期间对新旧系统并行监控，确保数据同步和业务无感知。每完成一个步骤，均需填写《安装工序检查表》，经现场监理和医院信息科代表签字确认后，方可进入下一步骤。安装完成后汇总生成《安装部署报告》，作为测试与试运行的准入文件。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-007",
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+                                                                            "PH-FIELD-INSTALLATION-PERIOD"
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-07",
+                                                    "heading":  "测试与试运行",
+                                                    "block_type":  "quality_assurance",
+                                                    "content":  "测试阶段是检验超融合系统是否达到设计目标和招标技术要求的核心环节。依据GB/T 25000.51和GB/T 8566等国家推荐标准，结合招标文件的验收准则，制定《测试方案》并报采购人批准。测试活动分为配置核对、功能测试、性能测试、集成测试和安全性测试五个部分，旨在全面验证超融合集群的存储冗余、计算高可用、网络吞吐、业务承载能力和安全隔离效果。测试环境覆盖生产环境的完整模拟，测试用例覆盖正常流程、边界条件和故障恢复场景，确保每一项技术指标均有量化记录。\n\n功能测试将逐一验证超融合管理平台、虚拟机的创建、迁移、备份、快照、资源动态调度等功能；性能测试采用标准压测工具（如IOMeter、fio、SysBench等）对存储IOPS、读写带宽、网络延迟和转发速率进行测试，确保满足招标文件技术要求及医院业务峰值负载；集成测试重点验证超融合平台与现有网络、安全设备、AD域、备份系统的互联互通和接口兼容性；安全性测试则依据招标文件中的安全隔离要求，对管理接口访问控制、租户网络隔离、日志审计等进行验证。所有测试缺陷录入问题追踪系统，定人定时闭环，直至复测通过。测试完成后，系统转入试运行阶段，在不少于招标约定最短时长的试运行期内，由医院信息科和我方保障人员共同进行真实业务负载运行，每日监控资源使用率、告警情况和业务响应状态，填写《试运行日志》。试运行结束时，由双方评估系统稳定性，形成《试运行总结报告》，作为正式验收的基础。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-010",
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-08",
+                                                    "heading":  "质量控制",
+                                                    "block_type":  "quality_assurance",
+                                                    "content":  "项目质量控制贯穿实施全过程，基于“过程控制为主、最终检验为辅”的理念，设立三级质量控制机制：技术实施组自检、质量保障组专检、项目经理/采购人联合评审。各阶段的质量控制点已在整体规划中设置，包括方案设计评审、设备到货检验、隐蔽工程（如布线标识、接地）检查、安装工序检查、测试用例评审、测试结果确认和交付成果审核。每个控制点均采用检查表与签字确认制度，确保作业有据、责任可追。\n\n针对可能出现的质量不符合情况，执行不合格品控制程序：在安装环节发现设备外观损伤或规格不符，立即隔离并启动退换流程；在测试阶段发现关键指标不达标，组建技术攻关小组分析根因、调整配置、重新测试直至达标；在试运行期间如出现影响业务的故障，按照应急预案在约定时间内恢复业务并提交《故障分析报告》。所有质量活动形成的记录与报告归入项目质量档案，并在验收时一并移交。同时，我方公司层面运行符合ISO 9001要求的质量管理体系，项目将受公司质量部门的定期内部审核和项目后评估，从组织层面保证质量的持续改进和过程受控。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-010",
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-09",
+                                                    "heading":  "项目验收",
+                                                    "block_type":  "quality_assurance",
+                                                    "content":  "项目验收工作严格按照采购合同的约定和现行国家标准、行业标准以及企业标准执行，完全响应招标文件关于验收方法及标准的要求。采购人有权根据需要，在货物出厂前、设备到货后、安装调试完成及配套服务交付等节点设置多重验收环节。我方将积极配合采购人组织或邀请第三方机构参与验收，并为验收活动提供必要的测试环境、资料和技术人员支持。\n\n验收流程设计如下：第一环节——出厂检验（如需），我方将协调制造商提供出厂检测报告，并开放远程或现场查验通道，供采购人或其代表核验设备规格和性能指标。第二环节——到货验收，设备送达采购人指定地点后，由采购人、监理和项目组共同对设备的品牌、型号、数量、外观、配件、随机资料进行核对，填写《设备到货验收单》。第三环节——安装调试验收，在完成安装部署和系统测试后，向采购人提交《安装部署报告》和《测试报告》，由采购人逐项核验安装质量、配置合规性和测试结论，并进行现场演示确认。第四环节——配套服务验收，如含有培训、文档移交等服务，按服务清单逐项确认培训记录、使用手册、维护手册等齐全有效。第五环节——最终验收，在以上各项均合格且试运行通过后，采购人组织最终验收评审，出具《验收书》，明确各项标准的履约情况及项目总体评价，经双方共同签署后完成验收。若在任一环节发现不符合项，我方承诺按采购人要求限期整改并进行复验，直至完全满足合同要求。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-010"
+                                                                                ],
+                                                    "placeholder_ids":  [
+
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-10",
+                                                    "heading":  "交付成果",
+                                                    "block_type":  "service_commitment",
+                                                    "content":  "本项目的交付包含有形交付和无形交付两部分。有形交付为全部采购设备的硬件、配套线缆及随机资料；无形交付为项目实施过程中形成的方案、报告、配置参数等技术文档。所有交付物均按照采购人指定的地点交货，我方负责运输及卸货前的一切安全与保险事宜，确保货物完好达成交付。\n\n针对招标文件中“提供制造商完整的随机资料，包括完整的使用和维修手册等”的明确要求，我方在设备交付时将随设备一箱一册提供原厂印刷版或电子版随机资料，并在项目验收前汇总整理项目全程产生的技术文件，形成《项目交付文档集》。交付成果的具体明细将在下表中列出，交付的份数、介质形式和签章要求将在合同签订后与采购人协商确认，最终以合同约定为准。所有交付物在移交时需经双方经办人签字确认，登记入交付物移交清单。本项目整体交付进度将严格遵循项目设计实施周期的约定，即在{{PH-FIELD-DELIVERY-COMMITMENT}}内完成所有硬件和随机资料的交付，在项目最终验收时完成全部文档的移交。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-008",
+                                                                                    "TR-009"
+                                                                                ],
+                                                    "placeholder_ids":  [
+                                                                            "PH-FIELD-DELIVERY-COMMITMENT"
+                                                                        ]
+                                                },
+                                                {
+                                                    "section_id":  "WC-003-11",
+                                                    "heading":  "风险控制与应急保障",
+                                                    "block_type":  "risk_control",
+                                                    "content":  "信息系统集成项目在实施过程中可能面临来自物流、环境、技术、组织和不可抗力等多方面的风险。我方在项目启动前将组织项目团队进行风险识别与评估，形成《项目风险管理计划》，并在实施过程中持续跟踪和更新。风险应对遵循“预防为主、应急为辅”的原则，对高概率或高影响的风险制定具体的预防措施，并预设应急预案，确保风险发生时能够快速响应、减小损失、保障项目目标。\n\n在执行层面，项目经理作为风险管理第一责任人，在周例会上固定设置“风险审查”议题，对已识别风险的触发状态进行监控，对新风风险立即登记并分配责任人。一旦触发预设的应急响应阈值，相关责任人即刻按照预案启动行动，并根据影响评估决定是否升级至公司高层或采购人管理层进行决策。通过制度化的风险管控，将不确定性转化为可管理的行动计划。",
+                                                    "covered_score_item_ids":  [
+                                                                                   "SCORE-TR-022-R017"
+                                                                               ],
+                                                    "covered_requirement_ids":  [
+                                                                                    "TR-022"
+                                                                                ],
+                                                    "placeholder_ids":  [
+
+                                                                        ]
+                                                }
+                                            ],
+                               "generated_supporting_tables":  [
+                                                                   {
+                                                                       "section_id":  "WC-003-04",
+                                                                       "title":  "项目团队岗位职责表",
+                                                                       "purpose":  "清晰展示项目各岗位及其核心职责，作为团队组建和职责划分的基准。",
+                                                                       "why_table_is_better_than_prose":  "多角色职责映射适合表格横向对比，便于快速查阅每个岗位的职责和参与阶段，避免正文中多段描述导致信息分散。"
+                                                                   },
+                                                                   {
+                                                                       "section_id":  "WC-003-10",
+                                                                       "title":  "拟交付成果清单",
+                                                                       "purpose":  "以清单形式明确列出项目实施全程拟交付的各类成果，作为验收交底和移交核对的依据。",
+                                                                       "why_table_is_better_than_prose":  "交付物条目多且包含名称、类别和交付阶段等属性，表格形式便于逐项核对和归档管理，比连续段落更具操作性。"
+                                                                   },
+                                                                   {
+                                                                       "section_id":  "WC-003-11",
+                                                                       "title":  "项目实施主要风险及应对措施表",
+                                                                       "purpose":  "系统性识别项目主要风险，并明确预防措施、应急措施和责任岗位，形成可执行的风险管理工具。",
+                                                                       "why_table_is_better_than_prose":  "风险条目涉及多个维度的比较（风险描述、影响、预防、应急、责任人），表格化后易于快速检索和对照执行，适合作为团队风险交底文件。"
+                                                                   }
+                                                               ],
+                               "claims":  [
+                                              {
+                                                  "text":  "我方承诺按照招标文件交货要求，在规定的时间内将设备送达采购人指定地点。",
+                                                  "claim_type":  "commitment_statement",
+                                                  "source_ids":  [
+                                                                     "TR-005",
+                                                                     "TR-008"
+                                                                 ],
+                                                  "evidence_ids":  [
+
+                                                                   ],
+                                                  "human_review_required":  false
+                                              },
+                                              {
+                                                  "text":  "我方将按照合同约定时间完成设备安装部署及调测试。",
+                                                  "claim_type":  "commitment_statement",
+                                                  "source_ids":  [
+                                                                     "TR-007"
+                                                                 ],
+                                                  "evidence_ids":  [
+
+                                                                   ],
+                                                  "human_review_required":  false
+                                              },
+                                              {
+                                                  "text":  "我方将提供制造商完整的随机资料，包括使用手册和维修手册。",
+                                                  "claim_type":  "commitment_statement",
+                                                  "source_ids":  [
+                                                                     "TR-009"
+                                                                 ],
+                                                  "evidence_ids":  [
+
+                                                                   ],
+                                                  "human_review_required":  false
+                                              },
+                                              {
+                                                  "text":  "我方将配合采购人按照现行国家标准和合同约定进行多环节验收，并接受第三方机构参与验收。",
+                                                  "claim_type":  "commitment_statement",
+                                                  "source_ids":  [
+                                                                     "TR-010"
+                                                                 ],
+                                                  "evidence_ids":  [
+
+                                                                   ],
+                                                  "human_review_required":  false
+                                              },
+                                              {
+                                                  "text":  "我方拟派项目经理及实施团队具备IT信息系统集成经验和相关技术资质。",
+                                                  "claim_type":  "proposal_statement",
+                                                  "source_ids":  [
+                                                                     "TR-022"
+                                                                 ],
+                                                  "evidence_ids":  [
+
+                                                                   ],
+                                                  "human_review_required":  true
+                                              },
+                                              {
+                                                  "text":  "合同中关于交货期、安装期的最终时限及人员安排将以确认后的数据为准，目前引用占位符。",
+                                                  "claim_type":  "placeholder",
+                                                  "source_ids":  [
+
+                                                                 ],
+                                                  "evidence_ids":  [
+
+                                                                   ],
+                                                  "human_review_required":  true
+                                              },
+                                              {
+                                                  "text":  "项目实施将依据国家标准GB/T 25000.51、GB/T 8566等进行测试。",
+                                                  "claim_type":  "cautious_reference",
+                                                  "source_ids":  [
+                                                                     "TR-010"
+                                                                 ],
+                                                  "evidence_ids":  [
+
+                                                                   ],
+                                                  "human_review_required":  false
+                                              },
+                                              {
+                                                  "text":  "公司运行符合ISO 9001要求的质量管理体系。",
+                                                  "claim_type":  "proposal_statement",
+                                                  "source_ids":  [
+
+                                                                 ],
+                                                  "evidence_ids":  [
+                                                                       "KB-file_2308aa547dd9"
+                                                                   ],
+                                                  "human_review_required":  true
+                                              }
+                                          ],
+                               "placeholders_used":  [
+                                                         "PH-FIELD-DELIVERY-COMMITMENT",
+                                                         "PH-FIELD-INSTALLATION-PERIOD",
+                                                         "PH-FIELD-PROJECT-MANAGER",
+                                                         "PH-FIELD-PROJECT-TEAM",
+                                                         "PH-FIELD-STAFFING-PLAN"
+                                                     ],
+                               "score_items_covered":  [
+                                                           "SCORE-TR-022-R017"
+                                                       ],
+                               "requirements_covered":  [
+                                                            "TR-005",
+                                                            "TR-006",
+                                                            "TR-007",
+                                                            "TR-008",
+                                                            "TR-009",
+                                                            "TR-010",
+                                                            "TR-022"
+                                                        ],
+                               "warnings":  [
+                                                "项目交货期与安装周期的最终承诺尚未确认，当前均以占位符 PH-FIELD-DELIVERY-COMMITMENT 和 PH-FIELD-INSTALLATION-PERIOD 表示，时间数字不可直接使用招标最长时限作为投标承诺。",
+                                                "项目负责人和主要人员的姓名、简历、资质证书及具体人员安排尚未确认，通过占位符 PH-FIELD-PROJECT-MANAGER、PH-FIELD-PROJECT-TEAM 和 PH-FIELD-STAFFING-PLAN 标记，需在定稿前补充完整人员信息。",
+                                                "关于ISO 9001质量管理体系认证的声称引用自候选证据 KB-file_2308aa547dd9，该证据尚未经人工确认，需在最终提交前取得确认或调整表述。",
+                                                "招标文件评审因素表（SCORE-TR-022-R017）为评分参考表，未插入正文，仅作为写作覆盖依据。"
+                                            ]
+                           },
+    "final_draft":  null
+}

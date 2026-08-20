@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "detected_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "source_file_id": {"type": "string"},
+          "name": {"type": "string"},
+          "category": {"type": "string"},
+          "document_type": {"type": "string"},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "valid_from": {"type": ["string", "null"]},
+          "valid_to": {"type": ["string", "null"]},
+          "source_page": {"type": "string"},
+          "source_text": {"type": "string"},
+          "related_asset_ids": {"type": "array", "items": {"type": "string"}},
+          "recommended_usage": {"type": "string"},
+          "confidence": {"type": "number"},
+          "status": {"type": "string", "enum": ["pending", "confirmed", "ignored"]}
+        },
+        "required": ["id", "source_file_id", "name", "category", "document_type", "tags", "source_page", "source_text", "related_asset_ids", "recommended_usage", "confidence", "status"]
+      }
+    }
+  },
+  "required": ["detected_items"]
+}

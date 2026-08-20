@@ -1,0 +1,1697 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-13T07:06:53.445536+00:00",
+  "lot_name": "0425139003001-6582",
+  "generated_from": "outputs\\0425139003001-6582\\evidence\\evidence_coverage_matrix.json",
+  "material_intake_packages": [
+    {
+      "intake_package_id": "intake-06558e184ad2f4",
+      "title": "3.4.4",
+      "evidence_subject_type": "enterprise_qualification",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-c38325b37c5ab3"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-d75e3a62af5046"
+      ],
+      "related_requirement_ids": [
+        "req-08e42a9c73ae2c"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 9,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "营业执照或资质证书扫描件",
+        "证书有效期页",
+        "营业执照扫描件",
+        "资质证书扫描件"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：营业执照或资质证书扫描件、证书有效期页、营业执照扫描件、资质证书扫描件"
+      ],
+      "accepted_file_types_or_material_types": [
+        "enterprise_qualification"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-0c96a3c47b95af",
+      "title": "创新激励机制",
+      "evidence_subject_type": "other_enterprise_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-9860b2c6e71273"
+      ],
+      "related_score_item_ids": [
+        "business_09_创新激励机制"
+      ],
+      "related_action_group_ids": [
+        "action-8ae938d443e3df"
+      ],
+      "related_requirement_ids": [
+        "req-3d099f3da712b9"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "创新激励制度及执行记录"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：创新激励制度及执行记录"
+      ],
+      "accepted_file_types_or_material_types": [
+        "other_enterprise_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-11f3e2e4f2cf00",
+      "title": "综合实力",
+      "evidence_subject_type": [
+        "enterprise_qualification",
+        "personnel_qualification",
+        "service_capability"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-e8c497ff22f1bb"
+      ],
+      "related_score_item_ids": [
+        "business_12_综合实力"
+      ],
+      "related_action_group_ids": [
+        "action-1636942756471a"
+      ],
+      "related_requirement_ids": [
+        "req-71e1742e192b4b"
+      ],
+      "target_owner": "人力资源或项目管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 27,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "企业资质证明",
+        "质量奖证明",
+        "高新技术企业证书",
+        "人员与服务能力证明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：企业资质证明、质量奖证明、高新技术企业证书、人员与服务能力证明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "enterprise_qualification",
+        "personnel_qualification",
+        "service_capability"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173",
+        "evidence-df7b92ad4ba39a",
+        "evidence-16fa90eefdbf61",
+        "evidence-e23c7e22a19bca",
+        "evidence-4042944bb57a5c",
+        "evidence-0c39c1298fdb72",
+        "evidence-7efd3dcbcfe6c6",
+        "evidence-639260156a1635",
+        "evidence-1e8bc25c19ad58",
+        "evidence-922d4122b94b37",
+        "evidence-a61c0fc44a7181",
+        "evidence-e1682fd7dfdae1",
+        "evidence-5a113458401cfc",
+        "evidence-99d29b0a0eab8b",
+        "evidence-f17a55411be315",
+        "evidence-0405dd7c9bf5a1",
+        "evidence-548265339c33f8",
+        "evidence-2df1670d3238e0",
+        "evidence-a17a93e4c2cc93"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "人员部门尚未人工确认。",
+        "人员本项目投入状态未知。",
+        "有效期未确认。",
+        "证书图片无OCR摘录。",
+        "缺少可定位摘录。",
+        "缺少合同关键页",
+        "缺少中标通知书",
+        "缺少验收证明或用户证明",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-1d400993b4bb45",
+      "title": "环境影响评价",
+      "evidence_subject_type": "other_enterprise_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-61c38de94d0590"
+      ],
+      "related_score_item_ids": [
+        "business_06_环境影响评价"
+      ],
+      "related_action_group_ids": [
+        "action-03abe7e9261502"
+      ],
+      "related_requirement_ids": [
+        "req-97854627e53755"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": 2,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": 2,
+      "requested_material_components": [
+        "ESG报告",
+        "环评或能评报告",
+        "废水废气废固报告"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：ESG报告、环评或能评报告、废水废气废固报告"
+      ],
+      "accepted_file_types_or_material_types": [
+        "other_enterprise_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-2036ab74cbebb1",
+      "title": "企业业绩完整证据包",
+      "evidence_subject_type": [
+        "project_performance",
+        "contract",
+        "award_notice",
+        "acceptance_certificate",
+        "customer_certificate"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-e614c34d12bea5"
+      ],
+      "related_score_item_ids": [
+        "technical_04_业绩情况"
+      ],
+      "related_action_group_ids": [
+        "action-0acb5fad6ee5c5"
+      ],
+      "related_requirement_ids": [
+        "req-4793079ecf9d82"
+      ],
+      "target_owner": "销售、合同或项目交付部门",
+      "priority": "high",
+      "requested_count": 5,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": 5,
+      "requested_material_components": [
+        "合同关键页",
+        "中标通知书（如有）",
+        "验收证明或用户证明",
+        "项目名称、客户、时间、金额和工作内容",
+        "与技术开发或技术服务要求的相关性说明"
+      ],
+      "completeness_criteria": [
+        "形成5个身份独立的项目证据包",
+        "每个项目至少包含合同及验收/用户证明",
+        "项目主体、时间、内容和相关性可追溯"
+      ],
+      "accepted_file_types_or_material_types": [
+        "company_contract",
+        "winning_notice",
+        "acceptance_report",
+        "customer_certificate",
+        "performance_case"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "缺少企业层面的合同、中标通知书、验收证明或用户证明。",
+        "缺少可定位摘录。",
+        "缺少合同关键页",
+        "缺少中标通知书",
+        "缺少验收证明或用户证明",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-2fc0bcb80d309b",
+      "title": "不良行为处理情况通报",
+      "evidence_subject_type": "credit_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-a388951e31bdf6"
+      ],
+      "related_score_item_ids": [
+        "business_01_不良行为处理情况通报"
+      ],
+      "related_action_group_ids": [
+        "action-19014c6316966f"
+      ],
+      "related_requirement_ids": [
+        "req-e152ba52cd6fb5"
+      ],
+      "target_owner": "财务或法务合规部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "公共信用信息报告",
+        "企业信用信息公示报告"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：公共信用信息报告、企业信用信息公示报告"
+      ],
+      "accepted_file_types_or_material_types": [
+        "credit_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-33fbe7a16f8d41",
+      "title": "5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+      "evidence_subject_type": "enterprise_qualification",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-dce682d086b411",
+        "evidence-requirement-6c608e34650d66"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-def318d7084557",
+        "action-e3f6086b65d212"
+      ],
+      "related_requirement_ids": [
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 9,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "资质证书扫描件",
+        "证书有效期页"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：资质证书扫描件、证书有效期页"
+      ],
+      "accepted_file_types_or_material_types": [
+        "enterprise_qualification"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-414f7341792d4f",
+      "title": "6. 符合招标文件投标人资格要求的证明文件",
+      "evidence_subject_type": [],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-4b4bbe88821fec"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-5ad263aa268cbb"
+      ],
+      "related_requirement_ids": [
+        "req-7f13530531aaf2"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [],
+      "completeness_criteria": [
+        "满足对应证据需求的关键质量条件"
+      ],
+      "accepted_file_types_or_material_types": [
+        "other_enterprise_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-460077b8fefa51",
+      "title": "绿色发展规划",
+      "evidence_subject_type": "other_enterprise_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-1edcb846856a4d"
+      ],
+      "related_score_item_ids": [
+        "business_04_绿色发展规划"
+      ],
+      "related_action_group_ids": [
+        "action-d9de10a6483eaa"
+      ],
+      "related_requirement_ids": [
+        "req-904ee1ffe50952"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "绿色发展规划及执行证明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：绿色发展规划及执行证明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "other_enterprise_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-52f9def439b621",
+      "title": "工作基础",
+      "evidence_subject_type": [
+        "technical_achievement",
+        "project_performance"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-6d1c11d327073a"
+      ],
+      "related_score_item_ids": [
+        "technical_07_工作基础"
+      ],
+      "related_action_group_ids": [
+        "action-a2ce48afd6f994"
+      ],
+      "related_requirement_ids": [
+        "req-f37e770336d400"
+      ],
+      "target_owner": "销售、合同或项目交付部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "产品化证明",
+        "科技成果证明",
+        "专题研究证明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：产品化证明、科技成果证明、专题研究证明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "technical_achievement",
+        "project_performance"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "缺少企业层面的合同、中标通知书、验收证明或用户证明。",
+        "缺少可定位摘录。",
+        "缺少合同关键页",
+        "缺少中标通知书",
+        "缺少验收证明或用户证明",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-546046c3f404dd",
+      "title": "4. 企业营业执照（或事业单位法人证书或其他组织登记证书）（扫描件）",
+      "evidence_subject_type": "enterprise_qualification",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-ba223fb90b0789"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-8d9623146c0e6e"
+      ],
+      "related_requirement_ids": [
+        "req-615693d208fcda"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 9,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "营业执照或资质证书扫描件",
+        "证书有效期页",
+        "营业执照扫描件"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：营业执照或资质证书扫描件、证书有效期页、营业执照扫描件"
+      ],
+      "accepted_file_types_or_material_types": [
+        "enterprise_qualification"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-55cce44ba5cc40",
+      "title": "公共信用信息报告、企业信用信息公示报告",
+      "evidence_subject_type": "credit_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-d04cb199e12b5a"
+      ],
+      "related_score_item_ids": [
+        "business_02_公共信用信息报告_企业信用信息公示报告"
+      ],
+      "related_action_group_ids": [
+        "action-3706cb2ff05833"
+      ],
+      "related_requirement_ids": [
+        "req-15bab2dc46bd3e"
+      ],
+      "target_owner": "财务或法务合规部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "公共信用信息报告",
+        "企业信用信息公示报告"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：公共信用信息报告、企业信用信息公示报告"
+      ],
+      "accepted_file_types_or_material_types": [
+        "credit_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-6e75e4e7729c8a",
+      "title": "影响招投标工作公正性行为的凭证",
+      "evidence_subject_type": "credit_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-db91a14538dcbc"
+      ],
+      "related_score_item_ids": [
+        "business_03_影响招投标工作公正性行为的凭证"
+      ],
+      "related_action_group_ids": [
+        "action-f50a3e44bb006c"
+      ],
+      "related_requirement_ids": [
+        "req-db470d5dba651e"
+      ],
+      "target_owner": "财务或法务合规部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "公共信用信息报告",
+        "企业信用信息公示报告"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：公共信用信息报告、企业信用信息公示报告"
+      ],
+      "accepted_file_types_or_material_types": [
+        "credit_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-7b2c3a9eb2249b",
+      "title": "5. 有效的税务登记证明（扫描件）",
+      "evidence_subject_type": "enterprise_qualification",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-384f2a2f6de8c9"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-543e12f22dd566"
+      ],
+      "related_requirement_ids": [
+        "req-dc0830ac1f5dbe"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 9,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "营业执照或资质证书扫描件",
+        "证书有效期页",
+        "营业执照扫描件"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：营业执照或资质证书扫描件、证书有效期页、营业执照扫描件"
+      ],
+      "accepted_file_types_or_material_types": [
+        "enterprise_qualification"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-809c80c9a8dcd9",
+      "title": "四类管理体系认证核验与补录包",
+      "evidence_subject_type": "management_system_certificate",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-54dcca9b42a1bf"
+      ],
+      "related_score_item_ids": [
+        "business_05_绿色管理体系认证"
+      ],
+      "related_action_group_ids": [
+        "action-60143f1097646d"
+      ],
+      "related_requirement_ids": [
+        "req-36a8980b66eaa8"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": 4,
+      "confirmed_count": 0,
+      "candidate_count": 2,
+      "remaining_count": 4,
+      "requested_material_components": [
+        "ISO 9001、ISO 14001候选证书的持证主体、编号、有效状态和适用范围确认",
+        "职业健康安全管理体系证书",
+        "能源管理体系证书",
+        "证书扫描件及有效期页"
+      ],
+      "completeness_criteria": [
+        "四类证书分别对应能源、质量、职业健康安全、环境管理体系",
+        "持证主体、编号、有效状态和适用范围已确认"
+      ],
+      "accepted_file_types_or_material_types": [
+        "company_qualification",
+        "management_system_certificate"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-837b01cd079a92",
+      "title": "3.1 投标人须满足如下通用资格要求：",
+      "evidence_subject_type": [
+        "credit_evidence",
+        "enterprise_qualification"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-6812ac8a4cb26e",
+        "evidence-requirement-94ab9d27af625b",
+        "evidence-requirement-650c4dcd3eb58f",
+        "evidence-requirement-1519ba16049c24",
+        "evidence-requirement-0c7b7646cd5fb8"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-131201a41600cd",
+        "action-30b5213123a529",
+        "action-4894abb1e1f49e",
+        "action-4c91d926b12c6b",
+        "action-c7ac2554cb3cd7"
+      ],
+      "related_requirement_ids": [
+        "req-98d5cedfae9998",
+        "req-658d2499ec05cd",
+        "req-0472258d45ba08",
+        "req-d688df7cb57d96",
+        "req-e73b5540e1240c"
+      ],
+      "target_owner": "财务或法务合规部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 9,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "信用信息报告",
+        "企业信用信息公示报告",
+        "营业执照或资质证书扫描件",
+        "证书有效期页",
+        "营业执照扫描件"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：信用信息报告、企业信用信息公示报告、营业执照或资质证书扫描件、证书有效期页、营业执照扫描件"
+      ],
+      "accepted_file_types_or_material_types": [
+        "credit_evidence",
+        "enterprise_qualification"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-84762272749e62",
+      "title": "资格和证明材料要求",
+      "evidence_subject_type": "enterprise_qualification",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-1d86cf40528c35"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-d9d40b4e4ee4f0"
+      ],
+      "related_requirement_ids": [
+        "req-24513dbbc7302c"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 9,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "营业执照或资质证书扫描件",
+        "证书有效期页",
+        "营业执照扫描件"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：营业执照或资质证书扫描件、证书有效期页、营业执照扫描件"
+      ],
+      "accepted_file_types_or_material_types": [
+        "enterprise_qualification"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-8ecb6e8b23bf29",
+      "title": "绩效评价",
+      "evidence_subject_type": [
+        "service_capability",
+        "customer_certificate"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-72cb06251f756d"
+      ],
+      "related_score_item_ids": [
+        "technical_09_绩效评价"
+      ],
+      "related_action_group_ids": [
+        "action-526b2285e8ed25"
+      ],
+      "related_requirement_ids": [
+        "req-f46a947437eebb"
+      ],
+      "target_owner": "销售、合同或项目交付部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "最近一年度供应商绩效评价结果"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：最近一年度供应商绩效评价结果"
+      ],
+      "accepted_file_types_or_material_types": [
+        "service_capability",
+        "customer_certificate"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "缺少合同关键页",
+        "缺少中标通知书",
+        "缺少验收证明或用户证明",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-93c3e9ff0a4aa1",
+      "title": "3.1 投标人须满足如下通用资格要求：",
+      "evidence_subject_type": [
+        "award_notice",
+        "credit_evidence"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-0322556bde6204",
+        "evidence-requirement-8a6ddaa5a8e96a"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-8738323dfbd48b",
+        "action-8d9a6407e4adb5"
+      ],
+      "related_requirement_ids": [
+        "req-98d5b800f67763",
+        "req-0d244d565ff2a6"
+      ],
+      "target_owner": "销售、合同或项目交付部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "中标通知书",
+        "信用信息报告",
+        "企业信用信息公示报告"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：中标通知书、信用信息报告、企业信用信息公示报告"
+      ],
+      "accepted_file_types_or_material_types": [
+        "award_notice",
+        "credit_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-a0262a5b2ca1df",
+      "title": "科研经费占比",
+      "evidence_subject_type": "financial_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-0614ddfa5feaaa"
+      ],
+      "related_score_item_ids": [
+        "business_11_科研经费占比"
+      ],
+      "related_action_group_ids": [
+        "action-9f22663c4ad5c6"
+      ],
+      "related_requirement_ids": [
+        "req-49f0deb89e1a3d"
+      ],
+      "target_owner": "财务或法务合规部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "审计报告或研发投入专项证明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：审计报告或研发投入专项证明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "financial_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-a990ff8a413642",
+      "title": "采购主题相关专利证据包",
+      "evidence_subject_type": "patent",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-e13776db7ffb24"
+      ],
+      "related_score_item_ids": [
+        "technical_08_专利数量"
+      ],
+      "related_action_group_ids": [
+        "action-1ce42895fa1d2d"
+      ],
+      "related_requirement_ids": [
+        "req-350cb2c837b2de"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": 2,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": 2,
+      "requested_material_components": [
+        "专利证书",
+        "专利名称和编号",
+        "权利人",
+        "授权状态",
+        "与评分主题相关性说明"
+      ],
+      "completeness_criteria": [
+        "形成2项不重复专利",
+        "权利人、授权状态和采购主题相关性均已确认"
+      ],
+      "accepted_file_types_or_material_types": [
+        "patent_certificate",
+        "patent_record"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-aadbd813db13da",
+      "title": "绿电绿证",
+      "evidence_subject_type": "other_enterprise_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-5c31624c6348d7"
+      ],
+      "related_score_item_ids": [
+        "business_07_绿电绿证"
+      ],
+      "related_action_group_ids": [
+        "action-b1686d971be3f6"
+      ],
+      "related_requirement_ids": [
+        "req-92b4e9e74735dd"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "绿色电力证书",
+        "绿电使用证明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：绿色电力证书、绿电使用证明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "other_enterprise_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-af967281e124cd",
+      "title": "服务方案",
+      "evidence_subject_type": [
+        "equipment_or_resource",
+        "organization_structure"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-ffc7f222182dfe"
+      ],
+      "related_score_item_ids": [
+        "technical_05_服务方案"
+      ],
+      "related_action_group_ids": [
+        "action-2e55e1050b99c7"
+      ],
+      "related_requirement_ids": [
+        "req-8f8afafdc6f4aa"
+      ],
+      "target_owner": "人力资源或项目管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 2,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "设备或资源清单及证明",
+        "组织结构及职责说明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：设备或资源清单及证明、组织结构及职责说明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "equipment_or_resource",
+        "organization_structure"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-df7b92ad4ba39a",
+        "evidence-7efd3dcbcfe6c6"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "人员部门尚未人工确认。",
+        "人员本项目投入状态未知。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-b109cc595ccafa",
+      "title": "企业创新成果",
+      "evidence_subject_type": "technical_achievement",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-8eabd638fa736f"
+      ],
+      "related_score_item_ids": [
+        "business_08_企业创新成果"
+      ],
+      "related_action_group_ids": [
+        "action-0e7f0600ac079f"
+      ],
+      "related_requirement_ids": [
+        "req-b96d8eeab7a17c"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "科技创新成果证明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：科技创新成果证明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "technical_achievement"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "缺少合同关键页",
+        "缺少中标通知书",
+        "缺少验收证明或用户证明",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-bdb0c0f471514a",
+      "title": "项目负责人情况",
+      "evidence_subject_type": [
+        "personnel_resume",
+        "personnel_qualification",
+        "personnel_project_experience"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-59335e882f5613"
+      ],
+      "related_score_item_ids": [
+        "technical_02_项目负责人情况"
+      ],
+      "related_action_group_ids": [
+        "action-bd78d9d5d53905"
+      ],
+      "related_requirement_ids": [
+        "req-08c01576baabbe"
+      ],
+      "target_owner": "人力资源或项目管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 18,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "项目负责人简历",
+        "人员证书",
+        "项目任命或投入证明",
+        "个人项目经历证明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：项目负责人简历、人员证书、项目任命或投入证明、个人项目经历证明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "personnel_resume",
+        "personnel_qualification",
+        "personnel_project_experience"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-df7b92ad4ba39a",
+        "evidence-16fa90eefdbf61",
+        "evidence-e23c7e22a19bca",
+        "evidence-4042944bb57a5c",
+        "evidence-0c39c1298fdb72",
+        "evidence-7efd3dcbcfe6c6",
+        "evidence-639260156a1635",
+        "evidence-1e8bc25c19ad58",
+        "evidence-922d4122b94b37",
+        "evidence-a61c0fc44a7181",
+        "evidence-e1682fd7dfdae1",
+        "evidence-5a113458401cfc",
+        "evidence-99d29b0a0eab8b",
+        "evidence-f17a55411be315",
+        "evidence-0405dd7c9bf5a1",
+        "evidence-548265339c33f8",
+        "evidence-2df1670d3238e0",
+        "evidence-a17a93e4c2cc93"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "人员部门尚未人工确认。",
+        "人员本项目投入状态未知。",
+        "有效期未确认。",
+        "证书图片无OCR摘录。",
+        "缺少可定位摘录。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-c1dcc63749b4fd",
+      "title": "项目团队人员结构",
+      "evidence_subject_type": [
+        "personnel_resume",
+        "personnel_qualification",
+        "personnel_certificate"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-656a9e37a35e65"
+      ],
+      "related_score_item_ids": [
+        "technical_03_项目团队人员结构"
+      ],
+      "related_action_group_ids": [
+        "action-20acfc99773c9f"
+      ],
+      "related_requirement_ids": [
+        "req-cf69310d69f7a4"
+      ],
+      "target_owner": "人力资源或项目管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 18,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "项目团队人员简历",
+        "人员证书",
+        "人员投入证明"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：项目团队人员简历、人员证书、人员投入证明"
+      ],
+      "accepted_file_types_or_material_types": [
+        "personnel_resume",
+        "personnel_qualification",
+        "personnel_certificate"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-df7b92ad4ba39a",
+        "evidence-16fa90eefdbf61",
+        "evidence-e23c7e22a19bca",
+        "evidence-4042944bb57a5c",
+        "evidence-0c39c1298fdb72",
+        "evidence-7efd3dcbcfe6c6",
+        "evidence-639260156a1635",
+        "evidence-1e8bc25c19ad58",
+        "evidence-922d4122b94b37",
+        "evidence-a61c0fc44a7181",
+        "evidence-e1682fd7dfdae1",
+        "evidence-5a113458401cfc",
+        "evidence-99d29b0a0eab8b",
+        "evidence-f17a55411be315",
+        "evidence-0405dd7c9bf5a1",
+        "evidence-548265339c33f8",
+        "evidence-2df1670d3238e0",
+        "evidence-a17a93e4c2cc93"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "人员部门尚未人工确认。",
+        "人员本项目投入状态未知。",
+        "有效期未确认。",
+        "证书图片无OCR摘录。",
+        "缺少可定位摘录。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-dcd0f1d729de33",
+      "title": "3.4.4",
+      "evidence_subject_type": "credit_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-913bcdf94f0752"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-ac3dba0595f720"
+      ],
+      "related_requirement_ids": [
+        "req-07cb13b600f950"
+      ],
+      "target_owner": "财务或法务合规部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "信用信息报告",
+        "企业信用信息公示报告"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：信用信息报告、企业信用信息公示报告"
+      ],
+      "accepted_file_types_or_material_types": [
+        "credit_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-dd5f274158c6d9",
+      "title": "研发团队不少于30人材料包",
+      "evidence_subject_type": [
+        "organization_structure",
+        "personnel_qualification",
+        "personnel_certificate"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-575f3cda1cc146"
+      ],
+      "related_score_item_ids": [
+        "business_10_研发团队规模"
+      ],
+      "related_action_group_ids": [
+        "action-a7622b4481ad40"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16"
+      ],
+      "target_owner": "人力资源或项目管理部门",
+      "priority": "high",
+      "requested_count": 30,
+      "confirmed_count": 0,
+      "candidate_count": 2,
+      "remaining_count": 30,
+      "requested_material_components": [
+        "部门人员名单",
+        "可投入人员名单",
+        "姓名、部门、岗位、职称和证书",
+        "相关项目经验",
+        "可投入确认",
+        "必要简历和证书材料"
+      ],
+      "completeness_criteria": [
+        "按人员身份去重",
+        "不少于30人满足高级及以上职称或高级技师条件",
+        "部门、岗位、证书和可投入状态可追溯"
+      ],
+      "accepted_file_types_or_material_types": [
+        "personnel_resume",
+        "personnel_certificate",
+        "organization_structure"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-df7b92ad4ba39a",
+        "evidence-16fa90eefdbf61",
+        "evidence-e23c7e22a19bca",
+        "evidence-4042944bb57a5c",
+        "evidence-0c39c1298fdb72",
+        "evidence-7efd3dcbcfe6c6",
+        "evidence-639260156a1635",
+        "evidence-1e8bc25c19ad58",
+        "evidence-922d4122b94b37",
+        "evidence-a61c0fc44a7181",
+        "evidence-e1682fd7dfdae1",
+        "evidence-5a113458401cfc",
+        "evidence-99d29b0a0eab8b",
+        "evidence-f17a55411be315",
+        "evidence-0405dd7c9bf5a1",
+        "evidence-548265339c33f8",
+        "evidence-2df1670d3238e0",
+        "evidence-a17a93e4c2cc93"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "人员部门尚未人工确认。",
+        "人员本项目投入状态未知。",
+        "有效期未确认。",
+        "证书图片无OCR摘录。",
+        "缺少可定位摘录。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": true,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-e3035726de4937",
+      "title": "6.1 符合招标文件投标人资格要求的证明文件",
+      "evidence_subject_type": [],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-acbde5aec6e200"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-73b8d039f55faa"
+      ],
+      "related_requirement_ids": [
+        "req-75e8399bc86750"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [],
+      "completeness_criteria": [
+        "满足对应证据需求的关键质量条件"
+      ],
+      "accepted_file_types_or_material_types": [
+        "other_enterprise_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-e98c6dc23ca9d7",
+      "title": "5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+      "evidence_subject_type": "credit_evidence",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-de419c575872f5",
+        "evidence-requirement-51c313b652b670"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-1df89fb883efc7",
+        "action-81d24c57f4aa30"
+      ],
+      "related_requirement_ids": [
+        "req-1309fa0d9cacee",
+        "req-ea466b1833ca67"
+      ],
+      "target_owner": "财务或法务合规部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 0,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "信用信息报告",
+        "企业信用信息公示报告"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：信用信息报告、企业信用信息公示报告"
+      ],
+      "accepted_file_types_or_material_types": [
+        "credit_evidence"
+      ],
+      "existing_candidate_evidence_ids": [],
+      "reasons_current_evidence_is_insufficient": [
+        "未找到候选材料。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "not_requested",
+      "human_review_required": false,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-ed24e56f40f85a",
+      "title": "6.1 符合招标公告投标人资格要求的证明文件",
+      "evidence_subject_type": "enterprise_qualification",
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-84b6c47a6a7bd2"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-0594b3a69481fa"
+      ],
+      "related_requirement_ids": [
+        "req-73c0b8f980bac5"
+      ],
+      "target_owner": "企业资质或综合管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 9,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "资质证书扫描件",
+        "证书有效期页"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：资质证书扫描件、证书有效期页"
+      ],
+      "accepted_file_types_or_material_types": [
+        "enterprise_qualification"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    },
+    {
+      "intake_package_id": "intake-f05a986e6b39a3",
+      "title": "5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+      "evidence_subject_type": [
+        "organization_structure",
+        "enterprise_qualification"
+      ],
+      "related_evidence_requirement_ids": [
+        "evidence-requirement-7ef8c3134257d6"
+      ],
+      "related_score_item_ids": [],
+      "related_action_group_ids": [
+        "action-2f05b21f0c749a"
+      ],
+      "related_requirement_ids": [
+        "req-fb4464fa0327f0"
+      ],
+      "target_owner": "人力资源或项目管理部门",
+      "priority": "high",
+      "requested_count": null,
+      "confirmed_count": 0,
+      "candidate_count": 11,
+      "remaining_count": "not_explicit",
+      "requested_material_components": [
+        "组织结构及职责说明",
+        "营业执照或资质证书扫描件",
+        "证书有效期页",
+        "营业执照扫描件",
+        "资质证书扫描件"
+      ],
+      "completeness_criteria": [
+        "材料组件完整：组织结构及职责说明、营业执照或资质证书扫描件、证书有效期页、营业执照扫描件、资质证书扫描件"
+      ],
+      "accepted_file_types_or_material_types": [
+        "organization_structure",
+        "enterprise_qualification"
+      ],
+      "existing_candidate_evidence_ids": [
+        "evidence-37b1fce344730b",
+        "evidence-605b01370c2acd",
+        "evidence-f92ae852e3c63e",
+        "evidence-e2bfda41735fb8",
+        "evidence-2ea57ad5241492",
+        "evidence-fb8b0e48767384",
+        "evidence-6a9f6b2fa881cd",
+        "evidence-b4eedfa73a37c6",
+        "evidence-6ab100c9e93173",
+        "evidence-df7b92ad4ba39a",
+        "evidence-7efd3dcbcfe6c6"
+      ],
+      "reasons_current_evidence_is_insufficient": [
+        "持证主体尚未从证书行中确认。",
+        "持证主体未确认。",
+        "人员部门尚未人工确认。",
+        "人员本项目投入状态未知。",
+        "现有 confirmed 证据不足以覆盖数量或关键质量条件。"
+      ],
+      "affects_full_score_writing": false,
+      "affects_mandatory_response": true,
+      "intake_status": "received_pending_review",
+      "human_review_required": true,
+      "generated_from": "evidence_coverage_matrix.json"
+    }
+  ],
+  "statistics": {
+    "intake_package_count": 32,
+    "owner_counts": {
+      "人力资源或项目管理部门": 6,
+      "企业资质或综合管理部门": 15,
+      "财务或法务合规部门": 7,
+      "销售、合同或项目交付部门": 4
+    },
+    "status_counts": {
+      "not_requested": 18,
+      "received_pending_review": 14
+    }
+  },
+  "build_warnings": []
+}

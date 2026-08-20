@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "technical_fulltext_semantic_audit_result_v1.json",
+  "title": "Stage 11-C Semantic Fulltext Audit Batch Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["batch_id", "pass_type", "results"],
+  "properties": {
+    "batch_id": { "type": "string", "pattern": "^FSB-" },
+    "pass_type": {
+      "enum": [
+        "placeholder_alias",
+        "requirement_location",
+        "numeric_consistency",
+        "terminology_consistency",
+        "near_duplicate",
+        "score_distribution",
+        "adjacent_chapter_coherence"
+      ]
+    },
+    "results": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/result" }
+    }
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_type", "canonical_key", "display_name"],
+      "properties": {
+        "subject_type": { "type": "string", "minLength": 1 },
+        "canonical_key": { "type": "string", "minLength": 1 },
+        "display_name": { "type": "string", "minLength": 1 }
+      }
+    },
+    "details": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["values", "comparison", "evidence_notes"],
+      "properties": {
+        "values": { "$ref": "#/$defs/stringArray" },
+        "comparison": { "type": "string" },
+        "evidence_notes": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "recommendedAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resolution_kind", "text"],
+      "properties": {
+        "resolution_kind": { "type": "string", "minLength": 1 },
+        "text": { "type": "string", "minLength": 1 }
+      }
+    },
+    "requirementLocationAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assessment_id", "semantic_role", "substantive_level",
+        "independent_complete_response"
+      ],
+      "properties": {
+        "assessment_id": { "type": "string", "pattern": "^RLA-" },
+        "semantic_role": {
+          "enum": [
+            "primary_response", "supporting_reference", "evidence_reference",
+            "contextual_mention", "independent_response", "generic_promise",
+            "uncertain"
+          ]
+        },
+        "substantive_level": { "enum": ["none", "partial", "substantive", "uncertain"] },
+        "independent_complete_response": { "enum": ["yes", "no", "uncertain"] }
+      }
+    },
+    "requirementObservationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "audit_unit_id", "evidence_sufficiency", "primary_response_status",
+        "actual_location_assessments", "confidence", "subject",
+        "requirement_ids", "summary", "rationale", "details",
+        "recommended_action"
+      ],
+      "properties": {
+        "audit_unit_id": { "type": "string", "pattern": "^FSU-" },
+        "evidence_sufficiency": { "enum": ["sufficient", "insufficient"] },
+        "primary_response_status": { "enum": ["adequate", "inadequate", "missing", "uncertain"] },
+        "actual_location_assessments": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/requirementLocationAssessment" }
+        },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "subject": { "$ref": "#/$defs/subject" },
+        "requirement_ids": { "$ref": "#/$defs/stringArray" },
+        "summary": { "type": "string", "minLength": 1 },
+        "rationale": { "type": "string", "minLength": 1 },
+        "details": { "$ref": "#/$defs/details" },
+        "recommended_action": { "$ref": "#/$defs/recommendedAction" }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "audit_unit_id",
+        "decision",
+        "verdict",
+        "confidence",
+        "subject",
+        "location_ids",
+        "requirement_ids",
+        "score_item_ids",
+        "placeholder_ids",
+        "summary",
+        "rationale",
+        "details",
+        "suggested_severity",
+        "suggested_release_blocking",
+        "recommended_action",
+        "requires_human_review"
+      ],
+      "properties": {
+        "audit_unit_id": { "type": "string", "pattern": "^FSU-" },
+        "decision": {
+          "enum": [
+            "same_fact", "different_fact", "uncertain",
+            "acceptable_reference", "misplaced_content", "redundant_response", "coverage_content_mismatch",
+            "acceptable", "different_attribute", "commitment_conflict", "value_conflict",
+            "same_entity_variant", "different_entity", "acceptable_context",
+            "meaningful_duplicate", "necessary_restatement", "different_content",
+            "appropriate_distribution", "redundant_score_response", "misplaced_score_response",
+            "coherent", "repeated_reintroduction", "context_reset", "weak_transition", "logical_jump"
+          ]
+        },
+        "verdict": { "enum": ["issue", "acceptable", "uncertain"] },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "subject": { "$ref": "#/$defs/subject" },
+        "location_ids": { "$ref": "#/$defs/stringArray" },
+        "requirement_ids": { "$ref": "#/$defs/stringArray" },
+        "score_item_ids": { "$ref": "#/$defs/stringArray" },
+        "placeholder_ids": { "$ref": "#/$defs/stringArray" },
+        "summary": { "type": "string", "minLength": 1 },
+        "rationale": { "type": "string", "minLength": 1 },
+        "details": { "$ref": "#/$defs/details" },
+        "suggested_severity": {
+          "type": ["string", "null"],
+          "enum": ["blocking", "warning", "info", null]
+        },
+        "suggested_release_blocking": { "type": "boolean" },
+        "recommended_action": { "$ref": "#/$defs/recommendedAction" },
+        "requires_human_review": { "type": "boolean" }
+      }
+    }
+  }
+}

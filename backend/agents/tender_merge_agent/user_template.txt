@@ -1,0 +1,16 @@
+招标文件 ID：
+{tender_file_id}
+
+评分表文件 ID：
+{score_file_id}
+
+指定标段：
+{lot_name}
+
+招标文件解析结果：
+{tender_parse}
+
+评分表解析结果：
+{score_parse}
+
+请合并生成 Tender Task Graph JSON。

@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "technical_fulltext_hygiene_v1.json",
+  "title": "Stage 11-E Technical Fulltext Hygiene",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "hygiene_id", "document_id", "output_key",
+    "source_fulltext", "source_commit", "status",
+    "hygiene_status", "human_review_hygiene_ready", "release_ready",
+    "detector_version", "summary", "hygiene_findings", "hygiene_repairs",
+    "unresolved_hygiene_findings", "protection_validation",
+    "cleaned_fulltext", "model_usage", "generated_at"
+  ],
+  "properties": {
+    "schema_version": { "const": "technical_fulltext_hygiene_v1" },
+    "hygiene_id": { "type": "string", "pattern": "^HYG-[A-F0-9]{16}$" },
+    "document_id": { "type": "string", "minLength": 1 },
+    "output_key": { "type": "string", "minLength": 1 },
+    "source_fulltext": { "$ref": "#/$defs/sourceArtifact" },
+    "source_commit": { "$ref": "#/$defs/sourceArtifact" },
+    "status": { "const": "completed" },
+    "hygiene_status": {
+      "enum": ["completed", "completed_with_unresolved"]
+    },
+    "human_review_hygiene_ready": { "type": "boolean" },
+    "release_ready": { "const": false },
+    "detector_version": { "const": "fulltext_hygiene_rules_v1" },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_count", "repair_count", "unresolved_count",
+        "repair_counts_by_type", "model_call_count"
+      ],
+      "properties": {
+        "finding_count": { "$ref": "#/$defs/nonNegativeInteger" },
+        "repair_count": { "$ref": "#/$defs/nonNegativeInteger" },
+        "unresolved_count": { "$ref": "#/$defs/nonNegativeInteger" },
+        "repair_counts_by_type": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/nonNegativeInteger" }
+        },
+        "model_call_count": { "const": 0 }
+      }
+    },
+    "hygiene_findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "hygiene_repairs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/repair" }
+    },
+    "unresolved_hygiene_findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "protection_validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "placeholder_tokens_unchanged", "requirement_tokens_unchanged",
+        "score_item_tokens_unchanged", "protected_value_tokens_unchanged",
+        "non_content_metadata_unchanged", "deterministic_repairs_deletion_only",
+        "validation_status", "source_content_sha256", "result_content_sha256"
+      ],
+      "properties": {
+        "placeholder_tokens_unchanged": { "const": true },
+        "requirement_tokens_unchanged": { "const": true },
+        "score_item_tokens_unchanged": { "const": true },
+        "protected_value_tokens_unchanged": { "const": true },
+        "non_content_metadata_unchanged": { "const": true },
+        "deterministic_repairs_deletion_only": { "const": true },
+        "validation_status": { "const": "passed" },
+        "source_content_sha256": { "$ref": "#/$defs/sha256" },
+        "result_content_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "cleaned_fulltext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cleaned_document_id", "cleaned_content_sha256"],
+      "properties": {
+        "cleaned_document_id": { "type": "string", "minLength": 1 },
+        "cleaned_content_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "model_usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_call_count", "input_tokens", "output_tokens", "total_tokens"
+      ],
+      "properties": {
+        "model_call_count": { "const": 0 },
+        "input_tokens": { "const": 0 },
+        "output_tokens": { "const": 0 },
+        "total_tokens": { "const": 0 }
+      }
+    },
+    "generated_at": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "nonNegativeInteger": { "type": "integer", "minimum": 0 },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "sourceArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "schema_version"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "schema_version": { "type": ["string", "null"] }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chapter_id", "section_id", "paragraph_id", "paragraph_index"
+      ],
+      "properties": {
+        "chapter_id": { "type": "string", "minLength": 1 },
+        "section_id": { "type": "string", "minLength": 1 },
+        "paragraph_id": { "type": "string", "pattern": "^PAR-[A-F0-9]{16}$" },
+        "paragraph_index": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_id", "finding_type", "status", "gate_blocking",
+        "location", "excerpt", "detection"
+      ],
+      "properties": {
+        "finding_id": { "type": "string", "pattern": "^HGF-[A-F0-9]{16}$" },
+        "finding_type": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["repaired", "unresolved"] },
+        "gate_blocking": { "type": "boolean" },
+        "location": { "$ref": "#/$defs/location" },
+        "excerpt": { "type": "string" },
+        "detection": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "changedSpan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end", "removed_text", "replacement_text"],
+      "properties": {
+        "start": { "$ref": "#/$defs/nonNegativeInteger" },
+        "end": { "$ref": "#/$defs/nonNegativeInteger" },
+        "removed_text": { "type": "string" },
+        "replacement_text": { "type": "string" }
+      }
+    },
+    "repair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repair_id", "finding_id", "repair_type", "chapter_id", "section_id",
+        "paragraph_id", "paragraph_index", "source_text_sha256",
+        "result_text_sha256", "original_excerpt", "repaired_excerpt",
+        "changed_span", "method", "confidence", "model_used",
+        "validation_status"
+      ],
+      "properties": {
+        "repair_id": { "type": "string", "pattern": "^HGR-[A-F0-9]{16}$" },
+        "finding_id": { "type": "string", "pattern": "^HGF-[A-F0-9]{16}$" },
+        "repair_type": { "type": "string", "minLength": 1 },
+        "chapter_id": { "type": "string", "minLength": 1 },
+        "section_id": { "type": "string", "minLength": 1 },
+        "paragraph_id": { "type": "string", "pattern": "^PAR-[A-F0-9]{16}$" },
+        "paragraph_index": { "type": "integer", "minimum": 1 },
+        "source_text_sha256": { "$ref": "#/$defs/sha256" },
+        "result_text_sha256": { "$ref": "#/$defs/sha256" },
+        "original_excerpt": { "type": "string" },
+        "repaired_excerpt": { "type": "string" },
+        "changed_span": { "$ref": "#/$defs/changedSpan" },
+        "method": { "const": "deterministic" },
+        "confidence": { "enum": ["high"] },
+        "model_used": { "type": "null" },
+        "validation_status": { "const": "accepted" }
+      }
+    }
+  }
+}

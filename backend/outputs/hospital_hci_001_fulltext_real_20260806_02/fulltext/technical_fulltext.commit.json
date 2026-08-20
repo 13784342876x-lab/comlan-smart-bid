@@ -1,0 +1,15 @@
+{
+  "schema_version": "technical_fulltext_commit_v1",
+  "status": "committed",
+  "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+  "document_id": "technical-fulltext:hospital_hci_001_fulltext_real_20260806_02",
+  "manifest_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\technical_fulltext_build_manifest.json",
+  "manifest_sha256": "e00c99d3d204049a082e6bf89754cae9b285865a22e87f4066eaea2b6db42703",
+  "production_index_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\chapter_production_index.json",
+  "production_index_sha256": "683edad8e36d77d65fb4e4a7003580092ca2d428164c856a2405fa2d7c2061f2",
+  "technical_fulltext_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\technical_fulltext.json",
+  "technical_fulltext_json_sha256": "742b3eea50ae66423b2e7ef7529b9e92c8ea87307e32fdfd035c4d8d763b7339",
+  "technical_fulltext_preview_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\technical_fulltext.preview.md",
+  "technical_fulltext_preview_sha256": "0b8f9832f1903eeaff786fa9f8d44bc7380c5e3f8d3ba5851216fe543c599ce3",
+  "committed_at": "2026-08-07T03:05:40.496202+00:00"
+}

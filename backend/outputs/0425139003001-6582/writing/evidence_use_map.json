@@ -1,0 +1,1544 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-14T05:17:01.496388+00:00",
+  "lot_name": "0425139003001-6582",
+  "generated_from": "evidence_coverage_matrix.json",
+  "evidence_usage_items": [
+    {
+      "evidence_id": "evidence-37b1fce344730b",
+      "evidence_type": "management_system_certificate",
+      "title": "ISO 9001质量管理体系认证证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 2
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：ISO 9001质量管理体系认证证书；认证机构：北京新纪源认证有限公司；证书编号：19825QF5000R2M；认证事项范围：证书覆盖范围：计算机软硬件运维服务；计算机系统集成设计开发服务；有效期限：有效期至2028年08月16日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_05_绿色管理体系认证",
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-36a8980b66eaa8",
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“ISO 9001质量管理体系认证证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-7509850d29fa09"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-605b01370c2acd",
+      "evidence_type": "management_system_certificate",
+      "title": "ISO 14001环境管理体系认证证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 3
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：ISO 14001环境管理体系认证证书；认证机构：北京新纪源认证有限公司；证书编号：19824EG0856R0M；认证事项范围：证书覆盖范围：计算机软硬件运维服务；计算机系统集成设计开发服务；有效期限：有效期至2027年07月10日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_05_绿色管理体系认证",
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-36a8980b66eaa8",
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“ISO 14001环境管理体系认证证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-8cdb0fee4236c3"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-f92ae852e3c63e",
+      "evidence_type": "enterprise_qualification_certificate",
+      "title": "ISO 20000信息技术服务管理体系认证证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 4
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：ISO 20000信息技术服务管理体系认证证书；认证机构：北京新纪源认证有限公司；证书编号：1982024ITSM0144R1NM；认证事项范围：证书覆盖范围：计算机软硬件运维服务相关的信息技术服务管理活动；有效期限：有效期至2027年08月23日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“ISO 20000信息技术服务管理体系认证证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-2a20e5b7c0729b"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-e2bfda41735fb8",
+      "evidence_type": "enterprise_qualification_certificate",
+      "title": "ISO 27001信息安全管理体系认证证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 5
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：ISO 27001信息安全管理体系认证证书；认证机构：北京新纪源认证有限公司；证书编号：19824ISG0211R1M；认证事项范围：证书覆盖范围：与计算机软硬件运维服务；计算机系统集成设计开发服务相关的信息安全管理活动；适用性声明：KLLT-ISMS-SM V2.0；有效期限：有效期至2027年08月23日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“ISO 27001信息安全管理体系认证证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-6b71d9ab50b81e"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-2ea57ad5241492",
+      "evidence_type": "enterprise_qualification_certificate",
+      "title": "ISO 27701隐私信息管理体系认证证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 6
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：ISO 27701隐私信息管理体系认证证书；认证机构：北京新纪源认证有限公司；证书编号：19825PIMSH0013R0M；认证事项范围：证书覆盖范围：与计算机软硬件运维服务；计算机系统集成设计开发服务相关的隐私信息管理活动。适用性声明：KLLT-PIMS-SM V1.0版；有效期限：有效期至2028年08月27日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“ISO 27701隐私信息管理体系认证证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-2b81b56af051b7"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-fb8b0e48767384",
+      "evidence_type": "enterprise_qualification_certificate",
+      "title": "ITSS信息技术服务标准符合性证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 7
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：ITSS信息技术服务标准符合性证书；认证机构：中国电子工业标准化技术协会；证书编号：1TSS-YW-2-110020240062；认证事项范围：业务领域：运行维护\n评估等级：二级；有效期限：有效期至2027年07月04日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“ITSS信息技术服务标准符合性证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-3faafed7b50315"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-6a9f6b2fa881cd",
+      "evidence_type": "enterprise_qualification_certificate",
+      "title": "CS信息系统建设和服务能力等级证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 8
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：CS信息系统建设和服务能力等级证书；认证机构：中国电子信息行业联合会；证书编号：CS3-1100-000611；认证事项范围：符合《信息系统建设和服务能力评估体系能力要求》，能力达到良好级(CS3)；有效期限：有效期至2029年12月31日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“CS信息系统建设和服务能力等级证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-5b7982ca000338"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-b4eedfa73a37c6",
+      "evidence_type": "enterprise_qualification_certificate",
+      "title": "信创数智技术服务能力等级证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 9
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：信创数智技术服务能力等级证书；认证机构：威海神舟信息技术研究院有限公司；证书编号：XCSZ-GC-2025028；认证事项范围：业务领域：信创工程实施能力\n评估等级：一级；有效期限：有效期至2028年9月19日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“信创数智技术服务能力等级证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-0e72c9d9fa8f99"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-6ab100c9e93173",
+      "evidence_type": "enterprise_qualification_certificate",
+      "title": "CCRC信息安全服务资质认证证书",
+      "source_ref": {
+        "source_file_id": "file_2308aa547dd9",
+        "source_file_name": "资质+代理证书.docx",
+        "source_location": {
+          "table_index": 1,
+          "row_index": 13
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "信息事项：CCRC信息安全服务资质认证证书；认证机构：中国网络安全审查认证和市场监管大数据中心；证书编号：CCRC-2026-ISV-SM-4054；认证事项范围：信息系统安全运维服务资质\n符合CCRC-ISV- C01：2025《信息安全服务规范》、CCRC-ISV-R01：2025《信息安全服务资质认证实施规则》\n三级服务资质要求；有效期限：有效期至2029年3月23日",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "candidate",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_12_综合实力"
+      ],
+      "related_requirement_ids": [
+        "req-71e1742e192b4b",
+        "req-73c0b8f980bac5",
+        "req-fb4464fa0327f0",
+        "req-0472258d45ba08",
+        "req-dc0830ac1f5dbe",
+        "req-615693d208fcda",
+        "req-08e42a9c73ae2c",
+        "req-24513dbbc7302c",
+        "req-73c746996094c3",
+        "req-1c5e9225118822"
+      ],
+      "related_chapter_ids": [],
+      "allowed_usage": "cautious_reference",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“CCRC信息安全服务资质认证证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-cb3b6da28bf76e"
+      ],
+      "usage_priority": "medium",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-df7b92ad4ba39a",
+      "evidence_type": "personnel_resume",
+      "title": "吴云畅人员简历",
+      "source_ref": {
+        "source_file_id": "file_3fa83f22cdb4",
+        "source_file_name": "数字化办公-吴云畅.docx",
+        "source_location": {
+          "clause_path": "简历结构化解析",
+          "table_indexes": [
+            1,
+            2
+          ]
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "姓名：吴云畅；工作年限：5年；技能：Python、PowerPlatform、M365；项目经历：AD密码自助修改开发、泛生子基因密码自助、甘李药业密码自助2020、甘李药业密码自助 许可续订2021、秦淮数据密码自助、新华人寿Windows升级项目",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构",
+        "technical_05_服务方案"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4",
+        "req-8f8afafdc6f4aa",
+        "req-fb4464fa0327f0"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构",
+        "task_019_technical_05_服务方案"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“吴云畅人员简历”作为已确认企业能力或满分条件写入正文。",
+        "不得把人员简历中的项目经历表述为企业合同业绩。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-374973f2c9e67c",
+        "resolution-95c3f18793cd85",
+        "resolution-bbc452f269aefc"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-16fa90eefdbf61",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_3fa83f22cdb4",
+        "source_file_name": "数字化办公-吴云畅.docx",
+        "source_location": {
+          "asset_id": "asset_1b28e0c8e1af",
+          "asset_location": "word/media/image1.png",
+          "structured_index": 1
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-950720b049235c"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-e23c7e22a19bca",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_3fa83f22cdb4",
+        "source_file_name": "数字化办公-吴云畅.docx",
+        "source_location": {
+          "asset_id": "asset_50f47ac9382e",
+          "asset_location": "word/media/image2.png",
+          "structured_index": 2
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-950720b049235c"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-4042944bb57a5c",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_3fa83f22cdb4",
+        "source_file_name": "数字化办公-吴云畅.docx",
+        "source_location": {
+          "asset_id": "asset_c2fb6ddc95c2",
+          "asset_location": "word/media/image3.png",
+          "structured_index": 3
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-950720b049235c"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-0c39c1298fdb72",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_3fa83f22cdb4",
+        "source_file_name": "数字化办公-吴云畅.docx",
+        "source_location": {
+          "asset_id": "asset_7f5958983a46",
+          "asset_location": "word/media/image4.png",
+          "structured_index": 4
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-950720b049235c"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-7efd3dcbcfe6c6",
+      "evidence_type": "personnel_resume",
+      "title": "冯振书人员简历",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "clause_path": "简历结构化解析",
+          "table_indexes": [
+            1,
+            2
+          ]
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "姓名：冯振书；工作年限：6年；技能：VMware、Citrix；项目经历：泰达宏利长期运维、高剂医疗长期运维、长城汽车保定集团总部、京东尚科京东总部、恒安人寿、长城汽车全国分点vSphere实施",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构",
+        "technical_05_服务方案"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4",
+        "req-8f8afafdc6f4aa",
+        "req-fb4464fa0327f0"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构",
+        "task_019_technical_05_服务方案"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“冯振书人员简历”作为已确认企业能力或满分条件写入正文。",
+        "不得把人员简历中的项目经历表述为企业合同业绩。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-2e26de7a115761",
+        "resolution-8b50d9033a0d71",
+        "resolution-9b4b5d03c04904"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-639260156a1635",
+      "evidence_type": "personnel_certificate",
+      "title": "VCP-DCV",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": null,
+          "asset_location": null,
+          "structured_index": 1
+        },
+        "location_precision": "snippet_only",
+        "excerpt": "VMware VCP",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“VCP-DCV”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-cf6ccc70996534"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-1e8bc25c19ad58",
+      "evidence_type": "personnel_certificate",
+      "title": "Nutanix NCP",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": null,
+          "asset_location": null,
+          "structured_index": 2
+        },
+        "location_precision": "snippet_only",
+        "excerpt": "NUTANIX NCP",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“Nutanix NCP”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-a05d88981f10ec"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-922d4122b94b37",
+      "evidence_type": "personnel_certificate",
+      "title": "NCSC",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": null,
+          "asset_location": null,
+          "structured_index": 3
+        },
+        "location_precision": "snippet_only",
+        "excerpt": "NUTANIX NCSC",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“NCSC”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-1fee85bcdc0c0d"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-a61c0fc44a7181",
+      "evidence_type": "personnel_certificate",
+      "title": "Alibaba Cloud ACP",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": "asset_739773564404",
+          "asset_location": "word/media/image4.png",
+          "structured_index": 7
+        },
+        "location_precision": "snippet_only",
+        "excerpt": "AlibabaCloud AlibabaCloudCertification Zhenshu Feng HAS SUCCESSFULLY COMPLETED THE ALIBABA CLOUD CERTIFICATION REQUIREMENTS AND OFFICIALLY OBTAINED THE CERTIFICATE AlibabaCloudCertifiedProfessional Cloud Computing President of Alibaba Cloud 代建 ACP CertificateID:ACP01211100405165 ValidUntil:Nov17,2023",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“Alibaba Cloud ACP”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-2f72cd3d8c8902"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-e1682fd7dfdae1",
+      "evidence_type": "personnel_certificate",
+      "title": "AZ-104",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": null,
+          "asset_location": null,
+          "structured_index": 5
+        },
+        "location_precision": "snippet_only",
+        "excerpt": "Azure 140",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“AZ-104”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-c670291baf2f8d"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-5a113458401cfc",
+      "evidence_type": "personnel_certificate",
+      "title": "深信服 SCTP",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": null,
+          "asset_location": null,
+          "structured_index": 6
+        },
+        "location_precision": "snippet_only",
+        "excerpt": "深信服 SCTP",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "strong",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“深信服 SCTP”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-5b6d237925f36f"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-99d29b0a0eab8b",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": "asset_47676fb55fc4",
+          "asset_location": "word/media/image5.png",
+          "structured_index": 8
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-a806ebd9dd5159"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-f17a55411be315",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": "asset_de24f91a7a98",
+          "asset_location": "word/media/image6.jpeg",
+          "structured_index": 9
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-a806ebd9dd5159"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-0405dd7c9bf5a1",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": "asset_cdc1d49eba26",
+          "asset_location": "word/media/image3.png",
+          "structured_index": 10
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-a806ebd9dd5159"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-548265339c33f8",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": "asset_bc1a499b8572",
+          "asset_location": "word/media/image1.png",
+          "structured_index": 11
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-a806ebd9dd5159"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-2df1670d3238e0",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": "asset_e03ac4547f42",
+          "asset_location": "word/media/image7.png",
+          "structured_index": 12
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-a806ebd9dd5159"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-a17a93e4c2cc93",
+      "evidence_type": "personnel_certificate",
+      "title": "待识别人员证书",
+      "source_ref": {
+        "source_file_id": "file_ae4329911662",
+        "source_file_name": "云服务部-冯振书20230322.docx",
+        "source_location": {
+          "asset_id": "asset_d32e77f18d83",
+          "asset_location": "word/media/image2.png",
+          "structured_index": 13
+        },
+        "location_precision": "file_only",
+        "excerpt": "",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "needs_review",
+      "verification_status": "unverified",
+      "support_strength": "weak",
+      "related_score_item_ids": [
+        "business_10_研发团队规模",
+        "business_12_综合实力",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_requirement_ids": [
+        "req-8d1a617367bc16",
+        "req-71e1742e192b4b",
+        "req-08c01576baabbe",
+        "req-cf69310d69f7a4"
+      ],
+      "related_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "allowed_usage": "placeholder_only",
+      "allowed_claims": [],
+      "cautious_claims": [
+        "不得将“待识别人员证书”作为已确认企业能力或满分条件写入正文。"
+      ],
+      "forbidden_claims": [
+        "人员简历或人员证书不能作为企业合同业绩证明。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "仅在人工复核提示中引用 evidence_id 和来源，不得形成企业确定事实。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-a806ebd9dd5159"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    },
+    {
+      "evidence_id": "evidence-0c0183d419f008",
+      "evidence_type": "company_performance_summary",
+      "title": "基于区块链的工业数据管理技术研究与应用服务项目",
+      "source_ref": {
+        "source_file_id": "file_dc469c504c25",
+        "source_file_name": "mock_业绩文件_测试.docx",
+        "source_location": {
+          "section_locations": [
+            "paragraph_1",
+            "paragraph_2",
+            "paragraph_3",
+            "paragraph_4",
+            "paragraph_5",
+            "paragraph_6",
+            "paragraph_7",
+            "paragraph_8",
+            "paragraph_9"
+          ]
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "企业类似项目业绩资料 项目法人/服务对象单位名称：国网某省电力有限公司信息通信分公司 项目名称：基于区块链的工业数据管理技术研究与应用服务项目 项目规模：覆盖3个业务域、12类工业数据对象，完成数据确权、上链存证与共享审计试点。 服务范围：需求调研、方案设计、平台配置、接口联调、试运行支持、验收资料编制。 服务期间：2024年03月至2024年12月 项目目前进度：已完成并通过验收 服务人员人数：高峰12人/平均8人 建设单位联系人及电话：王工 13800000000",
+        "visual_source_ref": null,
+        "source_type": "enterprise_existing_fact"
+      },
+      "usability_status": "unusable",
+      "verification_status": "unverified",
+      "support_strength": "medium",
+      "related_score_item_ids": [
+        "business_08_企业创新成果",
+        "business_12_综合实力",
+        "technical_04_业绩情况",
+        "technical_07_工作基础",
+        "technical_09_绩效评价"
+      ],
+      "related_requirement_ids": [
+        "req-b96d8eeab7a17c",
+        "req-71e1742e192b4b",
+        "req-4793079ecf9d82",
+        "req-f37e770336d400",
+        "req-f46a947437eebb"
+      ],
+      "related_chapter_ids": [
+        "task_018_technical_04_业绩情况",
+        "task_021_technical_07_工作基础",
+        "task_023_technical_09_绩效评价"
+      ],
+      "allowed_usage": "prohibited",
+      "allowed_claims": [],
+      "cautious_claims": [],
+      "forbidden_claims": [
+        "当前文件仅为业绩摘要，不能独立构成完整企业业绩证据包。",
+        "文件名包含 mock，正式覆盖判断中不可用。",
+        "该材料不得作为企业确定事实使用。"
+      ],
+      "quantity_eligible": false,
+      "citation_instruction": "禁止引用。",
+      "decision_ref_ids": [],
+      "unresolved_resolution_ids": [
+        "resolution-148e3a32a56b92",
+        "resolution-8da737fc06ef39"
+      ],
+      "usage_priority": "high",
+      "source_type": "system_judgement"
+    }
+  ],
+  "blocked_evidence_ids": [
+    "evidence-0c0183d419f008"
+  ],
+  "unresolved_evidence_ids": [
+    "evidence-37b1fce344730b",
+    "evidence-605b01370c2acd",
+    "evidence-f92ae852e3c63e",
+    "evidence-e2bfda41735fb8",
+    "evidence-2ea57ad5241492",
+    "evidence-fb8b0e48767384",
+    "evidence-6a9f6b2fa881cd",
+    "evidence-b4eedfa73a37c6",
+    "evidence-6ab100c9e93173",
+    "evidence-df7b92ad4ba39a",
+    "evidence-16fa90eefdbf61",
+    "evidence-e23c7e22a19bca",
+    "evidence-4042944bb57a5c",
+    "evidence-0c39c1298fdb72",
+    "evidence-7efd3dcbcfe6c6",
+    "evidence-639260156a1635",
+    "evidence-1e8bc25c19ad58",
+    "evidence-922d4122b94b37",
+    "evidence-a61c0fc44a7181",
+    "evidence-e1682fd7dfdae1",
+    "evidence-5a113458401cfc",
+    "evidence-99d29b0a0eab8b",
+    "evidence-f17a55411be315",
+    "evidence-0405dd7c9bf5a1",
+    "evidence-548265339c33f8",
+    "evidence-2df1670d3238e0",
+    "evidence-a17a93e4c2cc93",
+    "evidence-0c0183d419f008"
+  ],
+  "statistics": {
+    "evidence_count": 28,
+    "confirmed_evidence_count": 0,
+    "cautious_evidence_count": 27,
+    "prohibited_evidence_count": 1,
+    "allowed_usage_counts": {
+      "cautious_reference": 9,
+      "placeholder_only": 18,
+      "prohibited": 1
+    }
+  },
+  "build_warnings": []
+}

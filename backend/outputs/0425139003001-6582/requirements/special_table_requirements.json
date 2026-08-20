@@ -1,0 +1,384 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-13T03:35:27.791797+00:00",
+  "lot_name": "0425139003001-6582",
+  "generated_from": "outputs\\0425139003001-6582\\requirements\\tender_requirement_matrix.json",
+  "classification": "special_table_requirements",
+  "requirement_ids": [
+    "req-03b7c060b58d84",
+    "req-743abc4e20cf4c",
+    "req-d43da6b62e7c36",
+    "req-fdd9ec299e2442"
+  ],
+  "requirements": [
+    {
+      "requirement_id": "req-03b7c060b58d84",
+      "title": "5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+      "requirement_type": "special_table_requirement",
+      "raw_text": "“拟委任的主要人员汇总表”应填报满足本章第 1.4.1项规定的项目负责人和其他主要人员的相关信息。",
+      "normalized_requirement": {
+        "text": "“拟委任的主要人员汇总表”应填报满足本章第 1.4.1项规定的项目负责人和其他主要人员的相关信息。",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "填写、复核并提交指定专项表格。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "“拟委任的主要人员汇总表”应填报满足本章第 1.4.1项规定的项目负责人和其他主要人员的相关信息。"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [
+        {
+          "material_type": "personnel_resume_and_certificates",
+          "source_type": "suggested_material"
+        },
+        {
+          "material_type": "completed_special_table",
+          "source_type": "suggested_material"
+        }
+      ],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第二章 投标人须知 > 5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+        "source_location": {
+          "paragraph_index": 29,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "“拟委任的主要人员汇总表”应填报满足本章第 1.4.1项规定的项目负责人和其他主要人员的相关信息。",
+        "context_before": "“近年发生的诉讼及仲裁情况”应说明投标人败诉的服务合同的相关情况，并附法院或仲裁机构作出的判决、裁决等有关法律文书复印件，具体时间要求见投标人须知前附表。",
+        "context_after": "“主要人员简历表”中项目负责人应附身份证、学历证、职称证、和社保缴费证明复印件，管理过的项目业绩须附合同协议书复印件；",
+        "clause_id": "file_77415c21e6d3::c0008",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构"
+      ],
+      "related_context_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构"
+      ],
+      "related_special_table_ids": [
+        "key_personnel_summary_table"
+      ],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.9,
+      "human_review_required": false,
+      "human_review_questions": [],
+      "status": "identified",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-743abc4e20cf4c",
+      "title": "5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+      "requirement_type": "special_table_requirement",
+      "raw_text": "“主要人员简历表”中项目负责人应附身份证、学历证、职称证、和社保缴费证明复印件，管理过的项目业绩须附合同协议书复印件；",
+      "normalized_requirement": {
+        "text": "“主要人员简历表”中项目负责人应附身份证、学历证、职称证、和社保缴费证明复印件，管理过的项目业绩须附合同协议书复印件；",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "填写、复核并提交指定专项表格。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "“主要人员简历表”中项目负责人应附身份证、学历证、职称证、和社保缴费证明复印件，管理过的项目业绩须附合同协议书复印件；"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [
+        {
+          "material_type": "company_performance_evidence",
+          "source_type": "suggested_material"
+        },
+        {
+          "material_type": "personnel_resume_and_certificates",
+          "source_type": "suggested_material"
+        },
+        {
+          "material_type": "completed_special_table",
+          "source_type": "suggested_material"
+        }
+      ],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第二章 投标人须知 > 5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+        "source_location": {
+          "paragraph_index": 29,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "“主要人员简历表”中项目负责人应附身份证、学历证、职称证、和社保缴费证明复印件，管理过的项目业绩须附合同协议书复印件；",
+        "context_before": "“拟委任的主要人员汇总表”应填报满足本章第 1.4.1项规定的项目负责人和其他主要人员的相关信息。",
+        "context_after": "其他主要人员应附身份证、学历证、职称证、有关证书和社保缴费证明复印件。",
+        "clause_id": "file_77415c21e6d3::c0008",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构",
+        "technical_04_业绩情况"
+      ],
+      "related_context_chapter_ids": [
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构",
+        "task_018_technical_04_业绩情况"
+      ],
+      "related_special_table_ids": [
+        "personnel_resume_table"
+      ],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.9,
+      "human_review_required": false,
+      "human_review_questions": [],
+      "status": "identified",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-d43da6b62e7c36",
+      "title": "5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+      "requirement_type": "special_table_requirement",
+      "raw_text": "“近年完成的类似项目情况表”应附中标通知书和（或）合同协议书、委托人出具的证明文件；",
+      "normalized_requirement": {
+        "text": "“近年完成的类似项目情况表”应附中标通知书和（或）合同协议书、委托人出具的证明文件；",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "填写、复核并提交指定专项表格。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "“近年完成的类似项目情况表”应附中标通知书和（或）合同协议书、委托人出具的证明文件；"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [
+        {
+          "material_type": "company_performance_evidence",
+          "source_type": "suggested_material"
+        },
+        {
+          "material_type": "completed_special_table",
+          "source_type": "suggested_material"
+        }
+      ],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第二章 投标人须知 > 5. 招标人允许投标人拟在中标后将中标项目的部分非主体、非关键性工作进行分包的：",
+        "source_location": {
+          "paragraph_index": 29,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "“近年完成的类似项目情况表”应附中标通知书和（或）合同协议书、委托人出具的证明文件；",
+        "context_before": "投标人的成立时间少于投标人须知前附表规定年份的，应提供成立以来的财务状况表。",
+        "context_after": "具体时间要求见投标人须知前附表，每张表格只填写一个项目，并标明序号。",
+        "clause_id": "file_77415c21e6d3::c0008",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "service_projects",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "通用服务招标文件要求，适用于本标段但不认定为当前包专属。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [
+        "technical_04_业绩情况"
+      ],
+      "related_context_chapter_ids": [
+        "task_018_technical_04_业绩情况"
+      ],
+      "related_special_table_ids": [
+        "similar_project_table"
+      ],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.9,
+      "human_review_required": false,
+      "human_review_questions": [],
+      "status": "identified",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "positive_requirement",
+      "classification_basis": {
+        "text": "条款包含明确响应、提供、提交或履约要求。",
+        "source_type": "system_judgement"
+      }
+    },
+    {
+      "requirement_id": "req-fdd9ec299e2442",
+      "title": "（二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”）",
+      "requirement_type": "special_table_requirement",
+      "raw_text": "（二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”）",
+      "normalized_requirement": {
+        "text": "（二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”）",
+        "source_type": "system_judgement"
+      },
+      "required_action": {
+        "text": "填写、复核并提交指定专项表格。",
+        "source_type": "system_judgement"
+      },
+      "required_response_content": {
+        "items": [
+          "（二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”）"
+        ],
+        "source_type": "suggested_writing"
+      },
+      "required_materials": [
+        {
+          "material_type": "completed_special_table",
+          "source_type": "suggested_material"
+        }
+      ],
+      "source_ref": {
+        "source_file_id": "file_77415c21e6d3",
+        "source_file_name": "招标文件-服务.docx",
+        "document_type": "full_tender_document",
+        "clause_path": "第六章 投标文件格式 > 三、技术文件 > （二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”）",
+        "source_location": {
+          "paragraph_index": 625,
+          "table_index": null,
+          "row_index": null,
+          "sheet_name": null
+        },
+        "location_precision": "clause_approximate",
+        "excerpt": "（二）专项投标文件（上传投标工具路径：技术文件-选择分标-选择分包-按钮“编辑”-页签“批量维护其他技术应答文件”-“专项应答文件批量管理”）",
+        "context_before": "",
+        "context_after": "",
+        "clause_id": "file_77415c21e6d3::c0107",
+        "source_type": "tender_original_fact"
+      },
+      "applicable_scope": {
+        "scope_type": "technical_response",
+        "lot_name": "0425139003001-6582",
+        "package_number": "包01",
+        "applicable": true,
+        "applicability_basis": {
+          "text": "条款位于技术文件格式或技术规范区域。",
+          "source_type": "system_judgement"
+        },
+        "human_review_required": false,
+        "source_type": "system_judgement"
+      },
+      "compliance_level": "format_required",
+      "risk_type": "format_risk",
+      "risk_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      },
+      "related_score_item_ids": [
+        "technical_01_应答文件技术部分总体评价",
+        "technical_02_项目负责人情况",
+        "technical_03_项目团队人员结构",
+        "technical_04_业绩情况"
+      ],
+      "related_context_chapter_ids": [
+        "task_015_technical_01_应答文件技术部分总体评价",
+        "task_016_technical_02_项目负责人情况",
+        "task_017_technical_03_项目团队人员结构",
+        "task_018_technical_04_业绩情况"
+      ],
+      "related_special_table_ids": [
+        "special_tender_document"
+      ],
+      "external_reference": null,
+      "source_type": "tender_original_fact",
+      "confidence": 0.9,
+      "human_review_required": false,
+      "human_review_questions": [],
+      "status": "identified",
+      "detected_risk_terms": [],
+      "detected_negation_terms": [],
+      "detected_condition_terms": [],
+      "polarity": "informational",
+      "classification_basis": {
+        "text": "条款主要提供说明或引用信息。",
+        "source_type": "system_judgement"
+      }
+    }
+  ],
+  "source_type": "system_judgement"
+}

@@ -1,0 +1,628 @@
+{
+  "schema_version": "company_technical_writing_outline_v0",
+  "outline_id": "COMPANY-TECHNICAL-OUTLINE-V0",
+  "name": "公司技术标通用写作大纲V0",
+  "scope": "technical_only",
+  "status": "testing",
+  "description": "当招标文件未规定完整技术文件结构时，作为默认写作骨架；当招标文件规定部分或全部格式时，作为内容模块映射来源。",
+  "adaptation_policy": {
+    "priority": [
+      "tender_mandatory_format",
+      "tender_scoring_items",
+      "tender_technical_requirements",
+      "company_master_outline"
+    ],
+    "format_modes": {
+      "none": {
+        "description": "招标文件未给定技术文件目录或格式",
+        "action": "使用公司通用大纲作为外层结构，并按评分项和响应要求增删子章节"
+      },
+      "forms_only": {
+        "description": "招标文件只给定点对点应答表、偏差表、人员表等专项表格",
+        "action": "使用公司通用大纲作为正文结构，并在规定位置插入招标文件要求的表格"
+      },
+      "partial_outline": {
+        "description": "招标文件规定部分技术章节，但没有形成完整目录",
+        "action": "保留招标规定章节，使用公司通用模块补齐其他必要章节"
+      },
+      "full_outline": {
+        "description": "招标文件明确规定完整章节、顺序或目录",
+        "action": "以招标目录作为唯一外层结构，将公司通用模块映射、拆分或合并到规定位置"
+      }
+    },
+    "mapping_types": [
+      "direct",
+      "renamed",
+      "merged",
+      "split",
+      "inserted",
+      "form_only"
+    ],
+    "rules": [
+      "不得改变招标文件强制要求的章节顺序",
+      "不得删除有评分项或强制响应点支撑的章节",
+      "公司通用章节与招标章节含义相同但名称不同时，采用招标章节名称",
+      "一个公司模块可以拆分到多个招标章节",
+      "多个公司模块可以合并进入一个招标章节",
+      "没有招标依据、评分依据或完整性价值的可选章节可以不生成",
+      "点对点应答表和技术偏差表不得被普通叙述章节替代",
+      "企业事实、人员、业绩、品牌和参数必须来自确认事实或本地知识库"
+    ]
+  },
+  "project_type_profiles": [
+    {
+      "project_type": "goods_system_integration",
+      "name": "货物采购及系统集成",
+      "default_module_ids": [
+        "MODULE-PROJECT-UNDERSTANDING",
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION",
+        "MODULE-IMPLEMENTATION",
+        "MODULE-PROJECT-MANAGEMENT",
+        "MODULE-QUALITY-ACCEPTANCE",
+        "MODULE-TRAINING",
+        "MODULE-SERVICE-WARRANTY",
+        "MODULE-RISK-CONTROL",
+        "MODULE-SPECIAL-TOPICS",
+        "MODULE-PARAMETER-RESPONSE",
+        "MODULE-TECHNICAL-DEVIATION",
+        "MODULE-EVIDENCE-APPENDIX"
+      ]
+    },
+    {
+      "project_type": "software_development",
+      "name": "软件开发及信息化建设",
+      "default_module_ids": [
+        "MODULE-PROJECT-UNDERSTANDING",
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION",
+        "MODULE-IMPLEMENTATION",
+        "MODULE-PROJECT-MANAGEMENT",
+        "MODULE-QUALITY-ACCEPTANCE",
+        "MODULE-TRAINING",
+        "MODULE-SERVICE-WARRANTY",
+        "MODULE-RISK-CONTROL",
+        "MODULE-TECHNICAL-DEVIATION",
+        "MODULE-EVIDENCE-APPENDIX"
+      ]
+    },
+    {
+      "project_type": "technical_service_research",
+      "name": "技术服务及科研项目",
+      "default_module_ids": [
+        "MODULE-PROJECT-UNDERSTANDING",
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION",
+        "MODULE-IMPLEMENTATION",
+        "MODULE-PROJECT-MANAGEMENT",
+        "MODULE-QUALITY-ACCEPTANCE",
+        "MODULE-TRAINING",
+        "MODULE-SERVICE-WARRANTY",
+        "MODULE-RISK-CONTROL",
+        "MODULE-TECHNICAL-DEVIATION",
+        "MODULE-EVIDENCE-APPENDIX"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "MODULE-PROJECT-UNDERSTANDING",
+      "default_title": "项目概述与需求理解",
+      "required_by_default": true,
+      "chapter_type": "narrative",
+      "placement_aliases": [
+        "项目概述",
+        "项目理解",
+        "需求理解",
+        "需求分析",
+        "项目背景",
+        "建设目标",
+        "项目现状分析"
+      ],
+      "trigger_terms": [
+        "项目背景",
+        "项目目标",
+        "需求理解",
+        "需求分析",
+        "现状",
+        "应用环境",
+        "业务理解",
+        "建设内容"
+      ],
+      "default_sections": [
+        "项目背景",
+        "项目现状及建设基础",
+        "项目需求理解",
+        "项目建设目标",
+        "项目重点与难点分析",
+        "总体响应说明"
+      ],
+      "evidence_types": [
+        "tender_project_background",
+        "confirmed_project_fact",
+        "official_policy",
+        "industry_background"
+      ],
+      "web_policy": "official_only"
+    },
+    {
+      "module_id": "MODULE-OVERALL-SOLUTION",
+      "default_title": "总体技术方案",
+      "required_by_default": true,
+      "chapter_type": "narrative",
+      "placement_aliases": [
+        "总体技术方案",
+        "总体方案",
+        "方案建议书",
+        "总体设计",
+        "系统总体设计",
+        "技术路线"
+      ],
+      "trigger_terms": [
+        "总体方案",
+        "技术方案",
+        "方案完整性",
+        "技术路线",
+        "先进性",
+        "合理性",
+        "科学性"
+      ],
+      "default_sections": [
+        "总体设计原则",
+        "总体技术路线",
+        "总体方案说明",
+        "方案总体架构",
+        "方案特点与优势",
+        "技术要求总体响应"
+      ],
+      "evidence_types": [
+        "tender_technical_requirement",
+        "confirmed_solution_fact",
+        "manufacturer_official_document",
+        "official_standard"
+      ],
+      "web_policy": "official_only"
+    },
+    {
+      "module_id": "MODULE-DETAILED-SOLUTION",
+      "default_title": "详细技术方案",
+      "required_by_default": true,
+      "chapter_type": "mixed",
+      "placement_aliases": [
+        "详细技术方案",
+        "系统架构设计",
+        "产品技术方案",
+        "功能设计",
+        "研究内容",
+        "研究技术指标",
+        "服务内容"
+      ],
+      "trigger_terms": [
+        "技术参数",
+        "产品架构",
+        "部署",
+        "功能",
+        "性能",
+        "研究内容",
+        "技术指标",
+        "系统设计"
+      ],
+      "default_sections": [
+        "系统或产品架构",
+        "主要功能设计",
+        "核心技术说明",
+        "性能与可靠性设计",
+        "安全设计",
+        "兼容性与扩展性设计",
+        "分项产品、子系统或研究任务方案"
+      ],
+      "split_policy": {
+        "enabled": true,
+        "split_by": [
+          "采购标的",
+          "子系统",
+          "研究任务",
+          "技术专业"
+        ]
+      },
+      "evidence_types": [
+        "confirmed_product_fact",
+        "product_parameter_proof",
+        "product_test_report",
+        "manufacturer_official_document",
+        "technical_whitepaper"
+      ],
+      "web_policy": "manufacturer_official_only"
+    },
+    {
+      "module_id": "MODULE-IMPLEMENTATION",
+      "default_title": "项目实施方案",
+      "required_by_default": true,
+      "chapter_type": "narrative",
+      "placement_aliases": [
+        "实施方案",
+        "实施部署",
+        "项目实施",
+        "部署方案",
+        "项目建设技术方案",
+        "工作计划",
+        "项目进度计划"
+      ],
+      "trigger_terms": [
+        "实施",
+        "部署",
+        "安装",
+        "调试",
+        "交货",
+        "工期",
+        "进度",
+        "里程碑",
+        "上线",
+        "迁移"
+      ],
+      "default_sections": [
+        "实施总体安排",
+        "实施范围",
+        "实施组织方式",
+        "实施阶段划分",
+        "实施工作流程",
+        "进度计划与里程碑",
+        "安装部署方案",
+        "系统测试与试运行",
+        "交付成果",
+        "实施过程文档"
+      ],
+      "evidence_types": [
+        "confirmed_project_schedule",
+        "implementation_experience",
+        "person_resume",
+        "delivery_commitment"
+      ],
+      "web_policy": "forbidden"
+    },
+    {
+      "module_id": "MODULE-PROJECT-MANAGEMENT",
+      "default_title": "项目管理与团队配置",
+      "required_by_default": true,
+      "chapter_type": "mixed",
+      "placement_aliases": [
+        "项目管理",
+        "项目组织",
+        "项目团队",
+        "人员架构",
+        "团队配置",
+        "项目负责人"
+      ],
+      "trigger_terms": [
+        "项目负责人",
+        "项目团队",
+        "人员架构",
+        "人员配置",
+        "组织架构",
+        "工作经验",
+        "专业能力"
+      ],
+      "default_sections": [
+        "项目组织架构",
+        "项目管理机制",
+        "项目负责人",
+        "主要技术人员",
+        "岗位职责与分工",
+        "沟通协调机制",
+        "人员投入计划"
+      ],
+      "evidence_types": [
+        "person_resume",
+        "person_certificate",
+        "project_team_roster",
+        "company_performance"
+      ],
+      "web_policy": "forbidden"
+    },
+    {
+      "module_id": "MODULE-QUALITY-ACCEPTANCE",
+      "default_title": "质量保证、测试与验收方案",
+      "required_by_default": true,
+      "chapter_type": "narrative",
+      "placement_aliases": [
+        "质量保证",
+        "质量控制",
+        "测试方案",
+        "验收方案",
+        "成果验收",
+        "质量管理"
+      ],
+      "trigger_terms": [
+        "质量",
+        "测试",
+        "验收",
+        "检验",
+        "试运行",
+        "成果确认",
+        "质量保证措施"
+      ],
+      "default_sections": [
+        "质量管理目标",
+        "质量管理体系",
+        "质量控制流程",
+        "技术评审机制",
+        "测试方案",
+        "问题整改与闭环",
+        "验收依据",
+        "验收内容",
+        "验收流程",
+        "验收交付物"
+      ],
+      "evidence_types": [
+        "quality_management_material",
+        "test_report",
+        "acceptance_requirement",
+        "official_standard"
+      ],
+      "web_policy": "official_only"
+    },
+    {
+      "module_id": "MODULE-TRAINING",
+      "default_title": "培训方案",
+      "required_by_default": false,
+      "chapter_type": "narrative",
+      "placement_aliases": [
+        "培训方案",
+        "技术培训",
+        "用户培训",
+        "培训计划"
+      ],
+      "trigger_terms": [
+        "培训",
+        "现场培训",
+        "用户培训",
+        "技术培训",
+        "培训计划"
+      ],
+      "default_sections": [
+        "培训目标",
+        "培训对象",
+        "培训内容",
+        "培训形式",
+        "培训师资",
+        "培训时间与地点",
+        "培训计划",
+        "培训考核",
+        "培训资料",
+        "培训效果保障"
+      ],
+      "evidence_types": [
+        "training_material",
+        "trainer_resume",
+        "training_commitment"
+      ],
+      "web_policy": "forbidden"
+    },
+    {
+      "module_id": "MODULE-SERVICE-WARRANTY",
+      "default_title": "售后服务与运行保障方案",
+      "required_by_default": true,
+      "chapter_type": "narrative",
+      "placement_aliases": [
+        "售后服务方案",
+        "服务方案",
+        "技术支持",
+        "运维服务",
+        "维保方案",
+        "质保方案"
+      ],
+      "trigger_terms": [
+        "售后服务",
+        "技术支持",
+        "维保",
+        "质保",
+        "保修",
+        "维修",
+        "响应时间",
+        "服务机构",
+        "驻场"
+      ],
+      "default_sections": [
+        "服务目标",
+        "服务范围",
+        "服务组织体系",
+        "服务机构与人员",
+        "服务响应机制",
+        "故障处理流程",
+        "保修与维修方案",
+        "备品备件保障",
+        "巡检与健康检查",
+        "服务质量监督",
+        "服务承诺"
+      ],
+      "evidence_types": [
+        "service_network",
+        "service_commitment",
+        "manufacturer_service_commitment",
+        "service_personnel",
+        "service_performance"
+      ],
+      "web_policy": "forbidden"
+    },
+    {
+      "module_id": "MODULE-RISK-CONTROL",
+      "default_title": "风险控制与应急保障",
+      "required_by_default": true,
+      "chapter_type": "narrative",
+      "placement_aliases": [
+        "风险管理",
+        "风险控制",
+        "应急预案",
+        "保障措施",
+        "安全保障"
+      ],
+      "trigger_terms": [
+        "风险",
+        "应急",
+        "故障",
+        "安全",
+        "保障",
+        "重大问题",
+        "突发事件"
+      ],
+      "default_sections": [
+        "风险管理目标",
+        "风险识别",
+        "技术风险控制",
+        "进度风险控制",
+        "质量风险控制",
+        "人员风险控制",
+        "数据与信息安全风险",
+        "应急响应机制",
+        "应急处理流程",
+        "重大问题升级机制"
+      ],
+      "evidence_types": [
+        "risk_management_material",
+        "emergency_plan",
+        "confirmed_project_fact"
+      ],
+      "web_policy": "limited"
+    },
+    {
+      "module_id": "MODULE-SPECIAL-TOPICS",
+      "default_title": "专项技术响应",
+      "required_by_default": false,
+      "chapter_type": "narrative",
+      "placement_aliases": [
+        "绿色供应链管理",
+        "安全方案",
+        "国产化适配",
+        "信创方案",
+        "节能环保",
+        "标准化方案"
+      ],
+      "trigger_terms": [
+        "绿色供应链",
+        "节能",
+        "环保",
+        "国产化",
+        "信创",
+        "信息安全",
+        "数据安全",
+        "标准化"
+      ],
+      "default_sections": [],
+      "split_policy": {
+        "enabled": true,
+        "split_by": [
+          "专项评分项",
+          "专项技术要求"
+        ]
+      },
+      "evidence_types": [
+        "green_supply_chain_evidence",
+        "product_certificate",
+        "manufacturer_qualification",
+        "official_policy",
+        "official_standard"
+      ],
+      "web_policy": "official_only"
+    },
+    {
+      "module_id": "MODULE-PARAMETER-RESPONSE",
+      "default_title": "技术参数及点对点应答",
+      "required_by_default": false,
+      "chapter_type": "table",
+      "placement_aliases": [
+        "技术要求点对点应答表",
+        "技术参数响应表",
+        "技术规格响应表",
+        "技术条款响应表"
+      ],
+      "trigger_terms": [
+        "逐条应答",
+        "点对点应答",
+        "技术参数表",
+        "参数要求",
+        "偏离说明",
+        "技术支撑材料页码"
+      ],
+      "default_sections": [
+        "技术参数点对点应答表",
+        "技术支撑材料索引"
+      ],
+      "evidence_types": [
+        "confirmed_product_fact",
+        "product_parameter_proof",
+        "product_test_report",
+        "manufacturer_official_document"
+      ],
+      "web_policy": "manufacturer_official_only"
+    },
+    {
+      "module_id": "MODULE-TECHNICAL-DEVIATION",
+      "default_title": "技术偏差表",
+      "required_by_default": false,
+      "chapter_type": "table",
+      "placement_aliases": [
+        "技术偏差表",
+        "技术条款偏差表",
+        "技术规格偏离表"
+      ],
+      "trigger_terms": [
+        "技术偏差",
+        "技术偏离",
+        "正偏离",
+        "负偏离",
+        "无偏差"
+      ],
+      "default_sections": [
+        "技术偏差表"
+      ],
+      "evidence_types": [
+        "confirmed_deviation_fact"
+      ],
+      "web_policy": "forbidden"
+    },
+    {
+      "module_id": "MODULE-EVIDENCE-APPENDIX",
+      "default_title": "技术证明材料及附件索引",
+      "required_by_default": true,
+      "chapter_type": "appendix",
+      "placement_aliases": [
+        "证明材料",
+        "技术附件",
+        "技术资料",
+        "其他资料",
+        "支撑材料",
+        "附件索引"
+      ],
+      "trigger_terms": [
+        "证明材料",
+        "证书",
+        "检测报告",
+        "产品彩页",
+        "合同",
+        "业绩",
+        "简历",
+        "技术资料"
+      ],
+      "default_sections": [
+        "产品技术资料索引",
+        "产品检测及认证材料索引",
+        "制造商资质材料索引",
+        "投标人资质材料索引",
+        "项目团队材料索引",
+        "类似项目业绩索引",
+        "服务及承诺材料索引"
+      ],
+      "evidence_types": [
+        "company_qualification",
+        "manufacturer_qualification",
+        "product_certificate",
+        "product_test_report",
+        "company_performance",
+        "person_resume",
+        "person_certificate",
+        "service_commitment"
+      ],
+      "web_policy": "forbidden"
+    }
+  ]
+}

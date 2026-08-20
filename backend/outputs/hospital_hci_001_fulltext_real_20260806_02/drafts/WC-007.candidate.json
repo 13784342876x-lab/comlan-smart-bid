@@ -1,0 +1,255 @@
+{
+  "chapter_title": "技术参数及点对点应答",
+  "sections": [
+    {
+      "heading": "技术要求点对点应答表",
+      "block_type": "required_response_table",
+      "content": "本节依据招标文件第三部分投标须知第18条（技术响应文件）及第四部分合同条款附件6-2的要求，逐条对招标文件第二部分技术要求进行评议，完整填写《技术要求点对点应答表》，说明本次投标货物和相关服务内容与采购人、采购代理机构相应要求的偏离情况。\n\n本应答表严格遵照招标文件所附《技术要求点对点应答表》原格式（合同条款附件6-2，TBL-9F9F69AC8ACF），保留原表名、表头、字段顺序及合并关系。该表为复杂合并单元格表格（7列×10行），标题“招标文件第二部分技术要求”，须严格保留招标原格式，不在本章以简化Markdown呈现。\n\n应答遵循以下原则：（1）招标要求列完整引用招标文件第二部分项目需求书中采购清单（二、采购清单）的各项参数要求，包括标的名称、指标分类、一级指标、二级指标及参数要求（2）投标应答列按照TR-026及TR-031的明确要求，逐项列出本次投标产品的具体数值或内容，不使用“符合”、“满足”等无具体内容的表述（3）偏离说明列对照招标要求与投标应答之间的差异如实填写偏离情况，加注“★”号条款为实质性条款（TR-019），本次投标承诺不得出现负偏离，非“★”技术要求逐项比对并说明偏离内容与方向（4）证明材料列列明支撑投标应答中各项参数承诺的产品参数证明、检测报告、认证证书等文件索引。\n\n本次投标拟投超融合系统产品基本信息暂以占位符标记，待事实确认后回填：品牌为{{PH-FIELD-OFFERED-PRODUCT-BRAND}}，型号为{{PH-FIELD-OFFERED-PRODUCT-MODEL}}，制造商为{{PH-FIELD-MANUFACTURER}}，产地为{{PH-FIELD-ORIGIN}}。产品实际配置（含CPU、内存、硬盘、网络端口及软件授权）由{{PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION}}标记，实际技术参数由{{PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS}}标记，偏离状态由{{PH-FIELD-TECHNICAL-DEVIATION-STATUS}}标记。待产品事实确认后，将逐行对照采购清单（TR-018，共211行参数要求）完成各单元格填写，并同步记录偏离情况。\n\n针对招标文件TR-025的要求——逐条对招标文件要求的技术规格进行评议，并按招标文件所附格式完整地填写《技术要求点对点应答表》，说明偏离情况——我方承诺完全响应，无偏离。针对招标文件TR-019的要求——加注“★”号条款为实质性条款，不得出现负偏离——我方承诺对所有★号实质性条款完全满足招标要求，不出现负偏离。针对招标文件TR-026的要求——投标文件中设备的性能指标应达到或优于招标文件中所列技术指标——我方承诺拟投产品性能指标达到或优于招标文件所列最低限度要求。针对招标文件TR-028的要求——不如实填写偏离情况的投标文件将视为虚假材料——我方承诺如实填写全部偏离情况，投标应答内容真实、准确。上述应答承诺中的具体参数数值及偏离详情均以产品事实确认后的正式应答为准。",
+      "covered_score_item_ids": [
+        "SCORE-TR-022-R012"
+      ],
+      "covered_requirement_ids": [
+        "TR-018",
+        "TR-019",
+        "TR-022",
+        "TR-023",
+        "TR-024",
+        "TR-025",
+        "TR-026",
+        "TR-027",
+        "TR-028",
+        "TR-029",
+        "TR-030",
+        "TR-031"
+      ],
+      "placeholder_ids": [
+        "PH-FIELD-OFFERED-PRODUCT-BRAND",
+        "PH-FIELD-OFFERED-PRODUCT-MODEL",
+        "PH-FIELD-MANUFACTURER",
+        "PH-FIELD-ORIGIN",
+        "PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION",
+        "PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS",
+        "PH-FIELD-TECHNICAL-DEVIATION-STATUS"
+      ],
+      "section_id": "WC-007-01"
+    },
+    {
+      "heading": "技术支撑材料索引",
+      "block_type": "evidence_explanation",
+      "content": "本节为技术支撑材料索引，对本次投标拟投超融合系统产品的技术参数证明材料、制造商资质证明、产品检测报告及认证证书等进行分类索引，为《技术要求点对点应答表》中的各项参数承诺提供证据支撑。\n\n技术支撑材料索引用于建立招标要求、投标应答与证明材料之间的映射关系，便于评审专家快速定位各项参数承诺的证据来源。索引按照材料类型分类整理，本节提供索引路径和材料概要。\n\n以下按证据类型对技术支撑材料进行分类索引。因当前拟投产品品牌、型号及制造商均未确认，具体证明材料以占位符标记，待事实确认后回填实际文件名称、编号及对应页码。\n\n一、产品参数证明材料拟投超融合节点及超融合互联交换机的官方技术规格书、产品白皮书或制造商出具的技术参数确认函，用于证明CPU型号与核数、内存容量与规格、存储配置（缓存盘与数据盘类型及容量）、网络端口类型与数量、电源及物理尺寸等硬件参数满足招标要求。当前状态：{{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}}\n\n二、制造商资质证明对应评分项SCORE-TR-022-R006（产品制造商能力评价，满分3分），需提供拟投超融合节点制造厂商在有效期内的以下认证证书扫描件：\n\n为便于说明本节相关内容，现将关键事项整理如下表。\n\n| 序号 | 认证名称 | 评分分值 | 当前状态 |\n|------|---------|---------|--------|\n| 1 | 质量管理体系认证 ISO9001 | 1分 | {{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}} |\n| 2 | 环境管理体系认证 ISO14001 | 1分 | {{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}} |\n| 3 | 信息安全管理体系认证 ISO27001 | 1分 | {{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}} |\n\n上表所列制造商资质认证要求与投标人自身资质分属不同评分项，不得相互替代。投标人自身是否持证不影响制造商资质评分，最终以拟投产品制造商实际持有证书为准。\n\n三、产品检测报告拟投超融合产品的第三方权威机构检测报告或出厂检测报告，用于验证产品功能、性能、兼容性及可靠性指标。当前状态：{{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}}\n\n四、产品认证证书拟投产品取得的国内外相关认证，如CCC强制性产品认证、节能产品认证、环境标志产品认证等。其中环境标志产品认证对应评分项SCORE-TR-022-R004（环境标志产品，满分2分），节能产品认证对应评分项SCORE-TR-022-R005（节能产品，满分2分）。当前状态：{{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}}\n\n上述证明材料待拟投产品事实确认后，将在投标文件相应位置附入原件扫描件或加盖公章的复印件。所有证明材料保证真实、有效，且均在规定有效期内。如涉及外文材料，将同时提供中文翻译件。本次技术支撑材料索引不替代任何材料本身的提交义务，索引所列每一类材料均应在投标文件对应章节中以完整版本呈现。",
+      "covered_score_item_ids": [
+        "SCORE-TR-022-R012",
+        "SCORE-TR-022-R004",
+        "SCORE-TR-022-R005",
+        "SCORE-TR-022-R006"
+      ],
+      "covered_requirement_ids": [
+        "TR-018",
+        "TR-019",
+        "TR-022",
+        "TR-025",
+        "TR-026",
+        "TR-031"
+      ],
+      "placeholder_ids": [
+        "PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE"
+      ],
+      "section_id": "WC-007-02"
+    }
+  ],
+  "claims": [
+    {
+      "text": "逐条对招标文件要求的技术规格进行评议，并按招标文件所附格式完整地填写《技术要求点对点应答表》，说明偏离情况——我方承诺完全响应，无偏离。",
+      "claim_type": "commitment_statement",
+      "source_ids": [
+        "TR-025"
+      ],
+      "evidence_ids": [],
+      "human_review_required": false,
+      "response_intent": "no_deviation",
+      "evidence_status": "confirmed",
+      "deviation_status": "no_deviation"
+    },
+    {
+      "text": "加注“★”号条款为实质性条款，不得出现负偏离。",
+      "claim_type": "tender_fact",
+      "source_ids": [
+        "TR-019"
+      ],
+      "evidence_ids": [],
+      "human_review_required": false,
+      "response_intent": "no_deviation",
+      "evidence_status": "missing",
+      "deviation_status": "evidence_pending",
+      "tender_baseline": "★号条款不得出现负偏离，发生负偏离即做无效标处理",
+      "offered_value": "承诺所有★号实质性条款完全满足招标要求，不出现负偏离",
+      "comparison_direction": "fixed"
+    },
+    {
+      "text": "投标文件中设备的性能指标应达到或优于招标文件中所列技术指标——我方承诺拟投产品性能指标达到或优于招标文件所列最低限度要求。",
+      "claim_type": "commitment_statement",
+      "source_ids": [
+        "TR-026"
+      ],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "missing",
+      "deviation_status": "evidence_pending",
+      "tender_baseline": "性能指标应达到或优于招标文件中所列技术指标",
+      "offered_value": "承诺达到或优于招标文件所列最低限度要求",
+      "comparison_direction": "lower_limit"
+    },
+    {
+      "text": "不如实填写偏离情况的投标文件将视为虚假材料——我方承诺如实填写全部偏离情况，投标应答内容真实、准确。",
+      "claim_type": "commitment_statement",
+      "source_ids": [
+        "TR-028"
+      ],
+      "evidence_ids": [],
+      "human_review_required": false,
+      "evidence_status": "missing",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "投标人在《技术要求点对点应答表》的投标应答中必须列出具体数值或内容，不使用“符合”、“满足”等无具体内容的表述。",
+      "claim_type": "tender_fact",
+      "source_ids": [
+        "TR-031"
+      ],
+      "evidence_ids": [],
+      "human_review_required": false,
+      "evidence_status": "missing",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "拟投超融合系统产品品牌：{{PH-FIELD-OFFERED-PRODUCT-BRAND}}",
+      "claim_type": "placeholder",
+      "source_ids": [],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "拟投超融合系统产品型号：{{PH-FIELD-OFFERED-PRODUCT-MODEL}}",
+      "claim_type": "placeholder",
+      "source_ids": [],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "拟投超融合系统产品制造商：{{PH-FIELD-MANUFACTURER}}",
+      "claim_type": "placeholder",
+      "source_ids": [],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "拟投产品产地：{{PH-FIELD-ORIGIN}}",
+      "claim_type": "placeholder",
+      "source_ids": [],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "拟投产品实际配置（含CPU、内存、硬盘、网络端口及软件授权）：{{PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION}}",
+      "claim_type": "placeholder",
+      "source_ids": [],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "拟投产品实际技术参数逐项值：{{PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS}}",
+      "claim_type": "placeholder",
+      "source_ids": [],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "拟投产品技术偏离状态：{{PH-FIELD-TECHNICAL-DEVIATION-STATUS}}",
+      "claim_type": "placeholder",
+      "source_ids": [],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "产品参数证明材料、制造商资质证明、检测报告及认证证书：{{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}}",
+      "claim_type": "placeholder",
+      "source_ids": [],
+      "evidence_ids": [],
+      "human_review_required": true,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    },
+    {
+      "text": "非“★”技术要求响应性评价覆盖——本《技术要求点对点应答表》为评标中SCORE-TR-022-R012（满分17分）的核心评分载体，非★条款逐条响应并如实填写偏离将直接影响评分结果。",
+      "claim_type": "score_coverage_statement",
+      "source_ids": [
+        "SCORE-TR-022-R012"
+      ],
+      "evidence_ids": [],
+      "human_review_required": false,
+      "evidence_status": "pending",
+      "deviation_status": "evidence_pending"
+    }
+  ],
+  "placeholders_used": [
+    "PH-FIELD-OFFERED-PRODUCT-BRAND",
+    "PH-FIELD-OFFERED-PRODUCT-MODEL",
+    "PH-FIELD-MANUFACTURER",
+    "PH-FIELD-ORIGIN",
+    "PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION",
+    "PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS",
+    "PH-FIELD-TECHNICAL-DEVIATION-STATUS",
+    "PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE"
+  ],
+  "score_items_covered": [
+    "SCORE-TR-022-R004",
+    "SCORE-TR-022-R005",
+    "SCORE-TR-022-R006",
+    "SCORE-TR-022-R012"
+  ],
+  "requirements_covered": [
+    "TR-018",
+    "TR-019",
+    "TR-022",
+    "TR-023",
+    "TR-024",
+    "TR-025",
+    "TR-026",
+    "TR-027",
+    "TR-028",
+    "TR-029",
+    "TR-030",
+    "TR-031"
+  ],
+  "warnings": [
+    "本章处于cannot_finalize状态：拟投产品品牌、型号、制造商、产地、实际配置、技术参数及偏离状态均未确认，所有产品事实以占位符标记。",
+    "TBL-9F9F69AC8ACF《技术要求点对点应答表》为复杂合并单元格招标原表，须严格保留原格式回填，不可简化。当前无法通过record_table_fill_data记录精确单元格引用，待产品事实确认后须联合原表格式完成回填。",
+    "SCORE-TR-022-R006制造商资质评分（满分3分）须由拟投产品制造商提供ISO9001/ISO14001/ISO27001证书，KB-file_2308aa547dd9中的证书为投标人自有资质，不可替代制造商资质。",
+    "KB-file_ae4329911662、KB-file_2308aa547dd9、KB-file_3fa83f22cdb4均为候选材料，未确认为本次投标可用证据，不得在正文中作为已确认事实引用。",
+    "TR-019★条款负偏离将导致无效标，所有★条款应答须在最终版逐条核验。",
+    "SCORE-TR-022-R012非★技术要求响应性评价满分17分，每条负偏离扣1分。最终版须逐条确认非★项偏离方向。",
+    "招标文件TR-026、TR-031明确要求应答必须列出具体数值或内容，不得使用“符合”、“满足”等无具体内容的表述，最终版须逐项填写实际参数值。"
+  ],
+  "generated_supporting_tables": [
+    {
+      "section_id": "WC-007-02",
+      "title": "制造商资质认证要求及材料状态",
+      "purpose": "对照评分项SCORE-TR-022-R006逐项列示制造商所需的三项认证（ISO9001、ISO14001、ISO27001）、对应分值及证明材料当前状态，便于评审专家快速核查评分依据。",
+      "why_table_is_better_than_prose": "三项认证为并列评分项，每项有独立的认证名称、分值和材料状态，表格格式使分值分配与材料状态一目了然，避免正文中逐项叙述造成的重复啰嗦。"
+    }
+  ]
+}

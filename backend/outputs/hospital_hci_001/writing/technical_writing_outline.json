@@ -1,0 +1,5972 @@
+{
+  "schema_version": "technical_writing_outline_v0",
+  "format_analysis": {
+    "format_mode": "forms_only",
+    "confidence": 0.96,
+    "order_locked": false,
+    "title_locked": false,
+    "required_sections": [],
+    "required_forms": [
+      {
+        "form_id": "FORM-001",
+        "title": "技术要求点对点应答表",
+        "response_point_ids": [
+          "TR-025",
+          "TR-026",
+          "TR-027",
+          "TR-028",
+          "TR-029",
+          "TR-030",
+          "TR-031"
+        ],
+        "display_block_ids": [
+          "BLOCK-009",
+          "BLOCK-010",
+          "BLOCK-011",
+          "BLOCK-012"
+        ],
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第三部分投标须知",
+              "18. 技术响应文件"
+            ],
+            "original_number": "（3）",
+            "page_start": 37,
+            "page_end": 37,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 37,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_293",
+            "block_index": 295
+          },
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第三部分投标须知",
+              "18. 技术响应文件"
+            ],
+            "original_number": "18.3",
+            "page_start": 37,
+            "page_end": 37,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 37,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_294",
+            "block_index": 296
+          },
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "",
+            "page_start": 67,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 67,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "技术要求点对点应答表",
+            "table_range": "A1:G10",
+            "row_or_cell": "table_8",
+            "block_index": 609
+          },
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "1",
+            "page_start": 66,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 66,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_603",
+            "block_index": 611
+          },
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "2",
+            "page_start": 66,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 66,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_604",
+            "block_index": 612
+          },
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "3",
+            "page_start": 67,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 67,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_605",
+            "block_index": 613
+          },
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "4",
+            "page_start": 67,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 67,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_606",
+            "block_index": 614
+          }
+        ]
+      }
+    ],
+    "format_requirements": [
+      {
+        "response_point_id": "TR-023",
+        "requirement": "（一）投标人须按照《投标须知》“C 投标文件的编制”中的相关要求编制投标文件。",
+        "heading": "四、投标文件内容要求"
+      },
+      {
+        "response_point_id": "TR-024",
+        "requirement": "（二）投标文件格式参照第五部分“投标文件格式”。",
+        "heading": "四、投标文件内容要求"
+      },
+      {
+        "response_point_id": "TR-025",
+        "requirement": "（3）逐条对招标文件要求的技术规格进行评议，并按招标文件所附格式完整地填写《技术要求点对点应答表》，说明自己所投标的货物和相关服务内容与采购人、采购代理机构相应要求的偏离情况。",
+        "heading": "18. 技术响应文件"
+      },
+      {
+        "response_point_id": "TR-026",
+        "requirement": "18.3 投标文件中设备的性能指标应达到或优于招标文件中所列技术指标。投标人应注意招标文件中所列技术指标仅列出了最低限度。投标人在《技术要求点对点应答表》“项目需求书要求”的投标应答中必须列出具体数值或内容。如投标人未应答或只注明“符合”、“满足”等类似无具体内容的表述，将被视为不符合招标文件要求。投标人自行承担由此造成的一切后果。",
+        "heading": "18. 技术响应文件"
+      },
+      {
+        "response_point_id": "TR-027",
+        "requirement": "招标文件第二部分技术要求 序号 招标要求 投标应答 偏离说明 备注 1 2 3 … 项目需求书（项目需求书要求须逐条应答） 序号 采购项名称 条款 序号 招标要求 投标应答 偏离 说明 技术支撑材料所在页码",
+        "heading": "技术要求点对点应答表"
+      },
+      {
+        "response_point_id": "TR-028",
+        "requirement": "1. 不如实填写偏离情况的投标文件将视为虚假材料。",
+        "heading": "技术要求点对点应答表"
+      },
+      {
+        "response_point_id": "TR-029",
+        "requirement": "2. 招标要求指招标文件中规定的具体要求，投标应答指投标文件的具体内容。",
+        "heading": "技术要求点对点应答表"
+      },
+      {
+        "response_point_id": "TR-030",
+        "requirement": "3. 偏离说明指招标要求与投标应答之间的不同之处。",
+        "heading": "技术要求点对点应答表"
+      },
+      {
+        "response_point_id": "TR-031",
+        "requirement": "4. 投标人在《技术要求点对点应答表》“项目需求书要求”的投标应答中必须列出具体数值或内容。如投标人未应答或只注明“符合”、“满足”等类似无具体内容的表述，将被视为不符合招标文件要求。投标人自行承担由此造成的一切后果。",
+        "heading": "技术要求点对点应答表"
+      }
+    ],
+    "source_refs": [
+      {
+        "response_point_id": "TR-023",
+        "chapter_id": "CH-005",
+        "heading": "四、投标文件内容要求",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第二部分招标项目要求",
+              "四、投标文件内容要求"
+            ],
+            "original_number": "（一）",
+            "page_start": 14,
+            "page_end": 14,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 14,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_158",
+            "block_index": 159
+          }
+        ]
+      },
+      {
+        "response_point_id": "TR-024",
+        "chapter_id": "CH-005",
+        "heading": "四、投标文件内容要求",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第二部分招标项目要求",
+              "四、投标文件内容要求"
+            ],
+            "original_number": "（二）",
+            "page_start": 14,
+            "page_end": 14,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 14,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_159",
+            "block_index": 160
+          }
+        ]
+      },
+      {
+        "response_point_id": "TR-025",
+        "chapter_id": "CH-005",
+        "heading": "18. 技术响应文件",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第三部分投标须知",
+              "18. 技术响应文件"
+            ],
+            "original_number": "（3）",
+            "page_start": 37,
+            "page_end": 37,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 37,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_293",
+            "block_index": 295
+          }
+        ]
+      },
+      {
+        "response_point_id": "TR-026",
+        "chapter_id": "CH-005",
+        "heading": "18. 技术响应文件",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第三部分投标须知",
+              "18. 技术响应文件"
+            ],
+            "original_number": "18.3",
+            "page_start": 37,
+            "page_end": 37,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 37,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_294",
+            "block_index": 296
+          }
+        ]
+      },
+      {
+        "response_point_id": "TR-027",
+        "chapter_id": "CH-005",
+        "heading": "技术要求点对点应答表",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "",
+            "page_start": 67,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 67,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "技术要求点对点应答表",
+            "table_range": "A1:G10",
+            "row_or_cell": "table_8",
+            "block_index": 609
+          }
+        ]
+      },
+      {
+        "response_point_id": "TR-028",
+        "chapter_id": "CH-005",
+        "heading": "技术要求点对点应答表",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "1",
+            "page_start": 66,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 66,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_603",
+            "block_index": 611
+          }
+        ]
+      },
+      {
+        "response_point_id": "TR-029",
+        "chapter_id": "CH-005",
+        "heading": "技术要求点对点应答表",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "2",
+            "page_start": 66,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 66,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_604",
+            "block_index": 612
+          }
+        ]
+      },
+      {
+        "response_point_id": "TR-030",
+        "chapter_id": "CH-005",
+        "heading": "技术要求点对点应答表",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "3",
+            "page_start": 67,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 67,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_605",
+            "block_index": 613
+          }
+        ]
+      },
+      {
+        "response_point_id": "TR-031",
+        "chapter_id": "CH-005",
+        "heading": "技术要求点对点应答表",
+        "source_refs": [
+          {
+            "file_id": "selected_9f821b62467b93bf",
+            "file_name": "五中心医院远程招标文件 确认版.docx",
+            "clause_path": [
+              "第四部分合同条款",
+              "附件6-2",
+              "技术要求点对点应答表"
+            ],
+            "original_number": "4",
+            "page_start": 67,
+            "page_end": 67,
+            "page_source": "libreoffice_rendered_pdf",
+            "rendered_page": 67,
+            "printed_page_label": null,
+            "sheet_name": "",
+            "table_name": "",
+            "table_range": "",
+            "row_or_cell": "paragraph_606",
+            "block_index": 614
+          }
+        ]
+      }
+    ],
+    "reasoning_codes": [
+      "MANDATORY_FORMS_FOUND",
+      "NO_COMPLETE_DIRECTORY_FOUND",
+      "GENERIC_FORMAT_REFERENCE_NOT_TREATED_AS_FULL_OUTLINE",
+      "COMPANY_OUTLINE_REMAINS_BODY_SKELETON"
+    ]
+  },
+  "source_company_outline": {
+    "path": "D:\\comlan智标\\backend\\resources\\writing\\company_master_outline_v0.json",
+    "schema_version": "company_technical_writing_outline_v0",
+    "outline_id": "COMPANY-TECHNICAL-OUTLINE-V0",
+    "normalized_schema_version": "company_writing_outline_normalized_v0",
+    "project_type_profile": "goods_system_integration",
+    "sha256": "a2ea54d0d6918758860bb5e521350ab408bafa049bcd995de9de351eec92a188"
+  },
+  "source_response_outline": {
+    "path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\outline\\technical_response_outline.json",
+    "schema_version": "technical_response_outline_v2",
+    "sha256": "ff4a1e8c0a56ae3cb033205d9ca2013e7251ae23bfe4bf9080dbf1888c6c4d41"
+  },
+  "score_items": [
+    {
+      "score_item_id": "SCORE-TR-022-R004",
+      "title": "环境标志产品",
+      "criteria_summary": "按照《关于调整优化节能产品、环境标志产品政府采购执行机制的通知》（财库〔2019〕9号）判定，投标产品是否属于环境标志产品。 投标产品为1项的，且投标产品是环境标志产品的：2分 投标产品为多项的，得分为环境标志产品价值权重×2分 其他：0分",
+      "score": "2分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R005",
+      "title": "节能产品",
+      "criteria_summary": "按照《关于调整优化节能产品、环境标志产品政府采购执行机制的通知》（财库〔2019〕9号）判定，投标产品是否属于节能产品。 投标产品为1项的，且投标产品是非强制采购节能产品的：2分 投标产品为多项的，得分为非强制采购节能产品价值权重×2分 其他：0分",
+      "score": "2分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R006",
+      "title": "产品制造商能力评价",
+      "criteria_summary": "所投超融合节点制造厂商具备质量管理体系认证 ISO9001、环境管理体系认证ISO14001、信息安全管理体系认证ISO27001,提供有效期内的证书扫描件，每一份得1分，最多3分。",
+      "score": "3分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R011",
+      "title": "投标人实力证明",
+      "criteria_summary": "投标人具备质量管理体系认证证书，信息系统建设和服务能力等级证书（CS4及以上），CMMI 5级，数据管理能力成熟度等级证书DCMM （2级及以上）,CCRC信息安全服务资质认证证书—信息系统安全集成（二级及以上），提供有效期内的证书扫描件。每提供一份证书得1分，最多5分。",
+      "score": "5分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R012",
+      "title": "非“★”技术要求响应性评价",
+      "criteria_summary": "完全满足无偏离的得17分。非“★”技术要求劣于招标文件要求或未做应答的，每条扣1分，最低0分",
+      "score": "17分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R013",
+      "title": "投标人业绩评价",
+      "criteria_summary": "提供与本项目内容相关且已完成的业绩，提供的证明材料均不得遮挡涂黑，否则不予认定加分。 A. 合同原件扫描件（合同签订时间为2022年1月1日至今）。包括合同金额、买卖双方名称及盖章、合同清单、合同签订日期。 B.上述合同履行良好的相关证明材料原件扫描件（加盖上述合同甲方单位公章或上述合同甲方印章）。 1个业绩2分，最多4分",
+      "score": "4分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R015",
+      "title": "需求理解及分析评价",
+      "criteria_summary": "对项目建设内容的整体业务理解和依赖关系的综合评定。 对项目建设内容现状、应用环境、功能需求、性能要求、统一运维需求、实施要求等内容有清晰的理解：6分； 满足招标文件要求，但内容存在1处瑕疵：4分； 满足招标文件要求，但内容存在2处瑕疵：2分； 其他：0分",
+      "score": "6分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R016",
+      "title": "方案完整性及系统架构设计评价",
+      "criteria_summary": "对方案中产品架构、部署、运维、功能等各方面描述的科学性、完善度的综合性评定。 架构设计清晰合理且服务内容完整：6分； 满足招标文件要求，但内容存在1处瑕疵：4分； 满足招标文件要求，但内容存在2处瑕疵：2分； 其他：0分",
+      "score": "6分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R017",
+      "title": "实施部署评价",
+      "criteria_summary": "实施方案应包括以下内容：项目建设技术方案、项目设计实施周期、人员架构 项目建设技术方案完整，项目实施规划合理，团队组织架构清晰：4分； 满足招标文件要求，但内容存在1处瑕疵：2分； 满足招标文件要求，但内容存在2处瑕疵：1分 其他：0分",
+      "score": "4分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R018",
+      "title": "培训方案评价",
+      "criteria_summary": "对方案中提供采购人培训的综合评审。投标人应根据项目实际需要，向采购人提供全面的产品培训 培训计划全面、完整、合理：4分； 满足招标文件要求，但内容存在1处瑕疵：2分； 满足招标文件要求，但内容存在2处瑕疵：1分 其他：0分",
+      "score": "4分",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    },
+    {
+      "score_item_id": "SCORE-TR-022-R019",
+      "title": "绿色供应链管理评价",
+      "criteria_summary": "绿色供应链管理先进、效果显著且提供证明材料得1分；实施绿色供应链管理得0.5分；其他不得分",
+      "score": "1",
+      "response_point_id": "TR-022",
+      "source_refs": [
+        {
+          "file_id": "selected_9f821b62467b93bf",
+          "file_name": "五中心医院远程招标文件 确认版.docx",
+          "clause_path": [
+            "第二部分招标项目要求",
+            "三、评审因素及评标标准"
+          ],
+          "original_number": "",
+          "page_start": 12,
+          "page_end": 14,
+          "page_source": "libreoffice_rendered_pdf",
+          "rendered_page": 12,
+          "printed_page_label": null,
+          "sheet_name": "",
+          "table_name": "评审因素及评标标准",
+          "table_range": "A3:D21",
+          "row_or_cell": "table_1",
+          "block_index": 157
+        }
+      ]
+    }
+  ],
+  "module_adaptations": [
+    {
+      "module_id": "MODULE-PROJECT-UNDERSTANDING",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-001",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-OVERALL-SOLUTION",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-002",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-DETAILED-SOLUTION",
+      "activation_status": "triggered",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-002",
+      "target_chapter_id": "WC-002",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-OVERALL-SOLUTION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-IMPLEMENTATION",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-PROJECT-MANAGEMENT",
+      "activation_status": "supporting",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "用于补充主章节完整性，不独立占用一级目录。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-QUALITY-ACCEPTANCE",
+      "activation_status": "triggered",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-TRAINING",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-004",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-SERVICE-WARRANTY",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-005",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-RISK-CONTROL",
+      "activation_status": "supporting",
+      "placement_role": "nested",
+      "parent_chapter_id": "WC-003",
+      "target_chapter_id": "WC-003",
+      "activation_reasons": [
+        "用于补充主章节完整性，不独立占用一级目录。"
+      ],
+      "placement_reasons": [
+        "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+      ]
+    },
+    {
+      "module_id": "MODULE-SPECIAL-TOPICS",
+      "activation_status": "triggered",
+      "placement_role": "top_level",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-006",
+      "activation_reasons": [
+        "技术要求或主观评分项触发。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-PARAMETER-RESPONSE",
+      "activation_status": "required",
+      "placement_role": "form",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-007",
+      "activation_reasons": [
+        "招标强制表格或必要附件要求激活。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    },
+    {
+      "module_id": "MODULE-TECHNICAL-DEVIATION",
+      "activation_status": "conditional",
+      "placement_role": "form",
+      "parent_chapter_id": "WC-007",
+      "target_chapter_id": "WC-007",
+      "activation_reasons": [
+        "当前未发现独立技术偏差表或已确认偏离事实。"
+      ],
+      "placement_reasons": [
+        "仅有点对点应答表的偏离说明列，不重复生成独立技术偏差表。"
+      ]
+    },
+    {
+      "module_id": "MODULE-EVIDENCE-APPENDIX",
+      "activation_status": "required",
+      "placement_role": "appendix",
+      "parent_chapter_id": null,
+      "target_chapter_id": "WC-008",
+      "activation_reasons": [
+        "招标强制表格或必要附件要求激活。"
+      ],
+      "placement_reasons": [
+        "形成项目专属一级章节。"
+      ]
+    }
+  ],
+  "refinement": {
+    "original_top_level_count": 13,
+    "refined_top_level_count": 8,
+    "top_level_chapters": [
+      {
+        "chapter_id": "WC-001",
+        "title": "需求理解及分析",
+        "module_ids": [
+          "MODULE-PROJECT-UNDERSTANDING"
+        ]
+      },
+      {
+        "chapter_id": "WC-002",
+        "title": "方案完整性及系统架构设计",
+        "module_ids": [
+          "MODULE-OVERALL-SOLUTION",
+          "MODULE-DETAILED-SOLUTION"
+        ]
+      },
+      {
+        "chapter_id": "WC-003",
+        "title": "实施部署方案",
+        "module_ids": [
+          "MODULE-IMPLEMENTATION",
+          "MODULE-PROJECT-MANAGEMENT",
+          "MODULE-QUALITY-ACCEPTANCE",
+          "MODULE-RISK-CONTROL"
+        ]
+      },
+      {
+        "chapter_id": "WC-004",
+        "title": "培训方案",
+        "module_ids": [
+          "MODULE-TRAINING"
+        ]
+      },
+      {
+        "chapter_id": "WC-005",
+        "title": "售后服务与运行保障方案",
+        "module_ids": [
+          "MODULE-SERVICE-WARRANTY"
+        ]
+      },
+      {
+        "chapter_id": "WC-006",
+        "title": "绿色供应链管理方案",
+        "module_ids": [
+          "MODULE-SPECIAL-TOPICS"
+        ]
+      },
+      {
+        "chapter_id": "WC-007",
+        "title": "技术参数及点对点应答",
+        "module_ids": [
+          "MODULE-PARAMETER-RESPONSE"
+        ]
+      },
+      {
+        "chapter_id": "WC-008",
+        "title": "技术证明材料及附件索引",
+        "module_ids": [
+          "MODULE-EVIDENCE-APPENDIX"
+        ]
+      }
+    ],
+    "nested_modules": [
+      {
+        "module_id": "MODULE-DETAILED-SOLUTION",
+        "activation_status": "triggered",
+        "placement_role": "nested",
+        "parent_chapter_id": "WC-002",
+        "target_chapter_id": "WC-002",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "作为支持模块嵌入MODULE-OVERALL-SOLUTION。"
+        ]
+      },
+      {
+        "module_id": "MODULE-PROJECT-MANAGEMENT",
+        "activation_status": "supporting",
+        "placement_role": "nested",
+        "parent_chapter_id": "WC-003",
+        "target_chapter_id": "WC-003",
+        "activation_reasons": [
+          "用于补充主章节完整性，不独立占用一级目录。"
+        ],
+        "placement_reasons": [
+          "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+        ]
+      },
+      {
+        "module_id": "MODULE-QUALITY-ACCEPTANCE",
+        "activation_status": "triggered",
+        "placement_role": "nested",
+        "parent_chapter_id": "WC-003",
+        "target_chapter_id": "WC-003",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+        ]
+      },
+      {
+        "module_id": "MODULE-RISK-CONTROL",
+        "activation_status": "supporting",
+        "placement_role": "nested",
+        "parent_chapter_id": "WC-003",
+        "target_chapter_id": "WC-003",
+        "activation_reasons": [
+          "用于补充主章节完整性，不独立占用一级目录。"
+        ],
+        "placement_reasons": [
+          "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+        ]
+      }
+    ],
+    "conditional_modules": [
+      {
+        "module_id": "MODULE-TECHNICAL-DEVIATION",
+        "activation_status": "conditional",
+        "placement_role": "form",
+        "parent_chapter_id": "WC-007",
+        "target_chapter_id": "WC-007",
+        "activation_reasons": [
+          "当前未发现独立技术偏差表或已确认偏离事实。"
+        ],
+        "placement_reasons": [
+          "仅有点对点应答表的偏离说明列，不重复生成独立技术偏差表。"
+        ]
+      }
+    ],
+    "excluded_modules": [],
+    "module_placement_map": [
+      {
+        "module_id": "MODULE-PROJECT-UNDERSTANDING",
+        "activation_status": "triggered",
+        "placement_role": "top_level",
+        "parent_chapter_id": null,
+        "target_chapter_id": "WC-001",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "形成项目专属一级章节。"
+        ]
+      },
+      {
+        "module_id": "MODULE-OVERALL-SOLUTION",
+        "activation_status": "triggered",
+        "placement_role": "top_level",
+        "parent_chapter_id": null,
+        "target_chapter_id": "WC-002",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "形成项目专属一级章节。"
+        ]
+      },
+      {
+        "module_id": "MODULE-DETAILED-SOLUTION",
+        "activation_status": "triggered",
+        "placement_role": "nested",
+        "parent_chapter_id": "WC-002",
+        "target_chapter_id": "WC-002",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "作为支持模块嵌入MODULE-OVERALL-SOLUTION。"
+        ]
+      },
+      {
+        "module_id": "MODULE-IMPLEMENTATION",
+        "activation_status": "triggered",
+        "placement_role": "top_level",
+        "parent_chapter_id": null,
+        "target_chapter_id": "WC-003",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "形成项目专属一级章节。"
+        ]
+      },
+      {
+        "module_id": "MODULE-PROJECT-MANAGEMENT",
+        "activation_status": "supporting",
+        "placement_role": "nested",
+        "parent_chapter_id": "WC-003",
+        "target_chapter_id": "WC-003",
+        "activation_reasons": [
+          "用于补充主章节完整性，不独立占用一级目录。"
+        ],
+        "placement_reasons": [
+          "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+        ]
+      },
+      {
+        "module_id": "MODULE-QUALITY-ACCEPTANCE",
+        "activation_status": "triggered",
+        "placement_role": "nested",
+        "parent_chapter_id": "WC-003",
+        "target_chapter_id": "WC-003",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+        ]
+      },
+      {
+        "module_id": "MODULE-TRAINING",
+        "activation_status": "triggered",
+        "placement_role": "top_level",
+        "parent_chapter_id": null,
+        "target_chapter_id": "WC-004",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "形成项目专属一级章节。"
+        ]
+      },
+      {
+        "module_id": "MODULE-SERVICE-WARRANTY",
+        "activation_status": "triggered",
+        "placement_role": "top_level",
+        "parent_chapter_id": null,
+        "target_chapter_id": "WC-005",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "形成项目专属一级章节。"
+        ]
+      },
+      {
+        "module_id": "MODULE-RISK-CONTROL",
+        "activation_status": "supporting",
+        "placement_role": "nested",
+        "parent_chapter_id": "WC-003",
+        "target_chapter_id": "WC-003",
+        "activation_reasons": [
+          "用于补充主章节完整性，不独立占用一级目录。"
+        ],
+        "placement_reasons": [
+          "作为支持模块嵌入MODULE-IMPLEMENTATION。"
+        ]
+      },
+      {
+        "module_id": "MODULE-SPECIAL-TOPICS",
+        "activation_status": "triggered",
+        "placement_role": "top_level",
+        "parent_chapter_id": null,
+        "target_chapter_id": "WC-006",
+        "activation_reasons": [
+          "技术要求或主观评分项触发。"
+        ],
+        "placement_reasons": [
+          "形成项目专属一级章节。"
+        ]
+      },
+      {
+        "module_id": "MODULE-PARAMETER-RESPONSE",
+        "activation_status": "required",
+        "placement_role": "form",
+        "parent_chapter_id": null,
+        "target_chapter_id": "WC-007",
+        "activation_reasons": [
+          "招标强制表格或必要附件要求激活。"
+        ],
+        "placement_reasons": [
+          "形成项目专属一级章节。"
+        ]
+      },
+      {
+        "module_id": "MODULE-TECHNICAL-DEVIATION",
+        "activation_status": "conditional",
+        "placement_role": "form",
+        "parent_chapter_id": "WC-007",
+        "target_chapter_id": "WC-007",
+        "activation_reasons": [
+          "当前未发现独立技术偏差表或已确认偏离事实。"
+        ],
+        "placement_reasons": [
+          "仅有点对点应答表的偏离说明列，不重复生成独立技术偏差表。"
+        ]
+      },
+      {
+        "module_id": "MODULE-EVIDENCE-APPENDIX",
+        "activation_status": "required",
+        "placement_role": "appendix",
+        "parent_chapter_id": null,
+        "target_chapter_id": "WC-008",
+        "activation_reasons": [
+          "招标强制表格或必要附件要求激活。"
+        ],
+        "placement_reasons": [
+          "形成项目专属一级章节。"
+        ]
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "chapter_id": "WC-001",
+      "title": "需求理解及分析",
+      "mapping_type": "renamed",
+      "source_type": "主观评分项/公司通用",
+      "company_outline_node_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ],
+      "module_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ],
+      "company_outline_path": "项目概述与需求理解",
+      "tender_structure_refs": [
+        "CH-003/SEC-001/TR-017",
+        "CH-004/TR-022"
+      ],
+      "response_point_mappings": [
+        {
+          "response_point_id": "TR-017",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-022",
+          "mapping_role": "supporting"
+        }
+      ],
+      "display_block_ids": [
+        "BLOCK-005",
+        "BLOCK-008"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "triggered_by": [
+        "评分项：需求理解及分析评价",
+        "技术评分项",
+        "项目背景"
+      ],
+      "adaptation_reason": "主观评分项明确评价需求理解及分析，作为独立一级主章节。",
+      "chapter_type": "narrative",
+      "children": [
+        {
+          "chapter_id": "WC-001-01",
+          "title": "项目背景",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-7048C0BDC2B3"
+          ],
+          "company_outline_path": "项目概述与需求理解 / 项目背景",
+          "tender_structure_refs": [
+            "CH-003/SEC-001/TR-017"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-017",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-005"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "项目背景"
+          ],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "项目背景",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-017"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“项目背景”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 项目背景”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "project_name_and_code"
+              ]
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "government_official",
+                "health_authority_official",
+                "hospital_official"
+              ],
+              "purposes": [
+                "补充公开政策与行业背景，不替代项目确认事实"
+              ]
+            },
+            "draftability": "can_draft"
+          }
+        },
+        {
+          "chapter_id": "WC-001-02",
+          "title": "现状及建设基础",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-F1508C192E80"
+          ],
+          "company_outline_path": "项目概述与需求理解 / 项目现状及建设基础",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“项目现状及建设基础”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "项目现状及建设基础",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“现状及建设基础”完成章节目标",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 现状及建设基础”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft"
+          }
+        },
+        {
+          "mapping_type": "inserted",
+          "source_type": "评分项结构补充",
+          "company_outline_node_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "company_outline_path": "需求理解及分析",
+          "tender_structure_refs": [],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-022",
+              "mapping_role": "supporting"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-005",
+            "BLOCK-008"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R015"
+          ],
+          "triggered_by": [
+            "评分项：需求理解及分析评价",
+            "技术评分项",
+            "项目背景"
+          ],
+          "adaptation_reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。",
+          "children": [],
+          "chapter_id": "WC-001-03",
+          "title": "应用环境",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“应用环境”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 应用环境”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft"
+          }
+        },
+        {
+          "mapping_type": "inserted",
+          "source_type": "评分项结构补充",
+          "company_outline_node_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "company_outline_path": "需求理解及分析",
+          "tender_structure_refs": [],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-022",
+              "mapping_role": "supporting"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-005",
+            "BLOCK-008"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R015"
+          ],
+          "triggered_by": [
+            "评分项：需求理解及分析评价",
+            "技术评分项",
+            "项目背景"
+          ],
+          "adaptation_reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。",
+          "children": [],
+          "chapter_id": "WC-001-04",
+          "title": "功能需求",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“功能需求”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 功能需求”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft"
+          }
+        },
+        {
+          "mapping_type": "inserted",
+          "source_type": "评分项结构补充",
+          "company_outline_node_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "company_outline_path": "需求理解及分析",
+          "tender_structure_refs": [],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-022",
+              "mapping_role": "supporting"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-005",
+            "BLOCK-008"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R015"
+          ],
+          "triggered_by": [
+            "评分项：需求理解及分析评价",
+            "技术评分项",
+            "项目背景"
+          ],
+          "adaptation_reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。",
+          "children": [],
+          "chapter_id": "WC-001-05",
+          "title": "性能需求",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“性能需求”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 性能需求”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft"
+          }
+        },
+        {
+          "mapping_type": "inserted",
+          "source_type": "评分项结构补充",
+          "company_outline_node_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "company_outline_path": "需求理解及分析",
+          "tender_structure_refs": [],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-022",
+              "mapping_role": "supporting"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-005",
+            "BLOCK-008"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R015"
+          ],
+          "triggered_by": [
+            "评分项：需求理解及分析评价",
+            "技术评分项",
+            "项目背景"
+          ],
+          "adaptation_reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。",
+          "children": [],
+          "chapter_id": "WC-001-06",
+          "title": "统一运维需求",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“统一运维需求”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 统一运维需求”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft"
+          }
+        },
+        {
+          "mapping_type": "inserted",
+          "source_type": "评分项结构补充",
+          "company_outline_node_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "company_outline_path": "需求理解及分析",
+          "tender_structure_refs": [],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-022",
+              "mapping_role": "supporting"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-005",
+            "BLOCK-008"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R015"
+          ],
+          "triggered_by": [
+            "评分项：需求理解及分析评价",
+            "技术评分项",
+            "项目背景"
+          ],
+          "adaptation_reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。",
+          "children": [],
+          "chapter_id": "WC-001-07",
+          "title": "实施要求",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“实施要求”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 实施要求”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft"
+          }
+        },
+        {
+          "chapter_id": "WC-001-08",
+          "title": "项目重点与难点",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-0767DB3FD624"
+          ],
+          "company_outline_path": "项目概述与需求理解 / 项目重点与难点分析",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“项目重点与难点分析”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "项目重点与难点分析",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“项目重点与难点”完成章节目标",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 项目重点与难点”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft"
+          }
+        },
+        {
+          "chapter_id": "WC-001-09",
+          "title": "建设目标",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-42BD7BD5DB5E"
+          ],
+          "company_outline_path": "项目概述与需求理解 / 项目建设目标",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“项目建设目标”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "项目建设目标",
+          "module_ids": [
+            "MODULE-PROJECT-UNDERSTANDING"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R015"
+            ],
+            "required_content_points": [
+              "围绕“建设目标”完成章节目标",
+              "满足评分主题：需求理解及分析评价",
+              "形成“需求理解及分析 / 建设目标”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "none",
+              "evidence_types": []
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft"
+          }
+        }
+      ],
+      "writing_requirements": {
+        "response_point_ids": [
+          "TR-017",
+          "TR-022"
+        ],
+        "score_item_refs": [
+          "SCORE-TR-022-R015"
+        ],
+        "required_content_points": [
+          "统筹“需求理解及分析”下属标题，保持各子节点内容边界",
+          "按子节点response_point_ids从技术响应大纲加载相关原文",
+          "统筹评分主题：需求理解及分析评价"
+        ],
+        "manual_project_facts": {
+          "need": "optional",
+          "fact_types": [
+            "project_name_and_code"
+          ]
+        },
+        "local_kb": {
+          "need": "none",
+          "evidence_types": []
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "health_authority_official",
+            "hospital_official"
+          ],
+          "purposes": [
+            "补充公开政策与行业背景，不替代项目确认事实"
+          ]
+        },
+        "draftability": "can_draft"
+      }
+    },
+    {
+      "chapter_id": "WC-002",
+      "title": "方案完整性及系统架构设计",
+      "mapping_type": "merged",
+      "source_type": "主观评分项/公司通用归并",
+      "company_outline_node_ids": [
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION"
+      ],
+      "module_ids": [
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION"
+      ],
+      "company_outline_path": "总体技术方案 + 详细技术方案",
+      "tender_structure_refs": [
+        "CH-002/TR-011",
+        "CH-002/TR-016",
+        "CH-003/SEC-002/TR-018",
+        "CH-003/SEC-002/TR-020",
+        "CH-004/TR-022"
+      ],
+      "response_point_mappings": [
+        {
+          "response_point_id": "TR-011",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-016",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-018",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-020",
+          "mapping_role": "supporting"
+        },
+        {
+          "response_point_id": "TR-022",
+          "mapping_role": "supporting"
+        }
+      ],
+      "display_block_ids": [
+        "BLOCK-004",
+        "BLOCK-006",
+        "BLOCK-007",
+        "BLOCK-008"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "triggered_by": [
+        "评分项：方案完整性及系统架构设计评价",
+        "技术评分项",
+        "总体技术要求",
+        "具体需求引用",
+        "核心产品说明",
+        "采购标的技术要求"
+      ],
+      "adaptation_reason": "主观评分项将方案完整性和系统架构作为同一评价主题，总体方案与详细方案在此归并。",
+      "chapter_type": "mixed",
+      "children": [
+        {
+          "chapter_id": "WC-002-01",
+          "title": "总体设计原则",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-45DE142A443B"
+          ],
+          "company_outline_path": "总体技术方案 / 总体设计原则",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "总体设计原则",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-011",
+              "TR-016"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“总体设计原则”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 总体设计原则”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-002-02",
+          "title": "总体技术路线",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-7AA02D3A1392"
+          ],
+          "company_outline_path": "总体技术方案 / 总体技术路线",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "总体技术路线",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“总体技术路线”完成章节目标",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 总体技术路线”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-002-03",
+          "title": "总体方案架构",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-B0AB60BD7986"
+          ],
+          "company_outline_path": "总体技术方案 / 方案总体架构",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“方案总体架构”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "方案总体架构",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“总体方案架构”完成章节目标",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 总体方案架构”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "mapping_type": "inserted",
+          "source_type": "评分项结构补充",
+          "company_outline_node_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "company_outline_path": "方案完整性及系统架构设计",
+          "tender_structure_refs": [],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-020",
+              "mapping_role": "supporting"
+            },
+            {
+              "response_point_id": "TR-022",
+              "mapping_role": "supporting"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-004",
+            "BLOCK-006",
+            "BLOCK-007",
+            "BLOCK-008"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R016"
+          ],
+          "triggered_by": [
+            "评分项：方案完整性及系统架构设计评价",
+            "技术评分项",
+            "总体技术要求",
+            "具体需求引用",
+            "核心产品说明",
+            "采购标的技术要求"
+          ],
+          "adaptation_reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。",
+          "children": [],
+          "chapter_id": "WC-002-04",
+          "title": "部署架构",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-020",
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“部署架构”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 部署架构”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "mapping_type": "inserted",
+          "source_type": "评分项结构补充",
+          "company_outline_node_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "company_outline_path": "方案完整性及系统架构设计",
+          "tender_structure_refs": [],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-020",
+              "mapping_role": "supporting"
+            },
+            {
+              "response_point_id": "TR-022",
+              "mapping_role": "supporting"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-004",
+            "BLOCK-006",
+            "BLOCK-007",
+            "BLOCK-008"
+          ],
+          "score_item_refs": [
+            "SCORE-TR-022-R016"
+          ],
+          "triggered_by": [
+            "评分项：方案完整性及系统架构设计评价",
+            "技术评分项",
+            "总体技术要求",
+            "具体需求引用",
+            "核心产品说明",
+            "采购标的技术要求"
+          ],
+          "adaptation_reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。",
+          "children": [],
+          "chapter_id": "WC-002-05",
+          "title": "统一运维架构",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-020",
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“统一运维架构”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 统一运维架构”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-002-06",
+          "title": "主要功能设计",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-AFA5523606B4"
+          ],
+          "company_outline_path": "详细技术方案 / 主要功能设计",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "主要功能设计",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“主要功能设计”完成章节目标",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 主要功能设计”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-002-07",
+          "title": "可靠性设计",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-F0EB8CC53E03"
+          ],
+          "company_outline_path": "详细技术方案 / 性能与可靠性设计",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“性能与可靠性设计”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "性能与可靠性设计",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“可靠性设计”完成章节目标",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 可靠性设计”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "actual_product_configuration",
+                "actual_technical_parameters"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "product_parameter_proof",
+                "product_test_report",
+                "product_certificate",
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "government_official",
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "定位可引用的国家或行业标准"
+              ]
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-002-08",
+          "title": "安全设计",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-7C3940DF75C4"
+          ],
+          "company_outline_path": "详细技术方案 / 安全设计",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "安全设计",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“安全设计”完成章节目标",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 安全设计”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "government_official",
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "定位可引用的国家或行业标准"
+              ]
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-002-09",
+          "title": "兼容与扩展设计",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-A52D677A1C50"
+          ],
+          "company_outline_path": "详细技术方案 / 兼容性与扩展性设计",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“兼容性与扩展性设计”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "兼容性与扩展性设计",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“兼容与扩展设计”完成章节目标",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 兼容与扩展设计”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "actual_product_configuration",
+                "actual_technical_parameters"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "product_parameter_proof",
+                "product_test_report",
+                "product_certificate",
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "government_official",
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "定位可引用的国家或行业标准"
+              ]
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-002-10",
+          "title": "超融合系统详细技术方案",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-012C6CA76EB0"
+          ],
+          "company_outline_path": "详细技术方案 / 分项产品、子系统或研究任务方案",
+          "tender_structure_refs": [
+            "CH-003/SEC-002/TR-018"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-018",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-006"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "采购标的技术要求"
+          ],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "超融合系统详细技术方案",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-018"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“超融合系统详细技术方案”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 超融合系统详细技术方案”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "origin",
+                "actual_product_configuration",
+                "actual_technical_parameters"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "product_parameter_proof",
+                "product_test_report",
+                "product_certificate",
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "解释通用技术原理，不用于猜测拟投产品配置"
+              ]
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-002-11",
+          "title": "超融合互联交换机技术方案",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-012C6CA76EB0"
+          ],
+          "company_outline_path": "详细技术方案 / 分项产品、子系统或研究任务方案",
+          "tender_structure_refs": [
+            "CH-003/SEC-002/TR-018"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-018",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-006"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "采购标的技术要求"
+          ],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "超融合互联交换机技术方案",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-018"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“超融合互联交换机技术方案”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 超融合互联交换机技术方案”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "origin",
+                "actual_product_configuration",
+                "actual_technical_parameters"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "product_parameter_proof",
+                "product_test_report",
+                "product_certificate",
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "解释通用技术原理，不用于猜测拟投产品配置"
+              ]
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-002-12",
+          "title": "超融合节点技术方案",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-012C6CA76EB0"
+          ],
+          "company_outline_path": "详细技术方案 / 分项产品、子系统或研究任务方案",
+          "tender_structure_refs": [
+            "CH-003/SEC-002/TR-018"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-018",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-006"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "采购标的技术要求"
+          ],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "超融合节点技术方案",
+          "module_ids": [
+            "MODULE-OVERALL-SOLUTION",
+            "MODULE-DETAILED-SOLUTION"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-018"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R016"
+            ],
+            "required_content_points": [
+              "围绕“超融合节点技术方案”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：方案完整性及系统架构设计评价",
+              "形成“方案完整性及系统架构设计 / 超融合节点技术方案”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "origin",
+                "actual_product_configuration",
+                "actual_technical_parameters"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "product_parameter_proof",
+                "product_test_report",
+                "product_certificate",
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "解释通用技术原理，不用于猜测拟投产品配置"
+              ]
+            },
+            "draftability": "cannot_finalize"
+          }
+        }
+      ],
+      "writing_requirements": {
+        "response_point_ids": [
+          "TR-011",
+          "TR-016",
+          "TR-020",
+          "TR-022",
+          "TR-018"
+        ],
+        "score_item_refs": [
+          "SCORE-TR-022-R016"
+        ],
+        "required_content_points": [
+          "统筹“方案完整性及系统架构设计”下属标题，保持各子节点内容边界",
+          "按子节点response_point_ids从技术响应大纲加载相关原文",
+          "统筹评分主题：方案完整性及系统架构设计评价"
+        ],
+        "manual_project_facts": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "actual_product_configuration",
+            "actual_technical_parameters",
+            "origin"
+          ]
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "manufacturer_official_document",
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate"
+          ]
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准",
+            "解释通用技术原理，不用于猜测拟投产品配置"
+          ]
+        },
+        "draftability": "cannot_finalize"
+      }
+    },
+    {
+      "chapter_id": "WC-003",
+      "title": "实施部署方案",
+      "mapping_type": "merged",
+      "source_type": "主观评分项/公司通用归并",
+      "company_outline_node_ids": [
+        "MODULE-IMPLEMENTATION",
+        "MODULE-PROJECT-MANAGEMENT",
+        "MODULE-QUALITY-ACCEPTANCE",
+        "MODULE-RISK-CONTROL"
+      ],
+      "module_ids": [
+        "MODULE-IMPLEMENTATION",
+        "MODULE-PROJECT-MANAGEMENT",
+        "MODULE-QUALITY-ACCEPTANCE",
+        "MODULE-RISK-CONTROL"
+      ],
+      "company_outline_path": "项目实施方案 + 项目管理与团队配置 + 质量保证、测试与验收方案 + 风险控制与应急保障",
+      "tender_structure_refs": [
+        "CH-001/SEC-002/TR-005",
+        "CH-001/SEC-002/TR-006",
+        "CH-001/SEC-002/TR-007",
+        "CH-001/SEC-002/TR-008",
+        "CH-001/SEC-002/TR-009",
+        "CH-001/SEC-003/TR-010",
+        "CH-004/TR-022"
+      ],
+      "response_point_mappings": [
+        {
+          "response_point_id": "TR-005",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-006",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-007",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-008",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-009",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-010",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-022",
+          "mapping_role": "supporting"
+        }
+      ],
+      "display_block_ids": [
+        "BLOCK-002",
+        "BLOCK-003",
+        "BLOCK-008"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "triggered_by": [
+        "评分项：实施部署评价",
+        "技术评分项",
+        "交货及安装要求",
+        "验收方法及标准"
+      ],
+      "adaptation_reason": "实施评分主题统领项目团队、质量验收及风险保障，支持模块下沉为实施子章节。",
+      "chapter_type": "mixed",
+      "children": [
+        {
+          "chapter_id": "WC-003-01",
+          "title": "实施总体规划",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-7CD0C79EC675"
+          ],
+          "company_outline_path": "项目实施方案 / 实施总体安排",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“实施总体安排”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "实施总体安排",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“实施总体规划”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 实施总体规划”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "delivery_commitment",
+                "installation_period",
+                "staffing_plan"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-003-02",
+          "title": "项目建设技术方案",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-59EB9F2E6C65"
+          ],
+          "company_outline_path": "项目实施方案 / 实施范围",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“实施范围”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "实施范围",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“项目建设技术方案”完成章节目标",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 项目建设技术方案”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "delivery_commitment",
+                "installation_period",
+                "staffing_plan"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-003-03",
+          "title": "项目设计实施周期",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-DE200471D808"
+          ],
+          "company_outline_path": "项目实施方案 / 进度计划与里程碑",
+          "tender_structure_refs": [
+            "CH-001/SEC-002/TR-005",
+            "CH-001/SEC-002/TR-006",
+            "CH-001/SEC-002/TR-007"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-005",
+              "mapping_role": "primary"
+            },
+            {
+              "response_point_id": "TR-006",
+              "mapping_role": "primary"
+            },
+            {
+              "response_point_id": "TR-007",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-002"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "交货及安装要求"
+          ],
+          "adaptation_reason": "将公司小节“进度计划与里程碑”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "进度计划与里程碑",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-005",
+              "TR-006",
+              "TR-007"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“项目设计实施周期”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 项目设计实施周期”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "delivery_commitment",
+                "installation_period"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-003-04",
+          "title": "项目组织架构",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-D2F95D1D82B3"
+          ],
+          "company_outline_path": "项目管理与团队配置 / 项目组织架构",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "项目组织架构",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“项目组织架构”完成章节目标",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 项目组织架构”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "project_manager",
+                "project_team",
+                "staffing_plan"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "person_resume",
+                "person_certificate"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-003-05",
+          "title": "项目负责人及主要人员",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-F9A0B9438886"
+          ],
+          "company_outline_path": "项目管理与团队配置 / 主要技术人员",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“主要技术人员”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "主要技术人员",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“项目负责人及主要人员”完成章节目标",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 项目负责人及主要人员”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "project_manager",
+                "project_team",
+                "staffing_plan"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "person_resume",
+                "person_certificate"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-003-06",
+          "title": "安装部署",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-67B5D2A92489"
+          ],
+          "company_outline_path": "项目实施方案 / 安装部署方案",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“安装部署方案”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "安装部署方案",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“安装部署”完成章节目标",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 安装部署”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "delivery_commitment",
+                "installation_period"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-003-07",
+          "title": "测试与试运行",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-3368F1F11F5A"
+          ],
+          "company_outline_path": "项目实施方案 / 系统测试与试运行",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“系统测试与试运行”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "系统测试与试运行",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“测试与试运行”完成章节目标",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 测试与试运行”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience",
+                "quality_management_material"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "government_official",
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "定位可引用的国家或行业标准"
+              ]
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-003-08",
+          "title": "质量控制",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-9B99C57C602A"
+          ],
+          "company_outline_path": "质量保证、测试与验收方案 / 质量控制流程",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "将公司小节“质量控制流程”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "质量控制流程",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“质量控制”完成章节目标",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 质量控制”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience",
+                "quality_management_material"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "government_official",
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "定位可引用的国家或行业标准"
+              ]
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-003-09",
+          "title": "项目验收",
+          "mapping_type": "renamed",
+          "source_type": "公司通用/评分项细化",
+          "company_outline_node_ids": [
+            "CON-1E3B7128B848"
+          ],
+          "company_outline_path": "质量保证、测试与验收方案 / 验收流程",
+          "tender_structure_refs": [
+            "CH-001/SEC-003/TR-010"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-010",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-003"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "验收方法及标准"
+          ],
+          "adaptation_reason": "将公司小节“验收流程”调整为项目评分主题下的目录标题。",
+          "children": [],
+          "original_company_title": "验收流程",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-010"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“项目验收”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 项目验收”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience",
+                "quality_management_material"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "government_official",
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "定位可引用的国家或行业标准"
+              ]
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-003-10",
+          "title": "交付成果",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-C23A41FA9818"
+          ],
+          "company_outline_path": "项目实施方案 / 交付成果",
+          "tender_structure_refs": [
+            "CH-001/SEC-002/TR-008",
+            "CH-001/SEC-002/TR-009"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-008",
+              "mapping_role": "primary"
+            },
+            {
+              "response_point_id": "TR-009",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-002"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "交货及安装要求"
+          ],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "original_company_title": "交付成果",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "chapter_type": "narrative",
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-008",
+              "TR-009"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“交付成果”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 交付成果”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "delivery_commitment",
+                "installation_period"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-003-11",
+          "title": "风险控制与应急保障",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "MODULE-RISK-CONTROL"
+          ],
+          "company_outline_path": "风险控制与应急保障",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲小节。",
+          "children": [],
+          "required_by_default": true,
+          "chapter_type": "narrative",
+          "original_company_title": "风险控制与应急保障",
+          "module_ids": [
+            "MODULE-IMPLEMENTATION",
+            "MODULE-PROJECT-MANAGEMENT",
+            "MODULE-QUALITY-ACCEPTANCE",
+            "MODULE-RISK-CONTROL"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R017"
+            ],
+            "required_content_points": [
+              "围绕“风险控制与应急保障”完成章节目标",
+              "满足评分主题：实施部署评价",
+              "形成“实施部署方案 / 风险控制与应急保障”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "implementation_experience"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        }
+      ],
+      "writing_requirements": {
+        "response_point_ids": [
+          "TR-022",
+          "TR-005",
+          "TR-006",
+          "TR-007",
+          "TR-010",
+          "TR-008",
+          "TR-009"
+        ],
+        "score_item_refs": [
+          "SCORE-TR-022-R017"
+        ],
+        "required_content_points": [
+          "统筹“实施部署方案”下属标题，保持各子节点内容边界",
+          "按子节点response_point_ids从技术响应大纲加载相关原文",
+          "统筹评分主题：实施部署评价"
+        ],
+        "manual_project_facts": {
+          "need": "required",
+          "fact_types": [
+            "delivery_commitment",
+            "installation_period",
+            "staffing_plan",
+            "project_manager",
+            "project_team"
+          ]
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "implementation_experience",
+            "person_resume",
+            "person_certificate",
+            "quality_management_material"
+          ]
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ]
+        },
+        "draftability": "cannot_finalize"
+      }
+    },
+    {
+      "chapter_id": "WC-004",
+      "title": "培训方案",
+      "mapping_type": "direct",
+      "source_type": "主观评分项/公司通用",
+      "company_outline_node_ids": [
+        "MODULE-TRAINING"
+      ],
+      "module_ids": [
+        "MODULE-TRAINING"
+      ],
+      "company_outline_path": "培训方案",
+      "tender_structure_refs": [
+        "CH-001/SEC-001/TR-004",
+        "CH-004/TR-022"
+      ],
+      "response_point_mappings": [
+        {
+          "response_point_id": "TR-004",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-022",
+          "mapping_role": "supporting"
+        }
+      ],
+      "display_block_ids": [
+        "BLOCK-001",
+        "BLOCK-008"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "triggered_by": [
+        "评分项：培训方案评价",
+        "技术评分项",
+        "服务要求中的现场培训"
+      ],
+      "adaptation_reason": "主观评分项要求独立培训方案。",
+      "chapter_type": "narrative",
+      "children": [
+        {
+          "chapter_id": "WC-004-01",
+          "title": "培训目标",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-DAE2C3D95551"
+          ],
+          "company_outline_path": "培训方案 / 培训目标",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训目标",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训目标”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训目标”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-02",
+          "title": "培训对象",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-6CECA4374C00"
+          ],
+          "company_outline_path": "培训方案 / 培训对象",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训对象",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训对象”完成章节目标",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训对象”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-03",
+          "title": "培训内容",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-F211E581B522"
+          ],
+          "company_outline_path": "培训方案 / 培训内容",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训内容",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训内容”完成章节目标",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训内容”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-04",
+          "title": "培训形式",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-FB23142E03D6"
+          ],
+          "company_outline_path": "培训方案 / 培训形式",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训形式",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训形式”完成章节目标",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训形式”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-05",
+          "title": "培训师资",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-A9F5A4ACE9D7"
+          ],
+          "company_outline_path": "培训方案 / 培训师资",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训师资",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训师资”完成章节目标",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训师资”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-06",
+          "title": "培训时间与地点",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-1543002C2203"
+          ],
+          "company_outline_path": "培训方案 / 培训时间与地点",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训时间与地点",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训时间与地点”完成章节目标",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训时间与地点”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-07",
+          "title": "培训计划",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-FF7DA5000626"
+          ],
+          "company_outline_path": "培训方案 / 培训计划",
+          "tender_structure_refs": [
+            "CH-001/SEC-001/TR-004"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-004",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-001"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "服务要求中的现场培训"
+          ],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训计划",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-004"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训计划”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训计划”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-08",
+          "title": "培训考核",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-D23B4CBA7591"
+          ],
+          "company_outline_path": "培训方案 / 培训考核",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训考核",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训考核”完成章节目标",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训考核”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-09",
+          "title": "培训资料",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-E27E41B6B156"
+          ],
+          "company_outline_path": "培训方案 / 培训资料",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训资料",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训资料”完成章节目标",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训资料”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-004-10",
+          "title": "培训效果保障",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-D65F1A732B71"
+          ],
+          "company_outline_path": "培训方案 / 培训效果保障",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "培训效果保障",
+          "module_ids": [
+            "MODULE-TRAINING"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R018"
+            ],
+            "required_content_points": [
+              "围绕“培训效果保障”完成章节目标",
+              "满足评分主题：培训方案评价",
+              "形成“培训方案 / 培训效果保障”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "none",
+              "fact_types": []
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "training_material"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        }
+      ],
+      "writing_requirements": {
+        "response_point_ids": [
+          "TR-022",
+          "TR-004"
+        ],
+        "score_item_refs": [
+          "SCORE-TR-022-R018"
+        ],
+        "required_content_points": [
+          "统筹“培训方案”下属标题，保持各子节点内容边界",
+          "按子节点response_point_ids从技术响应大纲加载相关原文",
+          "统筹评分主题：培训方案评价"
+        ],
+        "manual_project_facts": {
+          "need": "none",
+          "fact_types": []
+        },
+        "local_kb": {
+          "need": "optional",
+          "evidence_types": [
+            "training_material"
+          ]
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": []
+        },
+        "draftability": "can_draft_with_placeholders"
+      }
+    },
+    {
+      "chapter_id": "WC-005",
+      "title": "售后服务与运行保障方案",
+      "mapping_type": "direct",
+      "source_type": "主观评分项/公司通用",
+      "company_outline_node_ids": [
+        "MODULE-SERVICE-WARRANTY"
+      ],
+      "module_ids": [
+        "MODULE-SERVICE-WARRANTY"
+      ],
+      "company_outline_path": "售后服务与运行保障方案",
+      "tender_structure_refs": [
+        "CH-001/SEC-001/TR-001",
+        "CH-001/SEC-001/TR-002",
+        "CH-001/SEC-001/TR-003"
+      ],
+      "response_point_mappings": [
+        {
+          "response_point_id": "TR-001",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-002",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-003",
+          "mapping_role": "primary"
+        }
+      ],
+      "display_block_ids": [
+        "BLOCK-001"
+      ],
+      "score_item_refs": [],
+      "triggered_by": [
+        "服务机构要求",
+        "保修响应要求",
+        "保修维修要求"
+      ],
+      "adaptation_reason": "服务、保修和响应要求构成独立履约主题。",
+      "chapter_type": "narrative",
+      "children": [
+        {
+          "chapter_id": "WC-005-01",
+          "title": "服务目标",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-FCBA6AB6E081"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 服务目标",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "服务目标",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“服务目标”完成章节目标",
+              "形成“售后服务与运行保障方案 / 服务目标”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-005-02",
+          "title": "服务范围",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-AD4295E10539"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 服务范围",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "服务范围",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“服务范围”完成章节目标",
+              "形成“售后服务与运行保障方案 / 服务范围”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-005-03",
+          "title": "服务组织体系",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-C4B883C24CBF"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 服务组织体系",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "服务组织体系",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“服务组织体系”完成章节目标",
+              "形成“售后服务与运行保障方案 / 服务组织体系”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-005-04",
+          "title": "服务机构与人员",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-FB23DB8FBA69"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 服务机构与人员",
+          "tender_structure_refs": [
+            "CH-001/SEC-001/TR-003"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-003",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-001"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "服务机构要求"
+          ],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "服务机构与人员",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-003"
+            ],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“服务机构与人员”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "形成“售后服务与运行保障方案 / 服务机构与人员”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-005-05",
+          "title": "服务响应机制",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-D7DFF0DE3EC6"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 服务响应机制",
+          "tender_structure_refs": [
+            "CH-001/SEC-001/TR-002"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-002",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-001"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "保修响应要求"
+          ],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "服务响应机制",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-002"
+            ],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“服务响应机制”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "形成“售后服务与运行保障方案 / 服务响应机制”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-005-06",
+          "title": "故障处理流程",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-C9F66AD87D75"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 故障处理流程",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "故障处理流程",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“故障处理流程”完成章节目标",
+              "形成“售后服务与运行保障方案 / 故障处理流程”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-005-07",
+          "title": "保修与维修方案",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-EB0CD20C672D"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 保修与维修方案",
+          "tender_structure_refs": [
+            "CH-001/SEC-001/TR-001"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-001",
+              "mapping_role": "primary"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-001"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "保修维修要求"
+          ],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "保修与维修方案",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-001"
+            ],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“保修与维修方案”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "形成“售后服务与运行保障方案 / 保修与维修方案”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-005-08",
+          "title": "备品备件保障",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-119AB89BA720"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 备品备件保障",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "备品备件保障",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“备品备件保障”完成章节目标",
+              "形成“售后服务与运行保障方案 / 备品备件保障”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-005-09",
+          "title": "巡检与健康检查",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-0E821BE1618D"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 巡检与健康检查",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "巡检与健康检查",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“巡检与健康检查”完成章节目标",
+              "形成“售后服务与运行保障方案 / 巡检与健康检查”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-005-10",
+          "title": "服务质量监督",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-F43B069FEACA"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 服务质量监督",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "服务质量监督",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“服务质量监督”完成章节目标",
+              "形成“售后服务与运行保障方案 / 服务质量监督”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "optional",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "optional",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "optional",
+              "allowed_source_types": [
+                "government_official",
+                "standards_authority_official"
+              ],
+              "purposes": [
+                "定位可引用的国家或行业标准"
+              ]
+            },
+            "draftability": "can_draft_with_placeholders"
+          }
+        },
+        {
+          "chapter_id": "WC-005-11",
+          "title": "服务承诺",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-7CB672877DF2"
+          ],
+          "company_outline_path": "售后服务与运行保障方案 / 服务承诺",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "服务承诺",
+          "module_ids": [
+            "MODULE-SERVICE-WARRANTY"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [],
+            "required_content_points": [
+              "围绕“服务承诺”完成章节目标",
+              "形成“售后服务与运行保障方案 / 服务承诺”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "warranty_period",
+                "service_response_time",
+                "manufacturer_service_network"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "service_network",
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        }
+      ],
+      "writing_requirements": {
+        "response_point_ids": [
+          "TR-003",
+          "TR-002",
+          "TR-001"
+        ],
+        "score_item_refs": [],
+        "required_content_points": [
+          "统筹“售后服务与运行保障方案”下属标题，保持各子节点内容边界",
+          "按子节点response_point_ids从技术响应大纲加载相关原文"
+        ],
+        "manual_project_facts": {
+          "need": "required",
+          "fact_types": [
+            "warranty_period",
+            "service_response_time",
+            "manufacturer_service_network"
+          ]
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "service_network",
+            "service_commitment"
+          ]
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位可引用的国家或行业标准"
+          ]
+        },
+        "draftability": "cannot_finalize"
+      }
+    },
+    {
+      "chapter_id": "WC-006",
+      "title": "绿色供应链管理方案",
+      "mapping_type": "direct",
+      "source_type": "主观评分项/公司通用",
+      "company_outline_node_ids": [
+        "MODULE-SPECIAL-TOPICS"
+      ],
+      "module_ids": [
+        "MODULE-SPECIAL-TOPICS"
+      ],
+      "company_outline_path": "专项技术响应",
+      "tender_structure_refs": [
+        "CH-002/TR-015",
+        "CH-003/SEC-002/TR-021",
+        "CH-004/TR-022"
+      ],
+      "response_point_mappings": [
+        {
+          "response_point_id": "TR-015",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-021",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-022",
+          "mapping_role": "supporting"
+        }
+      ],
+      "display_block_ids": [
+        "BLOCK-004",
+        "BLOCK-007",
+        "BLOCK-008"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R004",
+        "SCORE-TR-022-R005",
+        "SCORE-TR-022-R019"
+      ],
+      "triggered_by": [
+        "评分项：环境标志产品",
+        "评分项：节能产品",
+        "评分项：绿色供应链管理评价",
+        "专项技术要求",
+        "节能环保要求",
+        "技术评分项"
+      ],
+      "adaptation_reason": "技术要求和主观评分项均明确绿色供应链主题。",
+      "chapter_type": "narrative",
+      "children": [],
+      "writing_requirements": {
+        "response_point_ids": [
+          "TR-015",
+          "TR-021",
+          "TR-022"
+        ],
+        "score_item_refs": [
+          "SCORE-TR-022-R004",
+          "SCORE-TR-022-R005",
+          "SCORE-TR-022-R019"
+        ],
+        "required_content_points": [
+          "围绕“绿色供应链管理方案”完成章节目标",
+          "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+          "满足评分主题：环境标志产品",
+          "满足评分主题：节能产品",
+          "满足评分主题：绿色供应链管理评价",
+          "形成“绿色供应链管理方案”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+        ],
+        "manual_project_facts": {
+          "need": "none",
+          "fact_types": []
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "green_supply_chain_evidence"
+          ]
+        },
+        "web": {
+          "need": "optional",
+          "allowed_source_types": [
+            "government_official",
+            "standards_authority_official"
+          ],
+          "purposes": [
+            "定位政府政策及国家行业标准"
+          ]
+        },
+        "draftability": "cannot_finalize"
+      }
+    },
+    {
+      "chapter_id": "WC-007",
+      "title": "技术参数及点对点应答",
+      "mapping_type": "form_only",
+      "source_type": "强制独立表格",
+      "company_outline_node_ids": [
+        "MODULE-PARAMETER-RESPONSE"
+      ],
+      "module_ids": [
+        "MODULE-PARAMETER-RESPONSE"
+      ],
+      "company_outline_path": "技术参数及点对点应答",
+      "tender_structure_refs": [
+        "CH-003/SEC-002/TR-018",
+        "CH-003/SEC-002/TR-019",
+        "CH-004/TR-022",
+        "CH-005/SEC-002/TR-025",
+        "CH-005/SEC-002/TR-026",
+        "CH-005/TR-023",
+        "CH-005/TR-024",
+        "CH-005/TR-027",
+        "CH-005/TR-028",
+        "CH-005/TR-029",
+        "CH-005/TR-030",
+        "CH-005/TR-031"
+      ],
+      "response_point_mappings": [
+        {
+          "response_point_id": "TR-018",
+          "mapping_role": "table_response"
+        },
+        {
+          "response_point_id": "TR-019",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-022",
+          "mapping_role": "supporting"
+        },
+        {
+          "response_point_id": "TR-023",
+          "mapping_role": "supporting"
+        },
+        {
+          "response_point_id": "TR-024",
+          "mapping_role": "supporting"
+        },
+        {
+          "response_point_id": "TR-025",
+          "mapping_role": "supporting"
+        },
+        {
+          "response_point_id": "TR-025",
+          "mapping_role": "table_response"
+        },
+        {
+          "response_point_id": "TR-026",
+          "mapping_role": "table_response"
+        },
+        {
+          "response_point_id": "TR-027",
+          "mapping_role": "supporting"
+        },
+        {
+          "response_point_id": "TR-027",
+          "mapping_role": "table_response"
+        },
+        {
+          "response_point_id": "TR-028",
+          "mapping_role": "supporting"
+        },
+        {
+          "response_point_id": "TR-028",
+          "mapping_role": "table_response"
+        },
+        {
+          "response_point_id": "TR-029",
+          "mapping_role": "table_response"
+        },
+        {
+          "response_point_id": "TR-030",
+          "mapping_role": "supporting"
+        },
+        {
+          "response_point_id": "TR-030",
+          "mapping_role": "table_response"
+        },
+        {
+          "response_point_id": "TR-031",
+          "mapping_role": "table_response"
+        }
+      ],
+      "display_block_ids": [
+        "BLOCK-006",
+        "BLOCK-007",
+        "BLOCK-008",
+        "BLOCK-009",
+        "BLOCK-010",
+        "BLOCK-011",
+        "BLOCK-012"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R012"
+      ],
+      "triggered_by": [
+        "评分项：非“★”技术要求响应性评价",
+        "技术评分项",
+        "采购参数须逐条应答",
+        "招标技术应答格式要求",
+        "实质性条款偏离规则",
+        "偏离填写要求"
+      ],
+      "adaptation_reason": "招标文件明确要求独立填写技术要求点对点应答表。",
+      "chapter_type": "table",
+      "children": [
+        {
+          "chapter_id": "WC-007-01",
+          "title": "技术要求点对点应答表",
+          "mapping_type": "form_only",
+          "source_type": "强制表格",
+          "company_outline_node_ids": [
+            "CON-EBB0ADCEA943"
+          ],
+          "company_outline_path": "技术参数及点对点应答 / 技术参数点对点应答表",
+          "tender_structure_refs": [
+            "CH-003/SEC-002/TR-018",
+            "CH-005/SEC-002/TR-025",
+            "CH-005/SEC-002/TR-026",
+            "CH-005/TR-023",
+            "CH-005/TR-024",
+            "CH-005/TR-027",
+            "CH-005/TR-028",
+            "CH-005/TR-029",
+            "CH-005/TR-030",
+            "CH-005/TR-031"
+          ],
+          "response_point_mappings": [
+            {
+              "response_point_id": "TR-018",
+              "mapping_role": "table_response"
+            },
+            {
+              "response_point_id": "TR-023",
+              "mapping_role": "supporting"
+            },
+            {
+              "response_point_id": "TR-024",
+              "mapping_role": "supporting"
+            },
+            {
+              "response_point_id": "TR-025",
+              "mapping_role": "table_response"
+            },
+            {
+              "response_point_id": "TR-026",
+              "mapping_role": "table_response"
+            },
+            {
+              "response_point_id": "TR-027",
+              "mapping_role": "table_response"
+            },
+            {
+              "response_point_id": "TR-028",
+              "mapping_role": "table_response"
+            },
+            {
+              "response_point_id": "TR-029",
+              "mapping_role": "table_response"
+            },
+            {
+              "response_point_id": "TR-030",
+              "mapping_role": "table_response"
+            },
+            {
+              "response_point_id": "TR-031",
+              "mapping_role": "table_response"
+            }
+          ],
+          "display_block_ids": [
+            "BLOCK-006",
+            "BLOCK-009",
+            "BLOCK-010",
+            "BLOCK-011",
+            "BLOCK-012"
+          ],
+          "score_item_refs": [],
+          "triggered_by": [
+            "采购参数须逐条应答",
+            "招标技术应答格式要求"
+          ],
+          "adaptation_reason": "招标文件提供并要求完整填写同名表格，按招标名称插入。",
+          "children": [],
+          "original_company_title": "技术参数点对点应答表",
+          "module_ids": [
+            "MODULE-PARAMETER-RESPONSE"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-018",
+              "TR-019",
+              "TR-022",
+              "TR-023",
+              "TR-024",
+              "TR-025",
+              "TR-026",
+              "TR-027",
+              "TR-028",
+              "TR-029",
+              "TR-030",
+              "TR-031"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R012"
+            ],
+            "required_content_points": [
+              "围绕“技术要求点对点应答表”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：非“★”技术要求响应性评价",
+              "形成“技术参数及点对点应答 / 技术要求点对点应答表”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "origin",
+                "actual_product_configuration",
+                "actual_technical_parameters",
+                "technical_deviation_status"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "product_parameter_proof",
+                "product_test_report",
+                "product_certificate",
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-007-02",
+          "title": "技术支撑材料索引",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-3AD54A3523DC"
+          ],
+          "company_outline_path": "技术参数及点对点应答 / 技术支撑材料索引",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "技术支撑材料索引",
+          "module_ids": [
+            "MODULE-PARAMETER-RESPONSE"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R012"
+            ],
+            "required_content_points": [
+              "围绕“技术支撑材料索引”完成章节目标",
+              "满足评分主题：非“★”技术要求响应性评价",
+              "形成“技术参数及点对点应答 / 技术支撑材料索引”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "origin",
+                "actual_product_configuration",
+                "actual_technical_parameters",
+                "technical_deviation_status"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "product_parameter_proof",
+                "product_test_report",
+                "product_certificate",
+                "manufacturer_official_document"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        }
+      ],
+      "writing_requirements": {
+        "response_point_ids": [
+          "TR-018",
+          "TR-019",
+          "TR-022",
+          "TR-023",
+          "TR-024",
+          "TR-025",
+          "TR-026",
+          "TR-027",
+          "TR-028",
+          "TR-029",
+          "TR-030",
+          "TR-031"
+        ],
+        "score_item_refs": [
+          "SCORE-TR-022-R012"
+        ],
+        "required_content_points": [
+          "统筹“技术参数及点对点应答”下属标题，保持各子节点内容边界",
+          "按子节点response_point_ids从技术响应大纲加载相关原文",
+          "统筹评分主题：非“★”技术要求响应性评价"
+        ],
+        "manual_project_facts": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters",
+            "technical_deviation_status"
+          ]
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "product_parameter_proof",
+            "product_test_report",
+            "product_certificate",
+            "manufacturer_official_document"
+          ]
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": []
+        },
+        "draftability": "cannot_finalize"
+      }
+    },
+    {
+      "chapter_id": "WC-008",
+      "title": "技术证明材料及附件索引",
+      "mapping_type": "direct",
+      "source_type": "公司必要附件",
+      "company_outline_node_ids": [
+        "MODULE-EVIDENCE-APPENDIX"
+      ],
+      "module_ids": [
+        "MODULE-EVIDENCE-APPENDIX"
+      ],
+      "company_outline_path": "技术证明材料及附件索引",
+      "tender_structure_refs": [
+        "CH-002/TR-012",
+        "CH-002/TR-013",
+        "CH-002/TR-014",
+        "CH-004/TR-022"
+      ],
+      "response_point_mappings": [
+        {
+          "response_point_id": "TR-012",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-013",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-014",
+          "mapping_role": "primary"
+        },
+        {
+          "response_point_id": "TR-022",
+          "mapping_role": "supporting"
+        }
+      ],
+      "display_block_ids": [
+        "BLOCK-004",
+        "BLOCK-008"
+      ],
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "triggered_by": [
+        "评分项：产品制造商能力评价",
+        "评分项：投标人实力证明",
+        "评分项：投标人业绩评价",
+        "技术证明材料要求",
+        "技术评分项"
+      ],
+      "adaptation_reason": "技术资料、产品证明、资质和评分支撑材料集中作为附件索引。",
+      "chapter_type": "appendix",
+      "children": [
+        {
+          "chapter_id": "WC-008-01",
+          "title": "产品技术资料索引",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-0C4DF58FD910"
+          ],
+          "company_outline_path": "技术证明材料及附件索引 / 产品技术资料索引",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "产品技术资料索引",
+          "module_ids": [
+            "MODULE-EVIDENCE-APPENDIX"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [
+              "TR-012",
+              "TR-013",
+              "TR-014",
+              "TR-022"
+            ],
+            "score_item_refs": [
+              "SCORE-TR-022-R006",
+              "SCORE-TR-022-R011",
+              "SCORE-TR-022-R013"
+            ],
+            "required_content_points": [
+              "围绕“产品技术资料索引”完成章节目标",
+              "按response_point_ids逐项覆盖招标要求，原文从技术响应大纲按ID解析",
+              "满足评分主题：产品制造商能力评价",
+              "满足评分主题：投标人实力证明",
+              "满足评分主题：投标人业绩评价",
+              "形成“技术证明材料及附件索引 / 产品技术资料索引”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "origin",
+                "actual_product_configuration",
+                "actual_technical_parameters"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "manufacturer_official_document",
+                "product_parameter_proof"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-008-02",
+          "title": "产品检测及认证材料索引",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-0B8CDED4FC93"
+          ],
+          "company_outline_path": "技术证明材料及附件索引 / 产品检测及认证材料索引",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "产品检测及认证材料索引",
+          "module_ids": [
+            "MODULE-EVIDENCE-APPENDIX"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R006",
+              "SCORE-TR-022-R011",
+              "SCORE-TR-022-R013"
+            ],
+            "required_content_points": [
+              "围绕“产品检测及认证材料索引”完成章节目标",
+              "满足评分主题：产品制造商能力评价",
+              "满足评分主题：投标人实力证明",
+              "满足评分主题：投标人业绩评价",
+              "形成“技术证明材料及附件索引 / 产品检测及认证材料索引”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "offered_product_brand",
+                "offered_product_model",
+                "manufacturer",
+                "origin",
+                "actual_product_configuration",
+                "actual_technical_parameters"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "product_certificate",
+                "product_test_report"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-008-03",
+          "title": "制造商资质材料索引",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-A003E8B43DAC"
+          ],
+          "company_outline_path": "技术证明材料及附件索引 / 制造商资质材料索引",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "制造商资质材料索引",
+          "module_ids": [
+            "MODULE-EVIDENCE-APPENDIX"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R006",
+              "SCORE-TR-022-R011",
+              "SCORE-TR-022-R013"
+            ],
+            "required_content_points": [
+              "围绕“制造商资质材料索引”完成章节目标",
+              "满足评分主题：产品制造商能力评价",
+              "满足评分主题：投标人实力证明",
+              "满足评分主题：投标人业绩评价",
+              "形成“技术证明材料及附件索引 / 制造商资质材料索引”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "manufacturer",
+                "selected_manufacturer_qualifications"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "manufacturer_qualification"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-008-04",
+          "title": "投标人资质材料索引",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-4D2D4A49A57E"
+          ],
+          "company_outline_path": "技术证明材料及附件索引 / 投标人资质材料索引",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "投标人资质材料索引",
+          "module_ids": [
+            "MODULE-EVIDENCE-APPENDIX"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R006",
+              "SCORE-TR-022-R011",
+              "SCORE-TR-022-R013"
+            ],
+            "required_content_points": [
+              "围绕“投标人资质材料索引”完成章节目标",
+              "满足评分主题：产品制造商能力评价",
+              "满足评分主题：投标人实力证明",
+              "满足评分主题：投标人业绩评价",
+              "形成“技术证明材料及附件索引 / 投标人资质材料索引”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "bidder_name",
+                "selected_company_qualifications"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "company_qualification"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-008-05",
+          "title": "项目团队材料索引",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-F2BDE3128729"
+          ],
+          "company_outline_path": "技术证明材料及附件索引 / 项目团队材料索引",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "项目团队材料索引",
+          "module_ids": [
+            "MODULE-EVIDENCE-APPENDIX"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R006",
+              "SCORE-TR-022-R011",
+              "SCORE-TR-022-R013"
+            ],
+            "required_content_points": [
+              "围绕“项目团队材料索引”完成章节目标",
+              "满足评分主题：产品制造商能力评价",
+              "满足评分主题：投标人实力证明",
+              "满足评分主题：投标人业绩评价",
+              "形成“技术证明材料及附件索引 / 项目团队材料索引”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "project_manager",
+                "project_team"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "person_resume",
+                "person_certificate"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-008-06",
+          "title": "类似项目业绩索引",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-415C9F4D709E"
+          ],
+          "company_outline_path": "技术证明材料及附件索引 / 类似项目业绩索引",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "类似项目业绩索引",
+          "module_ids": [
+            "MODULE-EVIDENCE-APPENDIX"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R006",
+              "SCORE-TR-022-R011",
+              "SCORE-TR-022-R013"
+            ],
+            "required_content_points": [
+              "围绕“类似项目业绩索引”完成章节目标",
+              "满足评分主题：产品制造商能力评价",
+              "满足评分主题：投标人实力证明",
+              "满足评分主题：投标人业绩评价",
+              "形成“技术证明材料及附件索引 / 类似项目业绩索引”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "bidder_name",
+                "selected_performance"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "company_performance"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        },
+        {
+          "chapter_id": "WC-008-07",
+          "title": "服务及承诺材料索引",
+          "mapping_type": "direct",
+          "source_type": "公司通用",
+          "company_outline_node_ids": [
+            "CON-1ED5514A4B6E"
+          ],
+          "company_outline_path": "技术证明材料及附件索引 / 服务及承诺材料索引",
+          "tender_structure_refs": [],
+          "response_point_mappings": [],
+          "display_block_ids": [],
+          "score_item_refs": [],
+          "triggered_by": [],
+          "adaptation_reason": "继承公司通用大纲默认小节。",
+          "children": [],
+          "original_company_title": "服务及承诺材料索引",
+          "module_ids": [
+            "MODULE-EVIDENCE-APPENDIX"
+          ],
+          "writing_requirements": {
+            "response_point_ids": [],
+            "score_item_refs": [
+              "SCORE-TR-022-R006",
+              "SCORE-TR-022-R011",
+              "SCORE-TR-022-R013"
+            ],
+            "required_content_points": [
+              "围绕“服务及承诺材料索引”完成章节目标",
+              "满足评分主题：产品制造商能力评价",
+              "满足评分主题：投标人实力证明",
+              "满足评分主题：投标人业绩评价",
+              "形成“技术证明材料及附件索引 / 服务及承诺材料索引”的可审查技术响应内容，覆盖关联要求且不虚构项目事实。"
+            ],
+            "manual_project_facts": {
+              "need": "required",
+              "fact_types": [
+                "bidder_name",
+                "warranty_period",
+                "service_response_time"
+              ]
+            },
+            "local_kb": {
+              "need": "required",
+              "evidence_types": [
+                "service_commitment"
+              ]
+            },
+            "web": {
+              "need": "forbidden",
+              "allowed_source_types": [],
+              "purposes": []
+            },
+            "draftability": "cannot_finalize"
+          }
+        }
+      ],
+      "writing_requirements": {
+        "response_point_ids": [
+          "TR-012",
+          "TR-013",
+          "TR-014",
+          "TR-022"
+        ],
+        "score_item_refs": [
+          "SCORE-TR-022-R006",
+          "SCORE-TR-022-R011",
+          "SCORE-TR-022-R013"
+        ],
+        "required_content_points": [
+          "统筹“技术证明材料及附件索引”下属标题，保持各子节点内容边界",
+          "按子节点response_point_ids从技术响应大纲加载相关原文",
+          "统筹评分主题：产品制造商能力评价",
+          "统筹评分主题：投标人实力证明",
+          "统筹评分主题：投标人业绩评价"
+        ],
+        "manual_project_facts": {
+          "need": "required",
+          "fact_types": [
+            "offered_product_brand",
+            "offered_product_model",
+            "manufacturer",
+            "origin",
+            "actual_product_configuration",
+            "actual_technical_parameters",
+            "selected_manufacturer_qualifications",
+            "bidder_name",
+            "selected_company_qualifications",
+            "project_manager",
+            "project_team",
+            "selected_performance",
+            "warranty_period",
+            "service_response_time"
+          ]
+        },
+        "local_kb": {
+          "need": "required",
+          "evidence_types": [
+            "manufacturer_official_document",
+            "product_parameter_proof",
+            "product_certificate",
+            "product_test_report",
+            "manufacturer_qualification",
+            "company_qualification",
+            "person_resume",
+            "person_certificate",
+            "company_performance",
+            "service_commitment"
+          ]
+        },
+        "web": {
+          "need": "forbidden",
+          "allowed_source_types": [],
+          "purposes": []
+        },
+        "draftability": "cannot_finalize"
+      }
+    }
+  ],
+  "coverage": {
+    "all_response_point_ids": [
+      "TR-001",
+      "TR-002",
+      "TR-003",
+      "TR-004",
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-011",
+      "TR-012",
+      "TR-013",
+      "TR-014",
+      "TR-015",
+      "TR-016",
+      "TR-017",
+      "TR-018",
+      "TR-019",
+      "TR-020",
+      "TR-021",
+      "TR-022",
+      "TR-023",
+      "TR-024",
+      "TR-025",
+      "TR-026",
+      "TR-027",
+      "TR-028",
+      "TR-029",
+      "TR-030",
+      "TR-031"
+    ],
+    "mapped_response_point_ids": [
+      "TR-001",
+      "TR-002",
+      "TR-003",
+      "TR-004",
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-011",
+      "TR-012",
+      "TR-013",
+      "TR-014",
+      "TR-015",
+      "TR-016",
+      "TR-017",
+      "TR-018",
+      "TR-019",
+      "TR-020",
+      "TR-021",
+      "TR-022",
+      "TR-023",
+      "TR-024",
+      "TR-025",
+      "TR-026",
+      "TR-027",
+      "TR-028",
+      "TR-029",
+      "TR-030",
+      "TR-031"
+    ],
+    "unmapped_response_point_ids": [],
+    "mandatory_response_point_ids": [
+      "TR-018",
+      "TR-019",
+      "TR-022"
+    ],
+    "mandatory_unmapped_ids": [],
+    "unmapped_reasons": [],
+    "response_point_coverage_rate": 1.0,
+    "mandatory_coverage_rate": 1.0
+  },
+  "content_generation": {
+    "body_generated": false,
+    "facts_populated": false,
+    "external_research_used": false,
+    "enterprise_knowledge_used": false
+  },
+  "agent_input_contract": {
+    "schema_version": "technical_writing_agent_input_contract_v0",
+    "formal_planning_inputs": [
+      "outputs/<output_key>/outline/technical_response_outline.json",
+      "outputs/<output_key>/writing/technical_writing_outline.json"
+    ],
+    "input_roles": {
+      "outputs/<output_key>/outline/technical_response_outline.json": "tender_requirement_fact_source",
+      "outputs/<output_key>/writing/technical_writing_outline.json": "final_article_structure_and_writing_plan",
+      "confirmed_project_facts_path": "optional_confirmed_project_facts"
+    },
+    "target_selectors": [
+      "target_chapter_id",
+      "target_section_id"
+    ],
+    "internal_analysis_artifacts": [
+      "section_writing_tasks.json",
+      "task_information_requirements.json",
+      "draft_units.json",
+      "task_readiness_matrix.json"
+    ],
+    "internal_artifacts_required_from_user": false,
+    "task_id_is_external_input": false,
+    "draft_unit_id_is_external_input": false
+  },
+  "writing_requirement_merge": {
+    "schema_version": "writing_requirements_merge_v0",
+    "matched_atomic_task_count": 63,
+    "matched_section_ids": [
+      "WC-001-01",
+      "WC-001-02",
+      "WC-001-03",
+      "WC-001-04",
+      "WC-001-05",
+      "WC-001-06",
+      "WC-001-07",
+      "WC-001-08",
+      "WC-001-09",
+      "WC-002-01",
+      "WC-002-02",
+      "WC-002-03",
+      "WC-002-04",
+      "WC-002-05",
+      "WC-002-06",
+      "WC-002-07",
+      "WC-002-08",
+      "WC-002-09",
+      "WC-002-10",
+      "WC-002-11",
+      "WC-002-12",
+      "WC-003-01",
+      "WC-003-02",
+      "WC-003-03",
+      "WC-003-04",
+      "WC-003-05",
+      "WC-003-06",
+      "WC-003-07",
+      "WC-003-08",
+      "WC-003-09",
+      "WC-003-10",
+      "WC-003-11",
+      "WC-004-01",
+      "WC-004-02",
+      "WC-004-03",
+      "WC-004-04",
+      "WC-004-05",
+      "WC-004-06",
+      "WC-004-07",
+      "WC-004-08",
+      "WC-004-09",
+      "WC-004-10",
+      "WC-005-01",
+      "WC-005-02",
+      "WC-005-03",
+      "WC-005-04",
+      "WC-005-05",
+      "WC-005-06",
+      "WC-005-07",
+      "WC-005-08",
+      "WC-005-09",
+      "WC-005-10",
+      "WC-005-11",
+      "WC-006",
+      "WC-007-01",
+      "WC-007-02",
+      "WC-008-01",
+      "WC-008-02",
+      "WC-008-03",
+      "WC-008-04",
+      "WC-008-05",
+      "WC-008-06",
+      "WC-008-07"
+    ],
+    "tender_text_embedded": false,
+    "response_text_resolution": "resolve response_point_ids from technical_response_outline.json on demand"
+  }
+}

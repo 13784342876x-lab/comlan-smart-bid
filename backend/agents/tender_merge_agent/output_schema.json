@@ -1,0 +1,23 @@
+{
+  "project_name": "string",
+  "lot_name": "string",
+  "tender_file_id": "string",
+  "score_file_id": "string",
+  "qualification_requirements": [],
+  "disqualification_rules": [],
+  "score_items": [],
+  "document_structure": [],
+  "generation_tasks": [
+    {
+      "task_id": "string",
+      "target_section": "string",
+      "task_type": "business|technical|price|qualification",
+      "related_score_item_ids": ["string"],
+      "related_requirements": ["string"],
+      "evidence_needed": ["string"],
+      "kb_mapping_hint": ["string"],
+      "generation_instruction": "string",
+      "status": "pending"
+    }
+  ]
+}

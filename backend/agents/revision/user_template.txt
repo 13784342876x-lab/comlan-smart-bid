@@ -1,0 +1,1 @@
+原文：{original_text}\n风险：{risk}\n用户要求：{instruction}

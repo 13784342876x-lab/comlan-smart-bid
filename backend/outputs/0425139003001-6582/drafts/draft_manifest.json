@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-15T03:00:50.593751+00:00",
+  "lot_name": "0425139003001-6582",
+  "formal_source": "chapter_drafts.json",
+  "draft_mode": "deterministic_preview",
+  "chapter_files": [
+    {
+      "chapter_id": "task_015_technical_01_应答文件技术部分总体评价",
+      "chapter_title": "应答文件技术部分总体评价",
+      "markdown_file": "chapter_01_technical_overview.md",
+      "generation_status": "generated_with_placeholders",
+      "rendered_from": "chapter_drafts.json"
+    },
+    {
+      "chapter_id": "task_016_technical_02_项目负责人情况",
+      "chapter_title": "项目负责人情况",
+      "markdown_file": "chapter_02_project_manager.md",
+      "generation_status": "partial",
+      "rendered_from": "chapter_drafts.json"
+    },
+    {
+      "chapter_id": "task_017_technical_03_项目团队人员结构",
+      "chapter_title": "项目组织与团队配置",
+      "markdown_file": "chapter_03_project_team.md",
+      "generation_status": "partial",
+      "rendered_from": "chapter_drafts.json"
+    },
+    {
+      "chapter_id": "task_018_technical_04_业绩情况",
+      "chapter_title": "业绩与项目经验",
+      "markdown_file": "chapter_04_project_performance.md",
+      "generation_status": "partial",
+      "rendered_from": "chapter_drafts.json"
+    },
+    {
+      "chapter_id": "task_019_technical_05_服务方案",
+      "chapter_title": "总体服务方案",
+      "markdown_file": "chapter_05_service_solution.md",
+      "generation_status": "generated_with_placeholders",
+      "rendered_from": "chapter_drafts.json"
+    },
+    {
+      "chapter_id": "task_020_technical_06_工作进度及保证措施",
+      "chapter_title": "实施计划与进度保障",
+      "markdown_file": "chapter_06_schedule_and_assurance.md",
+      "generation_status": "generated_with_placeholders",
+      "rendered_from": "chapter_drafts.json"
+    },
+    {
+      "chapter_id": "task_021_technical_07_工作基础",
+      "chapter_title": "工作基础与既有能力",
+      "markdown_file": "chapter_07_work_foundation.md",
+      "generation_status": "partial",
+      "rendered_from": "chapter_drafts.json"
+    },
+    {
+      "chapter_id": "task_022_technical_08_专利数量",
+      "chapter_title": "专利 / 知识产权 / 创新成果",
+      "markdown_file": "chapter_08_patents_and_innovation.md",
+      "generation_status": "partial",
+      "rendered_from": "chapter_drafts.json"
+    },
+    {
+      "chapter_id": "task_023_technical_09_绩效评价",
+      "chapter_title": "绩效评价材料",
+      "markdown_file": "chapter_09_performance_evaluation.md",
+      "generation_status": "partial",
+      "rendered_from": "chapter_drafts.json"
+    }
+  ],
+  "combined_markdown_file": "technical_response_draft.md",
+  "markdown_is_data_source": false,
+  "formal_final": false
+}

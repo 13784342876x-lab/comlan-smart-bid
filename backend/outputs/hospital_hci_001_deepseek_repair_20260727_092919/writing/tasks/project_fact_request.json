@@ -1,0 +1,388 @@
+{
+  "schema_version": "project_fact_request_v0",
+  "source_policy": "confirmed_project_fact_only",
+  "reverse_inference_from_tender_prohibited": true,
+  "slots": [
+    {
+      "fact_slot_id": "FACT-001",
+      "fact_key": "bidder_name",
+      "name": "投标人名称",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-057",
+        "TASK-058",
+        "TASK-059",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-063"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-002",
+      "fact_key": "project_name_and_code",
+      "name": "项目名称和编号",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-001",
+        "TASK-002",
+        "TASK-003",
+        "TASK-004",
+        "TASK-005",
+        "TASK-006",
+        "TASK-007",
+        "TASK-008",
+        "TASK-009"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-003",
+      "fact_key": "offered_product_brand",
+      "name": "拟投产品品牌",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-016",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-057",
+        "TASK-058"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-004",
+      "fact_key": "offered_product_model",
+      "name": "拟投产品型号",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-016",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-057",
+        "TASK-058"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-005",
+      "fact_key": "manufacturer",
+      "name": "制造商",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-016",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-057",
+        "TASK-058"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-006",
+      "fact_key": "origin",
+      "name": "产地",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-016",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-057",
+        "TASK-058"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-007",
+      "fact_key": "actual_product_configuration",
+      "name": "实际产品配置",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-016",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-057",
+        "TASK-058"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-008",
+      "fact_key": "actual_technical_parameters",
+      "name": "实际技术参数",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-016",
+        "TASK-018",
+        "TASK-019",
+        "TASK-020",
+        "TASK-021",
+        "TASK-055",
+        "TASK-056",
+        "TASK-057",
+        "TASK-058"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-009",
+      "fact_key": "delivery_commitment",
+      "name": "交货承诺",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-024",
+        "TASK-027",
+        "TASK-031"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-010",
+      "fact_key": "installation_period",
+      "name": "安装周期",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-024",
+        "TASK-027",
+        "TASK-031"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-011",
+      "fact_key": "warranty_period",
+      "name": "保修期限",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-043",
+        "TASK-044",
+        "TASK-045",
+        "TASK-046",
+        "TASK-047",
+        "TASK-048",
+        "TASK-049",
+        "TASK-050",
+        "TASK-051",
+        "TASK-052",
+        "TASK-053"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-012",
+      "fact_key": "service_response_time",
+      "name": "服务响应时间",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-043",
+        "TASK-044",
+        "TASK-045",
+        "TASK-046",
+        "TASK-047",
+        "TASK-048",
+        "TASK-049",
+        "TASK-050",
+        "TASK-051",
+        "TASK-052",
+        "TASK-053"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-013",
+      "fact_key": "manufacturer_service_network",
+      "name": "制造商服务机构",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-043",
+        "TASK-044",
+        "TASK-045",
+        "TASK-046",
+        "TASK-047",
+        "TASK-048",
+        "TASK-049",
+        "TASK-050",
+        "TASK-051",
+        "TASK-052",
+        "TASK-053"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-014",
+      "fact_key": "project_manager",
+      "name": "项目负责人",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-025",
+        "TASK-026"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-015",
+      "fact_key": "project_team",
+      "name": "项目团队",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-025",
+        "TASK-026"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-016",
+      "fact_key": "staffing_plan",
+      "name": "人员投入计划",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-025",
+        "TASK-026"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-017",
+      "fact_key": "selected_performance",
+      "name": "采用的业绩",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-057",
+        "TASK-058",
+        "TASK-059",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-063"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-018",
+      "fact_key": "selected_company_qualifications",
+      "name": "采用的企业资质",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-057",
+        "TASK-058",
+        "TASK-059",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-063"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-019",
+      "fact_key": "selected_manufacturer_qualifications",
+      "name": "采用的制造商资质",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-057",
+        "TASK-058",
+        "TASK-059",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-063"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    },
+    {
+      "fact_slot_id": "FACT-020",
+      "fact_key": "technical_deviation_status",
+      "name": "是否存在技术偏离",
+      "required": true,
+      "status": "missing",
+      "value": null,
+      "source_policy": "confirmed_project_fact",
+      "target_task_ids": [
+        "TASK-055",
+        "TASK-056"
+      ],
+      "prohibited_inference": "不得从招标最低要求反向生成实际投标事实"
+    }
+  ],
+  "summary": {
+    "slot_count": 20
+  }
+}

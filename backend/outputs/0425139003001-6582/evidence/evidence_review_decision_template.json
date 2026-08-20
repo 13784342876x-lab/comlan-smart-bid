@@ -1,0 +1,881 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-13T07:41:40.154058+00:00",
+  "lot_name": "0425139003001-6582",
+  "template_only": true,
+  "generated_from": [
+    "outputs\\0425139003001-6582\\evidence\\evidence_resolution_queue.json",
+    "outputs\\0425139003001-6582\\evidence\\material_intake_plan.json",
+    "outputs\\0425139003001-6582\\evidence\\enterprise_evidence_catalog.json",
+    "outputs\\0425139003001-6582\\evidence\\evidence_coverage_matrix.json"
+  ],
+  "decision_store_path": "D:\\comlan智标\\backend\\data\\manual_reviews\\0425139003001-6582\\evidence_resolution_decisions.json",
+  "decision_store_active_count_at_generation": 0,
+  "review_task_count": 10,
+  "decision_slot_count": 8,
+  "selection_notes": [
+    "ISO 9001 和 ISO 14001 在当前队列中各只有一个证书身份 resolution_case；身份与有效期核查共用各自真实 resolution_id 和一个决策槽。",
+    "模板中的现有解析值仅是待人工核对线索；所有 field_updates 中的人工事实字段均保持为空。",
+    "mock 业绩与完整业绩包仅预填 suggested_decision，导入前仍需人工填写决定、原因、复核人和时间。"
+  ],
+  "selected_review_tasks": [
+    {
+      "review_task_id": "review-task-iso9001-identity",
+      "title": "ISO 9001 证书身份确认",
+      "resolution_id": "resolution-7509850d29fa09",
+      "resolution_subject_type": "certificate_identity",
+      "subject_id": "certificate:evidence-37b1fce344730b",
+      "related_evidence_ids": [
+        "evidence-37b1fce344730b"
+      ],
+      "selected_evidence_ids": [
+        "evidence-37b1fce344730b"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-37b1fce344730b",
+          "source_file_id": "file_2308aa547dd9",
+          "source_file_name": "资质+代理证书.docx",
+          "source_location": {
+            "table_index": 1,
+            "row_index": 2
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "确认“ISO 9001质量管理体系认证证书”的证书名称、编号和持证主体。",
+      "required_fields_for_confirmation": [
+        "certificate_name",
+        "certificate_number",
+        "holder"
+      ],
+      "task_required_fields_for_confirmation": [
+        "certificate_name",
+        "certificate_number",
+        "holder"
+      ],
+      "decision_slot_id": "decision-slot-iso9001",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-iso9001-validity",
+      "title": "ISO 9001 证书有效期确认",
+      "resolution_id": "resolution-7509850d29fa09",
+      "resolution_subject_type": "certificate_identity",
+      "subject_id": "certificate:evidence-37b1fce344730b",
+      "related_evidence_ids": [
+        "evidence-37b1fce344730b"
+      ],
+      "selected_evidence_ids": [
+        "evidence-37b1fce344730b"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-37b1fce344730b",
+          "source_file_id": "file_2308aa547dd9",
+          "source_file_name": "资质+代理证书.docx",
+          "source_location": {
+            "table_index": 1,
+            "row_index": 2
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "确认“ISO 9001质量管理体系认证证书”的证书名称、编号和持证主体。",
+      "required_fields_for_confirmation": [
+        "certificate_name",
+        "certificate_number",
+        "holder"
+      ],
+      "task_required_fields_for_confirmation": [
+        "valid_until",
+        "validity_status"
+      ],
+      "decision_slot_id": "decision-slot-iso9001",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-iso14001-identity",
+      "title": "ISO 14001 证书身份确认",
+      "resolution_id": "resolution-8cdb0fee4236c3",
+      "resolution_subject_type": "certificate_identity",
+      "subject_id": "certificate:evidence-605b01370c2acd",
+      "related_evidence_ids": [
+        "evidence-605b01370c2acd"
+      ],
+      "selected_evidence_ids": [
+        "evidence-605b01370c2acd"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-605b01370c2acd",
+          "source_file_id": "file_2308aa547dd9",
+          "source_file_name": "资质+代理证书.docx",
+          "source_location": {
+            "table_index": 1,
+            "row_index": 3
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "确认“ISO 14001环境管理体系认证证书”的证书名称、编号和持证主体。",
+      "required_fields_for_confirmation": [
+        "certificate_name",
+        "certificate_number",
+        "holder"
+      ],
+      "task_required_fields_for_confirmation": [
+        "certificate_name",
+        "certificate_number",
+        "holder"
+      ],
+      "decision_slot_id": "decision-slot-iso14001",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-iso14001-validity",
+      "title": "ISO 14001 证书有效期确认",
+      "resolution_id": "resolution-8cdb0fee4236c3",
+      "resolution_subject_type": "certificate_identity",
+      "subject_id": "certificate:evidence-605b01370c2acd",
+      "related_evidence_ids": [
+        "evidence-605b01370c2acd"
+      ],
+      "selected_evidence_ids": [
+        "evidence-605b01370c2acd"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-605b01370c2acd",
+          "source_file_id": "file_2308aa547dd9",
+          "source_file_name": "资质+代理证书.docx",
+          "source_location": {
+            "table_index": 1,
+            "row_index": 3
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "确认“ISO 14001环境管理体系认证证书”的证书名称、编号和持证主体。",
+      "required_fields_for_confirmation": [
+        "certificate_name",
+        "certificate_number",
+        "holder"
+      ],
+      "task_required_fields_for_confirmation": [
+        "valid_until",
+        "validity_status"
+      ],
+      "decision_slot_id": "decision-slot-iso14001",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-person-department",
+      "title": "吴云畅部门确认",
+      "resolution_id": "resolution-95c3f18793cd85",
+      "resolution_subject_type": "person_department",
+      "subject_id": "person:吴云畅",
+      "related_evidence_ids": [
+        "evidence-df7b92ad4ba39a"
+      ],
+      "selected_evidence_ids": [
+        "evidence-df7b92ad4ba39a"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-df7b92ad4ba39a",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "clause_path": "简历结构化解析",
+            "table_indexes": [
+              1,
+              2
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "确认吴云畅当前所属部门。",
+      "required_fields_for_confirmation": [
+        "department",
+        "department_confirm_status"
+      ],
+      "task_required_fields_for_confirmation": [
+        "department",
+        "department_confirm_status"
+      ],
+      "decision_slot_id": "decision-slot-person-department",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-person-availability",
+      "title": "吴云畅可投入性确认",
+      "resolution_id": "resolution-bbc452f269aefc",
+      "resolution_subject_type": "person_availability",
+      "subject_id": "person:吴云畅",
+      "related_evidence_ids": [
+        "evidence-df7b92ad4ba39a"
+      ],
+      "selected_evidence_ids": [
+        "evidence-df7b92ad4ba39a"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-df7b92ad4ba39a",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "clause_path": "简历结构化解析",
+            "table_indexes": [
+              1,
+              2
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "确认吴云畅是否可投入本项目。",
+      "required_fields_for_confirmation": [
+        "availability_status"
+      ],
+      "task_required_fields_for_confirmation": [
+        "availability_status"
+      ],
+      "decision_slot_id": "decision-slot-person-availability",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-person-role",
+      "title": "吴云畅拟任角色确认",
+      "resolution_id": "resolution-374973f2c9e67c",
+      "resolution_subject_type": "person_role",
+      "subject_id": "person:吴云畅",
+      "related_evidence_ids": [
+        "evidence-df7b92ad4ba39a"
+      ],
+      "selected_evidence_ids": [
+        "evidence-df7b92ad4ba39a"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-df7b92ad4ba39a",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "clause_path": "简历结构化解析",
+            "table_indexes": [
+              1,
+              2
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "确认吴云畅在本项目中的拟任角色或用途。",
+      "required_fields_for_confirmation": [
+        "intended_role"
+      ],
+      "task_required_fields_for_confirmation": [
+        "intended_role"
+      ],
+      "decision_slot_id": "decision-slot-person-role",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-visual-certificate",
+      "title": "吴云畅无文本证书图片人工视觉确认",
+      "resolution_id": "resolution-950720b049235c",
+      "resolution_subject_type": "evidence_document",
+      "subject_id": "visual-certificates:file_3fa83f22cdb4:吴云畅",
+      "related_evidence_ids": [
+        "evidence-16fa90eefdbf61",
+        "evidence-e23c7e22a19bca",
+        "evidence-4042944bb57a5c",
+        "evidence-0c39c1298fdb72"
+      ],
+      "selected_evidence_ids": [
+        "evidence-16fa90eefdbf61"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-16fa90eefdbf61",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "asset_id": "asset_1b28e0c8e1af",
+            "asset_location": "word/media/image1.png",
+            "structured_index": 1
+          },
+          "location_precision": "file_only",
+          "visual_source_ref": null
+        },
+        {
+          "evidence_id": "evidence-e23c7e22a19bca",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "asset_id": "asset_50f47ac9382e",
+            "asset_location": "word/media/image2.png",
+            "structured_index": 2
+          },
+          "location_precision": "file_only",
+          "visual_source_ref": null
+        },
+        {
+          "evidence_id": "evidence-4042944bb57a5c",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "asset_id": "asset_c2fb6ddc95c2",
+            "asset_location": "word/media/image3.png",
+            "structured_index": 3
+          },
+          "location_precision": "file_only",
+          "visual_source_ref": null
+        },
+        {
+          "evidence_id": "evidence-0c39c1298fdb72",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "asset_id": "asset_7f5958983a46",
+            "asset_location": "word/media/image4.png",
+            "structured_index": 4
+          },
+          "location_precision": "file_only",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "人工查看吴云畅的证书图片，记录可辨认字段和无法辨认字段。",
+      "required_fields_for_confirmation": [
+        "visual_source_ref",
+        "certificate_name",
+        "person_name",
+        "unreadable_fields"
+      ],
+      "task_required_fields_for_confirmation": [
+        "visual_source_ref",
+        "certificate_name",
+        "person_name",
+        "certificate_number_or_status",
+        "unreadable_fields"
+      ],
+      "decision_slot_id": "decision-slot-visual-certificate",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-mock-reject",
+      "title": "mock 业绩材料驳回复核",
+      "resolution_id": "resolution-8da737fc06ef39",
+      "resolution_subject_type": "support_applicability",
+      "subject_id": "evidence:evidence-0c0183d419f008",
+      "related_evidence_ids": [
+        "evidence-0c0183d419f008"
+      ],
+      "selected_evidence_ids": [
+        "evidence-0c0183d419f008"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-0c0183d419f008",
+          "source_file_id": "file_dc469c504c25",
+          "source_file_name": "mock_业绩文件_测试.docx",
+          "source_location": {
+            "section_locations": [
+              "paragraph_1",
+              "paragraph_2",
+              "paragraph_3",
+              "paragraph_4",
+              "paragraph_5",
+              "paragraph_6",
+              "paragraph_7",
+              "paragraph_8",
+              "paragraph_9"
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "该文件名包含 mock，仅可作为测试线索，不得作为正式企业业绩。",
+      "required_fields_for_confirmation": [
+        "review_result"
+      ],
+      "task_required_fields_for_confirmation": [
+        "review_result",
+        "reason"
+      ],
+      "decision_slot_id": "decision-slot-mock-reject",
+      "human_input_required": true
+    },
+    {
+      "review_task_id": "review-task-performance-package",
+      "title": "企业业绩完整证据包补材料确认",
+      "resolution_id": "resolution-148e3a32a56b92",
+      "resolution_subject_type": "evidence_package",
+      "subject_id": "package:基于区块链的工业数据管理技术研究与应用服务项目",
+      "related_evidence_ids": [
+        "evidence-0c0183d419f008"
+      ],
+      "selected_evidence_ids": [
+        "evidence-0c0183d419f008"
+      ],
+      "source_refs": [
+        {
+          "evidence_id": "evidence-0c0183d419f008",
+          "source_file_id": "file_dc469c504c25",
+          "source_file_name": "mock_业绩文件_测试.docx",
+          "source_location": {
+            "section_locations": [
+              "paragraph_1",
+              "paragraph_2",
+              "paragraph_3",
+              "paragraph_4",
+              "paragraph_5",
+              "paragraph_6",
+              "paragraph_7",
+              "paragraph_8",
+              "paragraph_9"
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "current_question": "确认“基于区块链的工业数据管理技术研究与应用服务项目”证据包的组成和完整性。",
+      "required_fields_for_confirmation": [
+        "member_evidence_ids",
+        "package_completeness"
+      ],
+      "task_required_fields_for_confirmation": [
+        "requested_materials",
+        "reason"
+      ],
+      "decision_slot_id": "decision-slot-performance-package",
+      "human_input_required": true
+    }
+  ],
+  "decisions": [
+    {
+      "template_slot_id": "decision-slot-iso9001",
+      "decision_id": null,
+      "resolution_id": "resolution-7509850d29fa09",
+      "subject_id": "certificate:evidence-37b1fce344730b",
+      "decision": null,
+      "suggested_decision": null,
+      "field_updates": {
+        "certificate_name": null,
+        "certificate_number": null,
+        "holder": null,
+        "valid_until": null,
+        "validity_status": null,
+        "applicable_scope": null
+      },
+      "manual_required_fields": [
+        "certificate_name",
+        "certificate_number",
+        "holder",
+        "valid_until或validity_status"
+      ],
+      "manual_fields_must_be_entered": [
+        "certificate_name",
+        "certificate_number",
+        "holder",
+        "valid_until或validity_status"
+      ],
+      "reason": null,
+      "reviewer": null,
+      "decided_at": null,
+      "source_refs": [
+        {
+          "evidence_id": "evidence-37b1fce344730b",
+          "source_file_id": "file_2308aa547dd9",
+          "source_file_name": "资质+代理证书.docx",
+          "source_location": {
+            "table_index": 1,
+            "row_index": 2
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "verification_method": null,
+      "applicable_scope": {},
+      "supersedes_decision_id": null,
+      "status": "active"
+    },
+    {
+      "template_slot_id": "decision-slot-iso14001",
+      "decision_id": null,
+      "resolution_id": "resolution-8cdb0fee4236c3",
+      "subject_id": "certificate:evidence-605b01370c2acd",
+      "decision": null,
+      "suggested_decision": null,
+      "field_updates": {
+        "certificate_name": null,
+        "certificate_number": null,
+        "holder": null,
+        "valid_until": null,
+        "validity_status": null,
+        "applicable_scope": null
+      },
+      "manual_required_fields": [
+        "certificate_name",
+        "certificate_number",
+        "holder",
+        "valid_until或validity_status"
+      ],
+      "manual_fields_must_be_entered": [
+        "certificate_name",
+        "certificate_number",
+        "holder",
+        "valid_until或validity_status"
+      ],
+      "reason": null,
+      "reviewer": null,
+      "decided_at": null,
+      "source_refs": [
+        {
+          "evidence_id": "evidence-605b01370c2acd",
+          "source_file_id": "file_2308aa547dd9",
+          "source_file_name": "资质+代理证书.docx",
+          "source_location": {
+            "table_index": 1,
+            "row_index": 3
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "verification_method": null,
+      "applicable_scope": {},
+      "supersedes_decision_id": null,
+      "status": "active"
+    },
+    {
+      "template_slot_id": "decision-slot-person-department",
+      "decision_id": null,
+      "resolution_id": "resolution-95c3f18793cd85",
+      "subject_id": "person:吴云畅",
+      "decision": null,
+      "suggested_decision": null,
+      "field_updates": {
+        "department": null,
+        "department_confirm_status": null
+      },
+      "manual_required_fields": [
+        "department",
+        "department_confirm_status"
+      ],
+      "manual_fields_must_be_entered": [
+        "department",
+        "department_confirm_status"
+      ],
+      "reason": null,
+      "reviewer": null,
+      "decided_at": null,
+      "source_refs": [
+        {
+          "evidence_id": "evidence-df7b92ad4ba39a",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "clause_path": "简历结构化解析",
+            "table_indexes": [
+              1,
+              2
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "verification_method": null,
+      "applicable_scope": {},
+      "supersedes_decision_id": null,
+      "status": "active"
+    },
+    {
+      "template_slot_id": "decision-slot-person-availability",
+      "decision_id": null,
+      "resolution_id": "resolution-bbc452f269aefc",
+      "subject_id": "person:吴云畅",
+      "decision": null,
+      "suggested_decision": null,
+      "field_updates": {
+        "availability_status": null
+      },
+      "manual_required_fields": [
+        "availability_status"
+      ],
+      "manual_fields_must_be_entered": [
+        "availability_status"
+      ],
+      "reason": null,
+      "reviewer": null,
+      "decided_at": null,
+      "source_refs": [
+        {
+          "evidence_id": "evidence-df7b92ad4ba39a",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "clause_path": "简历结构化解析",
+            "table_indexes": [
+              1,
+              2
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "verification_method": null,
+      "applicable_scope": {},
+      "supersedes_decision_id": null,
+      "status": "active"
+    },
+    {
+      "template_slot_id": "decision-slot-person-role",
+      "decision_id": null,
+      "resolution_id": "resolution-374973f2c9e67c",
+      "subject_id": "person:吴云畅",
+      "decision": null,
+      "suggested_decision": null,
+      "field_updates": {
+        "intended_role": null
+      },
+      "manual_required_fields": [
+        "intended_role"
+      ],
+      "manual_fields_must_be_entered": [
+        "intended_role"
+      ],
+      "reason": null,
+      "reviewer": null,
+      "decided_at": null,
+      "source_refs": [
+        {
+          "evidence_id": "evidence-df7b92ad4ba39a",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "clause_path": "简历结构化解析",
+            "table_indexes": [
+              1,
+              2
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "verification_method": null,
+      "applicable_scope": {},
+      "supersedes_decision_id": null,
+      "status": "active"
+    },
+    {
+      "template_slot_id": "decision-slot-visual-certificate",
+      "decision_id": null,
+      "resolution_id": "resolution-950720b049235c",
+      "subject_id": "visual-certificates:file_3fa83f22cdb4:吴云畅",
+      "decision": null,
+      "suggested_decision": null,
+      "field_updates": {
+        "evidence_updates": {
+          "evidence-16fa90eefdbf61": {
+            "visual_source_ref": {
+              "evidence_id": "evidence-16fa90eefdbf61",
+              "source_file_id": "file_3fa83f22cdb4",
+              "source_file_name": "数字化办公-吴云畅.docx",
+              "source_location": {
+                "asset_id": "asset_1b28e0c8e1af",
+                "asset_location": "word/media/image1.png",
+                "structured_index": 1
+              }
+            },
+            "certificate_name": null,
+            "person_name": null,
+            "certificate_number": null,
+            "issuer": null,
+            "valid_until": null,
+            "certificate_status": null,
+            "unreadable_fields": []
+          }
+        }
+      },
+      "manual_required_fields": [
+        "certificate_name",
+        "person_name",
+        "certificate_number或certificate_status",
+        "unreadable_fields"
+      ],
+      "manual_fields_must_be_entered": [
+        "certificate_name",
+        "person_name",
+        "certificate_number或certificate_status",
+        "unreadable_fields"
+      ],
+      "reason": null,
+      "reviewer": null,
+      "decided_at": null,
+      "source_refs": [
+        {
+          "evidence_id": "evidence-16fa90eefdbf61",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "asset_id": "asset_1b28e0c8e1af",
+            "asset_location": "word/media/image1.png",
+            "structured_index": 1
+          },
+          "location_precision": "file_only",
+          "visual_source_ref": null
+        },
+        {
+          "evidence_id": "evidence-e23c7e22a19bca",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "asset_id": "asset_50f47ac9382e",
+            "asset_location": "word/media/image2.png",
+            "structured_index": 2
+          },
+          "location_precision": "file_only",
+          "visual_source_ref": null
+        },
+        {
+          "evidence_id": "evidence-4042944bb57a5c",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "asset_id": "asset_c2fb6ddc95c2",
+            "asset_location": "word/media/image3.png",
+            "structured_index": 3
+          },
+          "location_precision": "file_only",
+          "visual_source_ref": null
+        },
+        {
+          "evidence_id": "evidence-0c39c1298fdb72",
+          "source_file_id": "file_3fa83f22cdb4",
+          "source_file_name": "数字化办公-吴云畅.docx",
+          "source_location": {
+            "asset_id": "asset_7f5958983a46",
+            "asset_location": "word/media/image4.png",
+            "structured_index": 4
+          },
+          "location_precision": "file_only",
+          "visual_source_ref": null
+        }
+      ],
+      "verification_method": "human_visual_review",
+      "applicable_scope": {
+        "evidence_ids": [
+          "evidence-16fa90eefdbf61"
+        ]
+      },
+      "supersedes_decision_id": null,
+      "status": "active"
+    },
+    {
+      "template_slot_id": "decision-slot-mock-reject",
+      "decision_id": null,
+      "resolution_id": "resolution-8da737fc06ef39",
+      "subject_id": "evidence:evidence-0c0183d419f008",
+      "decision": "reject",
+      "suggested_decision": "reject",
+      "field_updates": {
+        "review_result": null
+      },
+      "manual_required_fields": [],
+      "manual_fields_must_be_entered": [],
+      "reason": null,
+      "reviewer": null,
+      "decided_at": null,
+      "source_refs": [
+        {
+          "evidence_id": "evidence-0c0183d419f008",
+          "source_file_id": "file_dc469c504c25",
+          "source_file_name": "mock_业绩文件_测试.docx",
+          "source_location": {
+            "section_locations": [
+              "paragraph_1",
+              "paragraph_2",
+              "paragraph_3",
+              "paragraph_4",
+              "paragraph_5",
+              "paragraph_6",
+              "paragraph_7",
+              "paragraph_8",
+              "paragraph_9"
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "verification_method": null,
+      "applicable_scope": {},
+      "supersedes_decision_id": null,
+      "status": "active"
+    },
+    {
+      "template_slot_id": "decision-slot-performance-package",
+      "decision_id": null,
+      "resolution_id": "resolution-148e3a32a56b92",
+      "subject_id": "package:基于区块链的工业数据管理技术研究与应用服务项目",
+      "decision": "needs_more_material",
+      "suggested_decision": "needs_more_material",
+      "field_updates": {
+        "requested_materials": [
+          "合同关键页",
+          "中标通知书（如有）",
+          "验收证明或用户证明",
+          "项目名称、客户、时间、金额和工作内容",
+          "与技术开发或技术服务要求的相关性说明"
+        ]
+      },
+      "manual_required_fields": [],
+      "manual_fields_must_be_entered": [],
+      "reason": null,
+      "reviewer": null,
+      "decided_at": null,
+      "source_refs": [
+        {
+          "evidence_id": "evidence-0c0183d419f008",
+          "source_file_id": "file_dc469c504c25",
+          "source_file_name": "mock_业绩文件_测试.docx",
+          "source_location": {
+            "section_locations": [
+              "paragraph_1",
+              "paragraph_2",
+              "paragraph_3",
+              "paragraph_4",
+              "paragraph_5",
+              "paragraph_6",
+              "paragraph_7",
+              "paragraph_8",
+              "paragraph_9"
+            ]
+          },
+          "location_precision": "clause_approximate",
+          "visual_source_ref": null
+        }
+      ],
+      "verification_method": null,
+      "applicable_scope": {},
+      "supersedes_decision_id": null,
+      "status": "active"
+    }
+  ]
+}

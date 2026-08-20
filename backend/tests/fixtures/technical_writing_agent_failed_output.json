@@ -1,0 +1,126 @@
+{
+  "schema_version": "technical_writing_agent_run_v0",
+  "status": "failed",
+  "target": {
+    "chapter_id": "WC-003",
+    "section_id": null,
+    "title": "实施部署方案"
+  },
+  "structured_chapter_draft": {
+    "chapter_id": "WC-003",
+    "title": "实施部署方案",
+    "summary": "已完成章节摘要，使用的响应点记录在source_usage中。",
+    "draft_status": "cannot_finalize",
+    "sections": [
+      {
+        "section_id": "WC-003-01",
+        "title": "实施总体规划",
+        "summary": "响应TR-005，并保留【待人工确认：最终交货承诺】。"
+      },
+      {
+        "section_id": "WC-003-02",
+        "title": "项目建设技术方案",
+        "summary": "说明项目建设的实施技术路径。"
+      },
+      {
+        "section_id": "WC-003-03",
+        "title": "项目设计实施周期",
+        "summary": "响应TR-006、TR-007，实际周期待确认。"
+      },
+      {
+        "section_id": "WC-003-04",
+        "title": "项目组织架构",
+        "summary": "说明项目组织和沟通机制。"
+      },
+      {
+        "section_id": "WC-003-05",
+        "title": "项目负责人及主要人员",
+        "summary": "人员名单和材料待确认。"
+      },
+      {
+        "section_id": "WC-003-06",
+        "title": "安装部署",
+        "summary": "说明安装部署流程。"
+      },
+      {
+        "section_id": "WC-003-07",
+        "title": "测试与试运行",
+        "summary": "说明测试与试运行安排。"
+      },
+      {
+        "section_id": "WC-003-08",
+        "title": "质量控制",
+        "summary": "说明质量控制措施。"
+      },
+      {
+        "section_id": "WC-003-09",
+        "title": "项目验收",
+        "summary": "响应TR-010并说明验收流程。"
+      },
+      {
+        "section_id": "WC-003-10",
+        "title": "交付成果",
+        "summary": "响应TR-008、TR-009并说明交付物。"
+      },
+      {
+        "section_id": "WC-003-11",
+        "title": "风险控制与应急保障",
+        "summary": "说明风险识别与应急机制。"
+      }
+    ],
+    "pending_confirmations": [
+      {
+        "field": "delivery_commitment",
+        "question": "请确认最终交货承诺。"
+      }
+    ],
+    "source_usage": {
+      "tender_requirements_loaded": [
+        "TR-005",
+        "TR-006",
+        "TR-007",
+        "TR-008",
+        "TR-009",
+        "TR-010",
+        "TR-022"
+      ],
+      "web_used": false
+    },
+    "saved_path": "outputs/example/drafts/WC-003.md"
+  },
+  "pending_confirmations": [
+    {
+      "field": "delivery_commitment",
+      "question": "请确认最终交货承诺。",
+      "blocking": true,
+      "status": "pending"
+    }
+  ],
+  "validation": {
+    "expected_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "expected_response_point_ids": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "expected_score_item_ids": [
+      "SCORE-TR-022-R017"
+    ]
+  }
+}

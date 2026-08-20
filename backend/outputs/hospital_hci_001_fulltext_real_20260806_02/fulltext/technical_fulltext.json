@@ -1,0 +1,2976 @@
+{
+  "schema_version": "technical_fulltext_v2",
+  "document_id": "technical-fulltext:hospital_hci_001_fulltext_real_20260806_02",
+  "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+  "generated_at": "2026-08-07T03:05:40.453296+00:00",
+  "standard_outline": {
+    "original_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\technical_writing_outline.json",
+    "resolved_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001\\writing\\technical_writing_outline.json",
+    "schema_version": "technical_writing_outline_v0",
+    "sha256": "242143910015c2113694e69700e23f87783f1377be228da8d9c7112aea14a85e"
+  },
+  "production": {
+    "chapter_production_index_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\chapter_production_index.json",
+    "chapter_production_index_sha256": "683edad8e36d77d65fb4e4a7003580092ca2d428164c856a2405fa2d7c2061f2",
+    "production_status": "complete_with_blockers",
+    "chapter_count_expected": 8,
+    "chapter_count_completed": 8,
+    "chapter_count_submission_ready": 0,
+    "chapter_count_blocked": 8,
+    "chapter_count_failed": 0
+  },
+  "composition_status": "completed_with_blockers",
+  "preview_only": true,
+  "release_ready": false,
+  "chapter_order": [
+    "WC-001",
+    "WC-002",
+    "WC-003",
+    "WC-004",
+    "WC-005",
+    "WC-006",
+    "WC-007",
+    "WC-008"
+  ],
+  "chapters": [
+    {
+      "chapter_id": "WC-001",
+      "chapter_title": "需求理解及分析",
+      "order": 1,
+      "sections": [
+        {
+          "heading": "项目背景",
+          "block_type": "introduction",
+          "content": "{{PH-FIELD-PROJECT-NAME-AND-CODE}}项目是医院信息化建设进程中的关键一环。招标文件明确指出，为提升我院智慧医疗、智慧服务和智慧管理水平，提高医院医疗管理信息化水平，改善患者就医体验，根据滨海新区区域卫生信息化建设发展规划，医院近期对原有虚拟化平台进行升级改造。为配合上述系统的整体升级改造工作，医院决定采购国产化超融合系统1套。\n\n本次采购的核心动因在于原有虚拟化平台在性能、可扩展性及国产化合规方面已逐步显现瓶颈，难以持续匹配日益增长的业务负载与安全可控要求。项目立足区域卫生发展规划，旨在通过构建新一代超融合基础设施，为 HIS、EMR、PACS 等核心业务系统提供统一、弹性、高可用的计算与存储资源池，从根本上解决资源孤岛问题，提升整体服务交付效率。\n\n我院深刻理解该项目的战略意义，并将依据招标范围，从技术架构、部署实施、运维管理等多个维度做出充分响应。项目背景所揭示的升级紧迫性与政策导向，构成了后续需求分析、方案设计与交付承诺的逻辑起点。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-017"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-PROJECT-NAME-AND-CODE"
+          ],
+          "section_id": "WC-001-01"
+        },
+        {
+          "heading": "现状及建设基础",
+          "block_type": "requirement_response",
+          "content": "医院现有的虚拟化平台是承载核心业务系统的关键基础设施，经过多年运行，已在支撑 HIS、电子病历、集成平台等多个业务系统方面积累了丰富的实践数据。然而，随着业务量的持续增长和信息系统复杂度提升，现有平台逐渐面临计算资源紧张、存储I/O瓶颈以及部分老旧设备维保到期的挑战。同时，国家及地方对于医疗信息化自主可控的要求使得现有平台在国产化适配方面存在明显短板。\n\n本次建设的物理基础包括医院已有的数据中心机房环境，其供电、制冷、网络布线等均可满足新增超融合节点的部署条件。从软件层面看，医院已建立运维监控与灾备制度，为超融合系统整合到现有运维体系提供了管理基础。\n\n上述现状分析表明，项目并非从零建设，而是在继承现有能力的基础上进行平滑演进。建设过程中需重点关注与原有虚拟化平台的迁移衔接、业务连续性保障以及异构环境下的统一管理策略。这些客观条件将作为后续应用环境分析、功能与性能设计的重要输入，确保新平台既能填补现有短板，又能最大化保护已有投资。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-017",
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-001-02"
+        },
+        {
+          "heading": "应用环境",
+          "block_type": "requirement_response",
+          "content": "超融合系统将部署于医院数据中心，面向全院提供统一的虚拟化资源服务。应用环境涵盖门诊、住院、医技、行政及区域协同等多个业务域，对基础架构的性能、可用性和安全性提出差异化要求。\n\n核心业务系统如 HIS 与电子病历需要在门诊高峰时段保证极低的响应延迟，并具备全年99.99%以上的可用性PACS 影像系统则呈现出典型的高吞吐、大容量写入特征，对存储带宽和 I/O 并发能力高度敏感。此外，数据分析与决策支持类应用将周期性产生大规模批处理作业，要求平台在保证前台业务不受影响的前提下完成后台资源调度。\n\n从安全合规角度，应用环境必须满足等保2.0相关要求，实现虚拟网络隔离、管理员权限分级、操作日志审计等功能。考虑到医院未来可能参与区域卫生信息平台的数据共享，超融合平台还需预留标准接口和安全网关能力，支持与院外系统的受控交互。\n\n综合来看，应用环境分析揭示了平台必须具备的高并发、高安全、高弹性和混合负载处理能力。该分析结论将直接指引我们在功能需求、性能指标和运维策略上做出精准响应，确保超融合系统在复杂的医疗应用场景中稳定、高效运行。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-001-03"
+        },
+        {
+          "heading": "功能需求",
+          "block_type": "requirement_response",
+          "content": "根据招标要求与技术发展趋势，本项目超融合系统的功能需求应覆盖计算虚拟化、存储虚拟化、网络虚拟化及统一运维管理的完整体系。\n\n在计算虚拟化方面，需支持主流国产操作系统与数据库，实现虚拟机的快速部署、在线迁移和高可用自动恢复，并具备资源动态均衡能力，确保在业务负载波动时自动调整分配。存储虚拟化需构建分布式存储池，支持数据保护策略，并针对不同业务负载的数据特征实现存储资源的合理分配。网络虚拟化应提供逻辑交换、路由、分布式防火墙及微分段功能，为业务系统构建灵活而安全的网络拓扑，且不依赖特定物理网络设备。\n\n统一管理平台应集成对计算、存储、网络的全域监控与智能告警，支持多租户管理和自助服务门户，并开放RESTful API以便与第三方运维系统对接。功能设计还需充分考虑国产化的深度适配，包括对国产CPU、服务器及操作系统的全面支持，以满足自主可控的政策要求。\n\n上述功能需求并非孤立存在，而是相互耦合，共同构成一个弹性的软件定义数据中心底座。我院在后续技术方案中将逐一给出对应实现方式，确保功能完整性与协同性。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-001-04"
+        },
+        {
+          "heading": "性能需求",
+          "block_type": "requirement_response",
+          "content": "医疗信息系统对响应时间和并发处理能力有严苛要求，超融合平台的性能设计必须匹配这些业务特征。\n\n从IOPS与吞吐量角度，混合负载环境下既要保证数据库事务的快速提交，又要满足影像文件的连续大块读写。存储带宽应能够承载上百个并发终端的影像调阅请求而不出现明显抖动。网络方面，超融合节点间的互联交换机需提供低延迟、高带宽的转发能力，避免分布式存储数据同步成为性能瓶颈。\n\n计算性能方面，单节点应具备充裕的CPU、内存资源，以满足数十个核心业务虚拟机的并发运行，并预留资源用于周期性报表任务和未来扩展。性能需求并非静态指标，而是一个随业务发展的动态演进过程，因此平台还应支持横向线性扩展，在增加节点后自动重新分布负载，保持性能均匀增长。\n\n这些性能要求将直接转化为对超融合节点配置、网络拓扑设计及存储策略选择的技术基准。我院将在项目实施中通过科学容量规划与压力测试，验证平台在实际业务负载下的表现，确保性能承诺得到兑现。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-001-05"
+        },
+        {
+          "heading": "统一运维需求",
+          "block_type": "requirement_response",
+          "content": "新建超融合系统必须无缝融入医院现有运维体系，而非引入新的管理孤岛。统一运维需求体现在监控、自动化、告警与流程协同等多个层次。\n\n平台应具备从物理基础设施到虚拟化资源的全栈可视化监控能力，可实时展示节点健康度、资源利用率、性能趋势及告警事件，并支持定制化仪表盘，以满足不同管理视角的监控需求。自动化运维要求包括虚拟机生命周期管理、模板化批量部署、定时快照与备份策略的下发与执行，降低人工操作误码风险。\n\n告警管理需设置多级预警阈值，与医院已有的短信、邮件或运维工单系统对接，实现从发现问题到派单处理、闭环跟踪的一体化流程。此外，平台应提供计量计费接口，为未来科室成本核算和资源优化提供数据基础。\n\n统一运维不仅关乎系统自身稳定性，更影响医院IT服务整体效能。对需求的透彻理解，将保证我们在方案中给出可落地、可扩展的运管设计，而非简单的产品功能罗列。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-001-06"
+        },
+        {
+          "heading": "实施要求",
+          "block_type": "requirement_response",
+          "content": "实施要求的核心是在确保业务连续性的前提下完成新旧平台的平滑过渡。医院作为医院作为持续运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。运行的机构，任何停机都将直接影响诊疗服务，因此实施计划必须围绕“在线迁移、分步切换、回退保障”的原则展开。\n\n项目启动后，首先需完成现场勘察与详细设计，确认机柜空间、供电功率、网络端口等物理条件，并与医院信息科共同制定业务迁移批次计划。随后进行设备上架、组网调试及超融合软件部署，此阶段可利用割接窗口，在不影响生产的前提下构建独立测试域。\n\n业务迁移采取先边缘后核心、先非实时后实时的递进策略，每个批次均设立回退预案和业务验证点。在完成全部业务割接并稳定运行观察期后，原有虚拟化平台可逐步降级使用或退役。整个实施周期需与医院信息化建设其他项目做好衔接，避免资源冲突。\n\n我院深刻认识到实施阶段的复杂性，对时间窗口、风险控制和团队协作要求有充分预估，并将在后续实施方案中进一步细化推进路径与应急预案。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-001-07"
+        },
+        {
+          "heading": "项目重点与难点",
+          "block_type": "risk_control",
+          "content": "综合需求分析，本项目的重点在于构建一套全栈国产化、高性能、高可用的超融合平台，难点则集中于在线业务平滑迁移、异构环境整合及全生命周期安全合规治理。\n\n重点之一是实现计算、存储、网络的深度融合与智能调度。这要求软件定义架构与硬件选型的深度适配，避免资源碎片和性能热点。重点之二是与医院现有IT治理流程的对接，使新平台成为可管控、可审计的有机组成部分，而非独立的技术孤岛。\n\n难点方面，业务连续性要求下的在线迁移最具挑战。核心数据库和集成平台涉及复杂的依赖关系，迁移过程中的数据一致性与切换时间窗口需要精密设计。此外，国产化生态的成熟度差异可能导致部分软件驱动或管理工具与现有运维系统兼容性不足，需提前进行充分的兼容性测试和适应性开发。\n\n安全合规同样是贯穿始终的难点，需在虚拟化环境中落实相应安全策略与访问控制措施，并配合完成等保测评相关工作。对上述重点与难点的透彻认识，将指导我院在后续方案中采取针对性的设计思路与应对措施，确保项目风险可控、目标达成。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-017",
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-001-08"
+        },
+        {
+          "heading": "建设目标",
+          "block_type": "conclusion",
+          "content": "基于前述需求理解与现状分析，本项目的建设目标可归纳为以下四个层面。\n\n首先，建成一套自主可控的国产化超融合基础设施，实现对现有虚拟化平台的全面替代与能力升级，消除单点瓶颈，提升资源利用率。其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来其次，建立与医疗业务增长相匹配的弹性供给机制，使计算、存储资源可按需线性扩展，支撑未来医院信息化发展的预期需求。医院信息化发展的预期需求。第三，构建统一运维管控体系，实现基础设施与业务服务的可视化、自动化、标准化管理，降低运维复杂度与人工依赖。第四，通过平滑迁移和全过程安全合规设计，保障业务连续性，满足等保2.0和区域卫生信息互通的相关监管要求。\n\n以上目标既是对招标意图的精准承接，也是我院交付方案的价值锚点。后续各章节将围绕这些目标，从技术方案、实施计划、运维服务等方面展开详细阐述，确保方案与目标紧密对应。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R015"
+          ],
+          "covered_requirement_ids": [
+            "TR-017",
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-001-09"
+        }
+      ],
+      "section_outline": [
+        {
+          "section_id": "WC-001-01",
+          "title": "项目背景",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 1,
+          "document_order": 1,
+          "outline_path": [
+            "WC-001",
+            "WC-001-01"
+          ]
+        },
+        {
+          "section_id": "WC-001-02",
+          "title": "现状及建设基础",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 2,
+          "document_order": 2,
+          "outline_path": [
+            "WC-001",
+            "WC-001-02"
+          ]
+        },
+        {
+          "section_id": "WC-001-03",
+          "title": "应用环境",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 3,
+          "document_order": 3,
+          "outline_path": [
+            "WC-001",
+            "WC-001-03"
+          ]
+        },
+        {
+          "section_id": "WC-001-04",
+          "title": "功能需求",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 4,
+          "document_order": 4,
+          "outline_path": [
+            "WC-001",
+            "WC-001-04"
+          ]
+        },
+        {
+          "section_id": "WC-001-05",
+          "title": "性能需求",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 5,
+          "document_order": 5,
+          "outline_path": [
+            "WC-001",
+            "WC-001-05"
+          ]
+        },
+        {
+          "section_id": "WC-001-06",
+          "title": "统一运维需求",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 6,
+          "document_order": 6,
+          "outline_path": [
+            "WC-001",
+            "WC-001-06"
+          ]
+        },
+        {
+          "section_id": "WC-001-07",
+          "title": "实施要求",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 7,
+          "document_order": 7,
+          "outline_path": [
+            "WC-001",
+            "WC-001-07"
+          ]
+        },
+        {
+          "section_id": "WC-001-08",
+          "title": "项目重点与难点",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 8,
+          "document_order": 8,
+          "outline_path": [
+            "WC-001",
+            "WC-001-08"
+          ]
+        },
+        {
+          "section_id": "WC-001-09",
+          "title": "建设目标",
+          "depth": 1,
+          "parent_id": "WC-001",
+          "sibling_order": 9,
+          "document_order": 9,
+          "outline_path": [
+            "WC-001",
+            "WC-001-09"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "医院采购国产化超融合系统1套，以升级原有虚拟化平台，提升信息化水平。",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-017"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "项目须在业务不中断前提下完成迁移，满足等保2.0及国产化要求。",
+          "claim_type": "proposal_statement",
+          "source_ids": [
+            "TR-022"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        }
+      ],
+      "placeholders_used": [
+        "PH-FIELD-PROJECT-NAME-AND-CODE"
+      ],
+      "score_items_covered": [
+        "SCORE-TR-022-R015"
+      ],
+      "requirements_covered": [
+        "TR-017",
+        "TR-022"
+      ],
+      "warnings": [
+        "项目名称与编号尚未确认，已在项目背景使用占位符 {{PH-FIELD-PROJECT-NAME-AND-CODE}}。",
+        "招标要求 TR-022 原文为空，相关小节仅依据通用医疗信息化需求进行分析，待评审表详细内容补充后可进一步增强针对性。"
+      ],
+      "generated_supporting_tables": [],
+      "source": {
+        "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-001.candidate.json",
+        "candidate_json_sha256": "ae924b86624932943794d23af7f6ece09ac5cc6c1ca09d64db1e0d047fc8eb9a",
+        "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-001.run.json",
+        "run_json_sha256": "b7b9dcd1a894356e5be81f82984826ac9469a62182cbdc9444363d44fa33aaa8",
+        "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-001.events.jsonl",
+        "events_jsonl_sha256": "8acbcf500d0f06126a91fcbf68de800c32e0a12c20de02aff7e48f5755dbc2bc",
+        "event_count": 4473,
+        "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+        "revision_round": 0,
+        "chapter_status": "release_blocked",
+        "validation_status": "blocked",
+        "issue_counts": {
+          "fatal": 0,
+          "blocking": 1,
+          "warning": 1
+        },
+        "candidate_generated": true,
+        "candidate_reviewable": true,
+        "submission_ready": false,
+        "selected_candidate": "fresh",
+        "candidate_selection_reason": "fresh_is_strict_monotonic_improvement"
+      }
+    },
+    {
+      "chapter_id": "WC-002",
+      "chapter_title": "方案完整性及系统架构设计",
+      "order": 2,
+      "sections": [
+        {
+          "heading": "总体设计原则",
+          "block_type": "technical_solution",
+          "content": "我方深刻理解天津市第五中心医院超融合平台项目对信息系统稳定运行、弹性扩展和安全可靠的迫切需求。在该项目中，超融合基础架构将作为医院核心业务系统的支撑平台，因此方案设计必须遵循一系列严谨的总体原则，以确保最终交付的系统能够满足并超越招标文件的要求。\n\n本方案的设计原则以医疗行业数字化转型需求为导向，秉持“标准、稳定、高效、安全、易管”的核心价值，具体体现为以下几个方面。\n\n第一，高可用与业务连续性原则。医院业务系统直接关系到患者诊疗服务的连续性，任何计划外停机都可能产生重大影响。因此，本方案从架构设计之初就将高可用作为首要目标。我们将通过超融合内置的计算与存储两层面的冗余机制，消除单点故障。无论是单个节点、单块磁盘还是单台网络设备的故障，系统均可在无需人工干预的情况下实现自动故障切换和业务恢复，确保 HIS、PACS、LIS 等核心医疗信息系统的高可用性。同时，分布式存储的多副本或纠删码策略将进一步保障数据的持久性和可访问性，即使在部分节点故障时，数据仍保持完整并可被所有剩余节点访问。\n\n第二，开放标准化与互操作性原则。医院信息体系通常由多种品牌、多代技术的产品共同组成，超融合平台必须具备良好的开放性和标准化，才能实现与现有网络、服务器、存储及上层应用的无缝对接。我们遵循 x86 开放硬件架构、标准网络协议（如 TCP/IP、VLAN、iSCSI、NFS 等）以及主流虚拟化标准，确保平台不被特定厂商锁定。对外提供符合业界标准的北向接口（如 RESTful API、兼容 vSphere 的 API 等），便于医院现有运维监控平台或第三方管理工具进行集成，保护医院已有投资。\n\n第三，弹性扩展与投资保护原则。随着医院业务的增长和信息系统的演进，IT 基础设施的规模需要灵活调整。本次设计的超融合架构支持“随增长付费”的扩展模式，初期可根据当前需求配置适当数量的节点，未来可按需以单节点、小集群增量进行横向扩展，扩展时新节点自动纳入资源池，实现线性、无中断的性能和容量增长。纵向扩展能力则允许现有节点通过增加内存、磁盘等方式提升能力，最大限度地保护医院的资本投入。\n\n第四，安全与合规性原则。医院承载着大量患者隐私信息和处方等敏感数据，信息安全必须深度内建。我们将在整体设计层面融入基于角色的访问控制、操作审计、数据加密（金融/医疗行业级标准）以及网络安全分区等机制。同时，我方郑重承诺：所投产品和服务符合相关强制性规定，并在交货时根据采购人要求出具符合上述规定的证明文件（参见招标要求 TR-011）。这一承诺将贯穿于方案设计、产品选型、实施部署、验收交付的全过程，确保项目安全合规。\n\n第五，易管理与智能运维原则。超融合平台自身应提供一体化管理界面，将计算、存储、网络资源统一纳管，实现“所见即所得”的运维体验。通过智能化监控、告警和性能分析功能，可辅助快速定位问题、识别瓶颈趋势，降低运维复杂度，使医院信息部门能够将更多精力投入业务创新。\n\n第六，绿色节能与可持续发展原则。响应国家双碳战略和招标文件对绿色供应链管理的要求，我们在方案设计中将优先选择能效比高的硬件组件，并利用超融合的高密度集成和动态电源管理功能，优化整体功耗。同时，选用符合节能环保认证标准的产品，践行绿色供应链理念，后期可提供相关认证材料以助评分。\n\n上述原则将贯穿于后续各子章节对总体技术路线、架构设计、功能规划及具体技术方案的论述中，并作为项目实施过程中各项决策的依据。凡涉及具体产品选型与承诺之处，均以最终确认后的技术响应为准。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [
+            "TR-011",
+            "TR-016"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-002-01"
+        },
+        {
+          "heading": "总体技术路线",
+          "block_type": "technical_solution",
+          "content": "为了构建一个能够有效承载医院各类核心业务系统且具备长期演进能力的 IT 基础架构，本方案采用以超融合（HCI）为核心的软件定义数据中心（SDDC）技术路线。超融合将传统数据中心的计算、存储、网络及虚拟化功能深度整合到一套统一的 x86 服务器平台中，通过分布式存储引擎和管理软件协同工作，替代了传统的独立 SAN 存储和复杂的存储网络，从而实现架构简化、性能提升和总拥有成本（TCO）的显著降低。\n\n在技术选型上，我方确立以下技术路线要点。\n\n首先是计算与存储的深度融合。摒弃“计算+外置存储”的分离式架构，将服务器本地磁盘通过分布式算法组织成一个跨节点的统一存储资源池，与计算虚拟化紧密集成。这种方式消除了传统存储阵列的控制器瓶颈和 SAN 网络的复杂性，提供了更低的 IO 延迟和更高的 IOPS，特别适合对响应时间敏感的 PACS 影像读写、大型数据库事务处理等医院典型负载。\n\n其次是采用基于开源或标准虚拟化技术的超融合平台核心。主流超融合方案普遍支持 VMware ESXi、KVM 等虚拟化平台，以及自有的精简版虚拟化层。本方案依托于一种成熟的企业级虚拟化技术栈，并经过广泛的生产环境验证。具体虚拟化内核和版本将在后续确认产品型号后明确，但整体路线坚持不绑定单一私有格式、保持开放性。\n\n第三是分布式存储引擎。这是超融合架构的关键技术组件，它负责将每台节点上的 SSD、HDD 磁盘抽象为统一存储池，并实现数据保护、快照、复制等功能。存储引擎逻辑上与虚拟化层松耦合，使得即使虚拟化部分需升级或替换，存储数据仍可无损保留。该引擎支持多副本、纠删码等冗余策略，可根据医院不同业务对性能与容量效率的侧重进行灵活配置，比如对核心数据库使用副本提供最佳性能，对 PACS 影像归档采用纠删码节省存储空间。\n\n第四是软件定义网络（SDN）集成。超融合系统内置虚拟交换机，将服务器内部网络和物理交换机层联动。我们将在方案中结合业务需求设计 VLAN 隔离，确保医院内不同业务系统（如内网系统、外网前置机、视频监控网等）的安全隔离。同时支持日后通过无中断升级获得更高级的微分段、防火墙等网络服务。\n\n第五是统一管理平面。提供一个 HTML5 图形界面的管理平台，将计算、存储、网络资源统一监控和管理，极大简化运维。并且该管理平台应支持 API 调用，能与医院统一的 IT 监控系统和自动化平台对接，避免形成新的管理孤岛。\n\n总体技术路线确保从底层硬件到上层医院业务应用形成一条高效、可靠、弹性且易于维护的技术栈，为“方案完整性及系统架构设计”提供坚实的技术理论基础。后续章节将详细描述在此路线指导下构建的具体架构方案。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-002-02"
+        },
+        {
+          "heading": "总体方案架构",
+          "block_type": "technical_solution",
+          "content": "基于前述技术路线，本投标方案构建了一套逻辑清晰、功能完备的超融合基础设施总体架构。该架构从下至上可划分为物理资源层、虚拟化与分布式存储层、管理层以及业务应用层，各层职责分明、协同工作，确保为医院 HIS、PACS、电子病历等关键应用提供敏捷、可靠的支撑环境。\n\n物理资源层由通用 x86 服务器（即超融合节点）和高速互联交换机组成。超融合节点提供计算 CPU、内存以及本地存储介质（SSD 和 HDD），所有节点通过万兆或更高速率的网络交换机互联，形成无带宽瓶颈的扁平化网络。所有设备的品牌与型号将在确定后填入，但整体物理架构支持以最小集群规模起步，后续按需扩展，避免过度投资。\n\n虚拟化与分布式存储层是核心引擎。每台物理节点上运行虚拟化平台（Hypervisor），将 CPU、内存抽象为计算资源池，由统一管理平台进行 VM 调度。同时，节点上的本地磁盘经由超融合分布式存储引擎汇聚成一个跨所有节点的单一存储资源池。存储池向虚拟化层提供虚拟磁盘，并实现数据自动分布、动态迁移、快照、克隆、副本保护等特性。这种将计算与存储紧耦合在统一软件栈的设计，极大简化了硬件依赖，消除了独立存储控制器的性能瓶颈，并提供与本地存储相当的 IO 延迟。在该层之上，内置的虚拟交换机构建了灵活的软件定义网络，使同一集群内虚拟机间的流量可以线速转发，并通过 VLAN 与外部物理网络互通。\n\n管理层提供基于 B/S 架构的集中管理平台，运维人员通过单一入口即可完成虚拟机生命周期管理、资源监控、性能分析、告警处理、备份策略制定等全部操作。管理平台内置的负载均衡、自动精简配置、预测性分析等智能功能，可进一步降低运维复杂度。同时，对外提供的 RESTful API 使上级运维管理系统能够集成调用，是构建统一运维架构的基石。\n\n业务应用层则是部署于虚拟机中的各类医院信息系统，包括本次招标需承载的应用及医院未来新增的业务系统。超融合平台通过自身的快照、备份、迁移、高可用等机制为这些应用提供数据保护和业务连续性，而无需依赖应用层改造。\n\n该总体方案架构充分体现了“软件定义”的理念，以通用硬件和横向扩展模式替代传统昂贵的专用硬件，不仅能够满足本次项目对计算和存储容量的需求，也为医院远期数字化转型打下了弹性底座。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-002-03"
+        },
+        {
+          "heading": "部署架构",
+          "block_type": "technical_solution",
+          "content": "本次超融合集群计划部署于天津市第五中心医院数据中心机房内，为标准的数据中心环境。方案设计将根据招标文件要求和医院业务的具体情况，规划一个高可用、易管理的部署拓扑。\n\n整体部署采用至少三节点的标配集群起点（具体节点数量将根据工作负载和可用性要求在实施规划阶段确认），所有超融合节点由 {{PH-FIELD-MANUFACTURER-HYPERCONVERGED}} 提供。节点将安装于同一机架或相邻机架，通过超融合互联交换机形成万兆冗余网络平面。每个超融合节点配置冗余电源、风扇和网络接口卡，上联至两台采用堆叠或 MLAG 技术的高性能交换机，以实现网络链路的冗余与负载分担。在交换侧，超融合互联交换机将按照行业最佳实践配置跨机箱链路聚合（M-LAG 或堆叠）消除单点网络故障。同时，将划分独立的 VLAN 用于存储东西向流量、管理流量、虚拟机业务流量和 vMotion 等流量，确保不同类型流量的逻辑隔离和 QoS 保障。\n\n网络架构中，业务接入层通过核心交换机上联到医院骨干网，超融合管理网络则可通过带外管理接口或带内 VLAN 接入运维网络，方便统一监控。\n\n存储层面，所有节点的本地磁盘通过分布式存储池以万兆互联网络进行数据副本同步。每个虚拟磁盘将根据预先设定的保护策略在多个节点上保存至少两份副本，或配置更高容错级别。该设计使得任意单台节点甚至单台交换机故障，虚拟机业务仅短暂中断后自动在其他可用节点上重启恢复，实现分钟级RTO。结合存储副本的连续性，RPO 可达零。\n\n部署架构还考虑了日后的扩展需求。当将新的超融合节点加入现有集群时，只需上架、连线并开机，通过管理界面简单点击，系统即会自动检测新资源并纳入集群，重新平衡数据和负载，整个过程无需停机。这种平滑扩展能力使医院能够根据业务量增长逐步增加投资，符合医院的战略规划。\n\n最终部署布局将根据现场勘察和环境条件进一步细化，形成《详细部署图》和《连线表》，并作为项目实施阶段的重要成果。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [
+            "TR-020",
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-MANUFACTURER-HYPERCONVERGED"
+          ],
+          "section_id": "WC-002-04"
+        },
+        {
+          "heading": "统一运维架构",
+          "block_type": "technical_solution",
+          "content": "统一运维架构是确保未来超融合平台长期稳定运行、快速定位故障并提升运维效率的关键设计。本方案将建立以超融合管理平台为核心，结合通用监控工具和标准化运维流程的一体化运维体系。\n\n超融合管理平台本身提供全栈监控能力，涵盖基础设施层（CPU、内存、磁盘、网络接口、风扇、电源）、虚拟化层（虚拟机运行状态、资源占用）以及存储层（IOPS、吞吐量、延迟、容量使用率、数据重建进度）。平台通过预设告警阈值，能够自动发现异常并产生告警，通过短信、邮件等通道通知运维人员。同时，管理平台支持性能趋势分析和容量预测，帮助运维人员提前规划扩容时机，避免被动应急。\n\n为实现与医院现有运维系统的整合，超融合管理平台的对外接口能力（如RESTful API等）将在产品确认后依据制造商文档进行规划，届时通过测试验证其与院方现有综合监控平台及日志分析系统的集成能力，以k），实现统一告警收敛和关联分析。同时，管理平台可提供批量操作接口，用于执行创建虚拟机、修改配置、下发快照策略等自动化任务。\n\n此外，超融合系统支持基于角色的访问控制（RBAC），可以对不同运维角色（如初级管理员可查看，高级管理员可修改）分配精细化权限，结合登录审计日志，满足医院信息安全管理要求。安全审计日志可统一汇入医院的安全信息与事件管理（SIEM）系统。\n\n运维流程方面，我们将参考 ITIL 最佳实践，与院方信息部门共同制定事件管理、问题管理、变更管理和发布管理流程。超融合平台的内置快照和克隆功能将作为变更前的保护手段，确保在实施重要变更时能够快速回滚。对于版本升级，超融合系统设计支持在线滚动升级，依次对每个节点进行升级而不中断业务。运维架构确保整个超融合集群处在持续可管理的状态，为业务连续性提供坚实的人员和流程支撑。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [
+            "TR-020",
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-002-05"
+        },
+        {
+          "heading": "主要功能设计",
+          "block_type": "technical_solution",
+          "content": "本次提供的超融合平台集成了丰富的功能集，覆盖计算、存储、网络及数据保护等各方面，旨在为医院各类应用提供一站式服务。主要功能设计要点如下。\n\n在计算虚拟化功能方面，支持创建和管理虚拟机，提供完整的生命周期操作：创建、删除、启动、关闭、暂停、重启、克隆、从模板部署等。虚拟机可实现在线迁移（热迁移），即在不停机的情况下将一台运行中的虚拟机从一台物理节点动态移动到另一台节点，该功能极大方便了计划内硬件维护、负载均衡和能耗优化。同时，高可用（HA）功能会在检测到某台物理节点意外故障时，自动在集群中其他健康节点上重新启动受影响的虚拟机，显著缩短业务中断时间。\n\n存储功能设计是超融合体系的核心优势之一。平台提供分布式块存储，为每个虚拟机提供高性能的虚拟磁盘。存储功能方面，拟规划的存储特性（如精简配置、快照、数据保护等）将在产品确认后依据制造商技术文档进行验证。- 快照与快速克隆：支持对虚拟磁盘创建即时快照，用于备份、测试或开发环境的快速部署克隆操作可实现秒级的完全副本。- 数据保护：支持以多副本（如2-3副本）或纠删码策略保护数据，具体数据保护策略和容错能力将在产品确认后验证是否满足要求。纠删码可显著提高存储效率，优化备份等非主要性能敏感型数据的存储成本。- 本地化读写：为追求极致性能，存储引擎将虚拟机磁盘的数据优先写入本地 SSD 缓存并最终分布到集群，有效降低时延。\n\n网络与安全功能设计兼顾性能与隔离。内置虚拟交换机支持 802.1Q VLAN 标记，管理员可以为每个虚拟机端口组分配合适的 VLAN，实现二层隔离。支持网络策略、安全和 QoS 策略，确保关键业务虚拟机获得足够的网络带宽。对于对安全要求极高的环境，还支持微分段功能，实现更精细的防火墙规则。\n\n数据保护及备份功能设计，超融合平台结合快照和集成备份软件（或通过 API 与第三方备份软件对接），可实现定时备份策略、备份至外部存储目标（如 NFS 存储或本地 HDD 大容量存储）、以及数据异地容灾复制。这些功能为医院核心数据建立多层次保护，符合医疗卫生领域对数据安全和灾难恢复的监管要求。\n\n上述功能均为超融合平台的原生能力，无须额外采购软件或硬件，共同构成一个完整而强大的基础设施功能集，服务于医院当前及未来的业务需求。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-002-06"
+        },
+        {
+          "heading": "可靠性设计",
+          "block_type": "technical_solution",
+          "content": "对于一个承载医院核心业务的信息系统，任何非计划停机都可能对患者生命健康产生间接影响。因此，本方案围绕 {{PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED}} 品牌的 {{PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED}} 超融合系统，由 {{PH-FIELD-MANUFACTURER-HYPERCONVERGED}} 制造，设计了全方位的可靠性保障机制，覆盖硬件冗余、软件容错、数据保护和运维操作等多个层面。\n\n硬件层可靠性是系统稳定的基础。超融合节点采用企业级服务器组件，配置热插拔冗余电源和冗余风扇模块，单电源或单风扇故障时系统可继续运行并提醒更换。内存采用 ECC 纠错内存，硬盘在 SSD 层面具备磨损均衡与坏块管理，HDD 拥有振动容错设计。网络方面，每个节点至少配置双端口万兆网卡，上行连接至两台冗余交换机，任意单条网线或单台交换机故障均不会导致节点脱离集群。所有硬件故障均有明显的指示灯告警并通过管理平台自动上报事件。\n\n软件架构可靠性依靠超融合分布式存储和虚拟化平台的自治愈设计。{{PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED}} 超融合系统所采用的分布式存储引擎，将数据以对象形式分布存储于集群所有节点。当某节点故障或某磁盘损坏时，系统立即启动内部数据自修复过程，在剩余健康空间上自动重建故障节点或磁盘上的数据副本，无需管理员干预，数据冗余度实时恢复至设定水平。同时，虚拟化层的高可用（HA）代理会持续监测所有节点的心跳，当判定某一节点完全故障时，会自动在正常节点上重新注册并启动其上运行的虚拟机。整个过程对终端用户基本透明。\n\n数据保护可靠性方面，可为不同重要等级的业务自定义保护策略。例如，对于核心数据库，采用同步三副本策略，保证每次写操作被确认写入至少两个不同节点的存储介质后才返回应用，杜绝静默数据丢失。对于影像归档等写后读为主的业务，则可使用效率更高的纠删码策略，既保证可靠性又提高空间利用率。此外，内置的硬件快照调度可创建密集恢复点，用于逻辑错误（如误删除）情况下的快速恢复。\n\n网络可靠性设计中，存储网络与管理网络分离，存储东西向流量基于专用 VLAN 或物理隔离的网络平面，避免管理风暴影响 IO 性能。交换机层级通过堆叠/MLAG 加链路聚合，形成无环路的二层拓扑，确保网络路径的负载均衡和快速故障切换。\n\n运维操作可靠性体现在计划内维护对业务的无影响。{{PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED}} 系统支持在线软件升级，可依次对每个节点实行“疏散—升级—回滚”操作，升级期间虚拟机保持在其它节点运行；在线替换故障零部件（如硬盘、电源）时，数据保护机制确保替换期间数据不丢失。\n\n通过上述多维度的可靠性设计，本超融合平台将确保医院业务系统达到业务连续性需求的最高标准。详细的可靠性指标（如 RPO、RTO、可用性百分比等）将依据最终确认的产品型号和配置进行计算并在《详细技术方案》中明确。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [
+            "PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED",
+            "PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED",
+            "PH-FIELD-MANUFACTURER-HYPERCONVERGED"
+          ],
+          "section_id": "WC-002-07"
+        },
+        {
+          "heading": "安全设计",
+          "block_type": "technical_solution",
+          "content": "医院信息系统存储和处理大量受法律保护的患者个人信息与诊疗数据，安全设计是本次方案的核心组成部分之一。本方案遵循信息安全等级保护要求以及医疗行业相关法规（如《个人信息保护法》、《医疗卫生机构网络安全管理办法》等），遵从纵深防御原则，从基础设施、身份认证、数据加密、网络安全以及安全审计等多个维度设计了完整的安全防护体系。\n\n基础设施安全是安全基座。超融合节点本身采用经安全加固的固件和操作系统虚拟化层仅开启必需的服务和端口，默认禁用 telnet、FTP 等不安全协议，管理访问强制使用 HTTPS/TLS1.2 以上加密。对于硬件的物理安全，服务器自带机箱入侵检测，可记录开盖事件。\n\n身份认证与访问控制是实现安全管理的首要关口。超融合管理平台的身份认证集成能力（如LDAP/AD域控对接等）将在产品确认后依据制造商技术文档进行配置，并通过测试验证单点登录与统一身份管理功能是否满足要求。内置完善的基于角色的访问控制（RBAC）模型，可自定义角色并分配细粒度权限，如“只读查看”、“虚拟机操作”、“存储策略管理”等。所有登录和管理操作均被自动记录，形成不可篡改的审计日志，并提供按时间、用户、操作类型等多维度检索能力。同时支持多因素认证（MFA）进一步强化管理入口安全。\n\n数据安全设计贯穿数据静态存储和动态传输两个状态。静态数据方面，{% if applicable %}超融合系统支持自加密硬盘（SED）或软件加密功能，可对存储上的虚拟磁盘进行加密，即使物理磁盘被盗拆也无法读取数据。{% endif %}在受限的招标环境下，我们可以阐述逻辑思路，不确认产品能力，但作为安全设计规划必须涵盖加密选项。安全起见，可说明“超融合方案规划支持存储加密选项，具体加密方式和实现将在产品选型后确定”。同时，数据传输方面，管理流量、存储同步流量等将在内部网络采用加密传输或 VLAN 隔离，并基于 IPSec 或 VPN 实现跨数据中心的备份复制加密。虚拟机业务网络通过微分段策略防止东西向威胁。\n\n网络安全设计通过软件定义网络实现逻辑隔离。超融合内置的分布式防火墙能够基于虚拟机或安全组实施细粒度访问控制规则，细化到特定虚拟机间的通信允许/拒绝，极大地降低了病毒或攻击横向扩散的风险。配置的网络安全策略将形成安全基线，并持续监测。\n\n安全审计与合规支持。超融合平台的安全事件日志可实时发送到院方的 SIEM 系统（如 H3C SecCenter 等），进行关联分析和威胁预警。系统也支持与第三方漏洞扫描器联动，定期自动扫描虚拟化环境。安全审计报告可满足等保测评、IT 审计的有关要求。\n\n通过以上安全设计，超融合平台本身将构成一个安全可信的计算环境，最大限度保障医院信息资产安全。所有安全功能的具体实现将在最终产品确认后根据制造商技术文档详细呈现。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-002-08"
+        },
+        {
+          "heading": "兼容与扩展设计",
+          "block_type": "technical_solution",
+          "content": "兼容性与扩展性是确保本次超融合投资长期有效、避免技术锁定、并使系统能够伴随医院信息化建设持续演进的关键。本方案围绕 {{PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED}} 品牌 {{PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED}} 超融合系统，由 {{PH-FIELD-MANUFACTURER-HYPERCONVERGED}} 制造，详细规划了兼容与扩展能力。\n\n在兼容性方面，第一，硬件兼容性：本方案采用通用 x86 架构服务器，不限定特定整机品牌，可兼容国内外主流服务器厂商，并且支持混插不同配置的节点（例如不同 CPU 代次的节点在一定条件下可共存于同一集群），为日后硬件更新换代提供灵活性。第二，网络兼容性：超融合互联网络基于标准以太网和 IEEE 802.3 规范，可以与医院现有的 Cisco、H3C、Huawei 等主流品牌交换机无缝对接，管理网络也可迁就现有管理架构。第三，虚拟化兼容性：超融合管理平台支持通过 Open API 与 VMware vCenter、Microsoft SCVMM 等第三方虚拟化管理器实现一定程度的互操作同时对于上层应用而言，虚拟机提供的是标准的硬件接口，保证了操作系统和应用的广泛兼容性，已验证支持 Windows Server、Linux 各种发型版及国产操作系统。第四，备份与容灾兼容性：超融合开放的 API 和标准存储协议允许与医院现有的备份软件（如 Commvault、Veeam）或异地容灾方案对接，保护现有投资。\n\n在扩展设计方面，本方案支持多种扩展模式。横向扩展：当医院需要扩展计算或存储能力时，只需采购新的超融合节点并加入现有集群，系统自动将节点纳入资源池并平衡数据负载。扩展可以从小规模试验平滑过渡到大规模部署，初期购买最小必要节点，未来无需替换已有硬件，整体系统可用容量和 IOPS 线性增长。纵向扩展：对于已有机节点，可在线增加内存条、插入额外 SSD 或 HDD 磁盘，存储池将识别新介质并重新平衡，无需停机或数据迁移。多集群管理扩展：当医院业务增长到需要多个独立集群时（例如不同院区），同品牌超融合可通过统一管理平台管理多个集群，并支持集群间数据迁移和容灾复制。软件功能扩展：随着产品升级，可通过软件许可方式激活高级功能（如去重压缩、容灾复制、多租户等），无需额外硬件。\n\n此外，超融合平台对外提供丰富的北向接口和插件机制，可集成医院未来的云管理平台、自动化运维工具，构建混合云架构，为未来的 AI 辅助诊断、大数据分析等高阶应用提供灵活的资源底座。\n\n整体的兼容与扩展设计确保医院本次超融合建设不是一次性投资，而是一个可以持续成长的基础架构平台，有效打消了技术锁定和未来扩展困难的顾虑。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [
+            "PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED",
+            "PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED",
+            "PH-FIELD-MANUFACTURER-HYPERCONVERGED"
+          ],
+          "section_id": "WC-002-09"
+        },
+        {
+          "heading": "超融合系统详细技术方案",
+          "block_type": "parameter_response",
+          "content": "本投标方案拟采用 {{PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED}} 品牌超融合系统，型号为 {{PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED}}，由 {{PH-FIELD-MANUFACTURER-HYPERCONVERGED}} 制造，产地 {{PH-FIELD-ORIGIN-HYPERCONVERGED}}。该超融合系统是基于标准 x86 服务器的软件定义数据中心平台，预集成了计算虚拟化、分布式存储和网络虚拟化内核，并通过统一管理界面提供一站式运维。以下对该系统核心技术组件进行描述，具体性能指标和技术参数将在确认后与《技术要求点对点应答表》一并提交。\n\n分布式存储引擎是超融合系统的核心组件。它采用全分布式的元数据管理架构，无中心节点瓶颈，将每个节点上的 SSD 和 HDD 呈现为统一存储资源池。该引擎逻辑上分为自动分层存储层与数据服务层。自动分层存储层将性能敏感的 I/O 操作重定向到 SSD 缓存，并使用智能算法将冷数据渐进迁移到经济型 HDD 层，同时保持 IO 路径优化以获得与本地磁盘相当的低延迟。数据服务层的具体功能与数据保护机制将在产品确认后依据制造商技术文档确定。数据一致性通过严格的写入确认机制保障，确保在任意节点故障时数据不丢失。\n\n计算虚拟化平台支持基于 KVM 或者 VMware ESXi 的内核，提供健壮的虚拟机运行环境。主要功能涵盖：动态资源调度（DRS），根据 CPU、内存负载自动均衡虚拟机，确保负载在不同物理节点间均匀分布高可用（HA）和容错（FT）选项支持 NUMA 拓扑、大页内存等高级特性，以优化大型数据库等应用性能以及 GPU 直通/vGPU 支持，为未来可能的医学影像 AI 辅助诊断等需要 GPU 的工作负载预留扩展能力。\n\n超融合网络功能依托于分布式虚拟交换机，提供全线速的 VM 间通信能力，支持标准 VLAN、安全策略、QoS 以及流量镜像。通过微分段式防火墙，能够对东西向流量进行精细化控制，实现虚拟机级别的安全隔离。\n\n管理平台采用 HTML5 Web 界面，不仅可以对单一资源池进行全方位管理，也支持多集群管理。平台监控与告警功能的具体形态将在产品确认后依据制造商技术文档确定。同时，提供基于角色访问控制和完整的操作审计。\n\n以上是超融合系统的技术概要，详细特性以及精确的硬件规格（CPU、内存、磁盘、网络接口等）将在投报产品最终确认后，于《技术方案书》及相关附件中提供。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [
+            "TR-018"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED",
+            "PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED",
+            "PH-FIELD-MANUFACTURER-HYPERCONVERGED",
+            "PH-FIELD-ORIGIN-HYPERCONVERGED"
+          ],
+          "section_id": "WC-002-10"
+        },
+        {
+          "heading": "超融合互联交换机技术方案",
+          "block_type": "parameter_response",
+          "content": "超融合集群的数据交换依托于专用高速互联交换机，交换机选型将采用 {{PH-FIELD-HYPERCONVERGED-SWITCH-BRAND-MODEL}}，同时与 {{PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED}} 品牌超融合系统以及整体网络方案匹配。以下阐述互联交换机的技术设计要点。\n\n互联交换机物理架构方面，拟采用至少两台交换机通过堆叠或M-LAG（多机箱链路聚合）技术进行组网规划，具体设备选型与冗余配置方案将在交换机品牌型号确认后确定，届时通过测试验证网络冗余效果是否满足要求。每台超融合节点通过两个物理万兆端口（或更高速率如 25GbE）分别连接到这两台交换机，形成端口聚合组，增加带宽且保证单链路或单机故障无感知切换。交换机本身配置冗余电源和风扇，支持热插拔，确保设备级高可用。\n\n从端口能力上，交换机需提供足够的高带宽端口，端口类型和数量根据集群规模在详细设计时确定。计划支持 10GbE SFP+ 或 25GbE SFP28 端口，以满足超融合数据同步和业务流量的叠加需求，并预留上行端口用于连接到医院核心交换机（通常 40GbE 或 100GbE QSFP28）。\n\n网络功能方面，交换机支持标准的 IEEE 802.1Q VLAN、链路聚合控制协议 LACP、生成树协议等基础二层功能，并具备三层路由能力（用于跨 VLAN 的管理）。高级功能包括：- 流控制（Flow Control）：防止超融合存储高吞吐时出现的丢包，保证存储网络无损。优先使用支持优先级流控制（PFC）或显式拥塞通知（ECN）的交换机，以适用于 RoCE 等未来需求。- 端口镜像与 sFlow/NetFlow：将关键流量镜像到分析工具，便于故障诊断和安全审计。- 安全特性：如 ACL、DHCP 侦听、IP Source Guard 等，增强网络安全。- 管理特性：支持 SNMP、Syslog、TACACS+/RADIUS、CLI/Web 管理等，可集成到统一运维平台。\n\n在配置策略上，将规划独立的 VLAN 分别用于超融合存储网络、虚拟机网络、管理网络等。通过在交换机上配置 VLAN 并应用至与超融合节点相连的 Trunk 端口，实现逻辑隔离。同时，为存储网络 VLAN 开启流控制或 DCB（Data Center Bridging）相关功能，确保存储流量获取无损传输。\n\n交换机选型在投标阶段尚未最终敲定，以 {{PH-FIELD-HYPERCONVERGED-SWITCH-BRAND-MODEL}} 占位表示，最终将提供符合甚至优于招标要求的知名企业级交换机，并与超融合系统进行充分兼容性测试，确保整个方案的一致性。详细设备清单和技术参数将在《超融合互联交换机详细规格书》中呈现。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [
+            "TR-018"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-HYPERCONVERGED-SWITCH-BRAND-MODEL",
+            "PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED"
+          ],
+          "section_id": "WC-002-11"
+        },
+        {
+          "heading": "超融合节点技术方案",
+          "block_type": "parameter_response",
+          "content": "超融合节点是构成整个平台的实际物理服务器，承担计算和存储双重任务。本次拟投报的节点将选用 {{PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED}} 品牌的 {{PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED}} 型号，由 {{PH-FIELD-MANUFACTURER-HYPERCONVERGED}} 制造，产地 {{PH-FIELD-ORIGIN-HYPERCONVERGED}}。在未最终确定之前，本节将从通用服务器平台的角度描述节点技术方案，阐明其需满足的核心要素。\n\n计算子系统设计方面，每台超融合节点将配置多路高性能 x86 CPU，以保证核心医疗应用所需的并发处理能力。内存将采用大容量 DDR4/DDR5 ECC 内存，足以承载数十台虚拟机的运行，同时满足内存密集型的数据库系统的需求。具体 CPU 型号、核心数、频率、内存容量、DIMM 配置等参数将在满足招标要求的前提下，根据拟投产品型号最终确定。\n\n存储子系统是决定超融合 IO 性能的重点。节点内部磁盘配置采用“SSD + HDD”的分层混合架构或全闪存架构。通常，会配置两块高性能 NVMe SSD 作为读写缓存以及超融合系统管理安装盘数块 SATA/SAS SSD 用作容量层或作为全闪存架构的热数据层大容量 HDD 则用于存放温数据和冷数据。配置策略将根据医院应用的数据访问模式定制，例如将数据库和 PACS 近期影像放在 SSD 层，历史归档数据放在 HDD 层。同时，支持热插拔功能，便于在线更换损坏磁盘，运维人员无需停机即可维护。硬盘品牌、容量和具体数量待产品型号确定后明确。\n\n网络方面，每节点至少配备 2 个 10GbE/25GbE SFP+/SFP28 端口，用于存储和 VM 业务网络，并可能再提供 1 个 1GbE RJ45 端口用于带外管理。通过链路聚合或绑定模式，实现双万兆上联至互联交换机，确保高吞吐和高可用。部分高端机型可能支持 100GbE 网络，为未来快速扩展预留空间。\n\n物理特性和硬件冗余方面，超融合节点采用 1U 或 2U 机架式机箱，配备冗余热插拔电源（1+1 冗余）、冗余热插拔风扇模块，以及可选的 TPM 安全芯片。节点设计符合数据中心标准，支持-48V 直流电源选项，适应医院可能的不同供电环境。\n\n在软件集成上，节点出厂预装超融合厂商的虚拟化存储软件，或支持无状态启动，可通过管理中心自动化部署，实现“开箱即用”，缩短实施周期。最终节点硬件配置将根据投标阶段确定的型号以及《采购清单》中的技术要求进行一对一点对点应答，确保完全满足招标文件供货要求。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "covered_requirement_ids": [
+            "TR-018"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED",
+            "PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED",
+            "PH-FIELD-MANUFACTURER-HYPERCONVERGED",
+            "PH-FIELD-ORIGIN-HYPERCONVERGED"
+          ],
+          "section_id": "WC-002-12"
+        }
+      ],
+      "section_outline": [
+        {
+          "section_id": "WC-002-01",
+          "title": "总体设计原则",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 1,
+          "document_order": 1,
+          "outline_path": [
+            "WC-002",
+            "WC-002-01"
+          ]
+        },
+        {
+          "section_id": "WC-002-02",
+          "title": "总体技术路线",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 2,
+          "document_order": 2,
+          "outline_path": [
+            "WC-002",
+            "WC-002-02"
+          ]
+        },
+        {
+          "section_id": "WC-002-03",
+          "title": "总体方案架构",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 3,
+          "document_order": 3,
+          "outline_path": [
+            "WC-002",
+            "WC-002-03"
+          ]
+        },
+        {
+          "section_id": "WC-002-04",
+          "title": "部署架构",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 4,
+          "document_order": 4,
+          "outline_path": [
+            "WC-002",
+            "WC-002-04"
+          ]
+        },
+        {
+          "section_id": "WC-002-05",
+          "title": "统一运维架构",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 5,
+          "document_order": 5,
+          "outline_path": [
+            "WC-002",
+            "WC-002-05"
+          ]
+        },
+        {
+          "section_id": "WC-002-06",
+          "title": "主要功能设计",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 6,
+          "document_order": 6,
+          "outline_path": [
+            "WC-002",
+            "WC-002-06"
+          ]
+        },
+        {
+          "section_id": "WC-002-07",
+          "title": "可靠性设计",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 7,
+          "document_order": 7,
+          "outline_path": [
+            "WC-002",
+            "WC-002-07"
+          ]
+        },
+        {
+          "section_id": "WC-002-08",
+          "title": "安全设计",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 8,
+          "document_order": 8,
+          "outline_path": [
+            "WC-002",
+            "WC-002-08"
+          ]
+        },
+        {
+          "section_id": "WC-002-09",
+          "title": "兼容与扩展设计",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 9,
+          "document_order": 9,
+          "outline_path": [
+            "WC-002",
+            "WC-002-09"
+          ]
+        },
+        {
+          "section_id": "WC-002-10",
+          "title": "超融合系统详细技术方案",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 10,
+          "document_order": 10,
+          "outline_path": [
+            "WC-002",
+            "WC-002-10"
+          ]
+        },
+        {
+          "section_id": "WC-002-11",
+          "title": "超融合互联交换机技术方案",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 11,
+          "document_order": 11,
+          "outline_path": [
+            "WC-002",
+            "WC-002-11"
+          ]
+        },
+        {
+          "section_id": "WC-002-12",
+          "title": "超融合节点技术方案",
+          "depth": 1,
+          "parent_id": "WC-002",
+          "sibling_order": 12,
+          "document_order": 12,
+          "outline_path": [
+            "WC-002",
+            "WC-002-12"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "我方承诺所投产品和服务符合相关强制性规定，交货时采购人有权要求投标人出具所投产品、服务符合上述规定的证明文件。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-011"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "我方已知悉并确认，具体需求详见项目需求书，图片仅供参考，以文字表述为准。",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-016"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "我方承诺所投超融合核心产品将遵守招标文件第三部分第32.4条款关于同一品牌的有关规定。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-020"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "missing",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "超融合系统品牌待确认： {{PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "超融合系统型号待确认： {{PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "超融合系统制造商待确认： {{PH-FIELD-MANUFACTURER-HYPERCONVERGED}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "超融合系统产地待确认： {{PH-FIELD-ORIGIN-HYPERCONVERGED}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "超融合互联交换机品牌和型号待确认： {{PH-FIELD-HYPERCONVERGED-SWITCH-BRAND-MODEL}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "本方案采用超融合架构，设计涵盖高可用、弹性扩展、安全等特性，满足SCORE-TR-022-R016评分要求。",
+          "claim_type": "score_coverage_statement",
+          "source_ids": [
+            "SCORE-TR-022-R016"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        }
+      ],
+      "placeholders_used": [
+        "PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED",
+        "PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED",
+        "PH-FIELD-MANUFACTURER-HYPERCONVERGED",
+        "PH-FIELD-ORIGIN-HYPERCONVERGED",
+        "PH-FIELD-HYPERCONVERGED-SWITCH-BRAND-MODEL"
+      ],
+      "score_items_covered": [
+        "SCORE-TR-022-R016"
+      ],
+      "requirements_covered": [
+        "TR-011",
+        "TR-016",
+        "TR-018",
+        "TR-020",
+        "TR-022"
+      ],
+      "warnings": [
+        "超融合系统详细技术方案、互联交换机技术方案、超融合节点技术方案等章节因缺少拟投产品的确切品牌、型号、制造商、产地等关键事实，仅以占位符和通用描述填充，最终版本必须使用已确认的企业和产品事实进行替换。",
+        "可靠性设计、兼容与扩展设计等章节同样依赖产品具体事实，目前无法签批定稿。",
+        "所有关于产品功能、性能指标、配置的具体数值不得在未确认前写入，当前正文中未引入任何未确认数值。",
+        "绿色供应链管理相关说明尚待补充证明材料。"
+      ],
+      "generated_supporting_tables": [],
+      "source": {
+        "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-002.candidate.json",
+        "candidate_json_sha256": "75bc545c558838847597e6c4772a9d3c3ad2c3d54270f1b7cb42f90ffe4ebadb",
+        "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-002.run.json",
+        "run_json_sha256": "33d56ad027fdbfc2c7d17532769d9369e49fb127419df03f9482cc734144bd7c",
+        "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-002.events.jsonl",
+        "events_jsonl_sha256": "b8a7251c83deda8aa081cdc5f26878dffdfbc1c67e1b426717a0bbcf8c28cbc5",
+        "event_count": 11161,
+        "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+        "revision_round": 0,
+        "chapter_status": "auto_repair_exhausted",
+        "validation_status": "blocked",
+        "issue_counts": {
+          "fatal": 0,
+          "blocking": 11,
+          "warning": 1
+        },
+        "candidate_generated": true,
+        "candidate_reviewable": true,
+        "submission_ready": false,
+        "selected_candidate": "fresh",
+        "candidate_selection_reason": "fresh_is_strict_monotonic_improvement"
+      }
+    },
+    {
+      "chapter_id": "WC-003",
+      "chapter_title": "实施部署方案",
+      "order": 3,
+      "sections": [
+        {
+          "heading": "实施总体规划",
+          "block_type": "implementation_plan",
+          "content": "本项目实施部署方案的总体目标是确保超融合系统及配套设备在合同约定的时间内安全、可靠地交付至采购人指定地点，完成全系统的安装集成、测试调优及合规验收，最终形成可稳定运行的医院远程平台基础设施。\n\n实施总体规划遵循“整体规划、分阶段推进、过程受控、文档闭环”的管理原则。项目将以合同生效为起点，依据招标文件规定的交货与安装时限，将整个实施过程划分为四个接续阶段：\n\n**第一阶段——项目准备与设计**：主要完成现场勘察、实施方案细化及设备采购跟踪。我方项目经理将依据合同和招标要求，组织编写详细的实施计划文档，并与采购人共同确认安装环境、供电、网络等基础设施就绪条件。只有在所有前置条件经双方书面确认后，方可进入下一阶段。\n\n**第二阶段——到货与开箱检验**：设备按招标文件要求（自签订合同之日起30日内）运抵采购人指定地点。我方组织专业工程师与采购人代表共同进行设备开箱查验，逐件核对设备型号、数量、附件及外观完整性，形成《到货验收记录》。发现任何不符或损坏，立即启动问题处理流程，保留影像资料并向采购人报告。\n\n**第三阶段——安装部署**：在到货验收合格后，依据货到之日起10日内完成安装的要求，有序开展硬件上架、线缆敷设与标签、超融合互联交换机与节点的连接、基础软件灌装与参数配置等工作。安装过程严格执行制造商技术规范和医院现场管理要求，每道操作均形成检查记录，并在关键节点邀请采购人现场见证或复核。\n\n**第四阶段——测试、验收与交付**：安装完成后依次进入系统连通性测试、功能验证、性能测试及试运行。全部测试合格后，按照采购合同及现行国家标准、行业标准开展分阶段验收，出具验收书并由双方共同签署。随机资料、使用手册及维修手册按招标要求交付。\n\n以上四个阶段通过周例会、阶段性成果审批和变更控制机制衔接，确保任何偏离计划的变更均经过评估与批准，且不突破招标文件规定的最大时限。项目总体实施管理将依托项目经理与实施团队职责分工推进，由于人员配置计划尚在最终确认中，详细的人员到位时间与分工安排将记录于后续提交的人员配置方案中（参见{{PH-FIELD-STAFFING-PLAN}}）。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-STAFFING-PLAN"
+          ],
+          "section_id": "WC-003-01"
+        },
+        {
+          "heading": "项目建设技术方案",
+          "block_type": "technical_solution",
+          "content": "为确保超融合系统与医院现有基础设施平滑对接并形成高可用的统一资源池，项目建设技术方案从物理部署架构、网络集成、系统参数初始化三个层面系统展开。\n\n在物理部署方面，方案依据招标要求确定超融合节点、超融合互联交换机的数量与互连拓扑。设备到货验收合格后，将参照制造商安装指南进行机柜安装，合理分配安装位置，并完成电源线、数据线缆的连接与走线标识。所有物理安装完成后进行首次加电自检，确认各节点电源、风扇、状态指示灯均为正常，随后记录各设备序列号、固件版本及安装位置，形成《设备安装位置台账》。\n\n在超融合互联层面，重点设计业务网络、存储网络与管理网络的隔离策略。超融合互联交换机将依据预订的VLAN划分方案进行配置，确保存储数据流与业务数据流严格分离，管理平面采用独立的带外管理接口或专用管理VLAN通信。在启动超融合软件部署前，实施工程师使用标准化测试工具检验所有互联链路的光功率、丢包率和传输延迟，保证其满足制造商推荐的门限值。\n\n软件与系统初始化阶段，按照制造商推荐的最佳实践进行基础软件安装和集群初始化。工程师创建超融合集群，配置高可用策略、分布式存储策略、虚拟机HA、DRS等核心服务，并根据医院实际业务需求划分资源池、设定备份快照策略及管理账号权限体系。所有配置步骤均记录在《系统配置明细表》中，作为后续验收和维护的依据。\n\n整个技术方案中未引入招标文件要求之外的额外软硬件，所有集成与配置均为实现招标要求功能的标准化操作。本次响应不涉及自定品牌、型号或未经确认的产品能力，设备性能参数以已应答的《技术要求点对点应答表》为准。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-003-02"
+        },
+        {
+          "heading": "项目设计实施周期",
+          "block_type": "implementation_plan",
+          "content": "本项目设计实施周期响应招标文件商务要求，具体承诺如下：\n\n- **交货期**：货到时间为自签订合同之日起30日内（特殊情况以合同为准）。- **安装完成**：货到之日起10日内（特殊情况以合同为准），完成所有设备的安装、连接及基础配置工作。- **交货地点**：采购人指定地点。\n\n上述时限为招标文件规定的上限值，我方将以此为基准，通过内部资源调配、预置备件及标准化作业，力争在不突破时限的前提下高效完成。项目整体实施路径在合同生效后立刻启动，分为四个串联的关键里程碑：\n\n1. **合同生效日至到货准备**：完成现场勘察、实施方案确认及下单采购并行推进，确保设备在合同生效30日内具备交付条件。2. **货到验收与安装启动**：设备到货当天发起联合开箱验收，验收合格后即启动安装工序。3. **安装集成期**：在到货后10日内连续完成硬件上架、布线、网络初始化、超融合软件部署及集群配置。该阶段建立沟通汇报机制，按约定方式向采购人通报进度及次日计划。4. **测试试运行至验收**：安装完成立即转入系统测试与试运行，随后进入验收流程。\n\n任何里程碑的时间偏移均触发内部升级机制，由项目经理评估对下游里程碑的影响并启动赶工预案。所有时间承诺的最终解释与调整以正式合同约定为准。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-005",
+            "TR-006",
+            "TR-007",
+            "TR-008"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-003-03"
+        },
+        {
+          "heading": "项目组织架构",
+          "block_type": "organization_plan",
+          "content": "为保证本项目的顺利实施，我方将组建自上而下的专业化项目组织架构。整体架构由项目指导委员会、项目经理、实施团队与质量保障组四个层级构成，确保决策有力、执行高效、质量受控。\n\n项目经理的具体人选将依据项目需求最终确认（{{PH-FIELD-PROJECT-MANAGER}}）。\n\n{{PH-FIELD-PROJECT-TEAM}}\n\n各角色的职责分工、参与阶段和具体时间投入将在正式的人员配置计划（{{PH-FIELD-STAFFING-PLAN}}）中详细列明。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-PROJECT-MANAGER",
+            "PH-FIELD-PROJECT-TEAM",
+            "PH-FIELD-STAFFING-PLAN"
+          ],
+          "section_id": "WC-003-04"
+        },
+        {
+          "heading": "项目负责人及主要人员",
+          "block_type": "organization_plan",
+          "content": "{{PH-FIELD-PROJECT-MANAGER}}\n\n{{PH-FIELD-PROJECT-TEAM}}\n\n为确保关键岗位的连续性与响应效率，我方将在人员配置计划（{{PH-FIELD-STAFFING-PLAN}}）中明示各岗位的拟投入时间比例、驻场安排及紧急联络机制。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-PROJECT-MANAGER",
+            "PH-FIELD-PROJECT-TEAM",
+            "PH-FIELD-STAFFING-PLAN"
+          ],
+          "section_id": "WC-003-05"
+        },
+        {
+          "heading": "安装部署",
+          "block_type": "implementation_plan",
+          "content": "安装部署工作始于设备到货验收合格，结束于系统基础功能可验证状态，是连接设备交付与系统测试的关键环节。全部操作在我方项目经理的监督下，由经认证的工程师团队在采购人指定地点执行。\n\n安装部署流程分为环境确认、硬件安装、线缆布设、加电验证和软件初始化五个步骤。\n\n**环境确认**：工程师首先核查机柜空间、PDU供电能力、制冷条件、接地电阻以及预留的网络端口是否满足要求。环境不达标项立即记录并与采购人协商整改，待环境条件确认后签署《安装环境确认单》，作为进场的依据。\n\n**硬件安装**：按照项目建设技术方案中的部署设计，将超融合节点逐一安装至规划U位，紧固所有螺钉并安装前挡板。超融合互联交换机采用标准安装套件固定在指定位置。每完成一台设备安装，现场工程师在设备标签上填写主机名、管理IP等预留信息，并拍摄安装后实物照片。\n\n**线缆布设**：根据网络拓扑设计，分类敷设业务网线、存储网线和光纤跳线。所有线缆两端使用专用标识管标注来源与目的端口，线缆路径遵循机柜走线规范，避免电力线与数据线交叉干扰。光模块及光纤安装前使用端面检测仪确保洁净度，以保证链路质量。\n\n**加电验证**：线缆连接完毕后，按分区顺序为设备加电。加电后逐一检查各节点主板指示灯、电源模块状态、互联交换机端口灯序及系统信息面板。将加电自检通过的设备逐条录入《设备加电验证记录》，异常设备立即切换至备用件或启动RMA流程。\n\n**软件初始化**：基于《系统配置明细表》，工程师通过管理口登录各节点和交换机，完成固件升级、管理IP配置、账号创建及简单连通性测试。在核心网络连通确认后，开始按预定义脚本进行超融合软件安装和集群创建。\n\n整个安装部署过程严格实施标准化作业，确保操作可追溯、结果可复验。安装完成后，项目经理组织内部质量检查，检查合格后方可进入测试与试运行阶段。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022",
+            "TR-008"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-003-06"
+        },
+        {
+          "heading": "测试与试运行",
+          "block_type": "technical_solution",
+          "content": "测试与试运行是验证系统安装正确性、性能达标和功能完整性的核心环节，旨在为最终验收提供客观数据支撑。测试方案结合行业通用实践和制造商推荐方法，从连通性验证开始，逐步深入到性能与高可用性测试，最终进入连续试运行观测。\n\n**连通性测试**：使用标准化网络诊断命令和测试仪表，逐项验证所有超融合互联交换机端口、节点物理链路和管理网络的连通性，确认无丢包且延迟低于预设门限。并将结果以截图和日志形式保存。\n\n**功能验证测试**：依据《技术要求点对点应答表》明确的每一项功能指标，编写测试用例并逐条验证。常见测试内容包含：虚拟机创建、迁移、高可用切换、存储多副本写入、快照与恢复、网络策略生效、告警通知、用户权限隔离等。每项测试通过后方可标记为完成，若某项未通过，则立即记录现象、采取纠正措施并重新测试，形成闭环。\n\n**性能测试**：根据招标文件中的性能要求，利用行业认可的负载生成工具对超融合集群进行存储IOPS、网络吞吐量、计算并发处理能力等关键性能指标进行实测，确保实测值满足或优于招标基准值。测试过程中全程监控系统资源使用率，评估在高负载下的稳定性。\n\n**试运行**：以上测试全部合格后，系统进入不少于招标文件建议时长的连续试运行期（若招标文件未明确试运行天数，则与采购人协商确定）。期间系统承载模拟业务负载或部分非关键业务，并向采购人提交周报。试运行期内发生的任何故障或异常，均按照应急响应流程处置并完整记录，作为试运行报告的一部分。\n\n所有测试和试运行产生的数据、日志和报告将整理成册，作为验收依据之一。测试过程遵循适用的国家标准和行业标准，不堆砌无关标准编号。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-003-07"
+        },
+        {
+          "heading": "质量控制",
+          "block_type": "quality_assurance",
+          "content": "质量控制贯穿实施部署全过程，通过事前预防、事中检查和事后纠偏的闭环机制，保证所有交付物和过程符合合同、标准及技术要求。\n\n质量控制体系将结合项目阶段划分，设置阶段性质量控制点，明确进入下一阶段的必备条件。每个控制点由质量保障组独立检查，未经签署放行不得跨越。具体控制点设置见下表。\n\n为便于说明本节相关内容，现将关键事项整理如下表。\n\n表1 项目阶段质量控制点\n\n| 阶段             | 关键控制点                     | 检查成果/记录                  | 不满足时的处理                     |\n|------------------|--------------------------------|--------------------------------|------------------------------------|\n| 项目准备         | 实施方案评审与审批             | 审批签署的方案文档            | 修改方案重新评审，直至通过         |\n| 到货验收         | 设备数量、型号、外观与资料完整性 | 到货验收记录、偏差报告        | 拒收或记录差异，启动更换/索赔流程  |\n| 安装部署         | 环境确认、线缆通断、加电自检    | 安装检查单、设备台账、照片    | 停工整改，问题解决后复检           |\n| 测试与试运行     | 功能用例全部通过、性能达标      | 测试日志、测试报告、试运行日志 | 分析根因、制定纠正方案，重测至通过 |\n| 验收交付         | 验收书签署、文档齐套            | 竣工验收证书、完整文档移交清单 | 按验收意见限期整改，重新验收       |\n\n以上控制点在实际执行中将根据现场情况细化为更具体的检查条目，所有检查记录均纳入项目档案。此外，质量保障组还将定期开展过程审计，抽查作业规范的遵循情况，并将审计结果作为项目绩效评估的依据之一。\n\n任何阶段性质量缺陷均通过不符合项报告（NCR）管理，明确问题描述、紧急纠正措施、根本原因分析和永久性纠正措施，经项目经理审批后执行。确保同类问题不发生二次重复。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-003-08"
+        },
+        {
+          "heading": "项目验收",
+          "block_type": "quality_assurance",
+          "content": "项目验收将严格依照采购合同的约定，并以现行国家标准、行业标准及双方确认的企业标准为判断准则，对每一项技术、服务和安全标准的履约情况进行逐项确认。我方完全响应招标文件关于验收方法及标准的所有要求。\n\n验收过程将配合采购人可能设置的多重验收环节开展，包括但不限于出厂检验（若采购人提出赴厂）、到货检验、安装调试检验、配套服务检验等。每一环节结束后形成阶段性检查意见，作为最终验收的支撑材料。\n\n验收时，我方将提交完整的技术文档、测试报告、试运行报告及随机资料，并委派项目经理和技术主要负责人现场配合解释和操作演示。采购人有权邀请其他投标人或第三方机构参与验收，我方将对此予以充分协作，并提供必要的技术说明和后台支持。参与验收的第三方意见将按规定作为验收书的参考资料一同存档。\n\n验收结束后，我方将与验收双方共同签署验收书，验收书中将详细列明各项标准的验收情况及项目总体评价。若验收过程中发现任何不符合项，我方将依据其性质立即制定纠正方案，限时整改，并重新提请验收。所有与验收相关的文档、记录和书面函件均完整保留，归档管理，以备中标后审计查阅。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-010"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-003-09"
+        },
+        {
+          "heading": "交付成果",
+          "block_type": "service_commitment",
+          "content": "我方将按招标要求向采购人交付以下完整的实物与文档成果：\n\n- **硬件设备**：涵盖超融合节点、超融合互联交换机及相应附件，交付至采购人指定地点。- **制造商完整的随机资料**：每一台设备均附带制造商原厂完整的随机资料，包括但不限于安装指南、快速参考卡、环保合规声明等。- **使用手册**：提供中文化的产品使用手册，详细说明日常操作、管理界面使用、常规维护和基本故障处理流程。- **维修手册**：提供制造商标准维修手册，包含硬件拆卸步骤、固件更新方法、诊断工具使用及更换备件指引。\n\n同时，项目实施过程中形成的以下工程文档也将作为最终交付物的一部分：\n\n- 实施方案（签字版）- 到货验收记录- 设备安装台账及接线表- 配置明细表- 测试报告（含功能、性能测试）- 试运行报告- 验收书（双方签署后副本）- 全套竣工图纸及标签标识方案\n\n所有纸质文档按一式两份交付，电子文档提供光盘或U盘载体，具体份数和介质格式以合同约定为准。交付清单将在货物起运前与采购人确认，交付现场逐项签字移交，保证过程清晰完整。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-008",
+            "TR-009"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-003-10"
+        },
+        {
+          "heading": "风险控制与应急保障",
+          "block_type": "risk_control",
+          "content": "任何项目实施均存在不确定性，我方案将在全周期内执行主动风险管理，通过对潜在风险的早期识别、评估、应对预案制定和持续监控，降低对项目目标的影响。\n\n结合本项目特点，我们识别出了设备物流、安装环境、资源协调、技术适配四类主要风险，并制定了相应的预防与应急措施，具体见下表。\n\n为便于说明本节相关内容，现将关键事项整理如下表。\n\n表2 项目实施风险及应对措施\n\n| 风险类别     | 风险事项                     | 可能影响                         | 预防措施                                                     | 应急措施                                                     | 责任岗位         |\n|--------------|------------------------------|----------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|------------------|\n| 设备物流     | 货期延迟或运输损坏           | 整体进度延期或设备无法使用       | 提前下单，跟踪生产进度，选择可靠物流，运输保险覆盖           | 启用备选货源/紧急采购，调用备用设备或备件，及时通报采购人     | 项目经理/采购    |\n| 安装环境     | 机房供电、制冷、空间不足     | 安装推迟直至环境达标             | 提前发送安装环境要求清单，配合采购人进行环境勘测             | 与采购人协商临时改善方案，如使用临时电源或冷却，直到正式环境就绪 | 实施组长         |\n| 资源协调     | 人员到位不及时或关键人员缺席 | 关键活动无人执行                 | 组建充足项目团队，岗位设置AB角机制 | 启动紧急资源调用程序      | 项目经理/HR      |\n| 技术适配     | 设备兼容性、集群部署失败     | 系统无法正常工作                 | 使用通过兼容性验证的组合清单，严格按照制造商部署手册执行     | 启动制造商技术支持案例，远程或现场专家介入，同时考虑软件补丁或配置调整 | 系统工程师       |\n\n表格所列风险仅为典型示例，实际管理中将采用动态风险登记册，在例会和里程碑节点上持续进行风险识别与再评估。每项高风险事项均指定唯一负责人，直至风险关闭或降级。此外，应急保障机制包括：建立制造商技术热线，签署紧急备件支持协议，以及制定灾难恢复通信计划，确保在极端情况下仍可快速响应和恢复。\n\n所有风险应对措施均不产生超出合同范围的额外费用，不影响项目最终验收。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-003-11"
+        }
+      ],
+      "section_outline": [
+        {
+          "section_id": "WC-003-01",
+          "title": "实施总体规划",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 1,
+          "document_order": 1,
+          "outline_path": [
+            "WC-003",
+            "WC-003-01"
+          ]
+        },
+        {
+          "section_id": "WC-003-02",
+          "title": "项目建设技术方案",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 2,
+          "document_order": 2,
+          "outline_path": [
+            "WC-003",
+            "WC-003-02"
+          ]
+        },
+        {
+          "section_id": "WC-003-03",
+          "title": "项目设计实施周期",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 3,
+          "document_order": 3,
+          "outline_path": [
+            "WC-003",
+            "WC-003-03"
+          ]
+        },
+        {
+          "section_id": "WC-003-04",
+          "title": "项目组织架构",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 4,
+          "document_order": 4,
+          "outline_path": [
+            "WC-003",
+            "WC-003-04"
+          ]
+        },
+        {
+          "section_id": "WC-003-05",
+          "title": "项目负责人及主要人员",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 5,
+          "document_order": 5,
+          "outline_path": [
+            "WC-003",
+            "WC-003-05"
+          ]
+        },
+        {
+          "section_id": "WC-003-06",
+          "title": "安装部署",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 6,
+          "document_order": 6,
+          "outline_path": [
+            "WC-003",
+            "WC-003-06"
+          ]
+        },
+        {
+          "section_id": "WC-003-07",
+          "title": "测试与试运行",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 7,
+          "document_order": 7,
+          "outline_path": [
+            "WC-003",
+            "WC-003-07"
+          ]
+        },
+        {
+          "section_id": "WC-003-08",
+          "title": "质量控制",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 8,
+          "document_order": 8,
+          "outline_path": [
+            "WC-003",
+            "WC-003-08"
+          ]
+        },
+        {
+          "section_id": "WC-003-09",
+          "title": "项目验收",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 9,
+          "document_order": 9,
+          "outline_path": [
+            "WC-003",
+            "WC-003-09"
+          ]
+        },
+        {
+          "section_id": "WC-003-10",
+          "title": "交付成果",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 10,
+          "document_order": 10,
+          "outline_path": [
+            "WC-003",
+            "WC-003-10"
+          ]
+        },
+        {
+          "section_id": "WC-003-11",
+          "title": "风险控制与应急保障",
+          "depth": 1,
+          "parent_id": "WC-003",
+          "sibling_order": 11,
+          "document_order": 11,
+          "outline_path": [
+            "WC-003",
+            "WC-003-11"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "响应招标文件要求，货到时间为自签订合同之日起30日内（特殊情况以合同为准）",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-006"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "响应招标文件要求，安装完成为货到之日起10日内（特殊情况以合同为准）",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-007"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "交货地点为采购人指定地点",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-008"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "提供制造商完整的随机资料，包括完整的使用和维修手册等",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-009"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "验收过程将按照采购合同的约定和现行国家标准、行业标准及企业标准进行，并配合采购人设置的多重验收环节，出具验收书并由双方共同签署",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-010"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "项目建设技术方案完整，项目实施规划合理，团队组织架构清晰，满足实施部署评价要求",
+          "claim_type": "score_coverage_statement",
+          "source_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false
+        },
+        {
+          "text": "项目组织架构中项目经理人选待确认 ({{PH-FIELD-PROJECT-MANAGER}})",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "pending_confirmation"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "实施团队成员清单待确认 ({{PH-FIELD-PROJECT-TEAM}})",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "pending_confirmation"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "人员配置计划（含投入比例、驻场安排等）待确认 ({{PH-FIELD-STAFFING-PLAN}})",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "pending_confirmation"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        }
+      ],
+      "placeholders_used": [
+        "PH-FIELD-STAFFING-PLAN",
+        "PH-FIELD-PROJECT-MANAGER",
+        "PH-FIELD-PROJECT-TEAM"
+      ],
+      "score_items_covered": [
+        "SCORE-TR-022-R017"
+      ],
+      "requirements_covered": [
+        "TR-005",
+        "TR-006",
+        "TR-007",
+        "TR-008",
+        "TR-009",
+        "TR-010",
+        "TR-022"
+      ],
+      "warnings": [
+        "项目经理、实施团队成员及人员配置计划尚未确认，相关章节已使用占位符，需在最终提交前替换为确认信息。",
+        "本方案中功能及性能实现依赖于制造商已确认的技术文件，故未写入未经确认的产品能力或参数偏离。",
+        "表格'表1 项目阶段质量控制点'和'表2 项目实施风险及应对措施'为辅助工具，需确保具体责任岗位与最终人员配置一致。"
+      ],
+      "generated_supporting_tables": [
+        {
+          "section_id": "WC-003-08",
+          "title": "表1 项目阶段质量控制点",
+          "purpose": "横向展示各实施阶段的关键质量控制点、检查成果及不满足时的处理方式，便于项目经理和质量保障组快速对照执行。",
+          "why_table_is_better_than_prose": "多阶段、多要素的对比关系在纯文本中容易淹没，表格能提供直观的阶段-控制-成果-处理四维映射，提高可操作性。"
+        },
+        {
+          "section_id": "WC-003-11",
+          "title": "表2 项目实施风险及应对措施",
+          "purpose": "系统化展示风险类别、具体事项、影响、预防措施、应急措施及责任人，成为项目风险管理的核心参考。",
+          "why_table_is_better_than_prose": "风险条目数量较多且具有多维属性，表格能实现类别的横向对比和责任的明确指派，避免散文带来的信息模糊。"
+        }
+      ],
+      "source": {
+        "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-003.candidate.json",
+        "candidate_json_sha256": "7ae5f03e02059ba55dc12a6754f70ae54d54d795aa80da8d5233e6ed2884ff50",
+        "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-003.run.json",
+        "run_json_sha256": "ee2cca739a2e2d9f50a32c02e970b44b9083273c99e23cbe15570cf94d2b540c",
+        "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-003.events.jsonl",
+        "events_jsonl_sha256": "0a715c520700f2297c00e45de0e1fb26950d1952fe4badf33ef7dd98eff4d1e2",
+        "event_count": 9111,
+        "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+        "revision_round": 0,
+        "chapter_status": "auto_repair_exhausted",
+        "validation_status": "blocked",
+        "issue_counts": {
+          "fatal": 0,
+          "blocking": 15,
+          "warning": 5
+        },
+        "candidate_generated": true,
+        "candidate_reviewable": true,
+        "submission_ready": false,
+        "selected_candidate": "fresh",
+        "candidate_selection_reason": "fresh_is_strict_monotonic_improvement"
+      }
+    },
+    {
+      "chapter_id": "WC-004",
+      "chapter_title": "培训方案",
+      "order": 4,
+      "sections": [
+        {
+          "heading": "培训目标",
+          "block_type": "technical_solution",
+          "content": "确保系统上线后能够稳定、高效地运行，同时降低对原厂服务的依赖性，提升医院信息部门自助运维水平。围绕“现场技术培训”这一基本要求，我方将结合项目整体实施计划，在系统安装调试的关键窗口期开展系统性、分层次的培训活动。\n\n培训目标将按内容层次拆分为三个层面：第一层面聚焦节点管理、存储策略配置、网络互联调试及系统扩容操作等基础运维技能；第二层面聚焦监控平台告警处置、虚拟机生命周期管理、备份恢复等日常操作技能；第三层面聚焦前端业务与超融合平台交互的原理及常见问题的初步定位方法。上述目标均对应具体的考核标准，在培训实施完成后通过理论与实操相结合的方式逐项校验",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-01"
+        },
+        {
+          "heading": "培训对象",
+          "block_type": "technical_solution",
+          "content": "根据医疗信息化系统的运维特点，本次培训的对象将覆盖与超融合平台日常运行密切相关的三类岗位人群。培训对象分为三类：第一类侧重整体规划与安全管控，第二类侧重日常巡检与告警处理，第三类侧重业务配合与状态核实。\n\n上述分类并非固定不变，在培训需求确认阶段，我方将协同采购人信息部门负责人，最终确定各批次学员名单与技能起点，并据此微调课程内容深度，避免出现“内容过深听不懂、内容过浅没效果”的两极分化问题。对于不同对象的培训侧重点和授课方式将在培训内容与培训形式小节中进一步细化。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-02"
+        },
+        {
+          "heading": "培训内容",
+          "block_type": "technical_solution",
+          "content": "培训内容设计遵循“从整体认知到专项深入，从原理理解到动手操作”的递进逻辑，确保参训人员在系统性掌握知识的同时，形成实际解决问题的能力。内容体系分为基础理论模块、管理操作模块和应急处理模块三大部分。\n\n基础理论模块涵盖超融合系统的基本架构与核心组件，包括计算虚拟化、分布式存储、网络逻辑拓扑、互联交换机工作原理等重点讲解本项目实际采用的节点部署架构、数据冗余策略以及性能分层机制，帮助管理员理解系统行为背后的设计意图。\n\n管理操作模块围绕日常运维场景展开，具体包括基于管理平台的资源创建与分配、存储策略制定与优化、集群健康状态巡检、用户权限配置以及备份恢复全流程操作。每一环节均安排在真实设备上进行操作演练，讲师将现场演示标准操作并指导学员逐一练习，直至达到独立完成为止。\n\n应急处理模块聚焦常见的报警与故障场景，例如节点宕机、网络中断、磁盘故障以及性能突降等，通过模拟故障注入的方式，训练学员快速定位问题、执行既定处理流程并与原厂技术支持有效沟通的能力。所有教学内容将根据培训对象的岗位职责进行裁剪，确保管理员获得全面技能，而操作员专注于高频操作和标准处置流程。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-03"
+        },
+        {
+          "heading": "培训形式",
+          "block_type": "technical_solution",
+          "content": "本次培训采用“集中课堂讲授+实验室环境上机+生产现场跟随”三种形式有机结合的方式，力求将理论知识、操作技能与真实运维体验融为一体。集中课堂讲授主要用于基础理论和系统架构的普及性授课，采用演示文稿、拓扑图板和原理动画等形式辅助讲解，帮助学员在短时间内建立系统全局概念。\n\n实验室环境上机是培训的核心环节，我方将在项目实施现场搭建独立的实训环境或利用部署完成且未承载业务的早期系统作为实操平台。学员在讲师指导下完成虚拟机创建、存储策略配置、快照与克隆、巡检脚本执行等操作任务，每个任务均有明确的检查点和完成标准。生产现场跟随则安排在系统上线后的早期运维阶段，在真实环境中共同执行巡检、告警处理和工单闭环，巩固培训内容，实现“扶上马、送一程”的效果。\n\n以上三种形式的具体时长和衔接节点，将在合同签订后根据项目总体进度与采购人协商确定，确保与系统部署、初验及试运行等关键里程碑形成闭环配合。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-04"
+        },
+        {
+          "heading": "培训师资",
+          "block_type": "technical_solution",
+          "content": "培训效果在很大程度上取决于讲师的技术深度和教学能力，因此我方对培训师资选派制定了严格的内部标准。所有培训讲师均从我司技术交付团队中选拔，每位讲师须具备超融合产品的技术交付经验，并至少完整参与过两个以上同类项目的实施或售后工作，能够熟练处理各类常见部署与故障场景。\n\n在表达能力方面，讲师人选须经过内部试讲评估，确保能够清晰、有条理地讲解复杂技术概念，并能耐心指导不同基础的学员完成上机操作。针对本次项目，我方将组建由主讲师和助理讲师构成的培训小组，主讲师负责核心课程的设计与讲解，助理讲师重点负责上机环节的一对一指导及实操解答，确保实操环节每位学员都能获得充分的关注与辅导。具体讲师名单及资质背景将在合同签订后交付师资简历，供采购人审核确认。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-05"
+        },
+        {
+          "heading": "培训时间与地点",
+          "block_type": "implementation_plan",
+          "content": "培训时间的选取将严格遵守招标要求，保证为现场技术培训，并与系统实施进度相耦合。培训主体将安排在系统环境具备操作条件之后、试运行阶段之前进行。该时间窗口内系统环境已趋于稳定，相关功能均已具备操作条件，是开展实操培训的最佳时机。在此之前，可结合到货开箱、上架安装等环节，穿插进行预先的理论讲授，使学员提前建立认知框架。\n\n培训地点设在采购人指定的项目现场，利用本项目建成的超融合系统和互联交换机作为教学环境，不另设远程或第三方培训场地。如采购人现场具备独立的培训教室或会议室，可用于集中理论授课上机环节则直接在部署的生产或实训节点上进行。最终培训日程、每批次具体时间以及场地使用安排，将在合同生效后由我方项目经理与采购人指定负责人共同编制培训实施计划并签字确认。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-06"
+        },
+        {
+          "heading": "培训计划",
+          "block_type": "implementation_plan",
+          "content": "为将招标文件要求的“提供现场技术培训”转化为可执行、可检查的培训活动，我方制定了分阶段培训计划，将培训嵌入项目实施的整体进程之中，避免培训与实施脱节。培训整体分为三个阶段：第一阶段为“理论导入”期，安排在设备到货与上架期间，由主讲师利用等待安装窗口向采购人相关人员介绍超融合基础概念及本项目的架构设计，使学员提前了解即将接触的系统环境。第二阶段为“安装跟学”期，安排在设备上架、布线、初始化配置期间，采购人技术人员在现场跟随我方实施工程师，通过观摩与辅助操作理解实际部署流程，重点掌握上架规范、线缆连接与初始配置访问方法。第三阶段为“集中面授与实操”期，安排在系统完成网络和存储配置、进入试运行前，开展为期数天的集中培训，涵盖管理操作、日常运维和应急处理全部课程，并以考核收尾。\n\n具体的各阶段培训内容与对象对应关系见下表。下表中的时长和起止日期将在项目启动后，根据采购人业务窗口期和节假日安排协商确定，我方承诺在正式培训开始前不少于两周递交详细培训计划表，经采购人书面确认后实施。\n\n表1 超融合系统培训阶段计划表\n\n| 培训阶段 | 主要内容 | 参训对象 | 时长安排 | 地点 |\n|----------|----------|----------|----------|------|\n| 理论导入 | 超融合架构概论、硬件认知、项目实施计划讲解 | 信息部门管理员、科室联络员 | 待协商 | 采购人现场会议室 |\n| 安装跟学 | 硬件上架、线缆连接、首次加电及初始化配置 | 信息部门管理员 | 随工开展 | 采购人机房 |\n| 集中面授与实操 | 管理平台操作、存储与网络配置、巡检与备份、故障模拟、考核 | 信息部门管理员与运维人员 | 待协商 | 采购人现场实训区 |\n\n上述三阶段计划的执行过程由我方项目经理负责跟踪，每一阶段结束后均需形成培训签到记录和阶段性效果评估，纳入项目资料统一归档，确保培训全过程留痕、可追溯。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-004",
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-07"
+        },
+        {
+          "heading": "培训考核",
+          "block_type": "quality_assurance",
+          "content": "培训考核是检验培训质量与学员掌握程度的直接手段，也是培训方案闭环的关键环节。我方将采用“理论考核+实操考核”双维评价体系，两者缺一不可。理论考核采用闭卷或机考形式，重点考查超融合系统架构原理、关键组件功能、巡检要点及应急预案等知识点。实操考核则在真实系统上命题，要求学员在规定时间内完成虚拟机创建与迁移、存储策略调整、告警排查与处理等真实任务，评委由我方主讲师与采购人信息部门负责人共同担任，依据标准操作评分表打分。\n\n考核结果划分为合格与不合格两种。合格者由我司颁发本项目培训完成证明文件，证明其已具备独立操作和维护超融合系统的能力。不合格者可在集中培训结束后的两周内申请一次免费补训与补考，补训针对其薄弱环节进行强化指导，补考仍不合格的，将报告采购人并协助制定后续能力提升计划。全部考核记录、试卷及评分表单随项目资料交付采购人存档。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-08"
+        },
+        {
+          "heading": "培训资料",
+          "block_type": "technical_solution",
+          "content": "为保障教学质量并便于学员课后复习和日常运维查阅，我方将为本项目定制编写配套培训资料，并成套交付给采购人。资料包括：一是《超融合系统操作手册》，该手册以本项目实际部署环境为基础，按功能模块逐一编写操作步骤和界面截图，确保图文对应、即学即用二是《常见故障处理指南》，汇总超融合系统运行中可能出现的告警和异常表现，详细列出原因分析、排查路径和处置措施三是讲师授课演示文稿的电子版和对应的课堂练习题目，供学员复练。\n\n所有培训资料在培训开始前提交采购人审核，确保内容准确且无歧义。资料交付介质包括纸质版一套和可编辑电子版一份，便于采购人后续根据系统变更自行修订。在质保期内如系统进行版本升级或功能变更，我方将同步更新相关培训资料并交付采购人。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-09"
+        },
+        {
+          "heading": "培训效果保障",
+          "block_type": "quality_assurance",
+          "content": "培训完成并不代表能力建设的终点，我方将通过一系列效果保障机制确保培训成果能够长期巩固并转化为实际运维能力。首先，在培训结束后的一周内，向每位学员发放匿名满意度调查问卷，涵盖课程内容设计、讲师水平、实操安排、资料质量等维度，并设置开放性意见栏。项目经理将综合问卷结果在一周内输出培训效果评估报告，识别共性问题并提出改进措施，该报告同时抄送采购人。\n\n其次，在系统试运行期间，我方驻场工程师将重点观察参训运维人员的实际操作情况，对反复出现误操作或仍缺乏信心的学员进行一对一补充辅导，并将常见薄弱环节记录为运营知识点，纳入资料修订范围。此外，在日常技术支持过程中，将结合培训内容进行引导式解答，以此强化知识回忆与应用能力。如采购人评估后认为整体培训效果未达到本方案所设定的目标，我方承诺在不增加额外费用的情况下安排一次集中补充培训。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-004-10"
+        }
+      ],
+      "section_outline": [
+        {
+          "section_id": "WC-004-01",
+          "title": "培训目标",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 1,
+          "document_order": 1,
+          "outline_path": [
+            "WC-004",
+            "WC-004-01"
+          ]
+        },
+        {
+          "section_id": "WC-004-02",
+          "title": "培训对象",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 2,
+          "document_order": 2,
+          "outline_path": [
+            "WC-004",
+            "WC-004-02"
+          ]
+        },
+        {
+          "section_id": "WC-004-03",
+          "title": "培训内容",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 3,
+          "document_order": 3,
+          "outline_path": [
+            "WC-004",
+            "WC-004-03"
+          ]
+        },
+        {
+          "section_id": "WC-004-04",
+          "title": "培训形式",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 4,
+          "document_order": 4,
+          "outline_path": [
+            "WC-004",
+            "WC-004-04"
+          ]
+        },
+        {
+          "section_id": "WC-004-05",
+          "title": "培训师资",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 5,
+          "document_order": 5,
+          "outline_path": [
+            "WC-004",
+            "WC-004-05"
+          ]
+        },
+        {
+          "section_id": "WC-004-06",
+          "title": "培训时间与地点",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 6,
+          "document_order": 6,
+          "outline_path": [
+            "WC-004",
+            "WC-004-06"
+          ]
+        },
+        {
+          "section_id": "WC-004-07",
+          "title": "培训计划",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 7,
+          "document_order": 7,
+          "outline_path": [
+            "WC-004",
+            "WC-004-07"
+          ]
+        },
+        {
+          "section_id": "WC-004-08",
+          "title": "培训考核",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 8,
+          "document_order": 8,
+          "outline_path": [
+            "WC-004",
+            "WC-004-08"
+          ]
+        },
+        {
+          "section_id": "WC-004-09",
+          "title": "培训资料",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 9,
+          "document_order": 9,
+          "outline_path": [
+            "WC-004",
+            "WC-004-09"
+          ]
+        },
+        {
+          "section_id": "WC-004-10",
+          "title": "培训效果保障",
+          "depth": 1,
+          "parent_id": "WC-004",
+          "sibling_order": 10,
+          "document_order": 10,
+          "outline_path": [
+            "WC-004",
+            "WC-004-10"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "我方将完全响应招标文件要求，提供现场技术培训。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-004"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "培训方案覆盖培训目标、对象、内容、形式、师资、时间地点、计划、考核、资料和效果保障，全面响应培训方案评价要求。",
+          "claim_type": "score_coverage_statement",
+          "source_ids": [
+            "TR-022"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "evidence_status": "pending",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "培训考核包括理论考试和实操考核，合格者颁发培训完成证明文件。",
+          "claim_type": "proposal_statement",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "evidence_status": "pending",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "我方将提供《超融合系统操作手册》、《常见故障处理指南》及授课演示文稿等定制化培训资料。",
+          "claim_type": "commitment_statement",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "missing",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "培训效果未达目标时，我方承诺不增加额外费用安排一次集中补充培训。",
+          "claim_type": "commitment_statement",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "no_deviation",
+          "additional_obligation": "一次免费集中补充培训"
+        }
+      ],
+      "placeholders_used": [],
+      "score_items_covered": [
+        "SCORE-TR-022-R018"
+      ],
+      "requirements_covered": [
+        "TR-004",
+        "TR-022"
+      ],
+      "warnings": [],
+      "generated_supporting_tables": [
+        {
+          "section_id": "WC-004-07",
+          "title": "超融合系统培训阶段计划表",
+          "purpose": "将培训计划中的三阶段内容、对象、时长和地点进行横向对比展示，便于采购人一目了然地掌握培训整体安排。",
+          "why_table_is_better_than_prose": "三阶段横向比较涉及多个维度的信息，表格可以一次性清晰呈现阶段与内容、对象、时长的对应关系，比纯文字描述更易阅读和比对。"
+        }
+      ],
+      "source": {
+        "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-004.candidate.json",
+        "candidate_json_sha256": "f9ad0aa7610ca0e02943ae61c111d1cfb9ff9b0751e1cccc199b177b48f12db5",
+        "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-004.run.json",
+        "run_json_sha256": "973a74f0e7a07232b8dd74e1e94081819f7c522a47ceabe29f64c7a84d08050d",
+        "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-004.events.jsonl",
+        "events_jsonl_sha256": "3112a6ea8d29957a9ae55ba7fc909ea45268e753de2858974cac8ed4b74a2fd6",
+        "event_count": 535,
+        "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+        "revision_round": 0,
+        "chapter_status": "auto_repair_exhausted",
+        "validation_status": "blocked",
+        "issue_counts": {
+          "fatal": 0,
+          "blocking": 8,
+          "warning": 0
+        },
+        "candidate_generated": true,
+        "candidate_reviewable": true,
+        "submission_ready": false,
+        "selected_candidate": "fresh",
+        "candidate_selection_reason": "fresh_is_strict_monotonic_improvement"
+      }
+    },
+    {
+      "chapter_id": "WC-005",
+      "chapter_title": "售后服务与运行保障方案",
+      "order": 5,
+      "sections": [
+        {
+          "heading": "服务目标",
+          "block_type": "introduction",
+          "content": "本次售后服务的总目标是为采购人提供稳定、可靠、快速响应的超融合系统运行保障，确保医院业务系统7×24小时不间断高效运行。方案围绕设备全生命周期管理，聚焦故障预防、快速恢复和持续优化三条主线，将被动式维修转变为主动式运维。具体而言，我方承诺在保修期内实现故障修复时限逐级压缩，核心部件故障平均修复时间（MTTR）控制在招标最低时限以内，系统整体可用性维持在99.9%以上。同时，通过定期巡检和健康检查提前发现隐患，将非计划停机风险降至最低。整个服务过程遵循国家及行业信息安全标准，严格保护医疗数据安全，并以制度化监督机制保障每次服务的规范性和可追溯性。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-005-01"
+        },
+        {
+          "heading": "服务范围",
+          "block_type": "technical_solution",
+          "content": "本方案的服务范围覆盖本次采购的全部超融合节点、超融合互联交换机以及相关的系统软件与中间件，自设备通过最终验收并正式投入使用之日起进入保修期。在保修期内，我方提供全免费的原厂级技术支持与硬件维保，具体包括但不限于：硬件故障诊断与修复、远程技术支持、现场备件更换、系统软件补丁与版本升级、7×24小时电话及在线支持，以及每年不低于两次的现场巡检与系统健康评估。保修期结束后，我方继续提供终身维修服务，仅收取备件成本与合理人工费用，并终身提供免费的电话技术支持。对于超出保修期续保服务，我方将基于实际设备使用状态提供灵活的服务级别协议选项。此外，所有服务过程产生的技术文档、配置变更记录、巡检报告及维修工单将作为项目交付成果一并归档移交采购人，为日后的运维管理提供完整的数据基础。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-005-02"
+        },
+        {
+          "heading": "服务组织体系",
+          "block_type": "organization_plan",
+          "content": "",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-005-03"
+        },
+        {
+          "heading": "服务机构与人员",
+          "block_type": "organization_plan",
+          "content": "",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [
+            "TR-003"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-005-04"
+        },
+        {
+          "heading": "服务响应机制",
+          "block_type": "service_commitment",
+          "content": "我方郑重承诺，自最终验收合格之日起的整个保修期内，严格向采购人提供如下服务响应：- 7×24小时技术响应：提供多通道服务请求入口，服务请求及时受理并响应。- 24小时内维修工程师到达维修现场：自请求受理起计时，位于市内及周边指定区域的认证工程师携带常用备件及工具包，确保24小时内抵达医院机房现场，如遇特殊气象或交通管制，将通过高速铁路和预备车辆等措施保证时限。- 免费更换零配件：保修期内因自然故障导致的硬件、模块及功能性零部件均免费更换，更换所用的全部部件均为原厂全新件或同等规格备件，更换过程遵循原厂更换作业指导书，并在更换后完成不少于2小时的系统稳定性测试。- 保修期自验收合格之日起计算，保修期内所有响应和维修承诺不因设备使用时长而缩减。以上响应指标已集成至我方ITSM系统，系统自动监控各环节时效，任何可能超时的事件将自动升级至项目服务经理及分管副总经理，确保在时限内闭环。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [
+            "TR-002"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-005-05"
+        },
+        {
+          "heading": "故障处理流程",
+          "block_type": "technical_solution",
+          "content": "故障处理遵循“受理-诊断-修复-验证-闭环”的标准化流程，并与医院现有的IT运维流程无缝衔接。服务台接到故障报修后，首先与报修人确认故障现象、影响范围及业务紧急程度，据此确定故障级别（紧急、一般、轻度），并在10分钟内完成工单创建。一级事件如核心业务中断，立刻启动紧急预案，通知项目服务经理及制造商二线支持，并行进行远程诊断和准备现场备件。技术工程师通过带外管理网络或远程桌面进行初步诊断，定位到疑似板卡、内存、硬盘或软件配置问题时，同步准备替换部件和软件恢复方案。现场工程师到达后首先执行数据安全确认与备份（如需），再实施更换或修复操作，恢复后按照系统验收测试用例验证业务功能、存储性能及网络连通性，测试通过则请采购人代表签字确认。故障排除后记录故障分析信息，供后续查阅。所有流程均在ITSM系统中留痕，接受采购人随时在线查阅。对于同一部件重复故障或批量性隐患，系统将自动触发制造商质量分析流程并推动产品改进。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-005-06"
+        },
+        {
+          "heading": "保修与维修方案",
+          "block_type": "requirement_response",
+          "content": "我方完全响应招标文件TR-001条款，提供投标产品免费保修及终身维修的完整保障。具体的免费保修年限将在商务标书中予以明确，届时将满足或优于招标要求的最低5年基准（具体年限见{{placeholder_warranty_period}}）。在保修期内，所有因设备自身质量问题导致的硬件故障、软件缺陷及性能异常，均由我方承担全部维修、备件及人工费用，采购人无需支付任何额外费用。维修期间我方优先采用“先换后修”策略，即现场工程师携带合格备件直接替换故障单元，将停机时间压缩至最短，换下的故障件进入制造商维修流程，修复后经全检合格方可作为备件归库。保修期届满后，我方继续向采购人提供终身维修服务，仅按届时公示的零部件成本价格及合理工时费收取费用，且终身保留对本次采购设备的软件版本更新和电话技术支持。对于机房搬迁、设备扩容、系统优化等非故障性技术服务，我方也可根据采购人需要提供专项服务方案，价格另行协商。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [
+            "TR-001"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-005-07"
+        },
+        {
+          "heading": "备品备件保障",
+          "block_type": "technical_solution",
+          "content": "高效的备件供应是保证及时到场维修时限的关键。我方依托制造商在华北区的备件总库与我司本地服务分库，共同构成本项目的两级备件保障体系。针对本次采购的设备型号，依据设备配置清单经与采购人协商确定备件储备品种。本地服务分库确保上述常见部件常备库存，常规尺寸部件储备量不低于2套/种，以覆盖日常故障替换和计划性巡检发现的需要。对于机箱背板、交换网板等低故障率大型部件，由省级备件总库或制造商代管仓提供24小时内调配，通过安全专车直发医院现场。所有备件均张贴唯一编码进行全生命周期追踪，存放环境满足防静电、防潮、恒温要求，并实施月度盘点与定期加电测试，确保随时可用。库存数据与ITSM系统联动，当低于安全库存时自动向制造商的ERP系统触发补货指令，杜绝因备件缺失导致的延误。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-005-08"
+        },
+        {
+          "heading": "巡检与健康检查",
+          "block_type": "technical_solution",
+          "content": "为将被动维修转变为主动保障，我方在保修期内按合同约定的频次对全部在保设备进行深度现场巡检与健康检查，时间上结合医院业务低谷期协商确定。每次巡检由经制造商认证的资深工程师执行，内容涵盖：设备物理状态检查（指示灯、积尘、线缆连接、环境温湿度）、系统日志深度分析、超融合平台性能指标采集（CPU/内存/IOPS/带宽利用率、存储池均衡度、网络丢包与延迟）、以及固件与系统补丁版本审计。巡检工程师在现场利用便携式诊断终端完成各项测试，并实时记录发现异常。巡检结束后及时提交《系统运行健康评估报告》，包含检查数据、趋势分析、发现的问题及改进建议，并与往期报告进行纵向对比，直观展现系统运行态势。对于巡检中发现的潜在隐患（如硬盘SMART告警、电源模块负偏差等），我方主动发起免费维修工单，与采购人约定时间进行预防性更换，不计入保修事件次数，也不影响保修权益。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-005-09"
+        },
+        {
+          "heading": "服务质量监督",
+          "block_type": "quality_assurance",
+          "content": "为了确保所有服务承诺能够不折不扣落地，我方建立了多维度、可量化的服务质量监督机制，并将所有KPI向采购人透明展示。核心监督手段包括：- 服务级别协议（SLA）自动监控：ITSM平台内置SLA引擎，对服务响应、到场、修复、关闭四个节点的时间进行细粒度计时，任何即将超时的工单将向项目服务经理和管理层逐级推送告警。- 服务质量报告：按约定周期向采购人提交《售后服务月报》，内容包括事件统计（按级别、类型、设备、区域）、SLA达成率分析、备件消耗情况、巡检与变更记录，以及后续服务计划与风险评估。- 季度服务评审会：由项目服务经理牵头，医院信息科、双方相关管理层参加，回顾季度服务质量、讨论重大问题、优化下一阶段服务策略，并形成会议纪要以及行动项跟踪表。- 满意度调查：每次维修、巡检、升级服务完成后，服务台将自动推送电子满意度问卷（含响应速度、技术水平、服务态度、业务恢复效果等维度），结果量化后作为对一线工程师绩效考核的依据之一。- 投诉处理：设立投诉渠道，投诉事项及时响应并按流程出具处理意见和整改方案。所有投诉记录纳入供应商绩效评价，并作为后续服务优化的推动点。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [],
+          "placeholder_ids": [],
+          "section_id": "WC-005-10"
+        },
+        {
+          "heading": "服务承诺",
+          "block_type": "service_commitment",
+          "content": "综上所述，我方向采购人做出以下明确的服务承诺，愿意将承诺内容作为合同附件受法律约束：1. 免费保修与终身维修：提供不低于招标规定的免费保修年限（具体年限见{{placeholder_warranty_period}}），保修期自最终验收合格之日开始计算保修期外提供终身维修，仅收取备件成本与合理人工费用。2. 保修期全免费：在保修期内因产品质量问题引发的所有维修、更换备件和人工费用均由我方承担，绝不向采购人收取任何费用。3. 7×24小时技术响应：24小时维修工程师到达现场，自保修期起至结束绝不降低响应标准。4. 备件保障：核心备件常备库存，确保24小时内替换，杜绝因备件等待造成的长时间业务中断。5. 巡检：根据采购人需要进行现场巡检并记录检查结果。6. 服务透明性：月度服务报告、季度评审会、实时事件工单进度，采购人可随时检核所有服务质量数据。7. 制造商服务机构：所投产品制造商服务机构情况（包括地址、联系方式及技术人员数量等）依据招标文件要求提供。以上承诺共同构成完整的服务承诺体系，如因我方原因未能履行，愿按合同约定承担违约责任与赔偿责任。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [
+            "TR-001",
+            "TR-002",
+            "TR-003"
+          ],
+          "placeholder_ids": [],
+          "section_id": "WC-005-11"
+        }
+      ],
+      "section_outline": [
+        {
+          "section_id": "WC-005-01",
+          "title": "服务目标",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 1,
+          "document_order": 1,
+          "outline_path": [
+            "WC-005",
+            "WC-005-01"
+          ]
+        },
+        {
+          "section_id": "WC-005-02",
+          "title": "服务范围",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 2,
+          "document_order": 2,
+          "outline_path": [
+            "WC-005",
+            "WC-005-02"
+          ]
+        },
+        {
+          "section_id": "WC-005-03",
+          "title": "服务组织体系",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 3,
+          "document_order": 3,
+          "outline_path": [
+            "WC-005",
+            "WC-005-03"
+          ]
+        },
+        {
+          "section_id": "WC-005-04",
+          "title": "服务机构与人员",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 4,
+          "document_order": 4,
+          "outline_path": [
+            "WC-005",
+            "WC-005-04"
+          ]
+        },
+        {
+          "section_id": "WC-005-05",
+          "title": "服务响应机制",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 5,
+          "document_order": 5,
+          "outline_path": [
+            "WC-005",
+            "WC-005-05"
+          ]
+        },
+        {
+          "section_id": "WC-005-06",
+          "title": "故障处理流程",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 6,
+          "document_order": 6,
+          "outline_path": [
+            "WC-005",
+            "WC-005-06"
+          ]
+        },
+        {
+          "section_id": "WC-005-07",
+          "title": "保修与维修方案",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 7,
+          "document_order": 7,
+          "outline_path": [
+            "WC-005",
+            "WC-005-07"
+          ]
+        },
+        {
+          "section_id": "WC-005-08",
+          "title": "备品备件保障",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 8,
+          "document_order": 8,
+          "outline_path": [
+            "WC-005",
+            "WC-005-08"
+          ]
+        },
+        {
+          "section_id": "WC-005-09",
+          "title": "巡检与健康检查",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 9,
+          "document_order": 9,
+          "outline_path": [
+            "WC-005",
+            "WC-005-09"
+          ]
+        },
+        {
+          "section_id": "WC-005-10",
+          "title": "服务质量监督",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 10,
+          "document_order": 10,
+          "outline_path": [
+            "WC-005",
+            "WC-005-10"
+          ]
+        },
+        {
+          "section_id": "WC-005-11",
+          "title": "服务承诺",
+          "depth": 1,
+          "parent_id": "WC-005",
+          "sibling_order": 11,
+          "document_order": 11,
+          "outline_path": [
+            "WC-005",
+            "WC-005-11"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "保修期内免费更换零配件，7×24小时技术响应，24小时内维修工程师到达维修现场。保修期自验收合格之日起计算。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-002"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "我方承诺终身维修服务，保修期外仅收取备件成本和合理人工费用。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-001"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "我方承诺每年至少两次深度现场巡检，并提交书面健康评估报告。",
+          "claim_type": "commitment_statement",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": false
+        },
+        {
+          "text": "我方承诺本地服务分库常备核心备件，储备不低于2套/种，并联动ITSM实现自动补货。",
+          "claim_type": "commitment_statement",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": false
+        }
+      ],
+      "placeholders_used": [],
+      "score_items_covered": [],
+      "requirements_covered": [
+        "TR-001",
+        "TR-002",
+        "TR-003"
+      ],
+      "warnings": [
+        "保修年限及制造商服务机构具体信息尚未确认，已在相应位置使用占位符，需在定稿前补充。",
+        "本方案中的人员配置、备件储备数量、巡检频率等承诺基于方案设计，最终版本需以确认后的企业事实材料为准。"
+      ],
+      "generated_supporting_tables": [],
+      "source": {
+        "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-005.candidate.json",
+        "candidate_json_sha256": "83acc98b33e2552367a2be35a40418db5f5898817151f903fcb52418e3b75bf8",
+        "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-005.run.json",
+        "run_json_sha256": "9e15392ad7d0615eedb1084b0d78b41ba5288c762b38ba9fd3b21fcd79b0c10b",
+        "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-005.events.jsonl",
+        "events_jsonl_sha256": "d50ae8304e4f320737bc369a6dfb71f5723f050b9aa6a05e268536f77a330e76",
+        "event_count": 7878,
+        "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+        "revision_round": 0,
+        "chapter_status": "auto_repair_exhausted",
+        "validation_status": "blocked",
+        "issue_counts": {
+          "fatal": 0,
+          "blocking": 12,
+          "warning": 0
+        },
+        "candidate_generated": true,
+        "candidate_reviewable": true,
+        "submission_ready": false,
+        "selected_candidate": "fresh",
+        "candidate_selection_reason": "fresh_is_strict_monotonic_improvement"
+      }
+    },
+    {
+      "chapter_id": "WC-006",
+      "chapter_title": "绿色供应链管理方案",
+      "order": 6,
+      "sections": [
+        {
+          "heading": "一、绿色供应链管理总体思路",
+          "block_type": "introduction",
+          "content": "本次投标的绿色供应链管理方案严格遵循《关于调整优化节能产品、环境标志产品政府采购执行机制的通知》（财库〔2019〕9号）、《关于印发环境标志产品政府采购品目清单的通知》（财库〔2019〕18号）、《关于印发节能产品政府采购品目清单的通知》（财库〔2019〕19号）等政府采购政策，以产品全生命周期为主线，构建覆盖原材料采购、设计、加工、储运、使用及回收的绿色管控体系。方案以所投超融合节点产品为核心，在尚未最终确认具体品牌与型号的阶段，先以{{PH-FIELD-28CA6066A5AD}}品牌、{{PH-FIELD-87105134CCFC}}型号及其制造商{{PH-FIELD-4632EE3F3A2D}}为基础展开，待定标前以确认信息替换相关占位符。本方案旨在系统响应招标文件第五项要求，同时为节能产品评分、环境标志产品评分以及绿色供应链管理先进性评价提供完整的文字阐述与证明文件支撑。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [
+            "TR-015",
+            "TR-021",
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-28CA6066A5AD",
+            "PH-FIELD-87105134CCFC",
+            "PH-FIELD-4632EE3F3A2D"
+          ],
+          "section_id": "S1"
+        },
+        {
+          "heading": "二、产品全生命周期绿色管理方案",
+          "block_type": "technical_solution",
+          "content": "根据招标文件的要求，需从所投产品原材料采购、设计、加工制作、存储、流通、回收等全生命周期环节详细阐述该产品的节能、环保及绿色供应链管理情况。以下以拟投超融合节点（品牌{{PH-FIELD-28CA6066A5AD}}，型号{{PH-FIELD-87105134CCFC}}，制造商{{PH-FIELD-4632EE3F3A2D}}）为对象，逐一说明各阶段的绿色管控措施。\n\n在原材料采购环节，制造商已建立完善的绿色供应商准入与评价机制，优先选择符合RoHS、REACH等环保指令的元器件与材料，对关键物料实施有害物质检测并形成批次检测报告。采购合同中明确要求供方提供材料成分声明和环保合规证明，并纳入绿色供应链数据库进行动态监控，确保从源头上降低环境风险并避免引入受控物质。\n\n产品设计环节遵循生态设计理念，在满足性能要求的前提下采用低功耗芯片方案与动态电源管理技术，有效降低设备满载与空闲状态下的运行功耗。结构设计上注重易拆解与可维修性，采用模块化布局以延长产品整体使用寿命，从设计层面减少因设备快速淘汰而产生的电子废弃物。设计阶段同步开展能耗仿真评审与环保合规自评，确保产品能够满足日后节能与环境标志认证的技术门槛。\n\n在加工制作与存储环节，制造商全面推行清洁生产管理，核心制造过程采用无铅焊接工艺，配套部署废气处理系统与废水回收利用设施，并将上述活动纳入环境管理体系持续改进（相关体系认证待确认，以{{PH-FIELD-ISO14001}}表示）。产品包装优先选用可循环利用或再生材料，内衬减量设计，在满足运输安全的前提下降低包装废弃物产生。仓储管理实行先进先出和温湿度受控存放，减少因库存过期或变质而造成的材料损耗。\n\n流通与回收环节通过优化区域物流网络和采用集约化运输方式降低单位产品的运输碳排放强度。随产品交付的说明文档中明确提供废弃产品的回收指导信息，承诺协同制造商为采购人提供合规回收渠道，或引导最终用户参与制造商的废旧产品回收计划。相关物流能耗数据与回收处理凭证将纳入绿色供应链绩效统计，最终整理形成《所投产品全生命周期绿色供应链管理证明文件》（对应{{PH-FIELD-A55D99C34CDE}}），随投标材料一并提交，作为绿色管理实践的全景式证据。",
+          "covered_score_item_ids": [],
+          "covered_requirement_ids": [
+            "TR-015"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-28CA6066A5AD",
+            "PH-FIELD-87105134CCFC",
+            "PH-FIELD-4632EE3F3A2D",
+            "PH-FIELD-ISO14001",
+            "PH-FIELD-A55D99C34CDE"
+          ],
+          "section_id": "S2"
+        },
+        {
+          "heading": "三、节能产品与环境标志产品认证响应",
+          "block_type": "requirement_response",
+          "content": "本次采购清单中所投超融合节点未加注“■”号，按招标文件说明不属于节能产品政府采购强制采购品目。尽管如此，从提升投标方案环保竞争力且最大化响应评分项的角度出发，我公司拟提供所投产品的节能产品认证证书及环境标志产品认证证书。根据财政部等四部委发布的《关于调整优化节能产品、环境标志产品政府采购执行机制的通知》（财库〔2019〕9号）以及现行的节能产品、环境标志产品品目清单与认证机构名录，我公司承诺所投产品（品牌{{PH-FIELD-28CA6066A5AD}}，型号{{PH-FIELD-87105134CCFC}}）符合相应认证规则的技术要求，并将在投标文件中附上合法有效的认证证书扫描件。其中，节能产品认证证书（对应{{PH-FIELD-23BA801F18B2}}）用于证明产品满足节能品目清单所列能效指标，环境标志产品认证证书（对应{{PH-FIELD-8066F187CEE1}}）用于证明产品在生产、使用和处置全过程中达到特定的环境保护要求。上述两份证书分别对应客观分评分项“非强制采购节能产品”（2分）和“环境标志产品”（2分），评审时可按产品价值权重计算得分。目前证书尚在确认环节，待定标前完成复核后将正式扫描入投标文件，确保评审专家可以便捷核验。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R004",
+            "SCORE-TR-022-R005"
+          ],
+          "covered_requirement_ids": [
+            "TR-021",
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-23BA801F18B2",
+            "PH-FIELD-8066F187CEE1",
+            "PH-FIELD-28CA6066A5AD",
+            "PH-FIELD-87105134CCFC"
+          ],
+          "section_id": "S3"
+        },
+        {
+          "heading": "四、绿色供应链管理先进性及拟提交证明材料",
+          "block_type": "evidence_explanation",
+          "content": "我公司在项目交付与服务过程中始终贯彻绿色供应链管理理念，从供应商绿色资质审核、采购环保指标要求、产品制造的环境合规监督到退役产品的回收处理，已形成闭环管理制度，并将相关管理流程纳入项目整体质量与风险管理体系。本次针对超融合节点采购项目，在已阐述全生命周期绿色管理措施的基础上，进一步整合拟提交的各类证明材料，以展现绿色供应链管理的完整性与先进性。\n\n为便于评审专家快速定位和核对，下面以表格形式汇总所有拟提交的证明文件及其与招标要求和评分项的对应关系，如表1所示。\n\n| 序号 | 证明文件名称 | 对应要求/评分项 | 提交形式 | 当前状态 |\n|------|--------------|----------------|----------|----------|\n| 1 | 所投产品全生命周期绿色供应链管理证明文件 | TR-015 | 图示、文字、报告 | {{PH-FIELD-A55D99C34CDE}} |\n| 2 | 节能产品认证证书 | TR-022 / SCORE-TR-022-R005 | 认证证书扫描件 | {{PH-FIELD-23BA801F18B2}} |\n| 3 | 环境标志产品认证证书 | TR-022 / SCORE-TR-022-R004 | 认证证书扫描件 | {{PH-FIELD-8066F187CEE1}} |\n| 4 | 制造商环境管理体系认证 ISO14001 | 辅助绿色供应链管理评价 | 认证证书扫描件 | {{PH-FIELD-ISO14001}} |\n\n表1 绿色供应链管理拟提交证明材料清单\n\n以上所列文件将在投标文件中以原件扫描件形式正式提交，并由专人负责核对有效期与认证范围，确保与所投产品品牌、型号及制造商信息完全一致。若所投产品已经获得相关节能或环境标志认证，将直接按照评分规则计入相应分值；若相关证书尚在申请中，将顺延提交并在评审允许的时间窗口内补正。无论认证结果如何，针对供应商、材料、生产过程、物流及回收环节的绿色管理实践均独立构成方案优势，充分体现投标人在绿色供应链管理方面的真实能力与持续改进承诺。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R019",
+            "SCORE-TR-022-R005",
+            "SCORE-TR-022-R004"
+          ],
+          "covered_requirement_ids": [
+            "TR-015",
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-A55D99C34CDE",
+            "PH-FIELD-23BA801F18B2",
+            "PH-FIELD-8066F187CEE1",
+            "PH-FIELD-ISO14001"
+          ],
+          "section_id": "S4"
+        }
+      ],
+      "section_outline": [
+        {
+          "section_id": "S1",
+          "title": "一、绿色供应链管理总体思路",
+          "depth": 1,
+          "parent_id": "WC-006",
+          "sibling_order": 1,
+          "document_order": 1,
+          "outline_path": [
+            "WC-006",
+            "S1"
+          ]
+        },
+        {
+          "section_id": "S2",
+          "title": "二、产品全生命周期绿色管理方案",
+          "depth": 1,
+          "parent_id": "WC-006",
+          "sibling_order": 2,
+          "document_order": 2,
+          "outline_path": [
+            "WC-006",
+            "S2"
+          ]
+        },
+        {
+          "section_id": "S3",
+          "title": "三、节能产品与环境标志产品认证响应",
+          "depth": 1,
+          "parent_id": "WC-006",
+          "sibling_order": 3,
+          "document_order": 3,
+          "outline_path": [
+            "WC-006",
+            "S3"
+          ]
+        },
+        {
+          "section_id": "S4",
+          "title": "四、绿色供应链管理先进性及拟提交证明材料",
+          "depth": 1,
+          "parent_id": "WC-006",
+          "sibling_order": 4,
+          "document_order": 4,
+          "outline_path": [
+            "WC-006",
+            "S4"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "绿色供应链管理方案依据《关于调整优化节能产品、环境标志产品政府采购执行机制的通知》（财库〔2019〕9号）等政策编制。",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-021"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "投标人将在确认品牌、型号后提供所投产品的全生命周期绿色供应链管理证明文件（包括证书、图示、文字说明等）。",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "TR-015"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending",
+          "confirmation_question": "请确认所投产品的全生命周期绿色供应链管理证明文件的具体内容与提交形式。"
+        },
+        {
+          "text": "所投超融合节点拟提供节能产品认证证书（非强制采购节能产品），以支持评分项SCORE-TR-022-R005。",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "TR-022",
+            "SCORE-TR-022-R005"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending",
+          "confirmation_question": "请确认所投产品是否已获得节能产品认证并提供证书扫描件。"
+        },
+        {
+          "text": "所投超融合节点拟提供环境标志产品认证证书，以支持评分项SCORE-TR-022-R004。",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "TR-022",
+            "SCORE-TR-022-R004"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending",
+          "confirmation_question": "请确认所投产品是否已获得环境标志产品认证并提供证书扫描件。"
+        },
+        {
+          "text": "所投产品制造商拟提供ISO14001环境管理体系认证证书，以辅助证明绿色供应链管理能力。",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "SCORE-TR-022-R019"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending",
+          "confirmation_question": "请确认制造商是否持有有效的ISO14001认证并提供证书扫描件。"
+        },
+        {
+          "text": "投标人建立了涵盖供应商绿色评价、清洁生产、废弃物回收的绿色供应链管理制度，并将在本项目中实施。",
+          "claim_type": "proposal_statement",
+          "source_ids": [
+            "SCORE-TR-022-R019"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "投标人承诺将上述所有证明材料原件扫描件随投标文件一并提交，供评审专家核验。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-015",
+            "TR-021",
+            "TR-022"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        }
+      ],
+      "placeholders_used": [
+        "PH-FIELD-28CA6066A5AD",
+        "PH-FIELD-87105134CCFC",
+        "PH-FIELD-4632EE3F3A2D",
+        "PH-FIELD-23BA801F18B2",
+        "PH-FIELD-8066F187CEE1",
+        "PH-FIELD-A55D99C34CDE",
+        "PH-FIELD-ISO14001"
+      ],
+      "score_items_covered": [
+        "SCORE-TR-022-R004",
+        "SCORE-TR-022-R005",
+        "SCORE-TR-022-R019"
+      ],
+      "requirements_covered": [
+        "TR-015",
+        "TR-021",
+        "TR-022"
+      ],
+      "warnings": [
+        "所投产品品牌、型号、制造商尚未确认，本章中相关字段均以占位符留存，不可直接用于最终投标。",
+        "节能产品认证证书、环境标志产品认证证书、全生命周期绿色供应链管理证明文件及制造商ISO14001证书均处于待确认状态，投标前需完成复核并替换占位符内容。",
+        "若相关认证未能及时取得或不在有效期内，本章对应得分点将无法获得分值，但绿色供应链管理的方案性描述仍可作为方案完整性的辅助材料。"
+      ],
+      "generated_supporting_tables": [
+        {
+          "section_id": "S4",
+          "title": "绿色供应链管理拟提交证明材料清单",
+          "purpose": "将本章涉及的全部绿色供应链相关证明文件与对应的招标要求或评分项进行集中映射，明确提交形式与当前状态，为评审专家提供一次性的核查依据。",
+          "why_table_is_better_than_prose": "该信息包含多项不同性质的证明文件，分别指向不同的要求和评分项，若以段落逐一叙述容易造成对应关系不清楚；采用表格可在一处清晰展示文件名称、要求、形式和状态，提升评审效率且避免信息遗漏。"
+        }
+      ],
+      "source": {
+        "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-006.candidate.json",
+        "candidate_json_sha256": "4e92ac5658151bfdc729e991393c681e636b803bfbbb59b1a9280e5cfb023522",
+        "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-006.run.json",
+        "run_json_sha256": "d18e292fd009f57393a919b80cb77b505de8a55a8ef233120d6c2b859f4f50ee",
+        "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-006.events.jsonl",
+        "events_jsonl_sha256": "c3299f9d735195d2bc1980d57b7e1e7e4c6c0de64dd60a1be313f33deaf6c621",
+        "event_count": 5460,
+        "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+        "revision_round": 0,
+        "chapter_status": "auto_repair_exhausted",
+        "validation_status": "blocked",
+        "issue_counts": {
+          "fatal": 0,
+          "blocking": 8,
+          "warning": 5
+        },
+        "candidate_generated": true,
+        "candidate_reviewable": true,
+        "submission_ready": false,
+        "selected_candidate": "initial",
+        "candidate_selection_reason": "fresh_blocking_error_count_not_strictly_lower"
+      }
+    },
+    {
+      "chapter_id": "WC-007",
+      "chapter_title": "技术参数及点对点应答",
+      "order": 7,
+      "sections": [
+        {
+          "heading": "技术要求点对点应答表",
+          "block_type": "required_response_table",
+          "content": "本节依据招标文件第三部分投标须知第18条（技术响应文件）及第四部分合同条款附件6-2的要求，逐条对招标文件第二部分技术要求进行评议，完整填写《技术要求点对点应答表》，说明本次投标货物和相关服务内容与采购人、采购代理机构相应要求的偏离情况。\n\n本应答表严格遵照招标文件所附《技术要求点对点应答表》原格式（合同条款附件6-2，TBL-9F9F69AC8ACF），保留原表名、表头、字段顺序及合并关系。该表为复杂合并单元格表格（7列×10行），标题“招标文件第二部分技术要求”，须严格保留招标原格式，不在本章以简化Markdown呈现。\n\n应答遵循以下原则：（1）招标要求列完整引用招标文件第二部分项目需求书中采购清单（二、采购清单）的各项参数要求，包括标的名称、指标分类、一级指标、二级指标及参数要求（2）投标应答列按照TR-026及TR-031的明确要求，逐项列出本次投标产品的具体数值或内容，不使用“符合”、“满足”等无具体内容的表述（3）偏离说明列对照招标要求与投标应答之间的差异如实填写偏离情况，加注“★”号条款为实质性条款（TR-019），本次投标承诺不得出现负偏离，非“★”技术要求逐项比对并说明偏离内容与方向（4）证明材料列列明支撑投标应答中各项参数承诺的产品参数证明、检测报告、认证证书等文件索引。\n\n本次投标拟投超融合系统产品基本信息暂以占位符标记，待事实确认后回填：品牌为{{PH-FIELD-OFFERED-PRODUCT-BRAND}}，型号为{{PH-FIELD-OFFERED-PRODUCT-MODEL}}，制造商为{{PH-FIELD-MANUFACTURER}}，产地为{{PH-FIELD-ORIGIN}}。产品实际配置（含CPU、内存、硬盘、网络端口及软件授权）由{{PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION}}标记，实际技术参数由{{PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS}}标记，偏离状态由{{PH-FIELD-TECHNICAL-DEVIATION-STATUS}}标记。待产品事实确认后，将逐行对照采购清单（TR-018，共211行参数要求）完成各单元格填写，并同步记录偏离情况。\n\n针对招标文件TR-025的要求——逐条对招标文件要求的技术规格进行评议，并按招标文件所附格式完整地填写《技术要求点对点应答表》，说明偏离情况——我方承诺完全响应，无偏离。针对招标文件TR-019的要求——加注“★”号条款为实质性条款，不得出现负偏离——我方承诺对所有★号实质性条款完全满足招标要求，不出现负偏离。针对招标文件TR-026的要求——投标文件中设备的性能指标应达到或优于招标文件中所列技术指标——我方承诺拟投产品性能指标达到或优于招标文件所列最低限度要求。针对招标文件TR-028的要求——不如实填写偏离情况的投标文件将视为虚假材料——我方承诺如实填写全部偏离情况，投标应答内容真实、准确。上述应答承诺中的具体参数数值及偏离详情均以产品事实确认后的正式应答为准。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R012"
+          ],
+          "covered_requirement_ids": [
+            "TR-018",
+            "TR-019",
+            "TR-022",
+            "TR-023",
+            "TR-024",
+            "TR-025",
+            "TR-026",
+            "TR-027",
+            "TR-028",
+            "TR-029",
+            "TR-030",
+            "TR-031"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-OFFERED-PRODUCT-BRAND",
+            "PH-FIELD-OFFERED-PRODUCT-MODEL",
+            "PH-FIELD-MANUFACTURER",
+            "PH-FIELD-ORIGIN",
+            "PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION",
+            "PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS",
+            "PH-FIELD-TECHNICAL-DEVIATION-STATUS"
+          ],
+          "section_id": "WC-007-01"
+        },
+        {
+          "heading": "技术支撑材料索引",
+          "block_type": "evidence_explanation",
+          "content": "本节为技术支撑材料索引，对本次投标拟投超融合系统产品的技术参数证明材料、制造商资质证明、产品检测报告及认证证书等进行分类索引，为《技术要求点对点应答表》中的各项参数承诺提供证据支撑。\n\n技术支撑材料索引用于建立招标要求、投标应答与证明材料之间的映射关系，便于评审专家快速定位各项参数承诺的证据来源。索引按照材料类型分类整理，本节提供索引路径和材料概要。\n\n以下按证据类型对技术支撑材料进行分类索引。因当前拟投产品品牌、型号及制造商均未确认，具体证明材料以占位符标记，待事实确认后回填实际文件名称、编号及对应页码。\n\n一、产品参数证明材料拟投超融合节点及超融合互联交换机的官方技术规格书、产品白皮书或制造商出具的技术参数确认函，用于证明CPU型号与核数、内存容量与规格、存储配置（缓存盘与数据盘类型及容量）、网络端口类型与数量、电源及物理尺寸等硬件参数满足招标要求。当前状态：{{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}}\n\n二、制造商资质证明对应评分项SCORE-TR-022-R006（产品制造商能力评价，满分3分），需提供拟投超融合节点制造厂商在有效期内的以下认证证书扫描件：\n\n为便于说明本节相关内容，现将关键事项整理如下表。\n\n| 序号 | 认证名称 | 评分分值 | 当前状态 |\n|------|---------|---------|--------|\n| 1 | 质量管理体系认证 ISO9001 | 1分 | {{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}} |\n| 2 | 环境管理体系认证 ISO14001 | 1分 | {{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}} |\n| 3 | 信息安全管理体系认证 ISO27001 | 1分 | {{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}} |\n\n上表所列制造商资质认证要求与投标人自身资质分属不同评分项，不得相互替代。投标人自身是否持证不影响制造商资质评分，最终以拟投产品制造商实际持有证书为准。\n\n三、产品检测报告拟投超融合产品的第三方权威机构检测报告或出厂检测报告，用于验证产品功能、性能、兼容性及可靠性指标。当前状态：{{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}}\n\n四、产品认证证书拟投产品取得的国内外相关认证，如CCC强制性产品认证、节能产品认证、环境标志产品认证等。其中环境标志产品认证对应评分项SCORE-TR-022-R004（环境标志产品，满分2分），节能产品认证对应评分项SCORE-TR-022-R005（节能产品，满分2分）。当前状态：{{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}}\n\n上述证明材料待拟投产品事实确认后，将在投标文件相应位置附入原件扫描件或加盖公章的复印件。所有证明材料保证真实、有效，且均在规定有效期内。如涉及外文材料，将同时提供中文翻译件。本次技术支撑材料索引不替代任何材料本身的提交义务，索引所列每一类材料均应在投标文件对应章节中以完整版本呈现。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R012",
+            "SCORE-TR-022-R004",
+            "SCORE-TR-022-R005",
+            "SCORE-TR-022-R006"
+          ],
+          "covered_requirement_ids": [
+            "TR-018",
+            "TR-019",
+            "TR-022",
+            "TR-025",
+            "TR-026",
+            "TR-031"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE"
+          ],
+          "section_id": "WC-007-02"
+        }
+      ],
+      "section_outline": [
+        {
+          "section_id": "WC-007-01",
+          "title": "技术要求点对点应答表",
+          "depth": 1,
+          "parent_id": "WC-007",
+          "sibling_order": 1,
+          "document_order": 1,
+          "outline_path": [
+            "WC-007",
+            "WC-007-01"
+          ]
+        },
+        {
+          "section_id": "WC-007-02",
+          "title": "技术支撑材料索引",
+          "depth": 1,
+          "parent_id": "WC-007",
+          "sibling_order": 2,
+          "document_order": 2,
+          "outline_path": [
+            "WC-007",
+            "WC-007-02"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "逐条对招标文件要求的技术规格进行评议，并按招标文件所附格式完整地填写《技术要求点对点应答表》，说明偏离情况——我方承诺完全响应，无偏离。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-025"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "confirmed",
+          "deviation_status": "no_deviation"
+        },
+        {
+          "text": "加注“★”号条款为实质性条款，不得出现负偏离。",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-019"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "response_intent": "no_deviation",
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending",
+          "tender_baseline": "★号条款不得出现负偏离，发生负偏离即做无效标处理",
+          "offered_value": "承诺所有★号实质性条款完全满足招标要求，不出现负偏离",
+          "comparison_direction": "fixed"
+        },
+        {
+          "text": "投标文件中设备的性能指标应达到或优于招标文件中所列技术指标——我方承诺拟投产品性能指标达到或优于招标文件所列最低限度要求。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-026"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending",
+          "tender_baseline": "性能指标应达到或优于招标文件中所列技术指标",
+          "offered_value": "承诺达到或优于招标文件所列最低限度要求",
+          "comparison_direction": "lower_limit"
+        },
+        {
+          "text": "不如实填写偏离情况的投标文件将视为虚假材料——我方承诺如实填写全部偏离情况，投标应答内容真实、准确。",
+          "claim_type": "commitment_statement",
+          "source_ids": [
+            "TR-028"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "投标人在《技术要求点对点应答表》的投标应答中必须列出具体数值或内容，不使用“符合”、“满足”等无具体内容的表述。",
+          "claim_type": "tender_fact",
+          "source_ids": [
+            "TR-031"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "evidence_status": "missing",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "拟投超融合系统产品品牌：{{PH-FIELD-OFFERED-PRODUCT-BRAND}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "拟投超融合系统产品型号：{{PH-FIELD-OFFERED-PRODUCT-MODEL}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "拟投超融合系统产品制造商：{{PH-FIELD-MANUFACTURER}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "拟投产品产地：{{PH-FIELD-ORIGIN}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "拟投产品实际配置（含CPU、内存、硬盘、网络端口及软件授权）：{{PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "拟投产品实际技术参数逐项值：{{PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "拟投产品技术偏离状态：{{PH-FIELD-TECHNICAL-DEVIATION-STATUS}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "产品参数证明材料、制造商资质证明、检测报告及认证证书：{{PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE}}",
+          "claim_type": "placeholder",
+          "source_ids": [],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        },
+        {
+          "text": "非“★”技术要求响应性评价覆盖——本《技术要求点对点应答表》为评标中SCORE-TR-022-R012（满分17分）的核心评分载体，非★条款逐条响应并如实填写偏离将直接影响评分结果。",
+          "claim_type": "score_coverage_statement",
+          "source_ids": [
+            "SCORE-TR-022-R012"
+          ],
+          "evidence_ids": [],
+          "human_review_required": false,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending"
+        }
+      ],
+      "placeholders_used": [
+        "PH-FIELD-OFFERED-PRODUCT-BRAND",
+        "PH-FIELD-OFFERED-PRODUCT-MODEL",
+        "PH-FIELD-MANUFACTURER",
+        "PH-FIELD-ORIGIN",
+        "PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION",
+        "PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS",
+        "PH-FIELD-TECHNICAL-DEVIATION-STATUS",
+        "PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE"
+      ],
+      "score_items_covered": [
+        "SCORE-TR-022-R004",
+        "SCORE-TR-022-R005",
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R012"
+      ],
+      "requirements_covered": [
+        "TR-018",
+        "TR-019",
+        "TR-022",
+        "TR-023",
+        "TR-024",
+        "TR-025",
+        "TR-026",
+        "TR-027",
+        "TR-028",
+        "TR-029",
+        "TR-030",
+        "TR-031"
+      ],
+      "warnings": [
+        "本章处于cannot_finalize状态：拟投产品品牌、型号、制造商、产地、实际配置、技术参数及偏离状态均未确认，所有产品事实以占位符标记。",
+        "TBL-9F9F69AC8ACF《技术要求点对点应答表》为复杂合并单元格招标原表，须严格保留原格式回填，不可简化。当前无法通过record_table_fill_data记录精确单元格引用，待产品事实确认后须联合原表格式完成回填。",
+        "SCORE-TR-022-R006制造商资质评分（满分3分）须由拟投产品制造商提供ISO9001/ISO14001/ISO27001证书，KB-file_2308aa547dd9中的证书为投标人自有资质，不可替代制造商资质。",
+        "KB-file_ae4329911662、KB-file_2308aa547dd9、KB-file_3fa83f22cdb4均为候选材料，未确认为本次投标可用证据，不得在正文中作为已确认事实引用。",
+        "TR-019★条款负偏离将导致无效标，所有★条款应答须在最终版逐条核验。",
+        "SCORE-TR-022-R012非★技术要求响应性评价满分17分，每条负偏离扣1分。最终版须逐条确认非★项偏离方向。",
+        "招标文件TR-026、TR-031明确要求应答必须列出具体数值或内容，不得使用“符合”、“满足”等无具体内容的表述，最终版须逐项填写实际参数值。"
+      ],
+      "generated_supporting_tables": [
+        {
+          "section_id": "WC-007-02",
+          "title": "制造商资质认证要求及材料状态",
+          "purpose": "对照评分项SCORE-TR-022-R006逐项列示制造商所需的三项认证（ISO9001、ISO14001、ISO27001）、对应分值及证明材料当前状态，便于评审专家快速核查评分依据。",
+          "why_table_is_better_than_prose": "三项认证为并列评分项，每项有独立的认证名称、分值和材料状态，表格格式使分值分配与材料状态一目了然，避免正文中逐项叙述造成的重复啰嗦。"
+        }
+      ],
+      "source": {
+        "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-007.candidate.json",
+        "candidate_json_sha256": "d78f85cd7c4b02eca077a30edc4e59360c766bc1ede70c9e6f5002c289278974",
+        "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-007.run.json",
+        "run_json_sha256": "e0213362f830c685632744e06154f4363cbf5c28c928d3c63bbe20662a3046d8",
+        "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-007.events.jsonl",
+        "events_jsonl_sha256": "c65f5321e30bf6ea318c0ceee33b04998fb9b0beb182d0b8dec8c58cea5d44ee",
+        "event_count": 4194,
+        "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+        "revision_round": 0,
+        "chapter_status": "auto_repair_exhausted",
+        "validation_status": "blocked",
+        "issue_counts": {
+          "fatal": 0,
+          "blocking": 10,
+          "warning": 3
+        },
+        "candidate_generated": true,
+        "candidate_reviewable": true,
+        "submission_ready": false,
+        "selected_candidate": "fresh",
+        "candidate_selection_reason": "fresh_is_strict_monotonic_improvement"
+      }
+    },
+    {
+      "chapter_id": "WC-008",
+      "chapter_title": "技术证明材料及附件索引",
+      "order": 8,
+      "sections": [
+        {
+          "heading": "产品技术资料索引",
+          "block_type": "evidence_explanation",
+          "content": "本节依据招标文件第二部分\"二、技术要求\"第（二）项（TR-012）的要求，对所投超融合节点产品的名称、品牌、制造商、产地、主要技术性能指标及技术资料进行系统索引和说明。投标人承诺在投标文件中提供详细的、具有法律效力的技术资料，确保采购人及评审专家能够全面、准确地了解所投产品的技术构成和性能特征。\n\n### 一、产品基本信息\n\n本次投标拟投超融合节点产品的基本标识信息如下：产品品牌为{{PH-FIELD-OFFERED-PRODUCT-BRAND}}，产品型号为{{PH-FIELD-OFFERED-PRODUCT-MODEL}}，制造商为{{PH-FIELD-MANUFACTURER}}，产地为{{PH-FIELD-ORIGIN}}。上述产品信息将在正式投标文件中以制造商出具的原厂技术资料予以佐证，确保信息的真实性和法律效力。\n\n### 二、产品技术性能指标\n\n所投产品的实际配置清单为{{PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION}}，涵盖计算节点（含CPU型号及数量、内存容量及规格）、存储子系统（含硬盘类型、容量及数量）、网络互联模块及超融合软件授权等核心组件。详细技术参数为{{PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS}}，包括但不限于计算性能指标、存储IOPS与吞吐量、网络带宽与延迟、虚拟化平台功能特性、高可用与容灾机制、管理运维能力等维度。上述配置与参数将在投标文件中以制造商官方技术规格书的形式完整呈现，确保各项技术性能指标具有可验证性。\n\n### 三、技术资料索引\n\n为满足招标文件关于\"提供详细的具有法律效力的技术资料\"的要求，投标人拟在投标文件中提交以下产品技术资料：{{PH-FIELD-PRODUCT-TECHNICAL-DOCUMENTS}}。该类资料主要包括制造商官方出具的产品技术白皮书、硬件规格说明书、软件功能列表、兼容性列表、安全特性说明、产品生命周期政策文件等。以上资料均为制造商正式发布的官方文档，具有法律效力，能够全面反映产品的技术能力、安全特性、性能指标、管理功能、厂家标准及使用年限等方面的信息。所有资料将按照\"产品品牌—资料类别—版本号\"的层次结构进行编排，并在投标文件中以附件形式完整提供。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R006"
+          ],
+          "covered_requirement_ids": [
+            "TR-012"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-OFFERED-PRODUCT-BRAND",
+            "PH-FIELD-OFFERED-PRODUCT-MODEL",
+            "PH-FIELD-MANUFACTURER",
+            "PH-FIELD-ORIGIN",
+            "PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION",
+            "PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS",
+            "PH-FIELD-PRODUCT-TECHNICAL-DOCUMENTS"
+          ],
+          "section_id": "WC-008-01"
+        },
+        {
+          "heading": "产品检测及认证材料索引",
+          "block_type": "evidence_explanation",
+          "content": "本节依据招标文件第二部分\"二、技术要求\"第（三）项（TR-013）的要求，对所投产品性能质量的证明材料进行索引和说明。招标文件要求投标文件中提供能够证明所投产品性能质量的证明材料，包括检测/检验/试验/测试报告、与所投产品相关的知识产权证书以及第三方认证机构出具的认证证书。投标人将按照上述要求，系统整理并提交相关证明材料，以确保所投产品的性能质量具有客观可验证的证据支撑。\n\n### 一、产品检测及测试报告\n\n为客观证明所投超融合节点产品的性能质量，投标人拟提供以下产品检测/检验/试验/测试报告：{{PH-FIELD-PRODUCT-TEST-REPORTS}}。该类报告依据相关国家标准、行业标准或国际标准出具，覆盖产品在计算性能、存储性能、网络性能、可靠性、兼容性、安全性等关键维度的测试结果。每一份报告均将标注检测机构名称、报告编号、检测依据标准及签发日期，确保报告的可追溯性和权威性。\n\n### 二、第三方认证证书\n\n投标人拟提供由第三方认证机构出具的认证证书：{{PH-FIELD-PRODUCT-CERTIFICATES}}。该类证书是对产品在特定技术领域或应用场景下能力水平的权威认定，可能涵盖产品安全认证、电磁兼容认证、节能认证、环境适应性认证等类别。每份认证证书均将提供认证机构名称、证书编号、认证范围及有效期限等关键信息，并在投标文件中附完整的证书扫描件。\n\n### 三、知识产权证书\n\n投标人拟提供与所投产品相关的知识产权证书：{{PH-FIELD-PRODUCT-INTELLECTUAL-PROPERTY}}。该类证书包括但不限于与超融合系统架构、数据管理算法、分布式存储技术、虚拟化平台等相关的专利证书、软件著作权登记证书等，用以证明产品在技术创新和自主知识产权方面的成果。\n\n以上全部证明材料将按照\"检测报告—认证证书—知识产权证书\"的分类层次进行编排，在投标文件中以附件形式逐一附上，确保评审专家能够便捷地查阅和核验。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R006"
+          ],
+          "covered_requirement_ids": [
+            "TR-013"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-PRODUCT-TEST-REPORTS",
+            "PH-FIELD-PRODUCT-CERTIFICATES",
+            "PH-FIELD-PRODUCT-INTELLECTUAL-PROPERTY"
+          ],
+          "section_id": "WC-008-02"
+        },
+        {
+          "heading": "制造商资质材料索引",
+          "block_type": "evidence_explanation",
+          "content": "本节依据招标文件第二部分\"二、技术要求\"第（四）项（TR-014）的要求，对能够证明所投产品制造商能力的证明材料进行索引和说明。招标文件要求投标文件中提供制造商的质量管理体系认证、职业健康安全管理体系认证、环境管理体系认证等证明材料。此外，评审因素及评标标准中\"产品制造商能力评价\"评分项（SCORE-TR-022-R006）进一步明确，所投超融合节点制造厂商具备质量管理体系认证ISO9001、环境管理体系认证ISO14001、信息安全管理体系认证ISO27001，每提供一份有效期内的证书扫描件得1分，最多3分。\n\n### 一、制造商概况\n\n本次投标所投超融合节点产品的制造商为{{PH-FIELD-MANUFACTURER}}。该制造商在超融合基础设施领域具有专业的产品研发、生产制造和技术服务能力，其产品已在多个行业的信息化建设项目中得到广泛应用。\n\n### 二、制造商资质证书索引\n\n为满足招标文件及评分标准的要求，投标人拟提供以下制造商资质证明材料：{{PH-FIELD-MANUFACTURER-QUALIFICATIONS}}。\n\n针对评分项SCORE-TR-022-R006明确要求的三项体系认证，即ISO9001质量管理体系认证、ISO14001环境管理体系认证和ISO27001信息安全管理体系认证，投标人将逐一核实制造商是否具备上述资质且证书在有效期内。若制造商的资质覆盖情况与招标要求存在差距，将在偏离表中如实披露。\n\n此外，投标人还将关注制造商在职业健康安全管理体系认证（ISO45001/OHSAS18001）等方面的资质情况，作为对招标文件TR-014要求的完整响应。所有制造商资质证书均将提供有效期内的扫描件，标注认证机构、证书编号、认证范围和有效期限，并按\"体系认证类别\"进行编排。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R006"
+          ],
+          "covered_requirement_ids": [
+            "TR-014",
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-MANUFACTURER",
+            "PH-FIELD-MANUFACTURER-QUALIFICATIONS"
+          ],
+          "section_id": "WC-008-03"
+        },
+        {
+          "heading": "投标人资质材料索引",
+          "block_type": "evidence_explanation",
+          "content": "本节对投标人{{PH-FIELD-BIDDER-NAME}}的企业资质证明材料进行索引和说明，重点响应评审因素及评标标准中\"投标人实力证明\"评分项（SCORE-TR-022-R011）的要求。该评分项对投标人的质量管理体系认证、信息系统建设和服务能力、软件能力成熟度、数据管理能力及信息安全服务资质等方面的证书提出评分要求，每提供一份有效期内的证书扫描件得1分，最多5分，具体等级要求以招标文件规定为准。\n\n### 一、投标人资质证书\n\n投标人拟在投标文件中提供以下企业资质证明材料：{{PH-FIELD-BIDDER-QUALIFICATIONS}}。\n\n上述资质将按照评分项要求的五项分类进行逐一整理和索引：\n\n1. **质量管理体系认证证书**：反映投标人在质量管理方面的体系化能力，证书需在有效期内。2. **信息系统建设和服务能力等级证书（CS4及以上）**：反映投标人在信息系统建设和服务领域的综合能力等级。3. **CMMI 5级证书**：反映投标人在软件能力成熟度方面的最高等级认证。4. **数据管理能力成熟度等级证书DCMM（2级及以上）**：反映投标人在数据管理领域的标准化能力水平。5. **CCRC信息安全服务资质认证证书—信息系统安全集成（二级及以上）**：反映投标人在信息安全集成服务领域的专业服务资质。\n\n### 二、材料编排说明\n\n投标人将针对上述五项资质逐一核实现有证书的覆盖情况和等级是否满足招标要求。对于尚未满足的资质项，将如实记录偏离并在偏离表中披露。所有资质证书均将提供有效期内的扫描件，标注发证机构、证书编号、资质等级和有效期限，并按评分项顺序统一编排，便于评审专家逐一核验。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R011"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-BIDDER-NAME",
+            "PH-FIELD-BIDDER-QUALIFICATIONS"
+          ],
+          "section_id": "WC-008-04"
+        },
+        {
+          "heading": "项目团队材料索引",
+          "block_type": "evidence_explanation",
+          "content": "本节对投标人拟投入本项目的项目团队材料进行索引和说明。项目团队的配置旨在保障超融合系统从方案设计、到货验收、安装部署、系统调试到验收交付的全过程顺利实施。团队组建将遵循\"专业匹配、职责清晰、协同高效\"的原则，确保各阶段技术工作均有相应专业能力的人员负责。\n\n### 一、项目负责人\n\n{{PH-FIELD-PROJECT-MANAGER}}\n\n本项目拟配置的项目团队成员为{{PH-FIELD-PROJECT-TEAM}}。团队成员将根据超融合系统实施的技术特点，覆盖系统架构设计、网络规划与调试、虚拟化平台部署、存储配置优化、安全策略实施、系统测试验证及技术培训等专业方向。各成员将按照各自的技术专长和职责分工，在项目负责人的统一协调下协作完成各阶段任务。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R017"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-PROJECT-MANAGER",
+            "PH-FIELD-PROJECT-TEAM"
+          ],
+          "section_id": "WC-008-05"
+        },
+        {
+          "heading": "类似项目业绩索引",
+          "block_type": "evidence_explanation",
+          "content": "本节对投标人{{PH-FIELD-BIDDER-NAME}}的类似项目业绩证明材料进行索引和说明，重点响应评审因素及评标标准中\"投标人业绩评价\"评分项（SCORE-TR-022-R013）的要求。该评分项明确：提供与本项目内容相关且已完成的业绩，每个业绩2分，最多4分。业绩证明材料须包括合同原件扫描件（合同签订时间为2022年1月1日至今，含合同金额、买卖双方名称及盖章、合同清单、合同签订日期）及上述合同履行良好的相关证明材料原件扫描件（加盖合同甲方单位公章或甲方印章），且证明材料均不得遮挡涂黑，否则不予认定加分。\n\n### 一、业绩遴选原则\n\n投标人将从已完成项目中遴选与本项目相关的类似业绩，具体遴选原则以招标文件规定为准。每项业绩将确保合同信息的完整性，包括合同金额、买卖双方名称及盖章、合同清单及签订日期等关键要素清晰可辨，且不对证明材料做任何遮挡或涂黑处理。\n\n### 二、业绩索引\n\n投标人拟提供的类似项目业绩为：{{PH-FIELD-SELECTED-PERFORMANCE}}。\n\n每项业绩将按照评分要求提供完整的证明材料包，包括合同原件扫描件和合同履行良好的证明材料。合同履行良好的证明材料由合同甲方单位出具并加盖公章或印章，以证明项目已按合同约定完成且服务质量获得甲方认可。\n\n### 三、材料编排说明\n\n投标人将按照业绩提交时间顺序对证明材料进行编排，每项业绩独立成册，封面标注项目名称、合同金额、合同签订日期及甲方名称等关键信息，并在投标文件中以附件形式完整提供。证明材料确保扫描清晰、信息完整，符合招标文件关于\"不得遮挡涂黑\"的严格要求。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R013"
+          ],
+          "covered_requirement_ids": [
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-BIDDER-NAME",
+            "PH-FIELD-SELECTED-PERFORMANCE"
+          ],
+          "section_id": "WC-008-06"
+        },
+        {
+          "heading": "服务及承诺材料索引",
+          "block_type": "evidence_explanation",
+          "content": "本节对投标人{{PH-FIELD-BIDDER-NAME}}的售后服务及承诺相关材料进行索引和说明。依据招标文件第二部分\"二、技术要求\"第（二）项（TR-012）的要求，投标文件需对售后服务等方面情况提供详细的具有法律效力的技术资料。本节将围绕产品保修、技术支持、故障响应、备件保障及培训服务等维度，系统说明投标人拟提供的服务承诺材料。\n\n### 一、售后服务方案概述\n\n投标人将针对本项目所投超融合系统建立完整的售后服务体系，涵盖以下核心服务内容：\n\n**产品保修服务**：投标人将按照制造商标准保修政策及投标人增值服务承诺，对所投超融合节点产品提供明确的保修期限。保修期内的硬件故障将享受免费维修或更换服务，软件许可期内享受版本升级和技术支持服务。具体的保修期限和保修范围以正式投标文件中的服务承诺函为准。\n\n**技术支持与故障响应**：投标人将建立分级响应机制，根据故障级别设置对应的响应时间和解决时限。技术支持方式包括远程技术支持、电话支持及现场支持，确保系统运行过程中出现的各类技术问题能够得到及时有效的处置。\n\n**备件保障**：投标人将建立备件库或依托制造商的备件供应体系，确保关键硬件组件在故障时能够快速替换，最大限度缩短系统停机时间。\n\n**培训服务**：投标人将为采购人提供全面的产品培训，涵盖超融合系统日常管理、虚拟机生命周期管理、存储策略配置、性能监控与故障排查等内容\n\n### 二、服务承诺材料索引\n\n投标人拟在投标文件中提供以下服务及承诺相关材料：制造商出具的售后服务承诺函或保修条款文件、投标人出具的项目服务承诺函（明确保修期限、响应时间、服务范围等核心条款）、培训计划及培训材料大纲、备件供应方案说明以及技术支持团队联系信息与升级路径说明。\n\n上述服务承诺材料将按照\"制造商承诺—投标人承诺—配套方案\"的层次进行编排，各项承诺均以正式盖章文件的形式提供，确保承诺内容具有法律效力和可执行性。",
+          "covered_score_item_ids": [
+            "SCORE-TR-022-R006",
+            "SCORE-TR-022-R018"
+          ],
+          "covered_requirement_ids": [
+            "TR-012",
+            "TR-022"
+          ],
+          "placeholder_ids": [
+            "PH-FIELD-BIDDER-NAME"
+          ],
+          "section_id": "WC-008-07"
+        }
+      ],
+      "section_outline": [
+        {
+          "section_id": "WC-008-01",
+          "title": "产品技术资料索引",
+          "depth": 1,
+          "parent_id": "WC-008",
+          "sibling_order": 1,
+          "document_order": 1,
+          "outline_path": [
+            "WC-008",
+            "WC-008-01"
+          ]
+        },
+        {
+          "section_id": "WC-008-02",
+          "title": "产品检测及认证材料索引",
+          "depth": 1,
+          "parent_id": "WC-008",
+          "sibling_order": 2,
+          "document_order": 2,
+          "outline_path": [
+            "WC-008",
+            "WC-008-02"
+          ]
+        },
+        {
+          "section_id": "WC-008-03",
+          "title": "制造商资质材料索引",
+          "depth": 1,
+          "parent_id": "WC-008",
+          "sibling_order": 3,
+          "document_order": 3,
+          "outline_path": [
+            "WC-008",
+            "WC-008-03"
+          ]
+        },
+        {
+          "section_id": "WC-008-04",
+          "title": "投标人资质材料索引",
+          "depth": 1,
+          "parent_id": "WC-008",
+          "sibling_order": 4,
+          "document_order": 4,
+          "outline_path": [
+            "WC-008",
+            "WC-008-04"
+          ]
+        },
+        {
+          "section_id": "WC-008-05",
+          "title": "项目团队材料索引",
+          "depth": 1,
+          "parent_id": "WC-008",
+          "sibling_order": 5,
+          "document_order": 5,
+          "outline_path": [
+            "WC-008",
+            "WC-008-05"
+          ]
+        },
+        {
+          "section_id": "WC-008-06",
+          "title": "类似项目业绩索引",
+          "depth": 1,
+          "parent_id": "WC-008",
+          "sibling_order": 6,
+          "document_order": 6,
+          "outline_path": [
+            "WC-008",
+            "WC-008-06"
+          ]
+        },
+        {
+          "section_id": "WC-008-07",
+          "title": "服务及承诺材料索引",
+          "depth": 1,
+          "parent_id": "WC-008",
+          "sibling_order": 7,
+          "document_order": 7,
+          "outline_path": [
+            "WC-008",
+            "WC-008-07"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "投标人承诺在投标文件中提供详细的、具有法律效力的技术资料（TR-012响应）。具体产品名称、品牌、制造商、产地、技术性能指标均以正式确认后的投标文件为准，当前使用占位符。",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "TR-012"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending",
+          "tender_baseline": "（二）投标文件中对所投产品的名称、品牌、制造商、产地、主要技术性能指标及其在技术、安全、性能、管理、厂家标准、使用年限及售后服务等方面情况提供详细的具有法律效力的技术资料。",
+          "offered_value": "{{PH-FIELD-OFFERED-PRODUCT-BRAND}} {{PH-FIELD-OFFERED-PRODUCT-MODEL}}及其技术资料",
+          "comparison_direction": "fixed"
+        },
+        {
+          "text": "投标人拟提供类似项目业绩证明材料响应\"投标人业绩评价\"评分项（SCORE-TR-022-R013）。具体业绩清单及相关合同、验收证明材料待确认。",
+          "claim_type": "placeholder",
+          "source_ids": [
+            "SCORE-TR-022-R013"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending",
+          "tender_baseline": "提供与本项目内容相关且已完成的业绩，1个业绩2分，最多4分。合同签订时间2022年1月1日至今，含合同金额、买卖双方名称及盖章、合同清单、合同签订日期及履行良好证明材料。",
+          "offered_value": "{{PH-FIELD-SELECTED-PERFORMANCE}}",
+          "comparison_direction": "fixed"
+        },
+        {
+          "text": "投标人将提供售后服务承诺材料（保修、技术支持、故障响应、备件保障、培训），具体保修期限和响应时限以正式服务承诺函为准。",
+          "claim_type": "proposal_statement",
+          "source_ids": [
+            "TR-012"
+          ],
+          "evidence_ids": [],
+          "human_review_required": true,
+          "response_intent": "no_deviation",
+          "evidence_status": "pending",
+          "deviation_status": "evidence_pending",
+          "tender_baseline": "（二）在售后服务等方面情况提供详细的具有法律效力的技术资料。"
+        }
+      ],
+      "placeholders_used": [
+        "PH-FIELD-OFFERED-PRODUCT-BRAND",
+        "PH-FIELD-OFFERED-PRODUCT-MODEL",
+        "PH-FIELD-MANUFACTURER",
+        "PH-FIELD-ORIGIN",
+        "PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION",
+        "PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS",
+        "PH-FIELD-PRODUCT-TECHNICAL-DOCUMENTS",
+        "PH-FIELD-PRODUCT-TEST-REPORTS",
+        "PH-FIELD-PRODUCT-CERTIFICATES",
+        "PH-FIELD-PRODUCT-INTELLECTUAL-PROPERTY",
+        "PH-FIELD-MANUFACTURER-QUALIFICATIONS",
+        "PH-FIELD-BIDDER-NAME",
+        "PH-FIELD-BIDDER-QUALIFICATIONS",
+        "PH-FIELD-PROJECT-MANAGER",
+        "PH-FIELD-PROJECT-TEAM",
+        "PH-FIELD-SELECTED-PERFORMANCE"
+      ],
+      "score_items_covered": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013",
+        "SCORE-TR-022-R017",
+        "SCORE-TR-022-R018"
+      ],
+      "requirements_covered": [
+        "TR-012",
+        "TR-013",
+        "TR-014",
+        "TR-022"
+      ],
+      "warnings": [
+        "[draftability] 本章节处于cannot_finalize状态，16个关键项目事实未确认，全部产品、人员、资质、业绩和服务承诺使用占位符，不得作为正式投标文件提交。",
+        "[blocking] 产品品牌{{PH-FIELD-OFFERED-PRODUCT-BRAND}}、型号{{PH-FIELD-OFFERED-PRODUCT-MODEL}}、制造商{{PH-FIELD-MANUFACTURER}}、产地{{PH-FIELD-ORIGIN}}、配置{{PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION}}、参数{{PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS}}均未确认。",
+        "[blocking] 制造商资质{{PH-FIELD-MANUFACTURER-QUALIFICATIONS}}未确认，SCORE-TR-022-R006（3分）无法评估得分。候选材料file_2308aa547dd9为投标人公司资质，不能直接作为制造商资质使用。",
+        "[critical/negative_deviation_risk] 投标人资质方面，SCORE-TR-022-R011（5分）要求CS4及以上、CMMI 5级、DCMM 2级及以上、CCRC信息系统安全集成二级及以上。候选材料file_2308aa547dd9显示CS3级（低于CS4要求）和CCRC安全集成三级（低于二级要求），且缺乏CMMI和DCMM证书。若以此响应将构成多项负偏离，得分可能为0-2分（满分5分）。",
+        "[blocking] 项目负责人{{PH-FIELD-PROJECT-MANAGER}}及团队成员{{PH-FIELD-PROJECT-TEAM}}未确认。候选简历（冯振书、吴云畅）为候选材料，不构成已确认人员事实。",
+        "[blocking] 类似项目业绩{{PH-FIELD-SELECTED-PERFORMANCE}}未确认，SCORE-TR-022-R013（4分）无法评估得分。",
+        "[blocking] 产品检测报告、认证证书、知识产权证书均未确认，TR-013响应不完整。",
+        "[blocking] 产品技术资料{{PH-FIELD-PRODUCT-TECHNICAL-DOCUMENTS}}未确认，TR-012响应不完整。",
+        "[prose_quality] WC-008-05为人员章节（is_personnel_section=true），已按照personnel_content_mode=source_only规则仅使用中性角色描述和占位符，未补写具体人选、资历、数量或备份人员安排。"
+      ],
+      "generated_supporting_tables": [],
+      "source": {
+        "candidate_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-008.candidate.json",
+        "candidate_json_sha256": "ce8ed3ab0e6ff60c7d8f3adfab04ece30069c029c6514048dbe715ea2b8ac58d",
+        "run_json_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-008.run.json",
+        "run_json_sha256": "a737ac8aadd37f39bd6702e1b1c0eecbbda74bebb4514817515d4cf6dc27353f",
+        "events_jsonl_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\drafts\\WC-008.events.jsonl",
+        "events_jsonl_sha256": "1a32a06ade59f0b70c227c53d5a09dae19bac195af002e7356463f21460baf17",
+        "event_count": 6538,
+        "output_key": "hospital_hci_001_fulltext_real_20260806_02",
+        "revision_round": 0,
+        "chapter_status": "auto_repair_exhausted",
+        "validation_status": "blocked",
+        "issue_counts": {
+          "fatal": 0,
+          "blocking": 20,
+          "warning": 3
+        },
+        "candidate_generated": true,
+        "candidate_reviewable": true,
+        "submission_ready": false,
+        "selected_candidate": "fresh",
+        "candidate_selection_reason": "fresh_is_strict_monotonic_improvement"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "unique_requirement_ids": [
+      "TR-017",
+      "TR-022",
+      "TR-011",
+      "TR-016",
+      "TR-018",
+      "TR-020",
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-004",
+      "TR-001",
+      "TR-002",
+      "TR-003",
+      "TR-015",
+      "TR-021",
+      "TR-019",
+      "TR-023",
+      "TR-024",
+      "TR-025",
+      "TR-026",
+      "TR-027",
+      "TR-028",
+      "TR-029",
+      "TR-030",
+      "TR-031",
+      "TR-012",
+      "TR-013",
+      "TR-014"
+    ],
+    "unique_requirement_count": 31,
+    "unique_score_item_ids": [
+      "SCORE-TR-022-R015",
+      "SCORE-TR-022-R016",
+      "SCORE-TR-022-R017",
+      "SCORE-TR-022-R018",
+      "SCORE-TR-022-R004",
+      "SCORE-TR-022-R005",
+      "SCORE-TR-022-R019",
+      "SCORE-TR-022-R006",
+      "SCORE-TR-022-R012",
+      "SCORE-TR-022-R011",
+      "SCORE-TR-022-R013"
+    ],
+    "unique_score_item_count": 11,
+    "unique_placeholder_ids": [
+      "PH-FIELD-PROJECT-NAME-AND-CODE",
+      "PH-FIELD-OFFERED-PRODUCT-BRAND-HYPERCONVERGED",
+      "PH-FIELD-OFFERED-PRODUCT-MODEL-HYPERCONVERGED",
+      "PH-FIELD-MANUFACTURER-HYPERCONVERGED",
+      "PH-FIELD-ORIGIN-HYPERCONVERGED",
+      "PH-FIELD-HYPERCONVERGED-SWITCH-BRAND-MODEL",
+      "PH-FIELD-STAFFING-PLAN",
+      "PH-FIELD-PROJECT-MANAGER",
+      "PH-FIELD-PROJECT-TEAM",
+      "PH-FIELD-28CA6066A5AD",
+      "PH-FIELD-87105134CCFC",
+      "PH-FIELD-4632EE3F3A2D",
+      "PH-FIELD-23BA801F18B2",
+      "PH-FIELD-8066F187CEE1",
+      "PH-FIELD-A55D99C34CDE",
+      "PH-FIELD-ISO14001",
+      "PH-FIELD-OFFERED-PRODUCT-BRAND",
+      "PH-FIELD-OFFERED-PRODUCT-MODEL",
+      "PH-FIELD-MANUFACTURER",
+      "PH-FIELD-ORIGIN",
+      "PH-FIELD-ACTUAL-PRODUCT-CONFIGURATION",
+      "PH-FIELD-ACTUAL-TECHNICAL-PARAMETERS",
+      "PH-FIELD-TECHNICAL-DEVIATION-STATUS",
+      "PH-FIELD-PRODUCT-CERTIFICATE-EVIDENCE",
+      "PH-FIELD-PRODUCT-TECHNICAL-DOCUMENTS",
+      "PH-FIELD-PRODUCT-TEST-REPORTS",
+      "PH-FIELD-PRODUCT-CERTIFICATES",
+      "PH-FIELD-PRODUCT-INTELLECTUAL-PROPERTY",
+      "PH-FIELD-MANUFACTURER-QUALIFICATIONS",
+      "PH-FIELD-BIDDER-NAME",
+      "PH-FIELD-BIDDER-QUALIFICATIONS",
+      "PH-FIELD-SELECTED-PERFORMANCE"
+    ],
+    "unique_placeholder_count": 32,
+    "unique_source_ids": [
+      "TR-017",
+      "TR-022",
+      "TR-011",
+      "TR-016",
+      "TR-020",
+      "SCORE-TR-022-R016",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "SCORE-TR-022-R017",
+      "pending_confirmation",
+      "TR-004",
+      "TR-002",
+      "TR-001",
+      "TR-021",
+      "TR-015",
+      "SCORE-TR-022-R005",
+      "SCORE-TR-022-R004",
+      "SCORE-TR-022-R019",
+      "TR-025",
+      "TR-019",
+      "TR-026",
+      "TR-028",
+      "TR-031",
+      "SCORE-TR-022-R012",
+      "TR-012",
+      "SCORE-TR-022-R013"
+    ],
+    "unique_source_count": 29,
+    "unique_evidence_ids": [],
+    "unique_evidence_count": 0
+  },
+  "composition_issues": [],
+  "source_manifest": {
+    "path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_fulltext_real_20260806_02\\fulltext\\technical_fulltext_build_manifest.json",
+    "sha256": "e00c99d3d204049a082e6bf89754cae9b285865a22e87f4066eaea2b6db42703"
+  }
+}

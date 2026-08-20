@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "ark_draft": {
+      "api_mode": "responses",
+      "structured_output_mode": "prompt_json",
+      "temperature": 0.1,
+      "extra_body": {
+        "thinking": {
+          "type": "disabled"
+        }
+      }
+    }
+  }
+}

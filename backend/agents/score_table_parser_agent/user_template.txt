@@ -1,0 +1,10 @@
+评分表来源：
+{source}
+
+指定标段：
+{lot_name}
+
+评分表文本：
+{document_text}
+
+请按 system 指令输出指定标段的评分项拆解 JSON。

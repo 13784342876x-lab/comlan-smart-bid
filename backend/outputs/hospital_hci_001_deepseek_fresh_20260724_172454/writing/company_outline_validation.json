@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "generated 87 stable node_id values from full paths"
+  ],
+  "chapter_count": 13,
+  "node_count": 100,
+  "max_depth": 2,
+  "source_path": "D:\\comlan智标\\backend\\resources\\writing\\company_master_outline_v0.json",
+  "source_schema_version": "company_technical_writing_outline_v0",
+  "top_level_fields": [
+    "schema_version",
+    "outline_id",
+    "name",
+    "scope",
+    "status",
+    "description",
+    "adaptation_policy",
+    "project_type_profiles",
+    "modules"
+  ],
+  "source_structure": "modules with default_sections",
+  "stable_root_node_ids": true,
+  "generated_child_node_ids": 87,
+  "has_required_by_default": true,
+  "has_optional_nodes": true,
+  "has_project_type_profiles": true,
+  "duplicate_ids": [],
+  "empty_titles": [],
+  "orphan_parent_ids": [],
+  "stable_traversal": true,
+  "normalized_in_memory": true,
+  "normalized_file_written": false,
+  "source_sha256_before": "a2ea54d0d6918758860bb5e521350ab408bafa049bcd995de9de351eec92a188",
+  "source_sha256_after": "a2ea54d0d6918758860bb5e521350ab408bafa049bcd995de9de351eec92a188",
+  "source_unchanged": true
+}

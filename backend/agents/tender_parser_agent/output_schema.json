@@ -1,0 +1,23 @@
+{
+  "project_summary": "string",
+  "sections": [
+    {
+      "section_name": "string",
+      "type": "business|technical|qualification|price",
+      "weight": "number",
+      "items": [
+        {
+          "requirement": "string",
+          "score_weight": "number",
+          "risk_level": "low|medium|high",
+          "is_disqualifying": "boolean",
+          "evidence_needed": ["string"],
+          "kb_mapping_hint": ["string"],
+          "generation_instruction": "string"
+        }
+      ]
+    }
+  ],
+  "disqualification_rules": ["string"],
+  "generation_tasks": ["string"]
+}

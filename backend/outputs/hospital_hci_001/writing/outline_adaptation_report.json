@@ -1,0 +1,835 @@
+{
+  "format_mode": "forms_only",
+  "retained_company_nodes": [
+    {
+      "chapter_id": "WC-001-01",
+      "title": "项目背景",
+      "company_outline_node_ids": [
+        "CON-7048C0BDC2B3"
+      ],
+      "original_company_title": "项目背景",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-002-01",
+      "title": "总体设计原则",
+      "company_outline_node_ids": [
+        "CON-45DE142A443B"
+      ],
+      "original_company_title": "总体设计原则",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-002-02",
+      "title": "总体技术路线",
+      "company_outline_node_ids": [
+        "CON-7AA02D3A1392"
+      ],
+      "original_company_title": "总体技术路线",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-002-06",
+      "title": "主要功能设计",
+      "company_outline_node_ids": [
+        "CON-AFA5523606B4"
+      ],
+      "original_company_title": "主要功能设计",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-002-08",
+      "title": "安全设计",
+      "company_outline_node_ids": [
+        "CON-7C3940DF75C4"
+      ],
+      "original_company_title": "安全设计",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-002-10",
+      "title": "超融合系统详细技术方案",
+      "company_outline_node_ids": [
+        "CON-012C6CA76EB0"
+      ],
+      "original_company_title": "超融合系统详细技术方案",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-002-11",
+      "title": "超融合互联交换机技术方案",
+      "company_outline_node_ids": [
+        "CON-012C6CA76EB0"
+      ],
+      "original_company_title": "超融合互联交换机技术方案",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-002-12",
+      "title": "超融合节点技术方案",
+      "company_outline_node_ids": [
+        "CON-012C6CA76EB0"
+      ],
+      "original_company_title": "超融合节点技术方案",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-003-04",
+      "title": "项目组织架构",
+      "company_outline_node_ids": [
+        "CON-D2F95D1D82B3"
+      ],
+      "original_company_title": "项目组织架构",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-003-10",
+      "title": "交付成果",
+      "company_outline_node_ids": [
+        "CON-C23A41FA9818"
+      ],
+      "original_company_title": "交付成果",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-003-11",
+      "title": "风险控制与应急保障",
+      "company_outline_node_ids": [
+        "MODULE-RISK-CONTROL"
+      ],
+      "original_company_title": "风险控制与应急保障",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲小节。"
+    },
+    {
+      "chapter_id": "WC-004",
+      "title": "培训方案",
+      "company_outline_node_ids": [
+        "MODULE-TRAINING"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R018"
+      ],
+      "reason": "主观评分项要求独立培训方案。"
+    },
+    {
+      "chapter_id": "WC-004-01",
+      "title": "培训目标",
+      "company_outline_node_ids": [
+        "CON-DAE2C3D95551"
+      ],
+      "original_company_title": "培训目标",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-02",
+      "title": "培训对象",
+      "company_outline_node_ids": [
+        "CON-6CECA4374C00"
+      ],
+      "original_company_title": "培训对象",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-03",
+      "title": "培训内容",
+      "company_outline_node_ids": [
+        "CON-F211E581B522"
+      ],
+      "original_company_title": "培训内容",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-04",
+      "title": "培训形式",
+      "company_outline_node_ids": [
+        "CON-FB23142E03D6"
+      ],
+      "original_company_title": "培训形式",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-05",
+      "title": "培训师资",
+      "company_outline_node_ids": [
+        "CON-A9F5A4ACE9D7"
+      ],
+      "original_company_title": "培训师资",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-06",
+      "title": "培训时间与地点",
+      "company_outline_node_ids": [
+        "CON-1543002C2203"
+      ],
+      "original_company_title": "培训时间与地点",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-07",
+      "title": "培训计划",
+      "company_outline_node_ids": [
+        "CON-FF7DA5000626"
+      ],
+      "original_company_title": "培训计划",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-08",
+      "title": "培训考核",
+      "company_outline_node_ids": [
+        "CON-D23B4CBA7591"
+      ],
+      "original_company_title": "培训考核",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-09",
+      "title": "培训资料",
+      "company_outline_node_ids": [
+        "CON-E27E41B6B156"
+      ],
+      "original_company_title": "培训资料",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-004-10",
+      "title": "培训效果保障",
+      "company_outline_node_ids": [
+        "CON-D65F1A732B71"
+      ],
+      "original_company_title": "培训效果保障",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005",
+      "title": "售后服务与运行保障方案",
+      "company_outline_node_ids": [
+        "MODULE-SERVICE-WARRANTY"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [],
+      "reason": "服务、保修和响应要求构成独立履约主题。"
+    },
+    {
+      "chapter_id": "WC-005-01",
+      "title": "服务目标",
+      "company_outline_node_ids": [
+        "CON-FCBA6AB6E081"
+      ],
+      "original_company_title": "服务目标",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-02",
+      "title": "服务范围",
+      "company_outline_node_ids": [
+        "CON-AD4295E10539"
+      ],
+      "original_company_title": "服务范围",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-03",
+      "title": "服务组织体系",
+      "company_outline_node_ids": [
+        "CON-C4B883C24CBF"
+      ],
+      "original_company_title": "服务组织体系",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-04",
+      "title": "服务机构与人员",
+      "company_outline_node_ids": [
+        "CON-FB23DB8FBA69"
+      ],
+      "original_company_title": "服务机构与人员",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-05",
+      "title": "服务响应机制",
+      "company_outline_node_ids": [
+        "CON-D7DFF0DE3EC6"
+      ],
+      "original_company_title": "服务响应机制",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-06",
+      "title": "故障处理流程",
+      "company_outline_node_ids": [
+        "CON-C9F66AD87D75"
+      ],
+      "original_company_title": "故障处理流程",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-07",
+      "title": "保修与维修方案",
+      "company_outline_node_ids": [
+        "CON-EB0CD20C672D"
+      ],
+      "original_company_title": "保修与维修方案",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-08",
+      "title": "备品备件保障",
+      "company_outline_node_ids": [
+        "CON-119AB89BA720"
+      ],
+      "original_company_title": "备品备件保障",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-09",
+      "title": "巡检与健康检查",
+      "company_outline_node_ids": [
+        "CON-0E821BE1618D"
+      ],
+      "original_company_title": "巡检与健康检查",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-10",
+      "title": "服务质量监督",
+      "company_outline_node_ids": [
+        "CON-F43B069FEACA"
+      ],
+      "original_company_title": "服务质量监督",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-005-11",
+      "title": "服务承诺",
+      "company_outline_node_ids": [
+        "CON-7CB672877DF2"
+      ],
+      "original_company_title": "服务承诺",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-006",
+      "title": "绿色供应链管理方案",
+      "company_outline_node_ids": [
+        "MODULE-SPECIAL-TOPICS"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R004",
+        "SCORE-TR-022-R005",
+        "SCORE-TR-022-R019"
+      ],
+      "reason": "技术要求和主观评分项均明确绿色供应链主题。"
+    },
+    {
+      "chapter_id": "WC-007-02",
+      "title": "技术支撑材料索引",
+      "company_outline_node_ids": [
+        "CON-3AD54A3523DC"
+      ],
+      "original_company_title": "技术支撑材料索引",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-008",
+      "title": "技术证明材料及附件索引",
+      "company_outline_node_ids": [
+        "MODULE-EVIDENCE-APPENDIX"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R006",
+        "SCORE-TR-022-R011",
+        "SCORE-TR-022-R013"
+      ],
+      "reason": "技术资料、产品证明、资质和评分支撑材料集中作为附件索引。"
+    },
+    {
+      "chapter_id": "WC-008-01",
+      "title": "产品技术资料索引",
+      "company_outline_node_ids": [
+        "CON-0C4DF58FD910"
+      ],
+      "original_company_title": "产品技术资料索引",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-008-02",
+      "title": "产品检测及认证材料索引",
+      "company_outline_node_ids": [
+        "CON-0B8CDED4FC93"
+      ],
+      "original_company_title": "产品检测及认证材料索引",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-008-03",
+      "title": "制造商资质材料索引",
+      "company_outline_node_ids": [
+        "CON-A003E8B43DAC"
+      ],
+      "original_company_title": "制造商资质材料索引",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-008-04",
+      "title": "投标人资质材料索引",
+      "company_outline_node_ids": [
+        "CON-4D2D4A49A57E"
+      ],
+      "original_company_title": "投标人资质材料索引",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-008-05",
+      "title": "项目团队材料索引",
+      "company_outline_node_ids": [
+        "CON-F2BDE3128729"
+      ],
+      "original_company_title": "项目团队材料索引",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-008-06",
+      "title": "类似项目业绩索引",
+      "company_outline_node_ids": [
+        "CON-415C9F4D709E"
+      ],
+      "original_company_title": "类似项目业绩索引",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    },
+    {
+      "chapter_id": "WC-008-07",
+      "title": "服务及承诺材料索引",
+      "company_outline_node_ids": [
+        "CON-1ED5514A4B6E"
+      ],
+      "original_company_title": "服务及承诺材料索引",
+      "score_item_refs": [],
+      "reason": "继承公司通用大纲默认小节。"
+    }
+  ],
+  "renamed_company_nodes": [
+    {
+      "chapter_id": "WC-001",
+      "title": "需求理解及分析",
+      "company_outline_node_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "reason": "主观评分项明确评价需求理解及分析，作为独立一级主章节。"
+    },
+    {
+      "chapter_id": "WC-001-02",
+      "title": "现状及建设基础",
+      "company_outline_node_ids": [
+        "CON-F1508C192E80"
+      ],
+      "original_company_title": "项目现状及建设基础",
+      "score_item_refs": [],
+      "reason": "将公司小节“项目现状及建设基础”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-001-08",
+      "title": "项目重点与难点",
+      "company_outline_node_ids": [
+        "CON-0767DB3FD624"
+      ],
+      "original_company_title": "项目重点与难点分析",
+      "score_item_refs": [],
+      "reason": "将公司小节“项目重点与难点分析”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-001-09",
+      "title": "建设目标",
+      "company_outline_node_ids": [
+        "CON-42BD7BD5DB5E"
+      ],
+      "original_company_title": "项目建设目标",
+      "score_item_refs": [],
+      "reason": "将公司小节“项目建设目标”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-002-03",
+      "title": "总体方案架构",
+      "company_outline_node_ids": [
+        "CON-B0AB60BD7986"
+      ],
+      "original_company_title": "方案总体架构",
+      "score_item_refs": [],
+      "reason": "将公司小节“方案总体架构”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-002-07",
+      "title": "可靠性设计",
+      "company_outline_node_ids": [
+        "CON-F0EB8CC53E03"
+      ],
+      "original_company_title": "性能与可靠性设计",
+      "score_item_refs": [],
+      "reason": "将公司小节“性能与可靠性设计”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-002-09",
+      "title": "兼容与扩展设计",
+      "company_outline_node_ids": [
+        "CON-A52D677A1C50"
+      ],
+      "original_company_title": "兼容性与扩展性设计",
+      "score_item_refs": [],
+      "reason": "将公司小节“兼容性与扩展性设计”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-003-01",
+      "title": "实施总体规划",
+      "company_outline_node_ids": [
+        "CON-7CD0C79EC675"
+      ],
+      "original_company_title": "实施总体安排",
+      "score_item_refs": [],
+      "reason": "将公司小节“实施总体安排”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-003-02",
+      "title": "项目建设技术方案",
+      "company_outline_node_ids": [
+        "CON-59EB9F2E6C65"
+      ],
+      "original_company_title": "实施范围",
+      "score_item_refs": [],
+      "reason": "将公司小节“实施范围”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-003-03",
+      "title": "项目设计实施周期",
+      "company_outline_node_ids": [
+        "CON-DE200471D808"
+      ],
+      "original_company_title": "进度计划与里程碑",
+      "score_item_refs": [],
+      "reason": "将公司小节“进度计划与里程碑”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-003-05",
+      "title": "项目负责人及主要人员",
+      "company_outline_node_ids": [
+        "CON-F9A0B9438886"
+      ],
+      "original_company_title": "主要技术人员",
+      "score_item_refs": [],
+      "reason": "将公司小节“主要技术人员”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-003-06",
+      "title": "安装部署",
+      "company_outline_node_ids": [
+        "CON-67B5D2A92489"
+      ],
+      "original_company_title": "安装部署方案",
+      "score_item_refs": [],
+      "reason": "将公司小节“安装部署方案”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-003-07",
+      "title": "测试与试运行",
+      "company_outline_node_ids": [
+        "CON-3368F1F11F5A"
+      ],
+      "original_company_title": "系统测试与试运行",
+      "score_item_refs": [],
+      "reason": "将公司小节“系统测试与试运行”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-003-08",
+      "title": "质量控制",
+      "company_outline_node_ids": [
+        "CON-9B99C57C602A"
+      ],
+      "original_company_title": "质量控制流程",
+      "score_item_refs": [],
+      "reason": "将公司小节“质量控制流程”调整为项目评分主题下的目录标题。"
+    },
+    {
+      "chapter_id": "WC-003-09",
+      "title": "项目验收",
+      "company_outline_node_ids": [
+        "CON-1E3B7128B848"
+      ],
+      "original_company_title": "验收流程",
+      "score_item_refs": [],
+      "reason": "将公司小节“验收流程”调整为项目评分主题下的目录标题。"
+    }
+  ],
+  "merged_company_nodes": [
+    {
+      "chapter_id": "WC-002",
+      "title": "方案完整性及系统架构设计",
+      "company_outline_node_ids": [
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "reason": "主观评分项将方案完整性和系统架构作为同一评价主题，总体方案与详细方案在此归并。"
+    },
+    {
+      "chapter_id": "WC-003",
+      "title": "实施部署方案",
+      "company_outline_node_ids": [
+        "MODULE-IMPLEMENTATION",
+        "MODULE-PROJECT-MANAGEMENT",
+        "MODULE-QUALITY-ACCEPTANCE",
+        "MODULE-RISK-CONTROL"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R017"
+      ],
+      "reason": "实施评分主题统领项目团队、质量验收及风险保障，支持模块下沉为实施子章节。"
+    }
+  ],
+  "split_company_nodes": [],
+  "inserted_nodes": [
+    {
+      "chapter_id": "WC-001-03",
+      "title": "应用环境",
+      "company_outline_node_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。"
+    },
+    {
+      "chapter_id": "WC-001-04",
+      "title": "功能需求",
+      "company_outline_node_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。"
+    },
+    {
+      "chapter_id": "WC-001-05",
+      "title": "性能需求",
+      "company_outline_node_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。"
+    },
+    {
+      "chapter_id": "WC-001-06",
+      "title": "统一运维需求",
+      "company_outline_node_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。"
+    },
+    {
+      "chapter_id": "WC-001-07",
+      "title": "实施要求",
+      "company_outline_node_ids": [
+        "MODULE-PROJECT-UNDERSTANDING"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R015"
+      ],
+      "reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。"
+    },
+    {
+      "chapter_id": "WC-002-04",
+      "title": "部署架构",
+      "company_outline_node_ids": [
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。"
+    },
+    {
+      "chapter_id": "WC-002-05",
+      "title": "统一运维架构",
+      "company_outline_node_ids": [
+        "MODULE-OVERALL-SOLUTION",
+        "MODULE-DETAILED-SOLUTION"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R016"
+      ],
+      "reason": "评分标准明确要求覆盖该内容，但公司默认小节未单列，作为子章节补充。"
+    }
+  ],
+  "form_only_nodes": [
+    {
+      "chapter_id": "WC-007",
+      "title": "技术参数及点对点应答",
+      "company_outline_node_ids": [
+        "MODULE-PARAMETER-RESPONSE"
+      ],
+      "original_company_title": "",
+      "score_item_refs": [
+        "SCORE-TR-022-R012"
+      ],
+      "reason": "招标文件明确要求独立填写技术要求点对点应答表。"
+    },
+    {
+      "chapter_id": "WC-007-01",
+      "title": "技术要求点对点应答表",
+      "company_outline_node_ids": [
+        "CON-EBB0ADCEA943"
+      ],
+      "original_company_title": "技术参数点对点应答表",
+      "score_item_refs": [],
+      "reason": "招标文件提供并要求完整填写同名表格，按招标名称插入。"
+    }
+  ],
+  "excluded_company_nodes": [],
+  "unmapped_response_points": [],
+  "coverage": {
+    "all_response_point_ids": [
+      "TR-001",
+      "TR-002",
+      "TR-003",
+      "TR-004",
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-011",
+      "TR-012",
+      "TR-013",
+      "TR-014",
+      "TR-015",
+      "TR-016",
+      "TR-017",
+      "TR-018",
+      "TR-019",
+      "TR-020",
+      "TR-021",
+      "TR-022",
+      "TR-023",
+      "TR-024",
+      "TR-025",
+      "TR-026",
+      "TR-027",
+      "TR-028",
+      "TR-029",
+      "TR-030",
+      "TR-031"
+    ],
+    "mapped_response_point_ids": [
+      "TR-001",
+      "TR-002",
+      "TR-003",
+      "TR-004",
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-011",
+      "TR-012",
+      "TR-013",
+      "TR-014",
+      "TR-015",
+      "TR-016",
+      "TR-017",
+      "TR-018",
+      "TR-019",
+      "TR-020",
+      "TR-021",
+      "TR-022",
+      "TR-023",
+      "TR-024",
+      "TR-025",
+      "TR-026",
+      "TR-027",
+      "TR-028",
+      "TR-029",
+      "TR-030",
+      "TR-031"
+    ],
+    "unmapped_response_point_ids": [],
+    "mandatory_response_point_ids": [
+      "TR-018",
+      "TR-019",
+      "TR-022"
+    ],
+    "mandatory_unmapped_ids": [],
+    "unmapped_reasons": [],
+    "response_point_coverage_rate": 1.0,
+    "mandatory_coverage_rate": 1.0
+  },
+  "warnings": [
+    "generated 87 stable node_id values from full paths"
+  ]
+}

@@ -1,0 +1,1 @@
+章节名称：{section_name}\n商务要求：{requirements}\n知识库资料：{kb_results}

@@ -1,0 +1,24 @@
+{
+  "lot_name": "string",
+  "score_table_summary": "string",
+  "score_items": [
+    {
+      "id": "string",
+      "category": "business|technical|price|qualification|compliance",
+      "item_name": "string",
+      "score": "number",
+      "score_rule": "string",
+      "max_score_strategy": "string",
+      "evidence_needed": ["string"],
+      "kb_mapping_hint": ["string"],
+      "target_section": "string",
+      "is_mandatory": "boolean",
+      "is_disqualifying": "boolean",
+      "risk_level": "low|medium|high",
+      "generation_instruction": "string"
+    }
+  ],
+  "total_score": "number",
+  "disqualification_rules": ["string"],
+  "generation_tasks": ["string"]
+}

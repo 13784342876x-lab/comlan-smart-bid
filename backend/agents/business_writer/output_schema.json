@@ -1,0 +1,1 @@
+{"type":"object","properties":{"section_name":{"type":"string"},"content":{"type":"string"},"used_kb_files":{"type":"array"},"trace":{"type":"object"}}}

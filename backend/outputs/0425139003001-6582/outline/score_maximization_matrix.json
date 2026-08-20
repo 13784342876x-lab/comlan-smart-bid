@@ -1,0 +1,779 @@
+{
+  "version": "v1",
+  "lot_name": "0425139003001-6582",
+  "project_name": "国网河北电力2025年第三次服务类公开招标采购",
+  "generated_from": {
+    "technical_response_context": "outputs\\0425139003001-6582\\outline\\technical_response_context.json"
+  },
+  "sections": [
+    {
+      "section_title": "应答文件技术部分总体评价",
+      "score_item": "应答文件技术部分总体评价",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "scoring_rule_summary": "对应答文件技术内容的规范性、完整性、逻辑性等方面进行评审。 优：9-10分 良：7-8分 一般：6分",
+      "max_score_preparation_target": "为尽量达到高档评价的材料准备目标：准备规范、完整、逻辑一致的技术应答总控材料，并建立评分项、条款来源和材料索引闭环。",
+      "calculation_or_basis": "判断依据：评分规则关注技术内容的规范性、完整性、逻辑性；需结合技术文件格式与表单要求复核。",
+      "required_materials": [
+        "technical_solution_inputs（技术路线、研究内容、质量控制、风险控制、交付成果）"
+      ],
+      "recommended_materials": [
+        "章节交叉引用检查",
+        "格式和表单完整性检查"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [],
+      "not_usable_materials": [
+        "投标决策性表述",
+        "无法追溯来源的泛化正文"
+      ],
+      "missing_materials": [],
+      "owner_hints": [
+        "投标文件编制人员"
+      ],
+      "manual_review_focus": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？",
+        "复核技术偏差表",
+        "复核项目团队情况：拟委任主要人员汇总表、主要人员简历表",
+        "复核业绩文件：近年完成的类似项目情况表",
+        "复核服务期限：开工日期20250731,竣工日期20251231"
+      ],
+      "writing_response_points": [
+        "总控章节检查技术偏差表、项目团队表、业绩表、材料索引和评分点覆盖关系。"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package",
+        "technical_response_context.json：评分引用、原文要求、证据、缺失材料和写作任务"
+      ],
+      "warnings": []
+    },
+    {
+      "section_title": "项目负责人情况",
+      "score_item": "项目负责人情况",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "scoring_rule_summary": "对项目负责人（指专业、工作年限、工作经验等）情况进行评审。 优：10分 良：8-9分 一般：6-7分",
+      "max_score_preparation_target": "为尽量达到该评分项高档评价的材料准备目标：确认1名可投入、专业和经验匹配的项目负责人，并准备完整简历、经验和证书证明。",
+      "calculation_or_basis": "判断依据：评分规则关注项目负责人专业、工作年限、工作经验等情况；当前候选人员只能作为候选或调试线索，不能直接确认为主责人员。",
+      "required_materials": [
+        "project_leader_resume（专业、工作年限、工作经验、职责分工）",
+        "personal_certificate（证书真实性、有效期、与本项目相关性）"
+      ],
+      "recommended_materials": [
+        "证书真实性有效性核验",
+        "主责/强协同部门确认记录"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [
+        "冯振书",
+        "吴云畅"
+      ],
+      "not_usable_materials": [
+        "未经确认的候选人员线索",
+        "未核验简历",
+        "无法确认投入的人员名单"
+      ],
+      "missing_materials": [
+        "person_resume",
+        "缺数据管理事业部、安全事业部已确认人员简历"
+      ],
+      "owner_hints": [
+        "数据管理事业部",
+        "安全事业部",
+        "项目管理"
+      ],
+      "manual_review_focus": [
+        "项目负责人是否来自建议主责/协同部门？",
+        "是否具备本项目相关经验？",
+        "证书是否真实、有效？",
+        "人员项目经验是否仅用于人员章节，未替代公司业绩？",
+        "当前缺数据管理事业部、安全事业部已确认人员简历"
+      ],
+      "writing_response_points": [
+        "项目负责人响应中突出专业背景、工作年限、相关经验、职责边界和可投入性。"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package",
+        "technical_response_context.json：评分引用、原文要求、证据、缺失材料和写作任务"
+      ],
+      "warnings": []
+    },
+    {
+      "section_title": "项目组织与团队配置",
+      "score_item": "项目团队人员结构",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "scoring_rule_summary": "对项目团队的人员结构（指专业、工作年限、工作经验等）配置情况进行评审。 优：10分 良：8-9分 一般：6-7分",
+      "max_score_preparation_target": "为尽量达到该评分项高档评价的材料准备目标：确认覆盖研究、数据管理、安全、标准研究、测试验证和项目管理的团队配置。",
+      "calculation_or_basis": "判断依据：评分规则关注项目团队人员结构、专业、工作年限和工作经验；需由主责和强协同部门确认可投入人员。",
+      "required_materials": [
+        "team_summary_form（拟委任主要人员汇总表、角色分工、专业结构）",
+        "person_resume（主要人员简历表、项目经验、证书）"
+      ],
+      "recommended_materials": [
+        "角色分工说明",
+        "投入时间安排",
+        "跨部门协同机制"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [
+        "冯振书",
+        "吴云畅"
+      ],
+      "not_usable_materials": [
+        "未经确认的候选人员线索",
+        "泛化人员名单"
+      ],
+      "missing_materials": [
+        "person_resume",
+        "缺覆盖研究/数据管理/安全/标准/测试/项目管理角色的人员确认材料"
+      ],
+      "owner_hints": [
+        "数据管理事业部",
+        "安全事业部",
+        "项目管理"
+      ],
+      "manual_review_focus": [
+        "团队专业结构是否覆盖研究、数据管理、安全和项目管理？",
+        "主要人员简历表和汇总表是否完整？",
+        "每人相关项目经验和证书是否可核验？",
+        "至少预留角色：项目负责人、区块链/可信存证研究、数据管理/数据治理、数据安全/隐私保护、标准研究/国际标准文本、测试验证/质量控制、项目管理/沟通协调"
+      ],
+      "writing_response_points": [
+        "团队配置章节按角色列出专业方向、经验、证书、职责和协同关系。"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package",
+        "technical_response_context.json：评分引用、原文要求、证据、缺失材料和写作任务"
+      ],
+      "warnings": []
+    },
+    {
+      "section_title": "业绩与项目经验",
+      "score_item": "业绩情况",
+      "score_range": [
+        12.0,
+        20.0
+      ],
+      "scoring_rule_summary": "对满足公告专用资格条件要求的业绩情况进行评审，具有1项合格业绩的得12分，每多提供一项合格业绩加2分，最高加8分。",
+      "max_score_preparation_target": "为达到该评分项上限的材料准备目标：准备5项合格公司业绩。",
+      "calculation_or_basis": "计算依据：1 项合格业绩得 12 分；每多 1 项加 2 分；最高加 8 分；因此需 1 + 4 = 5 项。",
+      "required_materials": [
+        "company_contract（合同主体、项目名称、服务内容、签署/履行时间、技术开发或技术服务内容）",
+        "acceptance_report（验收主体、验收时间、项目名称、是否与合同对应）",
+        "winning_notice_or_customer_certificate（项目名称、客户/招标人、服务内容、时间）",
+        "identity_change_proof（仅在合同或证明材料名称与投标人名称不一致时补充）"
+      ],
+      "recommended_materials": [
+        "业绩真实性说明",
+        "合同与验收材料对应索引",
+        "评分要素点标注页"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [
+        "数字化办公-吴云畅.docx",
+        "云服务部-冯振书20230322.docx",
+        "Comlan合同审批流程",
+        "Comlan昆仑小蓝（基于LLM框架的GenAI应用开发）",
+        "Comlan合同审批流程（二期）",
+        "Comlan采购合同审批流程"
+      ],
+      "not_usable_materials": [
+        "人员项目经验",
+        "个人证书",
+        "企业资质证书",
+        "供应商绩效评价"
+      ],
+      "missing_materials": [
+        "company_contract",
+        "acceptance_report_or_customer_certificate",
+        "需补足5项合格公司业绩材料包"
+      ],
+      "owner_hints": [
+        "项目管理/公司业绩管理",
+        "相关业务部门"
+      ],
+      "manual_review_focus": [
+        "该业绩是否发生在近5年？",
+        "合同或证明材料是否能体现技术开发或技术服务？",
+        "证明材料是否能体现评分标准要求的所有要素点？",
+        "项目名称、服务对象、服务内容、时间是否清晰？",
+        "人员项目经验是否被误用为公司业绩？",
+        "合同主体是否为投标人",
+        "是否近5年",
+        "是否技术开发或技术服务",
+        "人员项目经验不得替代公司业绩"
+      ],
+      "writing_response_points": [
+        "在业绩章节按5项合格公司业绩逐项列示合同主体、项目名称、服务内容、时间、验收或客户证明。"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package",
+        "scoring_action_plan.qualified_performance_criteria",
+        "technical_response_context.json：评分引用、原文要求、证据、缺失材料和写作任务"
+      ],
+      "warnings": []
+    },
+    {
+      "section_title": "总体服务方案",
+      "score_item": "服务方案",
+      "score_range": [
+        18.0,
+        30.0
+      ],
+      "scoring_rule_summary": "从服务方案、管理组织、设备设施配置情况的先进性、创新性、可操作性、技术性、经济性、风险等方面进行综合评价。 优：27-30分 良：22-26分",
+      "max_score_preparation_target": "为尽量达到高档评价的材料准备目标：将技术规范书任务拆解为可执行服务方案、技术路线、质量控制、风险控制和交付成果。",
+      "calculation_or_basis": "判断依据：评分规则从先进性、创新性、可操作性、技术性、经济性、风险等方面综合评价；需逐项响应技术规范书任务。",
+      "required_materials": [
+        "technical_solution_inputs（技术路线、研究内容、质量控制、风险控制、交付成果）"
+      ],
+      "recommended_materials": [
+        "质量控制机制",
+        "风险控制机制",
+        "沟通培训安排"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [],
+      "not_usable_materials": [
+        "泛化模板段落",
+        "未对应技术规范书的技术路线"
+      ],
+      "missing_materials": [],
+      "owner_hints": [
+        "投标文件编制人员"
+      ],
+      "manual_review_focus": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？",
+        "服务方案需覆盖：招标要求理解、总体技术路线、区块链工业数据存证、链上链下协同存储、主链与企业链协同、工业数据安全检索、密态数据完整性验证、Schnorr 签名验证、业务逻辑合规性验证、智能合约组件、国际标准初稿形成路径、质量控制、风险控制、沟通机制、培训与技术服务、交付成果"
+      ],
+      "writing_response_points": [
+        "招标要求理解",
+        "总体技术路线",
+        "区块链工业数据存证",
+        "链上链下协同存储",
+        "主链与企业链协同",
+        "工业数据安全检索",
+        "密态数据完整性验证",
+        "Schnorr 签名验证",
+        "业务逻辑合规性验证",
+        "智能合约组件",
+        "国际标准初稿形成路径",
+        "质量控制",
+        "风险控制",
+        "沟通机制",
+        "培训与技术服务",
+        "交付成果"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package",
+        "technical_response_context.json：评分引用、原文要求、证据、缺失材料和写作任务"
+      ],
+      "warnings": []
+    },
+    {
+      "section_title": "实施计划与进度保障",
+      "score_item": "工作进度及保证措施",
+      "score_range": [
+        3.0,
+        8.0
+      ],
+      "scoring_rule_summary": "从工作进度及保证措施的合理性、可操作性等方面等进行评审。 优：7-8分 良：5-6分 一般：3-4分",
+      "max_score_preparation_target": "为尽量达到高档评价的材料准备目标：基于服务期限形成阶段计划、里程碑、质量保障和交付验收安排。",
+      "calculation_or_basis": "判断依据：服务期限为 2025-07-31 至 2025-12-31；阶段安排由系统基于服务期限生成，需人工复核。",
+      "required_materials": [
+        "technical_solution_inputs（技术路线、研究内容、质量控制、风险控制、交付成果）"
+      ],
+      "recommended_materials": [
+        "责任人安排",
+        "周/月度沟通机制",
+        "验收准备清单"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [],
+      "not_usable_materials": [
+        "未对应服务期限的泛化进度表"
+      ],
+      "missing_materials": [],
+      "owner_hints": [
+        "投标文件编制人员"
+      ],
+      "manual_review_focus": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？",
+        "阶段安排需人工复核"
+      ],
+      "writing_response_points": [
+        "2025-07-31 至 2025-08：启动调研与需求确认",
+        "2025-09：方案设计与关键技术研究",
+        "2025-10：原型/组件设计与验证",
+        "2025-11：技术报告、专利受理、标准初稿形成",
+        "2025-12 至 2025-12-31：验收准备、成果提交、最终交付"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package",
+        "technical_response_context.json：评分引用、原文要求、证据、缺失材料和写作任务"
+      ],
+      "warnings": [
+        "阶段日期由服务期限生成，需人工复核。"
+      ]
+    },
+    {
+      "section_title": "工作基础与既有能力",
+      "score_item": "工作基础",
+      "score_range": [
+        0.0,
+        5.0
+      ],
+      "scoring_rule_summary": "本项最高5分。与采购项目有关的产品开发：已经产品化的5分，有产品的3分，无产品的0分。 与采购项目有关的科技成果：省级及以上5分，市级3分，没有0分。 与采购项目有关的专题研究：合理、可行5分，一般3分，没有0分。",
+      "max_score_preparation_target": "为尽量达到该评分项高档评价的材料准备目标：准备产品化成果、科技成果、专题研究三类与采购项目相关的组织级证明材料。",
+      "calculation_or_basis": "判断依据：评分规则分别评价与采购项目有关的产品开发、科技成果和专题研究；人员简历项目经验不进入工作基础主体，只能作为 debug 线索。",
+      "required_materials": [
+        "product_proof（产品化证明、与本项目相关性）",
+        "research_achievement（科技成果证明、专题研究报告、立项/结题材料）"
+      ],
+      "recommended_materials": [
+        "成果权属说明",
+        "成果与采购项目相关性说明",
+        "成果状态/级别证明"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [
+        "数字化办公-吴云畅.docx",
+        "云服务部-冯振书20230322.docx",
+        "Comlan合同审批流程",
+        "Comlan合同审批流程（二期）",
+        "Comlan采购合同审批流程",
+        "阿里-M365-BUC系统SSO集成"
+      ],
+      "not_usable_materials": [
+        "人员简历项目经验",
+        "个人证书",
+        "泛化能力描述"
+      ],
+      "missing_materials": [
+        "缺产品化成果、科技成果、专题研究三类组织级证明材料"
+      ],
+      "owner_hints": [
+        "数据管理事业部",
+        "安全事业部",
+        "相关业务部门"
+      ],
+      "manual_review_focus": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？",
+        "产品化成果、科技成果、专题研究三类分别复核"
+      ],
+      "writing_response_points": [
+        "工作基础章节按三类成果说明已有能力、权属主体、时间、状态和项目相关性。"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package"
+      ],
+      "warnings": []
+    },
+    {
+      "section_title": "专利 / 知识产权 / 创新成果",
+      "score_item": "专利数量",
+      "score_range": [
+        0.0,
+        2.0
+      ],
+      "scoring_rule_summary": "提供采购相关内容的发明专利或实用新型专利，每提供1项加1分，上限不超过2分。",
+      "max_score_preparation_target": "为达到该项上限的材料准备目标：准备 2 项采购相关发明专利或实用新型专利。",
+      "calculation_or_basis": "计算依据：每项加 1 分，上限 2 分，因此需准备 2 项。",
+      "required_materials": [
+        "patent_certificate（专利名称、专利号/申请号、权利人、状态）",
+        "patent_acceptance_notice（受理号、申请人、申请日期）",
+        "official_patent_record（官方查询记录、状态、权利人）"
+      ],
+      "recommended_materials": [
+        "专利与采购内容相关性说明",
+        "权利人/申请人与投标主体关系说明"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [],
+      "not_usable_materials": [
+        "技术规范书中的“受理发明专利1项”交付成果",
+        "论文",
+        "软件截图",
+        "人员简历"
+      ],
+      "missing_materials": [
+        "patent_certificate_or_official_record",
+        "需补足2项采购相关既有专利证明材料"
+      ],
+      "owner_hints": [
+        "知识产权/研发管理",
+        "相关业务部门"
+      ],
+      "manual_review_focus": [
+        "专利是否与采购内容相关？",
+        "是否至少准备2项采购相关专利用于冲击该项评分上限？",
+        "专利证书、受理通知书或官方查询记录是否能体现权利人和状态？",
+        "交付成果中的受理发明专利要求是否与既有专利评分材料分开处理？",
+        "技术规范书中的“受理发明专利1项”是交付成果要求，不等同于既有专利评分材料"
+      ],
+      "writing_response_points": [
+        "在创新成果章节列示2项既有采购相关专利，说明类型、状态、权属和相关性。"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package"
+      ],
+      "warnings": []
+    },
+    {
+      "section_title": "绩效评价材料",
+      "score_item": "绩效评价",
+      "score_range": [
+        1.0,
+        5.0
+      ],
+      "scoring_rule_summary": "根据最近一年度招标人对投标人/联合体牵头人（联合体牵头人所得分数即为联合体此项分数）的评价结果进行分类分级打分。 A（优秀）：供应商绩效评价大于等于90。5分 B（良好）：供应商绩效评价大于等于80小于90。4分 C（一般）：供应商绩效评价大于等于60小于80。3分 D（及格）：供应商绩效评价大于等于30小于60。2分 E（不及格）：供应商绩效评价小于30。1分 未参加绩效评价：4分",
+      "max_score_preparation_target": "为尽量达到该评分项高档评价的材料准备目标：准备最近一年度供应商绩效评价证明材料，并核验主体名称一致性。",
+      "calculation_or_basis": "判断依据：评分规则依据最近一年度招标人对投标人/联合体牵头人的供应商绩效评价结果分类分级；不能保证评价档位。",
+      "required_materials": [
+        "supplier_performance_evaluation（最近一年度、评价主体、评价结果）",
+        "platform_screenshot（平台绩效评价截图、时间、主体名称）"
+      ],
+      "recommended_materials": [
+        "主体名称一致性说明",
+        "评价年度和评价主体说明"
+      ],
+      "confirmed_materials": [],
+      "candidate_or_weak_materials": [],
+      "not_usable_materials": [
+        "数字化办公-吴云畅.docx",
+        "云服务部-冯振书20230322.docx",
+        "资质+代理证书.docx",
+        "Comlan合同审批流程",
+        "Comlan合同审批流程（二期）",
+        "Comlan采购合同审批流程",
+        "简历",
+        "资质证书",
+        "业绩合同",
+        "人员项目经验"
+      ],
+      "missing_materials": [
+        "supplier_performance_evaluation",
+        "缺最近一年度供应商绩效评价证明"
+      ],
+      "owner_hints": [
+        "供应商管理/商务支持"
+      ],
+      "manual_review_focus": [
+        "是否有最近一年度供应商绩效评价结果？",
+        "评价证明是否来自平台、招标人或有效评价主体？",
+        "是否误用简历、资质证书或业绩合同替代绩效评价？",
+        "简历、资质证书、业绩合同不能替代供应商绩效评价"
+      ],
+      "writing_response_points": [
+        "绩效评价材料仅列示最近一年度评价结果证明，不用业绩或资质替代。"
+      ],
+      "source_basis": [
+        "scoring_action_plan.scoring_rule_summary",
+        "scoring_action_plan.required_evidence_package"
+      ],
+      "warnings": []
+    }
+  ],
+  "items": [
+    {
+      "section_title": "应答文件技术部分总体评价",
+      "score_item": "应答文件技术部分总体评价",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "max_preparation_goal": "为尽量达到高档评价的材料准备目标：准备规范、完整、逻辑一致的技术应答总控材料，并建立评分项、条款来源和材料索引闭环。",
+      "calculation_basis": "判断依据：评分规则关注技术内容的规范性、完整性、逻辑性；需结合技术文件格式与表单要求复核。",
+      "required_slots": null,
+      "slot_type": "solution_task_breakdown_table",
+      "required_material_package": [
+        "technical_solution_inputs（技术路线、研究内容、质量控制、风险控制、交付成果）"
+      ],
+      "qualification_filter": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？",
+        "复核技术偏差表",
+        "复核项目团队情况：拟委任主要人员汇总表、主要人员简历表",
+        "复核业绩文件：近年完成的类似项目情况表",
+        "复核服务期限：开工日期20250731,竣工日期20251231"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 0,
+        "not_usable_count": 2
+      },
+      "gap_summary": "待人工复核",
+      "manual_review_table_id": "solution_task_breakdown_table",
+      "request_to": "投标文件编制人员"
+    },
+    {
+      "section_title": "项目负责人情况",
+      "score_item": "项目负责人情况",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "max_preparation_goal": "为尽量达到该评分项高档评价的材料准备目标：确认1名可投入、专业和经验匹配的项目负责人，并准备完整简历、经验和证书证明。",
+      "calculation_basis": "判断依据：评分规则关注项目负责人专业、工作年限、工作经验等情况；当前候选人员只能作为候选或调试线索，不能直接确认为主责人员。",
+      "required_slots": null,
+      "slot_type": "project_leader_review_table",
+      "required_material_package": [
+        "project_leader_resume（专业、工作年限、工作经验、职责分工）",
+        "personal_certificate（证书真实性、有效期、与本项目相关性）"
+      ],
+      "qualification_filter": [
+        "项目负责人是否来自建议主责/协同部门？",
+        "是否具备本项目相关经验？",
+        "证书是否真实、有效？",
+        "人员项目经验是否仅用于人员章节，未替代公司业绩？",
+        "当前缺数据管理事业部、安全事业部已确认人员简历"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 2,
+        "not_usable_count": 3
+      },
+      "gap_summary": "person_resume；缺数据管理事业部、安全事业部已确认人员简历",
+      "manual_review_table_id": "project_leader_review_table",
+      "request_to": "数据管理事业部；安全事业部；项目管理"
+    },
+    {
+      "section_title": "项目组织与团队配置",
+      "score_item": "项目团队人员结构",
+      "score_range": [
+        6.0,
+        10.0
+      ],
+      "max_preparation_goal": "为尽量达到该评分项高档评价的材料准备目标：确认覆盖研究、数据管理、安全、标准研究、测试验证和项目管理的团队配置。",
+      "calculation_basis": "判断依据：评分规则关注项目团队人员结构、专业、工作年限和工作经验；需由主责和强协同部门确认可投入人员。",
+      "required_slots": null,
+      "slot_type": "team_review_table",
+      "required_material_package": [
+        "team_summary_form（拟委任主要人员汇总表、角色分工、专业结构）",
+        "person_resume（主要人员简历表、项目经验、证书）"
+      ],
+      "qualification_filter": [
+        "团队专业结构是否覆盖研究、数据管理、安全和项目管理？",
+        "主要人员简历表和汇总表是否完整？",
+        "每人相关项目经验和证书是否可核验？",
+        "至少预留角色：项目负责人、区块链/可信存证研究、数据管理/数据治理、数据安全/隐私保护、标准研究/国际标准文本、测试验证/质量控制、项目管理/沟通协调"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 2,
+        "not_usable_count": 2
+      },
+      "gap_summary": "person_resume；缺覆盖研究/数据管理/安全/标准/测试/项目管理角色的人员确认材料",
+      "manual_review_table_id": "team_review_table",
+      "request_to": "数据管理事业部；安全事业部；项目管理"
+    },
+    {
+      "section_title": "业绩与项目经验",
+      "score_item": "业绩情况",
+      "score_range": [
+        12.0,
+        20.0
+      ],
+      "max_preparation_goal": "为达到该评分项上限的材料准备目标：准备5项合格公司业绩。",
+      "calculation_basis": "计算依据：1 项合格业绩得 12 分；每多 1 项加 2 分；最高加 8 分；因此需 1 + 4 = 5 项。",
+      "required_slots": 5,
+      "slot_type": "performance_review_table",
+      "required_material_package": [
+        "company_contract（合同主体、项目名称、服务内容、签署/履行时间、技术开发或技术服务内容）",
+        "acceptance_report（验收主体、验收时间、项目名称、是否与合同对应）",
+        "winning_notice_or_customer_certificate（项目名称、客户/招标人、服务内容、时间）",
+        "identity_change_proof（仅在合同或证明材料名称与投标人名称不一致时补充）"
+      ],
+      "qualification_filter": [
+        "该业绩是否发生在近5年？",
+        "合同或证明材料是否能体现技术开发或技术服务？",
+        "证明材料是否能体现评分标准要求的所有要素点？",
+        "项目名称、服务对象、服务内容、时间是否清晰？",
+        "人员项目经验是否被误用为公司业绩？",
+        "合同主体是否为投标人",
+        "是否近5年",
+        "是否技术开发或技术服务",
+        "人员项目经验不得替代公司业绩"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 6,
+        "not_usable_count": 4
+      },
+      "gap_summary": "company_contract；acceptance_report_or_customer_certificate；需补足5项合格公司业绩材料包",
+      "manual_review_table_id": "performance_review_table",
+      "request_to": "项目管理/公司业绩管理；相关业务部门"
+    },
+    {
+      "section_title": "总体服务方案",
+      "score_item": "服务方案",
+      "score_range": [
+        18.0,
+        30.0
+      ],
+      "max_preparation_goal": "为尽量达到高档评价的材料准备目标：将技术规范书任务拆解为可执行服务方案、技术路线、质量控制、风险控制和交付成果。",
+      "calculation_basis": "判断依据：评分规则从先进性、创新性、可操作性、技术性、经济性、风险等方面综合评价；需逐项响应技术规范书任务。",
+      "required_slots": null,
+      "slot_type": "solution_task_breakdown_table",
+      "required_material_package": [
+        "technical_solution_inputs（技术路线、研究内容、质量控制、风险控制、交付成果）"
+      ],
+      "qualification_filter": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？",
+        "服务方案需覆盖：招标要求理解、总体技术路线、区块链工业数据存证、链上链下协同存储、主链与企业链协同、工业数据安全检索、密态数据完整性验证、Schnorr 签名验证、业务逻辑合规性验证、智能合约组件、国际标准初稿形成路径、质量控制、风险控制、沟通机制、培训与技术服务、交付成果"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 0,
+        "not_usable_count": 2
+      },
+      "gap_summary": "待人工复核",
+      "manual_review_table_id": "solution_task_breakdown_table",
+      "request_to": "投标文件编制人员"
+    },
+    {
+      "section_title": "实施计划与进度保障",
+      "score_item": "工作进度及保证措施",
+      "score_range": [
+        3.0,
+        8.0
+      ],
+      "max_preparation_goal": "为尽量达到高档评价的材料准备目标：基于服务期限形成阶段计划、里程碑、质量保障和交付验收安排。",
+      "calculation_basis": "判断依据：服务期限为 2025-07-31 至 2025-12-31；阶段安排由系统基于服务期限生成，需人工复核。",
+      "required_slots": null,
+      "slot_type": "solution_task_breakdown_table",
+      "required_material_package": [
+        "technical_solution_inputs（技术路线、研究内容、质量控制、风险控制、交付成果）"
+      ],
+      "qualification_filter": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？",
+        "阶段安排需人工复核"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 0,
+        "not_usable_count": 1
+      },
+      "gap_summary": "待人工复核",
+      "manual_review_table_id": "solution_task_breakdown_table",
+      "request_to": "投标文件编制人员"
+    },
+    {
+      "section_title": "工作基础与既有能力",
+      "score_item": "工作基础",
+      "score_range": [
+        0.0,
+        5.0
+      ],
+      "max_preparation_goal": "为尽量达到该评分项高档评价的材料准备目标：准备产品化成果、科技成果、专题研究三类与采购项目相关的组织级证明材料。",
+      "calculation_basis": "判断依据：评分规则分别评价与采购项目有关的产品开发、科技成果和专题研究；人员简历项目经验不进入工作基础主体，只能作为 debug 线索。",
+      "required_slots": null,
+      "slot_type": "work_foundation_review_table",
+      "required_material_package": [
+        "product_proof（产品化证明、与本项目相关性）",
+        "research_achievement（科技成果证明、专题研究报告、立项/结题材料）"
+      ],
+      "qualification_filter": [
+        "评分点对应材料是否齐全？",
+        "原文要求和材料证据是否逐项可追溯？",
+        "产品化成果、科技成果、专题研究三类分别复核"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 6,
+        "not_usable_count": 3
+      },
+      "gap_summary": "缺产品化成果、科技成果、专题研究三类组织级证明材料",
+      "manual_review_table_id": "work_foundation_review_table",
+      "request_to": "数据管理事业部；安全事业部；相关业务部门"
+    },
+    {
+      "section_title": "专利 / 知识产权 / 创新成果",
+      "score_item": "专利数量",
+      "score_range": [
+        0.0,
+        2.0
+      ],
+      "max_preparation_goal": "为达到该项上限的材料准备目标：准备 2 项采购相关发明专利或实用新型专利。",
+      "calculation_basis": "计算依据：每项加 1 分，上限 2 分，因此需准备 2 项。",
+      "required_slots": 2,
+      "slot_type": "patent_review_table",
+      "required_material_package": [
+        "patent_certificate（专利名称、专利号/申请号、权利人、状态）",
+        "patent_acceptance_notice（受理号、申请人、申请日期）",
+        "official_patent_record（官方查询记录、状态、权利人）"
+      ],
+      "qualification_filter": [
+        "专利是否与采购内容相关？",
+        "是否至少准备2项采购相关专利用于冲击该项评分上限？",
+        "专利证书、受理通知书或官方查询记录是否能体现权利人和状态？",
+        "交付成果中的受理发明专利要求是否与既有专利评分材料分开处理？",
+        "技术规范书中的“受理发明专利1项”是交付成果要求，不等同于既有专利评分材料"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 0,
+        "not_usable_count": 4
+      },
+      "gap_summary": "patent_certificate_or_official_record；需补足2项采购相关既有专利证明材料",
+      "manual_review_table_id": "patent_review_table",
+      "request_to": "知识产权/研发管理；相关业务部门"
+    },
+    {
+      "section_title": "绩效评价材料",
+      "score_item": "绩效评价",
+      "score_range": [
+        1.0,
+        5.0
+      ],
+      "max_preparation_goal": "为尽量达到该评分项高档评价的材料准备目标：准备最近一年度供应商绩效评价证明材料，并核验主体名称一致性。",
+      "calculation_basis": "判断依据：评分规则依据最近一年度招标人对投标人/联合体牵头人的供应商绩效评价结果分类分级；不能保证评价档位。",
+      "required_slots": null,
+      "slot_type": "supplier_performance_review_table",
+      "required_material_package": [
+        "supplier_performance_evaluation（最近一年度、评价主体、评价结果）",
+        "platform_screenshot（平台绩效评价截图、时间、主体名称）"
+      ],
+      "qualification_filter": [
+        "是否有最近一年度供应商绩效评价结果？",
+        "评价证明是否来自平台、招标人或有效评价主体？",
+        "是否误用简历、资质证书或业绩合同替代绩效评价？",
+        "简历、资质证书、业绩合同不能替代供应商绩效评价"
+      ],
+      "current_kb_status": {
+        "confirmed_usable_count": 0,
+        "candidate_count": 0,
+        "not_usable_count": 10
+      },
+      "gap_summary": "supplier_performance_evaluation；缺最近一年度供应商绩效评价证明",
+      "manual_review_table_id": "supplier_performance_review_table",
+      "request_to": "供应商管理/商务支持"
+    }
+  ],
+  "summary": {
+    "score_item_count": 9,
+    "manual_review_table_count": 9,
+    "required_performance_slots": 5,
+    "required_patent_slots": 2
+  }
+}

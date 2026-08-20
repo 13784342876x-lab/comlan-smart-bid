@@ -1,0 +1,1 @@
+{"type":"object","properties":{"revision_text":{"type":"string"},"reason":{"type":"string"},"target_position":{"type":"string"}}}

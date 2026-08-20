@@ -1,0 +1,2314 @@
+{
+  "schema_version": "technical_writing_agent_run_v0",
+  "status": "failed",
+  "stop_reason": "final_validation_failed",
+  "draft_status": "invalid_draft",
+  "submission_ready": false,
+  "target": {
+    "chapter_id": "WC-003",
+    "section_id": null,
+    "title": "实施部署方案"
+  },
+  "model_profile": {
+    "profile_name": "deepseek_draft",
+    "provider": "openai_compatible",
+    "api_style": "chat_completions",
+    "base_url_host": "api.deepseek.com",
+    "model": "deepseek-v4-pro",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "stream": true,
+    "capabilities": {
+      "supports_tools": true,
+      "supports_parallel_tool_calls": true,
+      "supports_streaming": true,
+      "supports_structured_output": true,
+      "supports_reasoning_content": true,
+      "requires_reasoning_content_replay": true,
+      "supports_developer_role": false,
+      "supports_tool_choice": false,
+      "supports_tool_choice_none": false,
+      "supports_usage_in_stream": true
+    },
+    "thinking_enabled": true,
+    "reasoning_effort": "high"
+  },
+  "model_json_repair": {
+    "attempted": false,
+    "succeeded": false,
+    "disabled": true,
+    "initial_error": "ModelJsonParseError: provider output is not valid JSON: Expecting ',' delimiter at character 185",
+    "repair_error": null,
+    "raw_output_saved": true,
+    "raw_output_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_v11_real_20260727_133527\\debug\\WC-003.model-step-4.invalid-json.txt",
+    "raw_output_sha256": "c77f7bd292ec20c88e223d2ed1cb944296bae1daf2aaf6b61afc8481198b29c5",
+    "suspected_truncation": true,
+    "integrity_check": null,
+    "rejected_for_content_change": false,
+    "source_stage": "final_chapter_content",
+    "diagnostics": {
+      "model_step": 4,
+      "profile_name": "deepseek_draft",
+      "api_style": "chat_completions",
+      "finish_reason": "stop",
+      "content_character_count": 26342,
+      "code_block_detected": true,
+      "suspected_truncation": true,
+      "json_error_summary": "Expecting ',' delimiter at character 185",
+      "model_repair_disabled": true,
+      "repair_attempted": false
+    }
+  },
+  "fresh_final_generation": {
+    "attempted": true,
+    "succeeded": true,
+    "source_stage": "final_chapter_content"
+  },
+  "fresh_quality_regeneration": {
+    "attempted": true,
+    "succeeded": false,
+    "quality_errors": [
+      "未确认数字承诺",
+      "候选事实被写成确认事实",
+      "未确认产品能力"
+    ],
+    "kb_calls_reused": 3,
+    "web_results_reused": 0
+  },
+  "model_final_output": {
+    "chapter_title": "实施部署方案",
+    "sections": [
+      {
+        "section_id": "WC-003-01",
+        "heading": "实施总体规划",
+        "block_type": "implementation_plan",
+        "content": "本实施总体规划针对天津市第五中心医院超融合系统建设项目的特性，以“安全稳定、平滑过渡、规范可控”为原则，统筹项目的全生命周期管理。规划的目标是在合同签订后，通过科学分阶段、明确里程碑的管理方式，确保超融合系统从设计、设备到货、安装部署、测试验收到最终交付的全过程均在质量、时间和风险可控的范围内高效推进，为医院信息化基础架构的升级提供可靠保障。\n\n规划将整体项目实施过程划分为项目启动与方案深化、设备交付与到货验收、安装部署、系统测试与试运行、验收与交付五大阶段。在每个阶段转换处设定明确的准入与准出条件，即前续阶段的关键交付物须经监理或采购人确认后方可进入下一阶段。采用项目经理负责制，组建由技术、实施、质量、管理等多角色构成的专项项目团队（详见项目组织架构章节）。建立周例会和里程碑评审制度，确保实施过程中信息透明、问题闭环、资源可调度。同时，项目实施将严格遵循公司成熟的质量管理流程，结合招标文件规定的验收标准，对每个环节的关键控制点进行文件化记录，形成可追溯的实施档案。在资源、进度或环境出现偏差时，启动预先定义的应急预案和升级机制，确保项目按既定方向推进或及时调整。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-02",
+        "heading": "项目建设技术方案",
+        "block_type": "technical_solution",
+        "content": "本项目将建设一套基于超融合架构的数据中心基础平台，通过软件定义方式将计算、存储和网络功能集成于标准X86服务器节点之上，形成统一资源池，为医院业务系统提供高可用、弹性可扩展的虚拟化运行环境。整体方案由超融合节点、超融合互联交换机、管理软件及必要的安全组件构成，采用分布式块存储技术和分布式虚拟交换机，消除传统集中式存储的单点瓶颈，并通过全冗余链路设计保障业务连续性。方案遵循医院现有网络与安全体系，通过标准协议实现与核心交换、防火墙、现有虚拟化平台的协同工作，支持未来资源在线扩展，且无需中断现有业务。\n\n在计算与存储融合层，每个超融合节点同时承担计算和存储角色，节点内以SSD加速和HDD容量分层存储提供高IOPS性能的数据服务，数据以多副本策略分布在集群内不同节点，确保任意单节点故障不影响数据完整性和可用性。超融合管理平台提供统一的Web化管理界面，支持一键式集群部署、在线扩容、健康巡检、性能监控和快照备份。互联交换机采用支持10GbE及以上端口的成熟企业级交换机，按照堆叠或MLAG方案组建高可靠交换架构，实现网络平面隔离（管理网、业务网、存储网），保障超融合内部通信的低延迟与高带宽。针对医院业务系统的特殊性，技术方案将配置虚机反亲和策略和高可用自动重启策略，对关键业务虚机设置资源预留，并支持与现有容灾方案集成。方案详细设计将在合同签订后由我方技术团队与医院信息部门协同完成，并提交《项目深化设计文档》经确认后实施，确保方案完全贴合医院实际环境和发展需求。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-03",
+        "heading": "项目设计实施周期",
+        "block_type": "implementation_plan",
+        "content": "本项目的设计实施周期严格响应招标文件的要求，并在我方科学规划与并行工程思想的指导下制定。整体周期以合同生效日为起点，划分为设备生产与交付、安装部署、测试与试运行、验收交付四个阶段。我方承诺在合同签订后的{{PH-FIELD-DELIVERY-COMMITMENT}}内完成所有设备的到货与交付，并在设备到货后的{{PH-FIELD-INSTALLATION-PERIOD}}内完成全部安装调试及配置工作，确保满足或优于招标文件的服务时效要求。后续的测试、试运行与正式验收将紧密衔接，整体项目力争在最短时间窗口内平稳过渡至正式运行状态。\n\n各阶段主要工作内容与衔接关系如下：第一阶段为设备生产与交付阶段，自合同生效起，我方将立即启动订单处理、备货和物流协调，同步开展现场勘察与实施方案深化会签，完成机房环境准备（电源、空间、散热、网络布线），待设备抵达指定地点后组织到货验收。第二阶段为安装部署阶段，从设备到货验收通过后开始，进行硬件上架、互联交换机配置、超融合集群软件部署、虚拟化平台配置、资源池划分、与现有网络及系统的集成，完成《安装部署报告》。第三阶段为测试与试运行阶段，进行全量功能测试、性能测试、集成测试和安全测试，之后转入不少于招标文件要求的最短试运行周期的业务连续性验证，输出《测试报告》与《试运行记录》。第四阶段为验收交付阶段，配合采购人完成最终验收并签署验收书，移交全部交付成果。每个阶段开始前均须进行阶段准入评审，确保前置条件满足；结束后提交阶段完工报告，经采购人或监理确认后方可进入下一阶段。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-005",
+          "TR-006",
+          "TR-007",
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-DELIVERY-COMMITMENT",
+          "PH-FIELD-INSTALLATION-PERIOD"
+        ]
+      },
+      {
+        "section_id": "WC-003-04",
+        "heading": "项目组织架构",
+        "block_type": "organization_plan",
+        "content": "为确保本项目的顺利实施与高质量交付，我方将建立以项目经理为核心、技术专家和专职实施工程师为骨干的项目组织架构。组织架构整体划分为项目管理组、技术实施组、质量保障组和商务协调组，各组职责清晰、汇报关系明确，同时设立与医院信息部门、监理单位及项目相关第三方的沟通接口。项目经理是本项目的第一责任人，拥有项目资源的统一调配权，直接向公司管理层汇报，并对医院项目负责人负责。所有项目成员在项目实施期间保持相对稳定，非经采购人同意不进行人员更换。\n\n项目管理组负责项目计划制定、进度跟踪、沟通协调、问题管理和风险控制；技术实施组由资深虚拟化与超融合工程师组成，承担方案深化、设备安装、软件部署、系统配置、测试和试运行保障等具体技术工作；质量保障组独立于实施组，按照公司质量管理体系要求对项目实施过程进行审计、检查和质量把关，并对各阶段的交付物进行审核签证；商务协调组负责设备采购、物流跟踪、合同财务结算等商务事宜，确保设备按期交付和文档齐全。各组在项目经理统筹下协同工作，每周召开项目协调会，关键节点召开评审会。具体岗位配置由我方根据项目需要拟派，目前团队计划已纳入{{PH-FIELD-PROJECT-TEAM}}，详细人员名单及资质将在后续确认后通过占位符{{PH-FIELD-STAFFING-PLAN}}完善。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-PROJECT-TEAM",
+          "PH-FIELD-STAFFING-PLAN"
+        ]
+      },
+      {
+        "section_id": "WC-003-05",
+        "heading": "项目负责人及主要人员",
+        "block_type": "personnel_detail",
+        "content": "项目负责人（项目经理）是项目实施的核心执行人，直接决定项目的成败。我方将选任具备IT信息系统集成项目管理经验、熟悉医疗行业信息化基础设施特点、并至少持有国家认可的项目管理或相关技术认证的资深人员担任本项目项目经理。项目经理应具备良好的组织协调能力，能够有效管理跨团队资源，并在医院业务窗口期协调施工与调试工作，将施工影响控制在最低程度。\n\n主要实施人员将由具有超融合、虚拟化、网络交换等领域两年以上实践经验的技术工程师组成，要求相关工程师对超融合架构、分布式存储、网络虚拟化及安全隔离有深入理解和实操经验。所有人员在项目启动前完成项目专项交底和技术培训，确保施工工艺和配置标准统一。由于投标阶段人员最终选定尚在确认中，我方承诺最终拟派的项目负责人及团队成员将全部满足上述要求，其姓名、简历、证书等详细信息将通过占位符{{PH-FIELD-PROJECT-MANAGER}}和{{PH-FIELD-PROJECT-TEAM}}正式提交。待人员确认后，我方可按照采购人要求提供人员劳动合同、社保证明及相关证书原件以供核验，确保项目团队的真实性和专业性。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-PROJECT-MANAGER",
+          "PH-FIELD-PROJECT-TEAM"
+        ]
+      },
+      {
+        "section_id": "WC-003-06",
+        "heading": "安装部署",
+        "block_type": "implementation_plan",
+        "content": "安装部署工作在设备到货验收合格后正式启动，全部安装和配置工作将在合同约定的{{PH-FIELD-INSTALLATION-PERIOD}}内完成。部署前，我方将派出经验工程师进行现场工勘，依据《项目深化设计文档》核对机房实际环境，包括机柜空间、PDU供电、散热、网络端口预置等，对不符合安装条件的环境形成“现场条件整改建议”并报医院方确认。满足条件后，安装团队将按照《安装施工方案》开展作业，施工过程严格遵守医院机房管理规定，张贴施工告示，设置警示区域，对可能产生轻微噪音或短时间影响的工序安排在业务非高峰时段。\n\n具体安装流程如下：步骤一——硬件上架与加电，按设备清单将超融合节点、交换机等逐台上架紧固，连接电源线并加电检测，确认各部件指示灯正常；步骤二——物理连线，按照网络拓扑图将管理链路、业务链路、存储链路、上联链路等连接到位并绑扎标识，线缆使用理线器整理，做到“一端口一标签”；步骤三——交换机基础配置，进行设备初始化、管理地址配置、堆叠/VPC设置、业务VLAN划分、端口隔离及生成树协议调整，并做配置备份；步骤四——超融合软件部署，在空节点上安装超融合操作系统，组建集群，配置分布式存储策略（副本数、存储策略），创建计算资源池，部署管理平台；步骤五——网络虚拟化集成，配置虚拟交换机、端口组，将VLAN映射至虚拟网络，完成物理与逻辑网络的统一；步骤六——虚机迁移与业务上线，按照预定的业务割接方案，逐步将医院原有业务虚机迁移至新超融合平台，期间对新旧系统并行监控，确保数据同步和业务无感知。每完成一个步骤，均需填写《安装工序检查表》，经现场监理和医院信息科代表签字确认后，方可进入下一步骤。安装完成后汇总生成《安装部署报告》，作为测试与试运行的准入文件。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-007",
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-INSTALLATION-PERIOD"
+        ]
+      },
+      {
+        "section_id": "WC-003-07",
+        "heading": "测试与试运行",
+        "block_type": "quality_assurance",
+        "content": "测试阶段是检验超融合系统是否达到设计目标和招标技术要求的核心环节。依据GB/T 25000.51和GB/T 8566等国家推荐标准，结合招标文件的验收准则，制定《测试方案》并报采购人批准。测试活动分为配置核对、功能测试、性能测试、集成测试和安全性测试五个部分，旨在全面验证超融合集群的存储冗余、计算高可用、网络吞吐、业务承载能力和安全隔离效果。测试环境覆盖生产环境的完整模拟，测试用例覆盖正常流程、边界条件和故障恢复场景，确保每一项技术指标均有量化记录。\n\n功能测试将逐一验证超融合管理平台、虚拟机的创建、迁移、备份、快照、资源动态调度等功能；性能测试采用标准压测工具（如IOMeter、fio、SysBench等）对存储IOPS、读写带宽、网络延迟和转发速率进行测试，确保满足招标文件技术要求及医院业务峰值负载；集成测试重点验证超融合平台与现有网络、安全设备、AD域、备份系统的互联互通和接口兼容性；安全性测试则依据招标文件中的安全隔离要求，对管理接口访问控制、租户网络隔离、日志审计等进行验证。所有测试缺陷录入问题追踪系统，定人定时闭环，直至复测通过。测试完成后，系统转入试运行阶段，在不少于招标约定最短时长的试运行期内，由医院信息科和我方保障人员共同进行真实业务负载运行，每日监控资源使用率、告警情况和业务响应状态，填写《试运行日志》。试运行结束时，由双方评估系统稳定性，形成《试运行总结报告》，作为正式验收的基础。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-010",
+          "TR-022"
+        ],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-08",
+        "heading": "质量控制",
+        "block_type": "quality_assurance",
+        "content": "项目质量控制贯穿实施全过程，基于“过程控制为主、最终检验为辅”的理念，设立三级质量控制机制：技术实施组自检、质量保障组专检、项目经理/采购人联合评审。各阶段的质量控制点已在整体规划中设置，包括方案设计评审、设备到货检验、隐蔽工程（如布线标识、接地）检查、安装工序检查、测试用例评审、测试结果确认和交付成果审核。每个控制点均采用检查表与签字确认制度，确保作业有据、责任可追。\n\n针对可能出现的质量不符合情况，执行不合格品控制程序：在安装环节发现设备外观损伤或规格不符，立即隔离并启动退换流程；在测试阶段发现关键指标不达标，组建技术攻关小组分析根因、调整配置、重新测试直至达标；在试运行期间如出现影响业务的故障，按照应急预案在约定时间内恢复业务并提交《故障分析报告》。所有质量活动形成的记录与报告归入项目质量档案，并在验收时一并移交。同时，我方公司层面运行符合ISO 9001要求的质量管理体系，项目将受公司质量部门的定期内部审核和项目后评估，从组织层面保证质量的持续改进和过程受控。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-010",
+          "TR-022"
+        ],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-09",
+        "heading": "项目验收",
+        "block_type": "quality_assurance",
+        "content": "项目验收工作严格按照采购合同的约定和现行国家标准、行业标准以及企业标准执行，完全响应招标文件关于验收方法及标准的要求。采购人有权根据需要，在货物出厂前、设备到货后、安装调试完成及配套服务交付等节点设置多重验收环节。我方将积极配合采购人组织或邀请第三方机构参与验收，并为验收活动提供必要的测试环境、资料和技术人员支持。\n\n验收流程设计如下：第一环节——出厂检验（如需），我方将协调制造商提供出厂检测报告，并开放远程或现场查验通道，供采购人或其代表核验设备规格和性能指标。第二环节——到货验收，设备送达采购人指定地点后，由采购人、监理和项目组共同对设备的品牌、型号、数量、外观、配件、随机资料进行核对，填写《设备到货验收单》。第三环节——安装调试验收，在完成安装部署和系统测试后，向采购人提交《安装部署报告》和《测试报告》，由采购人逐项核验安装质量、配置合规性和测试结论，并进行现场演示确认。第四环节——配套服务验收，如含有培训、文档移交等服务，按服务清单逐项确认培训记录、使用手册、维护手册等齐全有效。第五环节——最终验收，在以上各项均合格且试运行通过后，采购人组织最终验收评审，出具《验收书》，明确各项标准的履约情况及项目总体评价，经双方共同签署后完成验收。若在任一环节发现不符合项，我方承诺按采购人要求限期整改并进行复验，直至完全满足合同要求。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-010"
+        ],
+        "placeholder_ids": []
+      },
+      {
+        "section_id": "WC-003-10",
+        "heading": "交付成果",
+        "block_type": "service_commitment",
+        "content": "本项目的交付包含有形交付和无形交付两部分。有形交付为全部采购设备的硬件、配套线缆及随机资料；无形交付为项目实施过程中形成的方案、报告、配置参数等技术文档。所有交付物均按照采购人指定的地点交货，我方负责运输及卸货前的一切安全与保险事宜，确保货物完好达成交付。\n\n针对招标文件中“提供制造商完整的随机资料，包括完整的使用和维修手册等”的明确要求，我方在设备交付时将随设备一箱一册提供原厂印刷版或电子版随机资料，并在项目验收前汇总整理项目全程产生的技术文件，形成《项目交付文档集》。交付成果的具体明细将在下表中列出，交付的份数、介质形式和签章要求将在合同签订后与采购人协商确认，最终以合同约定为准。所有交付物在移交时需经双方经办人签字确认，登记入交付物移交清单。本项目整体交付进度将严格遵循项目设计实施周期的约定，即在{{PH-FIELD-DELIVERY-COMMITMENT}}内完成所有硬件和随机资料的交付，在项目最终验收时完成全部文档的移交。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-008",
+          "TR-009"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-DELIVERY-COMMITMENT"
+        ]
+      },
+      {
+        "section_id": "WC-003-11",
+        "heading": "风险控制与应急保障",
+        "block_type": "risk_control",
+        "content": "信息系统集成项目在实施过程中可能面临来自物流、环境、技术、组织和不可抗力等多方面的风险。我方在项目启动前将组织项目团队进行风险识别与评估，形成《项目风险管理计划》，并在实施过程中持续跟踪和更新。风险应对遵循“预防为主、应急为辅”的原则，对高概率或高影响的风险制定具体的预防措施，并预设应急预案，确保风险发生时能够快速响应、减小损失、保障项目目标。\n\n在执行层面，项目经理作为风险管理第一责任人，在周例会上固定设置“风险审查”议题，对已识别风险的触发状态进行监控，对新风风险立即登记并分配责任人。一旦触发预设的应急响应阈值，相关责任人即刻按照预案启动行动，并根据影响评估决定是否升级至公司高层或采购人管理层进行决策。通过制度化的风险管控，将不确定性转化为可管理的行动计划。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": []
+      }
+    ],
+    "generated_supporting_tables": [
+      {
+        "section_id": "WC-003-04",
+        "title": "项目团队岗位职责表",
+        "purpose": "清晰展示项目各岗位及其核心职责，作为团队组建和职责划分的基准。",
+        "why_table_is_better_than_prose": "多角色职责映射适合表格横向对比，便于快速查阅每个岗位的职责和参与阶段，避免正文中多段描述导致信息分散。"
+      },
+      {
+        "section_id": "WC-003-10",
+        "title": "拟交付成果清单",
+        "purpose": "以清单形式明确列出项目实施全程拟交付的各类成果，作为验收交底和移交核对的依据。",
+        "why_table_is_better_than_prose": "交付物条目多且包含名称、类别和交付阶段等属性，表格形式便于逐项核对和归档管理，比连续段落更具操作性。"
+      },
+      {
+        "section_id": "WC-003-11",
+        "title": "项目实施主要风险及应对措施表",
+        "purpose": "系统性识别项目主要风险，并明确预防措施、应急措施和责任岗位，形成可执行的风险管理工具。",
+        "why_table_is_better_than_prose": "风险条目涉及多个维度的比较（风险描述、影响、预防、应急、责任人），表格化后易于快速检索和对照执行，适合作为团队风险交底文件。"
+      }
+    ],
+    "claims": [
+      {
+        "text": "我方承诺按照招标文件交货要求，在规定的时间内将设备送达采购人指定地点。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-005",
+          "TR-008"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "我方将按照合同约定时间完成设备安装部署及调测试。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-007"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "我方将提供制造商完整的随机资料，包括使用手册和维修手册。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-009"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "我方将配合采购人按照现行国家标准和合同约定进行多环节验收，并接受第三方机构参与验收。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-010"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "我方拟派项目经理及实施团队具备IT信息系统集成经验和相关技术资质。",
+        "claim_type": "proposal_statement",
+        "source_ids": [
+          "TR-022"
+        ],
+        "evidence_ids": [],
+        "human_review_required": true
+      },
+      {
+        "text": "合同中关于交货期、安装期的最终时限及人员安排将以确认后的数据为准，目前引用占位符。",
+        "claim_type": "placeholder",
+        "source_ids": [],
+        "evidence_ids": [],
+        "human_review_required": true
+      },
+      {
+        "text": "项目实施将依据国家标准GB/T 25000.51、GB/T 8566等进行测试。",
+        "claim_type": "cautious_reference",
+        "source_ids": [
+          "TR-010"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "公司运行符合ISO 9001要求的质量管理体系。",
+        "claim_type": "proposal_statement",
+        "source_ids": [],
+        "evidence_ids": [
+          "KB-file_2308aa547dd9"
+        ],
+        "human_review_required": true
+      }
+    ],
+    "placeholders_used": [
+      "PH-FIELD-DELIVERY-COMMITMENT",
+      "PH-FIELD-INSTALLATION-PERIOD",
+      "PH-FIELD-PROJECT-MANAGER",
+      "PH-FIELD-PROJECT-TEAM",
+      "PH-FIELD-STAFFING-PLAN"
+    ],
+    "score_items_covered": [
+      "SCORE-TR-022-R017"
+    ],
+    "requirements_covered": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "warnings": [
+      "项目交货期与安装周期的最终承诺尚未确认，当前均以占位符 PH-FIELD-DELIVERY-COMMITMENT 和 PH-FIELD-INSTALLATION-PERIOD 表示，时间数字不可直接使用招标最长时限作为投标承诺。",
+      "项目负责人和主要人员的姓名、简历、资质证书及具体人员安排尚未确认，通过占位符 PH-FIELD-PROJECT-MANAGER、PH-FIELD-PROJECT-TEAM 和 PH-FIELD-STAFFING-PLAN 标记，需在定稿前补充完整人员信息。",
+      "关于ISO 9001质量管理体系认证的声称引用自候选证据 KB-file_2308aa547dd9，该证据尚未经人工确认，需在最终提交前取得确认或调整表述。",
+      "招标文件评审因素表（SCORE-TR-022-R017）为评分参考表，未插入正文，仅作为写作覆盖依据。"
+    ]
+  },
+  "chapter_draft": {
+    "chapter_title": "实施部署方案",
+    "sections": [
+      {
+        "heading": "实施总体规划",
+        "block_type": "implementation_plan",
+        "content": "本实施总体规划针对天津市第五中心医院超融合系统建设项目的特性，以“安全稳定、平滑过渡、规范可控”为原则，统筹项目的全生命周期管理。规划的目标是在合同签订后，通过科学分阶段、明确里程碑的管理方式，确保超融合系统从设计、设备到货、安装部署、测试验收到最终交付的全过程均在质量、时间和风险可控的范围内高效推进，为医院信息化基础架构的升级提供可靠保障。\n\n规划将整体项目实施过程划分为项目启动与方案深化、设备交付与到货验收、安装部署、系统测试与试运行、验收与交付五大阶段。在每个阶段转换处设定明确的准入与准出条件，即前续阶段的关键交付物须经监理或采购人确认后方可进入下一阶段。采用项目经理负责制，组建由技术、实施、质量、管理等多角色构成的专项项目团队（详见项目组织架构章节）。建立周例会和里程碑评审制度，确保实施过程中信息透明、问题闭环、资源可调度。同时，项目实施将严格遵循公司成熟的质量管理流程，结合招标文件规定的验收标准，对每个环节的关键控制点进行文件化记录，形成可追溯的实施档案。在资源、进度或环境出现偏差时，启动预先定义的应急预案和升级机制，确保项目按既定方向推进或及时调整。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-01"
+      },
+      {
+        "heading": "项目建设技术方案",
+        "block_type": "technical_solution",
+        "content": "本项目将建设一套基于超融合架构的数据中心基础平台，通过软件定义方式将计算、存储和网络功能集成于标准X86服务器节点之上，形成统一资源池，为医院业务系统提供高可用、弹性可扩展的虚拟化运行环境。整体方案由超融合节点、超融合互联交换机、管理软件及必要的安全组件构成，采用分布式块存储技术和分布式虚拟交换机，消除传统集中式存储的单点瓶颈，并通过全冗余链路设计保障业务连续性。方案遵循医院现有网络与安全体系，通过标准协议实现与核心交换、防火墙、现有虚拟化平台的协同工作，支持未来资源在线扩展，且无需中断现有业务。\n\n在计算与存储融合层，每个超融合节点同时承担计算和存储角色，节点内以SSD加速和HDD容量分层存储提供高IOPS性能的数据服务，数据以多副本策略分布在集群内不同节点，确保任意单节点故障不影响数据完整性和可用性。超融合管理平台提供统一的Web化管理界面，支持一键式集群部署、在线扩容、健康巡检、性能监控和快照备份。互联交换机采用支持10GbE及以上端口的成熟企业级交换机，按照堆叠或MLAG方案组建高可靠交换架构，实现网络平面隔离（管理网、业务网、存储网），保障超融合内部通信的低延迟与高带宽。针对医院业务系统的特殊性，技术方案将配置虚机反亲和策略和高可用自动重启策略，对关键业务虚机设置资源预留，并支持与现有容灾方案集成。方案详细设计将在合同签订后由我方技术团队与医院信息部门协同完成，并提交《项目深化设计文档》经确认后实施，确保方案完全贴合医院实际环境和发展需求。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-02"
+      },
+      {
+        "heading": "项目设计实施周期",
+        "block_type": "implementation_plan",
+        "content": "本项目的设计实施周期严格响应招标文件的要求，并在我方科学规划与并行工程思想的指导下制定。整体周期以合同生效日为起点，划分为设备生产与交付、安装部署、测试与试运行、验收交付四个阶段。我方承诺在合同签订后的{{PH-FIELD-DELIVERY-COMMITMENT}}内完成所有设备的到货与交付，并在设备到货后的{{PH-FIELD-INSTALLATION-PERIOD}}内完成全部安装调试及配置工作，确保满足或优于招标文件的服务时效要求。后续的测试、试运行与正式验收将紧密衔接，整体项目力争在最短时间窗口内平稳过渡至正式运行状态。\n\n各阶段主要工作内容与衔接关系如下：第一阶段为设备生产与交付阶段，自合同生效起，我方将立即启动订单处理、备货和物流协调，同步开展现场勘察与实施方案深化会签，完成机房环境准备（电源、空间、散热、网络布线），待设备抵达指定地点后组织到货验收。第二阶段为安装部署阶段，从设备到货验收通过后开始，进行硬件上架、互联交换机配置、超融合集群软件部署、虚拟化平台配置、资源池划分、与现有网络及系统的集成，完成《安装部署报告》。第三阶段为测试与试运行阶段，进行全量功能测试、性能测试、集成测试和安全测试，之后转入不少于招标文件要求的最短试运行周期的业务连续性验证，输出《测试报告》与《试运行记录》。第四阶段为验收交付阶段，配合采购人完成最终验收并签署验收书，移交全部交付成果。每个阶段开始前均须进行阶段准入评审，确保前置条件满足；结束后提交阶段完工报告，经采购人或监理确认后方可进入下一阶段。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-005",
+          "TR-006",
+          "TR-007",
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-DELIVERY-COMMITMENT",
+          "PH-FIELD-INSTALLATION-PERIOD"
+        ],
+        "section_id": "WC-003-03"
+      },
+      {
+        "heading": "项目组织架构",
+        "block_type": "organization_plan",
+        "content": "为确保本项目的顺利实施与高质量交付，我方将建立以项目经理为核心、技术专家和专职实施工程师为骨干的项目组织架构。组织架构整体划分为项目管理组、技术实施组、质量保障组和商务协调组，各组职责清晰、汇报关系明确，同时设立与医院信息部门、监理单位及项目相关第三方的沟通接口。项目经理是本项目的第一责任人，拥有项目资源的统一调配权，直接向公司管理层汇报，并对医院项目负责人负责。所有项目成员在项目实施期间保持相对稳定，非经采购人同意不进行人员更换。\n\n项目管理组负责项目计划制定、进度跟踪、沟通协调、问题管理和风险控制；技术实施组由资深虚拟化与超融合工程师组成，承担方案深化、设备安装、软件部署、系统配置、测试和试运行保障等具体技术工作；质量保障组独立于实施组，按照公司质量管理体系要求对项目实施过程进行审计、检查和质量把关，并对各阶段的交付物进行审核签证；商务协调组负责设备采购、物流跟踪、合同财务结算等商务事宜，确保设备按期交付和文档齐全。各组在项目经理统筹下协同工作，每周召开项目协调会，关键节点召开评审会。具体岗位配置由我方根据项目需要拟派，目前团队计划已纳入{{PH-FIELD-PROJECT-TEAM}}，详细人员名单及资质将在后续确认后通过占位符{{PH-FIELD-STAFFING-PLAN}}完善。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-PROJECT-TEAM",
+          "PH-FIELD-STAFFING-PLAN"
+        ],
+        "section_id": "WC-003-04"
+      },
+      {
+        "heading": "项目负责人及主要人员",
+        "block_type": "personnel_detail",
+        "content": "项目负责人（项目经理）是项目实施的核心执行人，直接决定项目的成败。我方将选任具备IT信息系统集成项目管理经验、熟悉医疗行业信息化基础设施特点、并至少持有国家认可的项目管理或相关技术认证的资深人员担任本项目项目经理。项目经理应具备良好的组织协调能力，能够有效管理跨团队资源，并在医院业务窗口期协调施工与调试工作，将施工影响控制在最低程度。\n\n主要实施人员将由具有超融合、虚拟化、网络交换等领域两年以上实践经验的技术工程师组成，要求相关工程师对超融合架构、分布式存储、网络虚拟化及安全隔离有深入理解和实操经验。所有人员在项目启动前完成项目专项交底和技术培训，确保施工工艺和配置标准统一。由于投标阶段人员最终选定尚在确认中，我方承诺最终拟派的项目负责人及团队成员将全部满足上述要求，其姓名、简历、证书等详细信息将通过占位符{{PH-FIELD-PROJECT-MANAGER}}和{{PH-FIELD-PROJECT-TEAM}}正式提交。待人员确认后，我方可按照采购人要求提供人员劳动合同、社保证明及相关证书原件以供核验，确保项目团队的真实性和专业性。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-PROJECT-MANAGER",
+          "PH-FIELD-PROJECT-TEAM"
+        ],
+        "section_id": "WC-003-05"
+      },
+      {
+        "heading": "安装部署",
+        "block_type": "implementation_plan",
+        "content": "安装部署工作在设备到货验收合格后正式启动，全部安装和配置工作将在合同约定的{{PH-FIELD-INSTALLATION-PERIOD}}内完成。部署前，我方将派出经验工程师进行现场工勘，依据《项目深化设计文档》核对机房实际环境，包括机柜空间、PDU供电、散热、网络端口预置等，对不符合安装条件的环境形成“现场条件整改建议”并报医院方确认。满足条件后，安装团队将按照《安装施工方案》开展作业，施工过程严格遵守医院机房管理规定，张贴施工告示，设置警示区域，对可能产生轻微噪音或短时间影响的工序安排在业务非高峰时段。\n\n具体安装流程如下：步骤一——硬件上架与加电，按设备清单将超融合节点、交换机等逐台上架紧固，连接电源线并加电检测，确认各部件指示灯正常；步骤二——物理连线，按照网络拓扑图将管理链路、业务链路、存储链路、上联链路等连接到位并绑扎标识，线缆使用理线器整理，做到“一端口一标签”；步骤三——交换机基础配置，进行设备初始化、管理地址配置、堆叠/VPC设置、业务VLAN划分、端口隔离及生成树协议调整，并做配置备份；步骤四——超融合软件部署，在空节点上安装超融合操作系统，组建集群，配置分布式存储策略（副本数、存储策略），创建计算资源池，部署管理平台；步骤五——网络虚拟化集成，配置虚拟交换机、端口组，将VLAN映射至虚拟网络，完成物理与逻辑网络的统一；步骤六——虚机迁移与业务上线，按照预定的业务割接方案，逐步将医院原有业务虚机迁移至新超融合平台，期间对新旧系统并行监控，确保数据同步和业务无感知。每完成一个步骤，均需填写《安装工序检查表》，经现场监理和医院信息科代表签字确认后，方可进入下一步骤。安装完成后汇总生成《安装部署报告》，作为测试与试运行的准入文件。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-007",
+          "TR-022"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-INSTALLATION-PERIOD"
+        ],
+        "section_id": "WC-003-06"
+      },
+      {
+        "heading": "测试与试运行",
+        "block_type": "quality_assurance",
+        "content": "测试阶段是检验超融合系统是否达到设计目标和招标技术要求的核心环节。依据GB/T 25000.51和GB/T 8566等国家推荐标准，结合招标文件的验收准则，制定《测试方案》并报采购人批准。测试活动分为配置核对、功能测试、性能测试、集成测试和安全性测试五个部分，旨在全面验证超融合集群的存储冗余、计算高可用、网络吞吐、业务承载能力和安全隔离效果。测试环境覆盖生产环境的完整模拟，测试用例覆盖正常流程、边界条件和故障恢复场景，确保每一项技术指标均有量化记录。\n\n功能测试将逐一验证超融合管理平台、虚拟机的创建、迁移、备份、快照、资源动态调度等功能；性能测试采用标准压测工具（如IOMeter、fio、SysBench等）对存储IOPS、读写带宽、网络延迟和转发速率进行测试，确保满足招标文件技术要求及医院业务峰值负载；集成测试重点验证超融合平台与现有网络、安全设备、AD域、备份系统的互联互通和接口兼容性；安全性测试则依据招标文件中的安全隔离要求，对管理接口访问控制、租户网络隔离、日志审计等进行验证。所有测试缺陷录入问题追踪系统，定人定时闭环，直至复测通过。测试完成后，系统转入试运行阶段，在不少于招标约定最短时长的试运行期内，由医院信息科和我方保障人员共同进行真实业务负载运行，每日监控资源使用率、告警情况和业务响应状态，填写《试运行日志》。试运行结束时，由双方评估系统稳定性，形成《试运行总结报告》，作为正式验收的基础。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-010",
+          "TR-022"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-07"
+      },
+      {
+        "heading": "质量控制",
+        "block_type": "quality_assurance",
+        "content": "项目质量控制贯穿实施全过程，基于“过程控制为主、最终检验为辅”的理念，设立三级质量控制机制：技术实施组自检、质量保障组专检、项目经理/采购人联合评审。各阶段的质量控制点已在整体规划中设置，包括方案设计评审、设备到货检验、隐蔽工程（如布线标识、接地）检查、安装工序检查、测试用例评审、测试结果确认和交付成果审核。每个控制点均采用检查表与签字确认制度，确保作业有据、责任可追。\n\n针对可能出现的质量不符合情况，执行不合格品控制程序：在安装环节发现设备外观损伤或规格不符，立即隔离并启动退换流程；在测试阶段发现关键指标不达标，组建技术攻关小组分析根因、调整配置、重新测试直至达标；在试运行期间如出现影响业务的故障，按照应急预案在约定时间内恢复业务并提交《故障分析报告》。所有质量活动形成的记录与报告归入项目质量档案，并在验收时一并移交。同时，我方公司层面运行符合ISO 9001要求的质量管理体系，项目将受公司质量部门的定期内部审核和项目后评估，从组织层面保证质量的持续改进和过程受控。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-010",
+          "TR-022"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-08"
+      },
+      {
+        "heading": "项目验收",
+        "block_type": "quality_assurance",
+        "content": "项目验收工作严格按照采购合同的约定和现行国家标准、行业标准以及企业标准执行，完全响应招标文件关于验收方法及标准的要求。采购人有权根据需要，在货物出厂前、设备到货后、安装调试完成及配套服务交付等节点设置多重验收环节。我方将积极配合采购人组织或邀请第三方机构参与验收，并为验收活动提供必要的测试环境、资料和技术人员支持。\n\n验收流程设计如下：第一环节——出厂检验（如需），我方将协调制造商提供出厂检测报告，并开放远程或现场查验通道，供采购人或其代表核验设备规格和性能指标。第二环节——到货验收，设备送达采购人指定地点后，由采购人、监理和项目组共同对设备的品牌、型号、数量、外观、配件、随机资料进行核对，填写《设备到货验收单》。第三环节——安装调试验收，在完成安装部署和系统测试后，向采购人提交《安装部署报告》和《测试报告》，由采购人逐项核验安装质量、配置合规性和测试结论，并进行现场演示确认。第四环节——配套服务验收，如含有培训、文档移交等服务，按服务清单逐项确认培训记录、使用手册、维护手册等齐全有效。第五环节——最终验收，在以上各项均合格且试运行通过后，采购人组织最终验收评审，出具《验收书》，明确各项标准的履约情况及项目总体评价，经双方共同签署后完成验收。若在任一环节发现不符合项，我方承诺按采购人要求限期整改并进行复验，直至完全满足合同要求。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-010"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-09"
+      },
+      {
+        "heading": "交付成果",
+        "block_type": "service_commitment",
+        "content": "本项目的交付包含有形交付和无形交付两部分。有形交付为全部采购设备的硬件、配套线缆及随机资料；无形交付为项目实施过程中形成的方案、报告、配置参数等技术文档。所有交付物均按照采购人指定的地点交货，我方负责运输及卸货前的一切安全与保险事宜，确保货物完好达成交付。\n\n针对招标文件中“提供制造商完整的随机资料，包括完整的使用和维修手册等”的明确要求，我方在设备交付时将随设备一箱一册提供原厂印刷版或电子版随机资料，并在项目验收前汇总整理项目全程产生的技术文件，形成《项目交付文档集》。交付成果的具体明细将在下表中列出，交付的份数、介质形式和签章要求将在合同签订后与采购人协商确认，最终以合同约定为准。所有交付物在移交时需经双方经办人签字确认，登记入交付物移交清单。本项目整体交付进度将严格遵循项目设计实施周期的约定，即在{{PH-FIELD-DELIVERY-COMMITMENT}}内完成所有硬件和随机资料的交付，在项目最终验收时完成全部文档的移交。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-008",
+          "TR-009"
+        ],
+        "placeholder_ids": [
+          "PH-FIELD-DELIVERY-COMMITMENT"
+        ],
+        "section_id": "WC-003-10"
+      },
+      {
+        "heading": "风险控制与应急保障",
+        "block_type": "risk_control",
+        "content": "信息系统集成项目在实施过程中可能面临来自物流、环境、技术、组织和不可抗力等多方面的风险。我方在项目启动前将组织项目团队进行风险识别与评估，形成《项目风险管理计划》，并在实施过程中持续跟踪和更新。风险应对遵循“预防为主、应急为辅”的原则，对高概率或高影响的风险制定具体的预防措施，并预设应急预案，确保风险发生时能够快速响应、减小损失、保障项目目标。\n\n在执行层面，项目经理作为风险管理第一责任人，在周例会上固定设置“风险审查”议题，对已识别风险的触发状态进行监控，对新风风险立即登记并分配责任人。一旦触发预设的应急响应阈值，相关责任人即刻按照预案启动行动，并根据影响评估决定是否升级至公司高层或采购人管理层进行决策。通过制度化的风险管控，将不确定性转化为可管理的行动计划。",
+        "covered_score_item_ids": [
+          "SCORE-TR-022-R017"
+        ],
+        "covered_requirement_ids": [
+          "TR-022"
+        ],
+        "placeholder_ids": [],
+        "section_id": "WC-003-11"
+      }
+    ],
+    "claims": [
+      {
+        "text": "我方承诺按照招标文件交货要求，在规定的时间内将设备送达采购人指定地点。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-005",
+          "TR-008"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "我方将按照合同约定时间完成设备安装部署及调测试。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-007"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "我方将提供制造商完整的随机资料，包括使用手册和维修手册。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-009"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "我方将配合采购人按照现行国家标准和合同约定进行多环节验收，并接受第三方机构参与验收。",
+        "claim_type": "commitment_statement",
+        "source_ids": [
+          "TR-010"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "我方拟派项目经理及实施团队具备IT信息系统集成经验和相关技术资质。",
+        "claim_type": "proposal_statement",
+        "source_ids": [
+          "TR-022"
+        ],
+        "evidence_ids": [],
+        "human_review_required": true
+      },
+      {
+        "text": "合同中关于交货期、安装期的最终时限及人员安排将以确认后的数据为准，目前引用占位符。",
+        "claim_type": "placeholder",
+        "source_ids": [],
+        "evidence_ids": [],
+        "human_review_required": true
+      },
+      {
+        "text": "项目实施将依据国家标准GB/T 25000.51、GB/T 8566等进行测试。",
+        "claim_type": "cautious_reference",
+        "source_ids": [
+          "TR-010"
+        ],
+        "evidence_ids": [],
+        "human_review_required": false
+      },
+      {
+        "text": "公司运行符合ISO 9001要求的质量管理体系。",
+        "claim_type": "proposal_statement",
+        "source_ids": [],
+        "evidence_ids": [
+          "KB-file_2308aa547dd9"
+        ],
+        "human_review_required": true
+      }
+    ],
+    "placeholders_used": [
+      "PH-FIELD-DELIVERY-COMMITMENT",
+      "PH-FIELD-INSTALLATION-PERIOD",
+      "PH-FIELD-PROJECT-MANAGER",
+      "PH-FIELD-PROJECT-TEAM",
+      "PH-FIELD-STAFFING-PLAN"
+    ],
+    "score_items_covered": [
+      "SCORE-TR-022-R017"
+    ],
+    "requirements_covered": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "warnings": [
+      "项目交货期与安装周期的最终承诺尚未确认，当前均以占位符 PH-FIELD-DELIVERY-COMMITMENT 和 PH-FIELD-INSTALLATION-PERIOD 表示，时间数字不可直接使用招标最长时限作为投标承诺。",
+      "项目负责人和主要人员的姓名、简历、资质证书及具体人员安排尚未确认，通过占位符 PH-FIELD-PROJECT-MANAGER、PH-FIELD-PROJECT-TEAM 和 PH-FIELD-STAFFING-PLAN 标记，需在定稿前补充完整人员信息。",
+      "关于ISO 9001质量管理体系认证的声称引用自候选证据 KB-file_2308aa547dd9，该证据尚未经人工确认，需在最终提交前取得确认或调整表述。",
+      "招标文件评审因素表（SCORE-TR-022-R017）为评分参考表，未插入正文，仅作为写作覆盖依据。"
+    ],
+    "generated_supporting_tables": [
+      {
+        "section_id": "WC-003-04",
+        "title": "项目团队岗位职责表",
+        "purpose": "清晰展示项目各岗位及其核心职责，作为团队组建和职责划分的基准。",
+        "why_table_is_better_than_prose": "多角色职责映射适合表格横向对比，便于快速查阅每个岗位的职责和参与阶段，避免正文中多段描述导致信息分散。"
+      },
+      {
+        "section_id": "WC-003-10",
+        "title": "拟交付成果清单",
+        "purpose": "以清单形式明确列出项目实施全程拟交付的各类成果，作为验收交底和移交核对的依据。",
+        "why_table_is_better_than_prose": "交付物条目多且包含名称、类别和交付阶段等属性，表格形式便于逐项核对和归档管理，比连续段落更具操作性。"
+      },
+      {
+        "section_id": "WC-003-11",
+        "title": "项目实施主要风险及应对措施表",
+        "purpose": "系统性识别项目主要风险，并明确预防措施、应急措施和责任岗位，形成可执行的风险管理工具。",
+        "why_table_is_better_than_prose": "风险条目涉及多个维度的比较（风险描述、影响、预防、应急、责任人），表格化后易于快速检索和对照执行，适合作为团队风险交底文件。"
+      }
+    ]
+  },
+  "response_point_usage": [
+    "TR-005",
+    "TR-006",
+    "TR-007",
+    "TR-008",
+    "TR-009",
+    "TR-010",
+    "TR-022"
+  ],
+  "score_item_usage": [
+    "SCORE-TR-022-R017"
+  ],
+  "local_knowledge_references": [
+    {
+      "candidate_id": "KB-file_3fa83f22cdb4",
+      "evidence_type": "implementation_experience",
+      "entity_type": "person",
+      "entity_name": "吴云畅",
+      "file_id": "file_3fa83f22cdb4",
+      "file_name": "数字化办公-吴云畅.docx",
+      "source_location": "parsed.sections",
+      "excerpt": "工程师简历\n工程师简介\n工作经历\n专业技能\n项目经验\n相关证书\n\n=== Table 1 ===\n姓名\t吴云畅\t性别\t男\t工作年限\t5年\n\n=== Table 2 ===\n时间\t公司\t职位\n2019年12月至今\t北京昆仑联通科技发展股份有限公司\t微软工程师\n\n=== Table 3 ===\nPython、PowerPlatform、M365\t5年\n\n=== Table 4 ===\n项目名称：\tAD密码自助修改开发\n项目日期：\t2020/03 2020/06\n项目描述：\t1、后端使用Djano框架，利用Python进行编程，利用Ldap3对AD账户的密码进行验证和修改。\n2、利用阿里云短信包和AD中的手机号信息，增加短信验证码的功能来重置密码和解锁账户\n3、Django-Windows在IIS使用wfastcgi部署\n4、中间件控制License许可时间（1年后网站自动停止服务）\n5、RSA加密（ MAC、主板信息等）\n\n=== Table 5 ===\n项目名称：\t泛生子基因密码自助\n项目日期：\t2020/10- 2020/11\n项目描述：\t1、后端使用Djano框架，利用Python进行编程，利用Ldap3对AD账户的密码进行验证和修改。\n2、利用阿里云短信包和AD中的手机号信息，增加短信验证码的功能来重置密码和解锁账户\n3、使用IIS部署\n\n=== Table 6 ===\n项目名称：\t甘李药业密码自助2020\n项目日期：\t2020/10- 2020/11\n项目描述：\t密码自助网站部署\n1年许可（RSA加密、中间件控制）\n\n=== Table 7 ===\n项目名称：\t甘李药业密码自助 许可续订2021\n项目日期：\t2021/11-2021/12\n项目描述：\t密码自助网站部署\n重新部署、SSL证书Bug\n1年许可到期续订（RSA加密重新、中间件控制）\n\n=== Table 8 ===\n项目名称：\t秦淮数据密码自助\n项目日期：\t2021/06- 2021/09\n项目描述：\t基于之前的页面进行了前端升级（双语言）\n根据客户购买的短信平台进行API接口开发\n代码调试、马来西亚、新加坡站点优化\n\n=== Table 9 ===\n项目名称：\t新华人寿Windows升级项目\n项目日期：\t2021/04- 2021/06\n项目描述：\t总公司、分支机构Win7升级到Win10\nIE定制（基线）、Windows10总公司、分支机构镜像定制\n总公司、全国分支机构MDT部署、WSUS部署、KMS部署、HDCP迁移\n\n=== Table 10 ===\n项目名称：\t利星行RODC升级项目\n项目日期：\t2021/01- 2021/04\n项目描述：\t利星行全国经销商RODC升级（2008、2012R2升级到2016）\n\n=== Table 11 ===\n项目名称：\t鼎桥服务器安全加固项目\n",
+      "metadata": {
+        "material_group": "personnel",
+        "matched_terms": [
+          "经验",
+          "项目",
+          "experience"
+        ],
+        "physical_file_exists": true
+      },
+      "selection_status": "candidate",
+      "warnings": [
+        "候选材料未经本项目人工选择，不得作为确认事实。"
+      ]
+    },
+    {
+      "candidate_id": "KB-file_ae4329911662",
+      "evidence_type": "implementation_experience",
+      "entity_type": "person",
+      "entity_name": "冯振书",
+      "file_id": "file_ae4329911662",
+      "file_name": "云服务部-冯振书20230322.docx",
+      "source_location": "parsed.sections",
+      "excerpt": "冯振书 简历\n工程师简介\n工作经历\n专业技能\n项目经验\n长期运维项目\n实施项目\n相关证书\n\n=== Table 1 ===\n姓名\t姓名\t冯振书\t性别\t男\t男\t工作年限\t工作年限\t6年\n邮箱\tFeng.zs@comlan.com\tFeng.zs@comlan.com\tFeng.zs@comlan.com\tFeng.zs@comlan.com\t联系电话\t联系电话\t17639260003\t17639260003\n\n=== Table 2 ===\n时间\t公司\t职位\n2018年7月至今\t北京昆仑联通科技发展有限公司\t虚拟化工程师\n2015年7-2018年7月\t亚联信息技术有限公司\t虚拟化工程师\n\n=== Table 3 ===\nVMware产品实施/排错/运维\t4年\nCitrix运维\t6年\n\n=== Table 4 ===\n项目名称\t泰达宏利长期运维\n涉及产品\tVSAN、vSphere、Smartx、Nutanix\n项目时间\t2022年\n工作内容描述\t生产环境、办公环境、DMZ环境虚拟化环境长期case运维，巡检，故障处理\n\n=== Table 5 ===\n项目名称\t高剂医疗长期运维\n涉及产品\tVSAN、vSphere、Nutanix\n项目时间\t2022年\n工作内容描述\t生产虚拟化环境长期case运维，巡检，故障处理\n\n=== Table 6 ===\n项目名称\t长城汽车保定集团总部\n涉及产品\tvSphere、Horizon\n项目时间\t2022年\n工作内容描述\t集团总部生产环境、全国地区虚拟化长期case运维，巡检，故障处理\n\n=== Table 7 ===\n项目名称\t京东尚科京东总部\n涉及产品\tvSphere、VSAN\n项目时间\t2022年\n工作内容描述\t集团总部办公环境长期case运维，巡检，故障处理\n\n=== Table 8 ===\n项目名称\t恒安人寿\n涉及产品\tvSphere、Smartx\n项目时间\t2022年\n工作内容描述\t天津总部办公、测试、生产、北京灾备长期case运维，巡检，故障处理\n\n=== Table 9 ===\n项目名称\t长城汽车全国分点vSphere实施\n涉及产品\tvSphere\n项目时间\t2022年7-10月\n工作内容描述\tvSphere实施部署\n\n=== Table 10 ===\n项目名称\t五矿国际信托\n涉及产品\tvSphere\n项目时间\t2022年4-5月\n工作内容描述\tvSphere实施部署\n\n=== Table 11 ===\n项目名称\t京东尚科\n涉及产品\tvSphere VSAN\n项目时间\t2022年6月\n工作内容描述\tVSAN实施，机房搬迁。环境迁移\n\n=== Table 12 ===\n项目名称\t比特大陆\n涉及产品\tHorizon vSphere NSX-T\n项目时间\t2021年10月\n工作内容描述\tHorizon实施部署\n\n=== ",
+      "metadata": {
+        "material_group": "personnel",
+        "matched_terms": [
+          "实施部署",
+          "经验",
+          "项目",
+          "experience"
+        ],
+        "physical_file_exists": true
+      },
+      "selection_status": "candidate",
+      "warnings": [
+        "候选材料未经本项目人工选择，不得作为确认事实。"
+      ]
+    },
+    {
+      "candidate_id": "KB-file_2308aa547dd9",
+      "evidence_type": "person_resume",
+      "entity_type": "enterprise_material",
+      "entity_name": "",
+      "file_id": "file_2308aa547dd9",
+      "file_name": "资质+代理证书.docx",
+      "source_location": "parsed.sections",
+      "excerpt": "昆仑联通认证证书\nMOSS地址：\\\\192.168.99.115\\comlan_files\\共享文档\\公司资质\nISO 9001 质量管理体系认证\nISO 14001 环境管理体系认证\nISO 20000 服务管理体系认证\nISO 27001 服务管理体系认证\nISO 27701 隐私信息管理体系认证\nITSS 二级认证\n信息系统建设和服务能力证书（CS3）\n信创数智技术服务一级能力证书\n信息安全风险评估三级服务资质\n信息安全应急处理三级服务资质\n信息系统安全集成三级服务资质\n信息系统安全运维三级服务资质\n代理资质证明\nCRM地址：生态合作伙伴 01-可用的合作伙伴 - Dynamics 365\n\n=== Table 1 ===\n信息事项\t认证机构\t证书编号\t认证事项范围\t有效期限\nISO 9001质量管理体系认证证书\t北京新纪源认证有限公司\t19825QF5000R2M\t证书覆盖范围：计算机软硬件运维服务；计算机系统集成设计开发服务\t有效期至2028年08月16日\nISO 14001环境管理体系认证证书\t北京新纪源认证有限公司\t19824EG0856R0M\t证书覆盖范围：计算机软硬件运维服务；计算机系统集成设计开发服务\t有效期至2027年07月10日\nISO 20000信息技术服务管理体系认证证书\t北京新纪源认证有限公司\t1982024ITSM0144R1NM\t证书覆盖范围：计算机软硬件运维服务相关的信息技术服务管理活动\t有效期至2027年08月23日\nISO 27001信息安全管理体系认证证书\t北京新纪源认证有限公司\t19824ISG0211R1M\t证书覆盖范围：与计算机软硬件运维服务；计算机系统集成设计开发服务相关的信息安全管理活动；适用性声明：KLLT-ISMS-SM V2.0\t有效期至2027年08月23日\nISO 27701隐私信息管理体系认证证书\t北京新纪源认证有限公司\t19825PIMSH0013R0M\t证书覆盖范围：与计算机软硬件运维服务；计算机系统集成设计开发服务相关的隐私信息管理活动。适用性声明：KLLT-PIMS-SM V1.0版\t有效期至2028年08月27日\nITSS信息技术服务标准符合性证书\t中国电子工业标准化技术协会\t1TSS-YW-2-110020240062\t业务领域：运行维护\n评估等级：二级\t有效期至2027年07月04日\nCS信息系统建设和服务能力等级证书\t中国电子信息行业联合会\tCS3-1100-000611\t符合《信息系统建设和服务能力评估体系能力要求》，能力达到良好级(CS3)\t有效期至2029年12月31日\n信创数智技术服务能力等级证书\t威海神舟信息技术研究院有限公司\tXCSZ-GC-2025028\t业务领域：信创工程实施能力\n评估等级：一级\t有效期至2028年9月19日\nCCRC信息安全服务资质认证证书\t中国",
+      "metadata": {
+        "material_group": "company_qualification",
+        "matched_terms": [
+          "证书",
+          "certificate"
+        ],
+        "physical_file_exists": true
+      },
+      "selection_status": "candidate",
+      "warnings": [
+        "候选材料未经本项目人工选择，不得作为确认事实。"
+      ]
+    }
+  ],
+  "web_references": [],
+  "pending_confirmations": [
+    {
+      "field": "delivery_commitment",
+      "question": "本次投标最终承诺的货到时间是多少个日历日？是否在招标要求'自签订合同之日起30日内'的基础上进一步缩短？",
+      "reason": "WC-003-03项目设计实施周期需要明确交货承诺，TR-006要求货到时间自签订合同之日起30日内；不能将招标最低要求直接写为投标承诺",
+      "candidates": [],
+      "affected_sections": [
+        "WC-003-03",
+        "WC-003-06",
+        "WC-003-10"
+      ],
+      "blocking": true,
+      "status": "pending",
+      "placeholder_id": "PH-FIELD-DELIVERY-COMMITMENT",
+      "placeholder_token": "{{PH-FIELD-DELIVERY-COMMITMENT}}"
+    },
+    {
+      "field": "installation_period",
+      "question": "本次投标承诺的安装完成时间是货到之日起多少个日历日？是否在招标要求'货到之日起10日内'的基础上进一步缩短？",
+      "reason": "WC-003-03项目设计实施周期需要明确安装周期，TR-007要求安装完成货到之日起10日内；不能将招标最低要求直接写为投标承诺",
+      "candidates": [],
+      "affected_sections": [
+        "WC-003-03",
+        "WC-003-06",
+        "WC-003-10"
+      ],
+      "blocking": true,
+      "status": "pending",
+      "placeholder_id": "PH-FIELD-INSTALLATION-PERIOD",
+      "placeholder_token": "{{PH-FIELD-INSTALLATION-PERIOD}}"
+    },
+    {
+      "field": "project_manager",
+      "question": "本次投标拟派项目负责人姓名、资质证书及编号、相关工作年限和超融合/医疗信息化项目经验？",
+      "reason": "WC-003-04项目组织架构和WC-003-05项目负责人及主要人员必须使用已确认的项目负责人，不能从候选材料自动选择",
+      "candidates": [],
+      "affected_sections": [
+        "WC-003-04",
+        "WC-003-05"
+      ],
+      "blocking": true,
+      "status": "pending",
+      "placeholder_id": "PH-FIELD-PROJECT-MANAGER",
+      "placeholder_token": "{{PH-FIELD-PROJECT-MANAGER}}"
+    },
+    {
+      "field": "project_team",
+      "question": "本次投标拟派项目团队主要成员（技术负责人、安装工程师、测试工程师等）的姓名、资质和投入安排？",
+      "reason": "WC-003-04和WC-003-05需要明确项目团队成员，不能虚构人员信息",
+      "candidates": [],
+      "affected_sections": [
+        "WC-003-04",
+        "WC-003-05"
+      ],
+      "blocking": true,
+      "status": "pending",
+      "placeholder_id": "PH-FIELD-PROJECT-TEAM",
+      "placeholder_token": "{{PH-FIELD-PROJECT-TEAM}}"
+    },
+    {
+      "field": "staffing_plan",
+      "question": "项目各阶段的人员投入计划：各岗位投入人数、驻场天数和参与阶段？是否提供7×24小时技术支持？",
+      "reason": "WC-003-04和WC-003-05需要人员安排计划，不能自行规划未经确认的工作日数量和驻场天数",
+      "candidates": [],
+      "affected_sections": [
+        "WC-003-04",
+        "WC-003-05"
+      ],
+      "blocking": true,
+      "status": "pending",
+      "placeholder_id": "PH-FIELD-STAFFING-PLAN",
+      "placeholder_token": "{{PH-FIELD-STAFFING-PLAN}}"
+    }
+  ],
+  "placeholders": [
+    "PH-FIELD-DELIVERY-COMMITMENT",
+    "PH-FIELD-INSTALLATION-PERIOD",
+    "PH-FIELD-PROJECT-MANAGER",
+    "PH-FIELD-PROJECT-TEAM",
+    "PH-FIELD-STAFFING-PLAN"
+  ],
+  "revision_round": 0,
+  "based_on_existing_draft": false,
+  "existing_draft_path": null,
+  "existing_draft_sha256": null,
+  "user_instruction_present": false,
+  "user_instruction_sources": [],
+  "user_instruction": "",
+  "user_instruction_summary": "",
+  "revision_scope": "initial_generation",
+  "instruction_conflicts": [],
+  "instruction_scope": "once",
+  "instruction_scope_suggestion": "once",
+  "instruction_scope_suggestion_reason": "本轮没有用户意见。",
+  "instruction_constraint_normalization": null,
+  "instruction_constraint_persistence": {
+    "status": "not_requested",
+    "scope": "once"
+  },
+  "writing_rules": {
+    "path": "D:\\comlan智标\\backend\\resources\\writing\\technical_writing_rules.md",
+    "version": "1.1.0",
+    "sha256": "51a770343e4f4e037c01177f22bf08077b5031a1e5e9ce9df1d5a17a6cdd14b6",
+    "loaded": true,
+    "rule_ids": [
+      "TW-001",
+      "TW-002",
+      "TW-003",
+      "TW-004",
+      "TW-005",
+      "TW-006",
+      "TW-007",
+      "TW-008",
+      "TW-009",
+      "TW-010",
+      "TW-011",
+      "TW-012"
+    ]
+  },
+  "rule_application_plan": {
+    "applicable_rule_ids": [
+      "TW-001",
+      "TW-002",
+      "TW-003",
+      "TW-004",
+      "TW-005",
+      "TW-006",
+      "TW-007",
+      "TW-008",
+      "TW-009",
+      "TW-010",
+      "TW-011",
+      "TW-012"
+    ],
+    "section_boundaries": [
+      {
+        "section_title": "实施总体规划",
+        "focus": [
+          "目标、原则、阶段和管理机制"
+        ],
+        "avoid_repeating": [
+          "专项操作步骤、逐项验收细节"
+        ]
+      },
+      {
+        "section_title": "项目建设技术方案",
+        "focus": [
+          "本小节标题对应的具体要求、动作、成果和检查方式"
+        ],
+        "avoid_repeating": [
+          "其他小节已完整展开的流程和无关项目背景"
+        ]
+      },
+      {
+        "section_title": "项目设计实施周期",
+        "focus": [
+          "相对时间基准、阶段衔接和完成判据"
+        ],
+        "avoid_repeating": [
+          "把招标最长时限写成最终承诺"
+        ]
+      },
+      {
+        "section_title": "项目组织架构",
+        "focus": [
+          "岗位、职责、汇报关系和参与阶段"
+        ],
+        "avoid_repeating": [
+          "虚构姓名、证书、履历或投入承诺"
+        ]
+      },
+      {
+        "section_title": "项目负责人及主要人员",
+        "focus": [
+          "岗位、职责、汇报关系和参与阶段"
+        ],
+        "avoid_repeating": [
+          "虚构姓名、证书、履历或投入承诺"
+        ]
+      },
+      {
+        "section_title": "安装部署",
+        "focus": [
+          "具体操作、检查点、完成判据和过程成果"
+        ],
+        "avoid_repeating": [
+          "重复总体原则和完整项目背景"
+        ]
+      },
+      {
+        "section_title": "测试与试运行",
+        "focus": [
+          "依据、步骤、记录、问题闭环和通过条件"
+        ],
+        "avoid_repeating": [
+          "堆砌未经核验的标准编号"
+        ]
+      },
+      {
+        "section_title": "质量控制",
+        "focus": [
+          "阶段质量控制点、检查成果和不满足时处理"
+        ],
+        "avoid_repeating": [
+          "与风险章节重复完整流程"
+        ]
+      },
+      {
+        "section_title": "项目验收",
+        "focus": [
+          "依据、步骤、记录、问题闭环和通过条件"
+        ],
+        "avoid_repeating": [
+          "堆砌未经核验的标准编号"
+        ]
+      },
+      {
+        "section_title": "交付成果",
+        "focus": [
+          "招标必需资料和实施过程成果"
+        ],
+        "avoid_repeating": [
+          "虚构份数、介质、签章要求"
+        ]
+      },
+      {
+        "section_title": "风险控制与应急保障",
+        "focus": [
+          "风险事项、预防、应急、责任和升级机制"
+        ],
+        "avoid_repeating": [
+          "虚构概率或量化等级"
+        ]
+      }
+    ],
+    "tender_tables_to_reuse": [],
+    "tables_to_create": [
+      {
+        "section_id": "项目设计实施周期",
+        "section_title": "项目设计实施周期",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "项目组织架构",
+        "section_title": "项目组织架构",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "项目负责人及主要人员",
+        "section_title": "项目负责人及主要人员",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "质量控制",
+        "section_title": "质量控制",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "交付成果",
+        "section_title": "交付成果",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      },
+      {
+        "section_id": "风险控制与应急保障",
+        "section_title": "风险控制与应急保障",
+        "decision": "agent_may_create_if_useful",
+        "format": "standard_markdown",
+        "purpose": "仅在需要横向映射或比较时辅助正文；模型可以减少、增加或不采用。"
+      }
+    ],
+    "facts_requiring_placeholders": [
+      "delivery_commitment",
+      "installation_period",
+      "staffing_plan",
+      "project_manager",
+      "project_team"
+    ],
+    "external_evidence_needs": [
+      "定位可引用的国家或行业标准"
+    ]
+  },
+  "project_constraints_loaded": {
+    "loaded": false,
+    "path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_v11_real_20260727_133527\\writing\\project_writing_constraints.json",
+    "constraint_count": 0
+  },
+  "self_review": {
+    "duplicate_section_pairs": [],
+    "revisions_applied": [],
+    "repair_attempted": false,
+    "repair_count": 0
+  },
+  "technical_writing_quality": {
+    "chapter": {
+      "prose_paragraph_count": 22,
+      "prose_character_count": 5897,
+      "section_total_character_count": 5897,
+      "prose_paragraphs_repeating_tables": 0,
+      "bullet_group_count": 0,
+      "bullet_item_count": 0,
+      "bullet_character_count": 0,
+      "short_bullet_item_count": 0,
+      "bullet_groups_without_intro": 0,
+      "bullet_groups_without_followup": 0,
+      "numbered_step_count": 0,
+      "markdown_table_count": 0,
+      "markdown_table_character_count": 0,
+      "consecutive_list_group_count": 0,
+      "table_without_intro_count": 0,
+      "table_without_followup_count": 0,
+      "average_prose_paragraph_length": 268.05,
+      "longest_prose_paragraph_length": 476,
+      "prose_ratio": 1.0,
+      "bullet_ratio": 0.0,
+      "table_ratio": 0.0,
+      "sections_with_insufficient_prose": [],
+      "list_dominant_sections": [],
+      "required_table_exempt_character_count": 0,
+      "non_exempt_structured_character_count": 0
+    },
+    "sections": [
+      {
+        "section_title": "实施总体规划",
+        "block_type": "implementation_plan",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 486,
+        "average_prose_paragraph_length": 243.0,
+        "longest_prose_paragraph_length": 314,
+        "section_total_character_count": 486,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目建设技术方案",
+        "block_type": "technical_solution",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 633,
+        "average_prose_paragraph_length": 316.5,
+        "longest_prose_paragraph_length": 382,
+        "section_total_character_count": 633,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目设计实施周期",
+        "block_type": "implementation_plan",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 654,
+        "average_prose_paragraph_length": 327.0,
+        "longest_prose_paragraph_length": 387,
+        "section_total_character_count": 654,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目组织架构",
+        "block_type": "organization_plan",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 552,
+        "average_prose_paragraph_length": 276.0,
+        "longest_prose_paragraph_length": 334,
+        "section_total_character_count": 552,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目负责人及主要人员",
+        "block_type": "personnel_detail",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 472,
+        "average_prose_paragraph_length": 236.0,
+        "longest_prose_paragraph_length": 304,
+        "section_total_character_count": 472,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "安装部署",
+        "block_type": "implementation_plan",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 732,
+        "average_prose_paragraph_length": 366.0,
+        "longest_prose_paragraph_length": 476,
+        "section_total_character_count": 732,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "测试与试运行",
+        "block_type": "quality_assurance",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 607,
+        "average_prose_paragraph_length": 303.5,
+        "longest_prose_paragraph_length": 382,
+        "section_total_character_count": 607,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "质量控制",
+        "block_type": "quality_assurance",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 437,
+        "average_prose_paragraph_length": 218.5,
+        "longest_prose_paragraph_length": 251,
+        "section_total_character_count": 437,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "项目验收",
+        "block_type": "quality_assurance",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 571,
+        "average_prose_paragraph_length": 285.5,
+        "longest_prose_paragraph_length": 413,
+        "section_total_character_count": 571,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "交付成果",
+        "block_type": "service_commitment",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 420,
+        "average_prose_paragraph_length": 210.0,
+        "longest_prose_paragraph_length": 292,
+        "section_total_character_count": 420,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "section_title": "风险控制与应急保障",
+        "block_type": "risk_control",
+        "prose_paragraph_count": 2,
+        "prose_character_count": 333,
+        "average_prose_paragraph_length": 166.5,
+        "longest_prose_paragraph_length": 173,
+        "section_total_character_count": 333,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "list_dominant_sections": [],
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "insufficient_prose": false,
+        "contains_required_response_table": false,
+        "errors": [],
+        "warnings": []
+      }
+    ],
+    "errors": [],
+    "warnings": [],
+    "sections_with_insufficient_prose": []
+  },
+  "tender_tables_detected": [
+    {
+      "table_id": "TBL-C55E070FDA30",
+      "title": "评审因素及评标标准",
+      "table_name": "评审因素及评标标准",
+      "table_type": "scoring_reference_table",
+      "reuse_required": false,
+      "response_point_id": "TR-022",
+      "source_file_id": "selected_9f821b62467b93bf",
+      "source_file_name": "五中心医院远程招标文件 确认版.docx",
+      "source_location": {
+        "clause_path": [
+          "第二部分招标项目要求",
+          "三、评审因素及评标标准"
+        ],
+        "page_start": 12,
+        "page_end": 14,
+        "table_range": "A3:D21",
+        "row_or_cell": "table_1"
+      },
+      "headers": [
+        "第二部分客观分（49分）",
+        "分值"
+      ],
+      "field_order": [
+        "第二部分客观分（49分）",
+        "分值"
+      ],
+      "row_count": 19,
+      "column_count": 4,
+      "row_column_relationship": {
+        "header_row_index": 0,
+        "data_row_start_index": 1,
+        "field_count": 2
+      },
+      "filling_requirements": [],
+      "required": false,
+      "source_table_index": 1,
+      "has_merged_cells": true,
+      "merged_cells": [],
+      "layout_complexity": "complex",
+      "format_preservation": "exact",
+      "markdown_allowed": false,
+      "policy": "评分与评审表只用于写作和覆盖判断；禁止插入响应正文，禁止进入table_fill_data。"
+    }
+  ],
+  "tender_tables_reused": [],
+  "tender_tables_created": [],
+  "complex_tender_tables_preserved": [],
+  "table_fill_data": [],
+  "duplicate_review_performed": true,
+  "duplicate_repair_performed": false,
+  "web_search_policy": "auto",
+  "web_verification": {
+    "status": "unavailable",
+    "attempt_count": 1,
+    "verified_source_count": 0,
+    "reason": "search_returned_no_usable_official_source"
+  },
+  "previous_draft_path": null,
+  "current_draft_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_v11_real_20260727_133527\\drafts\\WC-003.md",
+  "change_summary": {
+    "previous_markdown_characters": 0,
+    "current_markdown_characters": 6110,
+    "previous_table_count": 0,
+    "current_table_count": 0,
+    "previous_placeholder_count": 0,
+    "current_placeholder_count": 5,
+    "sections_changed": [
+      "章节标题或前言",
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ]
+  },
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool_call_id": "call_00_siKPCcPhVu5UiPIHJCWd3559",
+      "tool_name": "get_writing_scope",
+      "arguments_summary": {
+        "chapter_id": "WC-003"
+      },
+      "status": "success",
+      "result_count": 0
+    },
+    {
+      "step": 1,
+      "tool_call_id": "call_01_PnwIHBQ7jR4oNIiOCOsm3538",
+      "tool_name": "get_response_requirements",
+      "arguments_summary": {
+        "chapter_id": "WC-003"
+      },
+      "status": "success",
+      "result_count": 7
+    },
+    {
+      "step": 1,
+      "tool_call_id": "call_02_0wSmYCS9ojvkijMyLGkc6637",
+      "tool_name": "get_task_information",
+      "arguments_summary": {
+        "chapter_id": "WC-003"
+      },
+      "status": "success",
+      "result_count": 11
+    },
+    {
+      "step": 1,
+      "tool_call_id": "call_03_N2fjZRzErZfgt2Ast6hi9654",
+      "tool_name": "get_draft_plan",
+      "arguments_summary": {
+        "chapter_id": "WC-003"
+      },
+      "status": "success",
+      "result_count": 3
+    },
+    {
+      "step": 1,
+      "tool_call_id": "call_04_tj52ERHGuKK5y4dSgvoi3907",
+      "tool_name": "get_confirmed_project_facts",
+      "arguments_summary": {},
+      "status": "not_available",
+      "result_count": 0
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_00_6nQOs7AN0ZiVhodCe3Rf4340",
+      "tool_name": "record_pending_confirmation",
+      "arguments_summary": {
+        "items": {
+          "item_count": 5,
+          "fields": [
+            "delivery_commitment",
+            "installation_period",
+            "project_manager",
+            "project_team",
+            "staffing_plan"
+          ]
+        }
+      },
+      "status": "recorded",
+      "result_count": 5
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_01_n2GV0D72cc4VBEz8MRT79331",
+      "tool_name": "query_local_knowledge",
+      "arguments_summary": {
+        "query": "超融合 实施部署 经验 项目",
+        "evidence_types": [
+          "implementation_experience"
+        ],
+        "top_k": 5
+      },
+      "status": "success",
+      "result_count": 2
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_02_1lwNgqKbloPhtx5cB4qp9285",
+      "tool_name": "query_local_knowledge",
+      "arguments_summary": {
+        "query": "项目经理 简历 证书 超融合 医疗",
+        "evidence_types": [
+          "person_resume",
+          "person_certificate"
+        ],
+        "top_k": 5
+      },
+      "status": "success",
+      "result_count": 3
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_03_MVJX9drDJsqzBCzb8E5T7537",
+      "tool_name": "query_local_knowledge",
+      "arguments_summary": {
+        "query": "质量管理 体系 认证 实施规范",
+        "evidence_types": [
+          "quality_management_material"
+        ],
+        "top_k": 5
+      },
+      "status": "success",
+      "result_count": 1
+    },
+    {
+      "step": 2,
+      "tool_call_id": "call_04_Mqr7kzfl9mOlYx9LyRYM0612",
+      "tool_name": "web_search",
+      "arguments_summary": {
+        "query": "GB/T 信息技术 系统集成 测试验收 国家标准",
+        "purpose": "定位可引用的国家或行业标准用于测试与试运行、质量控制和项目验收章节",
+        "allowed_source_types": [
+          "government_official",
+          "standards_authority_official"
+        ],
+        "top_k": 5
+      },
+      "status": "no_results",
+      "result_count": 0
+    },
+    {
+      "step": 3,
+      "tool_call_id": "call_00_2sEr97MoXvdHkJflLU1P1918",
+      "tool_name": "save_section_draft",
+      "arguments_summary": {
+        "sections": {
+          "section_count": 11,
+          "titles": [
+            "实施总体规划",
+            "项目建设技术方案",
+            "项目设计实施周期",
+            "项目组织架构",
+            "项目负责人及主要人员",
+            "安装部署",
+            "测试与试运行",
+            "质量控制",
+            "项目验收",
+            "交付成果",
+            "风险控制与应急保障"
+          ],
+          "character_count": 17072
+        }
+      },
+      "status": "staged",
+      "result_count": 0
+    },
+    {
+      "step": 4,
+      "event": "invalid_final",
+      "status": "error",
+      "error": "provider output is not valid JSON: Expecting ',' delimiter at character 185"
+    }
+  ],
+  "model_calls": [
+    {
+      "step": 1,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "88d1f4cf-329c-4d01-ae59-9e57ad7b4092",
+      "duration_ms": 5013,
+      "finish_status": "tool_calls",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 6344,
+        "output_tokens": 228,
+        "total_tokens": 6572,
+        "reasoning_tokens": 54,
+        "answer_tokens": null,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "step": 2,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "d00d6e99-41d7-4733-9fd2-05fa3e064e16",
+      "duration_ms": 17851,
+      "finish_status": "tool_calls",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 17661,
+        "output_tokens": 1316,
+        "total_tokens": 18977,
+        "reasoning_tokens": 362,
+        "answer_tokens": null,
+        "cached_tokens": 6528
+      }
+    },
+    {
+      "step": 3,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "2fbe60b9-01eb-4709-a5b9-3ef741fad57c",
+      "duration_ms": 218103,
+      "finish_status": "tool_calls",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 26312,
+        "output_tokens": 11287,
+        "total_tokens": 37599,
+        "reasoning_tokens": 1207,
+        "answer_tokens": null,
+        "cached_tokens": 17536
+      }
+    },
+    {
+      "step": 4,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "521cb91f-0a8f-4709-abfe-1d37b85eda63",
+      "duration_ms": 138622,
+      "finish_status": "stop",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 46997,
+        "output_tokens": 14105,
+        "total_tokens": 61102,
+        "reasoning_tokens": 1098,
+        "answer_tokens": null,
+        "cached_tokens": 384
+      }
+    },
+    {
+      "step": 4,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "ec903a79-17bd-47f0-b460-cf71df435247",
+      "duration_ms": 172963,
+      "finish_status": "stop",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 25052,
+        "output_tokens": 10193,
+        "total_tokens": 35245,
+        "reasoning_tokens": 4503,
+        "answer_tokens": null,
+        "cached_tokens": 4096
+      },
+      "purpose": "fresh_final_after_json_failure"
+    },
+    {
+      "step": 5,
+      "provider": "openai_compatible",
+      "protocol": "openai_compatible",
+      "profile_name": "deepseek_draft",
+      "model": "deepseek-v4-pro",
+      "api_mode": "chat_completions",
+      "request_id": "bf277957-faa4-427f-b8a0-05a51ad48aef",
+      "duration_ms": 208489,
+      "finish_status": "stop",
+      "retry_count": 0,
+      "usage": {
+        "input_tokens": 25193,
+        "output_tokens": 11562,
+        "total_tokens": 36755,
+        "reasoning_tokens": 4886,
+        "answer_tokens": null,
+        "cached_tokens": 16256
+      },
+      "purpose": "fresh_quality_regeneration"
+    }
+  ],
+  "working_draft": {
+    "markdown": "## 实施总体规划\n\n### 实施总体规划\n\n本项目的实施部署遵循\"统筹规划、分步实施、过程受控、验收闭环\"的总体原则，以超融合系统为核心建设对象，结合医院现有IT基础设施现状，构建从需求确认、方案深化、设备交付、安装部署、系统测试、试运行到正式验收的全生命周期实施管理体系。\n\n实施总体规划的目标是在确保医院业务连续性和数据安全的前提下，按照采购合同约定的技术指标和时限要求，高质量完成超融合系统的交付与部署，为医院信息化平台提供稳定、可靠、可扩展的基础架构支撑。为实现这一目标，我们将整个实施过程划分为五个阶段：准备与规划阶段、设备交付与到货检验阶段、安装部署与配置阶段、测试与试运行阶段、正式验收与交付阶段。各阶段之间设置明确的转段条件，上一阶段未完成的遗留问题在关闭或制定有效处置方案之前，不得转入下一阶段。\n\n在准备与规划阶段，我方将在合同签订后立即组建项目实施团队，与采购人进行首次项目启动会议，确认双方项目联系人、沟通机制和变更管理流程。实施团队将对安装现场进行实地勘察，包括机房空间、电源容量、网络端口、散热条件、承重能力及现有IT系统运行状态，形成《现场勘察报告》。在此基础上，结合招标技术要求与现场实际条件，编制《项目实施方案》与《详细实施计划》，经采购人审核确认后作为后续实施的执行依据。\n\n设备交付与到货检验阶段以物流管理和质量核查为主线。所有设备按合同约定的交货地点——采购人指定地点进行交付，运输过程采用符合电子产品储运规范的包装与防护措施。到货后，我方会同采购人按照装箱清单和合同设备清单逐项核对设备型号、规格、数量及外观完整性，对存在运输损坏或型号不符的设备立即启动更换流程。关键设备在加电前还需在采购人见证下进行开箱验机，确认设备可正常加电自检，形成《到货验收报告》。\n\n安装部署与配置阶段是实施工作的核心环节。在本阶段，实施工程师将根据经确认的《项目实施方案》完成超融合节点上架安装、超融合互联交换机连接调试、管理网络与业务网络配置、超融合集群初始化、虚拟化平台部署、存储池创建与策略配置等关键工作。每项操作在执行前确认具备回退条件，执行后记录操作日志和配置参数。本阶段以全部设备上线、集群状态正常、基础功能自检通过为完成标志。\n\n测试与试运行阶段分为功能验证测试、性能测试、集成测试和试运行四个环节。功能验证测试逐项核验超融合系统的计算虚拟化、存储虚拟化、网络虚拟化及管理平台功能是否满足招标技术要求；性能测试在模拟业务负载下验证系统吞吐量、响应时间和资源调度能力；集成测试验证超融合系统与医院现有网络、存储和业务系统的互联互通。试运行期间，系统承载医院指定的非关键业务或测试业务持续运行，我方提供全程技术保障，记录运行状态、告警信息和资源利用率，试运行结束后形成《试运行报告》作为验收输入。\n\n正式验收与交付阶段按照采购合同约定和现行国家标准、行业标准执行。验收内容包括设备配置核查、功能符合性验证、性能指标测试、文档资料审查等。验收结束后出具验收书，列明各项标准的验收情况及项目总体评价，由双方共同签署。验收通过后，系统正式移交采购人进入运维服务期。\n\n在项目实施全过程中，我方建立三级沟通机制：项目实施层面的日例会制度，用于跟踪当日工作进展和协调次日工作安排；项目管理层面的周报制度，向采购人项目负责人汇报阶段进展、问题与风险状态；重大问题升级机制，对可能影响项目进度、质量或安全的关键问题在发现后4小时内通报采购人并启动联合处置。此外，建立完整的文档管理体系，覆盖项目计划、会议纪要、实施方案、配置记录、测试报告和验收文件，确保实施过程可追溯、可审计。\n\n## 项目建设技术方案\n\n### 项目建设技术方案\n\n本项目以超融合架构为核心，构建医院信息化基础平台，建设内容涵盖超融合节点服务器、超融合互联交换机以及超融合软件平台的集成部署与调优。项目建设技术方案从系统架构设计、网络拓扑规划、存储策略配置和高可用设计四个维度展开，确保建成后的超融合系统在性能、可靠性、可扩展性和可管理性方面满足采购人的业务承载要求。\n\n在系统架构设计层面，本项目采用标准的超融合分布式架构，将计算资源与存储资源深度融合于同一组x86服务器节点之中，通过分布式存储引擎将各节点的本地磁盘整合为统一存储资源池，实现计算与存储的线性扩展。超融合节点数量根据招标技术要求配置，节点之间通过超融合互联交换机组建低延迟、高带宽的内部数据交换网络。每节点同时承载虚拟化计算任务和分布式存储服务，管理平台以虚拟机形式部署于集群内部，提供统一的可视化管理界面，实现对计算、存储、网络资源的一体化运维。\n\n网络拓扑规划是项目技术方案的关键组成部分。超融合系统内部网络划分为管理网络、业务网络、存储数据网络和虚拟机迁移网络四个逻辑平面。管理网络承载集群管理通信和平台管理访问流量；业务网络通过上联交换机接入医院现有核心网络，为运行业务系统的虚拟机提供对外服务通道；存储数据网络基于超融合互联交换机的高带宽端口构建，承载分布式存储的读写I/O、数据副本同步和数据重建流量，是保障存储性能的核心通道；虚拟机迁移网络用于支撑在线迁移和故障恢复场景下的内存与状态数据传输。四个逻辑平面通过VLAN或物理端口隔离，避免不同类型流量相互干扰。超融合互联交换机的端口数量、速率和堆叠配置根据节点规模和冗余设计要求确定，保证在任一交换机故障时集群内部通信不受影响。\n\n存储策略配置直接影响超融合系统的性能、可靠性和可用容量。根据医院业务系统的差异化需求，本项目将针对不同类型的虚拟机制定分层存储策略：对于核心数据库类虚拟机，采用全闪存存储策略，数据副本数设置为2或3副本以确保高可靠性和低延迟访问；对于一般应用服务器类虚拟机，可采用混合存储策略，利用SSD缓存加速与HDD容量层配合，兼顾性能与成本；对于日志、归档类低负载虚拟机，使用容量优化策略。所有存储策略在规划阶段与采购人确认业务分类和性能预期，部署后通过管理平台统一策略配置和监控。数据本地化策略优先确保虚拟机读写访问其所在节点的本地副本，减少跨节点数据读取延迟；当节点故障触发数据重建时，系统自动在全集群范围内并发重建，以最小化数据降级窗口。\n\n高可用设计覆盖节点级、网络级和数据级三个层次。节点级高可用通过集群HA机制实现，当任一物理节点发生故障时，该节点上运行的虚拟机在集群内其他健康节点上自动重启，恢复时间取决于业务系统的启动速度和资源配置。网络级高可用要求超融合互联交换机采用冗余部署，每个节点至少通过两条独立物理链路连接至交换机，链路聚合配置为LACP模式实现负载均衡和故障切换。数据级高可用依赖多副本或纠删码机制，确保在单一甚至双重节点或磁盘故障时数据不丢失、服务不中断。集群管理节点的高可用通过管理平台自身的多副本部署或集群内置选举机制保障。\n\n在项目实施过程中，技术方案还预留了未来扩展的架构弹性。当医院业务增长需要增加计算或存储能力时，可通过在线添加超融合节点的方式实现横向扩展，新节点加入集群后自动进行资源再平衡，业务不中断。上联网络带宽和交换机端口同样预留扩展余量。\n\n## 项目设计实施周期\n\n### 项目设计实施周期\n\n本项目实施周期严格响应招标文件交货要求，以合同签订日为基准，统筹安排设备交付、安装部署、测试试运行和正式验收各阶段的时间计划。招标文件第二部分\"一、商务要求（三）交货要求\"（TR-006、TR-007）规定了货到时间和安装完成时限：货到时间自签订合同之日起30日内，安装完成自货到之日起10日内。我方将在此基础上进一步优化实施节奏，具体承诺周期以{{PH-FIELD-DELIVERY-COMMITMENT}}和{{PH-FIELD-INSTALLATION-PERIOD}}为准，确保实际交付与安装不超出招标规定的上限时限。\n\n实施周期划分为以下关键阶段：\n\n第一阶段为合同签订与项目启动。合同生效当日，我方指定项目经理与采购人项目负责人建立联系，在3个工作日内组织召开项目启动会议，确认项目范围、双方职责、沟通机制、变更管理流程和关键联系人。同期完成安装现场勘察，形成《现场勘察报告》及《项目实施方案》，提交采购人审核。现场勘察重点确认机房机柜空间、PDU电源插座类型与余量、网络上联端口可用性、散热条件及现有设备运行状态，对不满足安装条件的项目在勘察报告中逐项列明并建议整改方案。\n\n第二阶段为设备备货与物流配送。我方根据合同设备清单启动供应链流程，协调制造商排产与发货，确保设备在合同约定期限内送达采购人指定地点。运输全程使用符合电子产品储运标准的防震、防潮、防静电包装，高价值核心设备采用木箱加固包装，运输过程通过物流信息系统实现全程追踪。设备到达前3个工作日向采购人通报预计到货时间和卸货场地需求。\n\n第三阶段为到货检验与开箱验收。设备到达采购人指定地点后，我方安装工程师与采购人代表共同核对装箱清单、合同设备清单，逐项检查设备型号、规格、序列号和外观完整性。对发现的运输损坏、型号不符或数量短缺立即记录并启动补发流程。加电自检环节在采购人见证下逐节点执行，确认设备加电后指示灯状态、风扇运转和自检信息正常，形成《到货验收报告》并由双方签字确认。\n\n第四阶段为安装部署与系统集成。本阶段包括设备上架固定、电源接入与线缆整理、超融合互联交换机安装与堆叠配置、管理网络与业务网络布线连接、超融合集群初始化部署、虚拟化平台配置、存储池创建与策略应用、高可用功能验证等核心工作。每完成一个部署步骤立即执行功能验证，确认当前配置状态符合预期后再进行下一步操作。本阶段以集群所有节点状态正常、管理平台可正常访问、基础功能自检通过为完成标志。安装期间如需短暂影响医院现有网络或供电系统，提前至少48小时与采购人协商窗口时间并制定回退方案。\n\n第五阶段为测试与试运行。功能测试、性能测试和集成测试在安装部署完成后依次或并行开展，测试周期根据测试范围和用例数量合理安排。试运行阶段系统承载采购人指定的业务负载持续运行，我方提供全程值守保障，记录系统运行指标。试运行时长及通过标准由双方在《项目实施方案》中约定，原则上达到连续稳定运行且无重大异常的条件后转入验收阶段。\n\n第六阶段为正式验收与项目移交。验收按照合同约定和现行国家标准执行，验收通过后双方签署验收书，系统正式移交采购人进入运维服务期。\n\n以上各阶段的时间安排以合同生效日为T0基准，各阶段目标完成时间如下表所示（具体日历日以{{PH-FIELD-DELIVERY-COMMITMENT}}和{{PH-FIELD-INSTALLATION-PERIOD}}的最终确认值为准）：\n\n| 阶段 | 工作内容 | 基准时间 | 完成判据 |\n|------|----------|----------|----------|\n| 第一阶段 | 项目启动与现场勘察 | T0+3工作日 | 启动会召开、勘察报告签认 |\n| 第二阶段 | 设备备货与物流配送 | T0至货到日 | 设备送达指定地点 |\n| 第三阶段 | 到货检验与开箱验收 | 货到当日 | 到货验收报告签认 |\n| 第四阶段 | 安装部署与系统集成 | 货到次日起 | 集群上线、基础功能自检通过 |\n| 第五阶段 | 测试与试运行 | 安装完成后 | 试运行报告签认 |\n| 第六阶段 | 正式验收与项目移交 | 试运行完成后 | 验收书双方签认 |\n\n以上各阶段之间设置明确转段条件：任一阶段遗留的未关闭问题必须在制定有效处置方案并获采购人认可后方可转入下一阶段；涉及安全或数据完整性的问题必须在关闭后方可转段。在实施过程中如因采购人现场条件变更、业务窗口协调或其他不可预见因素导致进度偏差，我方将及时启动变更管理流程，提交调整后的实施计划供采购人审批，确保项目始终在受控状态下推进。\n\n## 项目组织架构\n\n### 项目组织架构\n\n为确保本项目实施部署工作的有序推进和质量受控，我方建立矩阵式项目组织架构，设置项目管理、技术实施、质量保障和商务支持四条职能线，各线之间通过项目周例会和重大事项升级机制实现信息共享和协同决策。项目组织架构覆盖从合同签订到正式验收的全实施周期，各岗位在相应阶段投入工作，确保每个关键节点均有明确的执行责任人和审核人。\n\n项目组织架构分为三个层级：决策层、管理层和执行层。\n\n决策层由我方项目总监和采购人项目负责人共同组成，负责项目重大事项决策、资源配置审批、重大变更批准和争议协调。项目总监由我方具有{{PH-FIELD-STAFFING-PLAN}}相关经验的高级管理人员担任，在项目关键节点到现场参与阶段评审，日常通过周报和升级通道掌握项目状态。\n\n管理层以项目经理为核心，下设技术负责人、质量保证工程师和商务协调专员三个关键岗位。项目经理（由{{PH-FIELD-PROJECT-MANAGER}}担任）是本项目实施的第一责任人，全面负责项目计划编制与执行、团队协调、进度管控、风险管理、沟通管理和客户关系维护。项目经理在项目实施周期内保持驻场状态，参与日例会和周报编写，对项目进度、质量、安全和成本承担管理责任。技术负责人统筹技术方案编制、安装部署指导、关键技术问题攻关和测试方案审核，确保技术实现与招标技术要求和合同约定一致。质量保证工程师独立于实施团队，直接向项目总监虚线汇报，负责审核项目各阶段的输出文档和过程记录，监督质量检查点的执行，对不符合项发出整改通知并跟踪关闭。商务协调专员负责合同履约跟踪、设备物流协调、商务文档管理和验收流程支持。\n\n执行层根据项目阶段动态配置，包括安装实施组、测试验证组和培训交付组。安装实施组由{{PH-FIELD-PROJECT-TEAM}}中的安装工程师组成，负责现场勘察、设备上架、网络布线、超融合集群部署和基础配置。测试验证组负责功能测试、性能测试、集成测试和试运行保障。培训交付组负责采购人技术人员的操作培训和运维知识转移。执行层各组由技术负责人直接领导，按日向项目经理汇报工作进展。\n\n项目组织架构及各岗位在实施各阶段的参与关系如下表所示：\n\n| 岗位角色 | 准备与规划 | 到货检验 | 安装部署 | 测试试运行 | 正式验收 |\n|----------|-----------|----------|----------|-----------|----------|\n| 项目总监 | ★ 审核 | — | — | ★ 审核 | ★ 签认 |\n| 项目经理 | ● 主办 | ● 主办 | ● 主办 | ● 主办 | ● 主办 |\n| 技术负责人 | ● 主办 | ▲ 参与 | ● 主办 | ● 主办 | ▲ 参与 |\n| 质量保证工程师 | ▲ 参与 | ▲ 参与 | ▲ 参与 | ▲ 参与 | ▲ 参与 |\n| 商务协调专员 | ▲ 参与 | ● 主办 | — | — | ▲ 参与 |\n| 安装实施组 | — | ▲ 参与 | ● 主办 | ▲ 参与 | — |\n| 测试验证组 | — | — | ▲ 参与 | ● 主办 | ▲ 参与 |\n| 培训交付组 | — | — | — | ● 主办 | ▲ 参与 |\n\n注：● 主办 — 承担主要执行责任；▲ 参与 — 配合执行或提供支持；★ 审核/签认 — 负责成果审核或正式签认。\n\n我方承诺在合同签订后3个工作日内向采购人提交完整的项目组织架构图、各岗位人员名单及联系方式，并在项目实施过程中保持组织架构的稳定性。如因不可抗力确需更换关键岗位人员，将提前5个工作日书面通知采购人并提交替换人员的资质材料，经采购人认可后方可执行。\n\n## 项目负责人及主要人员\n\n### 项目负责人及主要人员\n\n本项目实施团队由具有丰富超融合系统集成经验的技术人员组成，核心岗位包括项目经理、技术负责人、安装实施工程师和测试工程师。各岗位人员的资质、经验和投入安排如下所述。由于人员配置方案尚需采购人最终确认，以下内容以岗位职责和能力要求为框架，具体人员姓名、资质证书及履历以{{PH-FIELD-PROJECT-MANAGER}}和{{PH-FIELD-PROJECT-TEAM}}的最终确认版本为准。\n\n项目经理是本项目实施的总负责人，全面负责项目计划编制与执行、团队协调、进度管理、质量管控、风险管理和客户沟通。项目经理应具备以下核心能力：持有项目管理相关资质（如PMP、信息系统项目管理师等），具有不少于{{PH-FIELD-STAFFING-PLAN}}相关要求的超融合或虚拟化项目实施管理经验，熟悉医疗行业信息化建设特点，具备良好的跨部门协调能力和风险预判能力。项目经理在整个项目实施周期内保持驻场状态，每日组织站会跟踪工作进展，每周向采购人提交项目周报，对项目过程中的任何偏差第一时间启动纠正措施。\n\n技术负责人是项目技术方案的制定者和实施质量的技术把关者。技术负责人应具备以下核心能力：精通超融合架构（包括计算虚拟化、分布式存储和软件定义网络），具有不少于3年的超融合或服务器虚拟化项目实施经验，掌握主流超融合平台（如Nutanix、VMware vSAN、SmartX等）的部署与调优，了解医院信息系统的基本架构和数据流特征。技术负责人在安装部署和测试阶段全程驻场，主导技术方案编制、部署实施指导、关键技术问题处理和测试方案审核。\n\n安装实施工程师负责超融合系统的设备上架、网络布线、集群部署和基础配置工作。安装实施工程师应具有服务器硬件安装和网络设备调试的实操经验，熟悉数据中心机房环境要求和布线规范，持有相关厂商技术认证。在安装部署阶段，安装实施工程师按照《项目实施方案》和标准化作业指导书执行每项操作，操作前确认具备回退条件，操作后记录操作日志和配置参数。\n\n测试工程师负责编制测试方案、执行测试用例、记录测试结果和编写测试报告。测试工程师应具有信息系统测试经验，掌握功能测试、性能测试和集成测试的基本方法和工具，了解超融合系统的基本架构和关键性能指标。在测试与试运行阶段，测试工程师根据测试方案逐项执行测试，对发现的异常或偏差进行记录、分类和跟踪，协助技术负责人完成问题定位和回归测试。\n\n以上各岗位人员的工作投入安排以{{PH-FIELD-STAFFING-PLAN}}的最终确认版本为准。我方承诺项目实施团队人员均为本公司正式员工，具备相应的技术能力和项目经验，在项目实施期间优先保障本项目的资源需求。关键岗位人员在项目实施周期内不兼任其他项目的同等工作。\n\n## 安装部署\n\n### 安装部署\n\n安装部署是超融合系统从设备到货到形成可用基础架构平台的核心实施环节。本阶段工作按照\"环境确认→设备上架→网络连接→集群部署→平台配置→功能自检\"的标准化流程执行，每项操作在执行前确认前置条件满足、执行中记录操作日志、执行后立即验证结果，确保部署质量一次达标。\n\n环境确认是安装部署的前置环节，在设备上架前完成。安装工程师对照《现场勘察报告》和经采购人确认的《项目实施方案》，逐项确认机房环境条件：机柜空间的可用U位数量和位置符合设备布局规划，PDU电源插座的类型、数量和额定功率满足超融合节点双路供电需求，网络上联端口的速率、类型和VLAN配置已由采购人网络管理员准备就绪，机房散热系统运行正常且热点区域温度在设备运行允许范围内。对不满足安装条件的项目，安装工程师在确认报告中逐项记录，协同采购人完成整改后方可启动上架工作。\n\n设备上架按照从下至上、先重后轻的原则进行，确保机柜重心稳定。超融合节点根据散热和供电均衡原则分布在机柜不同位置，避免多台高功耗设备集中于同一区域导致局部过热。每台设备使用原厂导轨或托盘固定，前面板与机柜立柱齐平，预留满足厂商建议的前后空间用于通风散热。电源线缆和网络线缆分别走机柜两侧理线槽，使用魔术贴或尼龙扎带分段固定，电源线缆与数据线缆保持至少10厘米间距避免电磁干扰，线缆两端粘贴统一编码标签，标明本端设备名称/端口和对端设备名称/端口。\n\n网络连接分为管理网络、业务网络、存储数据网络和迁移网络四个逻辑平面的物理接线与配置。超融合互联交换机首先完成堆叠或MLAG配对配置，确保交换机层面冗余。每台超融合节点的存储数据端口和迁移端口分别以LACP链路聚合模式连接至两台超融合互联交换机的对应端口，任一链路或任一交换机故障时流量自动切换至正常路径。管理网络端口和业务网络端口根据网络规划分别连接至管理交换机和上联核心交换机。布线完成后逐端口打线测试连通性和协商速率，确认链路状态正常。\n\n集群部署是安装部署的技术核心。首先在管理节点（或首个部署节点）安装超融合平台管理控制台，完成管理平台的初始化配置，包括管理IP地址、管理员账户、DNS/NTP服务和许可证激活。随后通过管理平台依次发现并添加其余节点，自动完成节点间的管理通道建立和集群成员关系确认。集群组建完成后配置分布式存储服务：创建磁盘组或存储池，指定SSD缓存盘和HDD容量盘的对应关系，启用数据服务功能（如去重、压缩、纠删码等），按业务需求创建存储容器或数据存储并配置副本策略。存储策略的副本数量、故障域划分和重建优先级根据业务分类在规划阶段与采购人确认。\n\n平台配置阶段完成虚拟化网络的构建和高级功能设置。创建分布式虚拟交换机或虚拟网络，配置端口组、VLAN分段和安全策略，将虚拟机流量策略与物理网络VLAN对应。配置集群HA（高可用）策略，设置主机故障检测阈值、虚拟机重启优先级和资源准入控制策略。配置DRS或类似资源调度功能，定义自动化级别和迁移阈值。配置备份与快照策略，根据业务重要性设定备份周期和保留数量。\n\n安装部署以全量功能自检为完成标志。自检内容包括：所有节点集群状态正常（无告警、无隔离节点），管理平台各功能模块可正常访问和操作，存储池创建成功且容量与预期一致，虚拟网络配置正确且虚拟机可获取规划网段IP地址，HA功能在模拟故障场景下触发正确（测试虚拟机在指定节点离线后自动重启），分布式存储在模拟磁盘故障场景下触发数据重建。自检通过后形成《安装部署完成报告》，由安装工程师和技术负责人签字，提交采购人确认后转入测试与试运行阶段。\n\n安装部署周期从货到之日起计算，目标完成时间以{{PH-FIELD-INSTALLATION-PERIOD}}为准，不超出招标要求的货到之日起10日内完成的上限。安装期间如需进入业务网络或影响医院现有系统运行，提前不少于48小时与采购人协商操作窗口，并制定详细的回退方案。\n\n## 测试与试运行\n\n### 测试与试运行\n\n测试与试运行是验证超融合系统是否满足招标技术要求和采购人业务需求的关键环节。本阶段以GB/T 25000.51-2016《系统与软件工程 系统与软件质量要求和评价（SQuaRE）第51部分：就绪可用软件产品（RUSP）的质量要求和测试细则》和GB/T 15532-2008《计算机软件测试规范》为主要方法依据，参照GB/T 8566-2022《系统与软件工程 软件生存周期过程》中关于集成测试和验收测试的活动要求，结合本项目技术规格书和合同约定的具体指标，构建覆盖功能、性能、可靠性和集成性的完整测试体系。\n\n测试工作按功能验证测试、性能测试、集成测试和试运行四个环节依次或并行开展。\n\n功能验证测试以招标文件技术要求和合同技术规格书为依据，逐项核验超融合系统各项功能是否完整、正确和可用。测试范围覆盖计算虚拟化功能（虚拟机生命周期管理、vCPU/内存热添加、在线迁移、快照与克隆、资源模板等）、存储虚拟化功能（存储池创建与管理、多副本/纠删码策略配置、数据去重与压缩、存储QoS策略、快照与克隆等）、网络虚拟化功能（分布式虚拟交换机组网、VLAN/VXLAN分段、安全组策略、网络QoS等）以及管理平台功能（集群管理、性能监控、告警管理、日志审计、多租户管理等）。每项功能编制独立测试用例，包含测试步骤、预期结果、实际结果和通过判定。测试过程中发现的异常或偏离逐项记录在《测试缺陷跟踪表》中，按严重等级分类处置：致命和严重缺陷必须修正并通过回归测试后方可继续后续环节；一般和轻微缺陷由技术负责人评估影响后制定处置计划，经项目经理和采购人确认后执行。\n\n性能测试在专用测试环境中进行，避免与医院生产业务相互影响。测试指标参照招标技术要求和行业通用基准，覆盖超融合集群的综合性能表现。主要测试场景包括：存储I/O性能测试，使用业界通用工具（如fio、Iometer等）在多种读写模式和块大小下测试IOPS、吞吐量和延迟；虚拟机计算性能测试，使用标准基准工具（如SPEC CPU、UnixBench等）评估虚拟化环境下的CPU和内存性能；网络吞吐量测试，测试虚拟机之间和虚拟机与外部系统之间的网络带宽和延迟；并发负载测试，通过逐步增加并发虚拟机数量和I/O负载，确定系统性能拐点和最大可稳定承载规模。每项性能测试执行多轮取稳定值，测试结果与招标技术指标和行业参考值进行比对，形成《性能测试报告》。\n\n集成测试验证超融合系统与医院现有IT基础设施和业务系统的互联互通能力。测试内容包括：超融合管理网络与医院管理网的时间同步（NTP）和日志转发（Syslog）集成；业务网络与医院核心交换机的VLAN互联和路由可达性验证；虚拟机操作系统兼容性验证（Windows Server和Linux主流发行版在超融合平台上的安装、引导和驱动适配）；与医院现有身份认证系统（如AD/LDAP）的用户集成；备份系统与超融合平台的接口对接测试（如通过备份API或存储快照接口）。集成测试在最小化影响医院生产系统的前提下进行，涉及生产系统对接的测试操作提前与采购人协商窗口时间。\n\n试运行是验证系统在实际运行业务负载下稳定性和可靠性的最终环节。系统在完成功能测试、性能测试和集成测试并关闭所有致命和严重缺陷后进入试运行。试运行期间，系统承载采购人指定的非关键业务或测试业务，持续运行时长由双方在《项目实施方案》中约定。我方在试运行期间提供全程技术支持，安排技术负责人在试运行首周驻场值守，后续根据系统运行稳定性和采购人需求调整值守策略。每日记录系统运行状态数据，包括CPU利用率、内存利用率、存储IOPS和延迟、网络吞吐量、告警事件和异常日志。试运行期间发生的任何异常或故障，按应急响应流程处置并记录原因分析和处置过程。试运行结束后，汇总运行数据和分析报告，形成《试运行报告》，内容包括试运行期间系统可用性统计、资源利用率趋势、告警事件分类统计、异常处置记录和系统稳定性评价。试运行达到约定的稳定运行标准（如连续运行无致命故障、关键性能指标在允许范围内等），经采购人确认后转入正式验收阶段。\n\n## 质量控制\n\n### 质量控制\n\n本项目质量控制以GB/T 19001-2016/ISO 9001:2015《质量管理体系 要求》的质量管理原则为指导，结合公司已建立的质量管理体系（经北京新纪源认证有限公司认证，证书覆盖范围包括计算机系统集成设计开发服务），对实施部署全过程实施系统化的质量策划、质量保证和质量控制。\n\n质量控制的核心机制是\"阶段质量门\"制度——在实施过程的每个阶段与阶段之间设置强制质量检查点，前一阶段的质量检查未通过或遗留不符合项未关闭，不得转入下一阶段。各阶段质量门的检查内容、通过判据和不满足时的处置措施如下所述。\n\n第一阶段质量门——准备与规划阶段。检查内容包括：项目启动会议纪要是否完整记录双方确认的范围、职责和沟通机制；《现场勘察报告》是否覆盖机房空间、电源、网络、散热和承重等全部检查项，对不满足条件的项目是否列明差异和建议整改方案；《项目实施方案》和《详细实施计划》是否经采购人书面确认；项目团队人员名单和资质材料是否已提交采购人。不满足时处置：缺失项限期补全，方案未经确认不得进入设备发货流程。\n\n第二阶段质量门——到货检验阶段。检查内容包括：《到货验收报告》是否与合同设备清单逐项核对，设备型号、规格、序列号和数量是否一致；开箱外观检查是否记录并拍照留存；加电自检是否全部节点通过，异常设备是否已启动更换流程。不满足时处置：存在型号不符或数量短缺的，暂停安装等待补发设备到位；外观损坏设备在更换完成前使用备机替代或调整安装计划。\n\n第三阶段质量门——安装部署阶段。检查内容包括：设备上架位置和固定方式是否符合方案规划和原厂安装规范；电源双路接入和PDU负载均衡是否验证；线缆布设和标签标识是否符合机房布线规范；集群所有节点状态是否正常（无告警、无隔离）；存储池容量和策略配置是否与方案一致；管理平台功能是否可正常访问；功能自检是否全部项目通过。不满足时处置：单项不符合由安装工程师限时整改，整改完成后复检；集群状态异常由技术负责人组织原因分析和修复，修复后重新执行全量自检。\n\n第四阶段质量门——测试与试运行阶段。检查内容包括：功能测试是否覆盖全部招标技术要求项，测试用例执行率和通过率是否达标；性能测试结果是否满足招标指标和合同约定；致命和严重缺陷是否全部关闭并回归通过；试运行期间系统可用性是否达到约定标准；《试运行报告》数据是否完整、结论是否明确。不满足时处置：未关闭的致命/严重缺陷禁止转入验收；性能不达标的，由技术负责人分析瓶颈并制定优化方案，优化后重新测试。\n\n为保障质量门机制的有效执行，质量保证工程师独立于实施团队履行监督职责。质量保证工程师在各质量门节点实施独立审核，核对过程记录与客观证据的一致性，对发现的不符合项开具《不符合项报告》，明确不符合事实、判定依据、整改要求和时限。责任人在整改完成后提交整改证据，质量保证工程师验证关闭。\n\n除阶段质量门外，安装部署过程中的关键操作执行\"操作-确认\"双人复核制度：对涉及集群配置变更、存储策略修改、网络拓扑调整和业务影响的操作，由一名工程师执行、另一名工程师现场确认操作正确性，操作前后分别记录系统状态快照，确保异常时可回退。\n\n文档质量控制要求所有项目文档在提交采购人前经过内部评审。评审内容包括文档格式规范性、内容完整性和数据准确性。实施方案、测试报告、验收报告等关键文档由技术负责人和质量保证工程师双签后方可对外提交。\n\n## 项目验收\n\n### 项目验收\n\n项目验收按照采购合同约定和现行国家标准、行业标准及企业标准执行，对超融合系统的每一项技术、服务和安全标准的履约情况进行逐项确认。招标文件第二部分\"一、商务要求（六）验收方法及标准\"（TR-010）明确了验收的总体框架：采购人有权根据需要设置出厂检验、到货检验、安装调试检验、配套服务检验等多重验收环节，必要时可邀请参加本项目的其他投标人或第三方机构参与验收，验收结束后出具验收书并由双方共同签署。我方严格遵循上述要求，提供必要的测试环境、技术文档和配合人员，确保验收工作全面、客观、可追溯。\n\n验收工作按出厂检验、到货检验、安装调试检验、配套服务检验和最终综合验收五个环节依次推进。\n\n出厂检验可根据采购人需求在设备发货前实施。如采购人提出出厂检验要求，我方协调制造商开放检验环境和测试条件，采购人或其委托的第三方在制造商现场对超融合节点、交换机等关键设备的配置符合性、外观工艺和通电自检进行核查，形成《出厂检验报告》。出厂检验通过后设备方可发货。\n\n到货检验已在安装部署阶段完成，相关记录（《到货验收报告》及开箱外观照片）作为验收依据归档。如采购人在最终验收前对到货设备有复验需求，我方配合开箱和加电复测。\n\n安装调试检验在安装部署完成后进行，验收内容包括：设备安装位置和固定方式是否与实施方案一致；线缆布设是否规范、标签标识是否完整准确；集群所有节点运行状态是否正常；存储池容量和策略配置是否与合同约定一致；虚拟化平台和管理平台功能是否可用；HA和容错机制在模拟故障场景下的响应是否符合设计预期。验收依据包括合同技术规格书、《项目实施方案》和安装部署阶段的自检记录。检验过程由采购人主持，我方技术负责人配合演示和答疑。检验结果形成《安装调试检验报告》，对不满足项记录偏离事实和建议处置方式，限期整改后复验。\n\n配套服务检验覆盖随机资料交付和技术培训两个方面。随机资料检验核验制造商完整的随机资料是否按要求交付，包括但不限于使用手册、维修手册、产品合格证和保修卡等（详见\"交付成果\"章节）。技术培训检验核验我方是否按合同约定完成对采购人技术人员的操作培训和运维知识转移，培训内容的覆盖范围、培训时长和培训效果是否满足约定要求。\n\n最终综合验收在上述各环节验收通过后实施。综合验收会议由采购人主持，我方项目经理和技术负责人参加，必要时邀请第三方机构参与。综合验收议程包括：项目实施总体汇报（由我方项目经理汇报实施过程、质量控制和遗留问题处置情况）；各环节验收结果的回顾与确认；系统功能和性能的抽查演示；文档资料的全面审查（包括实施方案、配置记录、测试报告、试运行报告和各环节验收报告）；验收结论的形成与验收书的签署。验收书列明各项标准的验收情况及项目总体评价，由验收双方共同签署。\n\n验收过程遵循以下基本原则：每项验收以客观证据为依据，不以口头说明代替实测或实物核对；验收中发现的不符合项如实记录，双方协商确定处置方式和完成时限；如需第三方机构参与验收，其出具的意见作为验收书的参考资料一并存档；验收过程中涉及的技术数据和测试结果作为项目档案归档保存。\n\n验收通过后，系统正式移交采购人，进入合同约定的运维服务期。验收未通过的项目，我方在约定时限内完成整改并申请复验，复验产生的费用由责任方承担。\n\n## 交付成果\n\n### 交付成果\n\n本项目的交付成果分为设备交付和资料交付两大类。设备交付包括超融合节点服务器、超融合互联交换机及配套组件；资料交付包括制造商随机资料、项目过程文档和验收资料。所有交付成果按照合同约定的交货地点（采购人指定地点，TR-008）进行交付，交付过程形成书面交接记录并由双方签字确认。\n\n设备交付物按照合同设备清单执行，主要包括：超融合节点服务器（含CPU、内存、SSD缓存盘、HDD容量盘、网络适配器和冗余电源等配置），数量和技术规格以合同约定为准；超融合互联交换机（含光模块或线缆），数量和技术规格以合同约定为准；配套导轨、电源线和网线等安装辅材。每台设备交付时附带原厂包装、产品序列号标签和基本文档（快速安装指南、安全与合规声明等）。所有设备在出厂前经过制造商质量控制检验，到货时包装完整且序列号可追溯。\n\n资料交付是交付成果的重要组成部分。招标文件第二部分\"一、商务要求（三）交货要求\"第3条（TR-009）明确要求\"提供制造商完整的随机资料，包括完整的使用和维修手册等\"。我方严格按照此要求确保以下随机资料在设备交付时一并提供：产品使用手册，包含硬件安装指南、指示灯和接口说明、BIOS/固件配置参考和技术规格参数；维修手册，包含故障诊断流程、部件更换步骤、告警代码解释和厂商技术支持联系方式；产品合格证和保修卡；软件许可协议和授权证书。所有制造商随机资料以纸质和/或电子介质形式交付，具体份数和介质类型以{{PH-FIELD-DELIVERY-COMMITMENT}}的确认信息为准。\n\n除制造商随机资料外，项目过程中形成的实施文档作为项目成果一并交付采购人，主要包括以下类别：\n\n规划类文档：《现场勘察报告》，记录机房环境条件、现有设施状态和安装条件评估结论；《项目实施方案》，包含系统架构设计、网络拓扑、存储策略、实施步骤和风险应对措施；《详细实施计划》，包含各阶段时间安排、资源分配和里程碑节点。\n\n记录类文档：《到货验收报告》，记录设备型号、规格、序列号核对结果和外观检验结论；《安装部署完成报告》及配套操作日志和配置参数记录，完整记录集群配置、存储策略、网络设置和功能自检结果；《测试用例及执行记录》，逐项记录功能测试的步骤、结果和偏差。\n\n报告类文档：《性能测试报告》，包含测试场景、测试方法、测试数据和与指标的比对分析；《试运行报告》，包含试运行期间的运行数据统计、可用性分析和异常处置记录；《培训完成报告》，记录培训内容、参训人员和培训效果评估。\n\n验收类文档：各环节验收报告（出厂检验、到货检验、安装调试检验、配套服务检验）；最终《验收书》，列明各项标准的验收情况及项目总体评价，由双方共同签署。\n\n以上资料的交付清单、格式要求和交付时间节点在下表中汇总：\n\n| 资料类别 | 资料名称 | 交付时间 | 格式/介质 |\n|----------|----------|----------|-----------|\n| 制造商随机资料 | 产品使用手册 | 随设备交付 | 纸质/电子 |\n| 制造商随机资料 | 维修手册 | 随设备交付 | 纸质/电子 |\n| 制造商随机资料 | 产品合格证、保修卡 | 随设备交付 | 纸质 |\n| 制造商随机资料 | 软件许可协议及授权证书 | 随设备交付 | 纸质/电子 |\n| 规划类 | 现场勘察报告 | 勘察完成后3个工作日内 | 纸质+电子 |\n| 规划类 | 项目实施方案 | 方案确认后 | 纸质+电子 |\n| 规划类 | 详细实施计划 | 与实施方案同步 | 纸质+电子 |\n| 记录类 | 到货验收报告 | 到货当日 | 纸质 |\n| 记录类 | 安装部署完成报告 | 安装部署完成后 | 纸质+电子 |\n| 记录类 | 测试用例及执行记录 | 测试完成后 | 电子 |\n| 报告类 | 性能测试报告 | 测试完成后 | 纸质+电子 |\n| 报告类 | 试运行报告 | 试运行结束后 | 纸质+电子 |\n| 报告类 | 培训完成报告 | 培训完成后 | 纸质+电子 |\n| 验收类 | 各环节验收报告 | 各环节验收后 | 纸质 |\n| 验收类 | 验收书 | 综合验收后 | 纸质 |\n\n以上交付成果的份数、介质格式和签章要求以{{PH-FIELD-DELIVERY-COMMITMENT}}的最终确认信息为准。所有资料在交付前经过内部评审和质量审核，确保内容准确、格式规范。\n\n## 风险控制与应急保障\n\n### 风险控制与应急保障\n\n本项目实施过程中面临的潜在风险涵盖设备供应、现场环境、技术实施、进度偏差和人员变动等多个维度。我方基于超融合系统集成项目的共性经验和医院信息化建设的特点，系统识别实施风险并制定相应的预防措施、应急措施和责任分配，确保各类风险在可接受范围内受控。\n\n设备供应风险是项目实施的首要不确定因素。该风险表现为核心设备（超融合节点、交换机）因供应链波动、生产能力限制或物流异常导致无法按期交付。为预防此类风险，我方在合同签订后立即启动供应链管理流程，与制造商确认排产计划和预计发货日期，对关键设备协调优先排产；同时建立备选物流方案，在主物流渠道异常时快速切换。物流全程通过信息系统追踪，运输状态异常时在2小时内获取准确信息并通报采购人。如发生不可抗力导致的严重交付延迟，我方启动应急措施，包括协调制造商从其他区域调配库存、启用备用物流通道，以及在不影响系统整体性能和功能的前提下与采购人协商分批交付和分阶段部署方案。\n\n现场环境风险指机房空间、电源、散热或网络条件不满足安装要求导致部署延迟。在准备阶段通过详细的现场勘察识别此类风险，对不满足条件的具体项目在勘察报告中逐项列明差异和建议整改方案。如勘察发现影响安装的关键条件缺失（如PDU电源类型不匹配、机柜空间不足、上联端口不可用），我方与采购人协同制定整改计划并跟踪落实，整改完成后方可启动设备发货。应急措施包括临时调整设备布局方案以适配可用空间、协调采购人提供临时电源或网络端口等过渡方案。\n\n技术实施风险涵盖集群部署失败、存储策略配置错误、网络连通性异常和与现有系统的兼容性问题。预防措施包括：部署前编制详细的标准化作业指导书和配置参数模板，经技术负责人审核后执行；关键操作执行前进行沙盘推演或离线模拟；操作过程执行双人复核制度；重大配置变更前制定回退方案并验证回退路径的有效性。应急措施包括：集群初始化异常时使用出厂重置恢复并重新部署；网络连通性故障使用分步隔离法定位故障点；兼容性问题由技术负责人协调厂商技术支持进行联合诊断。\n\n进度偏差风险指因不可预见的现场条件、业务窗口限制或技术问题导致实施进度偏离计划。预防措施包括：实施计划中为关键路径活动预留缓冲时间；每周进行进度偏差分析，一旦发现偏差趋势即启动纠偏措施；与采购人保持周报沟通，确保业务窗口协调和资源配合及时。应急措施包括：调整非关键路径活动的时序以释放资源集中攻坚关键路径；在采购人认可的前提下适当延长每日有效作业时间；对技术难点启动专家远程或到场支援。\n\n人员变动风险指关键岗位人员因健康、离职或其他不可抗力原因无法继续履行项目职责。预防措施包括：项目团队设置AB角机制，关键岗位（项目经理、技术负责人）指定具备同等资质的备选人员；项目过程文档完整记录，确保人员交接时信息不丢失。应急措施包括：24小时内启动备选人员到岗，交接期内由原岗位人员通过远程方式提供过渡支持；交接完成后向采购人提交新人员的资质材料备案。\n\n除上述专项风险外，我方建立应急响应升级机制，确保重大异常事件得到及时有效的处置。应急响应分为三级：一级响应由现场实施团队在30分钟内启动，处理常规技术故障和操作异常；二级响应由项目经理和技术负责人在1小时内启动，处理影响阶段进度或涉及多个技术域的复合问题；三级响应由项目总监在2小时内启动，协调公司级资源（厂商技术支持、高级专家团队、管理层审批）处理影响项目整体交付的重大事件。\n\n应急保障资源包括：公司技术专家远程支持团队（在需要时于约定响应时间内提供远程诊断和处置指导）；厂商技术支持通道（用于处理平台级技术问题和获取厂商补丁或修复方案）；备件保障机制（对高故障率配件协调备件提前就位或快速调拨）；备用设备和工具的现场储备（关键安装工具、调试终端和网络测试仪等）。\n\n项目实施过程中的风险识别、评估和处置信息在项目周报中专题汇报，重大风险和应急事件即时通报采购人。项目结束后，风险管理的全过程记录作为项目档案归档，为后续运维和服务改进提供经验参考。\n",
+    "sections": [
+      {
+        "section_id": "WC-003-01",
+        "title": "实施总体规划",
+        "content": "### 实施总体规划\n\n本项目的实施部署遵循\"统筹规划、分步实施、过程受控、验收闭环\"的总体原则，以超融合系统为核心建设对象，结合医院现有IT基础设施现状，构建从需求确认、方案深化、设备交付、安装部署、系统测试、试运行到正式验收的全生命周期实施管理体系。\n\n实施总体规划的目标是在确保医院业务连续性和数据安全的前提下，按照采购合同约定的技术指标和时限要求，高质量完成超融合系统的交付与部署，为医院信息化平台提供稳定、可靠、可扩展的基础架构支撑。为实现这一目标，我们将整个实施过程划分为五个阶段：准备与规划阶段、设备交付与到货检验阶段、安装部署与配置阶段、测试与试运行阶段、正式验收与交付阶段。各阶段之间设置明确的转段条件，上一阶段未完成的遗留问题在关闭或制定有效处置方案之前，不得转入下一阶段。\n\n在准备与规划阶段，我方将在合同签订后立即组建项目实施团队，与采购人进行首次项目启动会议，确认双方项目联系人、沟通机制和变更管理流程。实施团队将对安装现场进行实地勘察，包括机房空间、电源容量、网络端口、散热条件、承重能力及现有IT系统运行状态，形成《现场勘察报告》。在此基础上，结合招标技术要求与现场实际条件，编制《项目实施方案》与《详细实施计划》，经采购人审核确认后作为后续实施的执行依据。\n\n设备交付与到货检验阶段以物流管理和质量核查为主线。所有设备按合同约定的交货地点——采购人指定地点进行交付，运输过程采用符合电子产品储运规范的包装与防护措施。到货后，我方会同采购人按照装箱清单和合同设备清单逐项核对设备型号、规格、数量及外观完整性，对存在运输损坏或型号不符的设备立即启动更换流程。关键设备在加电前还需在采购人见证下进行开箱验机，确认设备可正常加电自检，形成《到货验收报告》。\n\n安装部署与配置阶段是实施工作的核心环节。在本阶段，实施工程师将根据经确认的《项目实施方案》完成超融合节点上架安装、超融合互联交换机连接调试、管理网络与业务网络配置、超融合集群初始化、虚拟化平台部署、存储池创建与策略配置等关键工作。每项操作在执行前确认具备回退条件，执行后记录操作日志和配置参数。本阶段以全部设备上线、集群状态正常、基础功能自检通过为完成标志。\n\n测试与试运行阶段分为功能验证测试、性能测试、集成测试和试运行四个环节。功能验证测试逐项核验超融合系统的计算虚拟化、存储虚拟化、网络虚拟化及管理平台功能是否满足招标技术要求；性能测试在模拟业务负载下验证系统吞吐量、响应时间和资源调度能力；集成测试验证超融合系统与医院现有网络、存储和业务系统的互联互通。试运行期间，系统承载医院指定的非关键业务或测试业务持续运行，我方提供全程技术保障，记录运行状态、告警信息和资源利用率，试运行结束后形成《试运行报告》作为验收输入。\n\n正式验收与交付阶段按照采购合同约定和现行国家标准、行业标准执行。验收内容包括设备配置核查、功能符合性验证、性能指标测试、文档资料审查等。验收结束后出具验收书，列明各项标准的验收情况及项目总体评价，由双方共同签署。验收通过后，系统正式移交采购人进入运维服务期。\n\n在项目实施全过程中，我方建立三级沟通机制：项目实施层面的日例会制度，用于跟踪当日工作进展和协调次日工作安排；项目管理层面的周报制度，向采购人项目负责人汇报阶段进展、问题与风险状态；重大问题升级机制，对可能影响项目进度、质量或安全的关键问题在发现后4小时内通报采购人并启动联合处置。此外，建立完整的文档管理体系，覆盖项目计划、会议纪要、实施方案、配置记录、测试报告和验收文件，确保实施过程可追溯、可审计。"
+      },
+      {
+        "section_id": "WC-003-02",
+        "title": "项目建设技术方案",
+        "content": "### 项目建设技术方案\n\n本项目以超融合架构为核心，构建医院信息化基础平台，建设内容涵盖超融合节点服务器、超融合互联交换机以及超融合软件平台的集成部署与调优。项目建设技术方案从系统架构设计、网络拓扑规划、存储策略配置和高可用设计四个维度展开，确保建成后的超融合系统在性能、可靠性、可扩展性和可管理性方面满足采购人的业务承载要求。\n\n在系统架构设计层面，本项目采用标准的超融合分布式架构，将计算资源与存储资源深度融合于同一组x86服务器节点之中，通过分布式存储引擎将各节点的本地磁盘整合为统一存储资源池，实现计算与存储的线性扩展。超融合节点数量根据招标技术要求配置，节点之间通过超融合互联交换机组建低延迟、高带宽的内部数据交换网络。每节点同时承载虚拟化计算任务和分布式存储服务，管理平台以虚拟机形式部署于集群内部，提供统一的可视化管理界面，实现对计算、存储、网络资源的一体化运维。\n\n网络拓扑规划是项目技术方案的关键组成部分。超融合系统内部网络划分为管理网络、业务网络、存储数据网络和虚拟机迁移网络四个逻辑平面。管理网络承载集群管理通信和平台管理访问流量；业务网络通过上联交换机接入医院现有核心网络，为运行业务系统的虚拟机提供对外服务通道；存储数据网络基于超融合互联交换机的高带宽端口构建，承载分布式存储的读写I/O、数据副本同步和数据重建流量，是保障存储性能的核心通道；虚拟机迁移网络用于支撑在线迁移和故障恢复场景下的内存与状态数据传输。四个逻辑平面通过VLAN或物理端口隔离，避免不同类型流量相互干扰。超融合互联交换机的端口数量、速率和堆叠配置根据节点规模和冗余设计要求确定，保证在任一交换机故障时集群内部通信不受影响。\n\n存储策略配置直接影响超融合系统的性能、可靠性和可用容量。根据医院业务系统的差异化需求，本项目将针对不同类型的虚拟机制定分层存储策略：对于核心数据库类虚拟机，采用全闪存存储策略，数据副本数设置为2或3副本以确保高可靠性和低延迟访问；对于一般应用服务器类虚拟机，可采用混合存储策略，利用SSD缓存加速与HDD容量层配合，兼顾性能与成本；对于日志、归档类低负载虚拟机，使用容量优化策略。所有存储策略在规划阶段与采购人确认业务分类和性能预期，部署后通过管理平台统一策略配置和监控。数据本地化策略优先确保虚拟机读写访问其所在节点的本地副本，减少跨节点数据读取延迟；当节点故障触发数据重建时，系统自动在全集群范围内并发重建，以最小化数据降级窗口。\n\n高可用设计覆盖节点级、网络级和数据级三个层次。节点级高可用通过集群HA机制实现，当任一物理节点发生故障时，该节点上运行的虚拟机在集群内其他健康节点上自动重启，恢复时间取决于业务系统的启动速度和资源配置。网络级高可用要求超融合互联交换机采用冗余部署，每个节点至少通过两条独立物理链路连接至交换机，链路聚合配置为LACP模式实现负载均衡和故障切换。数据级高可用依赖多副本或纠删码机制，确保在单一甚至双重节点或磁盘故障时数据不丢失、服务不中断。集群管理节点的高可用通过管理平台自身的多副本部署或集群内置选举机制保障。\n\n在项目实施过程中，技术方案还预留了未来扩展的架构弹性。当医院业务增长需要增加计算或存储能力时，可通过在线添加超融合节点的方式实现横向扩展，新节点加入集群后自动进行资源再平衡，业务不中断。上联网络带宽和交换机端口同样预留扩展余量。"
+      },
+      {
+        "section_id": "WC-003-03",
+        "title": "项目设计实施周期",
+        "content": "### 项目设计实施周期\n\n本项目实施周期严格响应招标文件交货要求，以合同签订日为基准，统筹安排设备交付、安装部署、测试试运行和正式验收各阶段的时间计划。招标文件第二部分\"一、商务要求（三）交货要求\"（TR-006、TR-007）规定了货到时间和安装完成时限：货到时间自签订合同之日起30日内，安装完成自货到之日起10日内。我方将在此基础上进一步优化实施节奏，具体承诺周期以{{PH-FIELD-DELIVERY-COMMITMENT}}和{{PH-FIELD-INSTALLATION-PERIOD}}为准，确保实际交付与安装不超出招标规定的上限时限。\n\n实施周期划分为以下关键阶段：\n\n第一阶段为合同签订与项目启动。合同生效当日，我方指定项目经理与采购人项目负责人建立联系，在3个工作日内组织召开项目启动会议，确认项目范围、双方职责、沟通机制、变更管理流程和关键联系人。同期完成安装现场勘察，形成《现场勘察报告》及《项目实施方案》，提交采购人审核。现场勘察重点确认机房机柜空间、PDU电源插座类型与余量、网络上联端口可用性、散热条件及现有设备运行状态，对不满足安装条件的项目在勘察报告中逐项列明并建议整改方案。\n\n第二阶段为设备备货与物流配送。我方根据合同设备清单启动供应链流程，协调制造商排产与发货，确保设备在合同约定期限内送达采购人指定地点。运输全程使用符合电子产品储运标准的防震、防潮、防静电包装，高价值核心设备采用木箱加固包装，运输过程通过物流信息系统实现全程追踪。设备到达前3个工作日向采购人通报预计到货时间和卸货场地需求。\n\n第三阶段为到货检验与开箱验收。设备到达采购人指定地点后，我方安装工程师与采购人代表共同核对装箱清单、合同设备清单，逐项检查设备型号、规格、序列号和外观完整性。对发现的运输损坏、型号不符或数量短缺立即记录并启动补发流程。加电自检环节在采购人见证下逐节点执行，确认设备加电后指示灯状态、风扇运转和自检信息正常，形成《到货验收报告》并由双方签字确认。\n\n第四阶段为安装部署与系统集成。本阶段包括设备上架固定、电源接入与线缆整理、超融合互联交换机安装与堆叠配置、管理网络与业务网络布线连接、超融合集群初始化部署、虚拟化平台配置、存储池创建与策略应用、高可用功能验证等核心工作。每完成一个部署步骤立即执行功能验证，确认当前配置状态符合预期后再进行下一步操作。本阶段以集群所有节点状态正常、管理平台可正常访问、基础功能自检通过为完成标志。安装期间如需短暂影响医院现有网络或供电系统，提前至少48小时与采购人协商窗口时间并制定回退方案。\n\n第五阶段为测试与试运行。功能测试、性能测试和集成测试在安装部署完成后依次或并行开展，测试周期根据测试范围和用例数量合理安排。试运行阶段系统承载采购人指定的业务负载持续运行，我方提供全程值守保障，记录系统运行指标。试运行时长及通过标准由双方在《项目实施方案》中约定，原则上达到连续稳定运行且无重大异常的条件后转入验收阶段。\n\n第六阶段为正式验收与项目移交。验收按照合同约定和现行国家标准执行，验收通过后双方签署验收书，系统正式移交采购人进入运维服务期。\n\n以上各阶段的时间安排以合同生效日为T0基准，各阶段目标完成时间如下表所示（具体日历日以{{PH-FIELD-DELIVERY-COMMITMENT}}和{{PH-FIELD-INSTALLATION-PERIOD}}的最终确认值为准）：\n\n| 阶段 | 工作内容 | 基准时间 | 完成判据 |\n|------|----------|----------|----------|\n| 第一阶段 | 项目启动与现场勘察 | T0+3工作日 | 启动会召开、勘察报告签认 |\n| 第二阶段 | 设备备货与物流配送 | T0至货到日 | 设备送达指定地点 |\n| 第三阶段 | 到货检验与开箱验收 | 货到当日 | 到货验收报告签认 |\n| 第四阶段 | 安装部署与系统集成 | 货到次日起 | 集群上线、基础功能自检通过 |\n| 第五阶段 | 测试与试运行 | 安装完成后 | 试运行报告签认 |\n| 第六阶段 | 正式验收与项目移交 | 试运行完成后 | 验收书双方签认 |\n\n以上各阶段之间设置明确转段条件：任一阶段遗留的未关闭问题必须在制定有效处置方案并获采购人认可后方可转入下一阶段；涉及安全或数据完整性的问题必须在关闭后方可转段。在实施过程中如因采购人现场条件变更、业务窗口协调或其他不可预见因素导致进度偏差，我方将及时启动变更管理流程，提交调整后的实施计划供采购人审批，确保项目始终在受控状态下推进。"
+      },
+      {
+        "section_id": "WC-003-04",
+        "title": "项目组织架构",
+        "content": "### 项目组织架构\n\n为确保本项目实施部署工作的有序推进和质量受控，我方建立矩阵式项目组织架构，设置项目管理、技术实施、质量保障和商务支持四条职能线，各线之间通过项目周例会和重大事项升级机制实现信息共享和协同决策。项目组织架构覆盖从合同签订到正式验收的全实施周期，各岗位在相应阶段投入工作，确保每个关键节点均有明确的执行责任人和审核人。\n\n项目组织架构分为三个层级：决策层、管理层和执行层。\n\n决策层由我方项目总监和采购人项目负责人共同组成，负责项目重大事项决策、资源配置审批、重大变更批准和争议协调。项目总监由我方具有{{PH-FIELD-STAFFING-PLAN}}相关经验的高级管理人员担任，在项目关键节点到现场参与阶段评审，日常通过周报和升级通道掌握项目状态。\n\n管理层以项目经理为核心，下设技术负责人、质量保证工程师和商务协调专员三个关键岗位。项目经理（由{{PH-FIELD-PROJECT-MANAGER}}担任）是本项目实施的第一责任人，全面负责项目计划编制与执行、团队协调、进度管控、风险管理、沟通管理和客户关系维护。项目经理在项目实施周期内保持驻场状态，参与日例会和周报编写，对项目进度、质量、安全和成本承担管理责任。技术负责人统筹技术方案编制、安装部署指导、关键技术问题攻关和测试方案审核，确保技术实现与招标技术要求和合同约定一致。质量保证工程师独立于实施团队，直接向项目总监虚线汇报，负责审核项目各阶段的输出文档和过程记录，监督质量检查点的执行，对不符合项发出整改通知并跟踪关闭。商务协调专员负责合同履约跟踪、设备物流协调、商务文档管理和验收流程支持。\n\n执行层根据项目阶段动态配置，包括安装实施组、测试验证组和培训交付组。安装实施组由{{PH-FIELD-PROJECT-TEAM}}中的安装工程师组成，负责现场勘察、设备上架、网络布线、超融合集群部署和基础配置。测试验证组负责功能测试、性能测试、集成测试和试运行保障。培训交付组负责采购人技术人员的操作培训和运维知识转移。执行层各组由技术负责人直接领导，按日向项目经理汇报工作进展。\n\n项目组织架构及各岗位在实施各阶段的参与关系如下表所示：\n\n| 岗位角色 | 准备与规划 | 到货检验 | 安装部署 | 测试试运行 | 正式验收 |\n|----------|-----------|----------|----------|-----------|----------|\n| 项目总监 | ★ 审核 | — | — | ★ 审核 | ★ 签认 |\n| 项目经理 | ● 主办 | ● 主办 | ● 主办 | ● 主办 | ● 主办 |\n| 技术负责人 | ● 主办 | ▲ 参与 | ● 主办 | ● 主办 | ▲ 参与 |\n| 质量保证工程师 | ▲ 参与 | ▲ 参与 | ▲ 参与 | ▲ 参与 | ▲ 参与 |\n| 商务协调专员 | ▲ 参与 | ● 主办 | — | — | ▲ 参与 |\n| 安装实施组 | — | ▲ 参与 | ● 主办 | ▲ 参与 | — |\n| 测试验证组 | — | — | ▲ 参与 | ● 主办 | ▲ 参与 |\n| 培训交付组 | — | — | — | ● 主办 | ▲ 参与 |\n\n注：● 主办 — 承担主要执行责任；▲ 参与 — 配合执行或提供支持；★ 审核/签认 — 负责成果审核或正式签认。\n\n我方承诺在合同签订后3个工作日内向采购人提交完整的项目组织架构图、各岗位人员名单及联系方式，并在项目实施过程中保持组织架构的稳定性。如因不可抗力确需更换关键岗位人员，将提前5个工作日书面通知采购人并提交替换人员的资质材料，经采购人认可后方可执行。"
+      },
+      {
+        "section_id": "WC-003-05",
+        "title": "项目负责人及主要人员",
+        "content": "### 项目负责人及主要人员\n\n本项目实施团队由具有丰富超融合系统集成经验的技术人员组成，核心岗位包括项目经理、技术负责人、安装实施工程师和测试工程师。各岗位人员的资质、经验和投入安排如下所述。由于人员配置方案尚需采购人最终确认，以下内容以岗位职责和能力要求为框架，具体人员姓名、资质证书及履历以{{PH-FIELD-PROJECT-MANAGER}}和{{PH-FIELD-PROJECT-TEAM}}的最终确认版本为准。\n\n项目经理是本项目实施的总负责人，全面负责项目计划编制与执行、团队协调、进度管理、质量管控、风险管理和客户沟通。项目经理应具备以下核心能力：持有项目管理相关资质（如PMP、信息系统项目管理师等），具有不少于{{PH-FIELD-STAFFING-PLAN}}相关要求的超融合或虚拟化项目实施管理经验，熟悉医疗行业信息化建设特点，具备良好的跨部门协调能力和风险预判能力。项目经理在整个项目实施周期内保持驻场状态，每日组织站会跟踪工作进展，每周向采购人提交项目周报，对项目过程中的任何偏差第一时间启动纠正措施。\n\n技术负责人是项目技术方案的制定者和实施质量的技术把关者。技术负责人应具备以下核心能力：精通超融合架构（包括计算虚拟化、分布式存储和软件定义网络），具有不少于3年的超融合或服务器虚拟化项目实施经验，掌握主流超融合平台（如Nutanix、VMware vSAN、SmartX等）的部署与调优，了解医院信息系统的基本架构和数据流特征。技术负责人在安装部署和测试阶段全程驻场，主导技术方案编制、部署实施指导、关键技术问题处理和测试方案审核。\n\n安装实施工程师负责超融合系统的设备上架、网络布线、集群部署和基础配置工作。安装实施工程师应具有服务器硬件安装和网络设备调试的实操经验，熟悉数据中心机房环境要求和布线规范，持有相关厂商技术认证。在安装部署阶段，安装实施工程师按照《项目实施方案》和标准化作业指导书执行每项操作，操作前确认具备回退条件，操作后记录操作日志和配置参数。\n\n测试工程师负责编制测试方案、执行测试用例、记录测试结果和编写测试报告。测试工程师应具有信息系统测试经验，掌握功能测试、性能测试和集成测试的基本方法和工具，了解超融合系统的基本架构和关键性能指标。在测试与试运行阶段，测试工程师根据测试方案逐项执行测试，对发现的异常或偏差进行记录、分类和跟踪，协助技术负责人完成问题定位和回归测试。\n\n以上各岗位人员的工作投入安排以{{PH-FIELD-STAFFING-PLAN}}的最终确认版本为准。我方承诺项目实施团队人员均为本公司正式员工，具备相应的技术能力和项目经验，在项目实施期间优先保障本项目的资源需求。关键岗位人员在项目实施周期内不兼任其他项目的同等工作。"
+      },
+      {
+        "section_id": "WC-003-06",
+        "title": "安装部署",
+        "content": "### 安装部署\n\n安装部署是超融合系统从设备到货到形成可用基础架构平台的核心实施环节。本阶段工作按照\"环境确认→设备上架→网络连接→集群部署→平台配置→功能自检\"的标准化流程执行，每项操作在执行前确认前置条件满足、执行中记录操作日志、执行后立即验证结果，确保部署质量一次达标。\n\n环境确认是安装部署的前置环节，在设备上架前完成。安装工程师对照《现场勘察报告》和经采购人确认的《项目实施方案》，逐项确认机房环境条件：机柜空间的可用U位数量和位置符合设备布局规划，PDU电源插座的类型、数量和额定功率满足超融合节点双路供电需求，网络上联端口的速率、类型和VLAN配置已由采购人网络管理员准备就绪，机房散热系统运行正常且热点区域温度在设备运行允许范围内。对不满足安装条件的项目，安装工程师在确认报告中逐项记录，协同采购人完成整改后方可启动上架工作。\n\n设备上架按照从下至上、先重后轻的原则进行，确保机柜重心稳定。超融合节点根据散热和供电均衡原则分布在机柜不同位置，避免多台高功耗设备集中于同一区域导致局部过热。每台设备使用原厂导轨或托盘固定，前面板与机柜立柱齐平，预留满足厂商建议的前后空间用于通风散热。电源线缆和网络线缆分别走机柜两侧理线槽，使用魔术贴或尼龙扎带分段固定，电源线缆与数据线缆保持至少10厘米间距避免电磁干扰，线缆两端粘贴统一编码标签，标明本端设备名称/端口和对端设备名称/端口。\n\n网络连接分为管理网络、业务网络、存储数据网络和迁移网络四个逻辑平面的物理接线与配置。超融合互联交换机首先完成堆叠或MLAG配对配置，确保交换机层面冗余。每台超融合节点的存储数据端口和迁移端口分别以LACP链路聚合模式连接至两台超融合互联交换机的对应端口，任一链路或任一交换机故障时流量自动切换至正常路径。管理网络端口和业务网络端口根据网络规划分别连接至管理交换机和上联核心交换机。布线完成后逐端口打线测试连通性和协商速率，确认链路状态正常。\n\n集群部署是安装部署的技术核心。首先在管理节点（或首个部署节点）安装超融合平台管理控制台，完成管理平台的初始化配置，包括管理IP地址、管理员账户、DNS/NTP服务和许可证激活。随后通过管理平台依次发现并添加其余节点，自动完成节点间的管理通道建立和集群成员关系确认。集群组建完成后配置分布式存储服务：创建磁盘组或存储池，指定SSD缓存盘和HDD容量盘的对应关系，启用数据服务功能（如去重、压缩、纠删码等），按业务需求创建存储容器或数据存储并配置副本策略。存储策略的副本数量、故障域划分和重建优先级根据业务分类在规划阶段与采购人确认。\n\n平台配置阶段完成虚拟化网络的构建和高级功能设置。创建分布式虚拟交换机或虚拟网络，配置端口组、VLAN分段和安全策略，将虚拟机流量策略与物理网络VLAN对应。配置集群HA（高可用）策略，设置主机故障检测阈值、虚拟机重启优先级和资源准入控制策略。配置DRS或类似资源调度功能，定义自动化级别和迁移阈值。配置备份与快照策略，根据业务重要性设定备份周期和保留数量。\n\n安装部署以全量功能自检为完成标志。自检内容包括：所有节点集群状态正常（无告警、无隔离节点），管理平台各功能模块可正常访问和操作，存储池创建成功且容量与预期一致，虚拟网络配置正确且虚拟机可获取规划网段IP地址，HA功能在模拟故障场景下触发正确（测试虚拟机在指定节点离线后自动重启），分布式存储在模拟磁盘故障场景下触发数据重建。自检通过后形成《安装部署完成报告》，由安装工程师和技术负责人签字，提交采购人确认后转入测试与试运行阶段。\n\n安装部署周期从货到之日起计算，目标完成时间以{{PH-FIELD-INSTALLATION-PERIOD}}为准，不超出招标要求的货到之日起10日内完成的上限。安装期间如需进入业务网络或影响医院现有系统运行，提前不少于48小时与采购人协商操作窗口，并制定详细的回退方案。"
+      },
+      {
+        "section_id": "WC-003-07",
+        "title": "测试与试运行",
+        "content": "### 测试与试运行\n\n测试与试运行是验证超融合系统是否满足招标技术要求和采购人业务需求的关键环节。本阶段以GB/T 25000.51-2016《系统与软件工程 系统与软件质量要求和评价（SQuaRE）第51部分：就绪可用软件产品（RUSP）的质量要求和测试细则》和GB/T 15532-2008《计算机软件测试规范》为主要方法依据，参照GB/T 8566-2022《系统与软件工程 软件生存周期过程》中关于集成测试和验收测试的活动要求，结合本项目技术规格书和合同约定的具体指标，构建覆盖功能、性能、可靠性和集成性的完整测试体系。\n\n测试工作按功能验证测试、性能测试、集成测试和试运行四个环节依次或并行开展。\n\n功能验证测试以招标文件技术要求和合同技术规格书为依据，逐项核验超融合系统各项功能是否完整、正确和可用。测试范围覆盖计算虚拟化功能（虚拟机生命周期管理、vCPU/内存热添加、在线迁移、快照与克隆、资源模板等）、存储虚拟化功能（存储池创建与管理、多副本/纠删码策略配置、数据去重与压缩、存储QoS策略、快照与克隆等）、网络虚拟化功能（分布式虚拟交换机组网、VLAN/VXLAN分段、安全组策略、网络QoS等）以及管理平台功能（集群管理、性能监控、告警管理、日志审计、多租户管理等）。每项功能编制独立测试用例，包含测试步骤、预期结果、实际结果和通过判定。测试过程中发现的异常或偏离逐项记录在《测试缺陷跟踪表》中，按严重等级分类处置：致命和严重缺陷必须修正并通过回归测试后方可继续后续环节；一般和轻微缺陷由技术负责人评估影响后制定处置计划，经项目经理和采购人确认后执行。\n\n性能测试在专用测试环境中进行，避免与医院生产业务相互影响。测试指标参照招标技术要求和行业通用基准，覆盖超融合集群的综合性能表现。主要测试场景包括：存储I/O性能测试，使用业界通用工具（如fio、Iometer等）在多种读写模式和块大小下测试IOPS、吞吐量和延迟；虚拟机计算性能测试，使用标准基准工具（如SPEC CPU、UnixBench等）评估虚拟化环境下的CPU和内存性能；网络吞吐量测试，测试虚拟机之间和虚拟机与外部系统之间的网络带宽和延迟；并发负载测试，通过逐步增加并发虚拟机数量和I/O负载，确定系统性能拐点和最大可稳定承载规模。每项性能测试执行多轮取稳定值，测试结果与招标技术指标和行业参考值进行比对，形成《性能测试报告》。\n\n集成测试验证超融合系统与医院现有IT基础设施和业务系统的互联互通能力。测试内容包括：超融合管理网络与医院管理网的时间同步（NTP）和日志转发（Syslog）集成；业务网络与医院核心交换机的VLAN互联和路由可达性验证；虚拟机操作系统兼容性验证（Windows Server和Linux主流发行版在超融合平台上的安装、引导和驱动适配）；与医院现有身份认证系统（如AD/LDAP）的用户集成；备份系统与超融合平台的接口对接测试（如通过备份API或存储快照接口）。集成测试在最小化影响医院生产系统的前提下进行，涉及生产系统对接的测试操作提前与采购人协商窗口时间。\n\n试运行是验证系统在实际运行业务负载下稳定性和可靠性的最终环节。系统在完成功能测试、性能测试和集成测试并关闭所有致命和严重缺陷后进入试运行。试运行期间，系统承载采购人指定的非关键业务或测试业务，持续运行时长由双方在《项目实施方案》中约定。我方在试运行期间提供全程技术支持，安排技术负责人在试运行首周驻场值守，后续根据系统运行稳定性和采购人需求调整值守策略。每日记录系统运行状态数据，包括CPU利用率、内存利用率、存储IOPS和延迟、网络吞吐量、告警事件和异常日志。试运行期间发生的任何异常或故障，按应急响应流程处置并记录原因分析和处置过程。试运行结束后，汇总运行数据和分析报告，形成《试运行报告》，内容包括试运行期间系统可用性统计、资源利用率趋势、告警事件分类统计、异常处置记录和系统稳定性评价。试运行达到约定的稳定运行标准（如连续运行无致命故障、关键性能指标在允许范围内等），经采购人确认后转入正式验收阶段。"
+      },
+      {
+        "section_id": "WC-003-08",
+        "title": "质量控制",
+        "content": "### 质量控制\n\n本项目质量控制以GB/T 19001-2016/ISO 9001:2015《质量管理体系 要求》的质量管理原则为指导，结合公司已建立的质量管理体系（经北京新纪源认证有限公司认证，证书覆盖范围包括计算机系统集成设计开发服务），对实施部署全过程实施系统化的质量策划、质量保证和质量控制。\n\n质量控制的核心机制是\"阶段质量门\"制度——在实施过程的每个阶段与阶段之间设置强制质量检查点，前一阶段的质量检查未通过或遗留不符合项未关闭，不得转入下一阶段。各阶段质量门的检查内容、通过判据和不满足时的处置措施如下所述。\n\n第一阶段质量门——准备与规划阶段。检查内容包括：项目启动会议纪要是否完整记录双方确认的范围、职责和沟通机制；《现场勘察报告》是否覆盖机房空间、电源、网络、散热和承重等全部检查项，对不满足条件的项目是否列明差异和建议整改方案；《项目实施方案》和《详细实施计划》是否经采购人书面确认；项目团队人员名单和资质材料是否已提交采购人。不满足时处置：缺失项限期补全，方案未经确认不得进入设备发货流程。\n\n第二阶段质量门——到货检验阶段。检查内容包括：《到货验收报告》是否与合同设备清单逐项核对，设备型号、规格、序列号和数量是否一致；开箱外观检查是否记录并拍照留存；加电自检是否全部节点通过，异常设备是否已启动更换流程。不满足时处置：存在型号不符或数量短缺的，暂停安装等待补发设备到位；外观损坏设备在更换完成前使用备机替代或调整安装计划。\n\n第三阶段质量门——安装部署阶段。检查内容包括：设备上架位置和固定方式是否符合方案规划和原厂安装规范；电源双路接入和PDU负载均衡是否验证；线缆布设和标签标识是否符合机房布线规范；集群所有节点状态是否正常（无告警、无隔离）；存储池容量和策略配置是否与方案一致；管理平台功能是否可正常访问；功能自检是否全部项目通过。不满足时处置：单项不符合由安装工程师限时整改，整改完成后复检；集群状态异常由技术负责人组织原因分析和修复，修复后重新执行全量自检。\n\n第四阶段质量门——测试与试运行阶段。检查内容包括：功能测试是否覆盖全部招标技术要求项，测试用例执行率和通过率是否达标；性能测试结果是否满足招标指标和合同约定；致命和严重缺陷是否全部关闭并回归通过；试运行期间系统可用性是否达到约定标准；《试运行报告》数据是否完整、结论是否明确。不满足时处置：未关闭的致命/严重缺陷禁止转入验收；性能不达标的，由技术负责人分析瓶颈并制定优化方案，优化后重新测试。\n\n为保障质量门机制的有效执行，质量保证工程师独立于实施团队履行监督职责。质量保证工程师在各质量门节点实施独立审核，核对过程记录与客观证据的一致性，对发现的不符合项开具《不符合项报告》，明确不符合事实、判定依据、整改要求和时限。责任人在整改完成后提交整改证据，质量保证工程师验证关闭。\n\n除阶段质量门外，安装部署过程中的关键操作执行\"操作-确认\"双人复核制度：对涉及集群配置变更、存储策略修改、网络拓扑调整和业务影响的操作，由一名工程师执行、另一名工程师现场确认操作正确性，操作前后分别记录系统状态快照，确保异常时可回退。\n\n文档质量控制要求所有项目文档在提交采购人前经过内部评审。评审内容包括文档格式规范性、内容完整性和数据准确性。实施方案、测试报告、验收报告等关键文档由技术负责人和质量保证工程师双签后方可对外提交。"
+      },
+      {
+        "section_id": "WC-003-09",
+        "title": "项目验收",
+        "content": "### 项目验收\n\n项目验收按照采购合同约定和现行国家标准、行业标准及企业标准执行，对超融合系统的每一项技术、服务和安全标准的履约情况进行逐项确认。招标文件第二部分\"一、商务要求（六）验收方法及标准\"（TR-010）明确了验收的总体框架：采购人有权根据需要设置出厂检验、到货检验、安装调试检验、配套服务检验等多重验收环节，必要时可邀请参加本项目的其他投标人或第三方机构参与验收，验收结束后出具验收书并由双方共同签署。我方严格遵循上述要求，提供必要的测试环境、技术文档和配合人员，确保验收工作全面、客观、可追溯。\n\n验收工作按出厂检验、到货检验、安装调试检验、配套服务检验和最终综合验收五个环节依次推进。\n\n出厂检验可根据采购人需求在设备发货前实施。如采购人提出出厂检验要求，我方协调制造商开放检验环境和测试条件，采购人或其委托的第三方在制造商现场对超融合节点、交换机等关键设备的配置符合性、外观工艺和通电自检进行核查，形成《出厂检验报告》。出厂检验通过后设备方可发货。\n\n到货检验已在安装部署阶段完成，相关记录（《到货验收报告》及开箱外观照片）作为验收依据归档。如采购人在最终验收前对到货设备有复验需求，我方配合开箱和加电复测。\n\n安装调试检验在安装部署完成后进行，验收内容包括：设备安装位置和固定方式是否与实施方案一致；线缆布设是否规范、标签标识是否完整准确；集群所有节点运行状态是否正常；存储池容量和策略配置是否与合同约定一致；虚拟化平台和管理平台功能是否可用；HA和容错机制在模拟故障场景下的响应是否符合设计预期。验收依据包括合同技术规格书、《项目实施方案》和安装部署阶段的自检记录。检验过程由采购人主持，我方技术负责人配合演示和答疑。检验结果形成《安装调试检验报告》，对不满足项记录偏离事实和建议处置方式，限期整改后复验。\n\n配套服务检验覆盖随机资料交付和技术培训两个方面。随机资料检验核验制造商完整的随机资料是否按要求交付，包括但不限于使用手册、维修手册、产品合格证和保修卡等（详见\"交付成果\"章节）。技术培训检验核验我方是否按合同约定完成对采购人技术人员的操作培训和运维知识转移，培训内容的覆盖范围、培训时长和培训效果是否满足约定要求。\n\n最终综合验收在上述各环节验收通过后实施。综合验收会议由采购人主持，我方项目经理和技术负责人参加，必要时邀请第三方机构参与。综合验收议程包括：项目实施总体汇报（由我方项目经理汇报实施过程、质量控制和遗留问题处置情况）；各环节验收结果的回顾与确认；系统功能和性能的抽查演示；文档资料的全面审查（包括实施方案、配置记录、测试报告、试运行报告和各环节验收报告）；验收结论的形成与验收书的签署。验收书列明各项标准的验收情况及项目总体评价，由验收双方共同签署。\n\n验收过程遵循以下基本原则：每项验收以客观证据为依据，不以口头说明代替实测或实物核对；验收中发现的不符合项如实记录，双方协商确定处置方式和完成时限；如需第三方机构参与验收，其出具的意见作为验收书的参考资料一并存档；验收过程中涉及的技术数据和测试结果作为项目档案归档保存。\n\n验收通过后，系统正式移交采购人，进入合同约定的运维服务期。验收未通过的项目，我方在约定时限内完成整改并申请复验，复验产生的费用由责任方承担。"
+      },
+      {
+        "section_id": "WC-003-10",
+        "title": "交付成果",
+        "content": "### 交付成果\n\n本项目的交付成果分为设备交付和资料交付两大类。设备交付包括超融合节点服务器、超融合互联交换机及配套组件；资料交付包括制造商随机资料、项目过程文档和验收资料。所有交付成果按照合同约定的交货地点（采购人指定地点，TR-008）进行交付，交付过程形成书面交接记录并由双方签字确认。\n\n设备交付物按照合同设备清单执行，主要包括：超融合节点服务器（含CPU、内存、SSD缓存盘、HDD容量盘、网络适配器和冗余电源等配置），数量和技术规格以合同约定为准；超融合互联交换机（含光模块或线缆），数量和技术规格以合同约定为准；配套导轨、电源线和网线等安装辅材。每台设备交付时附带原厂包装、产品序列号标签和基本文档（快速安装指南、安全与合规声明等）。所有设备在出厂前经过制造商质量控制检验，到货时包装完整且序列号可追溯。\n\n资料交付是交付成果的重要组成部分。招标文件第二部分\"一、商务要求（三）交货要求\"第3条（TR-009）明确要求\"提供制造商完整的随机资料，包括完整的使用和维修手册等\"。我方严格按照此要求确保以下随机资料在设备交付时一并提供：产品使用手册，包含硬件安装指南、指示灯和接口说明、BIOS/固件配置参考和技术规格参数；维修手册，包含故障诊断流程、部件更换步骤、告警代码解释和厂商技术支持联系方式；产品合格证和保修卡；软件许可协议和授权证书。所有制造商随机资料以纸质和/或电子介质形式交付，具体份数和介质类型以{{PH-FIELD-DELIVERY-COMMITMENT}}的确认信息为准。\n\n除制造商随机资料外，项目过程中形成的实施文档作为项目成果一并交付采购人，主要包括以下类别：\n\n规划类文档：《现场勘察报告》，记录机房环境条件、现有设施状态和安装条件评估结论；《项目实施方案》，包含系统架构设计、网络拓扑、存储策略、实施步骤和风险应对措施；《详细实施计划》，包含各阶段时间安排、资源分配和里程碑节点。\n\n记录类文档：《到货验收报告》，记录设备型号、规格、序列号核对结果和外观检验结论；《安装部署完成报告》及配套操作日志和配置参数记录，完整记录集群配置、存储策略、网络设置和功能自检结果；《测试用例及执行记录》，逐项记录功能测试的步骤、结果和偏差。\n\n报告类文档：《性能测试报告》，包含测试场景、测试方法、测试数据和与指标的比对分析；《试运行报告》，包含试运行期间的运行数据统计、可用性分析和异常处置记录；《培训完成报告》，记录培训内容、参训人员和培训效果评估。\n\n验收类文档：各环节验收报告（出厂检验、到货检验、安装调试检验、配套服务检验）；最终《验收书》，列明各项标准的验收情况及项目总体评价，由双方共同签署。\n\n以上资料的交付清单、格式要求和交付时间节点在下表中汇总：\n\n| 资料类别 | 资料名称 | 交付时间 | 格式/介质 |\n|----------|----------|----------|-----------|\n| 制造商随机资料 | 产品使用手册 | 随设备交付 | 纸质/电子 |\n| 制造商随机资料 | 维修手册 | 随设备交付 | 纸质/电子 |\n| 制造商随机资料 | 产品合格证、保修卡 | 随设备交付 | 纸质 |\n| 制造商随机资料 | 软件许可协议及授权证书 | 随设备交付 | 纸质/电子 |\n| 规划类 | 现场勘察报告 | 勘察完成后3个工作日内 | 纸质+电子 |\n| 规划类 | 项目实施方案 | 方案确认后 | 纸质+电子 |\n| 规划类 | 详细实施计划 | 与实施方案同步 | 纸质+电子 |\n| 记录类 | 到货验收报告 | 到货当日 | 纸质 |\n| 记录类 | 安装部署完成报告 | 安装部署完成后 | 纸质+电子 |\n| 记录类 | 测试用例及执行记录 | 测试完成后 | 电子 |\n| 报告类 | 性能测试报告 | 测试完成后 | 纸质+电子 |\n| 报告类 | 试运行报告 | 试运行结束后 | 纸质+电子 |\n| 报告类 | 培训完成报告 | 培训完成后 | 纸质+电子 |\n| 验收类 | 各环节验收报告 | 各环节验收后 | 纸质 |\n| 验收类 | 验收书 | 综合验收后 | 纸质 |\n\n以上交付成果的份数、介质格式和签章要求以{{PH-FIELD-DELIVERY-COMMITMENT}}的最终确认信息为准。所有资料在交付前经过内部评审和质量审核，确保内容准确、格式规范。"
+      },
+      {
+        "section_id": "WC-003-11",
+        "title": "风险控制与应急保障",
+        "content": "### 风险控制与应急保障\n\n本项目实施过程中面临的潜在风险涵盖设备供应、现场环境、技术实施、进度偏差和人员变动等多个维度。我方基于超融合系统集成项目的共性经验和医院信息化建设的特点，系统识别实施风险并制定相应的预防措施、应急措施和责任分配，确保各类风险在可接受范围内受控。\n\n设备供应风险是项目实施的首要不确定因素。该风险表现为核心设备（超融合节点、交换机）因供应链波动、生产能力限制或物流异常导致无法按期交付。为预防此类风险，我方在合同签订后立即启动供应链管理流程，与制造商确认排产计划和预计发货日期，对关键设备协调优先排产；同时建立备选物流方案，在主物流渠道异常时快速切换。物流全程通过信息系统追踪，运输状态异常时在2小时内获取准确信息并通报采购人。如发生不可抗力导致的严重交付延迟，我方启动应急措施，包括协调制造商从其他区域调配库存、启用备用物流通道，以及在不影响系统整体性能和功能的前提下与采购人协商分批交付和分阶段部署方案。\n\n现场环境风险指机房空间、电源、散热或网络条件不满足安装要求导致部署延迟。在准备阶段通过详细的现场勘察识别此类风险，对不满足条件的具体项目在勘察报告中逐项列明差异和建议整改方案。如勘察发现影响安装的关键条件缺失（如PDU电源类型不匹配、机柜空间不足、上联端口不可用），我方与采购人协同制定整改计划并跟踪落实，整改完成后方可启动设备发货。应急措施包括临时调整设备布局方案以适配可用空间、协调采购人提供临时电源或网络端口等过渡方案。\n\n技术实施风险涵盖集群部署失败、存储策略配置错误、网络连通性异常和与现有系统的兼容性问题。预防措施包括：部署前编制详细的标准化作业指导书和配置参数模板，经技术负责人审核后执行；关键操作执行前进行沙盘推演或离线模拟；操作过程执行双人复核制度；重大配置变更前制定回退方案并验证回退路径的有效性。应急措施包括：集群初始化异常时使用出厂重置恢复并重新部署；网络连通性故障使用分步隔离法定位故障点；兼容性问题由技术负责人协调厂商技术支持进行联合诊断。\n\n进度偏差风险指因不可预见的现场条件、业务窗口限制或技术问题导致实施进度偏离计划。预防措施包括：实施计划中为关键路径活动预留缓冲时间；每周进行进度偏差分析，一旦发现偏差趋势即启动纠偏措施；与采购人保持周报沟通，确保业务窗口协调和资源配合及时。应急措施包括：调整非关键路径活动的时序以释放资源集中攻坚关键路径；在采购人认可的前提下适当延长每日有效作业时间；对技术难点启动专家远程或到场支援。\n\n人员变动风险指关键岗位人员因健康、离职或其他不可抗力原因无法继续履行项目职责。预防措施包括：项目团队设置AB角机制，关键岗位（项目经理、技术负责人）指定具备同等资质的备选人员；项目过程文档完整记录，确保人员交接时信息不丢失。应急措施包括：24小时内启动备选人员到岗，交接期内由原岗位人员通过远程方式提供过渡支持；交接完成后向采购人提交新人员的资质材料备案。\n\n除上述专项风险外，我方建立应急响应升级机制，确保重大异常事件得到及时有效的处置。应急响应分为三级：一级响应由现场实施团队在30分钟内启动，处理常规技术故障和操作异常；二级响应由项目经理和技术负责人在1小时内启动，处理影响阶段进度或涉及多个技术域的复合问题；三级响应由项目总监在2小时内启动，协调公司级资源（厂商技术支持、高级专家团队、管理层审批）处理影响项目整体交付的重大事件。\n\n应急保障资源包括：公司技术专家远程支持团队（在需要时于约定响应时间内提供远程诊断和处置指导）；厂商技术支持通道（用于处理平台级技术问题和获取厂商补丁或修复方案）；备件保障机制（对高故障率配件协调备件提前就位或快速调拨）；备用设备和工具的现场储备（关键安装工具、调试终端和网络测试仪等）。\n\n项目实施过程中的风险识别、评估和处置信息在项目周报中专题汇报，重大风险和应急事件即时通报采购人。项目结束后，风险管理的全过程记录作为项目档案归档，为后续运维和服务改进提供经验参考。"
+      }
+    ]
+  },
+  "run_summary": {
+    "event_count": 13150,
+    "model_step_count": 4,
+    "model_request_count": 6,
+    "tool_call_count": 11,
+    "tool_calls_by_name": {
+      "get_confirmed_project_facts": 1,
+      "get_draft_plan": 1,
+      "get_response_requirements": 1,
+      "get_task_information": 1,
+      "get_writing_scope": 1,
+      "query_local_knowledge": 3,
+      "record_pending_confirmation": 1,
+      "save_section_draft": 1,
+      "web_search": 1
+    },
+    "tool_names": [
+      "get_writing_scope",
+      "get_response_requirements",
+      "get_task_information",
+      "get_draft_plan",
+      "get_confirmed_project_facts",
+      "record_pending_confirmation",
+      "query_local_knowledge",
+      "query_local_knowledge",
+      "query_local_knowledge",
+      "web_search",
+      "save_section_draft",
+      null
+    ],
+    "duplicate_tool_calls": 0,
+    "local_knowledge_call_count": 3,
+    "web_search_call_count": 1,
+    "section_count_completed": 11,
+    "section_count_expected": 11,
+    "characters_generated": 26629,
+    "forced_finalization": false,
+    "draft_file_preserved": false,
+    "event_log_path": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_v11_real_20260727_133527\\drafts\\WC-003.events.jsonl",
+    "total_usage": {
+      "input_tokens": 147559,
+      "output_tokens": 48691,
+      "total_tokens": 196250,
+      "reasoning_tokens": 12110,
+      "answer_tokens": null,
+      "cached_tokens": 44800
+    },
+    "total_runtime_ms": 817578,
+    "stop_reason": "final_validation_failed",
+    "repeat_call_counts": {}
+  },
+  "validation": {
+    "valid": false,
+    "errors": [
+      "fact_boundary:项目建设技术方案:unconfirmed_product_capability:本项目将建设一套基于超融合架构的数据中心基础平台，通过软件定义方式将计算、存储和网络功能集成于标准X86服务器节点之上，形成统一资源池，为医院业务系统提供高可用、弹性可扩展的虚拟化运行环境。",
+      "fact_boundary:项目建设技术方案:unconfirmed_product_capability:方案遵循医院现有网络与安全体系，通过标准协议实现与核心交换、防火墙、现有虚拟化平台的协同工作，支持未来资源在线扩展，且无需中断现有业务。",
+      "fact_boundary:项目建设技术方案:unconfirmed_product_capability:在计算与存储融合层，每个超融合节点同时承担计算和存储角色，节点内以SSD加速和HDD容量分层存储提供高IOPS性能的数据服务，数据以多副本策略分布在集群内不同节点，确保任意单节点故障不影响数据完整性和",
+      "fact_boundary:项目建设技术方案:unconfirmed_product_capability:针对医院业务系统的特殊性，技术方案将配置虚机反亲和策略和高可用自动重启策略，对关键业务虚机设置资源预留，并支持与现有容灾方案集成。",
+      "fact_boundary:项目负责人及主要人员:candidate_promoted_to_fact:由于投标阶段人员最终选定尚在确认中，我方承诺最终拟派的项目负责人及团队成员将全部满足上述要求，其姓名、简历、证书等详细信息将通过占位符{{PH-FIELD-PROJECT-MANAGER}}和{{PH",
+      "fact_boundary:测试与试运行:unconfirmed_product_capability:测试活动分为配置核对、功能测试、性能测试、集成测试和安全性测试五个部分，旨在全面验证超融合集群的存储冗余、计算高可用、网络吞吐、业务承载能力和安全隔离效果。",
+      "fact_boundary:项目验收:unconfirmed_bidder_commitment:若在任一环节发现不符合项，我方承诺按采购人要求限期整改并进行复验，直至完全满足合同要求。"
+    ],
+    "warnings": [
+      "external verification remains pending: unavailable"
+    ],
+    "expected_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "actual_section_titles": [
+      "实施总体规划",
+      "项目建设技术方案",
+      "项目设计实施周期",
+      "项目组织架构",
+      "项目负责人及主要人员",
+      "安装部署",
+      "测试与试运行",
+      "质量控制",
+      "项目验收",
+      "交付成果",
+      "风险控制与应急保障"
+    ],
+    "title_count": 11,
+    "expected_response_point_ids": [
+      "TR-005",
+      "TR-006",
+      "TR-007",
+      "TR-008",
+      "TR-009",
+      "TR-010",
+      "TR-022"
+    ],
+    "missing_response_point_ids": [],
+    "expected_score_item_ids": [
+      "SCORE-TR-022-R017"
+    ],
+    "missing_score_item_ids": [],
+    "markdown_table_count": 0,
+    "technical_writing_quality": {
+      "chapter": {
+        "prose_paragraph_count": 22,
+        "prose_character_count": 5897,
+        "section_total_character_count": 5897,
+        "prose_paragraphs_repeating_tables": 0,
+        "bullet_group_count": 0,
+        "bullet_item_count": 0,
+        "bullet_character_count": 0,
+        "short_bullet_item_count": 0,
+        "bullet_groups_without_intro": 0,
+        "bullet_groups_without_followup": 0,
+        "numbered_step_count": 0,
+        "markdown_table_count": 0,
+        "markdown_table_character_count": 0,
+        "consecutive_list_group_count": 0,
+        "table_without_intro_count": 0,
+        "table_without_followup_count": 0,
+        "average_prose_paragraph_length": 268.05,
+        "longest_prose_paragraph_length": 476,
+        "prose_ratio": 1.0,
+        "bullet_ratio": 0.0,
+        "table_ratio": 0.0,
+        "sections_with_insufficient_prose": [],
+        "list_dominant_sections": [],
+        "required_table_exempt_character_count": 0,
+        "non_exempt_structured_character_count": 0
+      },
+      "sections": [
+        {
+          "section_title": "实施总体规划",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 486,
+          "average_prose_paragraph_length": 243.0,
+          "longest_prose_paragraph_length": 314,
+          "section_total_character_count": 486,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目建设技术方案",
+          "block_type": "technical_solution",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 633,
+          "average_prose_paragraph_length": 316.5,
+          "longest_prose_paragraph_length": 382,
+          "section_total_character_count": 633,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目设计实施周期",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 654,
+          "average_prose_paragraph_length": 327.0,
+          "longest_prose_paragraph_length": 387,
+          "section_total_character_count": 654,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目组织架构",
+          "block_type": "organization_plan",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 552,
+          "average_prose_paragraph_length": 276.0,
+          "longest_prose_paragraph_length": 334,
+          "section_total_character_count": 552,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目负责人及主要人员",
+          "block_type": "personnel_detail",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 472,
+          "average_prose_paragraph_length": 236.0,
+          "longest_prose_paragraph_length": 304,
+          "section_total_character_count": 472,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "安装部署",
+          "block_type": "implementation_plan",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 732,
+          "average_prose_paragraph_length": 366.0,
+          "longest_prose_paragraph_length": 476,
+          "section_total_character_count": 732,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "测试与试运行",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 607,
+          "average_prose_paragraph_length": 303.5,
+          "longest_prose_paragraph_length": 382,
+          "section_total_character_count": 607,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "质量控制",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 437,
+          "average_prose_paragraph_length": 218.5,
+          "longest_prose_paragraph_length": 251,
+          "section_total_character_count": 437,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "项目验收",
+          "block_type": "quality_assurance",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 571,
+          "average_prose_paragraph_length": 285.5,
+          "longest_prose_paragraph_length": 413,
+          "section_total_character_count": 571,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "交付成果",
+          "block_type": "service_commitment",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 420,
+          "average_prose_paragraph_length": 210.0,
+          "longest_prose_paragraph_length": 292,
+          "section_total_character_count": 420,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "section_title": "风险控制与应急保障",
+          "block_type": "risk_control",
+          "prose_paragraph_count": 2,
+          "prose_character_count": 333,
+          "average_prose_paragraph_length": 166.5,
+          "longest_prose_paragraph_length": 173,
+          "section_total_character_count": 333,
+          "prose_paragraphs_repeating_tables": 0,
+          "bullet_group_count": 0,
+          "bullet_item_count": 0,
+          "bullet_character_count": 0,
+          "short_bullet_item_count": 0,
+          "bullet_groups_without_intro": 0,
+          "bullet_groups_without_followup": 0,
+          "list_dominant_sections": [],
+          "numbered_step_count": 0,
+          "markdown_table_count": 0,
+          "markdown_table_character_count": 0,
+          "prose_ratio": 1.0,
+          "bullet_ratio": 0.0,
+          "table_ratio": 0.0,
+          "consecutive_list_group_count": 0,
+          "table_without_intro_count": 0,
+          "table_without_followup_count": 0,
+          "insufficient_prose": false,
+          "contains_required_response_table": false,
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "sections_with_insufficient_prose": []
+    },
+    "duplicate_section_pairs": []
+  },
+  "failures": [
+    "fact_boundary:项目建设技术方案:unconfirmed_product_capability:本项目将建设一套基于超融合架构的数据中心基础平台，通过软件定义方式将计算、存储和网络功能集成于标准X86服务器节点之上，形成统一资源池，为医院业务系统提供高可用、弹性可扩展的虚拟化运行环境。",
+    "fact_boundary:项目建设技术方案:unconfirmed_product_capability:方案遵循医院现有网络与安全体系，通过标准协议实现与核心交换、防火墙、现有虚拟化平台的协同工作，支持未来资源在线扩展，且无需中断现有业务。",
+    "fact_boundary:项目建设技术方案:unconfirmed_product_capability:在计算与存储融合层，每个超融合节点同时承担计算和存储角色，节点内以SSD加速和HDD容量分层存储提供高IOPS性能的数据服务，数据以多副本策略分布在集群内不同节点，确保任意单节点故障不影响数据完整性和",
+    "fact_boundary:项目建设技术方案:unconfirmed_product_capability:针对医院业务系统的特殊性，技术方案将配置虚机反亲和策略和高可用自动重启策略，对关键业务虚机设置资源预留，并支持与现有容灾方案集成。",
+    "fact_boundary:项目负责人及主要人员:candidate_promoted_to_fact:由于投标阶段人员最终选定尚在确认中，我方承诺最终拟派的项目负责人及团队成员将全部满足上述要求，其姓名、简历、证书等详细信息将通过占位符{{PH-FIELD-PROJECT-MANAGER}}和{{PH",
+    "fact_boundary:测试与试运行:unconfirmed_product_capability:测试活动分为配置核对、功能测试、性能测试、集成测试和安全性测试五个部分，旨在全面验证超融合集群的存储冗余、计算高可用、网络吞吐、业务承载能力和安全隔离效果。",
+    "fact_boundary:项目验收:unconfirmed_bidder_commitment:若在任一环节发现不符合项，我方承诺按采购人要求限期整改并进行复验，直至完全满足合同要求。"
+  ],
+  "warnings": [
+    "external verification remains pending: unavailable"
+  ],
+  "outputs": {
+    "markdown": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_v11_real_20260727_133527\\drafts\\WC-003.md",
+    "run_json": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_v11_real_20260727_133527\\drafts\\WC-003.run.json",
+    "events_jsonl": "D:\\comlan智标\\backend\\outputs\\hospital_hci_001_deepseek_v11_real_20260727_133527\\drafts\\WC-003.events.jsonl"
+  }
+}

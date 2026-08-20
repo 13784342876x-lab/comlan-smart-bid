@@ -1,0 +1,17 @@
+.pytest_cache/
+.pytest_tmp*/
+__pycache__/
+*.pyc
+
+.env
+.env.*
+!.env.example
+
+node_modules/
+dist/
+.vscode/
+
+config/llm_profiles.local.json
+backend/config/llm_profiles.local.json
+
+*.log

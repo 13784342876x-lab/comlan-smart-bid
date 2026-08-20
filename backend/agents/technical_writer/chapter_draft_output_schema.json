@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "comlan://schemas/chapter-draft-output-v1.json",
+  "title": "Technical Chapter Draft Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "chapter_title",
+    "sections",
+    "claims",
+    "placeholders_used",
+    "score_items_covered",
+    "requirements_covered",
+    "warnings"
+  ],
+  "properties": {
+    "chapter_title": {"type": "string", "minLength": 1},
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "heading",
+          "block_type",
+          "content",
+          "covered_score_item_ids",
+          "covered_requirement_ids",
+          "placeholder_ids"
+        ],
+        "properties": {
+          "section_id": {"type": "string", "minLength": 1},
+          "heading": {"type": "string", "minLength": 1},
+          "block_type": {
+            "type": "string",
+            "enum": [
+              "introduction",
+              "requirement_response",
+              "technical_solution",
+              "implementation_plan",
+              "organization_plan",
+              "quality_assurance",
+              "risk_control",
+              "service_commitment",
+              "evidence_table",
+              "required_response_table",
+              "personnel_detail",
+              "parameter_response",
+              "evidence_explanation",
+              "placeholder_section",
+              "conclusion",
+              "other"
+            ]
+          },
+          "content": {"type": "string"},
+          "covered_score_item_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "covered_requirement_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "placeholder_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+        }
+      }
+    },
+    "generated_supporting_tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "section_id",
+          "title",
+          "purpose",
+          "why_table_is_better_than_prose"
+        ],
+        "properties": {
+          "section_id": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "purpose": {"type": "string", "minLength": 1},
+          "why_table_is_better_than_prose": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "claim_type", "source_ids", "evidence_ids", "human_review_required"],
+        "properties": {
+          "text": {"type": "string"},
+          "claim_type": {
+            "type": "string",
+            "enum": [
+              "tender_fact",
+              "confirmed_enterprise_fact",
+              "proposal_statement",
+              "commitment_statement",
+              "cautious_reference",
+              "placeholder",
+              "score_coverage_statement",
+              "prohibited_claim"
+            ]
+          },
+          "source_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "human_review_required": {"type": "boolean"},
+          "response_intent": {
+            "type": "string",
+            "enum": ["no_deviation"]
+          },
+          "evidence_status": {
+            "type": "string",
+            "enum": ["confirmed", "pending", "missing"]
+          },
+          "deviation_status": {
+            "type": "string",
+            "enum": [
+              "no_deviation",
+              "positive_deviation_pending_confirmation",
+              "positive_deviation_confirmed",
+              "negative_deviation",
+              "evidence_pending"
+            ]
+          },
+          "tender_baseline": {"type": "string"},
+          "offered_value": {"type": "string"},
+          "comparison_direction": {
+            "type": "string",
+            "enum": ["upper_limit", "lower_limit", "fixed", "interval"]
+          },
+          "additional_obligation": {"type": "string"},
+          "confirmation_question": {"type": "string"}
+        }
+      }
+    },
+    "placeholders_used": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "score_items_covered": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "requirements_covered": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  }
+}
