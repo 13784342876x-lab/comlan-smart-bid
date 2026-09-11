@@ -1017,7 +1017,7 @@ class TechnicalWritingAgent:
                 ),
                 tools=[],
                 tool_choice="none",
-                options={"stream": False},
+                options={"stream": False, "reasoning_effort": "low"},
                 request_metadata={
                     "target_id": self.tool_context._target_id,
                     "agent_step": step,

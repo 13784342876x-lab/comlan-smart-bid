@@ -969,7 +969,11 @@ def build_tool_request_kwargs(
         extra_body = filtered_extra_body(profile)
         if extra_body:
             kwargs["extra_body"] = extra_body
-        apply_reasoning_effort(profile, kwargs)
+        apply_reasoning_effort(
+            profile,
+            kwargs,
+            override=options.get("reasoning_effort"),
+        )
         if options.get("stream"):
             kwargs["stream"] = True
             if profile.capabilities.supports_usage_in_stream:
@@ -998,7 +1002,11 @@ def build_tool_request_kwargs(
         extra_body = filtered_extra_body(profile)
         if extra_body:
             kwargs["extra_body"] = extra_body
-        apply_reasoning_effort(profile, kwargs)
+        apply_reasoning_effort(
+            profile,
+            kwargs,
+            override=options.get("reasoning_effort"),
+        )
         if options.get("stream"):
             kwargs["stream"] = True
         return "client.responses.create", kwargs
@@ -1023,8 +1031,13 @@ def apply_token_limit(
 TOKEN_LIMIT_KEYS = {"max_tokens", "max_completion_tokens", "max_output_tokens"}
 
 
-def apply_reasoning_effort(profile: LLMProfile, kwargs: dict[str, Any]) -> None:
-    effort = profile.request_mapping.reasoning_effort
+def apply_reasoning_effort(
+    profile: LLMProfile,
+    kwargs: dict[str, Any],
+    *,
+    override: str | None = None,
+) -> None:
+    effort = str(override or profile.request_mapping.reasoning_effort or "").strip()
     if profile.request_mapping.thinking_enabled and effort:
         kwargs["reasoning_effort"] = effort
 

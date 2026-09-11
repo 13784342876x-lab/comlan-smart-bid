@@ -17,6 +17,7 @@ from app.llm_errors import (
 )
 from app.llm_profiles import (
     LLMProfile,
+    RequestMapping,
     list_profile_summaries,
     profile_from_mapping,
     resolve_profile,
@@ -554,6 +555,28 @@ def test_empty_output_preserves_response_metadata_and_never_repairs():
     assert "repair failed" not in str(caught.value)
     assert "private reasoning must not persist" not in json.dumps(diagnostics, ensure_ascii=False)
     assert len(sdk.endpoint.calls) == 1
+
+
+def test_tool_turn_can_lower_reasoning_effort_without_mutating_profile():
+    mapping = RequestMapping(thinking_enabled=True, reasoning_effort="high")
+    client, sdk, _ = make_client(
+        [fake_response({"answer": "ok"}, mode="chat")],
+        api_mode="chat_completions",
+        structured_output_mode="prompt_json",
+        request_mapping=mapping,
+        extra_body={"thinking": {"type": "enabled"}},
+    )
+
+    result = client.run_with_tools(
+        messages=[{"role": "user", "content": "finalize"}],
+        tools=[],
+        tool_choice="none",
+        options={"stream": False, "reasoning_effort": "low"},
+    )
+
+    assert result.final_content == json.dumps({"answer": "ok"}, ensure_ascii=False)
+    assert sdk.endpoint.calls[0]["reasoning_effort"] == "low"
+    assert client.profile.request_mapping.reasoning_effort == "high"
 
 
 def test_smoke_empty_output_reports_extraction_stage_and_reasoning_usage(tmp_path):

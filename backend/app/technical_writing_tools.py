@@ -907,6 +907,15 @@ class TechnicalWritingToolContext:
         for value in sections:
             section_id = str(value.get("section_id") or "")
             title = str(value.get("title") or "")
+            if (
+                self.target_chapter_id
+                and self._target.get("children")
+                and title.strip() == str(self._target.get("title") or "").strip()
+                and section_id.strip() in {"", str(self.target_chapter_id)}
+            ):
+                raise PermissionError(
+                    "chapter title cannot be saved as an extra section"
+                )
             if section_id and not _contains_id(self._target, section_id):
                 raise PermissionError("section is outside the runtime target")
             normalized = {

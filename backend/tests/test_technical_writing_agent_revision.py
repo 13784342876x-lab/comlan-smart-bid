@@ -466,6 +466,7 @@ def test_unrepairable_final_json_gets_one_clean_tool_free_fresh_final(
     fresh_call = model.calls[-1]
     assert fresh_call["tools"] == []
     assert fresh_call["kwargs"]["tool_choice"] == "none"
+    assert fresh_call["kwargs"]["options"]["reasoning_effort"] == "low"
     fresh_messages = json.dumps(fresh_call["messages"], ensure_ascii=False)
     assert invalid_output not in fresh_messages
     assert "应说明项目准备和执行安排" in fresh_messages

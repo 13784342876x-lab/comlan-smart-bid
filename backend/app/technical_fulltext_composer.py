@@ -13,6 +13,10 @@ from typing import Any, Iterable
 
 from jsonschema import Draft202012Validator
 
+from app.candidate_section_canonicalizer import (
+    CandidateCanonicalizationError,
+    canonicalize_trusted_legacy_candidate,
+)
 
 MANIFEST_SCHEMA_VERSION = "technical_fulltext_build_manifest_v2"
 INDEX_SCHEMA_VERSION = "technical_fulltext_chapter_production_index_v1"
@@ -71,6 +75,7 @@ class ChapterArtifact:
     run_sha256: str
     events_sha256: str
     event_count: int
+    canonicalization: dict[str, Any]
 
 
 def utc_now() -> str:
@@ -391,6 +396,8 @@ def validate_chapter_artifact_pair(
     expected_run_sha256: str | None = None,
     expected_events_sha256: str | None = None,
     expected_output_key: str | None = None,
+    expected_outline_sha256: str | None = None,
+    actual_outline_sha256: str | None = None,
     validate_structure: bool = True,
     require_submission_ready: bool = False,
 ) -> tuple[ChapterArtifact | None, list[dict[str, Any]]]:
@@ -540,7 +547,34 @@ def validate_chapter_artifact_pair(
     if any(item["code"] in fatal_codes for item in issues):
         return None, issues
     outline_sections = tuple(build_standard_section_index(outline_chapter))
+    canonicalization: dict[str, Any] = {}
     if validate_structure:
+        try:
+            canonical_view = canonicalize_trusted_legacy_candidate(
+                candidate=candidate,
+                run=run,
+                chapter_id=chapter_id,
+                output_key=str(expected_output_key or run_output_key or ""),
+                source_candidate_sha256=candidate_sha,
+                expected_candidate_sha256=expected_candidate_sha256,
+                expected_outline_sha256=expected_outline_sha256,
+                actual_outline_sha256=actual_outline_sha256,
+                expected_sections=[
+                    {"section_id": item.section_id, "section_title": item.title}
+                    for item in outline_sections
+                ],
+                expected_chapter_title=str(outline_chapter.get("title") or ""),
+            )
+            candidate = canonical_view.candidate
+            canonicalization = canonical_view.lineage
+        except CandidateCanonicalizationError as exc:
+            issues.append(_issue(
+                code="candidate_section_canonicalization_failed",
+                category="structure",
+                message=str(exc),
+                chapter_id=chapter_id,
+                source_paths=[candidate_file, run_file],
+            ))
         issues.extend(_validate_candidate_structure(
             chapter_id, outline_chapter, outline_sections, candidate, candidate_file
         ))
@@ -560,6 +594,7 @@ def validate_chapter_artifact_pair(
         run_sha256=run_sha,
         events_sha256=events_sha or "",
         event_count=event_count,
+        canonicalization=canonicalization,
     ), issues
 
 
@@ -730,6 +765,8 @@ class TechnicalFulltextComposer:
                 expected_run_sha256=str(entry.get("run_json_sha256") or ""),
                 expected_events_sha256=str(entry.get("events_jsonl_sha256") or ""),
                 expected_output_key=output_key,
+                expected_outline_sha256=str((production.get("standard_outline") or {}).get("sha256") or ""),
+                actual_outline_sha256=outline_sha,
                 validate_structure=True,
                 # Content/release blockers belong to the chapter Agent and later
                 # review stages.  Composition only requires a trustworthy,
@@ -1305,6 +1342,7 @@ class TechnicalFulltextComposer:
             "source": {
                 "candidate_json_path": str(artifact.candidate_path),
                 "candidate_json_sha256": artifact.candidate_sha256,
+                "candidate_canonicalization": deepcopy(artifact.canonicalization),
                 "run_json_path": str(artifact.run_path),
                 "run_json_sha256": artifact.run_sha256,
                 "events_jsonl_path": str(artifact.events_path),

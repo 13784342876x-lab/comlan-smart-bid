@@ -238,6 +238,49 @@ def test_planning_tools_are_scoped_and_do_not_load_parameter_table(tmp_path):
     assert "超融合系统\t" not in json.dumps(requirements, ensure_ascii=False)
 
 
+@pytest.mark.parametrize("section_id", ["", "WC-003"])
+def test_save_section_draft_rejects_redundant_chapter_title_wrapper(
+    tmp_path, section_id
+):
+    context = make_context(tmp_path)
+
+    with pytest.raises(
+        PermissionError, match="chapter title cannot be saved as an extra section"
+    ):
+        context.save_section_draft(
+            {
+                "sections": [
+                    {
+                        "section_id": section_id,
+                        "title": "实施部署方案",
+                        "content": "章引言",
+                    }
+                ]
+            }
+        )
+
+    assert context.saved_sections == []
+
+
+def test_save_section_draft_still_accepts_normal_outline_section(tmp_path):
+    context = make_context(tmp_path)
+
+    result = context.save_section_draft(
+        {
+            "sections": [
+                {
+                    "section_id": "WC-003-01",
+                    "title": HEADINGS[0],
+                    "content": "正常小节正文",
+                }
+            ]
+        }
+    )
+
+    assert result["section_count"] == 1
+    assert context.saved_sections[0]["section_id"] == "WC-003-01"
+
+
 def test_local_knowledge_returns_candidates_excludes_mock_and_never_confirms(tmp_path):
     registry = build_technical_tool_registry(make_context(tmp_path))
     result = registry.execute(
