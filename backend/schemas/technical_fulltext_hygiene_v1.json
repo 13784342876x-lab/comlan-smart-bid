@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "technical_fulltext_hygiene_v1.json",
-  "title": "Stage 11-E Technical Fulltext Hygiene",
+  "title": "Stage11.0 Fulltext Hygiene (historical alias Stage11-E)",
   "type": "object",
   "additionalProperties": false,
   "required": [

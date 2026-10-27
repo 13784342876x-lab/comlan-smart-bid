@@ -18,14 +18,18 @@ from app.technical_fulltext_composer import (
     stable_json_sha256,
     utc_now,
 )
+from app.technical_fulltext_scoring_assessment import (
+    SCHEMA_VERSION as SCORING_ASSESSMENT_SCHEMA_VERSION,
+    TechnicalFulltextScoringAssessor,
+)
 
 
 FINALIZATION_POLICY_VERSION = "fulltext_audit_severity_policy_v1"
-FINAL_MARKDOWN_NOTICE = "Stage ⑪-D 全文机器审计确定性收口已完成。"
+FINAL_MARKDOWN_NOTICE = "Stage11.4 全文机器审计收口已完成（历史别名 Stage11-D）。"
 
 
 class TechnicalFulltextAuditFinalizationError(RuntimeError):
-    """Raised when an existing Stage 11-C artifact cannot be finalized safely."""
+    """Raised when an existing Stage11.3 handoff cannot be finalized safely."""
 
 
 # No fallback exists by design. New semantic issue codes must be reviewed here first.
@@ -36,6 +40,7 @@ AUDIT_SEVERITY_POLICY: dict[tuple[str, str], tuple[str, bool]] = {
     ("global_consistency", "numeric_value_conflict"): ("blocking", True),
     ("global_consistency", "product_identity_conflict"): ("blocking", True),
     ("global_consistency", "person_identity_conflict"): ("blocking", True),
+    ("global_consistency", "stable_fact_conflict"): ("blocking", True),
     ("content_ownership", "coverage_content_mismatch"): ("blocking", True),
     ("content_ownership", "misplaced_content"): ("warning", False),
     ("content_ownership", "misplaced_requirement_content"): ("warning", False),
@@ -66,6 +71,9 @@ DECISION_VERDICTS: dict[str, str] = {
     "different_attribute": "acceptable",
     "commitment_conflict": "issue",
     "value_conflict": "issue",
+    "consistent": "acceptable",
+    "context_different": "acceptable",
+    "stable_fact_conflict": "issue",
     "same_entity_variant": "issue",
     "different_entity": "acceptable",
     "acceptable_context": "acceptable",
@@ -91,6 +99,9 @@ PASS_DECISIONS: dict[str, set[str]] = {
     "numeric_consistency": {
         "acceptable", "different_attribute", "commitment_conflict",
         "value_conflict", "uncertain",
+    },
+    "cross_section_stable_fact_consistency": {
+        "consistent", "context_different", "stable_fact_conflict", "uncertain",
     },
     "terminology_consistency": {
         "same_entity_variant", "different_entity", "acceptable_context", "uncertain",
@@ -164,11 +175,12 @@ class TechnicalFulltextAuditFinalizer:
             TechnicalFulltextAuditor()._validate_audit_payload(payload)
         except (FileNotFoundError, OSError, ValueError, TechnicalFulltextAuditError) as exc:
             raise TechnicalFulltextAuditFinalizationError(
-                f"Stage 11-C audit artifact is unavailable or invalid: {exc}"
+                f"Stage11.3 audit handoff is unavailable or invalid: {exc}"
             ) from exc
 
         self._validate_preconditions(payload)
         self._revalidate_source_snapshot(payload)
+        scoring_assessment = self._revalidate_scoring_assessment(payload)
         findings = self._validate_semantic_findings(payload)
 
         finalization_completed = (
@@ -256,6 +268,9 @@ class TechnicalFulltextAuditFinalizer:
             "merged_issue_count": len(final_issues),
             "final_issue_count": len(final_issues),
             "uncertain_count": uncertain_count,
+            "scoring_assessment_id": scoring_assessment["assessment_id"],
+            "scoring_item_count": len(scoring_assessment["score_items"]),
+            "technical_score_max": scoring_assessment["summary"]["technical_score_max"],
             "finalized_at": utc_now(),
         }
         updated["generated_at"] = utc_now()
@@ -263,7 +278,7 @@ class TechnicalFulltextAuditFinalizer:
 
         if sha256_file(target) != original_sha:
             raise TechnicalFulltextAuditFinalizationError(
-                "Stage 11-C audit artifact changed during finalization"
+                "Stage11.2 audit artifact changed during finalization"
             )
         self._revalidate_source_snapshot(payload)
         markdown = self._render_markdown(updated)
@@ -283,6 +298,7 @@ class TechnicalFulltextAuditFinalizer:
             "issues": deepcopy(final_issues),
             "semantic_finding_dispositions": deepcopy(dispositions),
             "confirmation_relationships": deepcopy(relationships),
+            "scoring_assessment_ref": deepcopy(updated["scoring_assessment_ref"]),
             "outputs": {
                 "technical_fulltext_audit_json": str(target),
                 "technical_fulltext_audit_json_sha256": sha256_file(target),
@@ -309,10 +325,57 @@ class TechnicalFulltextAuditFinalizer:
             raise TechnicalFulltextAuditFinalizationError(
                 "semantic_audit status must be completed"
             )
+        if passes.get("scoring", {}).get("status") != "completed":
+            raise TechnicalFulltextAuditFinalizationError(
+                "Stage11.3 scoring assessment must be completed before Stage11.4"
+            )
+        scoring_ref = payload.get("scoring_assessment_ref") or {}
+        if scoring_ref.get("status") != "completed":
+            raise TechnicalFulltextAuditFinalizationError(
+                "scoring_assessment_ref must be completed before Stage11.4"
+            )
         if payload.get("release_ready") is not False:
             raise TechnicalFulltextAuditFinalizationError(
                 "Stage 11 finalization input must remain release_ready=false"
             )
+
+    @staticmethod
+    def _revalidate_scoring_assessment(payload: dict[str, Any]) -> dict[str, Any]:
+        reference = payload.get("scoring_assessment_ref") or {}
+        target = Path(str(reference.get("path") or "")).expanduser().resolve()
+        try:
+            assessment = load_json_object(target, label="technical fulltext scoring assessment")
+        except (FileNotFoundError, ValueError, OSError) as exc:
+            raise TechnicalFulltextAuditFinalizationError(
+                f"Stage11.3 scoring assessment is unavailable: {exc}"
+            ) from exc
+        if reference.get("schema_version") != SCORING_ASSESSMENT_SCHEMA_VERSION:
+            raise TechnicalFulltextAuditFinalizationError(
+                "scoring assessment reference schema is unsupported"
+            )
+        if sha256_file(target) != reference.get("sha256"):
+            raise TechnicalFulltextAuditFinalizationError(
+                "scoring assessment SHA does not match the Stage11 handoff"
+            )
+        try:
+            TechnicalFulltextScoringAssessor()._validate_payload(assessment)
+        except Exception as exc:
+            raise TechnicalFulltextAuditFinalizationError(
+                f"scoring assessment contract is invalid: {exc}"
+            ) from exc
+        audited = (payload.get("source_lineage") or {}).get("audited_fulltext") or {}
+        scoring_audited = assessment.get("audited_fulltext") or {}
+        if (
+            assessment.get("document_id") != payload.get("document_id")
+            or assessment.get("output_key") != payload.get("output_key")
+            or scoring_audited.get("document_id") != audited.get("document_id")
+            or scoring_audited.get("content_sha256") != audited.get("content_sha256")
+            or scoring_audited.get("file_sha256") != audited.get("file_sha256")
+        ):
+            raise TechnicalFulltextAuditFinalizationError(
+                "scoring assessment is not bound to the audited fulltext"
+            )
+        return assessment
 
     @staticmethod
     def _revalidate_source_snapshot(payload: dict[str, Any]) -> None:
@@ -700,8 +763,9 @@ class TechnicalFulltextAuditFinalizer:
             "- release_ready：false",
             "- Deterministic Audit：completed",
             "- Semantic Audit：completed",
+            "- Scoring Assessment：completed",
             "- Finalization：completed",
-            "- Stage ⑪-D 模型调用：0",
+            "- Stage11.4（历史 Stage11-D）模型调用：0",
             "",
             "## 2. 正式全文问题",
             "",
@@ -772,6 +836,8 @@ class TechnicalFulltextAuditFinalizer:
             f"- promoted：{finalization['promoted_findings']}",
             f"- accepted disposition：{finalization['accepted_findings']}",
             f"- human review disposition：{finalization['human_review_findings']}",
+            f"- Scoring item：{finalization['scoring_item_count']}",
+            f"- Technical score max：{finalization['technical_score_max']}",
             "",
             "## 6. Coverage / Candidate 摘要",
             "",
@@ -779,6 +845,7 @@ class TechnicalFulltextAuditFinalizer:
             f"- Requirement location candidates：{len(candidates['requirement_location_mismatches'])}",
             f"- Score distribution candidates：{len(candidates['score_distribution'])}",
             f"- Numeric candidates：{len(candidates['numeric_facts'])}",
+            f"- Cross-section stable fact candidates：{len(candidates.get('stable_fact_consistency') or [])}",
             f"- Terminology candidates：{len(candidates['terminology'])}",
             f"- Near duplicate candidates：{len(candidates['duplicate_pairs'])}",
             "",

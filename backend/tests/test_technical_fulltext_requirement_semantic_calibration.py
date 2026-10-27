@@ -384,6 +384,60 @@ def test_table_summary_context_requires_safe_insufficient_exit_in_prompt() -> No
     assert "never missing merely because Markdown omitted the cells" in prompt
 
 
+def test_requirement_unit_reuses_existing_tender_table_cells_without_claiming_response_visibility() -> None:
+    audit, context, trust, _ = _calibration_audit(
+        case_name="source_table_cells",
+        primary_heading="Point-by-point response table",
+        primary_block_type="required_response_table",
+        primary_text="The response table is pending confirmed product values.",
+        outside_heading="Source requirement reference",
+        outside_block_type="general",
+        outside_text="Tender parameter source reference.",
+    )
+    point = context["response_outline"]["response_points"][0]
+    point.update({
+        "node_type": "table",
+        "content_type": "table",
+        "source_refs": [{
+            "table_name": "Procurement requirements",
+            "table_range": "A1:C2",
+        }],
+        "table": {
+            "rows": [
+                {"row": 1, "cells": [
+                    {"row": 1, "column": 1, "text": "Item"},
+                    {"row": 1, "column": 2, "text": "Parameter"},
+                    {"row": 1, "column": 3, "text": "Quantity"},
+                ]},
+                {"row": 2, "cells": [
+                    {"row": 2, "column": 1, "text": "Node"},
+                    {"row": 2, "column": 2, "text": "CPU >= 64 cores"},
+                    {"row": 2, "column": 3, "text": "8"},
+                ]},
+            ]
+        },
+    })
+
+    service = TechnicalFulltextSemanticAuditor(llm_client=CalibrationFakeLLM())
+    unit = service._build_units(audit, context=context, trust=trust)[0][
+        "requirement_location"
+    ][0]
+    source_table = unit.payload["requirement_source_metadata"]["source_table"]
+
+    assert source_table["visibility"] == "structured_cells"
+    assert source_table["source_role"] == "tender_requirement_source_only"
+    assert source_table["is_bid_response_evidence"] is False
+    assert source_table["row_count"] == 2
+    assert source_table["column_count"] == 3
+    assert source_table["table_range"] == "A1:C2"
+    assert {item["text"] for item in source_table["cells"]} >= {
+        "Parameter", "CPU >= 64 cores", "8"
+    }
+    assert unit.payload["expected_response_form_context"][
+        "table_content_visibility"
+    ] == "summary_only"
+
+
 def test_inconsistent_requirement_observation_is_rejected() -> None:
     audit, context, trust, _ = _calibration_audit(
         case_name="inconsistent",

@@ -2,232 +2,195 @@ import hashlib
 import json
 from pathlib import Path
 
-from app.company_writing_outline import (
-    load_company_outline,
-    normalize_company_outline,
-    validate_company_outline,
-)
+from app.company_writing_outline import load_company_outline, validate_company_outline
+from app.response_outline_builder import apply_project_score_mappings_to_technical_outline
+from app.score_table_locator import build_score_items_from_location
+from app.source_package_service import apply_project_profile_to_score_parse
 from app.technical_writing_outline_adapter import (
     adapt_technical_writing_outline,
-    build_technical_writing_outline_files,
+    extract_procurement_targets,
+    infer_project_type,
 )
-from app.tender_writing_format_analyzer import analyze_tender_writing_format
 
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
 COMPANY_PATH = BACKEND_DIR / "resources" / "writing" / "company_master_outline_v0.json"
-RESPONSE_PATH = (
-    BACKEND_DIR
-    / "outputs"
-    / "hospital_hci_001"
-    / "outline"
-    / "technical_response_outline.json"
-)
 
 
-def _sources():
-    return load_company_outline(COMPANY_PATH), json.loads(RESPONSE_PATH.read_text(encoding="utf-8"))
-
-
-def _adapted():
-    company, response = _sources()
-    return adapt_technical_writing_outline(company, response)
-
-
-def _nodes(chapters):
-    for chapter in chapters:
-        yield chapter
-        yield from _nodes(chapter.get("children") or [])
-
-
-def _module(outline, module_id):
-    return next(
-        chapter
-        for chapter in outline["chapters"]
-        if module_id in chapter["company_outline_node_ids"]
-    )
-
-
-def _point_mappings(outline, point_id):
-    return [
-        (node["title"], mapping["mapping_role"])
-        for node in _nodes(outline["chapters"])
-        for mapping in node["response_point_mappings"]
-        if mapping["response_point_id"] == point_id
-    ]
-
-
-def test_company_outline_loads_and_validates_actual_schema():
-    company = load_company_outline(COMPANY_PATH)
-    result = validate_company_outline(company)
-
-    assert company["schema_version"] == "company_technical_writing_outline_v0"
-    assert result == {
-        "valid": True,
-        "errors": [],
-        "warnings": ["generated 87 stable node_id values from full paths"],
-        "chapter_count": 13,
-        "node_count": 100,
-        "max_depth": 2,
+def _point(point_id: str, heading: str, text: str, *, content_type: str = "paragraph", table=None):
+    point = {
+        "point_id": point_id,
+        "original_heading": heading,
+        "original_text": text,
+        "content_type": content_type,
+        "mandatory_marker": "",
+        "source_refs": [{"file_name": "current.docx", "clause_path": heading}],
     }
+    if table is not None:
+        point["table"] = table
+    return point
 
 
-def test_normalization_generates_stable_ids_without_changing_titles():
-    source = {"chapters": [{"title": "第一章", "children": [{"title": "第一节"}]}]}
-    first = normalize_company_outline(source)
-    second = normalize_company_outline(source)
-
-    assert first == second
-    assert first["chapters"][0]["node_id"].startswith("CON-")
-    assert first["chapters"][0]["children"][0]["title"] == "第一节"
-    assert "node_id" not in source["chapters"][0]
-
-
-def test_validation_reports_duplicate_ids_empty_titles_and_orphans():
-    duplicate = validate_company_outline(
-        {"nodes": [{"node_id": "N-1", "title": "甲"}, {"node_id": "N-1", "title": "乙"}]}
-    )
-    empty = validate_company_outline({"nodes": [{"node_id": "N-1", "title": ""}]})
-    orphan = validate_company_outline(
-        {"nodes": [{"node_id": "N-2", "title": "乙", "parent_id": "MISSING"}]}
-    )
-
-    assert "duplicate node_id: N-1" in duplicate["errors"]
-    assert "empty title: N-1" in empty["errors"]
-    assert "orphan parent_id: MISSING" in orphan["errors"]
-
-
-def test_flat_parent_and_level_sources_recover_a_tree():
-    parent_based = normalize_company_outline(
-        {
-            "nodes": [
-                {"node_id": "ROOT", "title": "根", "level": 1},
-                {"node_id": "CHILD", "parent_id": "ROOT", "title": "子"},
+def _response() -> dict:
+    procurement = _point(
+        "TR-001",
+        "*2.采购内容",
+        "采购内容",
+        content_type="table",
+        table={
+            "rows": [
+                {"row": 1, "cells": [{"column": 1, "text": "序号"}, {"column": 2, "text": "服务名称"}]},
+                {"row": 2, "cells": [{"column": 1, "text": "1"}, {"column": 2, "text": "软件订阅服务"}]},
             ]
+        },
+    )
+    software = _point("TR-002", "1.软件服务部分", "提供远程安装支持、订阅授权及技术支持服务。", content_type="table")
+    personnel = _point("TR-003", "人员要求", "提供专业技术人员完成服务。")
+    return {
+        "schema_version": "technical_response_outline_v2",
+        "chapters": [
+            {
+                "chapter_id": "CH-001",
+                "title": "总体技术要求",
+                "source_category": "technical_specification",
+                "sections": [],
+                "response_points": [procurement, software, personnel],
+            }
+        ],
+        "display_blocks": [],
+    }
+
+
+def _project(count: int = 3) -> dict:
+    scores = [
+        {
+            "id": f"technical_{index:02d}",
+            "item_name": f"服务方案要点{index}",
+            "score_rule": "服务内容、人员和实施安排应满足采购要求。",
+            "score": float(index),
+            "category": "technical",
+            "source_template_name": "服务类技术评分",
         }
-    )
-    level_based = normalize_company_outline(
-        {"nodes": [{"title": "根", "level": 1}, {"title": "子", "level": 2}]}
-    )
-
-    assert parent_based["chapters"][0]["children"][0]["node_id"] == "CHILD"
-    assert level_based["chapters"][0]["children"][0]["title"] == "子"
-
-
-def test_hospital_format_is_forms_only_with_unlocked_order():
-    _, response = _sources()
-    analysis = analyze_tender_writing_format(response)
-
-    assert analysis["format_mode"] == "forms_only"
-    assert analysis["order_locked"] is False
-    assert any(form["title"] == "技术要求点对点应答表" for form in analysis["required_forms"])
-    assert "GENERIC_FORMAT_REFERENCE_NOT_TREATED_AS_FULL_OUTLINE" in analysis["reasoning_codes"]
-
-
-def test_company_outline_remains_body_skeleton_and_form_is_inserted():
-    outline, report, _ = _adapted()
-    traced_module_ids = {
-        item["module_id"] for item in outline["module_adaptations"]
+        for index in range(1, count + 1)
+    ]
+    return {
+        "score_items": scores,
+        "generation_tasks": [
+            {
+                "task_id": f"task_{index:03d}",
+                "task_type": "technical",
+                "task_name": item["item_name"],
+                "related_score_item_ids": [item["id"]],
+                "related_requirements": [item["score_rule"]],
+            }
+            for index, item in enumerate(scores, start=1)
+        ],
     }
-    titles = [node["title"] for node in _nodes(outline["chapters"])]
-
-    assert len(outline["chapters"]) == 8
-    assert len(traced_module_ids) == 13
-    assert "技术要求点对点应答表" in titles
-    assert any(item["title"] == "技术要求点对点应答表" for item in report["form_only_nodes"])
 
 
-def test_score_items_drive_renamed_and_specialized_sections():
-    outline, report, _ = _adapted()
-    titles = [node["title"] for node in _nodes(outline["chapters"])]
-
-    assert "方案完整性及系统架构设计" in titles
-    assert "实施部署方案" in titles
-    assert "绿色供应链管理方案" in titles
-    assert any(item["title"] == "培训方案评价" for item in outline["score_items"])
-
-
-def test_service_delivery_and_acceptance_requirements_map_to_expected_modules():
-    outline, _, _ = _adapted()
-
-    assert any(
-        any(term in title for term in ("售后服务", "服务", "保修", "维修"))
-        for title, _ in _point_mappings(outline, "TR-001")
-    )
-    assert any("实施周期" in title for title, _ in _point_mappings(outline, "TR-006"))
-    assert any("实施周期" in title for title, _ in _point_mappings(outline, "TR-007"))
-    assert any("验收" in title for title, _ in _point_mappings(outline, "TR-010"))
-
-
-def test_three_procurement_targets_become_detailed_solution_children():
-    outline, report, _ = _adapted()
-    detailed = _module(outline, "MODULE-DETAILED-SOLUTION")
-    child_titles = {child["title"] for child in detailed["children"]}
-
-    assert {
-        "超融合系统详细技术方案",
-        "超融合互联交换机技术方案",
-        "超融合节点技术方案",
-    } <= child_titles
-
-
-def test_every_response_point_and_every_star_point_is_covered():
-    outline, report, _ = _adapted()
-    coverage = outline["coverage"]
-
-    assert coverage["all_response_point_ids"] == coverage["mapped_response_point_ids"]
-    assert coverage["unmapped_response_point_ids"] == []
-    assert coverage["mandatory_unmapped_ids"] == []
-    assert coverage["response_point_coverage_rate"] == 1.0
-    assert coverage["mandatory_coverage_rate"] == 1.0
-    assert report["unmapped_response_points"] == []
-
-
-def test_procurement_table_has_primary_and_table_response_mappings():
-    outline, _, _ = _adapted()
-    roles = {role for _, role in _point_mappings(outline, "TR-018")}
-
-    assert {"primary", "table_response"} <= roles
-
-
-def test_adapter_does_not_generate_facts_parameters_body_or_external_plans():
-    outline, _, _ = _adapted()
-    serialized = json.dumps(outline, ensure_ascii=False)
-
-    assert outline["content_generation"] == {
-        "body_generated": False,
-        "facts_populated": False,
-        "external_research_used": False,
-        "enterprise_knowledge_used": False,
-    }
-    assert all("body" not in node and "content" not in node for node in _nodes(outline["chapters"]))
-    assert "C86-4G" not in serialized
-    assert "knowledge_query" not in serialized
-    assert ".docx" not in " ".join(outline.keys()).lower()
-
-
-def test_markdown_and_four_output_files_are_reviewable_and_source_is_unchanged(tmp_path):
+def test_company_outline_is_unchanged_and_valid_after_adaptation():
     before = hashlib.sha256(COMPANY_PATH.read_bytes()).hexdigest()
-    result = build_technical_writing_outline_files(
-        COMPANY_PATH,
-        RESPONSE_PATH,
-        output_key="hospital_test",
-        output_dir=tmp_path,
+    company = load_company_outline(COMPANY_PATH)
+    response = _response()
+    apply_project_score_mappings_to_technical_outline(response, _project())
+    adapt_technical_writing_outline(company, response)
+
+    assert hashlib.sha256(COMPANY_PATH.read_bytes()).hexdigest() == before
+    assert validate_company_outline(company)["valid"] is True
+
+
+def test_profile_overlay_rematerializes_dynamic_components_and_combined_score_items():
+    score_parse = {
+        "technical_score_table_candidates": [
+            {"candidate_id": "other", "heading": "其他模板", "score_items": [{"id": "old", "category": "technical"}]},
+            {
+                "candidate_id": "selected",
+                "heading": "服务类技术评分",
+                "score_items": [
+                    {"id": "technical_1", "category": "technical", "generation_instruction": "a"},
+                    {"id": "technical_2", "category": "technical", "generation_instruction": "b"},
+                    {"id": "technical_3", "category": "technical", "generation_instruction": "c"},
+                ],
+            },
+        ],
+        "business_score_items": [{"id": "business_1", "category": "business", "generation_instruction": "d"}],
+        "technical_score_items": [{"id": "old", "category": "technical"}],
+        "price_score_rule": {"id": "price_1", "category": "price", "generation_instruction": "e"},
+    }
+    effective = apply_project_profile_to_score_parse(score_parse, {"technical_score_template": "服务类技术评分"})
+
+    assert [item["id"] for item in effective["technical_score_items"]] == ["technical_1", "technical_2", "technical_3"]
+    assert [item["category"] for item in effective["score_items"]] == ["business", "technical", "technical", "technical", "price"]
+    assert len(effective["generation_tasks"]) == 5
+
+
+def test_score_items_preserve_selected_table_and_row_provenance():
+    result = build_score_items_from_location(
+        {
+            "selected_technical_candidate_id": "tech",
+            "technical_score_table_candidates": [{"candidate_id": "tech", "table_index": 7, "heading": "服务类技术评分"}],
+            "weights": {},
+        },
+        [
+            {
+                "table_index": 7,
+                "rows": [["评分项", "评分标准"], ["服务方案", "服务承诺完整得5分"]],
+            }
+        ],
     )
-    after = hashlib.sha256(COMPANY_PATH.read_bytes()).hexdigest()
-    markdown = Path(result["files"]["technical_writing_outline_markdown"]).read_text(encoding="utf-8")
 
-    assert before == after
-    assert len(result["files"]) == 5
-    assert all(Path(path).is_file() for path in result["files"].values())
-    for label in ("来源类型", "公司大纲对应位置", "关联评分项", "关联响应点", "适配方式", "保留、改名或新增原因"):
-        assert label in markdown
-    assert "投标正文" in markdown and "技术要求点对点应答表" in markdown
+    item = result["technical_score_items"][0]
+    assert item["source_table"] == {"table_index": 7, "heading": "服务类技术评分"}
+    assert item["source_row"] == {"table_row_index": 2, "data_row_index": 1}
+    assert item["source_refs"][0]["row_or_cell"] == "row 2"
 
 
-def test_adaptation_is_stable_for_identical_inputs():
-    company, response = _sources()
-    first = adapt_technical_writing_outline(company, response)
-    second = adapt_technical_writing_outline(company, response)
+def test_v2_response_outline_allows_score_rows_without_forced_response_mapping():
+    response = _response()
+    apply_project_score_mappings_to_technical_outline(response, _project(3))
+    points = [point for chapter in response["chapters"] for point in chapter["response_points"]]
 
-    assert first == second
+    assert response["statistics"]["technical_score_item_count"] == 3
+    assert response["statistics"]["response_points_with_score_refs"] == 0
+    assert all("response_point_ids" in item for item in response["score_items"])
+    assert any(not item["response_point_ids"] for item in response["score_items"])
+    assert not any(point.get("score_item_refs") for point in points)
+
+
+def test_adapter_uses_generic_service_profile_optional_evidence_and_procurement_targets():
+    response = _response()
+    apply_project_score_mappings_to_technical_outline(response, _project())
+    company = load_company_outline(COMPANY_PATH)
+    writing, _, _ = adapt_technical_writing_outline(company, response)
+    titles = [
+        node["title"]
+        for chapter in writing["chapters"]
+        for node in [chapter, *(chapter.get("children") or [])]
+    ]
+    modules = {module for chapter in writing["chapters"] for module in chapter["module_ids"]}
+
+    assert infer_project_type(response, extract_procurement_targets(response)) == "technical_service_research"
+    assert extract_procurement_targets(response) == ["软件服务"]
+    assert "MODULE-TRAINING" not in modules
+    assert "MODULE-SPECIAL-TOPICS" not in modules
+    assert "绿色供应链管理方案" not in titles
+    assert not any("超融合" in title or "统一运维" in title for title in titles)
+    assert any("软件服务技术方案" == title for title in titles)
+    assert "软件订阅服务技术方案" not in titles
+    assert any(node.get("module_ids") and node.get("response_point_mappings") is not None and node.get("score_item_refs") is not None for chapter in writing["chapters"] for node in [chapter, *(chapter.get("children") or [])])
+
+
+def test_installation_alone_is_not_goods_but_equipment_integration_is():
+    service_response = _response()
+    goods_response = {
+        "chapters": [
+            {
+                "response_points": [
+                    _point("TR-001", "采购清单", "服务器、交换机和存储设备供货，完成系统集成、到货及安装部署。")
+                ]
+            }
+        ]
+    }
+
+    assert infer_project_type(service_response, []) == "technical_service_research"
+    assert infer_project_type(goods_response, []) == "goods_system_integration"

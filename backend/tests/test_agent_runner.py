@@ -39,6 +39,7 @@ def test_run_agent_mock_provider_returns_success():
             "evidence_refs": [],
             "missing_materials": [],
         },
+        provider="mock",
     )
 
     assert result["status"] == "success"
@@ -56,6 +57,7 @@ def test_output_schema_missing_is_graceful(tmp_path):
         "schema_missing_agent",
         {"task_name": "测试章节"},
         agents_dir=str(tmp_path / "agents"),
+        provider="mock",
     )
 
     assert result["status"] == "success"
@@ -63,7 +65,7 @@ def test_output_schema_missing_is_graceful(tmp_path):
 
 
 def test_agent_runner_output_has_no_bid_decision_language():
-    result = run_agent("business_writer", {"task_name": "商务响应", "outline": ["材料引用"]})
+    result = run_agent("business_writer", {"task_name": "商务响应", "outline": ["材料引用"]}, provider="mock")
     text = json.dumps(result, ensure_ascii=False).lower()
 
     forbidden = ["能投", "不能投", "建议投标", "不建议投标", "是否投标", "go/no-go"]

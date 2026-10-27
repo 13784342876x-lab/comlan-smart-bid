@@ -16,8 +16,12 @@ from typing import Any, Callable
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import ValidationError
 
+from app.candidate_section_canonicalizer import (
+    CandidateCanonicalizationError,
+    canonicalize_agent_candidate,
+)
 from app.llm_client import LLMClient, empty_usage, get_llm_client
-from app.llm_errors import ModelJsonParseError
+from app.llm_errors import ModelError, ModelJsonParseError, ModelOutputIncompleteError
 from app.metadata_store import MetadataStore
 from app.openai_compatible_llm_client import (
     parse_json_object,
@@ -27,6 +31,7 @@ from app.openai_compatible_llm_client import (
 from app.technical_agent_events import TechnicalAgentEventEmitter
 from app.technical_placeholders import (
     PLACEHOLDER_ID_PATTERN,
+    PLACEHOLDER_TOKEN_PATTERN,
     extract_placeholder_ids,
     extract_placeholder_references,
 )
@@ -42,6 +47,8 @@ from app.technical_writing_quality import (
     audit_generation_permissions,
     build_rule_application_plan,
     classify_deviation_status,
+    confirmation_baselines_from_generation_permissions,
+    confirmation_requirement,
     extract_tender_obligation_items,
     generation_permission_audit_errors,
     inspect_deviation_issues,
@@ -73,6 +80,9 @@ SYSTEM_PROMPT = """你是技术标章节写作 Agent。你必须自主按需调�
 冲突意见不得执行，必须保留招标要求并告警。
 事实边界：
 1. confirmed_fact 和带 confirmed evidence ID 的 selected knowledge 可以按确认值写入；不得改写或扩大。
+1a. Runtime提供的confirmed_business_choices是独立写作约束：true必须执行肯定约束，false必须执行否定约束，
+selection只能使用已确认选项，text只能按已确认指令写；pending_confirmations只能使用Runtime登记的稳定占位符，
+不得忽略、猜测或改写为项目事实、证明材料或评分已满足结论。
 2. 招标明确的商务、服务、工期、交付、培训、验收和履约基准，默认按原值响应并标记无偏离；
 产品功能、参数、人员、资质、业绩等客观证明事项不能仅凭无偏离意向写成已确认事实。
 3. local knowledge 返回的 candidate 不等于 confirmed，不得自动选择人员、业绩或资质。
@@ -123,6 +133,7 @@ RECOVERABLE_AUXILIARY_TOOL_NAMES = frozenset({
     "get_writing_scope",
     "get_response_requirements",
     "get_task_information",
+    "get_resolved_task_context",
     "get_draft_plan",
     "get_confirmed_project_facts",
     "query_local_knowledge",
@@ -167,6 +178,12 @@ class TechnicalWritingAgentInput:
     target_section_id: str | None = None
     draft_units_path: str | Path | None = None
     confirmed_project_facts_path: str | Path | None = None
+    writing_constraint_context: dict[str, Any] | None = None
+    tender_metadata: dict[str, Any] | None = None
+    stage12_approved_facts: tuple[dict[str, Any], ...] = ()
+    stage12_approved_material_refs: tuple[dict[str, Any], ...] = ()
+    stage12_prohibited_inferences: tuple[dict[str, Any], ...] = ()
+    stage12_acceptance_criteria: tuple[str, ...] = ()
     user_instruction: str = ""
     user_instruction_sources: tuple[dict[str, Any], ...] = ()
     user_instruction_summary: str = ""
@@ -198,6 +215,10 @@ class TechnicalWritingAgent:
     instruction_scope: str = "once"
     writing_rules: WritingRules | None = None
     project_constraints: dict[str, Any] | None = None
+    stage12_approved_facts: tuple[dict[str, Any], ...] = ()
+    stage12_approved_material_refs: tuple[dict[str, Any], ...] = ()
+    stage12_prohibited_inferences: tuple[dict[str, Any], ...] = ()
+    stage12_acceptance_criteria: tuple[str, ...] = ()
 
     def run(
         self,
@@ -240,7 +261,9 @@ class TechnicalWritingAgent:
                 data={"phase": value, "phase_label": phase_labels.get(value, value)},
             )
 
-        expected_sections = list(self.tool_context._target.get("children") or [])
+        expected_sections = list(self.tool_context._target.get("children") or []) or [
+            self.tool_context._target
+        ]
         expected_section_count = len(expected_sections)
         target_title = str(self.tool_context._target.get("title") or "")
         user_instruction_present = bool(self.user_instruction.strip())
@@ -357,7 +380,7 @@ class TechnicalWritingAgent:
             "用户未提供 task_id、draft_unit_id 或 response_point_id。"
             "首次决策应尽量在同一响应中批量调用彼此独立的基础上下文工具："
             "get_writing_scope、get_response_requirements、get_task_information、"
-            "可用时的get_draft_plan与get_confirmed_project_facts。"
+            "get_resolved_task_context、可用时的get_draft_plan与get_confirmed_project_facts。"
             "自主判断是否查询候选材料、联网或记录人工确认。"
             f"本轮Web Search策略为{self.web_search_policy}；"
             "auto不要求搜索，required要求完成有效外部核验或明确记录无法充分核验，"
@@ -424,11 +447,24 @@ class TechnicalWritingAgent:
                 separators=(",", ":"),
             )
         )
+        resolved_task_context = self.tool_context.get_resolved_task_context({})
+        writing_constraints_message = (
+            "[Resolved Task Context]\n"
+            + json.dumps(
+                resolved_task_context,
+                ensure_ascii=False,
+                separators=(",", ":"),
+            )
+            + "\nconfirmed_business_choices必须作为业务写作约束使用，不得写入Project Fact或证据结论。"
+            "negative_constraint表示明确不得作出该承诺；selected_option只能采用已确认选项。"
+            "pending_confirmations已由Runtime登记稳定占位符，不得静默忽略或自行选择答案。"
+        )
         clean_task_message = task_message
         clean_original_context = {
             "writing_scope": self.tool_context.get_writing_scope({}),
             "tender_requirements": self.tool_context.get_response_requirements({}),
             "task_information": self.tool_context.get_task_information({}),
+            "resolved_task_context": resolved_task_context,
             "draft_plan": self.tool_context.get_draft_plan({}),
             "confirmed_project_facts": self.tool_context.get_confirmed_project_facts({}),
             "tender_tables": deepcopy(self.tool_context.tender_tables),
@@ -442,7 +478,77 @@ class TechnicalWritingAgent:
             local_evidence_refs=deepcopy(
                 self.tool_context.local_evidence_refs
             ),
+            stage12_approved_facts=list(self.stage12_approved_facts),
         )
+        fresh_final_target_contract: dict[str, Any] = {}
+        fresh_final_schema = deepcopy(self.chapter_schema)
+        if based_on_existing_draft:
+            expected_section_specs = _expected_section_specs(
+                self.tool_context._target
+            )
+            active_pending_confirmations, _ = _active_pending_confirmations(
+                self.tool_context.pending_confirmations,
+                generation_permissions=section_fact_ledger,
+            )
+            required_placeholders = [
+                {
+                    "placeholder_id": str(item.get("placeholder_id") or ""),
+                    "placeholder_token": str(item.get("placeholder_token") or ""),
+                    "field": str(item.get("field") or ""),
+                }
+                for item in active_pending_confirmations
+                if isinstance(item, dict)
+                and item.get("placeholder_id")
+                and item.get("blocking", True)
+            ]
+            fresh_final_target_contract = {
+                "target_id": self.tool_context._target_id,
+                "canonical_target_title": target_title,
+                "target_is_leaf": not bool(
+                    self.tool_context._target.get("children")
+                ),
+                "expected_sections": expected_section_specs,
+                "expected_section_count": len(expected_section_specs),
+                "additional_sections_allowed": False,
+                "required_placeholder_ids": sorted(
+                    item["placeholder_id"] for item in required_placeholders
+                ),
+                "required_registered_placeholders": required_placeholders,
+                "existing_canonical_section_body": existing_draft,
+                "revision_instruction": self.user_instruction,
+            }
+            schema_properties = fresh_final_schema["properties"]
+            schema_properties["chapter_title"] = {
+                "type": "string",
+                "const": target_title,
+            }
+            sections_schema = schema_properties["sections"]
+            section_item_schema = deepcopy(sections_schema["items"])
+            prefix_items: list[dict[str, Any]] = []
+            for spec in expected_section_specs:
+                expected_item_schema = deepcopy(section_item_schema)
+                required_fields = list(expected_item_schema.get("required") or [])
+                if "section_id" not in required_fields:
+                    required_fields.append("section_id")
+                expected_item_schema["required"] = required_fields
+                expected_item_schema["properties"]["section_id"] = {
+                    "type": "string",
+                    "const": spec["section_id"],
+                }
+                expected_item_schema["properties"]["heading"] = {
+                    "type": "string",
+                    "const": spec["section_title"],
+                }
+                prefix_items.append(expected_item_schema)
+            sections_schema.pop("items")
+            sections_schema.update(
+                {
+                    "minItems": len(expected_section_specs),
+                    "maxItems": len(expected_section_specs),
+                    "prefixItems": prefix_items,
+                    "items": False,
+                }
+            )
         if user_instruction_present:
             task_message += (
                 "\n\n【本轮用户意见】\n"
@@ -483,6 +589,62 @@ class TechnicalWritingAgent:
             {"role": "system", "content": "[Agent System Rules]\n" + SYSTEM_PROMPT},
             {"role": "developer", "content": technical_rules_message},
             {"role": "developer", "content": project_constraints_message},
+            {"role": "developer", "content": writing_constraints_message},
+            *(
+                ({
+                    "role": "developer",
+                    "content": (
+                    "[Stage12 Approved Revision Inputs]\n"
+                    + json.dumps(
+                        {
+                            "approved_facts": list(self.stage12_approved_facts),
+                            "approved_material_refs": list(
+                                self.stage12_approved_material_refs
+                            ),
+                            "prohibited_inferences": list(
+                                self.stage12_prohibited_inferences
+                            ),
+                            "acceptance_criteria": list(
+                                self.stage12_acceptance_criteria
+                            ),
+                        },
+                        ensure_ascii=False,
+                        separators=(",", ":"),
+                    )
+                    + "\napproved_facts仅是本次修订已批准事实，保留FACT/FCA来源类型；"
+                    "不得写回Project Fact。approved_material_refs仅作为已核验材料引用，"
+                    "不得据此扩展材料中未给出的事实。prohibited_inferences不得推断；"
+                    "acceptance_criteria必须逐项满足。"
+                    ),
+                },)
+                if any(
+                    (
+                        self.stage12_approved_facts,
+                        self.stage12_approved_material_refs,
+                        self.stage12_prohibited_inferences,
+                        self.stage12_acceptance_criteria,
+                    )
+                )
+                else ()
+            ),
+            *(
+                ({
+                    "role": "developer",
+                    "content": (
+                        "[Targeted Existing-Draft Revision Contract]\n"
+                        + json.dumps(
+                            fresh_final_target_contract,
+                            ensure_ascii=False,
+                            separators=(",", ":"),
+                        )
+                        + "\nThis contract is mandatory. Return exactly the listed sections; "
+                        "do not create child or additional sections, and preserve every "
+                        "required registered placeholder token in meaningful context."
+                    ),
+                },)
+                if fresh_final_target_contract
+                else ()
+            ),
             {
                 "role": "developer",
                 "content": (
@@ -498,7 +660,7 @@ class TechnicalWritingAgent:
                 "role": "developer",
                 "content": (
                     "[Output Schema]\n最终响应必须严格遵循以下唯一章节Schema：\n"
-                    + json.dumps(self.chapter_schema, ensure_ascii=False, separators=(",", ":"))
+                    + json.dumps(fresh_final_schema, ensure_ascii=False, separators=(",", ":"))
                 ),
             },
             {"role": "user", "content": clean_task_message},
@@ -526,6 +688,7 @@ class TechnicalWritingAgent:
                 local_evidence_refs=deepcopy(
                     self.tool_context.local_evidence_refs
                 ),
+                stage12_approved_facts=list(self.stage12_approved_facts),
             )
             for message in messages:
                 if (
@@ -691,6 +854,7 @@ class TechnicalWritingAgent:
         force_final_after_repair_rejection = False
         automatic_repair_rounds: list[dict[str, Any]] = []
         fresh_repair_context: dict[str, Any] = {}
+        runtime_complete_working_draft_finalized = False
 
         def clean_regeneration_messages(instruction: str) -> list[dict[str, Any]]:
             evidence_snapshot = {
@@ -776,6 +940,7 @@ class TechnicalWritingAgent:
                 "get_writing_scope",
                 "get_response_requirements",
                 "get_task_information",
+                "get_resolved_task_context",
                 "get_draft_plan",
                 "get_confirmed_project_facts",
                 "query_local_knowledge",
@@ -927,17 +1092,17 @@ class TechnicalWritingAgent:
                 "targeted repair exceeded its bounded tool interaction steps"
             )
 
-        def attempt_fresh_final_after_json_failure(
+        def attempt_fresh_final_recovery(
             *,
-            initial_error: ModelJsonParseError,
-            raw_content: str,
+            initial_error: ModelJsonParseError | ModelOutputIncompleteError | None,
+            raw_content: str = "",
             step: int,
             source_stage: str,
             finish_reason: str | None,
         ) -> tuple[dict[str, Any], dict[str, Any]]:
             if fresh_final_generation["attempted"]:
                 raise ModelJsonParseError(
-                    "fresh final generation after JSON failure has already been attempted",
+                    "fresh final recovery has already been attempted",
                     diagnostics={
                         "repair_attempted": False,
                         "fresh_final_attempted": True,
@@ -945,60 +1110,70 @@ class TechnicalWritingAgent:
                     },
                 )
             profile = getattr(self.llm, "profile", None)
-            safe_error = _safe_model_error_summary(initial_error, profile=profile)
-            diagnostics = initial_error.safe_diagnostics()
-            debug = _save_invalid_model_output(
-                output_root=self.tool_context.output_root,
-                output_key=self.tool_context.output_key,
-                target_id=self.tool_context._target_id,
-                step=step,
-                content=raw_content,
-                secret=str(getattr(profile, "api_key", "") or ""),
+            safe_error = (
+                _safe_model_error_summary(initial_error, profile=profile)
+                if initial_error is not None
+                else None
             )
-            suspected_truncation = bool(
-                diagnostics.get("suspected_truncation")
-                or suspected_json_truncation(
-                    raw_content,
-                    finish_reason=finish_reason,
-                    usage=diagnostics.get("usage"),
-                    max_output_tokens=getattr(profile, "max_output_tokens", None),
-                    error_summary=str(diagnostics.get("json_error_summary") or ""),
+            diagnostics = (
+                initial_error.safe_diagnostics()
+                if initial_error is not None
+                else {}
+            )
+            if isinstance(initial_error, ModelJsonParseError):
+                debug = _save_invalid_model_output(
+                    output_root=self.tool_context.output_root,
+                    output_key=self.tool_context.output_key,
+                    target_id=self.tool_context._target_id,
+                    step=step,
+                    content=raw_content,
+                    secret=str(getattr(profile, "api_key", "") or ""),
                 )
-            )
-            model_json_repair.update(
-                {
-                    "attempted": False,
-                    "succeeded": False,
-                    "initial_error": safe_error,
-                    "raw_output_saved": debug["saved"],
-                    "raw_output_path": debug["path"],
-                    "raw_output_sha256": debug["sha256"],
-                    "suspected_truncation": suspected_truncation,
-                    "source_stage": source_stage,
-                    "diagnostics": {
-                        "model_step": step,
-                        "profile_name": self.profile_name
-                        or getattr(profile, "name", None),
-                        "api_style": getattr(profile, "api_style", None),
-                        "finish_reason": finish_reason,
-                        "content_character_count": len(raw_content),
-                        "code_block_detected": bool(
-                            diagnostics.get("code_block_detected")
-                        ),
+                suspected_truncation = bool(
+                    diagnostics.get("suspected_truncation")
+                    or suspected_json_truncation(
+                        raw_content,
+                        finish_reason=finish_reason,
+                        usage=diagnostics.get("usage"),
+                        max_output_tokens=getattr(profile, "max_output_tokens", None),
+                        error_summary=str(diagnostics.get("json_error_summary") or ""),
+                    )
+                )
+                model_json_repair.update(
+                    {
+                        "attempted": False,
+                        "succeeded": False,
+                        "initial_error": safe_error,
+                        "raw_output_saved": debug["saved"],
+                        "raw_output_path": debug["path"],
+                        "raw_output_sha256": debug["sha256"],
                         "suspected_truncation": suspected_truncation,
-                        "json_error_summary": diagnostics.get(
-                            "json_error_summary"
-                        ),
-                        "model_repair_disabled": True,
-                        "repair_attempted": False,
-                    },
-                }
-            )
+                        "source_stage": source_stage,
+                        "diagnostics": {
+                            "model_step": step,
+                            "profile_name": self.profile_name
+                            or getattr(profile, "name", None),
+                            "api_style": getattr(profile, "api_style", None),
+                            "finish_reason": finish_reason,
+                            "content_character_count": len(raw_content),
+                            "code_block_detected": bool(
+                                diagnostics.get("code_block_detected")
+                            ),
+                            "suspected_truncation": suspected_truncation,
+                            "json_error_summary": diagnostics.get(
+                                "json_error_summary"
+                            ),
+                            "model_repair_disabled": True,
+                            "repair_attempted": False,
+                        },
+                    }
+                )
             fresh_final_generation.update(
                 {
                     "attempted": True,
                     "succeeded": False,
                     "source_stage": source_stage,
+                    "initial_error": safe_error,
                 }
             )
             emit(
@@ -1011,9 +1186,22 @@ class TechnicalWritingAgent:
                 },
             )
             fresh_started = time.monotonic()
+            purpose = (
+                "fresh_final_after_blocked_validation"
+                if initial_error is None
+                and source_stage == "initial_validation_blocked"
+                else "fresh_final_after_blocked_repair"
+                if initial_error is None
+                else "fresh_final_after_json_failure"
+                if isinstance(initial_error, ModelJsonParseError)
+                else "fresh_final_after_incomplete_output"
+            )
             result = self.llm.run_with_tools(
                 messages=clean_regeneration_messages(
-                    _fresh_final_generation_instruction(schema=self.chapter_schema)
+                    _fresh_final_generation_instruction(
+                        schema=fresh_final_schema,
+                        target_contract=fresh_final_target_contract,
+                    )
                 ),
                 tools=[],
                 tool_choice="none",
@@ -1021,13 +1209,13 @@ class TechnicalWritingAgent:
                 request_metadata={
                     "target_id": self.tool_context._target_id,
                     "agent_step": step,
-                    "purpose": "fresh_final_after_json_failure",
+                    "purpose": purpose,
                     "output_key": self.tool_context.output_key,
                 },
                 profile_name=self.profile_name,
             )
             summary = _model_call_summary(step, result.request_metadata)
-            summary["purpose"] = "fresh_final_after_json_failure"
+            summary["purpose"] = purpose
             model_calls.append(summary)
             if result.response_type != "final" or result.tool_calls:
                 raise ModelJsonParseError(
@@ -1044,7 +1232,7 @@ class TechnicalWritingAgent:
                 pending_confirmations=self.tool_context.pending_confirmations,
             )
             try:
-                Draft202012Validator(self.chapter_schema).validate(draft)
+                Draft202012Validator(fresh_final_schema).validate(draft)
             except ValidationError as exc:
                 path = ".".join(str(item) for item in exc.absolute_path) or "$"
                 raise ModelJsonParseError(
@@ -1070,6 +1258,43 @@ class TechnicalWritingAgent:
                 },
             )
             return output, draft
+
+        def record_incomplete_output_diagnostics(
+            *,
+            error: ModelOutputIncompleteError,
+            step: int,
+        ) -> dict[str, Any]:
+            """Persist the existing safe provider diagnostics without raw output."""
+            diagnostics = error.safe_diagnostics()
+            usage = dict(diagnostics.get("usage") or {})
+            safe = {
+                "response_status": diagnostics.get("response_status"),
+                "finish_reason": diagnostics.get("finish_status"),
+                "has_content": bool(diagnostics.get("output_text_available")),
+                "content_length": int(diagnostics.get("output_text_character_count") or 0),
+                "has_tool_calls": bool(diagnostics.get("has_tool_calls")),
+                "tool_call_count": int(diagnostics.get("tool_call_count") or 0),
+                "has_reasoning_content": bool(diagnostics.get("has_reasoning_content")),
+                "usage": usage,
+                "output_tokens": usage.get("output_tokens"),
+                "reasoning_tokens": usage.get("reasoning_tokens"),
+                "response_type": diagnostics.get("response_type") or "incomplete",
+            }
+            debug = _save_incomplete_model_diagnostics(
+                output_root=self.tool_context.output_root,
+                output_key=self.tool_context.output_key,
+                target_id=self.tool_context._target_id,
+                step=step,
+                diagnostics=safe,
+            )
+            safe.update(
+                {
+                    "debug_saved": bool(debug.get("saved")),
+                    "debug_path": debug.get("path"),
+                    "debug_sha256": debug.get("sha256"),
+                }
+            )
+            return safe
 
         def attempt_model_json_repair(
             *,
@@ -1309,6 +1534,44 @@ class TechnicalWritingAgent:
                 break
             if time.monotonic() - started_clock > self.max_runtime_seconds:
                 stop_reason = "max_runtime_exceeded"
+                deterministic_draft = _complete_working_draft_candidate(
+                    tool_context=self.tool_context,
+                    target=self.tool_context._target,
+                )
+                if deterministic_draft is not None:
+                    # The time budget governs model work, not the deterministic
+                    # local conversion of a complete staged draft into the
+                    # normal candidate/validation path.  In particular, do not
+                    # call either normal final generation or Fresh repair here.
+                    final_draft = deterministic_draft
+                    model_final_output = deepcopy(deterministic_draft)
+                    runtime_complete_working_draft_finalized = True
+                    forced_finalization = True
+                    set_phase("finalizing", step=model_step_count)
+                    refresh_section_fact_ledger()
+                    if not finalization_announced:
+                        emit(
+                            "finalization_started",
+                            step=model_step_count,
+                            data={"reason": "max_runtime_complete_working_draft"},
+                        )
+                        finalization_announced = True
+                    emit(
+                        "finalization_forced",
+                        step=model_step_count,
+                        data={
+                            "tools_available": 0,
+                            "reason": "max_runtime_complete_working_draft",
+                        },
+                    )
+                    emit(
+                        "chapter_draft_assembled",
+                        step=model_step_count,
+                        data={
+                            "section_count": len(final_draft.get("sections") or []),
+                            "source": "complete_working_draft",
+                        },
+                    )
                 break
             model_step_count = step
             remaining_steps = self.max_agent_steps - step + 1
@@ -1423,6 +1686,10 @@ class TechnicalWritingAgent:
                     options={
                         "stream": bool(stream_model),
                         "stream_event_handler": on_provider_stream,
+                        "retry_event_handler": lambda retry: (
+                            emit("model_call_retry_scheduled", step=step, data=retry),
+                            emit("model_call_retry_started", step=step, data=retry),
+                        ),
                         **(
                             {"finalization_tools": self.registry.definitions(self.registry.names())}
                             if force_this_step
@@ -1467,7 +1734,7 @@ class TechnicalWritingAgent:
                     },
                 )
                 try:
-                    model_final_output, final_draft = attempt_fresh_final_after_json_failure(
+                    model_final_output, final_draft = attempt_fresh_final_recovery(
                         initial_error=exc,
                         raw_content=str(exc.raw_content or ""),
                         step=step,
@@ -1513,6 +1780,84 @@ class TechnicalWritingAgent:
                     data={"section_count": len(final_draft.get("sections") or [])},
                 )
                 stop_reason = "fresh_final_after_json_failure_succeeded"
+                break
+            except ModelOutputIncompleteError as exc:
+                incomplete_diagnostics = record_incomplete_output_diagnostics(
+                    error=exc,
+                    step=step,
+                )
+                emit(
+                    "model_output_incomplete",
+                    step=step,
+                    data=incomplete_diagnostics,
+                )
+                emit(
+                    "model_call_failed",
+                    step=step,
+                    data={
+                        "error_type": type(exc).__name__,
+                        "duration_ms": int((time.monotonic() - model_started) * 1000),
+                        "response_diagnostics": incomplete_diagnostics,
+                    },
+                )
+                fresh_final_generation["initial_error"] = _safe_model_error_summary(
+                    exc,
+                    profile=getattr(self.llm, "profile", None),
+                )
+                try:
+                    model_final_output, final_draft = attempt_fresh_final_recovery(
+                        initial_error=exc,
+                        step=step,
+                        source_stage=str(
+                            exc.safe_diagnostics().get("failed_stage")
+                            or "tool_response_extraction"
+                        ),
+                        finish_reason=exc.safe_diagnostics().get("finish_status"),
+                    )
+                except Exception as fallback_exc:
+                    fresh_final_generation["fallback_error"] = _safe_model_error_summary(
+                        fallback_exc,
+                        profile=getattr(self.llm, "profile", None),
+                    )
+                    errors.append(
+                        "model_output_incomplete_error: "
+                        + _safe_model_error_summary(
+                            exc,
+                            profile=getattr(self.llm, "profile", None),
+                        )
+                        + "; fresh_final_error: "
+                        + _safe_model_error_summary(
+                            fallback_exc,
+                            profile=getattr(self.llm, "profile", None),
+                        )
+                    )
+                    stop_reason = "model_output_incomplete_error"
+                    break
+                if not finalization_announced:
+                    set_phase("finalizing", step=step)
+                    emit(
+                        "finalization_started",
+                        step=step,
+                        data={"reason": "fresh_final_after_incomplete_output"},
+                    )
+                    finalization_announced = True
+                emit(
+                    "structured_output_received",
+                    step=step,
+                    data={
+                        "section_count": len(final_draft.get("sections") or []),
+                        "character_count": sum(
+                            len(str(item.get("content") or ""))
+                            for item in final_draft.get("sections") or []
+                        ),
+                    },
+                )
+                emit(
+                    "chapter_draft_assembled",
+                    step=step,
+                    data={"section_count": len(final_draft.get("sections") or [])},
+                )
+                stop_reason = "fresh_final_after_incomplete_output_succeeded"
                 break
             except Exception as exc:
                 emit(
@@ -1581,7 +1926,7 @@ class TechnicalWritingAgent:
                         }
                     )
                     try:
-                        model_final_output, final_draft = attempt_fresh_final_after_json_failure(
+                        model_final_output, final_draft = attempt_fresh_final_recovery(
                             initial_error=exc,
                             raw_content=str(model_result.final_content or ""),
                             step=step,
@@ -1984,6 +2329,7 @@ class TechnicalWritingAgent:
         if (
             final_draft is not None
             and self.max_auto_repair_rounds > 0
+            and not runtime_complete_working_draft_finalized
         ):
             initial_quality_errors = list(
                 (initial_candidate_validation or {}).get("errors") or []
@@ -2693,6 +3039,93 @@ class TechnicalWritingAgent:
                             ),
                         },
                     )
+        structured_patch_still_blocked = (
+            based_on_existing_draft
+            and fresh_quality_regeneration.get("attempted")
+            and fresh_quality_regeneration.get("validated")
+            and not fresh_candidate_accepted
+            and bool((fresh_candidate_validation or {}).get("errors"))
+        )
+        initial_candidate_needs_clean_regeneration = (
+            based_on_existing_draft
+            and self.max_auto_repair_rounds > 0
+            and not fresh_quality_regeneration.get("attempted")
+            and bool(
+                _fresh_regeneration_repair_targets(
+                    list((initial_candidate_validation or {}).get("errors") or [])
+                )
+            )
+        )
+        if structured_patch_still_blocked or initial_candidate_needs_clean_regeneration:
+            recovery_source_validation = (
+                fresh_candidate_validation
+                if structured_patch_still_blocked
+                else initial_candidate_validation
+            )
+            recovery_source_stage = (
+                "structured_patch_validation_blocked"
+                if structured_patch_still_blocked
+                else "initial_validation_blocked"
+            )
+            fresh_final_step = model_step_count + 1
+            fresh_final_generation["trigger_errors"] = list(
+                (recovery_source_validation or {}).get("errors") or []
+            )
+            try:
+                recovered_output, recovered_draft = attempt_fresh_final_recovery(
+                    initial_error=None,
+                    step=fresh_final_step,
+                    source_stage=recovery_source_stage,
+                    finish_reason=None,
+                )
+            except ModelError as exc:
+                fresh_final_generation["fallback_error"] = (
+                    _safe_model_error_summary(
+                        exc,
+                        profile=getattr(self.llm, "profile", None),
+                    )
+                )
+                warnings.append(
+                    "targeted fresh final recovery was not applied: "
+                    f"{type(exc).__name__}"
+                )
+            else:
+                recovered_draft, recovered_format_normalization = (
+                    _normalize_candidate_format_before_validation(
+                        recovered_draft,
+                        target=self.tool_context._target,
+                        tender_tables=self.tool_context.tender_tables,
+                    )
+                )
+                recovered_draft, recovered_personnel_gate = (
+                    _apply_personnel_content_gate(
+                        recovered_draft,
+                        fact_ledger=section_fact_ledger,
+                    )
+                )
+                model_final_output = recovered_output
+                final_draft = recovered_draft
+                quality_review = review_chapter_quality(
+                    recovered_draft,
+                    tender_tables=self.tool_context.tender_tables,
+                    source_only_personnel_section_ids=(
+                        _source_only_personnel_section_references(
+                            section_fact_ledger
+                        )
+                    ),
+                )
+                personnel_content_gate = recovered_personnel_gate
+                fresh_quality_regeneration.update(
+                    recovered_format_normalization
+                )
+                model_step_count = fresh_final_step
+                selected_candidate = "fresh_final_recovery"
+                candidate_selection_reason = recovery_source_stage
+                stop_reason = (
+                    "fresh_final_after_blocked_repair_succeeded"
+                    if structured_patch_still_blocked
+                    else "fresh_final_after_blocked_validation_succeeded"
+                )
         if fresh_quality_regeneration.get("attempted"):
             before_audit = classify_chapter_audit(
                 initial_candidate_validation or {},
@@ -2802,6 +3235,7 @@ class TechnicalWritingAgent:
             ]
         if (
             final_draft is not None
+            and not runtime_complete_working_draft_finalized
             and len(automatic_repair_rounds)
             < self.max_auto_repair_rounds
             and _fresh_regeneration_repair_targets(remaining_auto_errors)
@@ -3308,6 +3742,20 @@ class TechnicalWritingAgent:
                 data={"skip_reason": skip_reason},
             )
         else:
+            canonicalization_error: str | None = None
+            try:
+                identity_resolution = _resolve_section_identities(
+                    final_draft, target=self.tool_context._target
+                )
+                final_draft = canonicalize_agent_candidate(
+                    candidate=final_draft,
+                    chapter_id=str(self.tool_context.target_chapter_id or ""),
+                    expected_sections=identity_resolution.get("expected_sections") or [],
+                    section_identity_map=identity_resolution.get("section_identity_map") or [],
+                    section_identity_issues=identity_resolution.get("issues") or [],
+                ).candidate
+            except CandidateCanonicalizationError as exc:
+                canonicalization_error = str(exc)
             validation = validate_technical_chapter(
                 final_draft,
                 schema=self.chapter_schema,
@@ -3322,6 +3770,25 @@ class TechnicalWritingAgent:
                 confirmed_evidence_ids=confirmed_evidence_ids,
                 generation_permissions=section_fact_ledger,
             )
+            if canonicalization_error:
+                canonical_issue = _validation_issue(
+                    # A model draft whose section identity cannot be made
+                    # canonical is still a reviewable candidate.  The normal
+                    # outline-mismatch validator already records the
+                    # substantive structure problem as blocking; escalating
+                    # this deterministic artifact-normalization failure to
+                    # fatal would incorrectly suppress the existing
+                    # HUMAN_REVIEW_READY blocked-draft path.
+                    severity="blocking",
+                    category="structure",
+                    code="candidate_section_canonicalization_failed",
+                    message=canonicalization_error,
+                )
+                validation.setdefault("issues", []).append(canonical_issue)
+                validation.setdefault("errors", []).append(canonicalization_error)
+                validation["issue_counts"] = _validation_issue_counts(validation["issues"])
+                validation["validation_status"] = "fatal"
+                validation["valid"] = False
             fatal_issues = [
                 item
                 for item in validation.get("issues") or []
@@ -3335,7 +3802,7 @@ class TechnicalWritingAgent:
             if fatal_issues:
                 errors.extend(str(item.get("message") or "") for item in fatal_issues)
                 stop_reason = "fatal_validation_failed"
-            elif blocking_issues:
+            elif blocking_issues and not runtime_complete_working_draft_finalized:
                 stop_reason = "candidate_validation_blocked"
             warnings.extend(validation["warnings"])
             emit(
@@ -3397,6 +3864,11 @@ class TechnicalWritingAgent:
                 final_draft,
                 self.chapter_schema,
             )
+            and not any(
+                item.get("severity") == "fatal"
+                for item in validation.get("issues") or []
+                if isinstance(item, dict)
+            )
         )
         completed = datetime.now(timezone.utc)
         output_dir = self.tool_context.draft_path.parent
@@ -3426,6 +3898,8 @@ class TechnicalWritingAgent:
             schema_reviewable=candidate_reviewable,
             empty_content_allowed_section_ids=set(
                 personnel_content_gate.get("source_only_section_ids") or []
+            ) | set(
+                personnel_content_gate.get("strict_source_only_section_ids") or []
             ),
         )
         if (
@@ -3950,7 +4424,6 @@ def normalize_chapter_draft_output(
         item.get("placeholder_id") for item in (pending_confirmations or []) if isinstance(item, dict)
     )
     sections: list[dict[str, Any]] = []
-    preserve_section_ids = "generated_supporting_tables" in source
     for item in list(source.get("sections") or []):
         if not isinstance(item, dict):
             continue
@@ -3983,7 +4456,7 @@ def normalize_chapter_draft_output(
                     [*_string_list(item.get("placeholder_ids")), *placeholders]
                 ),
             }
-        if preserve_section_ids and item.get("section_id"):
+        if item.get("section_id"):
             normalized_section["section_id"] = str(item.get("section_id"))
         sections.append(normalized_section)
 
@@ -5035,6 +5508,8 @@ def build_technical_writing_agent(
         task_information_path=Path(agent_input.task_information_path),
         draft_units_path=Path(agent_input.draft_units_path) if agent_input.draft_units_path else None,
         confirmed_project_facts_path=Path(agent_input.confirmed_project_facts_path) if agent_input.confirmed_project_facts_path else None,
+        writing_constraint_context=deepcopy(agent_input.writing_constraint_context or {}),
+        tender_metadata=deepcopy(agent_input.tender_metadata or {}),
         output_root=Path(output_dir),
         output_key=agent_input.output_key,
         target_chapter_id=agent_input.target_chapter_id,
@@ -5046,6 +5521,28 @@ def build_technical_writing_agent(
         ),
         web_disabled=disable_web,
         web_search_policy=effective_web_policy,
+        local_evidence_refs=[
+            {
+                "candidate_id": item["material_or_evidence_ref"],
+                "evidence_id": item["material_or_evidence_ref"],
+                "evidence_type": (
+                    (item.get("evidence_types") or [""])[0]
+                ),
+                "evidence_types": deepcopy(item.get("evidence_types") or []),
+                "file_name": item.get("material_name"),
+                "source_location": item.get("file_reference")
+                or item.get("candidate_reference"),
+                "selection_status": "confirmed",
+                "evidence_status": "confirmed",
+                "source_lineage": "stage12_material_verification",
+                "verification_note": item.get("verification_note"),
+            }
+            for item in agent_input.stage12_approved_material_refs
+        ],
+        selected_material_ids=[
+            item["material_or_evidence_ref"]
+            for item in agent_input.stage12_approved_material_refs
+        ],
     )
     schema_path = Path(__file__).resolve().parents[1] / "agents" / "technical_writer" / "chapter_draft_output_schema.json"
     schema = json.loads(schema_path.read_text(encoding="utf-8"))
@@ -5075,6 +5572,16 @@ def build_technical_writing_agent(
         instruction_scope=agent_input.instruction_scope,
         writing_rules=writing_rules,
         project_constraints=project_constraints,
+        stage12_approved_facts=tuple(
+            deepcopy(agent_input.stage12_approved_facts)
+        ),
+        stage12_approved_material_refs=tuple(
+            deepcopy(agent_input.stage12_approved_material_refs)
+        ),
+        stage12_prohibited_inferences=tuple(
+            deepcopy(agent_input.stage12_prohibited_inferences)
+        ),
+        stage12_acceptance_criteria=tuple(agent_input.stage12_acceptance_criteria),
     )
 
 
@@ -5083,36 +5590,8 @@ def _active_pending_confirmations(
     *,
     generation_permissions: list[dict[str, Any]],
 ) -> tuple[list[dict[str, Any]], list[str]]:
-    allowed_tender_numeric = [
-        item
-        for entry in generation_permissions
-        if isinstance(entry, dict)
-        for item in (
-            [
-                *list(
-                    (entry.get("generation_permissions") or {}).get(
-                        "allowed_tender_numeric_facts"
-                    )
-                    or []
-                ),
-                *list(
-                    (entry.get("generation_permissions") or {}).get(
-                        "chapter_allowed_tender_numeric_facts"
-                    )
-                    or entry.get("chapter_allowed_tender_numeric_facts")
-                    or []
-                ),
-            ]
-        )
-        if isinstance(item, dict)
-        and item.get("usage") == "no_deviation_response"
-        and item.get("source_id")
-    ]
-    has_unresolved_deviation = any(
-        entry.get("positive_deviation_candidates")
-        or entry.get("negative_deviations")
-        for entry in generation_permissions
-        if isinstance(entry, dict)
+    tender_baselines = confirmation_baselines_from_generation_permissions(
+        generation_permissions
     )
     active: list[dict[str, Any]] = []
     ignored: list[str] = []
@@ -5120,63 +5599,12 @@ def _active_pending_confirmations(
         if not isinstance(item, dict):
             active.append(item)
             continue
-        placeholder_id = str(item.get("placeholder_id") or "")
-        identity = " ".join(
-            str(item.get(key) or "")
-            for key in (
-                "field",
-                "field_name",
-                "question",
-                "reason",
-                "placeholder_id",
-            )
+        status = confirmation_requirement(
+            item,
+            tender_baselines=tender_baselines,
         )
-        is_delivery = bool(
-            re.search(
-                r"(?:delivery|arrival|交货|货到|到货).*(?:commitment|period|期限|时间|承诺)?|"
-                r"PH-FIELD-(?:DELIVERY|ARRIVAL)",
-                identity,
-                re.I,
-            )
-        )
-        is_installation = bool(
-            re.search(
-                r"(?:installation|安装).*(?:period|期限|周期|时间)?|"
-                r"PH-FIELD-INSTALLATION",
-                identity,
-                re.I,
-            )
-        )
-        matching_tender_value = any(
-            (
-                is_delivery
-                and re.search(
-                    r"(?:交货|货到|到货)",
-                    str(value.get("text") or ""),
-                )
-            )
-            or (
-                is_installation
-                and "安装" in str(value.get("text") or "")
-            )
-            for value in allowed_tender_numeric
-        )
-        explicit_custom_value = bool(
-            item.get("positive_deviation")
-            or item.get("negative_deviation")
-            or item.get("bidder_defined_value")
-            or str(item.get("deviation_status") or "")
-            in {
-                "positive_deviation_pending_confirmation",
-                "positive_deviation_confirmed",
-                "negative_deviation",
-            }
-        )
-        if (
-            matching_tender_value
-            and not has_unresolved_deviation
-            and not explicit_custom_value
-        ):
+        if status in {"satisfied", "not_required"}:
+            placeholder_id = str(item.get("placeholder_id") or "")
             if placeholder_id:
                 ignored.append(placeholder_id)
             continue
@@ -5260,15 +5688,79 @@ def validate_technical_chapter(
     if "reference_only" in all_text:
         errors.append("draft references forbidden historical material")
     if not confirmed_facts:
-        requires_manual = any(
-            ((item.get("writing_requirements") or {}).get("manual_project_facts") or {}).get("need") == "required"
+        manual_fact_types = {
+            str(fact_type)
             for item in [target, *_all_target_nodes(target)]
+            if ((item.get("writing_requirements") or {}).get("manual_project_facts") or {}).get("need") == "required"
+            for fact_type in ((item.get("writing_requirements") or {}).get("manual_project_facts") or {}).get("fact_types") or []
+        }
+        requires_manual = bool(manual_fact_types)
+        baseline_semantics = {
+            str(item.get("semantic_field") or "")
+            for item in confirmation_baselines_from_generation_permissions(
+                generation_permissions or []
+            )
+        }
+        tender_baselines = confirmation_baselines_from_generation_permissions(
+            generation_permissions or []
         )
-        if requires_manual and not active_pending_confirmations:
+
+        def manual_fact_has_exact_tender_baseline(fact_type: str) -> bool:
+            semantic = (
+                "delivery" if "delivery" in fact_type.casefold()
+                else "installation" if "installation" in fact_type.casefold()
+                else ""
+            )
+            for baseline in tender_baselines:
+                if str(baseline.get("semantic_field") or "") != semantic:
+                    continue
+                if confirmation_requirement(
+                    {
+                        "fact_semantic_field": semantic,
+                        "proposed_value": baseline.get("value"),
+                        "unit": baseline.get("unit"),
+                        "start_reference": baseline.get("start_reference"),
+                        "tender_source_id": baseline.get("source_id"),
+                    },
+                    tender_baselines=tender_baselines,
+                ) == "not_required":
+                    return True
+            return False
+        baseline_only_manual_facts = bool(manual_fact_types) and all(
+            (
+                "delivery" in fact_type.casefold()
+                and "delivery" in baseline_semantics
+                and manual_fact_has_exact_tender_baseline(fact_type)
+            )
+            or (
+                "installation" in fact_type.casefold()
+                and "installation" in baseline_semantics
+                and manual_fact_has_exact_tender_baseline(fact_type)
+            )
+            for fact_type in manual_fact_types
+        )
+        if (
+            requires_manual
+            and not baseline_only_manual_facts
+            and not active_pending_confirmations
+        ):
             errors.append("required project facts are unconfirmed but no pending confirmation was recorded")
+    confirmed_fact_values = {
+        str(value).strip()
+        for value in confirmed_facts.values()
+        if value is not None
+        and not isinstance(value, (dict, list))
+        and str(value).strip()
+    }
     candidate_claims = [
         item for item in draft.get("claims") or []
         if item.get("claim_type") == "confirmed_enterprise_fact"
+        and not (
+            any(
+                value in str(item.get("text") or "")
+                for value in confirmed_fact_values
+            )
+        )
         and not _registered_placeholder_claim_is_nondefinite(
             str(item.get("text") or ""),
             registered_placeholder_ids,
@@ -6198,6 +6690,7 @@ def _build_section_fact_ledger(
     target: dict[str, Any],
     pending_confirmations: list[dict[str, Any]],
     local_evidence_refs: list[dict[str, Any]],
+    stage12_approved_facts: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     requirements = list(
         ((original_context.get("tender_requirements") or {}).get("requirements"))
@@ -6325,6 +6818,17 @@ def _build_section_fact_ledger(
         for key, value in confirmed_facts.items()
         for record in [confirmed_fact_records.get(key, {})]
     ]
+    allowed_confirmed_facts.extend(
+        {
+            "fact_id": str(item.get("fact_key") or item["source_id"]),
+            "value": deepcopy(item["confirmed_value"]),
+            "source_ids": [str(item["source_id"])],
+            "source_type": str(item["source_type"]),
+            "permission_kind": "stage12_approved_input",
+            "source_lineage": "stage12_human_review",
+        }
+        for item in stage12_approved_facts or []
+    )
     allowed_confirmed_facts.extend(
         {
             "fact_id": str(
@@ -7446,6 +7950,94 @@ def _expected_section_specs(target: dict[str, Any]) -> list[dict[str, Any]]:
     ]
 
 
+def _complete_working_draft_candidate(
+    *,
+    tool_context: TechnicalWritingToolContext,
+    target: dict[str, Any],
+) -> dict[str, Any] | None:
+    """Build a schema-shaped candidate from a fully staged working draft.
+
+    ``save_section_draft`` is runtime-memory staging rather than a Candidate
+    artifact.  Once every expected section is staged, converting it through
+    the ordinary canonicalization/validation path is deterministic and does
+    not spend additional model budget.
+    """
+    if not tool_context.working_draft_markdown.strip():
+        return None
+    expected = _expected_section_specs(target)
+    saved = list(tool_context.saved_sections or [])
+    if not expected or len(saved) != len(expected):
+        return None
+    by_id: dict[str, dict[str, Any]] = {}
+    for item in saved:
+        if not isinstance(item, dict):
+            return None
+        section_id = str(item.get("section_id") or "").strip()
+        if not section_id or section_id in by_id:
+            return None
+        by_id[section_id] = item
+    expected_ids = [str(item.get("section_id") or "") for item in expected]
+    if set(by_id) != set(expected_ids):
+        return None
+
+    nodes_by_id = {
+        str(node.get("section_id") or node.get("chapter_id") or node.get("id") or ""): node
+        for node in (target.get("children") or [])
+        if isinstance(node, dict)
+    }
+    sections: list[dict[str, Any]] = []
+    covered_requirements: list[str] = []
+    covered_scores: list[str] = []
+    strict_placeholder_ids = any(
+        item.get("placeholder_id")
+        for item in tool_context.pending_confirmations
+        if isinstance(item, dict)
+    )
+    for spec in expected:
+        section_id = str(spec.get("section_id") or "")
+        saved_section = by_id[section_id]
+        content = str(saved_section.get("content") or "")
+        if not content.strip():
+            return None
+        requirements = dict(
+            (nodes_by_id.get(section_id) or {}).get("writing_requirements") or {}
+        )
+        response_ids = _string_list(requirements.get("response_point_ids"))
+        score_ids = _string_list(requirements.get("score_item_refs"))
+        covered_requirements.extend(response_ids)
+        covered_scores.extend(score_ids)
+        placeholder_ids = (
+            extract_placeholder_ids(content)
+            if strict_placeholder_ids
+            else _literal_placeholders(content)
+        )
+        sections.append(
+            {
+                "section_id": section_id,
+                "heading": str(spec.get("section_title") or ""),
+                "block_type": "other",
+                "content": content,
+                "covered_score_item_ids": score_ids,
+                "covered_requirement_ids": response_ids,
+                "placeholder_ids": placeholder_ids,
+            }
+        )
+    return normalize_chapter_draft_output(
+        {
+            "chapter_title": str(target.get("title") or ""),
+            "sections": sections,
+            "claims": [],
+            "placeholders_used": [
+                value for section in sections for value in section["placeholder_ids"]
+            ],
+            "score_items_covered": _unique_strings(covered_scores),
+            "requirements_covered": _unique_strings(covered_requirements),
+            "warnings": ["deterministically_finalized_from_complete_working_draft"],
+        },
+        pending_confirmations=tool_context.pending_confirmations,
+    )
+
+
 def _resolve_section_identities(
     draft: dict[str, Any],
     *,
@@ -7632,8 +8224,6 @@ _FRESH_PATCH_EXCLUDED_CODES = {
     "structured_content_exceeds_prose",
     "table_without_intro",
     "title_not_matched",
-    "required_registered_placeholder_missing",
-    "blocking_placeholder_missing_from_content",
 }
 
 
@@ -7745,6 +8335,20 @@ def _resolve_fresh_repair_target_sentence(
         return supplied
 
     span = str(item.get("offending_span") or "").strip()
+    if str(item.get("issue_code") or item.get("error_code") or "") in {
+        "required_registered_placeholder_missing",
+        "blocking_placeholder_missing_from_content",
+    }:
+        return next(
+            (
+                sentence
+                for sentence in _diff_sentences(section_content)
+                if not _invalid_fresh_fact_target(
+                    sentence, section_title=section_title
+                )
+            ),
+            "",
+        )
     if not span:
         return ""
     matches = [
@@ -7789,7 +8393,15 @@ def _build_fresh_repair_task_card(
     if sentence_locator is None:
         return None
     sentence = str(sentence_locator.get("sentence") or "")
-    if span and not _normalized_span_is_within_sentence(span, sentence):
+    if (
+        span
+        and issue_code
+        not in {
+            "required_registered_placeholder_missing",
+            "blocking_placeholder_missing_from_content",
+        }
+        and not _normalized_span_is_within_sentence(span, sentence)
+    ):
         return None
     span_start = sentence.find(span) if span else -1
     span_end = span_start + len(span) if span_start >= 0 else -1
@@ -9231,14 +9843,21 @@ def _fresh_patch_payload_from_tool_result(
     return payload
 
 
-def _fresh_final_generation_instruction(*, schema: dict[str, Any]) -> str:
+def _fresh_final_generation_instruction(
+    *,
+    schema: dict[str, Any],
+    target_contract: dict[str, Any] | None = None,
+) -> str:
+    payload = {"response_schema": schema}
+    if target_contract:
+        payload["targeted_revision_contract"] = target_contract
     return (
         "上一次返回未能通过本地确定性JSON解析。现在仅使用干净原始上下文、证据快照和"
         "已登记占位符，从零生成一次完整章节；不得调用或请求任何工具，不得引用、修复、"
         "续写或猜测上一次输出，也不得按旧稿修改。逐节generation_permissions是封闭许可；"
         "未列入allowed_*的数字、人员资历、产品能力和占位符不得生成。"
         "返回且只返回符合以下Schema的JSON对象：\n"
-        + json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
+        + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
     )
 
 
@@ -9577,6 +10196,12 @@ def _strip_diagnostic_sentinels(value: str) -> str:
 
 def _exact_offending_span(error_code: str, text: str) -> str:
     value = str(text or "")
+    if error_code in {
+        "required_registered_placeholder_missing",
+        "blocking_placeholder_missing_from_content",
+    }:
+        match = re.search(r"PH-[A-Z0-9-]+", value)
+        return match.group(0) if match else ""
     if error_code == "schedule_frequency":
         match = re.search(
             r"(?:每日|每周|每月|每季度|每年|每个工作日|"
@@ -9968,6 +10593,30 @@ def _apply_fresh_patch_operations(
             end = int(operation["end"])
             content = content[:start] + str(operation.get("replacement_text") or "") + content[end:]
         result["sections"][section_index]["content"] = content
+        if any(
+            set(operation.get("member_issue_codes") or [])
+            & {
+                "required_registered_placeholder_missing",
+                "blocking_placeholder_missing_from_content",
+            }
+            for operation in section_operations
+        ):
+            content_placeholder_ids = extract_placeholder_ids(content)
+            result["sections"][section_index]["placeholder_ids"] = _unique_strings(
+                [
+                    *list(
+                        result["sections"][section_index].get("placeholder_ids")
+                        or []
+                    ),
+                    *content_placeholder_ids,
+                ]
+            )
+            result["placeholders_used"] = _unique_strings(
+                [
+                    *list(result.get("placeholders_used") or []),
+                    *content_placeholder_ids,
+                ]
+            )
     return result
 
 
@@ -10469,12 +11118,26 @@ def _fresh_patch_candidates_equivalent(
     left_text, right_text = left_key[2], right_key[2]
     if left_text == right_text:
         return True
-    if left_text and sorted(left_text) == sorted(right_text):
+    similarity_left = _normalize_diff_text(
+        PLACEHOLDER_TOKEN_PATTERN.sub(
+            "", str(left.get("replacement_text") or "")
+        )
+    )
+    similarity_right = _normalize_diff_text(
+        PLACEHOLDER_TOKEN_PATTERN.sub(
+            "", str(right.get("replacement_text") or "")
+        )
+    )
+    if similarity_left and sorted(similarity_left) == sorted(similarity_right):
         return True
     return bool(
-        left_text
-        and right_text
-        and SequenceMatcher(a=left_text, b=right_text, autojunk=False).ratio()
+        similarity_left
+        and similarity_right
+        and SequenceMatcher(
+            a=similarity_left,
+            b=similarity_right,
+            autojunk=False,
+        ).ratio()
         >= 0.92
     )
 
@@ -10706,6 +11369,9 @@ def _apply_validated_fresh_patches(
     preserved_placeholders = {
         str(value) for value in repair_context.get("preserved_placeholder_ids") or [] if value
     }
+    preserved_declared_placeholders = (
+        preserved_placeholders & _draft_placeholder_ids(initial)
+    )
     preserved_content_placeholders = preserved_placeholders & _draft_content_placeholder_ids(initial)
     unresolved_group_ids: list[str] = []
     unresolved_fingerprints: list[str] = []
@@ -10962,7 +11628,8 @@ def _apply_validated_fresh_patches(
                 before_draft = _apply_fresh_patch_operations(initial, selected_operations)
                 temporary = _apply_fresh_patch_operations(initial, [*selected_operations, operation])
                 placeholder_lost = bool(
-                    not preserved_placeholders <= _draft_placeholder_ids(temporary)
+                    not preserved_declared_placeholders
+                    <= _draft_placeholder_ids(temporary)
                     or not preserved_content_placeholders <= _draft_content_placeholder_ids(temporary)
                 )
                 if placeholder_lost:
@@ -12194,6 +12861,28 @@ def _save_invalid_model_output(
     digest = hashlib.sha256(redacted.encode("utf-8")).hexdigest()
     try:
         _atomic_write_text(path, redacted + ("\n" if not redacted.endswith("\n") else ""))
+    except OSError:
+        return {"saved": False, "path": None, "sha256": digest}
+    return {"saved": True, "path": str(path), "sha256": digest}
+
+
+def _save_incomplete_model_diagnostics(
+    *,
+    output_root: Path,
+    output_key: str,
+    target_id: str,
+    step: int,
+    diagnostics: dict[str, Any],
+) -> dict[str, Any]:
+    """Save only the safe diagnostic projection, never raw provider payloads."""
+    safe_target = re.sub(r"[^A-Za-z0-9._-]+", "_", str(target_id)) or "target"
+    path = Path(output_root) / str(output_key) / "debug" / (
+        f"{safe_target}.model-step-{int(step)}.incomplete-response.json"
+    )
+    content = json.dumps(diagnostics, ensure_ascii=False, indent=2, sort_keys=True)
+    digest = hashlib.sha256(content.encode("utf-8")).hexdigest()
+    try:
+        _atomic_write_text(path, content + "\n")
     except OSError:
         return {"saved": False, "path": None, "sha256": digest}
     return {"saved": True, "path": str(path), "sha256": digest}

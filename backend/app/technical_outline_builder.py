@@ -171,6 +171,7 @@ def build_technical_outline(
     output_dir: str | Path = "outputs",
     output_key: str | None = None,
     enable_page_mapping: bool = True,
+    project: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     selected_dir = Path(input_dir).expanduser().resolve()
     if not selected_dir.is_dir():
@@ -214,6 +215,13 @@ def build_technical_outline(
         "build_warnings": unique_strings(warnings),
         "statistics": build_statistics(source_files, points, deduped, chapters, display_blocks),
     }
+    if isinstance(project, dict):
+        # The package-scoped score parser has already selected the applicable
+        # technical template.  Keep v2's source-derived structure, then attach
+        # the existing project score mappings instead of reparsing score tables.
+        from app.response_outline_builder import apply_project_score_mappings_to_technical_outline
+
+        apply_project_score_mappings_to_technical_outline(outline, project)
     validate_outline(outline)
     markdown = render_technical_outline_markdown(outline)
     preview_html = render_technical_outline_html(outline)
@@ -394,9 +402,32 @@ def extract_structured_file_points(
     table_candidates: list[dict[str, Any]] = []
     for block in blocks:
         if block.get("block_type") == "paragraph":
-            if block.get("is_heading"):
-                continue
             original_text = clean_original_text(str(block.get("text") or ""))
+            if block.get("is_heading"):
+                # A numbered item in a technical-response-file list is itself a
+                # tender requirement.  It often has no following paragraph (for
+                # example, a self-defined work-plan or service-commitment
+                # document), so skipping every heading loses the requirement.
+                domain = technical_domain_for_block(parsed_file["category"], block, original_text)
+                if not _is_numbered_technical_response_item(parsed_file["category"], block, original_text, domain):
+                    continue
+                path = list(block.get("heading_path") or [])
+                points.append(
+                    {
+                        "domain": domain,
+                        "section_path": outline_section_path(domain, path),
+                        "source_category": source_category_for_domain(domain, parsed_file["category"]),
+                        "original_heading": original_text,
+                        "node_type": str(block.get("node_type") or "heading"),
+                        "original_text": original_text,
+                        "content_type": "numbered_list",
+                        "mandatory_marker": detect_mandatory_marker(original_text),
+                        "source_refs": [source_ref_for_block(parsed_file, block, path, original_text)],
+                        "file_order": file_order,
+                        "source_order": int(block.get("block_index") or 0) * 10,
+                    }
+                )
+                continue
             domain = technical_domain_for_block(parsed_file["category"], block, original_text)
             if not original_text or domain is None:
                 continue
@@ -434,6 +465,26 @@ def extract_structured_file_points(
             table_candidates = [item for item in table_candidates if item["domain"] != "technical_score"] + explicit
     points.extend(table_candidates)
     return sorted(points, key=lambda item: (item["file_order"], item["source_order"]))
+
+
+def _is_numbered_technical_response_item(
+    category: str,
+    block: dict[str, Any],
+    text: str,
+    domain: str | None,
+) -> bool:
+    """Return true only for numbered requirement items in a technical file.
+
+    This deliberately does not turn arbitrary document headings into response
+    points.  The enclosing technical-file path and the source numbering are
+    both required, which keeps ordinary narrative headings structural only.
+    """
+    if category != "procurement_document" or domain != "technical_format":
+        return False
+    path_text = " > ".join(str(item) for item in block.get("heading_path") or [])
+    if "技术文件" not in path_text:
+        return False
+    return bool(re.match(r"^\s*(?:\d+|[一二三四五六七八九十]+)[.、．]\s*\S+", text or ""))
 
 
 def technical_domain_for_block(category: str, block: dict[str, Any], text: str) -> str | None:

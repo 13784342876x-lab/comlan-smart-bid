@@ -6,7 +6,11 @@ from types import SimpleNamespace
 import pytest
 
 import app.technical_writing_agent as technical_writing_agent_module
-from app.llm_errors import ModelJsonParseError
+from app.llm_errors import (
+    ModelJsonParseError,
+    ModelOutputIncompleteError,
+    ModelResponseError,
+)
 from app.llm_client import ToolModelResult, empty_usage
 from app.technical_agent_console import format_agent_event
 from app.technical_placeholders import (
@@ -32,6 +36,7 @@ from app.technical_writing_agent import (
     SYSTEM_PROMPT,
     TechnicalWritingAgentInput,
     _build_section_fact_ledger,
+    _complete_working_draft_candidate,
     build_markdown_change_summary,
     build_technical_writing_agent,
     validate_technical_chapter,
@@ -243,13 +248,15 @@ def make_agent(
     instruction_scope="once",
     writing_rules_path=None,
     draft_units_path=None,
+    target_section_id=None,
 ):
     return build_technical_writing_agent(
         TechnicalWritingAgentInput(
             response_outline_path=paths["response"],
             writing_outline_path=paths["writing"],
             task_information_path=paths["tasks"],
-            target_chapter_id="CH-001",
+            target_chapter_id=None if target_section_id else "CH-001",
+            target_section_id=target_section_id,
             output_key="generic_case",
             user_instruction=instruction,
             user_instruction_sources=({"type": "test"},) if instruction else (),
@@ -265,6 +272,259 @@ def make_agent(
         web_provider=web_provider or FakeWebProvider(),
         max_web_search_calls=max_web,
     )
+
+
+def _write_leaf_revision_baseline(root, paths):
+    writing = json.loads(paths["writing"].read_text(encoding="utf-8"))
+    target = writing["chapters"][0]["children"][0]
+    target["chapter_id"] = "WC-005-01"
+    target["title"] = "项目组织架构"
+    paths["writing"].write_text(
+        json.dumps(writing, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    pending = [
+        attach_placeholder_identity(
+            {
+                "field": field,
+                "question": f"请确认{field}",
+                "reason": "当前尚未确认",
+                "blocking": True,
+                "affected_sections": ["WC-005-01"],
+            }
+        )
+        for field in ("项目经理姓名", "技术负责人姓名")
+    ]
+    draft_dir = root / "outputs" / "generic_case" / "drafts"
+    draft_dir.mkdir(parents=True)
+    existing_body = (
+        "# 项目组织架构\n\n"
+        "项目组织架构以实施任务为主线，项目经理负责统筹任务边界和跨角色协调，"
+        "技术负责人负责技术方案一致性，实施角色负责执行和记录，质量复核角色负责独立核验。\n\n"
+        "各角色通过任务交接、问题登记、责任确认、整改复核和关闭确认形成协同接口与问题闭环。"
+    )
+    (draft_dir / "WC-005-01.md").write_text(existing_body, encoding="utf-8")
+    (draft_dir / "WC-005-01.run.json").write_text(
+        json.dumps(
+            {"revision_round": 1, "pending_confirmations": pending},
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    return pending, existing_body
+
+
+def _leaf_revision_draft(pending, *, include_all_placeholders=True):
+    selected = pending if include_all_placeholders else pending[:1]
+    tokens = [item["placeholder_token"] for item in selected]
+    content = (
+        "项目组织架构围绕实施任务建立职责边界。项目经理负责统筹计划、资源接口和事项升级，"
+        "技术负责人负责技术路线、接口约束和方案一致性，实施角色依据已确认方案执行并记录过程，"
+        "质量复核角色独立检查交付内容与完成判据，任何角色均不得以未确认信息替代正式依据。\n\n"
+        "协同工作以任务交接单和问题台账为接口。发现问题后由实施角色登记现象与影响，技术负责人"
+        "组织分析并明确处置要求，项目经理协调责任边界，质量复核角色验证整改结果；只有复核通过后"
+        "问题方可关闭。尚未确认的人员信息继续保留为" + "、".join(tokens) + "。"
+    )
+    ids = [item["placeholder_id"] for item in selected]
+    return {
+        "chapter_title": "项目组织架构",
+        "sections": [
+            {
+                "section_id": "WC-005-01",
+                "heading": "项目组织架构",
+                "block_type": "organization_plan",
+                "content": content,
+                "covered_score_item_ids": ["SCORE-001"],
+                "covered_requirement_ids": ["RP-001"],
+                "placeholder_ids": ids,
+            }
+        ],
+        "claims": [],
+        "placeholders_used": ids,
+        "score_items_covered": ["SCORE-001"],
+        "requirements_covered": ["RP-001"],
+        "warnings": [],
+    }
+
+
+def _run_leaf_fresh_final(root, fresh_output):
+    paths = write_generic_inputs(root)
+    pending, existing_body = _write_leaf_revision_baseline(root, paths)
+    model = JsonRepairModel("{invalid", json.dumps(fresh_output(pending), ensure_ascii=False))
+    agent = make_agent(
+        root,
+        paths,
+        model,
+        instruction=(
+            "删除重复基础信息，明确项目经理、技术负责人、实施与质量复核角色的职责边界、"
+            "协同接口和问题闭环机制；保留尚未确认的信息占位符。"
+        ),
+        target_section_id="WC-005-01",
+    )
+    agent.max_auto_repair_rounds = 0
+    return agent.run(), model, pending, existing_body
+
+
+class BlockedStructuredPatchThenFreshFinalModel:
+    def __init__(self, initial_output, fresh_output):
+        self.initial_output = initial_output
+        self.fresh_output = fresh_output
+        self.calls = []
+
+    def run_with_tools(self, *, messages, tools, **kwargs):
+        self.calls.append(
+            {
+                "messages": json.loads(json.dumps(messages, ensure_ascii=False)),
+                "tools": json.loads(json.dumps(tools, ensure_ascii=False)),
+                "kwargs": kwargs,
+            }
+        )
+        metadata = {
+            "provider": "fake",
+            "model": "fake",
+            "usage": empty_usage(),
+        }
+        if len(self.calls) == 1:
+            return ToolModelResult(
+                "final",
+                [],
+                json.dumps(self.initial_output, ensure_ascii=False),
+                metadata,
+            )
+        if len(self.calls) == 2:
+            request = json.loads(
+                next(
+                    item["content"]
+                    for item in messages
+                    if item.get("role") == "user"
+                )
+            )
+            repair_results = []
+            for index, card in enumerate(request["repair_task_cards"], start=1):
+                repair_results.append(
+                    {
+                        "repair_target_id": card["repair_target_id"],
+                        "section_id": card["section_id"],
+                        "candidates": [
+                            {
+                                "candidate_id": f"unchanged-{index}",
+                                "candidate_role": "conservative",
+                                "operation_type": "replace_sentence",
+                                "replacement_text": card["target"][
+                                    "offending_sentence"
+                                ],
+                            }
+                        ],
+                    }
+                )
+            return ToolModelResult(
+                "tool_calls",
+                [
+                    {
+                        "tool_call_id": "blocked-patch",
+                        "name": "submit_structured_patch",
+                        "arguments": {
+                            "base_candidate_hash": request[
+                                "base_candidate_hash"
+                            ],
+                            "repair_results": repair_results,
+                        },
+                    }
+                ],
+                None,
+                metadata,
+            )
+        return ToolModelResult(
+            "final",
+            [],
+            json.dumps(self.fresh_output, ensure_ascii=False),
+            metadata,
+        )
+
+
+class ReviewOnlyBlockedThenFreshFinalModel:
+    def __init__(self, initial_output, fresh_output):
+        self.outputs = [initial_output, fresh_output]
+        self.calls = []
+
+    def run_with_tools(self, *, messages, tools, **kwargs):
+        self.calls.append(
+            {
+                "messages": json.loads(json.dumps(messages, ensure_ascii=False)),
+                "tools": json.loads(json.dumps(tools, ensure_ascii=False)),
+                "kwargs": kwargs,
+            }
+        )
+        return ToolModelResult(
+            "final",
+            [],
+            json.dumps(self.outputs[len(self.calls) - 1], ensure_ascii=False),
+            {
+                "provider": "fake",
+                "model": "fake",
+                "usage": empty_usage(),
+            },
+        )
+
+
+def _run_leaf_blocked_patch_then_fresh_final(
+    root,
+    *,
+    include_all_fresh_placeholders=True,
+):
+    paths = write_generic_inputs(root)
+    pending, _ = _write_leaf_revision_baseline(root, paths)
+    initial = _leaf_revision_draft(
+        pending,
+        include_all_placeholders=False,
+    )
+    fresh = _leaf_revision_draft(
+        pending,
+        include_all_placeholders=include_all_fresh_placeholders,
+    )
+    model = BlockedStructuredPatchThenFreshFinalModel(initial, fresh)
+    agent = make_agent(
+        root,
+        paths,
+        model,
+        instruction=(
+            "删除重复基础信息，明确项目经理、技术负责人、实施与质量复核角色的职责边界、"
+            "协同接口和问题闭环机制；保留尚未确认的信息占位符。"
+        ),
+        target_section_id="WC-005-01",
+    )
+    return agent.run(), model, pending
+
+
+def _run_leaf_review_only_blocker_then_fresh_final(root):
+    paths = write_generic_inputs(root)
+    pending, _ = _write_leaf_revision_baseline(root, paths)
+    initial = _leaf_revision_draft(pending)
+    initial["claims"] = [
+        {
+            "text": (
+                "产品证明材料尚未确认，"
+                "本节以已登记占位符保留待人工确认后固化。"
+            ),
+            "claim_type": "placeholder",
+            "human_review_required": True,
+            "evidence_status": "missing",
+            "deviation_status": "evidence_pending",
+        }
+    ]
+    fresh = _leaf_revision_draft(pending)
+    model = ReviewOnlyBlockedThenFreshFinalModel(initial, fresh)
+    agent = make_agent(
+        root,
+        paths,
+        model,
+        instruction=(
+            "删除重复基础信息，明确项目经理、技术负责人、实施与质量复核角色的职责边界、"
+            "协同接口和问题闭环机制；保留尚未确认的信息占位符。"
+        ),
+        target_section_id="WC-005-01",
+    )
+    return agent.run(), model, pending
 
 
 class CountingWebProvider(FakeWebProvider):
@@ -334,6 +594,59 @@ class JsonRepairModel:
         if self.turn == (2 if self.first_web_tool else 1):
             return ToolModelResult("final", [], self.initial_output, metadata)
         return ToolModelResult("final", [], self.repair_output, metadata)
+
+
+class IncompleteThenFreshFinalModel:
+    def __init__(self, final_output, *, fallback_error=None):
+        self.final_output = final_output
+        self.fallback_error = fallback_error
+        self.calls = []
+        self.profile = SimpleNamespace(
+            name="generic_profile",
+            provider="openai_compatible",
+            api_style="chat_completions",
+            api_key="fake-api-key-never-report",
+            max_output_tokens=16000,
+        )
+
+    def run_with_tools(self, *, messages, tools, **kwargs):
+        self.calls.append({"messages": messages, "tools": tools, "kwargs": kwargs})
+        if len(self.calls) == 1:
+            raise ModelOutputIncompleteError(
+                "provider returned neither tool calls nor final content",
+                diagnostics={
+                    "response_status": "completed",
+                    "finish_status": "length",
+                    "output_text_available": False,
+                    "output_text_character_count": 0,
+                    "has_tool_calls": False,
+                    "tool_call_count": 0,
+                    "has_reasoning_content": True,
+                    "response_type": "incomplete",
+                    "usage": {
+                        **empty_usage(),
+                        "output_tokens": 16000,
+                        "reasoning_tokens": 15566,
+                    },
+                },
+            )
+        if self.fallback_error:
+            raise self.fallback_error
+        return ToolModelResult(
+            "final",
+            [],
+            json.dumps(self.final_output, ensure_ascii=False),
+            {"provider": "fake", "api_mode": "chat_completions", "usage": empty_usage()},
+        )
+
+
+class BalanceFailureModel:
+    def __init__(self):
+        self.calls = []
+
+    def run_with_tools(self, *, messages, tools, **kwargs):
+        self.calls.append({"messages": messages, "tools": tools, "kwargs": kwargs})
+        raise ModelResponseError("Insufficient Balance")
 
 
 class ToolArgumentFailureThenRepairModel(JsonRepairModel):
@@ -505,6 +818,240 @@ def test_broken_body_is_never_included_in_fresh_final_request(tmp_path):
     assert result["model_final_output"]["sections"] == generic_draft()["sections"]
 
 
+def test_leaf_revision_target_contract_survives_into_fresh_final(tmp_path):
+    result, model, pending, existing_body = _run_leaf_fresh_final(
+        tmp_path,
+        lambda items: _leaf_revision_draft(items),
+    )
+    assert result["status"] == "completed"
+    initial_contract_message = next(
+        item["content"]
+        for item in model.calls[0]["messages"]
+        if item["role"] == "developer"
+        and item["content"].startswith(
+            "[Targeted Existing-Draft Revision Contract]"
+        )
+    )
+    initial_contract = json.loads(initial_contract_message.splitlines()[1])
+    assert initial_contract["target_id"] == "WC-005-01"
+    assert initial_contract["required_placeholder_ids"] == sorted(
+        item["placeholder_id"] for item in pending
+    )
+    initial_schema_message = next(
+        item["content"]
+        for item in model.calls[0]["messages"]
+        if item["role"] == "developer"
+        and item["content"].startswith("[Output Schema]")
+    )
+    initial_schema = json.loads(initial_schema_message.split("\n", 2)[2])
+    assert initial_schema["properties"]["sections"]["maxItems"] == 1
+    assert (
+        initial_schema["properties"]["sections"]["prefixItems"][0]
+        ["properties"]["section_id"]["const"]
+        == "WC-005-01"
+    )
+    fresh_instruction = model.calls[-1]["messages"][-1]["content"]
+    payload_start = fresh_instruction.index('{"response_schema":')
+    payload = json.loads(fresh_instruction[payload_start:])
+    contract = payload["targeted_revision_contract"]
+    assert contract["target_id"] == "WC-005-01"
+    assert contract["canonical_target_title"] == "项目组织架构"
+    assert contract["target_is_leaf"] is True
+    assert contract["expected_section_count"] == 1
+    assert contract["additional_sections_allowed"] is False
+    assert contract["expected_sections"] == [
+        {
+            "section_id": "WC-005-01",
+            "section_title": "项目组织架构",
+            "expected_order": 0,
+        }
+    ]
+    assert contract["required_placeholder_ids"] == sorted(
+        item["placeholder_id"] for item in pending
+    )
+    assert contract["existing_canonical_section_body"] == existing_body
+    assert "明确项目经理" in contract["revision_instruction"]
+    sections_schema = payload["response_schema"]["properties"]["sections"]
+    assert sections_schema["minItems"] == sections_schema["maxItems"] == 1
+    assert sections_schema["items"] is False
+    assert sections_schema["prefixItems"][0]["properties"]["section_id"]["const"] == "WC-005-01"
+    assert sections_schema["prefixItems"][0]["properties"]["heading"]["const"] == "项目组织架构"
+
+
+def test_leaf_revision_fresh_final_accepts_exact_target_and_placeholders(tmp_path):
+    result, _, pending, _ = _run_leaf_fresh_final(
+        tmp_path,
+        lambda items: _leaf_revision_draft(items),
+    )
+    assert result["status"] == "completed"
+    assert result["validation"]["valid"] is True
+    assert [item["section_id"] for item in result["model_final_output"]["sections"]] == [
+        "WC-005-01"
+    ]
+    assert result["model_final_output"]["sections"][0]["placeholder_ids"] == [
+        item["placeholder_id"] for item in pending
+    ]
+
+
+def test_leaf_revision_fresh_final_rejects_subsection_identity_drift(tmp_path):
+    def drifted(_):
+        value = _leaf_revision_draft([])
+        value["sections"] = [
+            {
+                **value["sections"][0],
+                "section_id": f"WC-005-01-0{index}",
+                "heading": title,
+            }
+            for index, title in enumerate(
+                ("总体设计原则", "职责边界与协同接口", "问题闭环机制"),
+                start=1,
+            )
+        ]
+        return value
+
+    result, _, _, _ = _run_leaf_fresh_final(tmp_path, drifted)
+    assert result["status"] == "failed"
+    assert result["fresh_final_generation"]["succeeded"] is False
+    assert result["validation"]["valid"] is False
+
+
+def test_leaf_revision_fresh_final_rejects_missing_required_placeholder(tmp_path):
+    result, _, pending, _ = _run_leaf_fresh_final(
+        tmp_path,
+        lambda items: _leaf_revision_draft(
+            items,
+            include_all_placeholders=False,
+        ),
+    )
+    assert result["validation"]["valid"] is False
+    missing_id = pending[-1]["placeholder_id"]
+    assert any(
+        "required_registered_placeholder_missing" in error and missing_id in error
+        for error in result["validation"]["errors"]
+    )
+
+
+def test_blocked_structured_patch_enters_targeted_fresh_final(tmp_path):
+    result, model, pending = _run_leaf_blocked_patch_then_fresh_final(tmp_path)
+
+    assert len(model.calls) == 3
+    assert model.calls[1]["tools"][0]["function"]["name"] == (
+        "submit_structured_patch"
+    )
+    assert model.calls[2]["tools"] == []
+    assert model.calls[2]["kwargs"]["request_metadata"]["purpose"] == (
+        "fresh_final_after_blocked_repair"
+    )
+    assert result["fresh_quality_regeneration"]["accepted"] is False
+    assert result["fresh_final_generation"]["attempted"] is True
+    assert result["fresh_final_generation"]["succeeded"] is True
+    assert result["fresh_final_generation"]["source_stage"] == (
+        "structured_patch_validation_blocked"
+    )
+
+    instruction = model.calls[2]["messages"][-1]["content"]
+    payload = json.loads(instruction[instruction.index('{"response_schema":'):])
+    contract = payload["targeted_revision_contract"]
+    assert contract["target_id"] == "WC-005-01"
+    assert contract["canonical_target_title"] == "项目组织架构"
+    assert contract["target_is_leaf"] is True
+    assert contract["expected_section_count"] == 1
+    assert contract["additional_sections_allowed"] is False
+    assert contract["required_placeholder_ids"] == sorted(
+        item["placeholder_id"] for item in pending
+    )
+    sections_schema = payload["response_schema"]["properties"]["sections"]
+    assert sections_schema["minItems"] == sections_schema["maxItems"] == 1
+    assert sections_schema["items"] is False
+
+    assert result["validation"]["valid"] is True
+    assert result["selected_candidate"] == "fresh_final_recovery"
+    assert [
+        item["section_id"]
+        for item in result["model_final_output"]["sections"]
+    ] == ["WC-005-01"]
+
+
+def test_blocked_patch_fresh_final_still_rejects_missing_placeholder(tmp_path):
+    result, model, pending = _run_leaf_blocked_patch_then_fresh_final(
+        tmp_path,
+        include_all_fresh_placeholders=False,
+    )
+
+    assert len(model.calls) == 3
+    assert result["fresh_final_generation"]["succeeded"] is True
+    assert result["validation"]["valid"] is False
+    missing_id = pending[-1]["placeholder_id"]
+    assert any(
+        "required_registered_placeholder_missing" in error and missing_id in error
+        for error in result["validation"]["errors"]
+    )
+
+
+def test_review_only_initial_blocker_enters_targeted_fresh_final(tmp_path):
+    result, model, pending = _run_leaf_review_only_blocker_then_fresh_final(
+        tmp_path
+    )
+
+    assert len(model.calls) == 2, (
+        result["initial_candidate_validation"],
+        result["model_final_output"].get("claims", [{}])[0].get(
+            "deviation_status"
+        ),
+    )
+    assert model.calls[1]["tools"] == []
+    assert model.calls[1]["kwargs"]["request_metadata"]["purpose"] == (
+        "fresh_final_after_blocked_validation"
+    )
+    assert result["fresh_quality_regeneration"]["attempted"] is False
+    assert result["fresh_final_generation"]["attempted"] is True
+    assert result["fresh_final_generation"]["succeeded"] is True
+    assert result["fresh_final_generation"]["source_stage"] == (
+        "initial_validation_blocked"
+    )
+    assert result["candidate_selection_reason"] == "initial_validation_blocked"
+    assert result["stop_reason"] == (
+        "fresh_final_after_blocked_validation_succeeded"
+    )
+
+    instruction = model.calls[1]["messages"][-1]["content"]
+    payload = json.loads(instruction[instruction.index('{"response_schema":'):])
+    contract = payload["targeted_revision_contract"]
+    assert contract["target_id"] == "WC-005-01"
+    assert contract["canonical_target_title"] == "项目组织架构"
+    assert contract["target_is_leaf"] is True
+    assert contract["expected_section_count"] == 1
+    assert contract["additional_sections_allowed"] is False
+    assert contract["required_placeholder_ids"] == sorted(
+        item["placeholder_id"] for item in pending
+    )
+    assert result["validation"]["valid"] is True
+
+
+def test_complete_working_draft_uses_placeholder_ids_not_tokens():
+    placeholder_id = "PH-FIELD-HUMAN-CONFIRMATION-PROJECT-METADATA-CONFIRM-001"
+    token = placeholder_token(placeholder_id)
+    tool_context = SimpleNamespace(
+        working_draft_markdown=f"## 项目组织架构\n\n待确认信息以{token}为准。",
+        saved_sections=[
+            {
+                "section_id": "WC-005-01",
+                "title": "项目组织架构",
+                "content": f"待确认信息以{token}为准。",
+            }
+        ],
+        pending_confirmations=[{"placeholder_id": placeholder_id}],
+    )
+
+    result = _complete_working_draft_candidate(
+        tool_context=tool_context,
+        target={"section_id": "WC-005-01", "title": "项目组织架构"},
+    )
+
+    assert result["sections"][0]["placeholder_ids"] == [placeholder_id]
+    assert result["placeholders_used"] == [placeholder_id]
+
+
 def test_tool_argument_parse_failure_uses_clean_fresh_final_without_model_repair(tmp_path):
     paths = write_generic_inputs(tmp_path)
     model = ToolArgumentFailureThenRepairModel(
@@ -589,6 +1136,53 @@ def test_failed_clean_fresh_final_saves_redacted_debug_and_skips_business_checks
     assert "未取得可校验章节对象" in format_agent_event(validation_event)
     assert "model_json_repair_started" not in event_types
     assert event_types.count("fresh_final_generation_started") == 1
+
+
+def test_incomplete_output_uses_tool_free_fresh_final_and_persists_diagnostics(tmp_path):
+    paths = write_generic_inputs(tmp_path)
+    model = IncompleteThenFreshFinalModel(generic_draft())
+    events = []
+    result = make_agent(tmp_path, paths, model).run(event_handler=events.append)
+    assert result["status"] == "completed"
+    assert result["stop_reason"] == "fresh_final_after_incomplete_output_succeeded"
+    assert result["fresh_final_generation"]["attempted"] is True
+    assert result["fresh_final_generation"]["succeeded"] is True
+    assert model.calls[1]["tools"] == []
+    assert model.calls[1]["kwargs"]["tool_choice"] == "none"
+    assert model.calls[1]["kwargs"]["options"]["reasoning_effort"] == "low"
+    event = next(item for item in events if item["event_type"] == "model_output_incomplete")
+    data = event["data"]
+    assert data["finish_reason"] == "length"
+    assert data["has_reasoning_content"] is True
+    assert data["output_tokens"] == 16000
+    assert data["reasoning_tokens"] == 15566
+    debug = Path(data["debug_path"]).read_text(encoding="utf-8")
+    assert "fake-api-key-never-report" not in debug
+    assert '"tool_call_count": 0' in debug
+
+
+def test_incomplete_output_and_fresh_final_failure_preserve_both_errors(tmp_path):
+    paths = write_generic_inputs(tmp_path)
+    model = IncompleteThenFreshFinalModel(
+        generic_draft(),
+        fallback_error=ModelJsonParseError("fresh final was invalid JSON"),
+    )
+    result = make_agent(tmp_path, paths, model).run()
+    assert result["status"] == "failed"
+    assert result["stop_reason"] == "model_output_incomplete_error"
+    assert result["fresh_final_generation"]["attempted"] is True
+    assert result["fresh_final_generation"]["succeeded"] is False
+    assert "ModelOutputIncompleteError" in result["fresh_final_generation"]["initial_error"]
+    assert "fresh final was invalid JSON" in result["fresh_final_generation"]["fallback_error"]
+
+
+def test_provider_response_error_does_not_use_fresh_final(tmp_path):
+    paths = write_generic_inputs(tmp_path)
+    model = BalanceFailureModel()
+    result = make_agent(tmp_path, paths, model).run()
+    assert result["status"] == "failed"
+    assert result["fresh_final_generation"]["attempted"] is False
+    assert len(model.calls) == 1
 
 
 def test_first_generation_without_existing_draft_or_instruction_is_unchanged(tmp_path):
@@ -775,6 +1369,65 @@ def test_exact_tender_baseline_does_not_create_pending_confirmation(tmp_path):
     )
     assert positive["status"] == "recorded"
     assert len(context.pending_confirmations) == 1
+
+
+def test_pending_confirmation_is_evaluated_per_atomic_delivery_or_installation_fact(tmp_path):
+    paths = write_generic_inputs(tmp_path)
+    response = json.loads(paths["response"].read_text(encoding="utf-8"))
+    response["chapters"][0]["response_points"][0]["original_text"] = (
+        "交货时间为合同签订后1个月内完成。"
+    )
+    paths["response"].write_text(json.dumps(response, ensure_ascii=False), encoding="utf-8")
+    context = TechnicalWritingToolContext(
+        response_outline_path=paths["response"],
+        writing_outline_path=paths["writing"],
+        task_information_path=paths["tasks"],
+        output_root=tmp_path / "outputs",
+        output_key="generic_case",
+        target_chapter_id="CH-001",
+        target_section_id=None,
+        metadata_store=EmptyMetadataStore(),
+        web_disabled=True,
+    )
+    baseline = context.record_pending_confirmation(
+        {
+            "field": "最终交货承诺",
+            "question": "确认合同签订后1个月内完成",
+            "reason": "响应招标基准",
+            "fact_semantic_field": "delivery",
+            "proposed_value": "1",
+            "unit": "个月",
+            "start_reference": "contract_signing",
+            "tender_source_id": "RP-001",
+        }
+    )
+    assert baseline["status"] == "not_required"
+    installation = context.record_pending_confirmation(
+        {
+            "field": "实际安装周期",
+            "question": "确认实际安装周期",
+            "reason": "招标未给出具体安装周期",
+            "fact_semantic_field": "installation",
+            "proposed_value": "20",
+            "unit": "日",
+            "start_reference": "arrival",
+        }
+    )
+    assert installation["status"] == "recorded"
+    improvement = context.record_pending_confirmation(
+        {
+            "field": "最终交货承诺",
+            "question": "确认20日内完成",
+            "reason": "优于招标基准",
+            "fact_semantic_field": "delivery",
+            "proposed_value": "20",
+            "unit": "日",
+            "start_reference": "contract_signing",
+            "tender_source_id": "RP-001",
+        }
+    )
+    assert improvement["status"] == "recorded"
+    assert len(context.pending_confirmations) == 2
 
 
 def test_confirmed_fact_and_selected_knowledge_do_not_create_pending_confirmation(

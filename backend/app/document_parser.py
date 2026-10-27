@@ -350,9 +350,12 @@ def parse_pdf(path: Path, record: dict[str, Any]) -> dict[str, Any]:
     warnings = []
     if plain_text_len < 80:
         warnings.append("疑似扫描件 PDF，后续需要 OCR")
+    empty_pages = [page["page_number"] for page in pages if not page["text"]]
+    if empty_pages:
+        warnings.append(f"以下页未提取到正文，可能为空白页或扫描页，需核对：{empty_pages}")
     return {
-        "ok": bool(parsed_text),
-        "parsed_text": parsed_text,
+        "ok": plain_text_len > 0,
+        "parsed_text": parsed_text if plain_text_len else "",
         "sections": pages,
         "tables": [],
         "blocks": [
@@ -367,7 +370,7 @@ def parse_pdf(path: Path, record: dict[str, Any]) -> dict[str, Any]:
         ],
         "assets": [],
         "warnings": warnings,
-        "message": "解析完成" if parsed_text else "PDF 未提取到文本内容",
+        "message": "解析完成" if plain_text_len else "PDF 未提取到文本内容",
     }
 
 
@@ -490,7 +493,7 @@ def parse_via_libreoffice(path: Path, record: dict[str, Any], target_ext: str, p
             "message": f"当前解析 .{record['file_ext']} 需要安装 LibreOffice，或请先另存为 .{target_ext}",
         }
 
-    output_dir = PARSED_DIR / "converted"
+    output_dir = PARSED_DIR / "converted" / uuid.uuid4().hex
     output_dir.mkdir(parents=True, exist_ok=True)
     command = [
         str(soffice),
@@ -513,9 +516,6 @@ def parse_via_libreoffice(path: Path, record: dict[str, Any], target_ext: str, p
             "message": f"LibreOffice 转换 .{record['file_ext']} 失败",
         }
     converted = output_dir / f"{path.stem}.{target_ext}"
-    if not converted.exists():
-        candidates = sorted(output_dir.glob(f"*.{target_ext}"), key=lambda item: item.stat().st_mtime, reverse=True)
-        converted = candidates[0] if candidates else converted
     if not converted.exists():
         return {
             "ok": False,

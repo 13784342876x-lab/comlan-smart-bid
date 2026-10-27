@@ -1,4 +1,9 @@
-"""Strict canonicalization for one exact redundant legacy chapter wrapper."""
+"""Deterministic, provenance-bound Candidate section identity canonicalization.
+
+Candidate JSON is an immutable production artifact.  This module may construct a
+derived in-memory view for validation/composition, but never persists it over the
+source Candidate.  It deliberately has no fuzzy matching or title aliases.
+"""
 
 from __future__ import annotations
 
@@ -40,28 +45,18 @@ def _expected_sections(values: Iterable[dict[str, Any]] | None) -> list[dict[str
     expected: list[dict[str, str]] = []
     for item in values or []:
         section_id = str((item or {}).get("section_id") or "").strip()
-        title = str(
-            (item or {}).get("section_title") or (item or {}).get("title") or ""
-        ).strip()
+        title = str((item or {}).get("section_title") or (item or {}).get("title") or "").strip()
         if not section_id or not title:
-            raise CandidateCanonicalizationError(
-                "expected outline section identity is invalid"
-            )
+            raise CandidateCanonicalizationError("expected outline section identity is invalid")
         expected.append({"section_id": section_id, "section_title": title})
     if len({item["section_id"] for item in expected}) != len(expected):
-        raise CandidateCanonicalizationError(
-            "expected outline section IDs are not unique"
-        )
+        raise CandidateCanonicalizationError("expected outline section IDs are not unique")
     if len({item["section_title"] for item in expected}) != len(expected):
-        raise CandidateCanonicalizationError(
-            "expected outline section titles are ambiguous"
-        )
+        raise CandidateCanonicalizationError("expected outline section titles are ambiguous")
     return expected
 
 
-def _lineage(
-    *, source_candidate_sha256: str | None, mode: str, candidate: dict[str, Any]
-) -> dict[str, Any]:
+def _lineage(*, source_candidate_sha256: str | None, mode: str, candidate: dict[str, Any]) -> dict[str, Any]:
     return {
         "source_candidate_sha256": str(source_candidate_sha256 or "") or None,
         "canonicalization_version": CANONICALIZATION_VERSION,
@@ -73,6 +68,25 @@ def _lineage(
     }
 
 
+def _all_section_id_state(sections: list[dict[str, Any]]) -> str:
+    present = [bool(str(item.get("section_id") or "").strip()) for item in sections]
+    if all(present):
+        return "all_explicit"
+    if not any(present):
+        return "all_missing"
+    return "mixed"
+
+
+def _with_ids(candidate: dict[str, Any], section_ids: list[str]) -> dict[str, Any]:
+    view = deepcopy(candidate)
+    sections = _sections(view)
+    if len(sections) != len(section_ids):
+        raise CandidateCanonicalizationError("candidate section count changed during canonicalization")
+    for section, section_id in zip(sections, section_ids):
+        section["section_id"] = section_id
+    return view
+
+
 def _exact_redundant_chapter_wrapper(
     *,
     candidate: dict[str, Any],
@@ -80,6 +94,13 @@ def _exact_redundant_chapter_wrapper(
     expected: list[dict[str, str]],
     expected_chapter_title: str | None,
 ) -> dict[str, Any] | None:
+    """Return a derived view without one exact chapter-title wrapper section.
+
+    This is deliberately narrow: there must be exactly one leading
+    ``<chapter>-00`` section whose heading exactly equals the canonical chapter
+    title, and every remaining section ID/title must already equal the outline
+    in canonical order.  The source Candidate is never mutated.
+    """
     chapter_title = str(expected_chapter_title or "").strip()
     if not expected or not chapter_title:
         return None
@@ -93,17 +114,66 @@ def _exact_redundant_chapter_wrapper(
     ):
         return None
     remaining = sections[1:]
-    if [str(item.get("section_id") or "").strip() for item in remaining] != [
-        item["section_id"] for item in expected
-    ]:
+    expected_ids = [item["section_id"] for item in expected]
+    expected_titles = [item["section_title"] for item in expected]
+    if [str(item.get("section_id") or "").strip() for item in remaining] != expected_ids:
         return None
-    if [str(item.get("heading") or "").strip() for item in remaining] != [
-        item["section_title"] for item in expected
-    ]:
+    if [str(item.get("heading") or "").strip() for item in remaining] != expected_titles:
         return None
     view = deepcopy(candidate)
     view["sections"] = deepcopy(remaining)
     return view
+
+
+def canonicalize_agent_candidate(
+    *,
+    candidate: dict[str, Any],
+    chapter_id: str,
+    expected_sections: Iterable[dict[str, Any]] | None,
+    section_identity_map: Iterable[dict[str, Any]] | None,
+    section_identity_issues: Iterable[dict[str, Any]] | None,
+) -> CanonicalCandidateView:
+    """Make a future Agent candidate persist the identities it already resolved."""
+    sections = _sections(candidate)
+    expected = _expected_sections(expected_sections)
+    state = _all_section_id_state(sections)
+    if expected:
+        if list(section_identity_issues or []):
+            raise CandidateCanonicalizationError("section identity resolution contains issues")
+        identity_map = list(section_identity_map or [])
+        if len(sections) != len(expected) or len(identity_map) != len(expected):
+            raise CandidateCanonicalizationError("section identity map does not completely cover the outline")
+        expected_ids = [item["section_id"] for item in expected]
+        expected_titles = [item["section_title"] for item in expected]
+        mapped_ids = [str(item.get("section_id") or "").strip() for item in identity_map]
+        mapped_titles = [str(item.get("section_title") or "").strip() for item in identity_map]
+        actual_titles = [str(item.get("heading") or "").strip() for item in sections]
+        if mapped_ids != expected_ids or mapped_titles != expected_titles or actual_titles != expected_titles:
+            raise CandidateCanonicalizationError("section identity map is not an exact outline-backed mapping")
+        if state == "mixed":
+            raise CandidateCanonicalizationError("candidate has mixed explicit and missing section IDs")
+        if state == "all_explicit":
+            actual_ids = [str(item.get("section_id") or "").strip() for item in sections]
+            if actual_ids != expected_ids:
+                raise CandidateCanonicalizationError("explicit section IDs do not match the resolved outline identity")
+            view = deepcopy(candidate)
+            mode = "explicit_id"
+        else:
+            view = _with_ids(candidate, expected_ids)
+            mode = "validated_agent_identity_map"
+        return CanonicalCandidateView(view, _lineage(source_candidate_sha256=None, mode=mode, candidate=view))
+
+    if state == "mixed":
+        raise CandidateCanonicalizationError("leaf candidate has mixed explicit and missing section IDs")
+    if state == "all_explicit":
+        view = deepcopy(candidate)
+        return CanonicalCandidateView(view, _lineage(source_candidate_sha256=None, mode="explicit_id", candidate=view))
+    local_ids = [f"{chapter_id}-LOCAL-{index:02d}" for index in range(1, len(sections) + 1)]
+    view = _with_ids(candidate, local_ids)
+    return CanonicalCandidateView(
+        view,
+        _lineage(source_candidate_sha256=None, mode="deterministic_leaf_local_id", candidate=view),
+    )
 
 
 def canonicalize_trusted_legacy_candidate(
@@ -119,8 +189,10 @@ def canonicalize_trusted_legacy_candidate(
     expected_sections: Iterable[dict[str, Any]] | None,
     expected_chapter_title: str | None = None,
 ) -> CanonicalCandidateView:
+    """Create a strict in-memory view for a pre-canonicalization production Candidate."""
     sections = _sections(candidate)
     expected = _expected_sections(expected_sections)
+    state = _all_section_id_state(sections)
     wrapper_view = _exact_redundant_chapter_wrapper(
         candidate=candidate,
         chapter_id=chapter_id,
@@ -130,61 +202,42 @@ def canonicalize_trusted_legacy_candidate(
     if wrapper_view is not None:
         expected_hash = str(expected_candidate_sha256 or "").strip()
         source_hash = str(source_candidate_sha256 or "").strip()
-        run_hash = str(
-            ((run.get("candidate_artifacts") or {}).get("json_sha256") or "")
-        ).strip()
-        run_output_key = str(
-            (run.get("run_summary") or {}).get("output_key")
-            or run.get("output_key")
-            or ""
-        ).strip()
+        run_hash = str(((run.get("candidate_artifacts") or {}).get("json_sha256") or "")).strip()
+        run_output_key = str((run.get("run_summary") or {}).get("output_key") or run.get("output_key") or "").strip()
         target = run.get("target") if isinstance(run.get("target"), dict) else {}
         if not expected_hash or source_hash != expected_hash or run_hash != source_hash:
-            raise CandidateCanonicalizationError(
-                "chapter-wrapper candidate hash provenance is not exact"
-            )
+            raise CandidateCanonicalizationError("chapter-wrapper candidate hash provenance is not exact")
         if (
             run_output_key != str(output_key or "")
             or str(target.get("chapter_id") or "") != chapter_id
             or target.get("section_id") not in (None, "")
         ):
-            raise CandidateCanonicalizationError(
-                "chapter-wrapper candidate run target/output_key provenance is invalid"
-            )
+            raise CandidateCanonicalizationError("chapter-wrapper candidate run target/output_key provenance is invalid")
         if not expected_outline_sha256 or expected_outline_sha256 != actual_outline_sha256:
-            raise CandidateCanonicalizationError(
-                "chapter-wrapper candidate writing outline hash provenance is invalid"
-            )
+            raise CandidateCanonicalizationError("chapter-wrapper candidate writing outline hash provenance is invalid")
 
-        identity_map = list(run.get("section_identity_map") or [])
-        if [str(item.get("section_id") or "").strip() for item in identity_map] != [
-            item["section_id"] for item in expected
-        ] or [
-            str(item.get("section_title") or "").strip() for item in identity_map
-        ] != [item["section_title"] for item in expected]:
-            raise CandidateCanonicalizationError(
-                "chapter-wrapper candidate identity map is not exact"
-            )
-        allowed_methods = {"explicit_id", "unique_title", "title_and_order"}
-        if any(
-            str(item.get("resolution_method") or "").strip() not in allowed_methods
-            for item in identity_map
-        ):
-            raise CandidateCanonicalizationError(
-                "chapter-wrapper candidate identity map is not exact"
-            )
         issues = list(run.get("section_identity_issues") or [])
+        identity_map = list(run.get("section_identity_map") or [])
+        expected_ids = [item["section_id"] for item in expected]
+        expected_titles = [item["section_title"] for item in expected]
+        mapped_ids = [str(item.get("section_id") or "").strip() for item in identity_map]
+        mapped_titles = [str(item.get("section_title") or "").strip() for item in identity_map]
+        allowed_methods = {"explicit_id", "unique_title", "title_and_order"}
+        methods = [str(item.get("resolution_method") or "").strip() for item in identity_map]
+        if (
+            mapped_ids != expected_ids
+            or mapped_titles != expected_titles
+            or any(method not in allowed_methods for method in methods)
+        ):
+            raise CandidateCanonicalizationError("chapter-wrapper candidate identity map is not exact")
         if not (
             len(issues) == 1
-            and str(issues[0].get("code") or "")
-            == "section_identity_resolution_failed"
+            and str(issues[0].get("code") or "") == "section_identity_resolution_failed"
             and int(issues[0].get("section_index", -1)) == 0
             and str(issues[0].get("section_title") or "").strip()
             == str(expected_chapter_title or "").strip()
         ):
-            raise CandidateCanonicalizationError(
-                "chapter-wrapper candidate has unexpected section identity issues"
-            )
+            raise CandidateCanonicalizationError("chapter-wrapper candidate has unexpected section identity issues")
         return CanonicalCandidateView(
             wrapper_view,
             _lineage(
@@ -193,17 +246,50 @@ def canonicalize_trusted_legacy_candidate(
                 candidate=wrapper_view,
             ),
         )
-
-    if all(str(item.get("section_id") or "").strip() for item in sections):
+    if state == "all_explicit":
         view = deepcopy(candidate)
-        return CanonicalCandidateView(
-            view,
-            _lineage(
-                source_candidate_sha256=source_candidate_sha256,
-                mode="explicit_id",
-                candidate=view,
-            ),
-        )
-    raise CandidateCanonicalizationError(
-        "legacy candidate does not have explicit canonical section IDs"
+        return CanonicalCandidateView(view, _lineage(source_candidate_sha256=source_candidate_sha256, mode="explicit_id", candidate=view))
+    if state == "mixed":
+        raise CandidateCanonicalizationError("legacy candidate has mixed explicit and missing section IDs")
+
+    expected_hash = str(expected_candidate_sha256 or "").strip()
+    source_hash = str(source_candidate_sha256 or "").strip()
+    run_hash = str(((run.get("candidate_artifacts") or {}).get("json_sha256") or "")).strip()
+    run_output_key = str((run.get("run_summary") or {}).get("output_key") or run.get("output_key") or "").strip()
+    target = run.get("target") if isinstance(run.get("target"), dict) else {}
+    if not expected_hash or source_hash != expected_hash or run_hash != source_hash:
+        raise CandidateCanonicalizationError("legacy candidate hash provenance is not exact")
+    if run_output_key != str(output_key or "") or str(target.get("chapter_id") or "") != chapter_id or target.get("section_id") not in (None, ""):
+        raise CandidateCanonicalizationError("legacy candidate run target/output_key provenance is invalid")
+    if not expected_outline_sha256 or expected_outline_sha256 != actual_outline_sha256:
+        raise CandidateCanonicalizationError("legacy candidate writing outline hash provenance is invalid")
+
+    if not expected:
+        local_ids = [f"{chapter_id}-LOCAL-{index:02d}" for index in range(1, len(sections) + 1)]
+        view = _with_ids(candidate, local_ids)
+        return CanonicalCandidateView(view, _lineage(source_candidate_sha256=source_hash, mode="deterministic_leaf_local_id", candidate=view))
+
+    issues = list(run.get("section_identity_issues") or [])
+    identity_map = list(run.get("section_identity_map") or [])
+    expected_ids = [item["section_id"] for item in expected]
+    expected_titles = [item["section_title"] for item in expected]
+    actual_titles = [str(item.get("heading") or "").strip() for item in sections]
+    mapped_ids = [str(item.get("section_id") or "").strip() for item in identity_map]
+    mapped_titles = [str(item.get("section_title") or "").strip() for item in identity_map]
+    allowed_methods = {"explicit_id", "unique_title", "title_and_order"}
+    methods = [str(item.get("resolution_method") or "").strip() for item in identity_map]
+    if (
+        issues
+        or len(sections) != len(expected)
+        or len(identity_map) != len(expected)
+        or actual_titles != expected_titles
+        or mapped_ids != expected_ids
+        or mapped_titles != expected_titles
+        or any(method not in allowed_methods for method in methods)
+    ):
+        raise CandidateCanonicalizationError("legacy section identity map is not an exact complete outline-backed mapping")
+    view = _with_ids(candidate, expected_ids)
+    return CanonicalCandidateView(
+        view,
+        _lineage(source_candidate_sha256=source_hash, mode="validated_run_identity_map", candidate=view),
     )

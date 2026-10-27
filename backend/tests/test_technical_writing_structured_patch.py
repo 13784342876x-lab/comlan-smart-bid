@@ -18,6 +18,7 @@ from app.technical_writing_agent import (
     _fresh_patch_protocol_payload,
     _fresh_patch_protocol_failure_report,
     _fresh_patch_report_template,
+    _fresh_patch_candidates_equivalent,
     _fresh_patch_payload_from_tool_result,
     _fresh_patch_response_schema,
     _fresh_quality_error_details,
@@ -1100,6 +1101,27 @@ def test_duplicate_candidates_are_deduplicated():
     )
     assert duplicate["status"] == "rejected"
     assert report["duplicate_candidate_count"] == 1
+
+
+def test_placeholder_tokens_do_not_hide_meaningful_candidate_difference():
+    tokens = "、".join(
+        f"{{{{PH-FIELD-HUMAN-CONFIRMATION-TASK-00{index}-TECHNICAL-CONFIRM}}}}"
+        for index in range(2, 7)
+    )
+    primary = {
+        "operation_type": "replace_sentence",
+        "original_text": BAD_A,
+        "replacement_text": (
+            "同时，质量复核岗位在技术响应形成阶段负责逐项核对，"
+            f"相关页码、条款号及适用范围以{tokens}为准。"
+        ),
+    }
+    conservative = {
+        **primary,
+        "replacement_text": f"相关页码、条款号及适用范围以{tokens}为准。",
+    }
+
+    assert not _fresh_patch_candidates_equivalent(primary, conservative)
 
 
 def test_duplicate_candidate_does_not_fail_whole_response():

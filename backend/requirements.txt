@@ -3,6 +3,9 @@ python-dotenv
 openai
 jsonschema
 pydantic
+fastapi
+uvicorn
+httpx
 typer
 rich
 python-docx

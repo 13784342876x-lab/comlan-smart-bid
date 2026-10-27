@@ -20,6 +20,7 @@ from app.technical_writing_agent import (
     validate_technical_chapter,
 )
 from app.technical_writing_quality import (
+    audit_generation_permissions,
     calculate_confirmed_work_years,
     classify_deviation_status,
     count_confirmed_similar_projects,
@@ -473,6 +474,58 @@ def test_candidate_id_never_supports_confirmed_enterprise_fact():
     )
 
 
+def test_confirmed_project_fact_supports_traced_enterprise_claim():
+    value = draft(prose() + "\n\n投标人名称为华东智联科技有限公司。")
+    value["claims"] = [
+        {
+            "text": "投标人名称为华东智联科技有限公司。",
+            "claim_type": "confirmed_enterprise_fact",
+            "source_ids": ["FACT-001"],
+            "evidence_ids": [],
+            "human_review_required": False,
+        }
+    ]
+    validation = validate_technical_chapter(
+        value,
+        schema=load_chapter_draft_schema(),
+        target={"title": "技术方案", "children": []},
+        confirmed_facts={"bidder_name": "华东智联科技有限公司"},
+        pending_confirmations=[],
+        tender_tables=[],
+    )
+
+    assert not any(
+        "confirmed enterprise claims require confirmed evidence" in item
+        for item in validation["errors"]
+    )
+
+
+def test_confirmed_project_fact_value_remains_valid_when_model_omits_source_id():
+    value = draft(prose() + "\n\n投标人名称为华东智联科技有限公司。")
+    value["claims"] = [
+        {
+            "text": "投标人名称为华东智联科技有限公司。",
+            "claim_type": "confirmed_enterprise_fact",
+            "source_ids": [],
+            "evidence_ids": [],
+            "human_review_required": False,
+        }
+    ]
+    validation = validate_technical_chapter(
+        value,
+        schema=load_chapter_draft_schema(),
+        target={"title": "技术方案", "children": []},
+        confirmed_facts={"bidder_name": "华东智联科技有限公司"},
+        pending_confirmations=[],
+        tender_tables=[],
+    )
+
+    assert not any(
+        "confirmed enterprise claims require confirmed evidence" in item
+        for item in validation["errors"]
+    )
+
+
 def test_tender_capability_is_requirement_not_confirmed_offered_capability():
     requirement = "招标文件明确要求本系统应支持多副本和在线扩展。"
     tender = draft(prose() + "\n\n" + requirement)
@@ -527,6 +580,69 @@ def test_design_principle_is_not_product_capability():
 def test_design_goal_does_not_confirm_offered_feature():
     value = draft(prose() + "\n\n以在线扩展和业务连续性为设计目标。")
     assert inspect_unconfirmed_commitments(value, confirmed_facts={}) == []
+
+
+def test_negated_acceptance_commitment_boundary_is_neutral_methodology():
+    value = draft("实施执行人员不负责修改验收判据，也不直接对外作出承诺。")
+    value["sections"][0]["section_id"] = "WC-005-01"
+    ledger = [
+        {
+            "section_id": "WC-005-01",
+            "section_title": "实施方案",
+            "generation_permissions": {},
+        }
+    ]
+
+    assert audit_generation_permissions(value, fact_ledger=ledger)["passed"] is True
+
+
+def test_positive_acceptance_commitment_remains_blocked():
+    value = draft("实施执行人员负责验收判据，并直接对外作出承诺。")
+    value["sections"][0]["section_id"] = "WC-005-01"
+    ledger = [
+        {
+            "section_id": "WC-005-01",
+            "section_title": "实施方案",
+            "generation_permissions": {},
+        }
+    ]
+
+    audit = audit_generation_permissions(value, fact_ledger=ledger)
+    assert audit["passed"] is False
+    assert audit["unauthorized_bidder_commitments"][0]["offending_span"] == "验收"
+
+
+def test_technical_response_point_cross_check_is_not_service_commitment():
+    value = draft(
+        "组织架构对各技术响应点的承接，以招标正文原文页码、条款号和"
+        "适用范围的核对结果为准。"
+    )
+    value["sections"][0]["section_id"] = "WC-005-01"
+    ledger = [
+        {
+            "section_id": "WC-005-01",
+            "section_title": "实施方案",
+            "generation_permissions": {},
+        }
+    ]
+
+    assert audit_generation_permissions(value, fact_ledger=ledger)["passed"] is True
+
+
+def test_positive_technical_response_service_commitment_remains_blocked():
+    value = draft("我方承诺提供技术响应服务。")
+    value["sections"][0]["section_id"] = "WC-005-01"
+    ledger = [
+        {
+            "section_id": "WC-005-01",
+            "section_title": "实施方案",
+            "generation_permissions": {},
+        }
+    ]
+
+    audit = audit_generation_permissions(value, fact_ledger=ledger)
+    assert audit["passed"] is False
+    assert audit["unauthorized_bidder_commitments"][0]["offending_span"] == "技术响应"
 
 
 def test_system_supports_online_expansion_remains_blocked():

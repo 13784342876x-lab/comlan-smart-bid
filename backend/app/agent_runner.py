@@ -47,8 +47,9 @@ def load_agent_config(agent_name: str, agents_dir: str = "agents") -> dict[str, 
 def run_agent(
     agent_name: str,
     input_data: dict[str, Any],
-    provider: str = "mock",
+    provider: str | None = None,
     agents_dir: str = "agents",
+    model_profile: str | None = None,
 ) -> dict[str, Any]:
     config = load_agent_config(agent_name, agents_dir=agents_dir)
     input_summary = build_input_summary(input_data)
@@ -63,24 +64,41 @@ def run_agent(
             "notes": list(config.get("notes") or []),
         }
 
+    result = {}
+    raw_output = ""
+    model_call = {}
     try:
-        client = get_llm_client(provider)
-        result = client.generate_json(
-            agent_name=agent_name,
-            system_prompt=str(config.get("system_prompt") or ""),
-            input_data=input_data,
-            output_schema=config.get("output_schema"),
-        )
+        if provider == "mock":
+            client = get_llm_client(provider)
+            result = client.generate_json(
+                agent_name=agent_name,
+                system_prompt=str(config.get("system_prompt") or ""),
+                input_data=input_data,
+                output_schema=config.get("output_schema"),
+            )
+        else:
+            client = get_llm_client(provider, role="drafting", profile_name=model_profile)
+            call = client.generate_structured(
+                system_prompt=str(config.get("system_prompt") or ""),
+                user_prompt=json.dumps({"input": input_data, "output_schema": config.get("output_schema")}, ensure_ascii=False),
+                response_schema={"type": "object"},
+                request_metadata={"agent_name": agent_name},
+            )
+            result = call.parsed_output
+            model_call = call.as_dict(include_parsed_output=False)
         errors = validate_result(result, config.get("output_schema"))
         status = "failed" if errors else "success"
     except Exception as exc:
-        result = {}
+        raw_output = getattr(exc, "raw_content", None) or ""
         errors = [str(exc)]
         status = "failed"
 
     output = {
         "agent_name": agent_name,
-        "provider": provider,
+        "provider": model_call.get("provider") or provider or "configured_profile",
+        "is_mock": provider == "mock",
+        "model_call": model_call,
+        "raw_output": raw_output,
         "status": status,
         "input_summary": input_summary,
         "result": result,

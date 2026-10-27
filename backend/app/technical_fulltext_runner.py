@@ -53,6 +53,92 @@ def _safe_error(exc: BaseException, *, phase: str) -> dict[str, str]:
     }
 
 
+_AGENT_FAILURE_TEXT = re.compile(
+    r"(?:^|:\s*)(?P<error_type>[A-Za-z_][A-Za-z0-9_]*(?:Error|Exception)):\s*(?P<message>.*)$"
+)
+
+
+def _last_agent_event_type(events_path: str | Path) -> str | None:
+    """Return the last existing chapter-agent event without making it authoritative."""
+    path = Path(events_path)
+    if not path.is_file():
+        return None
+    try:
+        for line in reversed(path.read_text(encoding="utf-8").splitlines()):
+            if not line.strip():
+                continue
+            item = json.loads(line)
+            if isinstance(item, dict) and str(item.get("event_type") or "").strip():
+                return str(item["event_type"])
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        return None
+    return None
+
+
+def _agent_failure_detail(
+    agent_result: dict[str, Any] | None,
+    *,
+    run_json_path: str | Path,
+    events_jsonl_path: str | Path,
+) -> dict[str, str] | None:
+    """Recover an Agent-owned failure when artifact acceptance is only secondary.
+
+    The production index intentionally keeps its outer acceptance error.  This
+    helper only adds the Agent failure that already exists in the in-memory run
+    result (or, as a fallback, in its persisted run artifact).
+    """
+    sources: list[dict[str, Any]] = []
+    if isinstance(agent_result, dict):
+        sources.append(agent_result)
+    run_path = Path(run_json_path)
+    if run_path.is_file():
+        try:
+            persisted = json.loads(run_path.read_text(encoding="utf-8"))
+            if isinstance(persisted, dict):
+                sources.append(persisted)
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+            pass
+
+    for source in sources:
+        raw_error = source.get("error")
+        if isinstance(raw_error, dict):
+            error_type = str(raw_error.get("error_type") or raw_error.get("type") or "").strip()
+            message = str(raw_error.get("message") or "").strip()
+            if error_type and message:
+                detail = {
+                    "underlying_error_type": error_type[:160],
+                    "underlying_error_message": re.sub(r"\s+", " ", message)[:500],
+                }
+                last_event = str(source.get("last_agent_event") or "").strip() or _last_agent_event_type(events_jsonl_path)
+                if last_event:
+                    detail["last_agent_event"] = last_event[:160]
+                return detail
+
+        for failure in source.get("failures") or []:
+            text = re.sub(r"\s+", " ", str(failure or "")).strip()
+            match = _AGENT_FAILURE_TEXT.search(text)
+            if not match:
+                continue
+            detail = {
+                "underlying_error_type": match.group("error_type")[:160],
+                "underlying_error_message": match.group("message").strip()[:500],
+            }
+            last_event = str(source.get("last_agent_event") or "").strip() or _last_agent_event_type(events_jsonl_path)
+            if last_event:
+                detail["last_agent_event"] = last_event[:160]
+            return detail
+        if str(source.get("status") or "").strip() == "incomplete":
+            detail = {"underlying_agent_status": "incomplete"}
+            stop_reason = str(source.get("stop_reason") or "").strip()
+            if stop_reason:
+                detail["underlying_stop_reason"] = stop_reason[:160]
+            last_event = str(source.get("last_agent_event") or "").strip() or _last_agent_event_type(events_jsonl_path)
+            if last_event:
+                detail["last_agent_event"] = last_event[:160]
+            return detail
+    return None
+
+
 def _readable_json_path(path: str | Path, *, label: str) -> tuple[Path, dict[str, Any], str]:
     target = Path(path).expanduser().resolve()
     if not target.is_file():
@@ -103,6 +189,8 @@ class TechnicalFulltextRunner:
         output_key: str,
         draft_units_path: str | Path | None = None,
         confirmed_project_facts_path: str | Path | None = None,
+        writing_constraint_context_path: str | Path | None = None,
+        tender_metadata: dict[str, Any] | None = None,
         web_search_policy: str = "disabled",
         stream_model: bool = True,
     ) -> dict[str, Any]:
@@ -128,6 +216,14 @@ class TechnicalFulltextRunner:
         draft_path, draft_sha = _optional_input(draft_units_path, label="draft units")
         facts_path, facts_sha = _optional_input(
             confirmed_project_facts_path, label="confirmed project facts"
+        )
+        constraint_path, constraint_sha = _optional_input(
+            writing_constraint_context_path, label="Stage9 writing constraint context"
+        )
+        constraint_context = (
+            load_json_object(constraint_path, label="Stage9 writing constraint context")
+            if constraint_path
+            else {}
         )
         canonical_chapters = outline.get("chapters")
         if not isinstance(canonical_chapters, list) or not canonical_chapters:
@@ -167,6 +263,8 @@ class TechnicalFulltextRunner:
             "draft_units_sha256": draft_sha,
             "confirmed_project_facts_path": str(facts_path) if facts_path else None,
             "confirmed_project_facts_sha256": facts_sha,
+            "writing_constraint_context_path": str(constraint_path) if constraint_path else None,
+            "writing_constraint_context_sha256": constraint_sha,
         }
         records = [self._planned_record(node, drafts_dir) for node in plan_nodes]
         for record in records:
@@ -176,6 +274,7 @@ class TechnicalFulltextRunner:
                 "task_information_path": str(task_path),
                 "draft_units_path": str(draft_path) if draft_path else None,
                 "confirmed_project_facts_path": str(facts_path) if facts_path else None,
+                "writing_constraint_context_path": str(constraint_path) if constraint_path else None,
                 "output_key": output_key,
                 "web_search_policy": web_search_policy,
             })
@@ -217,6 +316,7 @@ class TechnicalFulltextRunner:
         for record, node in zip(records, canonical_chapters):
             chapter_id = record["chapter_id"]
             chapter_started_clock = time.monotonic()
+            agent_result: dict[str, Any] | None = None
             record["status"] = "running"
             record["started_at"] = utc_now()
             self._save_index(index_path, index)
@@ -232,6 +332,8 @@ class TechnicalFulltextRunner:
                     task_information_path=task_path,
                     draft_units_path=draft_path,
                     confirmed_project_facts_path=facts_path,
+                    writing_constraint_context=deepcopy(constraint_context),
+                    tender_metadata=deepcopy(tender_metadata or {}),
                     output_key=output_key,
                     target_chapter_id=chapter_id,
                     target_section_id=None,
@@ -247,11 +349,13 @@ class TechnicalFulltextRunner:
                     if self.chapter_event_handler_factory
                     else None
                 )
-                agent.run(
+                result = agent.run(
                     event_handler=handler,
                     event_log_path=Path(record["events_jsonl_path"]),
                     stream_model=stream_model,
                 )
+                if isinstance(result, dict):
+                    agent_result = result
                 self._accept_chapter_artifacts(record, node, output_key)
                 record["status"] = "completed"
                 event_type = "chapter_run_completed"
@@ -264,6 +368,13 @@ class TechnicalFulltextRunner:
                 }
             except Exception as exc:
                 error = _safe_error(exc, phase="chapter_run_or_artifact_acceptance")
+                underlying = _agent_failure_detail(
+                    agent_result,
+                    run_json_path=record["run_json_path"],
+                    events_jsonl_path=record["events_jsonl_path"],
+                )
+                if underlying:
+                    error.update(underlying)
                 record["status"] = "failed"
                 record["error"] = error
                 failures.append({"chapter_id": chapter_id, **error})
@@ -313,6 +424,7 @@ class TechnicalFulltextRunner:
                         "run_json_sha256": record["run_json_sha256"],
                         "events_jsonl_path": record["events_jsonl_path"],
                         "events_jsonl_sha256": record["events_jsonl_sha256"],
+                        "candidate_canonicalization": deepcopy(record.get("candidate_canonicalization")),
                     }
                     for record in records
                 ],
@@ -428,6 +540,7 @@ class TechnicalFulltextRunner:
         output_key: str,
         chapter_id: str,
         stream_model: bool = True,
+        tender_metadata: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         """Retry one explicitly failed chapter, then revalidate and recompose the original run."""
         started_clock = time.monotonic()
@@ -467,6 +580,12 @@ class TechnicalFulltextRunner:
         task_path = verified_inputs["task_information_path"]
         draft_path = verified_inputs["draft_units_path"]
         facts_path = verified_inputs["confirmed_project_facts_path"]
+        constraint_path = verified_inputs["writing_constraint_context_path"]
+        constraint_context = (
+            load_json_object(constraint_path, label="Stage9 writing constraint context")
+            if constraint_path
+            else {}
+        )
         outline = load_json_object(writing_path, label="standard writing outline")
         writing_sha = sha256_file(writing_path)
         standard_outline = original_index.get("standard_outline")
@@ -526,6 +645,7 @@ class TechnicalFulltextRunner:
             "task_information_path": task_path,
             "draft_units_path": draft_path,
             "confirmed_project_facts_path": facts_path,
+            "writing_constraint_context_path": constraint_path,
         }
         for node in plan_nodes:
             original = original_by_id[node["chapter_id"]]
@@ -616,12 +736,17 @@ class TechnicalFulltextRunner:
                 )
             probe = self._planned_record(node, drafts_dir)
             self._copy_planning_fields(
-                probe, response_path, writing_path, task_path, draft_path, facts_path,
+                probe, response_path, writing_path, task_path, draft_path, facts_path, constraint_path,
                 output_key, str(original.get("web_search_policy") or "disabled"),
             )
             self._assert_preserved_chapter_artifacts(probe, original)
             self._accept_chapter_artifacts(
-                probe, outline_chapter, output_key, validate_structure=True
+                probe, outline_chapter, output_key, validate_structure=True,
+                expected_candidate_sha256=str(original.get("candidate_json_sha256") or "") or None,
+                expected_run_sha256=str(original.get("run_json_sha256") or "") or None,
+                expected_events_sha256=str(original.get("events_jsonl_sha256") or "") or None,
+                expected_outline_sha256=str(standard_outline.get("sha256") or ""),
+                actual_outline_sha256=writing_sha,
             )
 
         web_search_policy = str(target_original.get("web_search_policy") or "disabled")
@@ -640,7 +765,7 @@ class TechnicalFulltextRunner:
         target_plan = next(item for item in plan_nodes if item["chapter_id"] == chapter_id)
         target_record = self._planned_record(target_plan, drafts_dir)
         self._copy_planning_fields(
-            target_record, response_path, writing_path, task_path, draft_path, facts_path,
+            target_record, response_path, writing_path, task_path, draft_path, facts_path, constraint_path,
             output_key, web_search_policy,
         )
         for artifact_path in (
@@ -660,6 +785,8 @@ class TechnicalFulltextRunner:
                 task_information_path=task_path,
                 draft_units_path=draft_path,
                 confirmed_project_facts_path=facts_path,
+                writing_constraint_context=deepcopy(constraint_context),
+                tender_metadata=deepcopy(tender_metadata or {}),
                 output_key=output_key,
                 target_chapter_id=chapter_id,
                 target_section_id=None,
@@ -702,7 +829,7 @@ class TechnicalFulltextRunner:
             original = original_by_id[current_id]
             current_web_policy = str(original.get("web_search_policy") or "disabled")
             self._copy_planning_fields(
-                record, response_path, writing_path, task_path, draft_path, facts_path,
+                record, response_path, writing_path, task_path, draft_path, facts_path, constraint_path,
                 output_key, current_web_policy,
             )
             record["started_at"] = utc_now()
@@ -712,7 +839,12 @@ class TechnicalFulltextRunner:
                 elif target_agent_error is not None:
                     raise RuntimeError(target_agent_error["message"])
                 self._accept_chapter_artifacts(
-                    record, outline_chapter, output_key, validate_structure=True
+                    record, outline_chapter, output_key, validate_structure=True,
+                    expected_candidate_sha256=str(original.get("candidate_json_sha256") or "") or None,
+                    expected_run_sha256=str(original.get("run_json_sha256") or "") or None,
+                    expected_events_sha256=str(original.get("events_jsonl_sha256") or "") or None,
+                    expected_outline_sha256=str(standard_outline.get("sha256") or ""),
+                    actual_outline_sha256=writing_sha,
                 )
                 record["status"] = "completed"
             except Exception as exc:
@@ -871,6 +1003,189 @@ class TechnicalFulltextRunner:
             "run_sha256": run_sha,
         }
 
+    def inspect_existing_run(self, *, output_key: str) -> dict[str, Any]:
+        """Inspect a durable production run without inferring artifacts from filenames."""
+        output_key = validate_output_key(output_key)
+        run_root = (self.output_dir.expanduser().resolve() / output_key).resolve()
+        if not run_root.exists():
+            return {"exists": False, "output_key": output_key}
+        if not run_root.is_dir():
+            raise TechnicalFulltextRunnerError("existing fulltext output root is not a directory")
+        index_path = run_root / "fulltext" / "chapter_production_index.json"
+        run_path = run_root / "fulltext" / "technical_fulltext.run.json"
+        if not index_path.is_file() or not run_path.is_file():
+            raise TechnicalFulltextRunnerError(
+                "existing fulltext output is orphaned: required production metadata is missing"
+            )
+        index = load_json_object(index_path, label="chapter production index")
+        run = load_json_object(run_path, label="technical fulltext run")
+        if index.get("schema_version") != INDEX_SCHEMA_VERSION or str(index.get("output_key") or "") != output_key:
+            raise TechnicalFulltextRunnerError("existing fulltext production metadata is invalid")
+        chapters = index.get("chapters")
+        if not isinstance(chapters, list) or not chapters:
+            raise TechnicalFulltextRunnerError("existing fulltext production metadata has no chapters")
+        return {
+            "exists": True,
+            "output_key": output_key,
+            "run_root": str(run_root),
+            "chapter_production_index_path": str(index_path.resolve()),
+            "technical_fulltext_run_path": str(run_path.resolve()),
+            "index": index,
+            "run": run,
+        }
+
+    def recover_existing_run(
+        self,
+        *,
+        output_key: str,
+        stream_model: bool = True,
+        tender_metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        """Recover a formally indexed existing run without replacing its output key.
+
+        This deliberately trusts neither directory contents nor globbing: the
+        production index is verified by ``retry_failed_chapter`` before any
+        completed chapter can be reused.
+        """
+        inspected = self.inspect_existing_run(output_key=output_key)
+        assert inspected["exists"]
+        index = inspected["index"]
+        run = inspected["run"]
+        failed = [str(item.get("chapter_id") or "") for item in index.get("chapters") or [] if item.get("status") == "failed"]
+        if index.get("production_status") == "incomplete":
+            if len(failed) != 1:
+                raise TechnicalFulltextRunnerError(
+                    f"existing incomplete fulltext run requires exactly one failed chapter: {failed}"
+                )
+            result = self.retry_failed_chapter(
+                output_key=output_key,
+                chapter_id=failed[0],
+                stream_model=stream_model,
+                tender_metadata=tender_metadata,
+            )
+            result["recovery_mode"] = "retry_failed_chapter"
+            result["reused_chapter_ids"] = [
+                str(item.get("chapter_id") or "")
+                for item in index.get("chapters") or []
+                if item.get("status") == "completed"
+            ]
+            return result
+        if index.get("production_status") in {"complete", "complete_with_blockers"}:
+            if run.get("status") == "completed":
+                return {
+                    **run,
+                    "recovery_mode": "validated_complete",
+                    "run_path": inspected["technical_fulltext_run_path"],
+                }
+            return self._recompose_existing_run(index=index, output_key=output_key)
+        raise TechnicalFulltextRunnerError("existing fulltext run has unsupported production status")
+
+    def _recompose_existing_run(self, *, index: dict[str, Any], output_key: str) -> dict[str, Any]:
+        """Compose a complete indexed production set without calling a model."""
+        started_at = utc_now()
+        started_clock = time.monotonic()
+        output_root = self.output_dir.expanduser().resolve()
+        run_root = output_root / output_key
+        fulltext_dir = run_root / "fulltext"
+        index_path = fulltext_dir / "chapter_production_index.json"
+        run_path = fulltext_dir / "technical_fulltext.run.json"
+        events_path = fulltext_dir / "technical_fulltext.events.jsonl"
+        manifest_path = fulltext_dir / "technical_fulltext_build_manifest.json"
+        planning_inputs = index.get("planning_inputs")
+        if not isinstance(planning_inputs, dict):
+            raise TechnicalFulltextRunnerError("chapter production index planning_inputs is invalid")
+        verified = self._verify_retry_planning_inputs(planning_inputs)
+        writing_path = verified["writing_outline_path"]
+        assert writing_path is not None
+        writing_sha = sha256_file(writing_path)
+        outline = load_json_object(writing_path, label="standard writing outline")
+        chapters = outline.get("chapters")
+        records = index.get("chapters")
+        if not isinstance(chapters, list) or not isinstance(records, list) or len(chapters) != len(records):
+            raise TechnicalFulltextRunnerError("existing complete production does not match the standard outline")
+        drafts_dir = run_root / "drafts"
+        by_id = {str(record.get("chapter_id") or ""): record for record in records if isinstance(record, dict)}
+        if len(by_id) != len(records):
+            raise TechnicalFulltextRunnerError("existing complete production has duplicate chapter IDs")
+        for order, chapter in enumerate(chapters, start=1):
+            chapter_id = _outline_id(chapter) if isinstance(chapter, dict) else ""
+            record = by_id.get(chapter_id)
+            if not chapter_id or not record or record.get("status") != "completed":
+                raise TechnicalFulltextRunnerError("existing complete production has an invalid chapter record")
+            probe = self._planned_record({
+                "chapter_id": chapter_id,
+                "chapter_title": str(chapter.get("title") or ""),
+                "chapter_order": order,
+            }, drafts_dir)
+            self._assert_preserved_chapter_artifacts(probe, record)
+            self._accept_chapter_artifacts(
+                probe, chapter, output_key, validate_structure=True,
+                expected_candidate_sha256=str(record.get("candidate_json_sha256") or "") or None,
+                expected_run_sha256=str(record.get("run_json_sha256") or "") or None,
+                expected_events_sha256=str(record.get("events_jsonl_sha256") or "") or None,
+                expected_outline_sha256=str((index.get("standard_outline") or {}).get("sha256") or ""),
+                actual_outline_sha256=writing_sha,
+            )
+        index_sha = sha256_file(index_path)
+        manifest = self._build_manifest(
+            output_key=output_key,
+            writing_path=writing_path,
+            writing_sha=writing_sha,
+            records=records,
+            index_path=index_path,
+            index_sha=index_sha,
+        )
+        manifest_sha = atomic_write_json(
+            manifest_path, manifest,
+            required_fields=("schema_version", "document_id", "chapters", "generated_from"),
+        )
+        self._append_event(events_path, "composition_started", output_key, {
+            "manifest_path": str(manifest_path.resolve()), "recovery_mode": "recompose_existing",
+        })
+        try:
+            composition_result = self.composer_factory(output_dir=output_root).compose(
+                manifest_path=manifest_path, output_key=output_key
+            )
+            composition_status = str(composition_result.get("composition_status") or "")
+            if composition_status not in {"complete", "completed_with_blockers"}:
+                raise TechnicalFulltextRunnerError("existing complete production composition did not complete")
+            self._append_event(events_path, "composition_completed", output_key, {
+                "composition_status": composition_status, "recovery_mode": "recompose_existing",
+                "outputs": composition_result.get("outputs") or {},
+            })
+            failures: list[dict[str, Any]] = []
+            composition_issues: list[dict[str, Any]] = []
+            top_status = "completed"
+        except Exception as exc:
+            error = _safe_error(exc, phase="composition")
+            composition_result = None
+            composition_status = "failed"
+            failures = [error]
+            composition_issues = [{
+                "issue_id": "FCI-RUNTIME-RECOVERY-COMPOSITION", "severity": "blocking",
+                "category": "runtime", "code": "composition_runtime_failure",
+                "message": error["message"], "release_blocking": True,
+            }]
+            top_status = "failed"
+            self._append_event(events_path, "composition_failed", output_key, {
+                "error": error, "recovery_mode": "recompose_existing",
+            })
+        report = self._build_run_report(
+            status=top_status, production_status=str(index.get("production_status") or "complete"),
+            composition_status=composition_status, output_key=output_key, started_at=started_at,
+            completed_at=utc_now(), duration_ms=max(0, int((time.monotonic() - started_clock) * 1000)),
+            planning_inputs=planning_inputs, records=records, index_path=index_path,
+            manifest_path=manifest_path, manifest_sha=manifest_sha, events_path=events_path,
+            composition_result=composition_result, composition_issues=composition_issues,
+            failures=failures, warnings=[],
+        )
+        run_sha = atomic_write_json(
+            run_path, report,
+            required_fields=("schema_version", "status", "production_status", "composition_status", "chapters", "outputs"),
+        )
+        return {**report, "run_path": str(run_path.resolve()), "run_sha256": run_sha,
+                "recovery_mode": "recompose_existing"}
+
     @staticmethod
     def _verify_retry_planning_inputs(planning_inputs: dict[str, Any]) -> dict[str, Path | None]:
         result: dict[str, Path | None] = {}
@@ -881,6 +1196,7 @@ class TechnicalFulltextRunner:
             "task_information",
             "draft_units",
             "confirmed_project_facts",
+            "writing_constraint_context",
         ):
             path_value = planning_inputs.get(f"{name}_path")
             recorded_sha = planning_inputs.get(f"{name}_sha256")
@@ -910,6 +1226,7 @@ class TechnicalFulltextRunner:
         task_path: Path,
         draft_path: Path | None,
         facts_path: Path | None,
+        constraint_path: Path | None,
         output_key: str,
         web_search_policy: str,
     ) -> None:
@@ -919,6 +1236,7 @@ class TechnicalFulltextRunner:
             "task_information_path": str(task_path),
             "draft_units_path": str(draft_path) if draft_path else None,
             "confirmed_project_facts_path": str(facts_path) if facts_path else None,
+            "writing_constraint_context_path": str(constraint_path) if constraint_path else None,
             "output_key": output_key,
             "web_search_policy": web_search_policy,
         })
@@ -973,6 +1291,7 @@ class TechnicalFulltextRunner:
                     "run_json_sha256": record["run_json_sha256"],
                     "events_jsonl_path": record["events_jsonl_path"],
                     "events_jsonl_sha256": record["events_jsonl_sha256"],
+                    "candidate_canonicalization": deepcopy(record.get("candidate_canonicalization")),
                 }
                 for record in records
             ],
@@ -1012,6 +1331,7 @@ class TechnicalFulltextRunner:
             "selected_candidate": None,
             "candidate_selection_reason": None,
             "revision_round": None,
+            "candidate_canonicalization": None,
             "error": None,
         }
 
@@ -1068,6 +1388,11 @@ class TechnicalFulltextRunner:
         output_key: str,
         *,
         validate_structure: bool = False,
+        expected_candidate_sha256: str | None = None,
+        expected_run_sha256: str | None = None,
+        expected_events_sha256: str | None = None,
+        expected_outline_sha256: str | None = None,
+        actual_outline_sha256: str | None = None,
     ) -> None:
         artifact, issues = validate_chapter_artifact_pair(
             chapter_id=record["chapter_id"],
@@ -1075,7 +1400,12 @@ class TechnicalFulltextRunner:
             candidate_path=record["candidate_json_path"],
             run_path=record["run_json_path"],
             events_path=record["events_jsonl_path"],
+            expected_candidate_sha256=expected_candidate_sha256,
+            expected_run_sha256=expected_run_sha256,
+            expected_events_sha256=expected_events_sha256,
             expected_output_key=output_key,
+            expected_outline_sha256=expected_outline_sha256,
+            actual_outline_sha256=actual_outline_sha256,
             validate_structure=validate_structure,
             require_submission_ready=False,
         )
@@ -1112,6 +1442,7 @@ class TechnicalFulltextRunner:
             "selected_candidate": run.get("selected_candidate"),
             "candidate_selection_reason": run.get("candidate_selection_reason"),
             "revision_round": run.get("revision_round"),
+            "candidate_canonicalization": deepcopy(artifact.canonicalization),
             "error": None,
         })
 

@@ -341,6 +341,7 @@ def test_committed_fulltext_completes_deterministic_pass_and_allows_blockers(
     assert audit["audit_passes"] == {
         "deterministic": {"status": "completed"},
         "semantic": {"status": "not_run"},
+        "scoring": {"status": "not_run"},
     }
     assert audit["release_ready"] is False
     assert audit["issues"] == []

@@ -62,17 +62,150 @@ def build_technical_outline_from_directory(
     *,
     output_dir: str | Path = "outputs",
     output_key: str | None = None,
+    project: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Build the v2 technical-only outline from a manually selected file directory."""
     from app.technical_outline_builder import build_technical_outline
 
-    return build_technical_outline(input_dir, output_dir=output_dir, output_key=output_key)
+    return build_technical_outline(
+        input_dir,
+        output_dir=output_dir,
+        output_key=output_key,
+        project=project,
+    )
+
+
+def apply_project_score_mappings_to_technical_outline(
+    outline: dict[str, Any],
+    project: dict[str, Any],
+) -> None:
+    """Attach selected project technical-score items to v2 response points.
+
+    The v2 builder owns source extraction and its schema.  This adapter reuses
+    the existing project task/score relationship used by build_response_outline
+    and only adds score references to the already extracted response points.
+    """
+    score_map = score_items_by_id(project)
+    points = [
+        point
+        for chapter in outline.get("chapters") or []
+        for point in chapter.get("response_points") or []
+        if isinstance(point, dict)
+    ]
+    mapped_items: list[dict[str, Any]] = []
+    for task in list(project.get("generation_tasks") or []):
+        if not isinstance(task, dict) or task.get("task_type") != "technical":
+            continue
+        score = first_related_score_item(task, score_map)
+        score_id = str(score.get("id") or next(iter(task.get("related_score_item_ids") or []), ""))
+        if not score_id or not score:
+            continue
+        task_name = str(task.get("task_name") or infer_task_name(task) or score.get("item_name") or score_id)
+        concepts = _score_response_concepts(task_name, score)
+        # A score-table row is an authoritative requirement in its own right.
+        # Do not force it onto a response-file format point merely to obtain a
+        # non-empty mapping.  Only retain direct mappings with a concrete
+        # semantic relation to a current response point.
+        selected = [point for point in points if _point_matches_score_concepts(point, concepts)]
+        response_ids: list[str] = []
+        for point in selected:
+            point.setdefault("score_item_refs", [])
+            if score_id not in point["score_item_refs"]:
+                point["score_item_refs"].append(score_id)
+            response_ids.append(str(point.get("point_id") or ""))
+        score_source_refs = []
+        for ref in score.get("source_refs") or []:
+            if not isinstance(ref, dict):
+                continue
+            score_source_refs.append(
+                {
+                    **ref,
+                    "file_id": ref.get("file_id") or project.get("score_file_id"),
+                }
+            )
+        mapped_items.append(
+            {
+                "score_item_id": score_id,
+                "title": str(score.get("item_name") or task_name),
+                "criteria_summary": str(score.get("score_rule") or score.get("raw_text") or ""),
+                "score": score.get("score"),
+                "score_range": score.get("score_range") or {},
+                "source_template_name": score.get("source_template_name") or "score_items",
+                "source_table": score.get("source_table") or {
+                    "table_index": score.get("source_table_index"),
+                    "heading": score.get("source_template_name") or "",
+                },
+                "source_row": score.get("source_row"),
+                "source_refs": score_source_refs,
+                "response_point_ids": [item for item in response_ids if item],
+            }
+        )
+    outline["score_items"] = mapped_items
+    stats = outline.setdefault("statistics", {})
+    stats["technical_score_item_count"] = len(mapped_items)
+    stats["response_points_with_score_refs"] = sum(
+        bool(point.get("score_item_refs")) for point in points
+    )
+
+
+def _score_response_concepts(task_name: str, score: dict[str, Any]) -> list[str]:
+    """Derive broad, reusable response concepts from an individual score row."""
+    title = f"{task_name} {score.get('item_name') or ''}"
+    text = f"{title} {score.get('score_rule') or ''}"
+    if any(term in text for term in ("总体评价", "总体技术", "整体评价")):
+        return []
+    # A row may inherit a table group's wording in its criterion text.  Prefer
+    # its own score title for distinct evidence, service, and schedule topics
+    # before considering those inherited words.
+    if any(term in title for term in ("专利", "绩效评价", "绩效")):
+        return ["__score_support__"]
+    if any(term in title for term in ("业绩", "类似项目")):
+        return ["__performance__"]
+    if any(term in title for term in ("工作进度", "进度计划", "进度保证")):
+        return ["__schedule__"]
+    if any(term in title for term in ("服务方案", "履约能力", "质量保证", "服务承诺", "售后服务")):
+        return ["__service__"]
+    if any(term in text for term in ("项目负责人", "团队人员", "项目团队", "技术人员", "人员结构")):
+        return ["__team__"]
+    if any(term in text for term in ("业绩", "类似项目")):
+        return ["__performance__"]
+    if any(term in text for term in ("工作进度", "进度计划", "进度保证")):
+        return ["__schedule__"]
+    if any(term in text for term in ("服务方案", "履约能力", "质量保证", "服务承诺", "售后服务")):
+        return ["__service__"]
+    if any(term in text for term in ("专利", "绩效评价", "绩效")):
+        return ["__score_support__"]
+    return []
+
+
+def _point_matches_score_concepts(point: dict[str, Any], concepts: list[str]) -> bool:
+    if not concepts:
+        return False
+    text = " ".join(
+        [
+            str(point.get("original_heading") or ""),
+            str(point.get("original_text") or ""),
+        ]
+    )
+    if concepts == ["__team__"]:
+        return any(term in text for term in ("项目团队", "项目负责人", "主要人员", "技术人员", "人员结构", "简历表", "人员汇总"))
+    if concepts == ["__performance__"]:
+        return any(term in text for term in ("业绩文件", "类似项目", "业绩情况"))
+    if concepts == ["__schedule__"]:
+        return any(term in text for term in ("工作规划", "进度", "服务周期", "交付"))
+    if concepts == ["__service__"]:
+        return any(term in text for term in ("工作规划", "履约能力", "质量保证", "服务承诺", "服务内容", "服务要求", "售后服务", "质保"))
+    if concepts == ["__score_support__"]:
+        return ("技术评分标准" in text and "支撑材料" in text) or "专利" in text or "绩效" in text
+    return any(term in text for term in concepts)
 
 
 def build_response_outline(
     project: dict[str, Any],
     metadata: dict[str, Any] | None = None,
     output_dir: str | Path = "outputs",
+    *,
+    output_key: str | None = None,
 ) -> dict[str, Any]:
     metadata = metadata or load_metadata()
     tender_file = find_file_by_id(metadata, project.get("tender_file_id"), "tender_file_id")
@@ -107,8 +240,8 @@ def build_response_outline(
     render_project["project_info_fields"] = project_name_info.get("project_info_fields") or {}
     global_compliance = match_compliance_clause(clause_indexes)
 
-    lot_name = str(project.get("lot_name") or "unknown_lot")
-    outline_dir = Path(output_dir) / safe_path_name(lot_name) / "outline"
+    artifact_key = output_key or str(project.get("lot_name") or "unknown_lot")
+    outline_dir = Path(output_dir) / safe_path_name(artifact_key) / "outline"
     outline_dir.mkdir(parents=True, exist_ok=True)
 
     global_format_refs = build_global_format_requirement_refs(clause_indexes)

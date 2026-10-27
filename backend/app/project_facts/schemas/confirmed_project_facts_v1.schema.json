@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "confirmed_project_facts_v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "lineage", "revision", "created_at", "updated_at", "facts", "writing_context", "change_history", "content_sha256"],
+  "properties": {
+    "schema_version": {"const": "confirmed_project_facts_v1"},
+    "project_id": {"type": "string", "minLength": 1},
+    "lineage": {"type": "object"},
+    "revision": {"type": "integer", "minimum": 0},
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "facts": {"type": "object", "additionalProperties": {"type": "object"}},
+    "writing_context": {"type": "object"},
+    "change_history": {"type": "array", "items": {"type": "object"}},
+    "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

@@ -308,7 +308,14 @@ def _make_task(
     if section is not chapter:
         target_path.append(str(section.get("title") or ""))
     module_ids = list(dict.fromkeys(section.get("module_ids") or chapter.get("module_ids") or []))
-    score_refs = sorted(set(section.get("score_item_refs") or []) | set(chapter.get("score_item_refs") or []))
+    # Root chapters carry aggregated coverage for reporting.  Their score refs
+    # must not be copied to every child task: task-level refs are reserved for
+    # a directly scored section or a response point explicitly mapped by that
+    # score item.
+    score_refs = set(section.get("score_item_refs") or [])
+    if section is chapter:
+        score_refs.update(chapter.get("score_item_refs") or [])
+    score_refs = sorted(score_refs)
     display_ids = sorted(set(section.get("display_block_ids") or []))
     facts = _fact_slots_for_task(" / ".join(target_path), module_ids, project_context)
     evidence = _evidence_slots_for_task(" / ".join(target_path), module_ids)
@@ -440,7 +447,7 @@ def _fact_slots_for_task(
 
 def _evidence_slots_for_task(path_text: str, module_ids: list[str]) -> list[dict[str, Any]]:
     types: list[str] = []
-    if "MODULE-DETAILED-SOLUTION" in module_ids or any(term in path_text for term in ("超融合", "技术参数")):
+    if "MODULE-DETAILED-SOLUTION" in module_ids or "技术参数" in path_text:
         types += [
             "product_parameter_proof",
             "product_test_report",

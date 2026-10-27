@@ -6,7 +6,7 @@ from typing import Any
 def build_tender_project_graph(
     tender_file_id: str,
     score_file_id: str,
-    lot_name: str,
+    lot_name: str | None,
     tender_parse: dict[str, Any],
     score_parse: dict[str, Any],
 ) -> dict[str, Any]:

@@ -26,8 +26,8 @@ from app.technical_fulltext_composer import (
 
 HYGIENE_SCHEMA_VERSION = "technical_fulltext_hygiene_v1"
 CLEANED_SCHEMA_VERSION = "technical_fulltext_cleaned_v1"
-HYGIENE_NOTICE = "Stage 11-E 全文机械质量清理报告"
-CLEANED_PREVIEW_NOTICE = "Stage 11-E 清理后全文工作稿（非 Stage 10 committed artifact）"
+HYGIENE_NOTICE = "Stage11.0 全文机械质量清理报告（历史别名 Stage11-E）"
+CLEANED_PREVIEW_NOTICE = "Stage11.0 清理后全文工作稿（历史别名 Stage11-E；非 Stage10 committed artifact）"
 
 JINJA_TAG = re.compile(r"\{%\s*(?P<body>.*?)\s*%\}", re.DOTALL)
 SAFE_JINJA_TAG = re.compile(r"\{%\s*(?:if\s+[^%]+|endif)\s*%\}", re.IGNORECASE)
@@ -50,7 +50,7 @@ PROTECTED_VALUE_TOKEN = re.compile(
 
 
 class TechnicalFulltextHygieneError(RuntimeError):
-    """Raised when Stage 11-E cannot trust, validate, or persist its result."""
+    """Raised when Stage11.0 (historical Stage11-E) cannot persist a trusted result."""
 
 
 def _sha256_text(value: str) -> str:

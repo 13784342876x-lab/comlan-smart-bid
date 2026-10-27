@@ -1,0 +1,110 @@
+{
+  "$schema": "../schemas/stage11_execution_manifest_v1.json",
+  "schema_version": "stage11_execution_manifest_v1",
+  "canonical_stage": "Stage11",
+  "capability": "fulltext_machine_audit",
+  "alias_ordering_is_canonical": false,
+  "business_stage_boundaries": {
+    "Stage10": "fulltext_generation_and_composition",
+    "Stage11": "fulltext_machine_audit",
+    "Stage12": "fulltext_human_review",
+    "Stage13": "human_review_driven_fulltext_revision",
+    "Stage14": "word_pdf_assembly_and_final_release"
+  },
+  "requirement_semantic_calibration": {
+    "runtime_step": "Stage11.2",
+    "historical_stage": "Stage11-C",
+    "status": "stable_calibration_history_not_independent_runtime_step",
+    "observation_contract": "requirement_semantic_observation_v4",
+    "prompt": "requirement_semantic_observation_prompt_v4",
+    "runtime_policy": "requirement_semantic_decision_policy_v1"
+  },
+  "execution_steps": [
+    {
+      "canonical_stage": "Stage11.0",
+      "capability": "fulltext_hygiene",
+      "execution_order": 0,
+      "depends_on": ["Stage10"],
+      "consumes": [
+        "technical_fulltext.json:technical_fulltext_v2",
+        "technical_fulltext.commit.json:technical_fulltext_commit_v1"
+      ],
+      "produces": [
+        "technical_fulltext.cleaned.json:technical_fulltext_cleaned_v1",
+        "technical_fulltext.hygiene.json:technical_fulltext_hygiene_v1"
+      ],
+      "historical_alias": ["Stage11-E"]
+    },
+    {
+      "canonical_stage": "Stage11.1",
+      "capability": "deterministic_fulltext_audit",
+      "execution_order": 1,
+      "depends_on": ["Stage11.0"],
+      "consumes": [
+        "technical_fulltext.cleaned.json:technical_fulltext_cleaned_v1"
+      ],
+      "produces": [
+        "technical_fulltext.audit.json:technical_fulltext_audit_v1:deterministic_completed",
+        "technical_fulltext.audit.md"
+      ],
+      "historical_alias": ["Stage11-A"],
+      "compatibility_notes": [
+        "The service still accepts a committed Stage10 technical_fulltext.json for backward compatibility; this bypass is not the canonical execution path."
+      ]
+    },
+    {
+      "canonical_stage": "Stage11.2",
+      "capability": "semantic_fulltext_audit",
+      "execution_order": 2,
+      "depends_on": ["Stage11.1"],
+      "consumes": [
+        "technical_fulltext.audit.json:technical_fulltext_audit_v1:deterministic_completed",
+        "technical_response_outline.json:trusted_context",
+        "draft_units.json:trusted_context"
+      ],
+      "produces": [
+        "technical_fulltext.audit.json:technical_fulltext_audit_v1:semantic_completed",
+        "semantic_findings:cross_section_stable_fact_consistency",
+        "semantic_observation_cache:requirement_semantic_observation_v4"
+      ],
+      "historical_alias": [
+        "Stage11-B",
+        "Stage11-C:requirement_observation_calibration_history"
+      ]
+    },
+    {
+      "canonical_stage": "Stage11.3",
+      "capability": "technical_fulltext_scoring_assessment",
+      "execution_order": 3,
+      "depends_on": ["Stage11.2"],
+      "consumes": [
+        "technical_fulltext.audit.json:technical_fulltext_audit_v1:semantic_completed",
+        "technical_response_outline.json:technical_response_outline_v2:score_table_rows_cells",
+        "technical_writing_outline.json:technical_writing_outline_v0:score_response_mapping",
+        "local_evidence_query_plan.json:current_evidence_state",
+        "project_fact_request.json:current_fact_state"
+      ],
+      "produces": [
+        "technical_fulltext.scoring_assessment.json:technical_fulltext_scoring_assessment_v1",
+        "technical_fulltext.scoring_assessment.md",
+        "technical_fulltext.audit.json:technical_fulltext_audit_v1:scoring_completed"
+      ],
+      "historical_alias": []
+    },
+    {
+      "canonical_stage": "Stage11.4",
+      "capability": "audit_consolidation_and_finalization",
+      "execution_order": 4,
+      "depends_on": ["Stage11.3"],
+      "consumes": [
+        "technical_fulltext.audit.json:technical_fulltext_audit_v1:scoring_completed",
+        "technical_fulltext.scoring_assessment.json:technical_fulltext_scoring_assessment_v1"
+      ],
+      "produces": [
+        "technical_fulltext.audit.json:technical_fulltext_audit_v1:finalization_completed",
+        "technical_fulltext.audit.md"
+      ],
+      "historical_alias": ["Stage11-D"]
+    }
+  ]
+}

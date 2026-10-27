@@ -12,6 +12,7 @@ from app.technical_writing_agent import (
     TechnicalWritingAgentInput,
     _build_fresh_repair_context,
     _build_section_fact_ledger,
+    _apply_fresh_patch_operations,
     _fresh_quality_error_details,
     _fresh_quality_regeneration_instruction,
     build_technical_writing_agent,
@@ -816,6 +817,85 @@ def test_fresh_reinserts_missing_registered_placeholder_without_value(tmp_path):
     content = result["chapter_draft"]["sections"][0]["content"]
     assert f"{{{{{model.placeholder_id}}}}}" not in content
     assert "张三" not in content
+
+
+def test_missing_registered_placeholder_is_included_in_fresh_edit_scope():
+    placeholder_id = "PH-PROJECT-MANAGER"
+    context = _build_fresh_repair_context(
+        validation=validation_with(
+            [
+                f"placeholder:{SECTION_ID}:"
+                f"required_registered_placeholder_missing:{placeholder_id}"
+            ],
+            [
+                {
+                    **issue(
+                        "required_registered_placeholder_missing",
+                        category="placeholder",
+                        message=(
+                            f"placeholder:{SECTION_ID}:"
+                            f"required_registered_placeholder_missing:{placeholder_id}"
+                        ),
+                    ),
+                    "section_id": None,
+                    "section_title": SECTION_ID,
+                    "offending_span": placeholder_id,
+                    "repair_disposition": "auto_repairable",
+                }
+            ],
+        ),
+        draft=chapter(),
+        fact_ledger=[
+            {
+                **fact_ledger()[0],
+                "generation_permissions": {
+                    "allowed_placeholders": [
+                        {"placeholder_id": placeholder_id}
+                    ]
+                },
+            }
+        ],
+        pending_confirmations=[
+            {
+                "placeholder_id": placeholder_id,
+                "affected_sections": [SECTION_ID],
+                "blocking": True,
+            }
+        ],
+        target=target(),
+    )
+
+    assert context["fresh_edit_scope"]["editable_section_ids"] == [SECTION_ID]
+    assert context["fresh_edit_scope"]["editable_issue_count"] == 1
+    assert context["repair_task_cards"][0]["member_issue_codes"] == [
+        "required_registered_placeholder_missing"
+    ]
+    assert context["repair_task_cards"][0]["offending_spans"] == [placeholder_id]
+
+
+def test_missing_placeholder_patch_updates_canonical_placeholder_metadata():
+    placeholder_id = "PH-PROJECT-MANAGER"
+    draft = chapter()
+    original = draft["sections"][0]["content"]
+    replacement = original + f"\n\n{{{{{placeholder_id}}}}}"
+
+    patched = _apply_fresh_patch_operations(
+        draft,
+        [
+            {
+                "section_index": 0,
+                "start": 0,
+                "end": len(original),
+                "replacement_text": replacement,
+                "member_issue_codes": [
+                    "required_registered_placeholder_missing"
+                ],
+            }
+        ],
+    )
+
+    assert patched["sections"][0]["placeholder_ids"] == [placeholder_id]
+    assert patched["placeholders_used"] == [placeholder_id]
 
 
 def rejected_fresh_result(tmp_path: Path) -> dict:

@@ -85,11 +85,15 @@ class FakeAgentFactory:
         *,
         blocked: set[str] | None = None,
         failures: set[str] | None = None,
+        agent_failures: dict[str, tuple[str, str]] | None = None,
+        agent_incomplete: dict[str, str] | None = None,
         event_modes: dict[str, str] | None = None,
     ) -> None:
         self.outline = json.loads(writing_outline_path.read_text(encoding="utf-8"))
         self.blocked = set(blocked or set())
         self.failures = set(failures or set())
+        self.agent_failures = dict(agent_failures or {})
+        self.agent_incomplete = dict(agent_incomplete or {})
         self.event_modes = dict(event_modes or {})
         self.build_calls: list[dict[str, Any]] = []
         self.run_calls: list[dict[str, Any]] = []
@@ -119,6 +123,40 @@ class FakeAgentFactory:
                         event_log_path.write_text("not-json\n", encoding="utf-8")
                     if chapter_id in owner.failures:
                         raise RuntimeError(f"fixture failure for {chapter_id}")
+                    if chapter_id in owner.agent_failures:
+                        error_type, message = owner.agent_failures[chapter_id]
+                        event_log_path.write_text(
+                            "{\"event_type\": \"agent_run_started\"}\n"
+                            "{\"event_type\": \"agent_run_failed\"}\n",
+                            encoding="utf-8",
+                        )
+                        drafts = kwargs["output_dir"] / agent_input.output_key / "drafts"
+                        failure_run = {
+                            "schema_version": "technical_writing_agent_run_v1",
+                            "status": "failed",
+                            "chapter_status": "execution_failed",
+                            "failures": [f"model_error: {error_type}: {message}"],
+                            "run_summary": {"output_key": agent_input.output_key},
+                        }
+                        write_json(drafts / f"{chapter_id}.run.json", failure_run)
+                        return failure_run
+                    if chapter_id in owner.agent_incomplete:
+                        event_log_path.write_text(
+                            "{\"event_type\": \"agent_run_started\"}\n"
+                            "{\"event_type\": \"agent_run_incomplete\"}\n",
+                            encoding="utf-8",
+                        )
+                        drafts = kwargs["output_dir"] / agent_input.output_key / "drafts"
+                        incomplete_run = {
+                            "schema_version": "technical_writing_agent_run_v1",
+                            "status": "incomplete",
+                            "chapter_status": "execution_incomplete",
+                            "stop_reason": owner.agent_incomplete[chapter_id],
+                            "failures": [],
+                            "run_summary": {"output_key": agent_input.output_key},
+                        }
+                        write_json(drafts / f"{chapter_id}.run.json", incomplete_run)
+                        return incomplete_run
                     chapter = next(item for item in owner.outline["chapters"] if item["chapter_id"] == chapter_id)
                     payload = candidate_for(chapter)
                     drafts = kwargs["output_dir"] / agent_input.output_key / "drafts"
@@ -169,9 +207,12 @@ def run_fixture(
     *,
     blocked: set[str] | None = None,
     failures: set[str] | None = None,
+    agent_failures: dict[str, tuple[str, str]] | None = None,
+    agent_incomplete: dict[str, str] | None = None,
     event_modes: dict[str, str] | None = None,
     composer_factory: Any = None,
     output_key: str = "runner_case",
+    tender_metadata: dict[str, Any] | None = None,
 ) -> tuple[dict, FakeAgentFactory, dict[str, Path]]:
     inputs = make_inputs(tmp_path, [
         ("WC-010", "第十章", [("WC-010-01", "十章一节")]),
@@ -179,7 +220,12 @@ def run_fixture(
         ("WC-006", "无子节章", []),
     ])
     factory = FakeAgentFactory(
-        inputs["writing"], blocked=blocked, failures=failures, event_modes=event_modes
+        inputs["writing"],
+        blocked=blocked,
+        failures=failures,
+        agent_failures=agent_failures,
+        agent_incomplete=agent_incomplete,
+        event_modes=event_modes,
     )
     service_kwargs: dict[str, Any] = {
         "output_dir": tmp_path / "outputs",
@@ -194,6 +240,7 @@ def run_fixture(
         task_information_path=inputs["task"],
         draft_units_path=inputs["draft"],
         confirmed_project_facts_path=inputs["facts"],
+        tender_metadata=tender_metadata,
         output_key=output_key,
         web_search_policy="disabled",
         stream_model=False,
@@ -278,6 +325,57 @@ def test_runner_builds_complete_stable_plan_and_invokes_each_chapter_sequentiall
     )
 
 
+def test_runner_passes_existing_tender_metadata_to_each_agent(tmp_path: Path) -> None:
+    metadata = {
+        "fields": {
+            "project_name": {
+                "value": "已解析项目",
+                "source_file_id": "tender-1",
+            }
+        }
+    }
+    _, factory, _ = run_fixture(tmp_path, tender_metadata=metadata)
+
+    assert all(call["input"].tender_metadata == metadata for call in factory.build_calls)
+
+
+def test_runner_passes_and_pins_stage9_writing_constraint_context(tmp_path: Path) -> None:
+    inputs = make_inputs(tmp_path, [("WC-001", "第一章", [("WC-001-01", "第一节")])])
+    context = {
+        "schema_version": "stage9_input_handoff_v1",
+        "fingerprint": "stage9-context-test",
+        "pending_policy": "placeholder_required",
+        "tasks": [
+            {
+                "task_id": "TASK-1",
+                "confirmed_business_choices": [{"constraint_id": "HC-1", "answer": False}],
+                "pending_confirmations": [],
+                "placeholder_requirements": [],
+            }
+        ],
+    }
+    context_path = write_json(tmp_path / "stage9_input_handoff.json", context)
+    factory = FakeAgentFactory(inputs["writing"])
+    result = TechnicalFulltextRunner(
+        output_dir=tmp_path / "outputs", agent_factory=factory
+    ).run(
+        response_outline_path=inputs["response"],
+        writing_outline_path=inputs["writing"],
+        task_information_path=inputs["task"],
+        draft_units_path=inputs["draft"],
+        confirmed_project_facts_path=inputs["facts"],
+        writing_constraint_context_path=context_path,
+        output_key="stage9-context-run",
+        web_search_policy="disabled",
+        stream_model=False,
+    )
+
+    assert factory.build_calls[0]["input"].writing_constraint_context == context
+    index = json.loads(Path(result["outputs"]["chapter_production_index"]).read_text(encoding="utf-8"))
+    assert index["planning_inputs"]["writing_constraint_context_path"] == str(context_path.resolve())
+    assert index["planning_inputs"]["writing_constraint_context_sha256"] == sha256_file(context_path)
+
+
 def test_blocked_reviewable_chapter_is_completed_and_does_not_stop_later_chapters(tmp_path: Path) -> None:
     result, factory, _ = run_fixture(tmp_path, blocked={"WC-002"})
 
@@ -304,6 +402,60 @@ def test_blocked_reviewable_chapter_is_completed_and_does_not_stop_later_chapter
     assert blocked["source"]["submission_ready"] is False
     assert blocked["source"]["issue_counts"]["blocking"] == 3
     assert blocked["sections"][0]["content"]
+
+
+@pytest.mark.parametrize(
+    ("error_type", "message"),
+    [
+        ("ModelResponseError", "model provider request failed: Insufficient Balance"),
+        ("ModelOutputIncompleteError", "provider returned neither tool calls nor final content"),
+    ],
+)
+def test_missing_candidate_keeps_underlying_agent_error_in_production_index(
+    tmp_path: Path, error_type: str, message: str
+) -> None:
+    result, _, _ = run_fixture(
+        tmp_path,
+        agent_failures={"WC-002": (error_type, message)},
+    )
+
+    failed = next(item for item in result["chapters"] if item["chapter_id"] == "WC-002")
+    assert failed["status"] == "failed"
+    assert failed["error"]["error_type"] == "OSError"
+    assert failed["error"]["message"] == (
+        "chapter artifacts are not reviewable: candidate_file_missing"
+    )
+    assert failed["error"]["underlying_error_type"] == error_type
+    assert failed["error"]["underlying_error_message"] == message
+    assert failed["error"]["last_agent_event"] == "agent_run_failed"
+
+
+def test_missing_candidate_keeps_incomplete_agent_stop_reason_in_production_index(
+    tmp_path: Path,
+) -> None:
+    result, _, _ = run_fixture(
+        tmp_path,
+        agent_incomplete={"WC-002": "max_runtime_exceeded"},
+    )
+
+    failed = next(item for item in result["chapters"] if item["chapter_id"] == "WC-002")
+    assert failed["status"] == "failed"
+    assert failed["error"]["error_type"] == "OSError"
+    assert failed["error"]["message"] == (
+        "chapter artifacts are not reviewable: candidate_file_missing"
+    )
+    assert "underlying_error_type" not in failed["error"]
+    assert failed["error"]["underlying_agent_status"] == "incomplete"
+    assert failed["error"]["underlying_stop_reason"] == "max_runtime_exceeded"
+    assert failed["error"]["last_agent_event"] == "agent_run_incomplete"
+
+
+def test_normal_candidate_keeps_existing_production_index_error_shape(tmp_path: Path) -> None:
+    result, _, _ = run_fixture(tmp_path)
+
+    completed = next(item for item in result["chapters"] if item["chapter_id"] == "WC-002")
+    assert completed["status"] == "completed"
+    assert completed["error"] is None
 
 
 def test_retry_failed_chapter_reuses_seven_chapters_and_rebuilds_fulltext(tmp_path: Path) -> None:
@@ -377,6 +529,95 @@ def test_retry_failed_chapter_reuses_seven_chapters_and_rebuilds_fulltext(tmp_pa
         assert sha256_file(record["candidate_markdown_path"]) == chapter_hashes["candidate_markdown"]
         assert sha256_file(record["run_json_path"]) == chapter_hashes["run"]
         assert sha256_file(record["events_jsonl_path"]) == chapter_hashes["events"]
+
+
+def test_recover_existing_run_retries_only_failed_chapter_and_preserves_reused_hashes(tmp_path: Path) -> None:
+    initial, _, inputs = create_incomplete_recovery_run(tmp_path)
+    old_index = json.loads(Path(initial["outputs"]["chapter_production_index"]).read_text(encoding="utf-8"))
+    preserved = {
+        record["chapter_id"]: sha256_file(record["candidate_json_path"])
+        for record in old_index["chapters"] if record["status"] == "completed"
+    }
+    retry_factory = FakeAgentFactory(inputs["writing"])
+    result = TechnicalFulltextRunner(
+        output_dir=tmp_path / "outputs", agent_factory=retry_factory
+    ).recover_existing_run(output_key="recovery_case", stream_model=False)
+
+    assert result["recovery_mode"] == "retry_failed_chapter"
+    assert [call["chapter_id"] for call in retry_factory.run_calls] == ["WC-006"]
+    assert result["composition_status"] == "complete"
+    for record in old_index["chapters"]:
+        if record["status"] == "completed":
+            assert sha256_file(record["candidate_json_path"]) == preserved[record["chapter_id"]]
+
+
+def test_recovery_passes_tender_metadata_only_to_retried_agent_and_preserves_reuse(
+    tmp_path: Path,
+) -> None:
+    initial, _, inputs = create_incomplete_recovery_run(tmp_path)
+    old_index = json.loads(
+        Path(initial["outputs"]["chapter_production_index"]).read_text(encoding="utf-8")
+    )
+    preserved = {
+        record["chapter_id"]: record["candidate_json_sha256"]
+        for record in old_index["chapters"]
+        if record["status"] == "completed"
+    }
+    metadata = {
+        "fields": {
+            "project_name": {"value": "Recovered project", "source_file_id": "tender-1"},
+            "tender_no": {"value": "PROC-001", "source_file_id": "tender-1"},
+        }
+    }
+    retry_factory = FakeAgentFactory(inputs["writing"])
+
+    result = TechnicalFulltextRunner(
+        output_dir=tmp_path / "outputs", agent_factory=retry_factory
+    ).recover_existing_run(
+        output_key="recovery_case",
+        stream_model=False,
+        tender_metadata=metadata,
+    )
+
+    assert [call["chapter_id"] for call in retry_factory.run_calls] == ["WC-006"]
+    assert len(retry_factory.build_calls) == 1
+    assert retry_factory.build_calls[0]["input"].tender_metadata == metadata
+    for chapter_id, digest in preserved.items():
+        rebuilt = next(item for item in result["chapters"] if item["chapter_id"] == chapter_id)
+        assert rebuilt["candidate_sha256"] == digest
+    index = json.loads(Path(result["outputs"]["chapter_production_index"]).read_text(encoding="utf-8"))
+    assert "tender_metadata" not in index["planning_inputs"]
+
+
+def test_recovery_without_tender_metadata_keeps_empty_metadata_semantics(tmp_path: Path) -> None:
+    _, _, inputs = create_incomplete_recovery_run(tmp_path)
+    retry_factory = FakeAgentFactory(inputs["writing"])
+
+    TechnicalFulltextRunner(
+        output_dir=tmp_path / "outputs", agent_factory=retry_factory
+    ).recover_existing_run(output_key="recovery_case", stream_model=False)
+
+    assert [call["chapter_id"] for call in retry_factory.run_calls] == ["WC-006"]
+    assert retry_factory.build_calls[0]["input"].tender_metadata == {}
+
+
+def test_recover_existing_completed_run_validates_without_model_call(tmp_path: Path) -> None:
+    initial, factory, _ = run_fixture(tmp_path, output_key="complete_recovery")
+    assert initial["status"] == "completed"
+    result = TechnicalFulltextRunner(
+        output_dir=tmp_path / "outputs", agent_factory=factory
+    ).recover_existing_run(output_key="complete_recovery", stream_model=False)
+    assert result["recovery_mode"] == "validated_complete"
+    assert len(factory.run_calls) == 3
+
+
+def test_recover_existing_orphan_is_explicit(tmp_path: Path) -> None:
+    root = tmp_path / "outputs" / "orphan_case"
+    root.mkdir(parents=True)
+    with pytest.raises(TechnicalFulltextRunnerError, match="orphaned"):
+        TechnicalFulltextRunner(output_dir=tmp_path / "outputs").recover_existing_run(
+            output_key="orphan_case", stream_model=False
+        )
 
 
 def test_retry_failed_chapter_allows_reused_content_blockers(tmp_path: Path) -> None:

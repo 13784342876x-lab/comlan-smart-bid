@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Any
 from datetime import datetime
+from copy import deepcopy
 import json
 import uuid
 
@@ -13,7 +14,8 @@ from app.tender_project_builder import build_tender_project_graph
 from app.metadata_store import MetadataStore
 from app.score_table_locator import build_score_items_from_location, locate_score_table
 from app.vector_store import VectorStore, chunk_text
-from config import BACKEND_ROOT, DATA_DIR, INGEST_ALLOWED_EXTENSIONS
+from app.source_package_service import SourcePackageService, apply_project_profile_to_score_parse
+from config import BACKEND_ROOT, DATA_DIR, INGEST_ALLOWED_EXTENSIONS, SOURCE_PACKAGE_ARCHIVE_EXTENSIONS
 
 
 class KnowledgeBaseService:
@@ -37,8 +39,11 @@ class KnowledgeBaseService:
             "assets": [dump_model(asset) for asset in parse_result.get("assets", [])],
             "warnings": parse_result.get("warnings", []),
         }
-        if parse_result.get("ok"):
-            patch["parsed_text"] = parse_result.get("parsed_text", "")
+        patch["parsed_text"] = parse_result.get("parsed_text", "") if parse_result.get("ok") else ""
+        if not parse_result.get("ok"):
+            patch["failed_parse_text"] = parse_result.get("parsed_text", "")
+            if record.get("parsed_text"):
+                patch["previous_parsed_text"] = record["parsed_text"]
         updated = self.metadata.update_file(file_id, patch)
         return {
             "ok": parse_result.get("ok", False),
@@ -73,6 +78,22 @@ class KnowledgeBaseService:
         return classification
 
     def ingest_auto(self, path: Path) -> dict[str, Any]:
+        if path.is_file() and path.suffix.lower().lstrip(".") in SOURCE_PACKAGE_ARCHIVE_EXTENSIONS:
+            package_service = SourcePackageService(output_root=BACKEND_ROOT / "outputs")
+            package = package_service.discover(path)
+            package = package_service.ingest_and_parse(
+                package,
+                self,
+                tags=["自动识别", "source_package"],
+            )
+            return {
+                "mode": "source_package",
+                "package_id": package["package_id"],
+                "manifest_path": package["manifest_path"],
+                "package": package,
+                **package["summary"],
+                "status": "DONE",
+            }
         if path.is_dir():
             print(f"[ingest-auto] scanning folder: {path}")
             results = []
@@ -298,7 +319,13 @@ class KnowledgeBaseService:
     #     self.metadata.update_file(score_file_id, {"score_table_parse": result})
     #     return result
 
-    def parse_score_table(self, score_file_id: str, lot_name: str) -> dict[str, Any]:
+    def parse_score_table(
+        self,
+        score_file_id: str,
+        lot_name: str | None,
+        *,
+        project_profile: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         agent = load_agent("score_table_parser_agent")
         record = self.metadata.get_file(score_file_id)
         document_text = record.get("parsed_text") or ""
@@ -306,85 +333,121 @@ class KnowledgeBaseService:
         if not document_text.strip():
             raise ValueError("parsed_text is empty; run parse-file first")
 
-        print("[score-table] locating score templates by lot")
-
-        location = locate_score_table(document_text, record.get("tables", []), lot_name)
-
-        locator_success = (
-            location
-            and location.get("business_template_name")
-            and location.get("technical_template_name")
-            and location.get("weights")
-            and location.get("business_block_text")
-            and location.get("technical_block_text")
+        print(
+            "[score-table] locating score templates by lot"
+            if lot_name
+            else "[score-table] locating score templates in selected score source"
         )
 
-        if locator_success:
-            print(f"[score-table] matched business template: {location.get('business_template_name')}")
-            print(f"[score-table] matched technical template: {location.get('technical_template_name')}")
-
-            parsed_items = build_score_items_from_location(location, record.get("tables", []))
-
-            business_score_items = parsed_items.get("business_score_items", [])
-            technical_score_items = parsed_items.get("technical_score_items", [])
-            price_score_rule = parsed_items.get("price_score_rule", {})
-            score_items = parsed_items.get("score_items", business_score_items + technical_score_items)
-
-            print(f"[score-table] generated {len(score_items)} score items from locator")
-
-            result = {
-                "status": "success",
-                "parsed": True,
-                "agent": "score_table_locator",
-                "score_file_id": score_file_id,
-                "score_table_mode": "auto_lot_matched",
-                "lot_name": lot_name,
-                "matched_business_template": location.get("business_template_name"),
-                "matched_technical_template": location.get("technical_template_name"),
-                "weights": location.get("weights", {}),
-                "business_score_items": business_score_items,
-                "technical_score_items": technical_score_items,
-                "price_score_rule": price_score_rule,
-                "score_items": score_items,
-                "total_score": parsed_items.get("total_score", 100),
-                "score_scale": parsed_items.get("score_scale", {}),
-                "disqualification_rules": parsed_items.get("disqualification_rules", []),
-                "generation_tasks": parsed_items.get("generation_tasks", []),
-                "locator_confidence": location.get("confidence", 0.9),
-                "locator_warnings": location.get("warnings", []),
+        applicability_sources = [
+            {
+                "file_id": item.get("id"),
+                "parsed_text": item.get("parsed_text") or "",
+                "tables": item.get("tables") or [],
             }
+            for item in self.metadata.list_files()
+            if item.get("parsed_text")
+        ]
+        location = locate_score_table(
+            document_text,
+            record.get("tables", []),
+            lot_name,
+            applicability_texts=applicability_sources,
+        )
+        parsed_items = build_score_items_from_location(location, record.get("tables", []))
 
-            self.metadata.update_file(score_file_id, {"score_table_parse": result})
-            return result
+        required_rule_groups_extracted = bool(
+            location.get("technical_score_table_candidates")
+            and location.get("business_score_table")
+            and location.get("price_scoring_method")
+        )
+        unsupported_score_format = bool(location.get("unsupported_score_format")) or not required_rule_groups_extracted
+        technical_template_unresolved = bool(location.get("technical_template_unresolved"))
+        component_weights_unresolved = bool(location.get("component_weights_unresolved"))
 
-        print("[score-table] locator needs review; old mock fallback is disabled")
+        review_gate = None
+        if unsupported_score_format:
+            review_gate = "unsupported_score_format"
+        elif technical_template_unresolved:
+            review_gate = "technical_template_unresolved"
+        elif component_weights_unresolved:
+            review_gate = "component_weights_unresolved"
+
+        status = "needs_review" if review_gate else "success"
+        if review_gate == "technical_template_unresolved":
+            message = "评分规则已抽取，但存在多套技术评分候选，且 scoped sources 中没有明确的本项目适用映射。"
+        elif review_gate == "component_weights_unresolved":
+            message = "评分规则和适用技术模板已抽取，但商务、技术、价格 component weights 尚未完整确认。"
+        elif review_gate == "unsupported_score_format":
+            message = "评分来源中存在无法完整结构化的评分格式，需要人工确认。"
+        else:
+            message = "评分规则、适用技术模板和 component weights 已确认。"
+
+        print(
+            f"[score-table] extracted technical candidates="
+            f"{len(location.get('technical_score_table_candidates') or [])}, "
+            f"business={bool(location.get('business_score_table'))}, "
+            f"price={bool(location.get('price_scoring_method'))}"
+        )
+        if review_gate:
+            print(f"[score-table] review gate: {review_gate}")
 
         result = {
-            "status": "needs_review",
-            "parsed": False,
+            "schema_version": "score_table_parse_v2",
+            "status": status,
+            "parsed": bool(location.get("score_rules_extracted")),
             "agent": "score_table_locator",
             "score_file_id": score_file_id,
+            "score_table_mode": "auto_lot_matched" if lot_name else "auto_scoped_source",
             "lot_name": lot_name,
-            "message": "无法自动定位该标段对应的商务评分模板、技术评分模板或权重，已禁止回退到旧 mock 评分项。",
-            "locator_confidence": location.get("confidence", 0) if location else 0,
-            "warnings": location.get("warnings", []) if location else [],
-            "candidate_business_blocks": location.get("candidate_business_blocks", []) if location else [],
-            "candidate_technical_blocks": location.get("candidate_technical_blocks", []) if location else [],
-            "weights": location.get("weights", {}) if location else {},
-            "score_items": [],
-            "business_score_items": [],
-            "technical_score_items": [],
-            "price_score_rule": {},
-            "generation_tasks": [],
-            "disqualification_rules": [],
+            "message": message,
+            "review_gate": review_gate,
+            "score_rules_extracted": bool(location.get("score_rules_extracted")),
+            "technical_template_resolution_status": location.get("technical_template_resolution_status"),
+            "technical_template_unresolved": technical_template_unresolved,
+            "component_weights_unresolved": component_weights_unresolved,
+            "unsupported_score_format": unsupported_score_format,
+            "matched_business_template": (
+                (location.get("business_score_table") or {}).get("heading")
+                or location.get("business_template_name")
+            ),
+            "matched_technical_template": location.get("technical_template_name"),
+            "selected_technical_candidate_id": location.get("selected_technical_candidate_id"),
+            "technical_template_selection_reason": location.get("technical_template_selection_reason"),
+            "technical_template_evidence": location.get("technical_template_evidence") or [],
+            "weights": location.get("weights", {}),
+            "business_score_table": parsed_items.get("business_score_table"),
+            "technical_score_table_candidates": parsed_items.get("technical_score_table_candidates", []),
+            "price_scoring_method": parsed_items.get("price_scoring_method"),
+            "business_score_items": parsed_items.get("business_score_items", []),
+            "technical_score_items": parsed_items.get("technical_score_items", []),
+            "price_score_rule": parsed_items.get("price_score_rule", {}),
+            "score_items": parsed_items.get("score_items", []),
+            "total_score": parsed_items.get("total_score", 100),
+            "score_scale": parsed_items.get("score_scale", {}),
+            "disqualification_rules": parsed_items.get("disqualification_rules", []),
+            "generation_tasks": parsed_items.get("generation_tasks", []),
+            "locator_confidence": location.get("confidence", 0),
+            "locator_warnings": location.get("warnings", []),
+            "candidate_business_blocks": location.get("candidate_business_blocks", []),
+            "candidate_technical_blocks": location.get("candidate_technical_blocks", []),
         }
 
+        result = apply_project_profile_to_score_parse(result, project_profile)
         self.metadata.update_file(score_file_id, {"score_table_parse": result})
         return result
 
 
 
-    def parse_tender_project(self, tender_file_id: str, score_file_id: str, lot_name: str) -> dict[str, Any]:
+    def parse_tender_project(
+        self,
+        tender_file_id: str,
+        score_file_id: str,
+        lot_name: str | None,
+        *,
+        score_parse_override: dict[str, Any] | None = None,
+        project_profile: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         load_agent("tender_merge_agent")
         tender_parse = self.parse_tender(tender_file_id)
         if tender_parse.get("status") == "failed":
@@ -395,16 +458,36 @@ class KnowledgeBaseService:
                 "message": tender_parse.get("message", "招标文件解析失败，无法合并项目任务图"),
                 "generation_tasks": [],
             }
-        score_record = self.metadata.get_file(score_file_id)
-        score_parse = score_record.get("score_table_parse")
-        if not score_parse or score_parse.get("lot_name") != lot_name:
-            score_parse = self.parse_score_table(score_file_id, lot_name)
+        score_parse = deepcopy(score_parse_override) if score_parse_override is not None else None
+        if score_parse is None:
+            score_record = self.metadata.get_file(score_file_id)
+            score_parse = score_record.get("score_table_parse")
+            if (
+                not score_parse
+                or score_parse.get("schema_version") != "score_table_parse_v2"
+                or score_parse.get("lot_name") != lot_name
+            ):
+                score_parse = self.parse_score_table(
+                    score_file_id,
+                    lot_name,
+                    project_profile=project_profile,
+                )
         if score_parse.get("status") in {"failed", "needs_review"}:
             return {
                 "status": score_parse.get("status"),
                 "merged": False,
                 "agent": "tender_merge_agent",
                 "message": score_parse.get("message", "评分表解析失败，无法合并项目任务图"),
+                "review_gate": score_parse.get("review_gate"),
+                "score_rules_extracted": score_parse.get("score_rules_extracted", False),
+                "technical_template_resolution_status": score_parse.get("technical_template_resolution_status"),
+                "technical_template_unresolved": score_parse.get("technical_template_unresolved", False),
+                "component_weights_unresolved": score_parse.get("component_weights_unresolved", False),
+                "unsupported_score_format": score_parse.get("unsupported_score_format", False),
+                "technical_candidate_count": len(score_parse.get("technical_score_table_candidates") or []),
+                "business_score_table_extracted": bool(score_parse.get("business_score_table")),
+                "price_scoring_method_extracted": bool(score_parse.get("price_scoring_method")),
+                "weights": score_parse.get("weights") or {},
                 "generation_tasks": [],
             }
         graph = build_tender_project_graph(tender_file_id, score_file_id, lot_name, tender_parse, score_parse)
@@ -412,6 +495,16 @@ class KnowledgeBaseService:
             "status": "success",
             "merged": True,
             "agent": "tender_merge_agent",
+            "review_gate": None,
+            "score_rules_extracted": score_parse.get("score_rules_extracted", True),
+            "technical_template_resolution_status": score_parse.get("technical_template_resolution_status"),
+            "technical_template_unresolved": False,
+            "component_weights_unresolved": False,
+            "unsupported_score_format": False,
+            "technical_candidate_count": len(score_parse.get("technical_score_table_candidates") or []),
+            "business_score_table_extracted": bool(score_parse.get("business_score_table")),
+            "price_scoring_method_extracted": bool(score_parse.get("price_scoring_method")),
+            "weights": score_parse.get("weights") or {},
             **graph,
         }
         save_tender_project(result)
@@ -582,9 +675,9 @@ def parse_tender(tender_ref: str) -> dict[str, Any]:
     return KnowledgeBaseService().parse_tender(tender_ref)
 
 
-def parse_score_table(score_file_id: str, lot_name: str) -> dict[str, Any]:
+def parse_score_table(score_file_id: str, lot_name: str | None) -> dict[str, Any]:
     return KnowledgeBaseService().parse_score_table(score_file_id, lot_name)
 
 
-def parse_tender_project(tender_file_id: str, score_file_id: str, lot_name: str) -> dict[str, Any]:
+def parse_tender_project(tender_file_id: str, score_file_id: str, lot_name: str | None) -> dict[str, Any]:
     return KnowledgeBaseService().parse_tender_project(tender_file_id, score_file_id, lot_name)

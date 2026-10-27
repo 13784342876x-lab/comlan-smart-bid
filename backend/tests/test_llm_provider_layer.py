@@ -108,6 +108,17 @@ def incomplete_reasoning_response(*, reasoning_tokens=1180, output_tokens=1200):
     )
 
 
+def empty_chat_response():
+    return SimpleNamespace(
+        id="chat-incomplete-001",
+        choices=[SimpleNamespace(
+            message=SimpleNamespace(content=None, refusal=None, tool_calls=None),
+            finish_reason="stop",
+        )],
+        usage=SimpleNamespace(prompt_tokens=1, completion_tokens=1, total_tokens=2),
+    )
+
+
 class Endpoint:
     def __init__(self, actions):
         self.actions = list(actions)
@@ -534,27 +545,48 @@ def test_minimal_smoke_does_not_attempt_schema_repair(tmp_path):
     assert len(sdk.endpoint.calls) == 1
 
 
-def test_empty_output_preserves_response_metadata_and_never_repairs():
+def test_empty_output_retries_then_succeeds_without_schema_repair():
     client, sdk, _ = make_client([incomplete_reasoning_response(), fake_response()])
+    result = generate(client)
+    assert result.retry_count == 1
+    assert result.repair_attempted is False
+    assert len(sdk.endpoint.calls) == 2
+
+
+def test_empty_output_retries_are_bounded_and_preserve_final_diagnostics():
+    client, sdk, _ = make_client([
+        incomplete_reasoning_response(),
+        incomplete_reasoning_response(),
+        incomplete_reasoning_response(),
+    ])
     with pytest.raises(ModelOutputIncompleteError) as caught:
         generate(client)
     diagnostics = caught.value.safe_diagnostics()
-    assert diagnostics["request_id"] == "resp-incomplete-001"
-    assert diagnostics["response_received"] is True
-    assert diagnostics["response_status"] == "incomplete"
-    assert diagnostics["finish_status"] == "incomplete"
-    assert diagnostics["incomplete_details"] == {"reason": "max_output_tokens"}
-    assert diagnostics["usage"]["reasoning_tokens"] == 1180
-    assert diagnostics["usage"]["output_tokens"] == 1200
-    assert diagnostics["usage"]["cached_tokens"] == 23
-    assert diagnostics["output_item_types"] == ["reasoning"]
-    assert diagnostics["output_text_available"] is False
-    assert diagnostics["output_text_character_count"] == 0
     assert diagnostics["failed_stage"] == "output_extraction"
     assert diagnostics["repair_attempted"] is False
-    assert "repair failed" not in str(caught.value)
-    assert "private reasoning must not persist" not in json.dumps(diagnostics, ensure_ascii=False)
-    assert len(sdk.endpoint.calls) == 1
+    assert len(sdk.endpoint.calls) == 3
+
+
+def test_tool_turn_incomplete_output_retries_before_any_tool_result_is_returned():
+    client, sdk, _ = make_client(
+        [empty_chat_response(), fake_response({"answer": "ok"}, mode="chat")],
+        api_mode="chat_completions",
+    )
+    retries: list[dict[str, Any]] = []
+    result = client.run_with_tools(
+        messages=[{"role": "user", "content": "work"}],
+        tools=[],
+        options={"retry_event_handler": retries.append},
+    )
+    assert result.final_content == json.dumps({"answer": "ok"}, ensure_ascii=False)
+    assert len(sdk.endpoint.calls) == 2
+    assert retries == [{
+        "error_type": "ModelOutputIncompleteError",
+        "retry_attempt": 1,
+        "max_retry_attempts": 2,
+        "previous_request_id": "chat-incomplete-001",
+        "backoff_ms": 1000,
+    }]
 
 
 def test_tool_turn_can_lower_reasoning_effort_without_mutating_profile():
@@ -580,7 +612,11 @@ def test_tool_turn_can_lower_reasoning_effort_without_mutating_profile():
 
 
 def test_smoke_empty_output_reports_extraction_stage_and_reasoning_usage(tmp_path):
-    sdk = FakeSDKClient([incomplete_reasoning_response()])
+    sdk = FakeSDKClient([
+        incomplete_reasoning_response(),
+        incomplete_reasoning_response(),
+        incomplete_reasoning_response(),
+    ])
     result = check_drafting_model(
         profile_name="ark_draft",
         output_dir=tmp_path,

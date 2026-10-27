@@ -1410,6 +1410,43 @@ def test_required_project_fact_pending_issue_uses_stable_error_code():
     assert issue_value["message"].startswith("required project facts are unconfirmed")
 
 
+def test_tender_baseline_delivery_does_not_require_pending_but_installation_does():
+    delivery_target = deepcopy(target())
+    delivery_target["writing_requirements"]["manual_project_facts"] = {
+        "need": "required", "fact_types": ["delivery_time"]
+    }
+    delivery = validate_technical_chapter(
+        draft(),
+        schema=load_chapter_draft_schema(),
+        target=delivery_target,
+        confirmed_facts={},
+        pending_confirmations=[],
+        tender_tables=[],
+        generation_permissions=ledger(),
+    )
+    assert not any(
+        issue["code"] == "required_project_fact_pending_confirmation_missing"
+        for issue in delivery["issues"]
+    )
+    installation_target = deepcopy(target())
+    installation_target["writing_requirements"]["manual_project_facts"] = {
+        "need": "required", "fact_types": ["installation_time"]
+    }
+    installation = validate_technical_chapter(
+        draft(),
+        schema=load_chapter_draft_schema(),
+        target=installation_target,
+        confirmed_facts={},
+        pending_confirmations=[],
+        tender_tables=[],
+        generation_permissions=ledger(),
+    )
+    assert any(
+        issue["code"] == "required_project_fact_pending_confirmation_missing"
+        for issue in installation["issues"]
+    )
+
+
 def test_issue_message_is_not_used_as_error_code():
     message = "required project facts are unconfirmed but no pending confirmation was recorded"
     details = _fresh_quality_error_details([message], draft=draft())

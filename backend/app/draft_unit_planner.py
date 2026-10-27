@@ -72,7 +72,10 @@ def plan_draft_units(
             (info["draftability"]["status"] for info in infos),
             key=lambda value: STATUS_ORDER[value],
         )
-        if chapter_id == "WC-001" and chapter_id not in first_unit_by_chapter:
+        if (
+            "MODULE-PROJECT-UNDERSTANDING" in {module for task in tasks for module in task.get("module_ids") or []}
+            and chapter_id not in first_unit_by_chapter
+        ):
             background_policy = "full"
         elif chapter_id not in first_unit_by_chapter:
             background_policy = "brief_reference"
@@ -84,7 +87,7 @@ def plan_draft_units(
             response_id: content_locations.get(response_id, {}) for response_id in response_ids
         }
         parameter_related = any(
-            any(term in path[-1] for term in ("超融合", "参数", "点对点", "可靠", "兼容"))
+            any(term in path[-1] for term in ("参数", "点对点", "可靠", "兼容"))
             for path in paths
         ) or any(item in shared_manual for item in ("actual_product_configuration", "actual_technical_parameters"))
         units.append(
@@ -252,35 +255,25 @@ def render_draft_units_markdown(result: dict[str, Any]) -> str:
 
 def _semantic_group(chapter_id: str, task: dict[str, Any], index: int) -> tuple[str, str]:
     title = str((task.get("target_path") or [""])[-1])
-    if chapter_id == "WC-001":
-        if title in {"项目背景", "现状及建设基础"}:
-            return "context", "项目背景与现状"
-        if title in {"应用环境", "功能需求", "性能需求", "统一运维需求", "实施要求"}:
-            return "requirements", "项目需求理解"
-        return "goals", "建设目标与重点难点"
-    if chapter_id == "WC-002":
-        if "超融合" in title:
-            return f"product:{title}", title
-        if title in {"总体设计原则", "总体技术路线", "总体方案架构", "部署架构", "统一运维架构"}:
-            return "architecture", "总体方案与架构"
-        return "design", "功能与非功能设计"
-    if chapter_id == "WC-003":
-        if title in {"实施总体规划", "项目建设技术方案", "项目设计实施周期"}:
-            return "plan", "实施规划与周期"
-        if title in {"项目组织架构", "项目负责人及主要人员"}:
-            return "team", "项目组织与人员"
-        return "delivery", "实施执行、质量验收与风险保障"
-    if chapter_id == "WC-004":
-        return ("training-design", "培训总体设计") if index < 5 else ("training-delivery", "培训实施与效果保障")
-    if chapter_id == "WC-005":
-        return ("service-system", "服务体系与响应机制") if index < 5 else ("service-operation", "运行维护与服务保障")
-    if chapter_id == "WC-006":
-        return "green", "绿色供应链管理"
-    if chapter_id == "WC-007":
+    modules = {str(value) for value in task.get("module_ids") or []}
+    if modules & {"MODULE-PARAMETER-RESPONSE", "MODULE-TECHNICAL-DEVIATION"}:
         return f"form:{title}", title
-    if chapter_id == "WC-008":
+    if "MODULE-EVIDENCE-APPENDIX" in modules:
         return f"appendix:{title}", title
-    return f"generic:{index // 4}", str((task.get("target_path") or ["正文生成单元"])[0])
+    product = _product_entity(task)
+    if product:
+        return f"product:{product}", product
+    if "MODULE-TRAINING" in modules:
+        return ("training-design", "培训方案") if index < 5 else ("training-delivery", "培训实施与保障")
+    if "MODULE-SERVICE-WARRANTY" in modules:
+        return ("service-system", "服务体系与响应机制") if index < 5 else ("service-operation", "运行维护与服务保障")
+    if "MODULE-PROJECT-UNDERSTANDING" in modules:
+        return f"understanding:{index // 4}", str((task.get("target_path") or ["项目需求理解"])[0])
+    if modules & {"MODULE-OVERALL-SOLUTION", "MODULE-DETAILED-SOLUTION"}:
+        return f"solution:{index // 4}", str((task.get("target_path") or ["技术方案"])[0])
+    if modules & {"MODULE-IMPLEMENTATION", "MODULE-PROJECT-MANAGEMENT", "MODULE-QUALITY-ACCEPTANCE", "MODULE-RISK-CONTROL"}:
+        return f"delivery:{index // 4}", str((task.get("target_path") or ["实施与保障"])[0])
+    return f"generic:{chapter_id}:{index // 4}", str((task.get("target_path") or ["正文生成单元"])[0])
 
 
 def _unit_compatible(
@@ -309,9 +302,8 @@ def _unit_compatible(
 
 def _product_entity(task: dict[str, Any]) -> str:
     title = str((task.get("target_path") or [""])[-1])
-    for entity in ("超融合系统", "超融合互联交换机", "超融合节点"):
-        if entity in title:
-            return entity
+    if "MODULE-DETAILED-SOLUTION" in set(task.get("module_ids") or []) and title.endswith("技术方案"):
+        return title
     return ""
 
 

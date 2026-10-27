@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "technical_fulltext_human_review_v1.json",
+  "title": "Stage12-B Technical Fulltext Human Review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "artifact_identity", "review_package_ref",
+    "stage11_audit_sha256", "scoring_assessment_sha256", "audited_content_sha256",
+    "created_at", "updated_at", "issue_decisions", "fact_confirmations",
+    "material_verifications", "risk_acceptances", "summary", "pre_stage13_dependencies"
+  ],
+  "properties": {
+    "schema_version": { "const": "technical_fulltext_human_review_v1" },
+    "artifact_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["human_review_id", "document_id", "output_key", "stage", "status"],
+      "properties": {
+        "human_review_id": { "type": "string", "pattern": "^THR-[A-F0-9]{16}$" },
+        "document_id": { "type": "string", "minLength": 1 },
+        "output_key": { "type": "string", "minLength": 1 },
+        "stage": { "const": "Stage12-B" },
+        "status": { "enum": ["in_progress", "completed"] }
+      }
+    },
+    "review_package_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "schema_version", "review_package_id", "review_package_sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "schema_version": { "const": "technical_fulltext_review_package_v1" },
+        "review_package_id": { "type": "string", "pattern": "^TRP-[A-F0-9]{16}$" },
+        "review_package_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "stage11_audit_sha256": { "$ref": "#/$defs/sha256" },
+    "scoring_assessment_sha256": { "$ref": "#/$defs/sha256" },
+    "audited_content_sha256": { "$ref": "#/$defs/sha256" },
+    "created_at": { "$ref": "#/$defs/timestamp" },
+    "updated_at": { "$ref": "#/$defs/timestamp" },
+    "issue_decisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/issueDecision" }
+    },
+    "fact_confirmations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/factConfirmation" }
+    },
+    "material_verifications": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/materialVerification" }
+    },
+    "risk_acceptances": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/riskAcceptance" }
+    },
+    "summary": { "$ref": "#/$defs/summary" },
+    "pre_stage13_dependencies": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "nullableString": { "type": ["string", "null"] },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["changed_at", "change_reason", "previous"],
+        "properties": {
+          "changed_at": { "$ref": "#/$defs/timestamp" },
+          "change_reason": { "type": "string", "minLength": 1 },
+          "previous": { "type": "object" }
+        }
+      }
+    },
+    "locationOverride": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "chapter_id": { "type": "string", "minLength": 1 },
+        "section_id": { "type": "string", "minLength": 1 },
+        "paragraph_id": { "type": "string", "minLength": 1 },
+        "location_note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "issueDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type", "source_id", "decision", "rejection_reason",
+        "revision_instruction", "optional_comment", "use_machine_location",
+        "location_override", "location_override_reason", "risk_acceptance_ref",
+        "created_at", "updated_at", "change_history"
+      ],
+      "properties": {
+        "source_type": { "enum": ["FAI", "FSF"] },
+        "source_id": { "type": "string", "pattern": "^(FAI|FSF)-" },
+        "decision": { "enum": ["pending", "accepted", "rejected", "modified"] },
+        "rejection_reason": { "$ref": "#/$defs/nullableString" },
+        "revision_instruction": { "$ref": "#/$defs/nullableString" },
+        "optional_comment": { "$ref": "#/$defs/nullableString" },
+        "use_machine_location": { "type": "boolean" },
+        "location_override": {
+          "anyOf": [{ "$ref": "#/$defs/locationOverride" }, { "type": "null" }]
+        },
+        "location_override_reason": { "$ref": "#/$defs/nullableString" },
+        "risk_acceptance_ref": {
+          "type": ["string", "null"],
+          "pattern": "^HRA-[A-F0-9]{16}$"
+        },
+        "created_at": { "$ref": "#/$defs/timestamp" },
+        "updated_at": { "$ref": "#/$defs/timestamp" },
+        "change_history": { "$ref": "#/$defs/history" }
+      }
+    },
+    "factConfirmation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type", "source_id", "fact_key", "confirmation_status",
+        "confirmed_value", "source_description", "confirmation_basis",
+        "confirmation_note", "rejection_reason", "created_at", "updated_at", "change_history"
+      ],
+      "properties": {
+        "source_type": { "enum": ["FCA", "FACT"] },
+        "source_id": { "type": "string", "pattern": "^(FCA|FACT)-" },
+        "fact_key": { "$ref": "#/$defs/nullableString" },
+        "confirmation_status": { "enum": ["pending", "confirmed", "rejected"] },
+        "confirmed_value": {},
+        "source_description": { "$ref": "#/$defs/nullableString" },
+        "confirmation_basis": {
+          "type": ["string", "null"],
+          "enum": [null, "human_provided", "document_verified", "explicitly_confirmed"]
+        },
+        "confirmation_note": { "$ref": "#/$defs/nullableString" },
+        "rejection_reason": { "$ref": "#/$defs/nullableString" },
+        "created_at": { "$ref": "#/$defs/timestamp" },
+        "updated_at": { "$ref": "#/$defs/timestamp" },
+        "change_history": { "$ref": "#/$defs/history" }
+      }
+    },
+    "materialVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type", "material_or_evidence_ref", "upstream_status",
+        "verification_status", "material_name", "subject_match", "validity_date",
+        "verification_note", "candidate_reference", "file_reference",
+        "created_at", "updated_at", "change_history"
+      ],
+      "properties": {
+        "source_type": { "enum": ["EVIDENCE_QUERY", "EVIDENCE"] },
+        "material_or_evidence_ref": { "type": "string", "minLength": 1 },
+        "upstream_status": {
+          "enum": ["query_not_executed", "candidate_found", "verified", "confirmed_missing", "invalid", "expired"]
+        },
+        "verification_status": { "enum": ["pending", "verified", "invalid", "expired", "not_provided"] },
+        "material_name": { "$ref": "#/$defs/nullableString" },
+        "subject_match": { "type": ["boolean", "null"] },
+        "validity_date": { "$ref": "#/$defs/nullableString" },
+        "verification_note": { "$ref": "#/$defs/nullableString" },
+        "candidate_reference": { "$ref": "#/$defs/nullableString" },
+        "file_reference": { "$ref": "#/$defs/nullableString" },
+        "created_at": { "$ref": "#/$defs/timestamp" },
+        "updated_at": { "$ref": "#/$defs/timestamp" },
+        "change_history": { "$ref": "#/$defs/history" }
+      }
+    },
+    "riskAcceptance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "risk_acceptance_id", "source_refs", "accepted", "reason", "scope",
+        "created_at", "updated_at", "change_history"
+      ],
+      "properties": {
+        "risk_acceptance_id": { "type": "string", "pattern": "^HRA-[A-F0-9]{16}$" },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "accepted": { "type": "boolean" },
+        "reason": { "$ref": "#/$defs/nullableString" },
+        "scope": { "type": "string", "minLength": 1 },
+        "created_at": { "$ref": "#/$defs/timestamp" },
+        "updated_at": { "$ref": "#/$defs/timestamp" },
+        "change_history": { "$ref": "#/$defs/history" }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "issue_decision_count", "issue_decision_counts", "fai_decision_count", "fsf_decision_count",
+        "fact_confirmation_count", "fact_confirmation_counts", "fca_confirmation_count",
+        "project_fact_confirmation_count", "material_verification_count",
+        "material_verification_counts", "query_not_executed_count",
+        "accepted_risk_count", "risk_acceptance_record_count"
+      ],
+      "properties": {
+        "issue_decision_count": { "type": "integer", "minimum": 0 },
+        "issue_decision_counts": { "$ref": "#/$defs/counts" },
+        "fai_decision_count": { "type": "integer", "minimum": 0 },
+        "fsf_decision_count": { "type": "integer", "minimum": 0 },
+        "fact_confirmation_count": { "type": "integer", "minimum": 0 },
+        "fact_confirmation_counts": { "$ref": "#/$defs/counts" },
+        "fca_confirmation_count": { "type": "integer", "minimum": 0 },
+        "project_fact_confirmation_count": { "type": "integer", "minimum": 0 },
+        "material_verification_count": { "type": "integer", "minimum": 0 },
+        "material_verification_counts": { "$ref": "#/$defs/counts" },
+        "query_not_executed_count": { "type": "integer", "minimum": 0 },
+        "accepted_risk_count": { "type": "integer", "minimum": 0 },
+        "risk_acceptance_record_count": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

@@ -4,7 +4,11 @@ from pathlib import Path
 from docx import Document
 from openpyxl import Workbook
 
-from app.technical_outline_builder import build_technical_outline, render_technical_outline_markdown
+from app.technical_outline_builder import (
+    build_technical_outline,
+    extract_structured_file_points,
+    render_technical_outline_markdown,
+)
 
 
 def add_paragraphs(document: Document, values: list[str]) -> None:
@@ -128,6 +132,40 @@ def load_outputs(result: dict) -> tuple[dict, str]:
 
 def all_points(data: dict) -> list[dict]:
     return [point for chapter in data["chapters"] for point in chapter["response_points"]]
+
+
+def test_numbered_technical_response_file_headings_are_preserved_as_requirements():
+    headings = [
+        "4.工作规划描述（如有，格式自拟）",
+        "5.履约能力及质量保证措施（如有，格式自拟）",
+        "6.服务承诺（如有，格式自拟）",
+        "7.采购文件技术评分标准涉及的支撑材料",
+        "8.技术规范书规定的其他应提交文件（如有）",
+    ]
+    parsed_file = {
+        "file_id": "file-current",
+        "file_name": "采购文件.docx",
+        "category": "procurement_document",
+        "parsed": {
+            "blocks": [
+                {
+                    "block_type": "paragraph",
+                    "is_heading": True,
+                    "text": heading,
+                    "heading_path": ["第五章 响应文件格式", "技术文件", "（二）专项响应文件"],
+                    "block_index": index,
+                    "source_location": f"paragraph:{index}",
+                }
+                for index, heading in enumerate(headings, start=1)
+            ]
+        },
+    }
+
+    points = extract_structured_file_points(parsed_file, 1, [])
+
+    assert [point["original_heading"] for point in points] == headings
+    assert all(point["original_text"] == point["original_heading"] for point in points)
+    assert all(point["source_refs"][0]["row_or_cell"] for point in points)
 
 
 def test_selected_directory_builds_clean_technical_outline(tmp_path: Path) -> None:

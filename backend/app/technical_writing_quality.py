@@ -1058,6 +1058,213 @@ def tender_response_policy(
     }
 
 
+def confirmation_requirement(
+    item: dict[str, Any],
+    *,
+    tender_baselines: list[dict[str, Any]],
+    confirmed_facts: dict[str, Any] | None = None,
+) -> str:
+    """Return required, satisfied, or not_required for one atomic project fact.
+
+    A tender baseline suppresses a pending item only when the item explicitly
+    identifies the same sourced fact and value.  Category similarity is never
+    enough: an installation period cannot inherit a delivery-period baseline.
+    """
+    if _pending_item_is_confirmed(item, confirmed_facts or {}):
+        return "satisfied"
+    field = " ".join(
+        str(item.get(key) or "")
+        for key in ("fact_semantic_field", "field", "field_name", "question", "reason")
+    )
+    semantic = _pending_fact_semantic(field)
+    combined = " ".join(
+        str(item.get(key) or "")
+        for key in ("field", "field_name", "question", "reason")
+    )
+    proposed_value = _normalize_pending_value(
+        item.get("normalized_value") or item.get("proposed_value")
+    )
+    proposed_unit = _normalize_pending_value(item.get("unit"))
+    if not proposed_value:
+        inferred = re.search(
+            r"(?P<value>\d+(?:\.\d+)?)\s*(?P<unit>个?工作日|天|日|个月|月|年|小时|分钟)",
+            combined,
+        )
+        if inferred:
+            proposed_value = _normalize_pending_value(inferred.group("value"))
+            proposed_unit = _normalize_pending_value(inferred.group("unit"))
+    proposed_start = _normalize_pending_value(item.get("start_reference"))
+    source_ids = _pending_source_ids(item)
+    if not semantic or not proposed_value:
+        return "required"
+    eligible = [
+        baseline
+        for baseline in tender_baselines
+        if isinstance(baseline, dict)
+        and _pending_fact_semantic(
+            str(baseline.get("semantic_field") or baseline.get("text") or "")
+        ) == semantic
+        and bool(baseline.get("default_no_deviation", True))
+        and _normalize_pending_value(baseline.get("value")) == proposed_value
+        and (
+            not proposed_unit
+            or not baseline.get("unit")
+            or _normalize_pending_value(baseline.get("unit")) == proposed_unit
+        )
+    ]
+    if not source_ids:
+        # A unique exact baseline recovered from the runtime response context is
+        # sufficient provenance; ambiguous category matches remain required.
+        source_ids = {
+            str(eligible[0].get("source_id") or "")
+        } if len(eligible) == 1 else set()
+    if not source_ids:
+        return "required"
+    for baseline in tender_baselines:
+        if not isinstance(baseline, dict):
+            continue
+        if _pending_fact_semantic(str(baseline.get("semantic_field") or baseline.get("text") or "")) != semantic:
+            continue
+        if not bool(baseline.get("default_no_deviation", True)):
+            continue
+        if str(baseline.get("source_id") or "") not in source_ids:
+            continue
+        if _normalize_pending_value(baseline.get("value")) != proposed_value:
+            continue
+        baseline_unit = _normalize_pending_value(baseline.get("unit"))
+        if proposed_unit and baseline_unit and proposed_unit != baseline_unit:
+            continue
+        baseline_start = _normalize_pending_value(baseline.get("start_reference"))
+        if proposed_start and baseline_start and proposed_start != baseline_start:
+            continue
+        return "not_required"
+    return "required"
+
+
+def confirmation_baselines_from_response(response: dict[str, Any]) -> list[dict[str, Any]]:
+    baselines: list[dict[str, Any]] = []
+    for chapter in response.get("chapters") or []:
+        for point in chapter.get("response_points") or []:
+            text = str(point.get("original_text") or "")
+            source_id = str(point.get("point_id") or "")
+            policy = tender_response_policy(text, source_id=source_id)
+            if not policy.get("default_no_deviation"):
+                continue
+            baselines.extend(_confirmation_baselines_from_text(text, source_id=source_id))
+    return _unique_confirmation_baselines(baselines)
+
+
+def confirmation_baselines_from_generation_permissions(
+    generation_permissions: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    baselines: list[dict[str, Any]] = []
+    for entry in generation_permissions:
+        if not isinstance(entry, dict):
+            continue
+        permissions = entry.get("generation_permissions") or {}
+        values = [
+            *(permissions.get("allowed_tender_numeric_facts") or []),
+            *(permissions.get("chapter_allowed_tender_numeric_facts") or []),
+            *(entry.get("chapter_allowed_tender_numeric_facts") or []),
+        ]
+        for value in values:
+            if not isinstance(value, dict) or value.get("usage") != "no_deviation_response":
+                continue
+            source_id = str(value.get("source_id") or value.get("requirement_id") or "")
+            text = str(value.get("text") or "")
+            if not source_id or not text:
+                continue
+            baselines.append(
+                {
+                    "semantic_field": _pending_fact_semantic(text),
+                    "source_id": source_id,
+                    "value": value.get("value"),
+                    "unit": value.get("unit"),
+                    "start_reference": value.get("time_origin"),
+                    "text": text,
+                    "default_no_deviation": True,
+                }
+            )
+    return _unique_confirmation_baselines(baselines)
+
+
+def _confirmation_baselines_from_text(text: str, *, source_id: str) -> list[dict[str, Any]]:
+    baselines: list[dict[str, Any]] = []
+    for clause in re.split(r"(?<=[，；。;])", text):
+        semantic = _pending_fact_semantic(clause)
+        if not semantic:
+            continue
+        for value, unit in re.findall(
+            r"(?P<value>\d+(?:\.\d+)?)\s*(?P<unit>个?工作日|天|日|个月|月|年|小时|分钟)",
+            clause,
+        ):
+            baselines.append(
+                {
+                    "semantic_field": semantic,
+                    "source_id": source_id,
+                    "value": value,
+                    "unit": unit,
+                    "start_reference": _pending_start_reference(clause),
+                    "text": clause,
+                    "default_no_deviation": True,
+                }
+            )
+    return baselines
+
+
+def _pending_fact_semantic(value: str) -> str | None:
+    text = str(value or "")
+    if re.search(r"(?:交货|货到|到货|交付|delivery|arrival)", text, re.I):
+        return "delivery"
+    if re.search(r"(?:安装|部署|installation)", text, re.I):
+        return "installation"
+    return None
+
+
+def _pending_start_reference(value: str) -> str:
+    text = re.sub(r"\s+", "", str(value or ""))
+    if re.search(r"(?:合同签订|签订合同|合同生效)", text):
+        return "contract_signing"
+    if re.search(r"(?:货到|到货)", text):
+        return "arrival"
+    return ""
+
+
+def _pending_source_ids(item: dict[str, Any]) -> set[str]:
+    values = [item.get("tender_source_id"), item.get("source_id")]
+    for reference in item.get("source_references") or []:
+        if isinstance(reference, dict):
+            values.extend(reference.get(key) for key in ("source_id", "point_id", "requirement_id"))
+        else:
+            values.append(reference)
+    return {str(value) for value in values if value}
+
+
+def _pending_item_is_confirmed(item: dict[str, Any], confirmed_facts: dict[str, Any]) -> bool:
+    field = _normalize_pending_value(item.get("field") or item.get("field_name"))
+    if not field:
+        return False
+    return any(
+        field in _normalize_pending_value(f"{key} {json.dumps(value, ensure_ascii=False)}")
+        for key, value in confirmed_facts.items()
+    )
+
+
+def _normalize_pending_value(value: Any) -> str:
+    return re.sub(r"\s+", "", str(value or "")).casefold()
+
+
+def _unique_confirmation_baselines(values: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result: dict[tuple[str, str, str, str], dict[str, Any]] = {}
+    for value in values:
+        key = tuple(
+            str(value.get(name) or "")
+            for name in ("semantic_field", "source_id", "value", "unit")
+        )
+        result[key] = value
+    return list(result.values())
+
+
 def inspect_deviation_issues(
     draft: dict[str, Any],
     *,
@@ -2548,6 +2755,12 @@ def _audit_tender_obligation_spans(
     claims: list[dict[str, Any]],
     permissions: dict[str, Any],
 ) -> dict[str, list[str]]:
+    if _is_neutral_methodology_statement(sentence):
+        return {
+            "matched_tender_fact_ids": [],
+            "allowed_spans": [],
+            "blocked_spans": [],
+        }
     sentence_semantics = _obligation_semantics(sentence)
     matched_items: list[dict[str, Any]] = []
     for item in (
@@ -2705,6 +2918,26 @@ def _audit_tender_obligation_spans(
         "allowed_spans": list(dict.fromkeys(allowed_spans)),
         "blocked_spans": list(dict.fromkeys(blocked_spans)),
     }
+
+
+def _is_neutral_methodology_statement(sentence: str) -> bool:
+    """Keep process descriptions out of bidder-fact commitment enforcement."""
+    text = str(sentence or "")
+    if not re.search(r"(?:流程|过程|记录|核验|核对|部署|测试|验收|计划|安排)", text):
+        return False
+    commitment_text = re.sub(
+        r"(?:不|不得|不应|无权)[^，。；;\n]{0,16}(?:承诺|保证|确保)",
+        "",
+        text,
+    )
+    if re.search(r"(?:承诺|保证|确保)", commitment_text):
+        return False
+    if re.search(
+        r"(?:我方|本公司|投标人).{0,24}(?:将提供|完成|解决|配置|投入|具备|拥有)",
+        text,
+    ):
+        return False
+    return True
 
 
 def _commitment_numeric_matches(value: str) -> list[re.Match[str]]:

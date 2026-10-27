@@ -226,3 +226,46 @@ def test_placeholder_loss_still_rejected_and_reported():
     attempt = report["issue_results"][0]["candidate_attempts"][0]
     assert "fresh_patch_registered_placeholder_removed" in attempt["reason_codes"]
     assert attempt["quality_audit"]["placeholder_lost"] is True
+
+
+def test_registered_but_initially_missing_placeholder_does_not_block_other_repair():
+    initial = base.draft(base.BAD_A)
+    local_ledger = base.ledger()
+    local_ledger[0]["generation_permissions"]["allowed_placeholders"] = [
+        {
+            "placeholder_id": "PH-FIELD-PENDING",
+            "placeholder_token": "{{PH-FIELD-PENDING}}",
+        }
+    ]
+    context = _build_fresh_repair_context(
+        validation=base.validation_with_duplicate_issue(),
+        draft=initial,
+        fact_ledger=local_ledger,
+        pending_confirmations=[],
+        target=base.target(),
+    )
+    patch = {
+        "base_candidate_hash": context["initial_candidate_sha256"],
+        "repair_results": [
+            {
+                "repair_target_id": context["repair_task_cards"][0][
+                    "repair_target_id"
+                ],
+                "section_id": base.SECTION_A,
+                "candidates": [base.candidate(context, base.SAFE_A)],
+            }
+        ],
+    }
+
+    _, report = _apply_validated_fresh_patches(
+        initial=initial,
+        patch_payload=patch,
+        repair_context=context,
+        fact_ledger=local_ledger,
+        initial_validation=base.snapshot(initial),
+        validate_candidate=base.snapshot,
+    )
+
+    attempt = report["issue_results"][0]["candidate_attempts"][0]
+    assert "fresh_patch_registered_placeholder_removed" not in attempt["reason_codes"]
+    assert report["applied_operation_count"] == 1

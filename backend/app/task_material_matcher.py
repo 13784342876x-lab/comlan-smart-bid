@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from app.vector_store import VectorStore
+from app.vector_store import VectorStore, SemanticSearchUnavailable
 
 
 DEFAULT_SEARCH_LIMIT = 5
@@ -136,6 +136,9 @@ def match_materials_for_project(project: dict[str, Any], limit: int | None = Non
             result["trace"].append(f"matches={len(result['matched_materials'])}")
             result["trace"].append(f"usable_matches={len(usable_matches)}")
             result["trace"].append(f"supporting_matches={len(supporting_matches)}")
+        except SemanticSearchUnavailable as exc:
+            result["status"] = "unavailable"
+            result["trace"].append(str(exc))
         except Exception as exc:
             result["status"] = "error"
             result["trace"].append(f"search_error: {exc}")
@@ -145,7 +148,7 @@ def match_materials_for_project(project: dict[str, Any], limit: int | None = Non
     matched_count = sum(1 for item in results if item.get("status") == "matched")
     status_counts = count_by_status(results)
     return {
-        "status": "success",
+        "status": "partial" if any(item.get("status") in {"error", "unavailable"} for item in results) else "success",
         "total_tasks": len(tasks),
         "matched_count": matched_count,
         "results": results,

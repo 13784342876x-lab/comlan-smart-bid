@@ -142,14 +142,15 @@ QUALITY_PATTERNS = [
 
 
 def build_actionable_requirement_index(
-    lot_name: str,
+    lot_name: str | None,
     output_dir: str | Path = "outputs",
     *,
     matrix: dict[str, Any] | None = None,
     update_context_index: bool = True,
+    output_key: str | None = None,
 ) -> dict[str, Any]:
     base = Path(output_dir)
-    lot_dir = base / safe_path_name(lot_name)
+    lot_dir = base / safe_path_name(output_key or lot_name)
     matrix_path = lot_dir / "requirements" / "tender_requirement_matrix.json"
     index_path = lot_dir / "requirements" / "actionable_requirement_index.json"
     markdown_path = lot_dir / "requirements" / "actionable_requirement_index.md"
@@ -854,8 +855,8 @@ def render_actionable_requirement_index_markdown(payload: dict[str, Any]) -> str
     return "\n".join(lines).rstrip() + "\n"
 
 
-def validate_matrix_source(matrix: dict[str, Any], lot_name: str) -> None:
-    if str(matrix.get("lot_name") or "") != lot_name:
+def validate_matrix_source(matrix: dict[str, Any], lot_name: str | None) -> None:
+    if str(matrix.get("lot_name") or "") != str(lot_name or ""):
         raise ValueError(f"tender_requirement_matrix lot_name mismatch: expected {lot_name}")
     if not isinstance(matrix.get("requirements"), list):
         raise ValueError("tender_requirement_matrix.requirements not found")

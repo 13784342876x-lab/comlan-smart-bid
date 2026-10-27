@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from app.technical_writing_quality import (
+    _audit_tender_obligation_spans,
     calculate_confirmed_work_years,
     classify_deviation_status,
     count_confirmed_similar_projects,
@@ -283,6 +284,36 @@ def test_exact_tender_value_is_not_numeric_commitment_error():
         tender_claim("招标要求交货期为合同签订之日起30日内。", "TR-30D")
     ]
     assert inspect_unconfirmed_commitments(value, confirmed_facts={}) == []
+
+
+def test_tender_baseline_narration_is_not_a_numeric_bidder_commitment():
+    sentence = "招标文件要求合同签订后1个月内完成，本文仅复述该采购基准。"
+    value = draft(sentence)
+    value["claims"] = [
+        tender_claim("招标文件要求合同签订后1个月内完成。", "TR-DELIVERY")
+    ]
+    assert inspect_unconfirmed_commitments(value, confirmed_facts={}) == []
+
+
+def test_neutral_installation_testing_acceptance_methodology_is_not_bidder_commitment():
+    for sentence in (
+        "实施流程包括授权核验、部署、测试和验收。",
+        "项目实施过程可形成部署记录和测试记录。",
+        "具体安排按照合同约定及采购人确认计划执行。",
+    ):
+        assert _audit_tender_obligation_spans(
+            sentence,
+            claims=[],
+            permissions={"effective_tender_facts": []},
+        )["blocked_spans"] == []
+
+
+def test_explicit_bidder_commitment_remains_a_boundary_error():
+    errors = inspect_unconfirmed_commitments(
+        draft("我方保证3日内完成安装。"),
+        confirmed_facts={},
+    )
+    assert any("numeric_commitment" in item or "unconfirmed_bidder_commitment" in item for item in errors)
 
 
 def test_exact_tender_delivery_value_with_bidder_response_wording_is_allowed():

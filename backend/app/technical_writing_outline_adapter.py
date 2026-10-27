@@ -36,7 +36,13 @@ def adapt_technical_writing_outline(
     score_items = extract_score_items(response_outline)
     product_names = extract_procurement_targets(response_outline)
     project_type = infer_project_type(response_outline, product_names)
-    source_modules = _select_company_modules(normalized, project_type)
+    source_modules = _select_company_modules(
+        normalized,
+        project_type,
+        response_outline=response_outline,
+        score_items=score_items,
+        format_analysis=format_analysis,
+    )
 
     chapters, module_chapters = _build_company_skeleton(source_modules, score_items, product_names)
     point_context = _build_point_context(response_outline)
@@ -181,17 +187,27 @@ def build_technical_writing_outline_files(
 
 
 def extract_score_items(response_outline: dict[str, Any]) -> list[dict[str, Any]]:
+    structured = _extract_structured_score_items(response_outline)
+    if structured:
+        return structured
     result: list[dict[str, Any]] = []
     for chapter in response_outline.get("chapters") or []:
         if "评分" not in str(chapter.get("title") or ""):
             continue
         for point in chapter.get("response_points") or []:
             table = point.get("table") if isinstance(point.get("table"), dict) else {}
-            for row in table.get("rows") or []:
-                by_column = {int(cell.get("column") or 0): str(cell.get("text") or "").strip() for cell in row.get("cells") or []}
+            for row, by_column in _rows_with_merged_cell_values(table):
                 number = by_column.get(1, "")
                 title = by_column.get(2, "")
-                if not number.isdigit() or not title or title in {"评分项", "评审因素"}:
+                criteria = by_column.get(3, "")
+                score = by_column.get(4, "")
+                if (
+                    not number.isdigit()
+                    or not title
+                    or title in {"评分项", "评审因素"}
+                    or not criteria
+                    or not score
+                ):
                     continue
                 row_number = int(row.get("row") or 0)
                 point_id = str(point.get("point_id") or "")
@@ -199,8 +215,8 @@ def extract_score_items(response_outline: dict[str, Any]) -> list[dict[str, Any]
                     {
                         "score_item_id": f"SCORE-{point_id}-R{row_number:03d}",
                         "title": title,
-                        "criteria_summary": _shorten(by_column.get(3, ""), 360),
-                        "score": by_column.get(4, ""),
+                        "criteria_summary": _shorten(criteria, 360),
+                        "score": score,
                         "response_point_id": point_id,
                         "source_refs": list(point.get("source_refs") or []),
                     }
@@ -208,21 +224,119 @@ def extract_score_items(response_outline: dict[str, Any]) -> list[dict[str, Any]
     return result
 
 
+def _extract_structured_score_items(response_outline: dict[str, Any]) -> list[dict[str, Any]]:
+    """Consume v2's project-selected score items without reparsing score tables."""
+    result: list[dict[str, Any]] = []
+    for item in response_outline.get("score_items") or []:
+        if not isinstance(item, dict):
+            continue
+        score_item_id = str(item.get("score_item_id") or item.get("id") or "")
+        response_ids = [str(value) for value in item.get("response_point_ids") or [] if value]
+        if not score_item_id or not response_ids:
+            continue
+        result.append(
+            {
+                "score_item_id": score_item_id,
+                "title": str(item.get("title") or item.get("item_name") or score_item_id),
+                "criteria_summary": _shorten(str(item.get("criteria_summary") or item.get("score_rule") or ""), 360),
+                "score": item.get("score"),
+                "response_point_ids": response_ids,
+                "source_refs": list(item.get("source_refs") or []),
+            }
+        )
+    return result
+
+
+def _rows_with_merged_cell_values(
+    table: dict[str, Any],
+) -> list[tuple[dict[str, Any], dict[int, str]]]:
+    """Return table rows with active vertical merge anchors materialized.
+
+    Parsed DOCX tables store a vertically merged cell only on its anchor row.
+    Continuation rows therefore need the anchor value inherited according to
+    ``rowspan``.  The physical row number remains unchanged and continues to
+    define the stable SCORE identity.
+    """
+    active: dict[int, tuple[int, str]] = {}
+    resolved: list[tuple[dict[str, Any], dict[int, str]]] = []
+    rows = sorted(
+        (row for row in table.get("rows") or [] if isinstance(row, dict)),
+        key=lambda item: int(item.get("row") or 0),
+    )
+    for row in rows:
+        row_number = int(row.get("row") or 0)
+        by_column = {
+            column: text
+            for column, (last_row, text) in active.items()
+            if row_number <= last_row
+        }
+        for column in [column for column, (last_row, _) in active.items() if row_number > last_row]:
+            active.pop(column, None)
+        for cell in row.get("cells") or []:
+            if not isinstance(cell, dict):
+                continue
+            column = int(cell.get("column") or 0)
+            if column <= 0:
+                continue
+            text = str(cell.get("text") or "").strip()
+            by_column[column] = text
+            rowspan = max(1, int(cell.get("rowspan") or 1))
+            if rowspan > 1:
+                active[column] = (row_number + rowspan - 1, text)
+            else:
+                active.pop(column, None)
+        resolved.append((row, by_column))
+    return resolved
+
+
 def extract_procurement_targets(response_outline: dict[str, Any]) -> list[str]:
-    targets: list[str] = []
+    """Return leaf procurement targets for detailed-solution insertion.
+
+    A procurement-subject table commonly names the package as a whole and is
+    followed by product/service sub-items.  The whole-subject is useful
+    context, but must not become a third peer of its own leaves.
+    """
+    details = _extract_procurement_target_details(response_outline)
+    return details["leaf_targets"] or details["overall_subjects"]
+
+
+def _extract_procurement_target_details(response_outline: dict[str, Any]) -> dict[str, list[str]]:
+    overall_subjects: list[str] = []
+    leaf_targets: list[str] = []
     for chapter in response_outline.get("chapters") or []:
         for point in chapter.get("response_points") or []:
-            if "采购清单" not in f"{point.get('original_heading', '')}{point.get('original_text', '')}":
-                continue
+            heading = str(point.get("original_heading") or "")
+            text = str(point.get("original_text") or "")
+            combined = f"{heading}\n{text}"
             table = point.get("table") if isinstance(point.get("table"), dict) else {}
-            for row in table.get("rows") or []:
-                by_column = {int(cell.get("column") or 0): str(cell.get("text") or "").strip() for cell in row.get("cells") or []}
-                if not by_column.get(1, "").isdigit():
-                    continue
-                name = re.sub(r"^[★▲■*＊\s]+", "", by_column.get(2, "")).strip()
-                if name and name != "标的名称" and len(name) <= 60 and name not in targets:
-                    targets.append(name)
-    return targets
+            if any(term in combined for term in ("采购清单", "采购内容", "采购标的", "服务项目", "技术规范分项")):
+                for row in table.get("rows") or []:
+                    by_column = {
+                        int(cell.get("column") or 0): str(cell.get("text") or "").strip()
+                        for cell in row.get("cells") or []
+                    }
+                    if not by_column.get(1, "").isdigit():
+                        continue
+                    values = list(by_column.values())
+                    name = next(
+                        (
+                            value for value in values[1:]
+                            if value and value not in {"标的名称", "产品名称", "服务名称", "采购内容"}
+                        ),
+                        "",
+                    )
+                    _append_procurement_target(overall_subjects, name)
+            candidate = re.sub(r"^\s*\d+(?:\.\d+)*[.、]?\s*", "", heading)
+            candidate = re.sub(r"(?:产品|服务|软件|系统)部分$", lambda match: match.group(0)[:-2], candidate).strip()
+            if candidate and any(term in heading for term in ("产品", "服务", "软件", "系统")) and "部分" in heading:
+                _append_procurement_target(leaf_targets, candidate)
+    return {"overall_subjects": overall_subjects, "leaf_targets": leaf_targets}
+
+
+def _append_procurement_target(targets: list[str], value: str) -> None:
+    name = re.sub(r"^[★▲■*＊\s]+", "", str(value or "")).strip()
+    if name and len(name) <= 80 and name not in targets:
+        targets.append(name)
 
 
 def infer_project_type(response_outline: dict[str, Any], product_names: list[str]) -> str:
@@ -231,10 +345,15 @@ def infer_project_type(response_outline: dict[str, Any], product_names: list[str
         for chapter in response_outline.get("chapters") or []
         for point in chapter.get("response_points") or []
     )
-    if product_names or any(term in text for term in ("采购清单", "交货", "安装", "所投产品")):
-        return "goods_system_integration"
     if any(term in text for term in ("软件开发", "信息化建设", "系统开发")):
         return "software_development"
+    service_signals = ("服务", "订阅", "授权", "咨询", "研究", "运维", "技术支持", "维护")
+    goods_signals = ("设备", "硬件", "服务器", "交换机", "存储", "终端", "货物", "供货", "到货", "系统集成")
+    goods_hits = sum(term in text for term in goods_signals)
+    service_hits = sum(term in text for term in service_signals)
+    # “安装”在软件交付中同样常见，只能作为辅助信号，不能单独定类。
+    if "系统集成" in text or (goods_hits >= 2 and goods_hits > service_hits):
+        return "goods_system_integration"
     return "technical_service_research"
 
 
@@ -283,11 +402,6 @@ def _build_company_skeleton(
         elif module_id == "MODULE-DETAILED-SOLUTION" and product_names:
             mapping_type = "split"
             reason = "依据公司拆分策略，按采购标的补充项目专属技术方案子章节。"
-        elif module_id == "MODULE-SPECIAL-TOPICS":
-            title = "绿色供应链管理方案"
-            mapping_type = "renamed"
-            source_type = "公司通用/评分项改名"
-            reason = "招标技术要求和评分项均明确绿色供应链主题。"
         elif module_id == "MODULE-PARAMETER-RESPONSE":
             mapping_type = "form_only"
             source_type = "强制表格"
@@ -366,36 +480,93 @@ def _apply_score_items(
     targets: dict[str, list[dict[str, Any]]] = {}
     for item in score_items:
         text = f"{item['title']} {item['criteria_summary']}"
-        module_ids: list[str]
-        if "需求理解" in text or "需求分析" in text:
-            module_ids = ["MODULE-PROJECT-UNDERSTANDING"]
-        elif "方案完整性" in text or "系统架构" in text:
-            module_ids = ["MODULE-OVERALL-SOLUTION", "MODULE-DETAILED-SOLUTION"]
-        elif "实施部署" in text:
-            module_ids = ["MODULE-IMPLEMENTATION", "MODULE-PROJECT-MANAGEMENT"]
-        elif "培训" in text:
-            module_ids = ["MODULE-TRAINING"]
-        elif "绿色供应链" in text or "环境标志" in text or "节能产品" in text:
-            module_ids = ["MODULE-SPECIAL-TOPICS"]
-        elif "响应性" in text or "偏离" in text:
-            module_ids = ["MODULE-PARAMETER-RESPONSE", "MODULE-TECHNICAL-DEVIATION"]
-        elif any(term in text for term in ("证明", "制造商能力", "投标人实力", "业绩")):
-            module_ids = ["MODULE-EVIDENCE-APPENDIX"]
-        else:
-            module_ids = ["MODULE-EVIDENCE-APPENDIX"]
-        for module_id in module_ids:
-            node = modules.get(module_id)
-            if node is None:
-                continue
-            if module_id == "MODULE-DETAILED-SOLUTION" and "系统架构" in text:
-                node = _child_containing(node, "系统架构设计") or node
+        for node in _score_target_nodes(item, text, modules, point_context):
             _append_unique(node["score_item_refs"], item["score_item_id"])
             _append_unique(node["triggered_by"], f"评分项：{item['title']}")
-            point_id = item["response_point_id"]
-            if point_id in point_context:
+            response_ids = item.get("response_point_ids") or [item.get("response_point_id")]
+            for point_id in response_ids:
+                point_id = str(point_id or "")
+                if point_id not in point_context:
+                    continue
                 _add_point_mapping(node, point_id, "supporting", point_context)
-            targets.setdefault(point_id, []).append(node)
+                targets.setdefault(point_id, []).append(node)
     return targets
+
+
+def _score_target_nodes(
+    item: dict[str, Any],
+    text: str,
+    modules: dict[str, dict[str, Any]],
+    point_context: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Choose the smallest meaningful writing sections for a score item."""
+    def children(module_id: str, *keywords: str) -> list[dict[str, Any]]:
+        root = modules.get(module_id)
+        if not root:
+            return []
+        return [node for keyword in keywords if (node := _child_containing(root, keyword))]
+
+    if any(term in text for term in ("总体评价", "总体技术", "整体评价")):
+        return children("MODULE-OVERALL-SOLUTION", "技术要求总体响应") + children(
+            "MODULE-PROJECT-UNDERSTANDING", "总体响应说明"
+        )
+    if "项目负责人" in text:
+        return children("MODULE-PROJECT-MANAGEMENT", "项目负责人")
+    if any(term in text for term in ("项目团队", "团队人员", "人员结构", "技术人员")):
+        return children("MODULE-PROJECT-MANAGEMENT", "主要技术人员", "岗位职责", "人员投入")
+    if any(term in text for term in ("业绩", "类似项目")):
+        return children("MODULE-EVIDENCE-APPENDIX", "类似项目业绩")
+    if any(term in text for term in ("工作进度", "进度计划", "进度保证")):
+        return children("MODULE-IMPLEMENTATION", "实施总体安排", "实施阶段", "进度计划") + children(
+            "MODULE-RISK-CONTROL", "进度风险控制"
+        )
+    if any(term in text for term in ("服务方案", "履约能力", "质量保证", "服务承诺", "售后服务")):
+        return children(
+            "MODULE-SERVICE-WARRANTY",
+            "服务目标",
+            "服务范围",
+            "服务组织体系",
+            "服务响应机制",
+            "服务质量监督",
+            "服务承诺",
+        )
+    if any(term in text for term in ("专利", "绩效评价", "绩效")):
+        if _has_score_supporting_material(item, point_context):
+            evidence = modules.get("MODULE-EVIDENCE-APPENDIX")
+            return [_ensure_score_supporting_material_node(evidence)] if evidence else []
+        return children("MODULE-EVIDENCE-APPENDIX", "产品技术资料")
+    if "需求理解" in text or "需求分析" in text:
+        return children("MODULE-PROJECT-UNDERSTANDING", "项目需求理解")
+    if "方案完整性" in text or "系统架构" in text:
+        return children("MODULE-OVERALL-SOLUTION", "总体方案说明", "方案总体架构")
+    return children("MODULE-EVIDENCE-APPENDIX", "产品技术资料")
+
+
+def _has_score_supporting_material(item: dict[str, Any], point_context: dict[str, dict[str, Any]]) -> bool:
+    for point_id in item.get("response_point_ids") or []:
+        point = (point_context.get(str(point_id)) or {}).get("point") or {}
+        text = f"{point.get('original_heading') or ''} {point.get('original_text') or ''}"
+        if "技术评分标准" in text and "支撑材料" in text:
+            return True
+    return False
+
+
+def _ensure_score_supporting_material_node(evidence: dict[str, Any]) -> dict[str, Any]:
+    existing = _child_containing(evidence, "技术评分支撑材料")
+    if existing:
+        return existing
+    child_index = len(evidence.get("children") or []) + 1
+    node = _new_chapter(
+        chapter_id=f"{evidence['chapter_id']}-{child_index:02d}",
+        title="技术评分支撑材料",
+        mapping_type="inserted",
+        company_ids=evidence.get("company_outline_node_ids") or [],
+        source_type="采购文件技术评分支撑要求",
+        reason="当前采购文件明确要求提交技术评分标准涉及的支撑材料。",
+        company_path=f"{evidence.get('company_outline_path') or evidence.get('title') or ''} / 技术评分支撑材料",
+    )
+    evidence.setdefault("children", []).append(node)
+    return node
 
 
 def _map_response_points(
@@ -428,12 +599,29 @@ def _map_response_points(
             elif "验收" in heading:
                 targets.append((_best_child(modules, "MODULE-QUALITY-ACCEPTANCE", "验收流程"), "primary", "验收方法及标准"))
         elif "总体技术要求" in chapter_title:
-            if any(term in text for term in ("绿色供应链", "节能", "环保")):
-                targets.append((modules["MODULE-SPECIAL-TOPICS"], "primary", "专项技术要求"))
+            procurement_leaf = _procurement_leaf_from_heading(heading)
+            product_nodes = [
+                child
+                for child in (modules.get("MODULE-DETAILED-SOLUTION") or {}).get("children") or []
+                if child.get("mapping_type") == "inserted"
+            ]
+            matching_products = [
+                child for child in product_nodes if procurement_leaf and procurement_leaf in str(child.get("title") or "")
+            ]
+            if matching_products:
+                targets.extend((child, "primary", "采购分项技术要求") for child in matching_products)
+            elif any(term in text for term in ("绿色供应链", "节能", "环保")):
+                special = modules.get("MODULE-SPECIAL-TOPICS")
+                if special:
+                    targets.append((special, "primary", "专项技术要求"))
             elif any(term in text for term in ("证明材料", "技术资料", "认证")):
-                targets.append((modules["MODULE-EVIDENCE-APPENDIX"], "primary", "技术证明材料要求"))
+                evidence = modules.get("MODULE-EVIDENCE-APPENDIX")
+                if evidence:
+                    targets.append((evidence, "primary", "技术证明材料要求"))
             elif "具体需求" in text:
-                targets.append((modules["MODULE-DETAILED-SOLUTION"], "primary", "具体需求引用"))
+                detailed = modules.get("MODULE-DETAILED-SOLUTION")
+                if detailed:
+                    targets.append((detailed, "primary", "具体需求引用"))
             else:
                 targets.append((_best_child(modules, "MODULE-OVERALL-SOLUTION", "技术要求总体响应"), "primary", "总体技术要求"))
         elif "项目需求书" in chapter_title:
@@ -442,27 +630,39 @@ def _map_response_points(
             elif point.get("content_type") == "table":
                 product_nodes = [
                     child
-                    for child in modules["MODULE-DETAILED-SOLUTION"]["children"]
+                    for child in (modules.get("MODULE-DETAILED-SOLUTION") or {}).get("children") or []
                     if child["mapping_type"] == "inserted"
                 ]
                 targets.extend((node, "primary", "采购标的技术要求") for node in product_nodes)
-                form_node = _child_containing(modules["MODULE-PARAMETER-RESPONSE"], "技术要求点对点应答表")
-                targets.append((form_node or modules["MODULE-PARAMETER-RESPONSE"], "table_response", "采购参数须逐条应答"))
+                parameter = modules.get("MODULE-PARAMETER-RESPONSE")
+                form_node = _child_containing(parameter, "技术要求点对点应答表") if parameter else None
+                if form_node or parameter:
+                    targets.append((form_node or parameter, "table_response", "采购参数须逐条应答"))
             elif "★" in str(point.get("mandatory_marker") or "") or "负偏离" in text:
-                targets.append((modules["MODULE-TECHNICAL-DEVIATION"], "primary", "实质性条款偏离规则"))
+                deviation = modules.get("MODULE-TECHNICAL-DEVIATION")
+                if deviation:
+                    targets.append((deviation, "primary", "实质性条款偏离规则"))
             elif "核心产品" in text:
-                targets.append((modules["MODULE-DETAILED-SOLUTION"], "supporting", "核心产品说明"))
+                detailed = modules.get("MODULE-DETAILED-SOLUTION")
+                if detailed:
+                    targets.append((detailed, "supporting", "核心产品说明"))
             elif "节能产品" in text or "环境标志" in text:
-                targets.append((modules["MODULE-SPECIAL-TOPICS"], "primary", "节能环保要求"))
+                special = modules.get("MODULE-SPECIAL-TOPICS")
+                if special:
+                    targets.append((special, "primary", "节能环保要求"))
         elif "评分" in chapter_title:
             if point_id in score_targets:
                 targets.extend((node, "supporting", "技术评分项") for node in score_targets[point_id])
         elif "格式" in chapter_title or "应答要求" in chapter_title:
             role = "table_response" if any(name in combined for name in ("点对点应答表", "逐条")) else "supporting"
-            form_node = _child_containing(modules["MODULE-PARAMETER-RESPONSE"], "技术要求点对点应答表")
-            targets.append((form_node or modules["MODULE-PARAMETER-RESPONSE"], role, "招标技术应答格式要求"))
+            parameter = modules.get("MODULE-PARAMETER-RESPONSE")
+            form_node = _child_containing(parameter, "技术要求点对点应答表") if parameter else None
+            if form_node or parameter:
+                targets.append((form_node or parameter, role, "招标技术应答格式要求"))
             if "偏离" in combined:
-                targets.append((modules["MODULE-TECHNICAL-DEVIATION"], "supporting", "偏离填写要求"))
+                deviation = modules.get("MODULE-TECHNICAL-DEVIATION")
+                if deviation:
+                    targets.append((deviation, "supporting", "偏离填写要求"))
 
         if not targets:
             targets.append((modules["MODULE-OVERALL-SOLUTION"], "supporting", "未命中专项规则，纳入总体响应"))
@@ -471,6 +671,13 @@ def _map_response_points(
                 continue
             _add_point_mapping(node, point_id, role, point_context)
             _append_unique(node["triggered_by"], trigger)
+
+
+def _procurement_leaf_from_heading(heading: str) -> str:
+    candidate = re.sub(r"^\s*\d+(?:\.\d+)*[.、]?\s*", "", str(heading or ""))
+    if "部分" not in candidate or not any(term in candidate for term in ("产品", "服务", "软件", "系统")):
+        return ""
+    return re.sub(r"(?:产品|服务|软件|系统)部分$", lambda match: match.group(0)[:-2], candidate).strip()
 
 
 def _build_point_context(response_outline: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -589,7 +796,14 @@ def _add_point_mapping(
         _append_unique(node["display_block_ids"], block_id)
 
 
-def _select_company_modules(normalized: dict[str, Any], project_type: str) -> list[dict[str, Any]]:
+def _select_company_modules(
+    normalized: dict[str, Any],
+    project_type: str,
+    *,
+    response_outline: dict[str, Any],
+    score_items: list[dict[str, Any]],
+    format_analysis: dict[str, Any],
+) -> list[dict[str, Any]]:
     profiles = normalized.get("project_type_profiles") or []
     selected_ids = next(
         (list(profile.get("default_module_ids") or []) for profile in profiles if profile.get("project_type") == project_type),
@@ -599,12 +813,47 @@ def _select_company_modules(normalized: dict[str, Any], project_type: str) -> li
     if not selected_ids:
         return modules
     by_id = {str(module.get("module_id") or module.get("node_id")): module for module in modules}
-    return [by_id[module_id] for module_id in selected_ids if module_id in by_id]
+    return [
+        by_id[module_id]
+        for module_id in selected_ids
+        if module_id in by_id
+        and (
+            bool(by_id[module_id].get("required_by_default"))
+            or _optional_module_has_evidence(module_id, response_outline, score_items, format_analysis)
+        )
+    ]
+
+
+def _optional_module_has_evidence(
+    module_id: str,
+    response_outline: dict[str, Any],
+    score_items: list[dict[str, Any]],
+    format_analysis: dict[str, Any],
+) -> bool:
+    text = "\n".join(
+        str(point.get("original_heading") or "") + "\n" + str(point.get("original_text") or "")
+        for chapter in response_outline.get("chapters") or []
+        for point in chapter.get("response_points") or []
+    )
+    score_text = "\n".join(
+        f"{item.get('title') or ''} {item.get('criteria_summary') or ''}" for item in score_items
+    )
+    evidence = f"{text}\n{score_text}"
+    if module_id == "MODULE-TRAINING":
+        return "培训" in evidence
+    if module_id == "MODULE-SPECIAL-TOPICS":
+        return any(term in evidence for term in ("绿色供应链", "环境标志", "节能", "信息安全专项", "国产化", "数据迁移"))
+    if module_id == "MODULE-TECHNICAL-DEVIATION":
+        forms = format_analysis.get("required_forms") or []
+        return "技术偏差" in evidence or any("偏差" in str(item.get("title") or "") for item in forms)
+    if module_id == "MODULE-PARAMETER-RESPONSE":
+        return any(term in evidence for term in ("点对点应答", "技术参数", "逐条应答"))
+    return False
 
 
 def _best_child(modules: dict[str, dict[str, Any]], module_id: str, keyword: str) -> dict[str, Any]:
-    root = modules[module_id]
-    return _child_containing(root, keyword) or root
+    root = modules.get(module_id)
+    return _child_containing(root, keyword) or root if root else None
 
 
 def _child_containing(root: dict[str, Any], keyword: str) -> dict[str, Any] | None:

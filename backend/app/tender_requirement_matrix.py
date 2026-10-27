@@ -140,21 +140,24 @@ DERIVED_OUTPUTS = {
 
 
 def build_tender_requirement_matrix(
-    lot_name: str,
+    lot_name: str | None,
     output_dir: str | Path = "outputs",
     *,
     metadata: dict[str, Any] | None = None,
     project: dict[str, Any] | None = None,
     context: dict[str, Any] | None = None,
     update_context_index: bool = True,
+    output_key: str | None = None,
 ) -> dict[str, Any]:
     base = Path(output_dir)
-    context_path = base / safe_path_name(lot_name) / "outline" / "technical_response_context.json"
-    matrix_dir = base / safe_path_name(lot_name) / "requirements"
+    artifact_key = output_key or lot_name
+    context_path = base / safe_path_name(artifact_key) / "outline" / "technical_response_context.json"
+    matrix_dir = base / safe_path_name(artifact_key) / "requirements"
     matrix_path = matrix_dir / "tender_requirement_matrix.json"
 
     metadata = metadata or load_json(METADATA_PATH)
-    project = project or find_project_by_lot_name(load_tender_projects(), lot_name)
+    if project is None:
+        project = find_project_by_lot_name(load_tender_projects(), str(lot_name or ""))
     context = context or load_json(context_path)
     validate_context(context, lot_name)
 
@@ -1311,8 +1314,8 @@ def requirement_sort_key(item: dict[str, Any]) -> tuple[int, str, str]:
     return level_order.get(str(item.get("compliance_level") or ""), 9), str(source.get("source_file_id") or ""), str(item.get("requirement_id") or "")
 
 
-def validate_context(context: dict[str, Any], lot_name: str) -> None:
-    if str(context.get("lot_name") or "") != lot_name:
+def validate_context(context: dict[str, Any], lot_name: str | None) -> None:
+    if str(context.get("lot_name") or "") != str(lot_name or ""):
         raise ValueError(f"technical_response_context lot_name mismatch: expected {lot_name}")
     if not isinstance(context.get("chapters"), list):
         raise ValueError("technical_response_context.chapters not found")

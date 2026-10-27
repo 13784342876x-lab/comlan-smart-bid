@@ -27,11 +27,13 @@ MATRIX_ORDER = [
 
 
 def build_score_material_outputs(
-    lot_name: str,
+    lot_name: str | None,
     output_dir: str | Path = "outputs",
     project: dict[str, Any] | None = None,
+    *,
+    output_key: str | None = None,
 ) -> dict[str, Any]:
-    base = Path(output_dir) / safe_path_name(lot_name) / "outline"
+    base = Path(output_dir) / safe_path_name(output_key or lot_name) / "outline"
     context = read_json(base / "technical_response_context.json", default={})
     scoring_plan = scoring_plan_from_context(context) if context else read_json(base / "scoring_action_plan.json")
     outline_debug = outline_debug_from_context(context) if context else read_json(base / "outline_debug.json", default={})

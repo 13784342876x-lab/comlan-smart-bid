@@ -25,7 +25,7 @@ from app.technical_fulltext_deterministic_audit import run_deterministic_audit
 
 AUDIT_SCHEMA_VERSION = "technical_fulltext_audit_v1"
 FULLTEXT_RUN_SCHEMA_VERSION = "technical_fulltext_run_v1"
-AUDIT_MARKDOWN_NOTICE = "Stage ⑪-B 确定性全文审计已完成。"
+AUDIT_MARKDOWN_NOTICE = "Stage11.1 确定性全文审计已完成（历史别名 Stage11-A）。"
 PLACEHOLDER_PATTERN = re.compile(
     r"\{\{\s*(PH-[A-Za-z0-9][A-Za-z0-9._:-]*)\s*\}\}"
 )
@@ -462,6 +462,7 @@ class TechnicalFulltextAuditor:
             "audit_passes": {
                 "deterministic": {"status": "completed"},
                 "semantic": {"status": "not_run"},
+                "scoring": {"status": "not_run"},
             },
             "release_ready": False,
             "upstream_status": self._upstream_status(fulltext, run),
@@ -529,7 +530,7 @@ class TechnicalFulltextAuditor:
 
     @staticmethod
     def _load_audit_source(requested_path: Path) -> dict[str, Any]:
-        """Resolve either a committed Stage 10 source or a Stage 11-E cleaned wrapper."""
+        """Resolve canonical Stage11.0 cleaned input or a compatible Stage10 commit."""
         try:
             requested_sha = sha256_file(requested_path)
             payload = load_json_object(requested_path, label="technical fulltext audit source")
@@ -944,13 +945,14 @@ class TechnicalFulltextAuditor:
             "",
             "## 语义审计候选",
             "",
-            "以下仅为 Stage ⑪-C 输入，不是 issue、blocker 或发布结论：",
+            "以下为 Stage11.2 候选输入，不是 issue、blocker 或发布结论：",
             "",
             f"- Near duplicate：{candidate_counts['duplicate_pairs']}",
             f"- Placeholder alias：{candidate_counts['confirmation_aliases']}",
             f"- Requirement location mismatch：{candidate_counts['requirement_location_mismatches']}",
             f"- Score distribution：{candidate_counts['score_distribution']}",
             f"- Numeric facts：{candidate_counts['numeric_facts']}",
+            f"- Cross-section stable facts：{candidate_counts.get('stable_fact_consistency', 0)}",
             f"- Terminology：{candidate_counts['terminology']}",
             "",
         ])
@@ -1016,6 +1018,7 @@ def inspect_technical_fulltext_audit(path: str | Path) -> dict[str, Any]:
         },
         "semantic_audit": deepcopy(payload.get("semantic_audit")),
         "semantic_finding_count": len(payload.get("semantic_findings") or []),
+        "scoring_assessment_ref": deepcopy(payload.get("scoring_assessment_ref")),
         "finalization": deepcopy(payload.get("finalization")),
         "semantic_finding_disposition_count": len(
             payload.get("semantic_finding_dispositions") or []

@@ -99,28 +99,52 @@ class OpenAICompatibleLLMClient:
         )
         first_usage = extract_usage(first_response)
         repair_attempted = False
+        output_retry_attempt = 0
+        initial_validation_error: ModelJsonParseError | ModelSchemaValidationError | None = None
+        while True:
+            try:
+                parsed = parse_and_validate_response(first_response, response_schema)
+                final_response = first_response
+                usage = first_usage
+                break
+            except ModelOutputIncompleteError as first_error:
+                if output_retry_attempt >= self.profile.max_retries:
+                    raise attach_response_diagnostics(
+                        first_error,
+                        first_response,
+                        failed_stage="output_extraction",
+                        repair_attempted=False,
+                        max_output_tokens=self.profile.max_output_tokens,
+                        provider_request_ms=elapsed_ms(started),
+                    ) from None
+                delay = (2**output_retry_attempt) + (self._random() * 0.25)
+                self._sleep(delay)
+                output_retry_attempt += 1
+                retry_count += 1
+                first_response, request_retries = self._request_with_retry(
+                    system_prompt=system_prompt,
+                    user_prompt=user_prompt,
+                    response_schema=response_schema,
+                    request_metadata={**metadata, "output_retry_attempt": output_retry_attempt},
+                )
+                retry_count += request_retries
+                first_usage = extract_usage(first_response)
+                continue
+            except ModelSafetyRefusalError as first_error:
+                raise attach_response_diagnostics(
+                    first_error,
+                    first_response,
+                    failed_stage="provider_response",
+                    repair_attempted=False,
+                    max_output_tokens=self.profile.max_output_tokens,
+                    provider_request_ms=elapsed_ms(started),
+                ) from None
+            except (ModelJsonParseError, ModelSchemaValidationError) as error:
+                initial_validation_error = error
+                break
         try:
-            parsed = parse_and_validate_response(first_response, response_schema)
-            final_response = first_response
-            usage = first_usage
-        except ModelSafetyRefusalError as first_error:
-            raise attach_response_diagnostics(
-                first_error,
-                first_response,
-                failed_stage="provider_response",
-                repair_attempted=False,
-                max_output_tokens=self.profile.max_output_tokens,
-                provider_request_ms=elapsed_ms(started),
-            ) from None
-        except ModelOutputIncompleteError as first_error:
-            raise attach_response_diagnostics(
-                first_error,
-                first_response,
-                failed_stage="output_extraction",
-                repair_attempted=False,
-                max_output_tokens=self.profile.max_output_tokens,
-                provider_request_ms=elapsed_ms(started),
-            ) from None
+            if initial_validation_error is not None:
+                raise initial_validation_error
         except (ModelJsonParseError, ModelSchemaValidationError) as first_error:
             if not self._schema_repair_enabled:
                 raise attach_response_diagnostics(
@@ -256,6 +280,7 @@ class OpenAICompatibleLLMClient:
         validate_tool_definitions(tools, allow_empty=True)
         run_options = dict(options or {})
         stream_handler = run_options.pop("stream_event_handler", None)
+        retry_event_handler = run_options.pop("retry_event_handler", None)
         stream_requested = bool(run_options.get("stream", self.profile.stream))
         if stream_requested and not self.profile.capabilities.supports_streaming:
             raise ModelConfigurationError(
@@ -307,6 +332,31 @@ class OpenAICompatibleLLMClient:
                     for call in assistant_turn.tool_calls
                 ]
                 final = None if calls else assistant_turn.content
+                if not calls and not final:
+                    incomplete = ModelOutputIncompleteError(
+                        "provider returned neither tool calls nor final content"
+                    )
+                    if retries >= self.profile.max_retries:
+                        raise attach_response_diagnostics(
+                            incomplete,
+                            response_for_metadata,
+                            failed_stage="tool_response_extraction",
+                            repair_attempted=False,
+                            max_output_tokens=self.profile.max_output_tokens,
+                            provider_request_ms=elapsed_ms(started),
+                        ) from None
+                    delay = (2**retries) + (self._random() * 0.25)
+                    if callable(retry_event_handler):
+                        retry_event_handler({
+                            "error_type": type(incomplete).__name__,
+                            "retry_attempt": retries + 1,
+                            "max_retry_attempts": self.profile.max_retries,
+                            "previous_request_id": extract_request_id(response_for_metadata),
+                            "backoff_ms": int(delay * 1000),
+                        })
+                    self._sleep(delay)
+                    retries += 1
+                    continue
                 break
             except Exception as exc:
                 mapped = map_provider_error(exc, profile=self.profile, failed_operation=method if "method" in locals() else None)
@@ -342,17 +392,17 @@ class OpenAICompatibleLLMClient:
                     mapped.diagnostics = diagnostics
                 if not mapped.retryable or retries >= self.profile.max_retries:
                     raise mapped from None
-                self._sleep((2**retries) + (self._random() * 0.25))
+                delay = (2**retries) + (self._random() * 0.25)
+                if callable(retry_event_handler):
+                    retry_event_handler({
+                        "error_type": type(mapped).__name__,
+                        "retry_attempt": retries + 1,
+                        "max_retry_attempts": self.profile.max_retries,
+                        "previous_request_id": None,
+                        "backoff_ms": int(delay * 1000),
+                    })
+                self._sleep(delay)
                 retries += 1
-        if not calls and not final:
-            raise attach_response_diagnostics(
-                ModelOutputIncompleteError("provider returned neither tool calls nor final content"),
-                response_for_metadata,
-                failed_stage="tool_response_extraction",
-                repair_attempted=False,
-                max_output_tokens=self.profile.max_output_tokens,
-                provider_request_ms=elapsed_ms(started),
-            )
         completed = datetime.now(timezone.utc)
         return ToolModelResult(
             response_type="tool_calls" if calls else "final",
@@ -1866,6 +1916,8 @@ def extract_usage(response: Any) -> dict[str, int | None]:
 
 def response_diagnostics(response: Any) -> dict[str, Any]:
     text = extract_text(response)
+    tool_calls = extract_tool_calls(response)
+    reasoning_content = extract_reasoning_content(response)
     incomplete = get_value(response, "incomplete_details")
     output_types: list[str] = []
     for item in list(get_value(response, "output") or []):
@@ -1886,6 +1938,12 @@ def response_diagnostics(response: Any) -> dict[str, Any]:
         "output_item_types": list(dict.fromkeys(output_types)),
         "output_text_available": bool(text),
         "output_text_character_count": len(text),
+        "tool_call_count": len(tool_calls),
+        "has_tool_calls": bool(tool_calls),
+        "has_reasoning_content": bool(reasoning_content),
+        "response_type": (
+            "tool_calls" if tool_calls else "final" if text else "incomplete"
+        ),
     }
 
 

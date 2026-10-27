@@ -1,0 +1,10 @@
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import type { FulltextChapterDTO } from "../../../types/api";
+
+export function DocumentTree({ chapters, activeSection, onNavigate }: { chapters: FulltextChapterDTO[]; activeSection: string | null; onNavigate: (sectionId: string) => void }) {
+  const activeChapter = chapters.find((chapter) => chapter.sections.some((section) => section.section_id === activeSection))?.chapter_id;
+  const [expanded, setExpanded] = useState<Set<string>>(() => new Set(activeChapter ? [activeChapter] : [chapters[0]?.chapter_id].filter(Boolean)));
+  useEffect(() => { if (activeChapter) setExpanded((current) => new Set(current).add(activeChapter)); }, [activeChapter]);
+  return <nav className="h-full overflow-y-auto bg-white p-2" aria-label="审核正文章节"><div className="px-2 pb-2 pt-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">正文目录 · {chapters.length} 章</div>{chapters.map((chapter) => { const open = expanded.has(chapter.chapter_id); return <div key={chapter.chapter_id} className="mb-1"><button type="button" onClick={() => setExpanded((current) => { const next = new Set(current); open ? next.delete(chapter.chapter_id) : next.add(chapter.chapter_id); return next; })} className={`flex w-full items-start gap-1.5 rounded-md px-2 py-2 text-left text-sm ${activeChapter === chapter.chapter_id ? "bg-slate-100 font-medium text-slate-900" : "text-slate-700 hover:bg-slate-50"}`}>{open ? <ChevronDown size={14} className="mt-0.5 shrink-0" /> : <ChevronRight size={14} className="mt-0.5 shrink-0" />}<span>{chapter.title}</span></button>{open ? <div className="ml-4 border-l border-slate-200 pl-1">{chapter.sections.map((section) => <button type="button" key={section.section_id} onClick={() => onNavigate(section.section_id)} className={`block w-full rounded-r-md border-l-2 px-3 py-1.5 text-left text-xs leading-5 ${activeSection === section.section_id ? "border-brand-600 bg-brand-50 font-medium text-brand-800" : "border-transparent text-slate-500 hover:bg-slate-50 hover:text-slate-800"}`}>{section.heading}</button>)}</div> : null}</div>; })}</nav>;
+}

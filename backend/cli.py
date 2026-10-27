@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 import typer
 from rich.console import Console
@@ -142,11 +142,34 @@ from app.technical_fulltext_semantic_audit import (
     TechnicalFulltextSemanticAuditor,
 )
 from app.technical_fulltext_audit_finalizer import TechnicalFulltextAuditFinalizer
+from app.technical_fulltext_scoring_assessment import (
+    TechnicalFulltextScoringAssessor,
+    inspect_technical_fulltext_scoring_assessment as inspect_scoring_assessment_service,
+)
+from app.technical_fulltext_review_package import (
+    TechnicalFulltextReviewPackageAssembler,
+    inspect_technical_fulltext_review_package as inspect_review_package_service,
+)
+from app.technical_fulltext_human_review import (
+    TechnicalFulltextHumanReviewService,
+    inspect_technical_fulltext_human_review as inspect_human_review_service,
+)
+from app.technical_fulltext_human_review_finalization import (
+    TechnicalFulltextHumanReviewFinalizer,
+    inspect_technical_fulltext_review_finalization as inspect_review_finalization_service,
+)
 from app.technical_fulltext_hygiene import (
     TechnicalFulltextHygiene,
     inspect_technical_fulltext_hygiene as inspect_technical_fulltext_hygiene_service,
 )
 from app.technical_fulltext_runner import TechnicalFulltextRunner
+from app.bid_pipeline_runner import (
+    BidPipelineRunner,
+    FINAL_STATUS as BID_PIPELINE_FINAL_STATUS,
+    _new_run_id as new_bid_run_id,
+)
+from app.bid_cli_progress import BidCliProgressReporter
+from app.bid_score_review import BidScoreReviewService
 from app.technical_section_task_planner import build_section_task_plan_files
 from app.technical_task_information_planner import build_task_information_files
 from app.draft_unit_planner import build_draft_unit_files
@@ -154,7 +177,7 @@ from app.tender_requirement_matrix import (
     build_tender_requirement_matrix as build_tender_requirement_matrix_service,
     inspect_tender_requirement_matrix as inspect_tender_requirement_matrix_service,
 )
-from app.vector_store import VectorStore
+from app.vector_store import VectorStore, SemanticSearchUnavailable
 from app.writing_orchestrator import build_writing_plan, save_writing_plan_to_project
 from config import DATA_DIR, ensure_directories
 
@@ -773,6 +796,14 @@ def ingest_auto(path: str):
             {
                 "status": "success",
                 "file_id": result.get("file_id"),
+                "package_id": result.get("package_id"),
+                "manifest_path": result.get("manifest_path"),
+                "archive_depth": result.get("archive_depth"),
+                "discovered_files": result.get("discovered_files"),
+                "parsed_files": result.get("parsed_files"),
+                "nested_archives": result.get("nested_archives"),
+                "ignored_files": result.get("ignored_files"),
+                "failed_files": result.get("failed_files"),
                 "classification": result.get("classification"),
                 "is_bundle": result.get("is_bundle"),
                 "detected_items": result.get("detected_items", []),
@@ -935,7 +966,11 @@ def delete_index_file(file_id: str) -> None:
 
 @cli.command("search-kb")
 def search_kb(query: str, top_k: int = typer.Option(5, "--top-k")) -> None:
-    rows = KnowledgeBaseService().search(query, top_k=top_k)
+    try:
+        rows = KnowledgeBaseService().search(query, top_k=top_k)
+    except SemanticSearchUnavailable as exc:
+        print_json({"status": "unavailable", "retrieval_mode": "semantic", "results": [], "error": str(exc)})
+        raise typer.Exit(code=1)
     if not rows:
         console.print("[yellow]No results. Run parse-file and index-file first.[/yellow]")
         return
@@ -1435,7 +1470,8 @@ def run_agent_command(
     agent_name: str,
     input_json: str | None = typer.Option(None, "--input-json"),
     input_file: Path | None = typer.Option(None, "--input-file"),
-    provider: str = typer.Option("mock", "--provider"),
+    provider: str | None = typer.Option(None, "--provider", help="仅显式 mock 使用模拟模式；默认使用配置的模型"),
+    model_profile: str | None = typer.Option(None, "--model-profile"),
 ) -> None:
     try:
         if input_file is not None:
@@ -1446,7 +1482,12 @@ def run_agent_command(
             input_data = {}
         if not isinstance(input_data, dict):
             raise ValueError("agent input must be a JSON object")
-        print_json(run_agent_service(agent_name, input_data, provider=provider))
+        result = run_agent_service(agent_name, input_data, provider=provider, model_profile=model_profile)
+        print_json(result)
+        if result.get("status") == "failed":
+            raise typer.Exit(code=1)
+    except typer.Exit:
+        raise
     except Exception as e:
         print("ERROR:", e)
         raise typer.Exit(code=1)
@@ -1456,18 +1497,23 @@ def run_agent_command(
 def generate_agent_drafts(
     lot_name: str = typer.Option(..., "--lot-name"),
     save: bool = typer.Option(False, "--save"),
-    provider: str = typer.Option("mock", "--provider"),
+    provider: str | None = typer.Option(None, "--provider", help="仅显式 mock 使用模拟模式；默认使用配置的模型"),
+    model_profile: str | None = typer.Option(None, "--model-profile"),
 ) -> None:
     try:
         projects_data = load_tender_projects()
         project = find_project_by_lot_name(projects_data, lot_name)
         if not isinstance(project.get("writing_plan"), dict):
             raise ValueError(f"writing_plan not found for lot_name={lot_name}; run plan-writing --save first")
-        result = generate_agent_drafts_for_project(project, provider=provider)
+        result = generate_agent_drafts_for_project(project, provider=provider, model_profile=model_profile)
         if save:
             save_agent_drafts_to_project(lot_name, result)
             print(f"[agent-drafts] saved agent_drafts for lot_name={lot_name}")
         print_json(result)
+        if result.get("summary", {}).get("failed_sections"):
+            raise typer.Exit(code=1)
+    except typer.Exit:
+        raise
     except Exception as e:
         print("ERROR:", e)
         raise typer.Exit(code=1)
@@ -2171,7 +2217,7 @@ def inspect_technical_fulltext_command(
 def audit_technical_fulltext_command(
     fulltext_json: Path = typer.Option(..., "--fulltext-json"),
 ) -> None:
-    """Initialize Stage ⑪ audit artifacts from one committed fulltext; no model is used."""
+    """Run canonical Stage11.1 deterministic audit; historical alias Stage11-A."""
     try:
         result = TechnicalFulltextAuditor().audit(
             fulltext_json_path=fulltext_json
@@ -2209,7 +2255,7 @@ def run_technical_fulltext_semantic_audit_command(
         "--model-profile",
     ),
 ) -> None:
-    """Run bounded Stage ⑪-C structured adjudication; no tools or rewriting are used."""
+    """Run canonical Stage11.2 semantic audit; Stage11-C is calibration history."""
     try:
         result = TechnicalFulltextSemanticAuditor(
             model_profile=model_profile
@@ -2226,11 +2272,191 @@ def run_technical_fulltext_semantic_audit_command(
         raise typer.Exit(code=1)
 
 
+@cli.command("assess-technical-fulltext-scoring")
+def assess_technical_fulltext_scoring_command(
+    audit_json: Path = typer.Option(..., "--audit-json"),
+) -> None:
+    """Run canonical Stage11.3 scoring assessment without modifying prose."""
+    try:
+        result = TechnicalFulltextScoringAssessor().assess(
+            audit_json_path=audit_json
+        )
+        console.print({
+            "status": result.get("status"),
+            "summary": result.get("summary"),
+            "outputs": result.get("outputs"),
+        })
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("run-technical-fulltext-stable-fact-consistency")
+def run_technical_fulltext_stable_fact_consistency_command(
+    audit_json: Path = typer.Option(..., "--audit-json"),
+    model_profile: str = typer.Option(
+        DEFAULT_FULLTEXT_SEMANTIC_MODEL_PROFILE,
+        "--model-profile",
+    ),
+) -> None:
+    """Replay only the bounded Stage11.2 cross-section stable-fact pass."""
+    try:
+        result = TechnicalFulltextSemanticAuditor(
+            model_profile=model_profile
+        ).audit_stable_fact_consistency(audit_json_path=audit_json)
+        console.print(result)
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("inspect-technical-fulltext-scoring")
+def inspect_technical_fulltext_scoring_command(
+    assessment_json: Path = typer.Option(..., "--assessment-json"),
+) -> None:
+    """Inspect a persisted Stage11.3 scoring assessment without side effects."""
+    try:
+        console.print(inspect_scoring_assessment_service(assessment_json))
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("assemble-technical-fulltext-review-package")
+def assemble_technical_fulltext_review_package_command(
+    audit_json: Path = typer.Option(..., "--audit-json"),
+    output_dir: Optional[Path] = typer.Option(None, "--output-dir"),
+) -> None:
+    """Assemble the Stage12-A read-only review package from frozen Stage11 outputs."""
+    try:
+        result = TechnicalFulltextReviewPackageAssembler().assemble(
+            audit_json_path=audit_json,
+            output_dir=output_dir,
+        )
+        console.print({
+            "status": result.get("status"),
+            "review_package_id": result.get("review_package_id"),
+            "summary": result.get("summary"),
+            "outputs": result.get("outputs"),
+        })
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("inspect-technical-fulltext-review-package")
+def inspect_technical_fulltext_review_package_command(
+    review_package_json: Path = typer.Option(..., "--review-package-json"),
+) -> None:
+    """Inspect Stage12-A package identity and summary without writing artifacts."""
+    try:
+        console.print(inspect_review_package_service(review_package_json))
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("initialize-technical-fulltext-human-review")
+def initialize_technical_fulltext_human_review_command(
+    review_package_json: Path = typer.Option(..., "--review-package-json"),
+    output_dir: Optional[Path] = typer.Option(None, "--output-dir"),
+) -> None:
+    """Initialize the Stage12-B human-input overlay with pending records only."""
+    try:
+        result = TechnicalFulltextHumanReviewService().initialize(
+            review_package_json_path=review_package_json,
+            output_dir=output_dir,
+        )
+        console.print({
+            "status": result.get("status"),
+            "human_review_id": result.get("human_review_id"),
+            "summary": result.get("summary"),
+            "outputs": result.get("outputs"),
+        })
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("apply-technical-fulltext-human-review")
+def apply_technical_fulltext_human_review_command(
+    human_review_json: Path = typer.Option(..., "--human-review-json"),
+    patch_json: Path = typer.Option(..., "--patch-json"),
+) -> None:
+    """Apply one structured, version-bound Stage12-B human review patch."""
+    try:
+        result = TechnicalFulltextHumanReviewService().apply(
+            human_review_json_path=human_review_json,
+            patch_json_path=patch_json,
+        )
+        console.print({
+            "status": result.get("status"),
+            "human_review_id": result.get("human_review_id"),
+            "summary": result.get("summary"),
+            "outputs": result.get("outputs"),
+        })
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("inspect-technical-fulltext-human-review")
+def inspect_technical_fulltext_human_review_command(
+    human_review_json: Path = typer.Option(..., "--human-review-json"),
+) -> None:
+    """Inspect Stage12-B identity, binding, and status without writing artifacts."""
+    try:
+        console.print(inspect_human_review_service(human_review_json))
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("finalize-technical-fulltext-human-review")
+def finalize_technical_fulltext_human_review_command(
+    review_package_json: Path = typer.Option(..., "--review-package-json"),
+    human_review_json: Path = typer.Option(..., "--human-review-json"),
+    output_dir: Optional[Path] = typer.Option(None, "--output-dir"),
+) -> None:
+    """Finalize Stage12 deterministically and emit a gated Stage13 handoff."""
+    try:
+        result = TechnicalFulltextHumanReviewFinalizer().finalize(
+            review_package_json_path=review_package_json,
+            human_review_json_path=human_review_json,
+            output_dir=output_dir,
+        )
+        console.print({
+            "status": result.get("status"),
+            "finalization_id": result.get("finalization_id"),
+            "stage13_ready": result.get("stage13_ready"),
+            "stage13_handoff_generated": result.get("stage13_handoff_generated"),
+            "review_status_summary": result.get("review_status_summary"),
+            "score_summary": result.get("score_summary"),
+            "stage13_gate": result.get("stage13_gate"),
+            "outputs": result.get("outputs"),
+        })
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("inspect-technical-fulltext-review-finalization")
+def inspect_technical_fulltext_review_finalization_command(
+    finalization_json: Path = typer.Option(..., "--finalization-json"),
+) -> None:
+    """Inspect Stage12-C lineage, assessment, and gate without writing artifacts."""
+    try:
+        console.print(inspect_review_finalization_service(finalization_json))
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
 @cli.command("finalize-technical-fulltext-audit")
 def finalize_technical_fulltext_audit_command(
     audit_json: Path = typer.Option(..., "--audit-json"),
 ) -> None:
-    """Finalize an existing Stage ⑪-C artifact deterministically; no model is used."""
+    """Run canonical Stage11.4 finalization; historical alias Stage11-D."""
     try:
         result = TechnicalFulltextAuditFinalizer().finalize(
             audit_json_path=audit_json
@@ -2257,7 +2483,7 @@ def hygiene_technical_fulltext_command(
         help="Detect and validate safe repairs without writing hygiene artifacts.",
     ),
 ) -> None:
-    """Run deterministic Stage 11-E hygiene without changing Stage 10 artifacts."""
+    """Run canonical Stage11.0 hygiene; historical alias Stage11-E."""
     try:
         result = TechnicalFulltextHygiene().run(
             fulltext_json_path=fulltext_json,
@@ -2282,7 +2508,7 @@ def hygiene_technical_fulltext_command(
 def inspect_technical_fulltext_hygiene_command(
     hygiene_json: Path = typer.Option(..., "--hygiene-json"),
 ) -> None:
-    """Inspect Stage 11-E metadata without modifying any artifact."""
+    """Inspect Stage11.0 hygiene metadata without modifying any artifact."""
     try:
         console.print(inspect_technical_fulltext_hygiene_service(hygiene_json))
     except Exception as exc:
@@ -3417,13 +3643,209 @@ def inspect_response_matrix(
 
 
 @cli.command("generate-section")
-def generate_section(section: str = typer.Option(..., "--section"), query: str = typer.Option(..., "--query")) -> None:
-    print_json(SectionService().generate_section(section, query))
+def generate_section(section: str = typer.Option(..., "--section"), query: str = typer.Option(..., "--query"), model_profile: str | None = typer.Option(None, "--model-profile")) -> None:
+    result = SectionService().generate_section(section, query, model_profile=model_profile)
+    print_json(result)
+    if result["status"] == "failed":
+        raise typer.Exit(code=1)
 
 
 @cli.command("review-section")
-def review_section(section: str = typer.Option(..., "--section")) -> None:
-    print_json({"section": section, "risks": ReviewService().review_section(section)})
+def review_section(section: str = typer.Option(..., "--section"), text_file: Path | None = typer.Option(None, "--text-file", exists=True, dir_okay=False), requirements_file: Path | None = typer.Option(None, "--requirements-file", exists=True, dir_okay=False), model_profile: str | None = typer.Option(None, "--model-profile")) -> None:
+    result = ReviewService().review_section(
+        section, text=text_file.read_text(encoding="utf-8-sig") if text_file else "",
+        requirements=requirements_file.read_text(encoding="utf-8-sig") if requirements_file else "",
+        model_profile=model_profile,
+    )
+    print_json(result)
+    if result["status"] in {"failed", "not_reviewed"}:
+        raise typer.Exit(code=1)
+
+
+def _read_run_bid_failure_state(output_dir: Path, run_id: str) -> dict[str, Any] | None:
+    """Read the durable state for CLI-only control-flow rendering."""
+    path = Path(output_dir).expanduser().resolve() / "bid_runs" / run_id / "pipeline_state.json"
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        return None
+    if not isinstance(payload, dict) or payload.get("run_id") != run_id:
+        return None
+    return payload
+
+
+def _print_run_bid_control_exit(
+    *,
+    output_dir: Path,
+    run_id: str,
+    exit_type: str,
+    exc: BaseException,
+) -> None:
+    """Print a read-only summary after the Runner has persisted a control exit."""
+    state = _read_run_bid_failure_state(output_dir, run_id)
+    failure = state.get("failure") if isinstance((state or {}).get("failure"), dict) else {}
+    if exit_type == "SystemExit" and not failure:
+        return
+    label = "PIPELINE INTERRUPTED" if exit_type == "KeyboardInterrupt" else "PIPELINE EXITED"
+    print(label, flush=True)
+    print(f"run_id: {run_id}", flush=True)
+    failed_stage = failure.get("stage_id") or (state or {}).get("current_stage")
+    if failed_stage:
+        print(f"failed_stage: {failed_stage}", flush=True)
+    print(f"error_type: {exit_type}", flush=True)
+    message = str(failure.get("message") or str(exc) or "").strip()
+    if message:
+        print(f"message: {message}", flush=True)
+    if exit_type == "SystemExit":
+        print(f"code: {getattr(exc, 'code', None)}", flush=True)
+
+
+@cli.command("run-bid")
+def run_bid_command(
+    source_dir: Path = typer.Option(..., "--source-dir"),
+    lot_name: str | None = typer.Option(None, "--lot-name"),
+    output_dir: Path = typer.Option(Path("outputs"), "--output-dir"),
+    stream_model: bool = typer.Option(True, "--stream-model/--no-stream-model"),
+) -> None:
+    """Run the bid pipeline through the Stage12-A human-review package."""
+    run_id = new_bid_run_id()
+    reporter = BidCliProgressReporter(output_dir=output_dir, run_id=run_id)
+    reporter.start()
+    reporter_stopped = False
+
+    def stop_reporter() -> None:
+        nonlocal reporter_stopped
+        if not reporter_stopped:
+            reporter.stop()
+            reporter_stopped = True
+
+    try:
+        state = BidPipelineRunner(
+            output_dir=output_dir,
+            stream_model=stream_model,
+        ).run(
+            source_dir=source_dir,
+            lot_name=lot_name,
+            run_id=run_id,
+        )
+        reporter.render_pipeline_terminal(state)
+        print_json({
+            "run_id": state["run_id"],
+            "pipeline_status": state["pipeline_status"],
+            "final_status": state.get("final_status"),
+            "current_stage": state.get("current_stage"),
+            "failure": state.get("failure"),
+            "pipeline_state_path": state["routing"]["pipeline_state_path"],
+        })
+        if state["pipeline_status"] != BID_PIPELINE_FINAL_STATUS:
+            raise typer.Exit(code=1)
+    except typer.Exit:
+        raise
+    except KeyboardInterrupt as exc:
+        stop_reporter()
+        _print_run_bid_control_exit(
+            output_dir=output_dir,
+            run_id=run_id,
+            exit_type="KeyboardInterrupt",
+            exc=exc,
+        )
+        raise
+    except SystemExit as exc:
+        stop_reporter()
+        _print_run_bid_control_exit(
+            output_dir=output_dir,
+            run_id=run_id,
+            exit_type="SystemExit",
+            exc=exc,
+        )
+        raise
+    except Exception as exc:
+        reporter.render_pipeline_terminal()
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+    finally:
+        stop_reporter()
+
+
+@cli.command("bid-status")
+def bid_status_command(
+    run_id: str = typer.Option(..., "--run-id"),
+    output_dir: Path = typer.Option(Path("outputs"), "--output-dir"),
+) -> None:
+    """Show a compact, read-only bid pipeline status."""
+    try:
+        print_json(BidPipelineRunner(output_dir=output_dir).status(run_id))
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("resume-bid")
+def resume_bid_command(
+    run_id: str = typer.Option(..., "--run-id"),
+    output_dir: Path = typer.Option(Path("outputs"), "--output-dir"),
+    stream_model: bool = typer.Option(True, "--stream-model/--no-stream-model"),
+) -> None:
+    """Resume the first incomplete bid stage and skip completed stages."""
+    try:
+        runner = BidPipelineRunner(output_dir=output_dir, stream_model=stream_model)
+        state = runner.resume(run_id)
+        print_json(runner.status(state["run_id"]))
+        if state["pipeline_status"] != BID_PIPELINE_FINAL_STATUS:
+            raise typer.Exit(code=1)
+    except typer.Exit:
+        raise
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("inspect-bid-score-review")
+def inspect_bid_score_review_command(
+    run_id: str = typer.Option(..., "--run-id"),
+    output_dir: Path = typer.Option(Path("outputs"), "--output-dir"),
+) -> None:
+    """Inspect unresolved Bid Score Review gates and applied human decisions."""
+    try:
+        print_json(BidScoreReviewService(output_dir=output_dir).inspect(run_id))
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("apply-bid-score-review")
+def apply_bid_score_review_command(
+    run_id: str = typer.Option(..., "--run-id"),
+    input_path: Path = typer.Option(..., "--input", exists=True, file_okay=True, dir_okay=False),
+    output_dir: Path = typer.Option(Path("outputs"), "--output-dir"),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Validate and preview without writing a score review decision."),
+) -> None:
+    """Append a version-bound technical-template or component-weight decision."""
+    try:
+        payload = json.loads(input_path.read_text(encoding="utf-8"))
+        print_json(
+            BidScoreReviewService(output_dir=output_dir).apply(
+                run_id,
+                payload,
+                dry_run=dry_run,
+            )
+        )
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
+
+
+@cli.command("inspect-bid")
+def inspect_bid_command(
+    run_id: str = typer.Option(..., "--run-id"),
+    output_dir: Path = typer.Option(Path("outputs"), "--output-dir"),
+) -> None:
+    """Inspect persisted stage state and recorded artifact availability."""
+    try:
+        print_json(BidPipelineRunner(output_dir=output_dir).inspect(run_id))
+    except Exception as exc:
+        print("ERROR:", exc)
+        raise typer.Exit(code=1)
 
 
 if __name__ == "__main__":

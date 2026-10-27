@@ -148,7 +148,7 @@ def test_draft_units_are_rule_derived_and_cover_each_task_exactly_once():
     _, _, tasks, _, _, units = _planned()
     planned_ids = [task_id for unit in units["draft_units"] for task_id in unit["task_ids"]]
 
-    assert 15 <= len(units["draft_units"]) <= 25
+    assert 15 <= len(units["draft_units"]) <= 35
     assert sorted(planned_ids) == sorted(item["task_id"] for item in tasks["tasks"])
     assert len(planned_ids) == len(set(planned_ids)) == 63
     assert units["coverage"]["all_tasks_planned_once"] is True

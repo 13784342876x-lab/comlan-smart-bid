@@ -15,6 +15,7 @@ from app.technical_fulltext_audit_finalizer import (
 )
 from app.technical_fulltext_auditor import TechnicalFulltextAuditor
 from app.technical_fulltext_composer import sha256_file
+from app.technical_fulltext_scoring_assessment import TechnicalFulltextScoringAssessor
 from cli import cli
 
 
@@ -75,6 +76,7 @@ def _copy_stage_c(tmp_path: Path) -> Path:
     target = tmp_path / "audit" / "technical_fulltext.audit.json"
     _write(target, payload)
     TechnicalFulltextAuditor()._validate_audit_payload(payload)
+    TechnicalFulltextScoringAssessor().assess(audit_json_path=target)
     return target
 
 
@@ -187,6 +189,30 @@ def test_blocking_policy_codes(tmp_path: Path, code: str, expected_result: str) 
     assert result["issues"][0]["severity"] == "blocking"
     assert result["issues"][0]["release_blocking"] is True
     assert result["audit_result"] == expected_result
+
+
+def test_stable_fact_conflict_is_promoted_as_blocking_fai(tmp_path: Path) -> None:
+    path = _copy_stage_c(tmp_path)
+    payload = _load(path)
+    finding = _finding(payload, verdict="issue")
+    finding["audit_type"] = "global_consistency"
+    finding["code"] = "stable_fact_conflict"
+    finding["decision"] = "stable_fact_conflict"
+    finding["pass_type"] = "cross_section_stable_fact_consistency"
+    _reidentify(finding)
+    payload["semantic_audit"]["passes"][
+        "cross_section_stable_fact_consistency"
+    ] = deepcopy(payload["semantic_audit"]["passes"]["numeric_consistency"])
+    _set_findings(payload, [finding])
+    _save(path, payload)
+
+    result = _finalize(path)
+
+    issue = result["issues"][0]
+    assert issue["code"] == "stable_fact_conflict"
+    assert issue["severity"] == "blocking"
+    assert issue["release_blocking"] is True
+    assert issue["source_finding_ids"] == [finding["finding_id"]]
 
 
 @pytest.mark.parametrize("decision", ["misplaced_content", "redundant_response"])
@@ -334,6 +360,17 @@ def test_incomplete_semantic_pass_rejects_finalization(tmp_path: Path) -> None:
     assert sha256_file(path) == before_sha
 
 
+def test_finalization_requires_stage11_3_scoring_handoff(tmp_path: Path) -> None:
+    path = _copy_stage_c(tmp_path)
+    payload = _load(path)
+    payload["audit_passes"]["scoring"] = {"status": "not_run"}
+    payload.pop("scoring_assessment_ref", None)
+    _save(path, payload)
+
+    with pytest.raises(TechnicalFulltextAuditFinalizationError, match="Stage11.3"):
+        _finalize(path)
+
+
 def test_untraceable_semantic_location_fails_atomically(tmp_path: Path) -> None:
     path = _copy_stage_c(tmp_path)
     payload = _load(path)
@@ -384,6 +421,8 @@ def test_finalization_records_zero_model_calls_and_cli_works(tmp_path: Path) -> 
     assert result.exit_code == 0, result.output
     payload = _load(path)
     assert payload["finalization"]["model_call_count"] == 0
+    assert payload["finalization"]["scoring_item_count"] == 15
+    assert payload["finalization"]["technical_score_max"] == 70
     assert payload["release_ready"] is False
 
 

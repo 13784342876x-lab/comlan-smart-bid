@@ -101,7 +101,7 @@ def test_evidence_backed_section_calls_writer_agent(monkeypatch):
     result = generate_agent_drafts(project_with_sections([plan]))
 
     assert calls == ["technical_writer"]
-    assert result["agent_draft_sections"][0]["status"] == "generated_mock"
+    assert result["agent_draft_sections"][0]["status"] == "generated"
 
 
 def test_writing_required_section_calls_writer_agent(monkeypatch):

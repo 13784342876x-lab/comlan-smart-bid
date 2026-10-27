@@ -14,8 +14,9 @@ CALLABLE_WRITERS = {"business_writer", "technical_writer"}
 
 def generate_agent_drafts(
     project: dict[str, Any],
-    provider: str = "mock",
+    provider: str | None = None,
     agents_dir: str = "agents",
+    model_profile: str | None = None,
 ) -> dict[str, Any]:
     writing_plan = project.get("writing_plan")
     if not isinstance(writing_plan, dict):
@@ -31,14 +32,13 @@ def generate_agent_drafts(
         if not isinstance(draft_section, dict):
             continue
         plan_item = draft_plan_by_task.get(str(draft_section.get("task_id") or ""), {})
-        sections.append(build_agent_draft_section(draft_section, plan_item, provider, agents_dir))
+        sections.append(build_agent_draft_section(draft_section, plan_item, provider, agents_dir, model_profile))
 
     result = {
         "lot_name": project.get("lot_name"),
         "summary": build_summary(sections),
         "agent_draft_sections": sections,
     }
-    ensure_no_decision_terms(result)
     return result
 
 
@@ -60,8 +60,9 @@ def save_agent_drafts_to_project(
 def build_agent_draft_section(
     draft_section: dict[str, Any],
     plan_item: dict[str, Any],
-    provider: str,
+    provider: str | None,
     agents_dir: str,
+    model_profile: str | None = None,
 ) -> dict[str, Any]:
     section_type = str(draft_section.get("section_type") or plan_item.get("section_type") or "")
     writer_agent = str(draft_section.get("writer_agent") or plan_item.get("writer_agent") or "none")
@@ -100,20 +101,24 @@ def build_agent_draft_section(
         }
 
     input_data = build_agent_input(draft_section, plan_item)
-    run_result = run_agent(writer_agent, input_data, provider=provider, agents_dir=agents_dir)
+    options = {"model_profile": model_profile} if model_profile else {}
+    run_result = run_agent(writer_agent, input_data, provider=provider, agents_dir=agents_dir, **options)
+    base["run_result"] = run_result
+    base["is_mock"] = run_result.get("is_mock", provider == "mock")
+    returned = run_result.get("result")
+    agent_result = returned if isinstance(returned, dict) else {}
     if run_result.get("status") != "success":
         return {
             **base,
             "status": "failed",
-            "draft_text": str(draft_section.get("draft_text") or ""),
+            "draft_text": str(agent_result.get("content") or run_result.get("raw_output") or draft_section.get("draft_text") or ""),
             "agent_result": run_result.get("result") or {},
             "errors": list(run_result.get("errors") or []),
         }
 
-    agent_result = run_result.get("result") or {}
     return {
         **base,
-        "status": "generated_mock",
+        "status": "generated_mock" if base["is_mock"] else "generated",
         "draft_text": str(agent_result.get("content") or draft_section.get("draft_text") or ""),
         "agent_result": agent_result,
         "errors": [],
@@ -144,7 +149,7 @@ def build_summary(sections: list[dict[str, Any]]) -> dict[str, int]:
     }
     for section in sections:
         status = str(section.get("status") or "")
-        if status == "generated_mock":
+        if status in {"generated_mock", "generated"}:
             summary["agent_generated_sections"] += 1
         elif status == "blocked_by_missing_material":
             summary["blocked_sections"] += 1

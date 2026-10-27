@@ -16,7 +16,11 @@
 
 body {
   margin: 0;
-  min-width: 1180px;
+  min-width: 1024px;
+  min-height: 100vh;
+}
+
+#root {
   min-height: 100vh;
 }
 
@@ -27,6 +31,20 @@ select {
   font: inherit;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #4865f4;
+  outline-offset: 2px;
+}
+
 .scrollbar-thin::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -35,10 +53,4 @@ select {
 .scrollbar-thin::-webkit-scrollbar-thumb {
   background: #c7d2fe;
   border-radius: 999px;
-}
-
-.word-paper {
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    repeating-linear-gradient(0deg, transparent 0 31px, #eef2ff 32px) border-box;
 }

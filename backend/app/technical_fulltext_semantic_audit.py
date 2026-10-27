@@ -25,6 +25,10 @@ from app.technical_fulltext_composer import (
     stable_json_sha256,
     utc_now,
 )
+from app.technical_fulltext_stable_fact_consistency import (
+    PASS_TYPE as STABLE_FACT_PASS_TYPE,
+    extract_stable_fact_candidates,
+)
 
 
 SEMANTIC_RESULT_SCHEMA_VERSION = "technical_fulltext_semantic_audit_result_v1"
@@ -33,10 +37,14 @@ REQUIREMENT_OBSERVATION_CONTRACT_VERSION = "requirement_semantic_observation_v4"
 REQUIREMENT_PROMPT_VERSION = "requirement_semantic_observation_prompt_v4"
 REQUIREMENT_DECISION_POLICY_VERSION = "requirement_semantic_decision_policy_v1"
 REQUIREMENT_SEMANTIC_UNIT_TYPE = "requirement_content_ownership"
+NON_REQUIREMENT_OBSERVATION_CONTRACT_VERSION = "non_requirement_semantic_observation_v1"
+NON_REQUIREMENT_PROMPT_VERSION = "non_requirement_semantic_observation_prompt_v1"
+NON_REQUIREMENT_DECISION_POLICY_VERSION = "non_requirement_semantic_decision_policy_v1"
+NON_REQUIREMENT_SEMANTIC_UNIT_TYPE = "non_requirement_semantic_observation"
 
 
 class TechnicalFulltextSemanticAuditError(RuntimeError):
-    """Raised when Stage 11-C cannot produce one fully validated semantic pass."""
+    """Raised when canonical Stage11.2 cannot produce one validated semantic pass."""
 
 
 class RequirementObservationConsistencyError(TechnicalFulltextSemanticAuditError):
@@ -83,6 +91,7 @@ PASS_ORDER = (
     "placeholder_alias",
     "requirement_location",
     "numeric_consistency",
+    STABLE_FACT_PASS_TYPE,
     "terminology_consistency",
     "near_duplicate",
     "score_distribution",
@@ -91,8 +100,14 @@ PASS_ORDER = (
 
 PASS_BATCH_SIZE = {
     "placeholder_alias": 6,
-    "requirement_location": 7,
+    # Requirement observations are replay-critical and carry a stable unit
+    # identity into the runtime decision policy.  Keep provider calls atomic:
+    # a generative provider cannot omit one unit or reuse another unit's ID
+    # when exactly one identity is supplied.  This does not relax validation;
+    # an omitted, changed, or duplicated identity is still rejected.
+    "requirement_location": 1,
     "numeric_consistency": 6,
+    STABLE_FACT_PASS_TYPE: 6,
     "terminology_consistency": 6,
     "near_duplicate": 4,
     "score_distribution": 4,
@@ -119,6 +134,12 @@ DECISION_VERDICTS = {
         "different_attribute": "acceptable",
         "commitment_conflict": "issue",
         "value_conflict": "issue",
+        "uncertain": "uncertain",
+    },
+    STABLE_FACT_PASS_TYPE: {
+        "consistent": "acceptable",
+        "context_different": "acceptable",
+        "stable_fact_conflict": "issue",
         "uncertain": "uncertain",
     },
     "terminology_consistency": {
@@ -156,6 +177,7 @@ DECISION_CODES = {
     "coverage_content_mismatch": ("content_ownership", "coverage_content_mismatch"),
     "commitment_conflict": ("global_consistency", "commitment_conflict"),
     "value_conflict": ("global_consistency", "numeric_value_conflict"),
+    "stable_fact_conflict": ("global_consistency", "stable_fact_conflict"),
     "same_entity_variant": ("global_consistency", "term_alias_inconsistency"),
     "meaningful_duplicate": ("cross_content_duplication", "semantic_cross_chapter_duplicate"),
     "redundant_score_response": ("score_distribution", "redundant_score_response"),
@@ -253,7 +275,7 @@ def _walk_dicts(value: Any) -> Iterable[dict[str, Any]]:
 
 
 class TechnicalFulltextSemanticAuditor:
-    """Run bounded DeepSeek adjudication over an already valid Stage 11-B artifact."""
+    """Run Stage11.2 over Stage11.1; Stage11-C is calibration history, not a step."""
 
     def __init__(
         self,
@@ -282,25 +304,49 @@ class TechnicalFulltextSemanticAuditor:
             TechnicalFulltextAuditor()._validate_audit_payload(audit)
         except (FileNotFoundError, ValueError, OSError, TechnicalFulltextAuditError) as exc:
             raise TechnicalFulltextSemanticAuditError(
-                f"Stage 11-B audit artifact is unavailable or invalid: {exc}"
+                f"Stage11.1 audit artifact is unavailable or invalid: {exc}"
             ) from exc
         self._validate_stage_b_state(audit)
         self._revalidate_source_snapshot(audit)
 
+        # Candidate generation belongs to Stage11.2 and reads only the already
+        # normalized, SHA-bound audited fulltext. This also upgrades historical
+        # Stage11.1 artifacts without rerunning Stage10 or reparsing the tender.
+        audit = deepcopy(audit)
+        audit.setdefault("semantic_candidates", {})[
+            "stable_fact_consistency"
+        ] = extract_stable_fact_candidates(audit["normalized_document"])
+
         context, trust = self._load_trusted_context(audit)
         units_by_pass, pass_notes = self._build_units(audit, context=context, trust=trust)
+        self._validate_unit_identities(units_by_pass)
         result_schema = self._load_result_schema()
-        observation_cache = self._validated_requirement_cache(audit, units_by_pass["requirement_location"])
-        refreshed_cache: dict[str, dict[str, Any]] = {}
+        requirement_cache = self._validated_requirement_cache(
+            audit, units_by_pass["requirement_location"]
+        )
         client = self.llm_client or get_llm_client(
             role="drafting", profile_name=self.model_profile
         )
+        model_configuration = self._model_configuration(client)
+        audited_content_sha256 = self._audited_content_sha(audit)
+        source_context_sha256 = self._non_requirement_source_context_sha(audit)
+        non_requirement_cache = self._validated_non_requirement_cache(
+            audit,
+            units_by_pass,
+            audited_content_sha256=audited_content_sha256,
+            source_context_sha256=source_context_sha256,
+            model_configuration=model_configuration,
+        )
+        refreshed_cache: dict[str, dict[str, Any]] = {}
 
         findings: list[dict[str, Any]] = []
         calls: list[ModelCallResult] = []
         batch_count = 0
         per_pass: dict[str, dict[str, Any]] = {}
         total_reused_observations = 0
+        requirement_reused_observations = 0
+        non_requirement_reused_observations = 0
+        total_model_observations = 0
         for pass_type in PASS_ORDER:
             units = units_by_pass[pass_type]
             decisions: Counter[str] = Counter()
@@ -318,12 +364,12 @@ class TechnicalFulltextSemanticAuditor:
                     "unit_ids": [unit.audit_unit_id for unit in batch_units],
                 })
                 results: list[dict[str, Any]] = []
-                model_units = batch_units
+                model_units: list[SemanticAuditUnit] = []
+                reusable_non_requirement: dict[str, dict[str, Any]] = {}
                 if pass_type == "requirement_location":
-                    model_units = []
                     for unit in batch_units:
                         fingerprint = unit.semantic_fingerprint()
-                        cached = observation_cache.get(fingerprint)
+                        cached = requirement_cache.get(fingerprint)
                         if cached is None:
                             model_units.append(unit)
                             continue
@@ -338,6 +384,38 @@ class TechnicalFulltextSemanticAuditor:
                         refreshed_cache[fingerprint] = deepcopy(cached)
                         reused_observations += 1
                         total_reused_observations += 1
+                        requirement_reused_observations += 1
+                else:
+                    for unit in batch_units:
+                        deterministic = (
+                            self._deterministic_stable_fact_result(unit)
+                            if pass_type == STABLE_FACT_PASS_TYPE
+                            else None
+                        )
+                        if deterministic is not None:
+                            results.append(deterministic)
+                            continue
+                        fingerprint = self._non_requirement_fingerprint(
+                            unit=unit,
+                            audited_content_sha256=audited_content_sha256,
+                            source_context_sha256=source_context_sha256,
+                            model_configuration_sha256=model_configuration[
+                                "identity_sha256"
+                            ],
+                        )
+                        cached = non_requirement_cache.get(fingerprint)
+                        if cached is None:
+                            model_units.append(unit)
+                            continue
+                        results.append(
+                            self._formalize_non_requirement_observation(
+                                unit=unit, observation=cached["observation"]
+                            )
+                        )
+                        reusable_non_requirement[unit.audit_unit_id] = cached
+                        reused_observations += 1
+                        total_reused_observations += 1
+                        non_requirement_reused_observations += 1
                 batch_calls: list[ModelCallResult] = []
                 if model_units:
                     batch_count += 1
@@ -356,17 +434,20 @@ class TechnicalFulltextSemanticAuditor:
                         response_schema=result_schema,
                     )
                     results.extend(model_results)
+                    total_model_observations += len(model_results)
                 calls.extend(batch_calls)
                 unit_map = {unit.audit_unit_id: unit for unit in batch_units}
+                model_unit_ids = {unit.audit_unit_id for unit in model_units}
                 for result in results:
+                    unit = unit_map[result["audit_unit_id"]]
                     finding = self._to_finding(
                         pass_type=pass_type,
-                        unit=unit_map[result["audit_unit_id"]],
+                        unit=unit,
                         result=result,
                     )
                     findings.append(finding)
                     if pass_type == "requirement_location":
-                        fingerprint = unit_map[result["audit_unit_id"]].semantic_fingerprint()
+                        fingerprint = unit.semantic_fingerprint()
                         cache_entry = {
                             "semantic_fingerprint": fingerprint,
                             "pass_type": pass_type,
@@ -381,6 +462,56 @@ class TechnicalFulltextSemanticAuditor:
                         }
                         if cache_entry["validation_status"] == "validated":
                             refreshed_cache[fingerprint] = cache_entry
+                    elif (
+                        result["audit_unit_id"] in model_unit_ids
+                        or result["audit_unit_id"] in reusable_non_requirement
+                    ):
+                        fingerprint = self._non_requirement_fingerprint(
+                            unit=unit,
+                            audited_content_sha256=audited_content_sha256,
+                            source_context_sha256=source_context_sha256,
+                            model_configuration_sha256=model_configuration[
+                                "identity_sha256"
+                            ],
+                        )
+                        prior = reusable_non_requirement.get(result["audit_unit_id"]) or {}
+                        call = batch_calls[-1] if batch_calls else None
+                        observation = self._non_requirement_observation(result)
+                        cache_entry = {
+                            "semantic_fingerprint": fingerprint,
+                            "pass_type": pass_type,
+                            "semantic_unit_type": NON_REQUIREMENT_SEMANTIC_UNIT_TYPE,
+                            "audit_unit_id": unit.audit_unit_id,
+                            "normalized_observation_payload_sha256": stable_json_sha256(
+                                unit.model_payload()
+                            ),
+                            "audited_content_sha256": audited_content_sha256,
+                            "source_context_sha256": source_context_sha256,
+                            "observation_contract_version": NON_REQUIREMENT_OBSERVATION_CONTRACT_VERSION,
+                            "prompt_version": NON_REQUIREMENT_PROMPT_VERSION,
+                            "result_schema_version": SEMANTIC_RESULT_SCHEMA_VERSION,
+                            "decision_policy_version": NON_REQUIREMENT_DECISION_POLICY_VERSION,
+                            "model_configuration_sha256": model_configuration[
+                                "identity_sha256"
+                            ],
+                            "model_profile": (
+                                call.profile_name if call else prior.get("model_profile")
+                            )
+                            or model_configuration["profile_name"],
+                            "model_provider": (
+                                call.provider if call else prior.get("model_provider")
+                            )
+                            or model_configuration["provider"],
+                            "model_name": (
+                                call.model if call else prior.get("model_name")
+                            )
+                            or model_configuration["model"],
+                            "observation": observation,
+                            "observation_sha256": stable_json_sha256(observation),
+                            "source_finding_id": finding["finding_id"],
+                            "validation_status": "validated",
+                        }
+                        refreshed_cache[fingerprint] = cache_entry
                     decisions[finding["decision"]] += 1
                     verdicts[finding["verdict"]] += 1
             note = pass_notes.get(pass_type) or {}
@@ -404,7 +535,7 @@ class TechnicalFulltextSemanticAuditor:
         # No artifact write has occurred above. Recheck every trusted boundary before commit.
         if sha256_file(target) != original_audit_sha:
             raise TechnicalFulltextSemanticAuditError(
-                "Stage 11-B audit artifact changed during semantic execution"
+                "Stage11.1 audit artifact changed during semantic execution"
             )
         self._revalidate_source_snapshot(audit)
 
@@ -414,26 +545,8 @@ class TechnicalFulltextSemanticAuditor:
         models = _unique(call.model for call in calls)
         profiles = _unique(call.profile_name for call in calls)
         updated = deepcopy(audit)
-        # A successful semantic rerun invalidates only the derived Stage 11-D
-        # projection.  Preserve the original deterministic source issues and
-        # rebuild final issues later through the deterministic finalizer.
-        if (updated.get("audit_passes") or {}).get("finalization", {}).get("status") == "completed":
-            updated["issues"] = deepcopy(updated.get("deterministic_source_issues") or [])
-            reset_counts = {"fatal": 0, "blocking": 0, "warning": 0, "info": 0}
-            for issue in updated["issues"]:
-                severity = str(issue.get("severity") or "")
-                if severity in reset_counts:
-                    reset_counts[severity] += 1
-            updated["issue_counts"] = reset_counts
-            updated["audit_passes"].pop("finalization", None)
-            for field in (
-                "deterministic_source_issues",
-                "semantic_finding_dispositions",
-                "confirmation_relationships",
-                "finalization",
-            ):
-                updated.pop(field, None)
-        updated["audit_passes"]["semantic"] = {"status": "completed"}
+        # A successful semantic rerun invalidates every downstream projection.
+        self._invalidate_downstream(updated)
         updated["audit_result"] = "partial"
         updated["release_ready"] = False
         updated["semantic_findings"] = findings
@@ -456,8 +569,12 @@ class TechnicalFulltextSemanticAuditor:
             },
             "token_usage": usage,
             "reuse": {
-                "validated_observation_reuse_count": total_reused_observations,
-                "model_observation_count": len(units_by_pass["requirement_location"]) - total_reused_observations,
+                # Keep the historical Requirement metric stable and expose the
+                # new non-Requirement/total counts separately.
+                "validated_observation_reuse_count": requirement_reused_observations,
+                "non_requirement_validated_observation_reuse_count": non_requirement_reused_observations,
+                "total_validated_observation_reuse_count": total_reused_observations,
+                "model_observation_count": total_model_observations,
                 "cache_entry_count": len(refreshed_cache),
             },
             "passes": per_pass,
@@ -487,14 +604,213 @@ class TechnicalFulltextSemanticAuditor:
             },
         }
 
+    def audit_stable_fact_consistency(
+        self, *, audit_json_path: str | Path
+    ) -> dict[str, Any]:
+        """Replay only the bounded Stage11.2 stable-fact pass on validated findings."""
+        target = Path(audit_json_path).expanduser().resolve()
+        try:
+            audit = load_json_object(target, label="technical fulltext audit")
+            original_audit_sha = sha256_file(target)
+            TechnicalFulltextAuditor()._validate_audit_payload(audit)
+        except (FileNotFoundError, ValueError, OSError, TechnicalFulltextAuditError) as exc:
+            raise TechnicalFulltextSemanticAuditError(
+                f"Stage11.2 audit artifact is unavailable or invalid: {exc}"
+            ) from exc
+        self._validate_stage_b_state(audit)
+        if (audit.get("audit_passes") or {}).get("semantic", {}).get("status") != "completed":
+            raise TechnicalFulltextSemanticAuditError(
+                "bounded stable-fact replay requires an existing completed Stage11.2 audit"
+            )
+        semantic = deepcopy(audit.get("semantic_audit") or {})
+        if semantic.get("status") != "completed" or not isinstance(
+            audit.get("semantic_findings"), list
+        ):
+            raise TechnicalFulltextSemanticAuditError(
+                "bounded stable-fact replay requires validated existing semantic findings"
+            )
+        self._revalidate_source_snapshot(audit)
+
+        working = deepcopy(audit)
+        candidates = extract_stable_fact_candidates(working["normalized_document"])
+        working.setdefault("semantic_candidates", {})[
+            "stable_fact_consistency"
+        ] = candidates
+        context, trust = self._load_trusted_context(working)
+        units_by_pass, pass_notes = self._build_units(
+            working, context=context, trust=trust
+        )
+        self._validate_unit_identities(units_by_pass)
+        units = units_by_pass[STABLE_FACT_PASS_TYPE]
+        result_schema = self._load_result_schema()
+        findings: list[dict[str, Any]] = []
+        calls: list[ModelCallResult] = []
+        decisions: Counter[str] = Counter()
+        verdicts: Counter[str] = Counter()
+        logical_batches = 0
+        client: LLMClient | None = self.llm_client
+        for batch_index, batch_units in enumerate(
+            _chunks(units, PASS_BATCH_SIZE[STABLE_FACT_PASS_TYPE]), start=1
+        ):
+            logical_batches += 1
+            results: list[dict[str, Any]] = []
+            model_units: list[SemanticAuditUnit] = []
+            for unit in batch_units:
+                deterministic = self._deterministic_stable_fact_result(unit)
+                if deterministic is None:
+                    model_units.append(unit)
+                else:
+                    results.append(deterministic)
+            if model_units:
+                if client is None:
+                    client = get_llm_client(
+                        role="drafting", profile_name=self.model_profile
+                    )
+                batch_id = _stable_id("FSB-", {
+                    "document_id": working["document_id"],
+                    "pass_type": STABLE_FACT_PASS_TYPE,
+                    "batch_index": batch_index,
+                    "unit_ids": [unit.audit_unit_id for unit in model_units],
+                })
+                model_results, batch_calls = self._call_batch(
+                    client=client,
+                    audit=working,
+                    batch_id=batch_id,
+                    pass_type=STABLE_FACT_PASS_TYPE,
+                    units=model_units,
+                    response_schema=result_schema,
+                )
+                results.extend(model_results)
+                calls.extend(batch_calls)
+            unit_map = {unit.audit_unit_id: unit for unit in batch_units}
+            for result in results:
+                finding = self._to_finding(
+                    pass_type=STABLE_FACT_PASS_TYPE,
+                    unit=unit_map[result["audit_unit_id"]],
+                    result=result,
+                )
+                findings.append(finding)
+                decisions[finding["decision"]] += 1
+                verdicts[finding["verdict"]] += 1
+
+        note = pass_notes.get(STABLE_FACT_PASS_TYPE) or {}
+        pass_summary = {
+            "status": note.get("status", "completed"),
+            "reason": note.get("reason"),
+            "audit_unit_count": len(units),
+            "batch_count": logical_batches,
+            "finding_count": len(findings),
+            "verdict_counts": {
+                "issue": verdicts["issue"],
+                "acceptable": verdicts["acceptable"],
+                "uncertain": verdicts["uncertain"],
+            },
+            "decision_counts": dict(sorted(decisions.items())),
+            "source_candidate_count": note.get("source_candidate_count", 0),
+            "skipped_candidate_count": note.get("skipped_candidate_count", 0),
+            "reused_observation_count": 0,
+        }
+
+        if sha256_file(target) != original_audit_sha:
+            raise TechnicalFulltextSemanticAuditError(
+                "Stage11 audit artifact changed during bounded stable-fact replay"
+            )
+        self._revalidate_source_snapshot(working)
+
+        updated = deepcopy(working)
+        prior_findings = [
+            item
+            for item in updated.get("semantic_findings") or []
+            if item.get("pass_type") != STABLE_FACT_PASS_TYPE
+        ]
+        all_findings = prior_findings + findings
+        all_verdicts = Counter(item["verdict"] for item in all_findings)
+        semantic.setdefault("passes", {})[STABLE_FACT_PASS_TYPE] = pass_summary
+        semantic["audit_unit_count"] = sum(
+            int(item.get("audit_unit_count") or 0)
+            for item in semantic["passes"].values()
+        )
+        semantic["finding_count"] = len(all_findings)
+        semantic["verdict_counts"] = {
+            "issue": all_verdicts["issue"],
+            "acceptable": all_verdicts["acceptable"],
+            "uncertain": all_verdicts["uncertain"],
+        }
+        semantic["batch_count"] = int(semantic.get("batch_count") or 0) + len(calls)
+        semantic["model_call_count"] = int(semantic.get("model_call_count") or 0) + len(calls)
+        usage = Counter(semantic.get("token_usage") or {})
+        usage.update(self._aggregate_usage(calls))
+        semantic["token_usage"] = dict(sorted(usage.items()))
+        if calls:
+            semantic["provider"] = ",".join(
+                _unique([semantic.get("provider"), *(call.provider for call in calls)])
+            )
+            semantic["model"] = ",".join(
+                _unique([semantic.get("model"), *(call.model for call in calls)])
+            )
+        semantic["completed_at"] = utc_now()
+
+        self._invalidate_downstream(updated)
+        updated["audit_result"] = "partial"
+        updated["release_ready"] = False
+        updated["semantic_findings"] = all_findings
+        updated["semantic_audit"] = semantic
+        updated["generated_at"] = utc_now()
+        TechnicalFulltextAuditor()._validate_audit_payload(updated)
+        markdown = TechnicalFulltextAuditor._render_markdown(updated)
+        markdown_path = target.with_suffix(".md")
+        self._persist_pair(
+            audit_path=target,
+            audit_payload=updated,
+            markdown_path=markdown_path,
+            markdown=markdown,
+        )
+        return {
+            "status": "completed",
+            "audit_result": "partial",
+            "release_ready": False,
+            "stable_fact_candidates": len(candidates),
+            "stable_fact_findings": deepcopy(findings),
+            "pass_summary": deepcopy(pass_summary),
+            "outputs": {
+                "technical_fulltext_audit_json": str(target),
+                "technical_fulltext_audit_json_sha256": sha256_file(target),
+                "technical_fulltext_audit_markdown": str(markdown_path),
+                "technical_fulltext_audit_markdown_sha256": sha256_file(markdown_path),
+            },
+        }
+
+    @staticmethod
+    def _invalidate_downstream(updated: dict[str, Any]) -> None:
+        """Reset Stage11.3/11.4 while preserving the Stage11.1 source issues."""
+        if (updated.get("audit_passes") or {}).get("finalization", {}).get("status") == "completed":
+            updated["issues"] = deepcopy(updated.get("deterministic_source_issues") or [])
+            reset_counts = {"fatal": 0, "blocking": 0, "warning": 0, "info": 0}
+            for issue in updated["issues"]:
+                severity = str(issue.get("severity") or "")
+                if severity in reset_counts:
+                    reset_counts[severity] += 1
+            updated["issue_counts"] = reset_counts
+            updated["audit_passes"].pop("finalization", None)
+            for field in (
+                "deterministic_source_issues",
+                "semantic_finding_dispositions",
+                "confirmation_relationships",
+                "finalization",
+            ):
+                updated.pop(field, None)
+        updated["audit_passes"]["semantic"] = {"status": "completed"}
+        updated["audit_passes"]["scoring"] = {"status": "not_run"}
+        updated.pop("scoring_assessment_ref", None)
+
     @staticmethod
     def _validate_stage_b_state(audit: dict[str, Any]) -> None:
         if (audit.get("audit_passes") or {}).get("deterministic", {}).get("status") != "completed":
             raise TechnicalFulltextSemanticAuditError(
-                "deterministic audit pass must be completed before Stage 11-C"
+                "Stage11.1 deterministic audit must be completed before Stage11.2"
             )
         if audit.get("release_ready") is not False:
-            raise TechnicalFulltextSemanticAuditError("Stage 11-C input must remain release_ready=false")
+            raise TechnicalFulltextSemanticAuditError("Stage11.2 input must remain release_ready=false")
         semantic_status = (audit.get("audit_passes") or {}).get("semantic", {}).get("status")
         if semantic_status not in {"not_run", "completed"}:
             raise TechnicalFulltextSemanticAuditError(
@@ -736,6 +1052,9 @@ class TechnicalFulltextSemanticAuditor:
                         "original_heading": requirement_metadata.get("original_heading"),
                         "node_type": requirement_metadata.get("node_type"),
                         "content_type": requirement_metadata.get("content_type"),
+                        "source_table": self._source_requirement_table_context(
+                            requirement_metadata
+                        ),
                     },
                     "expected_response_form_context": response_form_context,
                     "requirement_planning_metadata": requirement_planning,
@@ -799,6 +1118,54 @@ class TechnicalFulltextSemanticAuditor:
             }
             units["numeric_consistency"].append(self._unit("numeric_consistency", source_ids, payload, locs, requirement_ids=requirement_ids))
         notes["numeric_consistency"] = self._note(numeric_candidates, units["numeric_consistency"], skipped=len(numeric_candidates) - sum(len(unit.source_candidate_ids) for unit in units["numeric_consistency"]))
+
+        stable_fact_candidates = candidates.get("stable_fact_consistency") or []
+        for candidate in stable_fact_candidates:
+            facts = candidate.get("facts") or []
+            locs = locations(facts, per_section=8, limit=32)
+            if len(locs) < 2:
+                continue
+            payload = {
+                "candidate_type": candidate.get("candidate_type"),
+                "fact_type": candidate.get("fact_type"),
+                "entity": candidate.get("entity"),
+                "attribute": candidate.get("attribute"),
+                "comparison_mode": candidate.get("comparison_mode"),
+                "deterministic_decision": candidate.get("deterministic_decision"),
+                "normalized_values": candidate.get("normalized_values") or [],
+                "facts": [
+                    {
+                        key: item.get(key)
+                        for key in (
+                            "fact_id", "fact_type", "entity", "attribute",
+                            "raw_value", "normalized_value", "unit",
+                            "comparison_family", "scope", "comparator",
+                            "chapter_id", "section_id", "paragraph_id",
+                            "requirement_ids",
+                        )
+                    }
+                    for item in facts
+                ],
+                "reason_codes": candidate.get("reason_codes") or [],
+                "instruction": (
+                    "Compare only the same entity and attribute. Different explicit phases, "
+                    "fault levels, units, or conditional scopes are not conflicts."
+                ),
+            }
+            units[STABLE_FACT_PASS_TYPE].append(
+                self._unit(
+                    STABLE_FACT_PASS_TYPE,
+                    [candidate["candidate_id"]],
+                    payload,
+                    locs,
+                    requirement_ids=candidate.get("requirement_ids") or [],
+                )
+            )
+        notes[STABLE_FACT_PASS_TYPE] = self._note(
+            stable_fact_candidates,
+            units[STABLE_FACT_PASS_TYPE],
+            skipped=len(stable_fact_candidates) - len(units[STABLE_FACT_PASS_TYPE]),
+        )
 
         terminology_candidates = candidates["terminology"]
         known_terms = _unique(item.get("preferred_term") for item in terminology_candidates)
@@ -1125,6 +1492,59 @@ class TechnicalFulltextSemanticAuditor:
         return None
 
     @staticmethod
+    def _source_requirement_table_context(
+        requirement_metadata: dict[str, Any],
+        *,
+        cell_limit: int = 48,
+    ) -> dict[str, Any] | None:
+        """Expose already parsed tender cells without treating them as bid response cells."""
+        table = requirement_metadata.get("table")
+        if not isinstance(table, dict):
+            return None
+        rows = [item for item in table.get("rows") or [] if isinstance(item, dict)]
+        cells: list[dict[str, Any]] = []
+        total_cell_count = 0
+        column_count = 0
+        for row in rows:
+            for cell in row.get("cells") or []:
+                if not isinstance(cell, dict):
+                    continue
+                total_cell_count += 1
+                column = int(cell.get("column") or 0)
+                column_count = max(column_count, column)
+                text = str(cell.get("text") or "").strip()
+                if len(cells) >= cell_limit or not text:
+                    continue
+                cells.append({
+                    "row": int(cell.get("row") or row.get("row") or 0),
+                    "column": column,
+                    "rowspan": int(cell.get("rowspan") or 1),
+                    "colspan": int(cell.get("colspan") or 1),
+                    "text": text[:500],
+                })
+        if not rows or total_cell_count == 0:
+            return None
+        source_refs = [
+            item
+            for item in requirement_metadata.get("source_refs") or []
+            if isinstance(item, dict)
+        ]
+        source_ref = source_refs[0] if source_refs else {}
+        return {
+            "visibility": "structured_cells",
+            "source_role": "tender_requirement_source_only",
+            "is_bid_response_evidence": False,
+            "row_count": len(rows),
+            "column_count": column_count,
+            "total_cell_count": total_cell_count,
+            "visible_cell_count": len(cells),
+            "is_bounded_projection": len(cells) < total_cell_count,
+            "table_name": source_ref.get("table_name") or "",
+            "table_range": source_ref.get("table_range") or "",
+            "cells": cells,
+        }
+
+    @staticmethod
     def _score_texts(writing_outline: dict[str, Any]) -> dict[str, str]:
         result: dict[str, str] = {}
         for item in writing_outline.get("score_items") or []:
@@ -1181,6 +1601,191 @@ class TechnicalFulltextSemanticAuditor:
             return load_json_object(self.result_schema_path, label="semantic audit result schema")
         except (FileNotFoundError, ValueError) as exc:
             raise TechnicalFulltextSemanticAuditError(f"semantic result schema is unavailable: {exc}") from exc
+
+    def _model_configuration(self, client: LLMClient) -> dict[str, str]:
+        """Return a secret-free, replay-stable model/provider configuration identity."""
+        profile = getattr(client, "profile", None)
+        if profile is not None:
+            identity_payload = {
+                "profile_name": str(getattr(profile, "name", self.model_profile) or self.model_profile),
+                "provider": str(getattr(profile, "provider", "") or ""),
+                "protocol": str(getattr(profile, "protocol", "") or ""),
+                "model": str(getattr(profile, "model", "") or ""),
+                "api_mode": str(getattr(profile, "api_mode", "") or ""),
+                "structured_output_mode": str(
+                    getattr(profile, "structured_output_mode", "") or ""
+                ),
+                "temperature": getattr(profile, "temperature", None),
+                "client_type": f"{type(client).__module__}.{type(client).__qualname__}",
+            }
+        else:
+            # Injected test/provider adapters do not necessarily expose a profile.
+            # Their concrete class plus the selected profile is the strongest
+            # configuration identity available before making a model call.
+            identity_payload = {
+                "profile_name": self.model_profile,
+                "provider": str(getattr(client, "provider", "") or ""),
+                "protocol": str(getattr(client, "protocol", "") or ""),
+                "model": str(getattr(client, "model", "") or ""),
+                "api_mode": str(getattr(client, "api_mode", "") or ""),
+                "structured_output_mode": "",
+                "temperature": None,
+                "client_type": f"{type(client).__module__}.{type(client).__qualname__}",
+            }
+        return {
+            "identity_sha256": stable_json_sha256(identity_payload),
+            "profile_name": identity_payload["profile_name"],
+            "provider": identity_payload["provider"],
+            "model": identity_payload["model"],
+        }
+
+    @staticmethod
+    def _non_requirement_source_context_sha(audit: dict[str, Any]) -> str:
+        return stable_json_sha256({
+            "source_lineage": audit.get("source_lineage"),
+            "source_commit": audit.get("source_commit"),
+            "source_run": audit.get("source_run"),
+            "input_context": audit.get("input_context"),
+        })
+
+    @staticmethod
+    def _audited_content_sha(audit: dict[str, Any]) -> str:
+        value = str(
+            ((audit.get("source_lineage") or {}).get("audited_fulltext") or {}).get(
+                "content_sha256"
+            )
+            or ""
+        )
+        if not re.fullmatch(r"[a-f0-9]{64}", value):
+            raise TechnicalFulltextSemanticAuditError(
+                "semantic observation reuse requires a valid audited content SHA"
+            )
+        return value
+
+    @classmethod
+    def _non_requirement_fingerprint(
+        cls,
+        *,
+        unit: SemanticAuditUnit,
+        audited_content_sha256: str,
+        source_context_sha256: str,
+        model_configuration_sha256: str,
+    ) -> str:
+        if unit.pass_type == "requirement_location":
+            raise ValueError("non-Requirement fingerprint cannot bind a Requirement unit")
+        return stable_json_sha256({
+            "pass_type": unit.pass_type,
+            "semantic_unit_type": NON_REQUIREMENT_SEMANTIC_UNIT_TYPE,
+            "audit_unit_id": unit.audit_unit_id,
+            "normalized_observation_payload_sha256": stable_json_sha256(
+                unit.model_payload()
+            ),
+            "audited_content_sha256": audited_content_sha256,
+            "source_context_sha256": source_context_sha256,
+            "observation_contract_version": NON_REQUIREMENT_OBSERVATION_CONTRACT_VERSION,
+            "prompt_version": NON_REQUIREMENT_PROMPT_VERSION,
+            "result_schema_version": SEMANTIC_RESULT_SCHEMA_VERSION,
+            "model_configuration_sha256": model_configuration_sha256,
+        })
+
+    @staticmethod
+    def _non_requirement_observation(result: dict[str, Any]) -> dict[str, Any]:
+        observation = deepcopy(result)
+        # Verdict is a runtime policy output. It is deliberately not cached.
+        observation.pop("verdict", None)
+        return observation
+
+    @classmethod
+    def _formalize_non_requirement_observation(
+        cls, *, unit: SemanticAuditUnit, observation: dict[str, Any]
+    ) -> dict[str, Any]:
+        result = deepcopy(observation)
+        decision = result.get("decision")
+        verdict = DECISION_VERDICTS.get(unit.pass_type, {}).get(decision)
+        if verdict is None:
+            raise TechnicalFulltextSemanticAuditError(
+                f"cached non-Requirement decision {decision!r} is invalid for pass {unit.pass_type}"
+            )
+        result["verdict"] = verdict
+        cls._validate_non_requirement_result(result, unit=unit)
+        return result
+
+    @classmethod
+    def _validated_non_requirement_cache(
+        cls,
+        audit: dict[str, Any],
+        units_by_pass: dict[str, list[SemanticAuditUnit]],
+        *,
+        audited_content_sha256: str,
+        source_context_sha256: str,
+        model_configuration: dict[str, str],
+    ) -> dict[str, dict[str, Any]]:
+        units = {
+            unit.audit_unit_id: unit
+            for pass_type, pass_units in units_by_pass.items()
+            if pass_type != "requirement_location"
+            for unit in pass_units
+        }
+        expected = {
+            unit.audit_unit_id: cls._non_requirement_fingerprint(
+                unit=unit,
+                audited_content_sha256=audited_content_sha256,
+                source_context_sha256=source_context_sha256,
+                model_configuration_sha256=model_configuration["identity_sha256"],
+            )
+            for unit in units.values()
+        }
+        valid: dict[str, dict[str, Any]] = {}
+        for entry in audit.get("semantic_observation_cache") or []:
+            if not isinstance(entry, dict) or entry.get("pass_type") == "requirement_location":
+                continue
+            unit_id = str(entry.get("audit_unit_id") or "")
+            unit = units.get(unit_id)
+            if unit is None or entry.get("pass_type") != unit.pass_type:
+                continue
+            fingerprint = expected[unit_id]
+            # A compatible miss is not corruption; it simply requires a new
+            # observation for this unit. Policy version is intentionally absent
+            # from the compatibility fingerprint and is replayed below.
+            if entry.get("semantic_fingerprint") != fingerprint:
+                continue
+            required_identity = {
+                "semantic_unit_type": NON_REQUIREMENT_SEMANTIC_UNIT_TYPE,
+                "normalized_observation_payload_sha256": stable_json_sha256(
+                    unit.model_payload()
+                ),
+                "audited_content_sha256": audited_content_sha256,
+                "source_context_sha256": source_context_sha256,
+                "observation_contract_version": NON_REQUIREMENT_OBSERVATION_CONTRACT_VERSION,
+                "prompt_version": NON_REQUIREMENT_PROMPT_VERSION,
+                "result_schema_version": SEMANTIC_RESULT_SCHEMA_VERSION,
+                "model_configuration_sha256": model_configuration["identity_sha256"],
+                "validation_status": "validated",
+            }
+            mismatched = [
+                key for key, value in required_identity.items() if entry.get(key) != value
+            ]
+            if mismatched:
+                raise TechnicalFulltextSemanticAuditError(
+                    "compatible non-Requirement observation cache identity is corrupt: "
+                    f"unit={unit_id}, fields={mismatched}"
+                )
+            observation = entry.get("observation")
+            if not isinstance(observation, dict):
+                raise TechnicalFulltextSemanticAuditError(
+                    f"compatible non-Requirement observation cache is missing payload: {unit_id}"
+                )
+            if entry.get("observation_sha256") != stable_json_sha256(observation):
+                raise TechnicalFulltextSemanticAuditError(
+                    f"compatible non-Requirement observation cache checksum mismatch: {unit_id}"
+                )
+            cls._formalize_non_requirement_observation(unit=unit, observation=observation)
+            if fingerprint in valid:
+                raise TechnicalFulltextSemanticAuditError(
+                    f"duplicate compatible non-Requirement observation cache entry: {unit_id}"
+                )
+            valid[fingerprint] = deepcopy(entry)
+        return valid
 
     @classmethod
     def _validated_requirement_cache(
@@ -1325,6 +1930,69 @@ class TechnicalFulltextSemanticAuditor:
             },
         }
 
+    @staticmethod
+    def _deterministic_stable_fact_result(
+        unit: SemanticAuditUnit,
+    ) -> dict[str, Any] | None:
+        decision = unit.payload.get("deterministic_decision")
+        if decision not in {"consistent", "context_different", "stable_fact_conflict"}:
+            return None
+        facts = unit.payload.get("facts") or []
+        values = _unique(
+            f"{item.get('chapter_id')}/{item.get('section_id')}: "
+            f"{item.get('raw_value')} -> {item.get('normalized_value')} {item.get('unit')}"
+            for item in facts
+        )
+        entity = str(unit.payload.get("entity") or "stable_fact")
+        attribute = str(unit.payload.get("attribute") or "value")
+        subject = {
+            "subject_type": "stable_fact",
+            "canonical_key": f"{entity}.{attribute}",
+            "display_name": f"{entity} / {attribute}",
+        }
+        if decision == "stable_fact_conflict":
+            verdict = "issue"
+            summary = "跨章节稳定事实存在明显冲突：" + "；".join(values)
+            rationale = (
+                "各位置指向同一实体和同一稳定属性，归一化后值不同，且未发现可区分的阶段或条件范围。"
+            )
+            action = {
+                "resolution_kind": "resolve_stable_fact_conflict",
+                "text": "核对权威事实来源，统一所有列示位置，并保留一处可追溯的正式承诺。",
+            }
+        elif decision == "context_different":
+            verdict = "acceptable"
+            summary = "跨章节数值属于不同明确上下文，不构成稳定事实冲突。"
+            rationale = "位置具有可区分的阶段、故障级别或条件范围，运行时未将数值差异误判为冲突。"
+            action = {"resolution_kind": "none", "text": "无需处理。"}
+        else:
+            verdict = "acceptable"
+            summary = "同一跨章节稳定事实归一化值一致。"
+            rationale = "各位置指向同一实体和属性，归一化后的值及可比单位一致。"
+            action = {"resolution_kind": "none", "text": "无需处理。"}
+        return {
+            "audit_unit_id": unit.audit_unit_id,
+            "decision": decision,
+            "verdict": verdict,
+            "confidence": "high",
+            "subject": subject,
+            "location_ids": [item["location_id"] for item in unit.locations],
+            "requirement_ids": list(unit.requirement_ids),
+            "score_item_ids": [],
+            "placeholder_ids": [],
+            "summary": summary,
+            "rationale": rationale,
+            "details": {
+                "values": values,
+                "comparison": decision,
+                "evidence_notes": _unique(unit.payload.get("reason_codes") or []),
+            },
+            "suggested_severity": "blocking" if verdict == "issue" else None,
+            "suggested_release_blocking": verdict == "issue",
+            "recommended_action": action,
+            "requires_human_review": verdict == "issue",
+        }
+
     @classmethod
     def _uncertain_requirement_observation(
         cls, unit: SemanticAuditUnit, *, reason: str
@@ -1356,13 +2024,35 @@ class TechnicalFulltextSemanticAuditor:
         }
 
     def _call_batch(self, *, client: LLMClient, audit: dict[str, Any], batch_id: str, pass_type: str, units: list[SemanticAuditUnit], response_schema: dict[str, Any]) -> tuple[list[dict[str, Any]], list[ModelCallResult]]:
+        self._validate_unit_identity_list(units, pass_type=pass_type)
         batch_schema = deepcopy(response_schema)
         batch_schema["properties"]["batch_id"] = {"const": batch_id}
         batch_schema["properties"]["pass_type"] = {"const": pass_type}
+        expected_unit_ids = [unit.audit_unit_id for unit in units]
         if pass_type == "requirement_location":
+            if len(units) != 1:
+                raise TechnicalFulltextSemanticAuditError(
+                    "requirement_location provider calls must contain exactly one audit unit"
+                )
+            expected_requirement_ids = list(units[0].requirement_ids)
             batch_schema["properties"]["results"] = {
                 "type": "array",
-                "items": {"$ref": "#/$defs/requirementObservationResult"},
+                "minItems": len(units),
+                "maxItems": len(units),
+                "items": {
+                    "allOf": [
+                        {"$ref": "#/$defs/requirementObservationResult"},
+                        {
+                            "type": "object",
+                            "properties": {
+                                "audit_unit_id": {"const": expected_unit_ids[0]},
+                                "requirement_ids": {
+                                    "const": expected_requirement_ids
+                                },
+                            },
+                        },
+                    ]
+                },
             }
         else:
             result_definition = batch_schema["$defs"]["result"]
@@ -1515,6 +2205,15 @@ Only a clear answer_response + yes combination may be independent_response/subst
 
 Do not recommend moving evidence-index material merely because its requirement was planned under a broader technical-material section. Do not require an explicit transition sentence or exact heading match. Base the decision on the supplied excerpts and section responsibilities.
 """
+        elif pass_type == STABLE_FACT_PASS_TYPE:
+            requirement_calibration = """
+CROSS-SECTION STABLE FACT RULES:
+- The runtime has already resolved high-confidence equal values, explicit context differences, and directly comparable conflicts.
+- You receive only an ambiguous entity/attribute group. Decide stable_fact_conflict only when the locations make the same entity, attribute, scope, phase, condition, and unit clearly comparable.
+- Use context_different when different phases, fault levels, product entities, conditional scopes, or compatible thresholds explain the values.
+- Do not infer a product, company, material, certificate, parameter, or commitment hidden behind a placeholder.
+- For an issue, cite every supplied location that participates in the conflict and preserve every supplied Requirement ID.
+"""
         elif pass_type == "adjacent_chapter_coherence":
             requirement_calibration = """
 ADJACENT CHAPTER LOCATION RULES:
@@ -1544,7 +2243,102 @@ OUTPUT AUTHORITY RULES:
 Do not output chain-of-thought; provide a concise rationale based only on visible evidence."""
 
     @staticmethod
+    def _validate_non_requirement_result(
+        result: dict[str, Any], *, unit: SemanticAuditUnit
+    ) -> None:
+        required = {
+            "audit_unit_id",
+            "decision",
+            "verdict",
+            "confidence",
+            "subject",
+            "location_ids",
+            "requirement_ids",
+            "score_item_ids",
+            "placeholder_ids",
+            "summary",
+            "rationale",
+            "details",
+            "suggested_severity",
+            "suggested_release_blocking",
+            "recommended_action",
+            "requires_human_review",
+        }
+        missing = sorted(required - set(result))
+        if missing:
+            raise TechnicalFulltextSemanticAuditError(
+                f"non-Requirement observation is missing fields: {missing}"
+            )
+        if result["audit_unit_id"] != unit.audit_unit_id:
+            raise TechnicalFulltextSemanticAuditError(
+                "non-Requirement observation audit_unit_id mismatch"
+            )
+        decision = result["decision"]
+        allowed_decisions = DECISION_VERDICTS[unit.pass_type]
+        if decision not in allowed_decisions:
+            raise TechnicalFulltextSemanticAuditError(
+                f"decision {decision!r} is invalid for pass {unit.pass_type}"
+            )
+        if result["verdict"] != allowed_decisions[decision]:
+            raise TechnicalFulltextSemanticAuditError(
+                "runtime verdict does not match the pass decision policy: "
+                f"decision={decision}, expected={allowed_decisions[decision]}, "
+                f"actual={result['verdict']}"
+            )
+        allowed = {
+            "location_ids": {item["location_id"] for item in unit.locations},
+            "requirement_ids": set(unit.requirement_ids),
+            "score_item_ids": set(unit.score_item_ids),
+            "placeholder_ids": set(unit.placeholder_ids),
+        }
+        for field, values in allowed.items():
+            returned_values = result.get(field)
+            if not isinstance(returned_values, list):
+                raise TechnicalFulltextSemanticAuditError(
+                    f"non-Requirement observation {field} must be an array"
+                )
+            returned = set(returned_values)
+            if not returned.issubset(values):
+                raise TechnicalFulltextSemanticAuditError(
+                    f"model returned unknown {field}: {sorted(returned - values)}"
+                )
+        if result["verdict"] == "issue" and not result["location_ids"]:
+            raise TechnicalFulltextSemanticAuditError(
+                "issue verdict must identify at least one allowed location"
+            )
+        if result["verdict"] == "acceptable" and (
+            result["suggested_severity"] is not None
+            or result["suggested_release_blocking"]
+        ):
+            raise TechnicalFulltextSemanticAuditError(
+                "acceptable verdict cannot suggest severity or release blocking"
+            )
+        if result["verdict"] == "uncertain" and result["suggested_release_blocking"]:
+            raise TechnicalFulltextSemanticAuditError(
+                "uncertain verdict cannot independently suggest release blocking"
+            )
+        if result["verdict"] == "issue" and not result["requires_human_review"]:
+            raise TechnicalFulltextSemanticAuditError(
+                "semantic issue verdict must remain subject to human review"
+            )
+        if unit.pass_type == "placeholder_alias" and set(
+            result["placeholder_ids"]
+        ) != set(unit.placeholder_ids):
+            raise TechnicalFulltextSemanticAuditError(
+                "placeholder alias result must bind all candidate placeholders"
+            )
+        if unit.pass_type == "score_distribution" and set(
+            result["score_item_ids"]
+        ) != set(unit.score_item_ids):
+            raise TechnicalFulltextSemanticAuditError(
+                "score result must bind its supplied score item"
+            )
+
+    @staticmethod
     def _validate_batch_output(payload: dict[str, Any], *, batch_id: str, pass_type: str, units: list[SemanticAuditUnit], schema: dict[str, Any]) -> None:
+        TechnicalFulltextSemanticAuditor._validate_unit_identity_list(
+            units, pass_type=pass_type
+        )
         errors = sorted(Draft202012Validator(schema).iter_errors(payload), key=lambda error: list(error.path))
         if errors:
             detail = "; ".join(f"{'/'.join(str(part) for part in error.path) or '<root>'}: {error.message}" for error in errors[:5])
@@ -1554,9 +2348,25 @@ Do not output chain-of-thought; provide a concise rationale based only on visibl
         unit_map = {unit.audit_unit_id: unit for unit in units}
         results = payload.get("results") or []
         result_ids = [item.get("audit_unit_id") for item in results]
-        if len(result_ids) != len(set(result_ids)) or set(result_ids) != set(unit_map):
-            raise TechnicalFulltextSemanticAuditError("model must return each supplied audit_unit_id exactly once")
-        allowed_decisions = DECISION_VERDICTS[pass_type]
+        result_counts = Counter(result_ids)
+        duplicate_ids = sorted(
+            str(unit_id) for unit_id, count in result_counts.items() if count > 1
+        )
+        missing_ids = sorted(set(unit_map) - set(result_ids))
+        unexpected_ids = sorted(
+            str(unit_id) for unit_id in set(result_ids) - set(unit_map)
+        )
+        if (
+            len(result_ids) != len(units)
+            or duplicate_ids
+            or missing_ids
+            or unexpected_ids
+        ):
+            raise TechnicalFulltextSemanticAuditError(
+                "model must return each supplied audit_unit_id exactly once: "
+                f"missing={missing_ids}, duplicate={duplicate_ids}, "
+                f"unexpected={unexpected_ids}"
+            )
         for result in results:
             unit = unit_map[result["audit_unit_id"]]
             if pass_type == "requirement_location":
@@ -1565,54 +2375,46 @@ Do not output chain-of-thought; provide a concise rationale based only on visibl
                         "requirement observation must bind its supplied requirement"
                     )
                 continue
-            decision = result["decision"]
-            if decision not in allowed_decisions:
-                raise TechnicalFulltextSemanticAuditError(f"decision {decision!r} is invalid for pass {pass_type}")
-            if result["verdict"] != allowed_decisions[decision]:
-                raise TechnicalFulltextSemanticAuditError(
-                    "model verdict does not match the pass decision contract: "
-                    f"decision={decision}, expected={allowed_decisions[decision]}, "
-                    f"actual={result['verdict']}"
-                )
-            allowed = {
-                "location_ids": {item["location_id"] for item in unit.locations},
-                "requirement_ids": set(unit.requirement_ids),
-                "score_item_ids": set(unit.score_item_ids),
-                "placeholder_ids": set(unit.placeholder_ids),
-            }
-            for field, values in allowed.items():
-                returned = set(result[field])
-                if not returned.issubset(values):
-                    raise TechnicalFulltextSemanticAuditError(f"model returned unknown {field}: {sorted(returned - values)}")
-            if result["verdict"] == "issue" and not result["location_ids"]:
-                raise TechnicalFulltextSemanticAuditError("issue verdict must identify at least one allowed location")
-            if result["verdict"] == "acceptable" and (
-                result["suggested_severity"] is not None
-                or result["suggested_release_blocking"]
-            ):
-                raise TechnicalFulltextSemanticAuditError(
-                    "acceptable verdict cannot suggest severity or release blocking"
-                )
-            if result["verdict"] == "uncertain" and result["suggested_release_blocking"]:
-                raise TechnicalFulltextSemanticAuditError(
-                    "uncertain verdict cannot independently suggest release blocking"
-                )
-            if result["verdict"] == "issue" and not result["requires_human_review"]:
-                raise TechnicalFulltextSemanticAuditError(
-                    "semantic issue verdict must remain subject to human review"
-                )
-            if pass_type == "placeholder_alias" and set(result["placeholder_ids"]) != set(unit.placeholder_ids):
-                raise TechnicalFulltextSemanticAuditError(
-                    "placeholder alias result must bind all candidate placeholders"
-                )
-            if pass_type == "requirement_location" and set(result["requirement_ids"]) != set(unit.requirement_ids):
-                raise TechnicalFulltextSemanticAuditError(
-                    "requirement result must bind its supplied requirement"
-                )
-            if pass_type == "score_distribution" and set(result["score_item_ids"]) != set(unit.score_item_ids):
-                raise TechnicalFulltextSemanticAuditError(
-                    "score result must bind its supplied score item"
-                )
+            TechnicalFulltextSemanticAuditor._validate_non_requirement_result(
+                result, unit=unit
+            )
+
+    @staticmethod
+    def _validate_unit_identity_list(
+        units: list[SemanticAuditUnit], *, pass_type: str
+    ) -> None:
+        unit_ids = [unit.audit_unit_id for unit in units]
+        missing_indexes = [
+            index
+            for index, unit_id in enumerate(unit_ids)
+            if not isinstance(unit_id, str) or not unit_id.strip()
+        ]
+        duplicate_ids = sorted(
+            unit_id
+            for unit_id, count in Counter(unit_ids).items()
+            if isinstance(unit_id, str) and unit_id and count > 1
+        )
+        mismatched_pass_indexes = [
+            index
+            for index, unit in enumerate(units)
+            if unit.pass_type != pass_type
+        ]
+        if missing_indexes or duplicate_ids or mismatched_pass_indexes:
+            raise TechnicalFulltextSemanticAuditError(
+                "semantic audit unit identity preflight failed: "
+                f"pass_type={pass_type}, missing_indexes={missing_indexes}, "
+                f"duplicate={duplicate_ids}, "
+                f"pass_mismatch_indexes={mismatched_pass_indexes}"
+            )
+
+    @classmethod
+    def _validate_unit_identities(
+        cls, units_by_pass: dict[str, list[SemanticAuditUnit]]
+    ) -> None:
+        for pass_type in PASS_ORDER:
+            cls._validate_unit_identity_list(
+                units_by_pass.get(pass_type) or [], pass_type=pass_type
+            )
 
     @staticmethod
     def _to_finding(*, pass_type: str, unit: SemanticAuditUnit, result: dict[str, Any]) -> dict[str, Any]:

@@ -6,6 +6,7 @@ from types import SimpleNamespace
 
 import pytest
 
+import app.technical_writing_agent as technical_writing_agent_module
 from app.llm_client import ToolModelResult, empty_usage
 from app.llm_profiles import LLMProfile
 from app.openai_compatible_llm_client import OpenAICompatibleLLMClient
@@ -593,14 +594,16 @@ def test_failed_run_report_extracts_only_chapter_candidate_and_strips_report_fie
     }
     assert normalized["chapter_title"] == "实施部署方案"
     assert [item["heading"] for item in normalized["sections"]] == HEADINGS
-    assert all(set(item) == {
+    required_section_fields = {
         "heading",
         "block_type",
         "content",
         "covered_score_item_ids",
         "covered_requirement_ids",
         "placeholder_ids",
-    } for item in normalized["sections"])
+    }
+    assert all(required_section_fields <= set(item) <= required_section_fields | {"section_id"} for item in normalized["sections"])
+    assert all(item.get("section_id") for item in normalized["sections"])
     assert not ({"chapter_id", "draft_status", "source_usage", "saved_path", "summary", "title"} & set(normalized))
 
 
@@ -1076,6 +1079,144 @@ def test_partial_working_draft_is_incomplete_and_no_failure_markdown_is_created(
     assert result["draft_status"] == "partial_draft"
     assert result["working_draft"]["sections"][0]["title"] == HEADINGS[0]
     assert not (tmp_path / "hospital_hci_001/drafts/WC-003.md").exists()
+
+
+class CompleteStagedDraftThenRuntimeModel:
+    def __init__(self, *, complete: bool = True):
+        self.complete = complete
+        self.calls = 0
+        self.agent = None
+
+    def run_with_tools(self, **kwargs):
+        self.calls += 1
+        draft = valid_wc003_draft()
+        sections = [
+            {
+                "section_id": f"WC-003-{index:02d}",
+                "title": section["heading"],
+                "content": section["content"],
+            }
+            for index, section in enumerate(draft["sections"], start=1)
+        ]
+        if not self.complete:
+            sections = sections[:1]
+        # The first normal turn has finished.  The next loop iteration must
+        # take the runtime path without asking this model for a final object.
+        self.agent.max_runtime_seconds = 0
+        return ToolModelResult(
+            "tool_calls",
+            [{"tool_call_id": "save-all", "name": "save_section_draft", "arguments": {"sections": sections}}],
+            None,
+            {"provider": "fake", "usage": empty_usage()},
+        )
+
+
+def _runtime_limited_staged_agent(tmp_path, *, complete=True):
+    model = CompleteStagedDraftThenRuntimeModel(complete=complete)
+    agent = build_fake_agent(
+        tmp_path,
+        model,
+        max_agent_steps=4,
+        max_auto_repair_rounds=0,
+    )
+    model.agent = agent
+    return agent, model
+
+
+def test_max_runtime_complete_staged_draft_finalizes_without_another_model_call(tmp_path):
+    agent, model = _runtime_limited_staged_agent(tmp_path)
+    result = agent.run()
+
+    assert model.calls == 1
+    assert result["stop_reason"] == "max_runtime_exceeded"
+    assert result["generation_completed"] is True
+    assert result["candidate_saved"] is True
+    assert result["candidate_reviewable"] is True
+    assert result["run_summary"]["section_count_completed"] == result["run_summary"]["section_count_expected"]
+    assert result["run_summary"]["forced_finalization"] is True
+
+
+def test_max_runtime_partial_staged_draft_remains_incomplete(tmp_path):
+    agent, model = _runtime_limited_staged_agent(tmp_path, complete=False)
+    result = agent.run()
+
+    assert model.calls == 1
+    assert result["status"] == "incomplete"
+    assert result["stop_reason"] == "max_runtime_exceeded"
+    assert result["candidate_saved"] is False
+
+
+@pytest.mark.parametrize(
+    ("severity", "candidate_saved"),
+    [("blocking", True), ("fatal", False)],
+)
+def test_max_runtime_complete_staged_draft_keeps_blocked_or_fatal_validation_boundary(
+    tmp_path, monkeypatch, severity, candidate_saved
+):
+    original = technical_writing_agent_module.validate_technical_chapter
+
+    def validation_with_issue(*args, **kwargs):
+        result = original(*args, **kwargs)
+        result["issues"].append(
+            {
+                "severity": severity,
+                "category": "test",
+                "code": f"runtime_{severity}",
+                "message": f"runtime {severity}",
+            }
+        )
+        result["issue_counts"][severity] = result["issue_counts"].get(severity, 0) + 1
+        result["valid"] = False
+        result["validation_status"] = severity
+        return result
+
+    monkeypatch.setattr(
+        technical_writing_agent_module,
+        "validate_technical_chapter",
+        validation_with_issue,
+    )
+    agent, _ = _runtime_limited_staged_agent(tmp_path)
+    result = agent.run()
+
+    assert result["candidate_saved"] is candidate_saved
+    assert result["candidate_reviewable"] is candidate_saved
+    assert result["submission_ready"] is False
+
+
+def test_source_backed_tender_metadata_is_available_without_pending_confirmation(tmp_path):
+    context = make_context(tmp_path)
+    context.tender_metadata = {
+        "fields": {
+            "project_name": {
+                "value": "已解析项目名称",
+                "source_file_id": "tender-file-1",
+                "source_file_name": "采购文件.docx",
+                "source_type": "full_tender_document",
+                "evidence": "项目名称：已解析项目名称",
+            },
+            "tender_no": {
+                "value": "PROC-2026-001",
+                "source_file_id": "tender-file-1",
+                "source_file_name": "采购文件.docx",
+                "source_type": "full_tender_document",
+                "evidence": "采购编号：PROC-2026-001",
+            },
+        }
+    }
+
+    facts = context.get_confirmed_project_facts({})
+    assert facts["facts"]["project_name"] == "已解析项目名称"
+    assert facts["facts"]["project_number"] == "PROC-2026-001"
+    assert facts["fact_records"]["project_name"]["source_refs"][0]["source_file_id"] == "tender-file-1"
+    pending = context.record_pending_confirmation(
+        {"field": "project_name", "question": "请确认项目名称", "reason": "正文引用"}
+    )
+    assert pending["status"] == "not_required"
+    project_number_pending = context.record_pending_confirmation(
+        {"field": "project_number", "question": "Confirm project number", "reason": "body reference"}
+    )
+    assert project_number_pending["status"] == "not_required"
+    assert context.pending_confirmations == []
 
 
 def test_event_jsonl_is_valid_flushed_and_contains_no_prompt_or_credentials(tmp_path):

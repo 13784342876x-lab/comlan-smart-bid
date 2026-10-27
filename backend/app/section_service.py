@@ -1,14 +1,25 @@
 from config import BACKEND_ROOT
-from app.kb_service import KnowledgeBaseService
-from app.llm_mock import mock_section_content
+from app.agent_runner import run_agent
 
 
 class SectionService:
-    def __init__(self) -> None:
-        self.kb = KnowledgeBaseService()
-
-    def generate_section(self, section: str, query: str) -> dict:
-        kb_results = self.kb.search(query, top_k=5)
-        _ = (BACKEND_ROOT / "agents" / "technical_writer" / "system.txt").read_text(encoding="utf-8")
-        _ = (BACKEND_ROOT / "agents" / "technical_writer" / "user_template.txt").read_text(encoding="utf-8")
-        return mock_section_content(section, query, kb_results)
+    def generate_section(self, section: str, query: str, model_profile: str | None = None) -> dict:
+        # The legacy vector index contains hash embeddings, not semantic evidence.
+        result = run_agent("technical_writer", {
+            "task_name": section, "writing_goal": query,
+            "evidence_refs": [], "missing_materials": [
+                {"reason": "语义检索不可用：旧向量索引尚未迁移至真实 embedding；不得编造证明材料或引用"},
+            ],
+        }, agents_dir=str(BACKEND_ROOT / "agents"), model_profile=model_profile)
+        payload = result.get("result")
+        payload = payload if isinstance(payload, dict) else {}
+        content = str(payload.get("content") or result.get("raw_output") or "")
+        if result.get("status") == "success" and not content.strip():
+            result["status"] = "failed"
+            result.setdefault("errors", []).append("model returned no section content")
+        return {
+            "section_name": section, "content": content, "used_kb_files": [],
+            "status": result["status"], "run_result": result,
+            "retrieval_status": "unavailable", "audit_status": "not_reviewed",
+            "warnings": ["语义检索不可用；当前草稿未绑定知识库证据，需人工补充与审核"],
+        }

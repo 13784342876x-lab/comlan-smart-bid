@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stage11_execution_manifest_v1.json",
+  "title": "Canonical Stage11 Execution Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "canonical_stage",
+    "capability",
+    "alias_ordering_is_canonical",
+    "business_stage_boundaries",
+    "requirement_semantic_calibration",
+    "execution_steps"
+  ],
+  "properties": {
+    "$schema": { "type": "string", "minLength": 1 },
+    "schema_version": { "const": "stage11_execution_manifest_v1" },
+    "canonical_stage": { "const": "Stage11" },
+    "capability": { "const": "fulltext_machine_audit" },
+    "alias_ordering_is_canonical": { "const": false },
+    "business_stage_boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["Stage10", "Stage11", "Stage12", "Stage13", "Stage14"],
+      "properties": {
+        "Stage10": { "const": "fulltext_generation_and_composition" },
+        "Stage11": { "const": "fulltext_machine_audit" },
+        "Stage12": { "const": "fulltext_human_review" },
+        "Stage13": { "const": "human_review_driven_fulltext_revision" },
+        "Stage14": { "const": "word_pdf_assembly_and_final_release" }
+      }
+    },
+    "requirement_semantic_calibration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runtime_step",
+        "historical_stage",
+        "status",
+        "observation_contract",
+        "prompt",
+        "runtime_policy"
+      ],
+      "properties": {
+        "runtime_step": { "const": "Stage11.2" },
+        "historical_stage": { "const": "Stage11-C" },
+        "status": { "const": "stable_calibration_history_not_independent_runtime_step" },
+        "observation_contract": { "const": "requirement_semantic_observation_v4" },
+        "prompt": { "const": "requirement_semantic_observation_prompt_v4" },
+        "runtime_policy": { "const": "requirement_semantic_decision_policy_v1" }
+      }
+    },
+    "execution_steps": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/executionStep" }
+    }
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "executionStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonical_stage",
+        "capability",
+        "execution_order",
+        "depends_on",
+        "consumes",
+        "produces",
+        "historical_alias"
+      ],
+      "properties": {
+        "canonical_stage": { "pattern": "^Stage11\\.[0-4]$" },
+        "capability": { "type": "string", "minLength": 1 },
+        "execution_order": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "depends_on": { "$ref": "#/$defs/stringArray" },
+        "consumes": { "$ref": "#/$defs/stringArray" },
+        "produces": { "$ref": "#/$defs/stringArray" },
+        "historical_alias": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "compatibility_notes": { "$ref": "#/$defs/stringArray" }
+      }
+    }
+  }
+}

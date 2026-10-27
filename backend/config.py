@@ -25,6 +25,13 @@ INGEST_ALLOWED_EXTENSIONS = {
     "jpeg",
     "webp",
 }
+SOURCE_PACKAGE_ARCHIVE_EXTENSIONS = {"zip"}
+# Archive-expansion limits are deliberately centralized because this facility is
+# shared by ingest-auto and project-scoped bid ingestion.
+SOURCE_PACKAGE_MAX_ARCHIVE_DEPTH = 6
+SOURCE_PACKAGE_MAX_FILE_COUNT = 2_000
+SOURCE_PACKAGE_MAX_SINGLE_FILE_BYTES = 100 * 1024 * 1024
+SOURCE_PACKAGE_MAX_TOTAL_UNCOMPRESSED_BYTES = 1_000 * 1024 * 1024
 PARSE_ALLOWED_EXTENSIONS = INGEST_ALLOWED_EXTENSIONS | {"txt"}
 
 MIME_TYPES = {

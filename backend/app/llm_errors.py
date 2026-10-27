@@ -49,7 +49,9 @@ class ModelResponseError(ModelError):
 
 
 class ModelOutputIncompleteError(ModelResponseError):
-    pass
+    # A provider response/stream that lacks a usable terminal output is a
+    # transient execution failure, not a semantic chapter-review finding.
+    retryable = True
 
 
 class ModelJsonParseError(ModelResponseError):

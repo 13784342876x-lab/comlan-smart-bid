@@ -71,20 +71,26 @@ REDIRECT_REFERENCE_VALUES = {
 
 
 def extract_tender_metadata(
-    lot_name: str,
+    lot_name: str | None,
     metadata: dict[str, Any] | None = None,
     metadata_path: Path = METADATA_PATH,
     tender_projects_path: Path = TENDER_PROJECTS_PATH,
     save: bool = True,
+    lot_resolution_status: str | None = None,
 ) -> dict[str, Any]:
     metadata = metadata or MetadataStore(metadata_path).load()
     sources = inspect_tender_source_files(lot_name, metadata)
     candidates = collect_field_candidates(sources, lot_name, metadata)
     fields = {field: choose_field(field, candidates.get(field, [])) for field in FIELD_NAMES}
+    if lot_resolution_status == "not_applicable":
+        for field_name in ("lot_no", "lot_name", "package_no", "package_name"):
+            if not fields[field_name].get("value"):
+                fields[field_name]["requires_manual_confirm"] = False
     manual_confirm_items = build_manual_confirm_items(fields)
     result = {
         "version": "v0",
         "lot_name": lot_name,
+        "lot_resolution_status": lot_resolution_status,
         "fields": fields,
         "candidate_sources": sources,
         "field_candidates": candidates,
@@ -108,7 +114,7 @@ def inspect_tender_metadata(
     return value
 
 
-def inspect_tender_source_files(lot_name: str, metadata: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+def inspect_tender_source_files(lot_name: str | None, metadata: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     metadata = metadata or MetadataStore().load()
     rows: list[dict[str, Any]] = []
     for record in list(metadata.get("files") or []):
@@ -136,7 +142,7 @@ def inspect_tender_source_files(lot_name: str, metadata: dict[str, Any] | None =
     return sorted(rows, key=lambda item: (priority_value(item), -int(item.get("parsed_text_len") or 0), str(item.get("source_file_name") or "")))
 
 
-def collect_field_candidates(sources: list[dict[str, Any]], lot_name: str, metadata: dict[str, Any] | None = None) -> dict[str, list[dict[str, Any]]]:
+def collect_field_candidates(sources: list[dict[str, Any]], lot_name: str | None, metadata: dict[str, Any] | None = None) -> dict[str, list[dict[str, Any]]]:
     metadata = metadata or MetadataStore().load()
     records = {str(item.get("id") or item.get("file_id") or ""): item for item in list(metadata.get("files") or []) if isinstance(item, dict)}
     by_field: dict[str, list[dict[str, Any]]] = {field: [] for field in FIELD_NAMES}
@@ -336,7 +342,7 @@ DEMAND_HEADER_ALIASES = {
 }
 
 
-def extract_lot_package_fields(record: dict[str, Any], source: dict[str, Any], lot_name: str) -> dict[str, dict[str, Any]]:
+def extract_lot_package_fields(record: dict[str, Any], source: dict[str, Any], lot_name: str | None) -> dict[str, dict[str, Any]]:
     if not lot_name or source.get("source_type") not in {"procurement_package_table", "tender_notice_attachment"}:
         return {}
     rows = table_like_rows(record)

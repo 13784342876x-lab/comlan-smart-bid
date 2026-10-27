@@ -13,9 +13,15 @@ from app.enterprise_knowledge_query import query_enterprise_evidence_candidates
 from app.metadata_store import MetadataStore
 from app.technical_agent_context_loader import load_technical_agent_context
 from app.technical_placeholders import attach_placeholder_identity
+from app.stage9_input_handoff import (
+    scoped_task_contexts,
+    validate_stage9_input_handoff,
+)
 from app.technical_tool_registry import RegisteredTool, TechnicalToolRegistry, object_schema
 from app.technical_writing_quality import (
     collect_applicable_tender_tables,
+    confirmation_baselines_from_response,
+    confirmation_requirement,
     tender_response_policy,
 )
 from app.web_research_tools import open_web_page, search_web
@@ -53,6 +59,8 @@ class TechnicalWritingToolContext:
     target_section_id: str | None
     draft_units_path: Path | None = None
     confirmed_project_facts_path: Path | None = None
+    writing_constraint_context: dict[str, Any] = field(default_factory=dict)
+    tender_metadata: dict[str, Any] = field(default_factory=dict)
     metadata_store: MetadataStore = field(default_factory=MetadataStore)
     web_provider: Any = field(default_factory=NotConfiguredSearchProvider)
     web_disabled: bool = False
@@ -156,6 +164,21 @@ class TechnicalWritingToolContext:
                         )
                         if item not in self.pending_confirmations:
                             self.pending_confirmations.append(item)
+        self._resolved_task_contexts: list[dict[str, Any]] = []
+        if self.writing_constraint_context:
+            validate_stage9_input_handoff(
+                self.writing_constraint_context,
+                response_outline_path=self.response_outline_path,
+                writing_outline_path=self.writing_outline_path,
+                task_information_path=self.task_information_path,
+                confirmed_project_facts_path=self.confirmed_project_facts_path,
+            )
+            self._resolved_task_contexts = scoped_task_contexts(
+                self.writing_constraint_context,
+                chapter_id=self.target_chapter_id,
+                section_id=self.target_section_id,
+            )
+            self._register_handoff_placeholders()
 
     @property
     def draft_path(self) -> Path:
@@ -273,8 +296,7 @@ class TechnicalWritingToolContext:
                 continue
             if self.target_section_id and str(task.get("section_id") or "") != self.target_section_id:
                 continue
-            tasks.append(
-                {
+            item = {
                     "task_id": task.get("task_id"),
                     "section_id": task.get("section_id"),
                     "target_path": task.get("target_path") or [],
@@ -283,7 +305,17 @@ class TechnicalWritingToolContext:
                     "information_requirements": task.get("information_requirements") or {},
                     "draftability": task.get("draftability") or {},
                 }
+            resolved = next(
+                (
+                    value
+                    for value in self._resolved_task_contexts
+                    if value.get("task_id") == task.get("task_id")
+                ),
+                None,
             )
+            if resolved is not None:
+                item["resolved_context"] = copy.deepcopy(resolved)
+            tasks.append(item)
         self.consulted_score_item_ids.extend(
             value
             for value in (
@@ -294,6 +326,64 @@ class TechnicalWritingToolContext:
             if value and value not in self.consulted_score_item_ids
         )
         return {"status": "success", "task_count": len(tasks), "tasks": tasks}
+
+    def get_resolved_task_context(self, args: dict[str, Any]) -> dict[str, Any]:
+        self._assert_target(args)
+        if not self._resolved_task_contexts:
+            return {
+                "status": "not_available",
+                "reason": "no Human Confirmation constraint handoff was supplied",
+                "tasks": [],
+            }
+        return {
+            "status": "success",
+            "policy": str(
+                self.writing_constraint_context.get("pending_policy")
+                or "placeholder_required"
+            ),
+            "input_fingerprint": self.writing_constraint_context.get("fingerprint"),
+            "tasks": copy.deepcopy(self._resolved_task_contexts),
+        }
+
+    def _register_handoff_placeholders(self) -> None:
+        existing_ids = {
+            str(item.get("placeholder_id") or "") for item in self.pending_confirmations
+        }
+        for task in self._resolved_task_contexts:
+            for raw in task.get("placeholder_requirements") or []:
+                placeholder_id = str(raw.get("placeholder_id") or "")
+                if not placeholder_id or placeholder_id in existing_ids:
+                    continue
+                pending_match = next(
+                    (
+                        item
+                        for item in task.get("pending_confirmations") or []
+                        if item.get("confirmation_id") == raw.get("source_id")
+                    ),
+                    {},
+                )
+                item = attach_placeholder_identity(
+                    {
+                        "field": str(raw.get("field") or ""),
+                        "placeholder_id": placeholder_id,
+                        "question": str(
+                            pending_match.get("question")
+                            or raw.get("label")
+                            or "需要人工确认"
+                        ),
+                        "reason": "写作任务依赖的业务选择尚未确认",
+                        "affected_sections": [str(task.get("section_id") or "")],
+                        # The task may still be generated, but this exact
+                        # placeholder must survive in the candidate until the
+                        # business choice is confirmed.
+                        "blocking": True,
+                        "status": "pending",
+                        "source_kind": "human_confirmation",
+                        "source_id": raw.get("source_id"),
+                    }
+                )
+                self.pending_confirmations.append(item)
+                existing_ids.add(placeholder_id)
 
     def get_draft_plan(self, args: dict[str, Any]) -> dict[str, Any]:
         self._assert_target(args)
@@ -335,19 +425,25 @@ class TechnicalWritingToolContext:
         }
 
     def get_confirmed_project_facts(self, args: dict[str, Any]) -> dict[str, Any]:
-        if not self.confirmed_project_facts_path or not self.confirmed_project_facts_path.is_file():
-            return {"status": "not_available", "facts": {}}
-        payload = _load_json(self.confirmed_project_facts_path)
         facts: dict[str, Any] = {}
         fact_records: dict[str, Any] = {}
-        for key, value in dict(payload.get("facts") or {}).items():
-            if isinstance(value, dict) and str(value.get("status") or value.get("confirmation_status") or "") == "confirmed":
-                facts[str(key)] = value.get("value")
-                fact_records[str(key)] = copy.deepcopy(value)
+        source_backed = _source_backed_tender_facts(self.tender_metadata)
+        for key, record in source_backed.items():
+            facts[key] = record["value"]
+            fact_records[key] = copy.deepcopy(record)
+        if self.confirmed_project_facts_path and self.confirmed_project_facts_path.is_file():
+            payload = _load_json(self.confirmed_project_facts_path)
+            for key, value in dict(payload.get("facts") or {}).items():
+                if isinstance(value, dict) and str(value.get("status") or value.get("confirmation_status") or "") == "confirmed":
+                    facts[str(key)] = value.get("value")
+                    fact_records[str(key)] = copy.deepcopy(value)
+        if not facts:
+            return {"status": "not_available", "facts": {}}
         return {
             "status": "success",
             "facts": facts,
             "fact_records": fact_records,
+            "source_backed_tender_facts": source_backed,
             "unconfirmed_values_omitted": True,
         }
 
@@ -706,6 +802,12 @@ class TechnicalWritingToolContext:
                         value.get("blocking", True),
                     )
                 ),
+                "fact_semantic_field": value.get("fact_semantic_field"),
+                "proposed_value": value.get("proposed_value"),
+                "normalized_value": value.get("normalized_value"),
+                "unit": value.get("unit"),
+                "start_reference": value.get("start_reference"),
+                "tender_source_id": value.get("tender_source_id"),
             })
             item["field_name"] = item["field"]
             item["target"] = {
@@ -867,35 +969,11 @@ class TechnicalWritingToolContext:
             for field_terms, evidence_terms in selected_semantics
         ):
             return True
-        category_groups = (
-            ("交货", "货到", "交付"),
-            ("安装", "工期", "完工"),
-            ("保修", "质保"),
-            ("服务", "响应", "到场", "维修"),
-            ("培训",),
-            ("交货地点", "地点"),
-            ("随机资料", "随附资料"),
-            ("验收",),
-            ("履约",),
-        )
-        matched_groups = [
-            group for group in category_groups if any(term in combined for term in group)
-        ]
-        if not matched_groups:
-            return False
-        for chapter in self._response.get("chapters") or []:
-            for point in chapter.get("response_points") or []:
-                text = str(point.get("original_text") or "")
-                policy = tender_response_policy(
-                    text,
-                    source_id=str(point.get("point_id") or ""),
-                )
-                if policy.get("default_no_deviation") and any(
-                    any(term in text for term in group)
-                    for group in matched_groups
-                ):
-                    return True
-        return False
+        return confirmation_requirement(
+            value,
+            tender_baselines=confirmation_baselines_from_response(self._response),
+            confirmed_facts=confirmed,
+        ) in {"satisfied", "not_required"}
 
     def save_section_draft(self, args: dict[str, Any]) -> dict[str, Any]:
         markdown = str(args.get("markdown") or "")
@@ -1045,9 +1123,17 @@ def build_technical_tool_registry(context: TechnicalWritingToolContext) -> Techn
         )
     )
     registry.register(RegisteredTool("get_task_information", "读取当前章节的信息需求提示，不预设查询顺序。", object_schema(target_props), context.get_task_information))
+    registry.register(
+        RegisteredTool(
+            "get_resolved_task_context",
+            "读取模型调用前已解析的项目事实边界、业务选择约束和稳定待确认占位符。",
+            object_schema(target_props),
+            context.get_resolved_task_context,
+        )
+    )
     if context.draft_units_path:
         registry.register(RegisteredTool("get_draft_plan", "读取可选的内部生成分批建议。", object_schema(target_props), context.get_draft_plan))
-    registry.register(RegisteredTool("get_confirmed_project_facts", "只读取明确标记 confirmed 的项目事实。", object_schema({}), context.get_confirmed_project_facts))
+    registry.register(RegisteredTool("get_confirmed_project_facts", "读取已确认或有招标来源可直接引用的项目事实。", object_schema({}), context.get_confirmed_project_facts))
     registry.register(
         RegisteredTool(
             "query_local_knowledge",
@@ -1139,6 +1225,12 @@ def build_technical_tool_registry(context: TechnicalWritingToolContext) -> Techn
                 ],
             },
             "required_confirmation": {"type": "string"},
+            "fact_semantic_field": {"type": "string"},
+            "proposed_value": {"type": ["string", "number", "integer"]},
+            "normalized_value": {"type": ["string", "number", "integer"]},
+            "unit": {"type": "string"},
+            "start_reference": {"type": "string"},
+            "tender_source_id": {"type": "string"},
             "recommended_candidate": {},
             "recommendation_reason": {"type": "string"},
             "source_references": {"type": "array", "items": {}},
@@ -1220,6 +1312,53 @@ def build_technical_tool_registry(context: TechnicalWritingToolContext) -> Techn
             )
         )
     return registry
+
+
+def _source_backed_tender_facts(tender_metadata: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
+    """Expose already-selected tender metadata as provenance-bearing facts.
+
+    These are procurement-document facts, not bidder assertions.  They share
+    the existing fact tool/ledger so a chapter can use an official project name
+    or procurement number without first creating a human confirmation item.
+    """
+    metadata = tender_metadata if isinstance(tender_metadata, dict) else {}
+    fields = metadata.get("fields") if isinstance(metadata.get("fields"), dict) else {}
+    aliases = {
+        "project_name": ("project_name",),
+        "tender_no": ("tender_no", "tender_number", "procurement_number", "project_number"),
+        "lot_no": ("lot_no",),
+        "lot_name": ("lot_name",),
+        "package_no": ("package_no",),
+        "package_name": ("package_name",),
+    }
+    result: dict[str, dict[str, Any]] = {}
+    for source_field, keys in aliases.items():
+        item = fields.get(source_field)
+        if not isinstance(item, dict):
+            continue
+        value = str(item.get("value") or "").strip()
+        source_id = str(item.get("source_file_id") or "").strip()
+        if not value or not source_id:
+            continue
+        source_ref = {
+            "source_id": source_id,
+            "source_file_id": source_id,
+            "source_file_name": str(item.get("source_file_name") or ""),
+            "source_type": str(item.get("source_type") or "tender_original_fact"),
+            "evidence": str(item.get("evidence") or ""),
+        }
+        for key in keys:
+            result[key] = {
+                "field": key,
+                "value": value,
+                "status": "source_backed_tender_fact",
+                "confirmation_status": "source_backed_tender_fact",
+                "source_type": "tender_original_fact",
+                "source_id": source_id,
+                "evidence_ids": [source_id],
+                "source_refs": [copy.deepcopy(source_ref)],
+            }
+    return result
 
 
 def _load_json(path: Path) -> dict[str, Any]:

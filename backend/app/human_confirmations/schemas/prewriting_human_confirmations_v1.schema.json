@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "prewriting_human_confirmations_v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "project_id", "lineage", "revision", "created_at",
+    "updated_at", "confirmation_requests", "decisions", "writing_context",
+    "change_history", "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "prewriting_human_confirmations_v1"},
+    "project_id": {"type": "string", "minLength": 1},
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_mode", "analysis_run_id", "technical_response_context_sha256", "fact_request_sha256", "writing_tasks_sha256"],
+      "properties": {
+        "source_mode": {"type": "string", "minLength": 1},
+        "analysis_run_id": {"type": ["string", "null"]},
+        "technical_response_context_sha256": {"type": ["string", "null"]},
+        "fact_request_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "writing_tasks_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "revision": {"type": "integer", "minimum": 0},
+    "created_at": {"type": "string", "minLength": 1},
+    "updated_at": {"type": "string", "minLength": 1},
+    "confirmation_requests": {"type": "array", "items": {"type": "object"}},
+    "decisions": {"type": "object", "additionalProperties": {"type": "object"}},
+    "writing_context": {"type": "object"},
+    "change_history": {"type": "array", "items": {"type": "object"}},
+    "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}
